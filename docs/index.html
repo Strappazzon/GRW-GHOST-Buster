@@ -1,0 +1,131 @@
+<head>
+<title>GHOST Buster</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="referrer" content="no-referrer">
+<link type="image/png" rel="icon" href="assets/favicon.png">
+<link rel="stylesheet" href="custom.css">
+<script>
+	let images = [ 'bg1.jpg', 'bg2.jpg' ];
+	document.querySelector("html").style.backgroundImage = "linear-gradient(0deg, rgba(27, 32, 38, 0.7), rgba(27, 32, 38, 0.7)), url(assets/" + images[Math.floor(Math.random() * images.length)] + ")";
+</script>
+</head>
+
+<body>
+<div class="container">
+	<a href="assets/screenshot.png"><img class="img-responsive" src="assets/screenshot.png" alt="GHOST Buster"></a>
+	<h1 id="title">GHOST Buster</h1>
+
+	<h4>Backup and restore Ghost Recon Wildlands savegames.</h4>
+
+	<p>
+	<a href="#about">About</a> •
+	<a href="#getting-started">Getting Started</a> •
+	<a href="#settings">Settings</a> •
+	<a href="#download">Download</a> •
+	<a href="#source-code">Source Code</a> •
+	<a href="#license">License</a>
+	</p>
+
+	<h2 id="about">About</h2>
+
+	<p><strong>GHOST Buster</strong> will automatically backup your Wildlands savegames while the game is running.</p>
+
+	<p>I created this program to backup <a href="https://web.archive.org/web/20190108052618/https://ghost-recon.ubisoft.com/wildlands/en-us/news/152-328968-16/special-operation-2-is-coming" target="blank_">Ghost Mode</a> savegames, hence the name "GHOST Buster".</p>
+
+	<h2 id="getting-started">Getting Started</h2>
+
+	<ul>
+		<li>Launch <strong>GHOST Buster.exe</strong>. If this is the first time you launch it, GHOST Buster will perform the following tasks:</li>
+		<ul>
+			<li>A file containing the program's settings will be created inside <code>%LOCALAPPDATA%\GHOSTbackup</code></li>
+			<li>The program will check the System Registry to see if Ghost Recon Wildlands is installed</li>
+		</ul>
+
+		<li>Click the first <kbd>Browse...</kbd> button to select the folder where Wildlands savegames are actually stored</li>
+		<ul><li>Usually they are located inside <code>C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\savegames\y0ur-r4nd0m-us3r-1dent1f13r\1771</code></li></ul>
+
+		<li>Click the second <kbd>Browse...</kbd> button to select where Wildlands savegames will be backed up</li>
+		<ul><li>A folder with the format <code>yyyyMMdd HHMM</code> will be created at every backup</li></ul>
+
+		<li>Finally, specify the backup interval and click the <kbd>Start The Backup</kbd> button. To interrupt the process, click <kbd>Stop The Backup</kbd>.</li>
+	</ul>
+
+	<h3 id="dead">Dead?</h3>
+
+	<ul>
+		<li>Close the game and interrupt the backup process</li>
+
+		<li>Click the second <kbd>Browse...</kbd> button and select the folder that has been created before you died</li>
+			<ul><li>There is no quick way to restore a previous savegame. You will have to pick a folder manually for now. I will probably add such feature in the future.</li></ul>
+
+		<li>Click <kbd>Restore savegames</kbd></li>
+	</ul>
+
+	<blockquote>
+	<p class="quote-title">⚠ WARNING</p>
+	<p class="quote-text">
+		Disable cloud synchronization before proceeding, otherwise Uplay will always redownload the old savegames rendering the restore process useless.
+		Also note that restoring a backup will <strong>OVERWRITE</strong> your old savegames and it <strong>CANNOT BE UNDONE</strong>.
+	</p>
+	</blockquote>
+
+	<h2 id="settings">Settings</h2>
+
+	<ul>
+		<li><strong>Confirm exit (if backup is active)</strong></li>
+		<ul>
+			<li><em>Enabled by default</em></li>
+			<li>The program will warn you before closing it if the backup is active</li>
+		</ul>
+
+		<li><strong>Confirm backup interruption</strong></li>
+		<ul>
+			<li><em>Disabled by default</em></li>
+			<li>The program will ask you if you're sure you want to interrupt the current backup process</li>
+		</ul>
+
+		<li><strong>Check for updates</strong></li>
+		<ul>
+			<li><em>Disabled by default</em></li>
+			<li>The program will check if the current version is up to date</li>
+		</ul>
+	</ul>
+
+	<p>All settings will be stored inside <code>%LOCALAPPDATA%\GHOSTbackup</code></p>
+
+	<h2 id="download">Download</h2>
+
+	<p>You can <a href="https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest">download</a> the latest version of GHOST Buster from the Releases page.</p>
+
+	<h2 id="source-code">Source Code</h2>
+
+	<p>The complete GHOST Buster source code is available <a href="https://github.com/Strappazzon/GRW-GHOST-Buster">on GitHub</a>.</p>
+
+	<h2 id="license">License</h2>
+
+	<p>By downloading or using GHOST Buster, you are accepting the license terms.</p>
+
+	<div class="codeblock">
+	<p>Copyright (c) 2019 Alberto Strappazzon</p>
+
+	<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:</p>
+
+	<p>The above copyright notice and this permission notice shall be included in all
+	copies or substantial portions of the Software.</p>
+
+	<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	SOFTWARE.</p>
+	</div>
+</div>
+</body>
