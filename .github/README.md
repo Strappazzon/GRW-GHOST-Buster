@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="./images/Preview.png" alt="GHOST Buster"></a>
+  <img src="./Preview.png" alt="GHOST Buster"></a>
   <br>
   GHOST Buster
   <br>
