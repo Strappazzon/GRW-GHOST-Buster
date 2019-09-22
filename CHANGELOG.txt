@@ -1,0 +1,13 @@
+1.1.0
+ - New: Added a custom context menu on the log text box
+ - New: Log events can be saved manually to a file
+ - Enhancement: Wording
+ - Enhancement: Check if the game is running only if it's installed
+ - Enhancement: Save preferences only if they are different from the default ones
+ - Enhancement: Directory fields will be reset if a folder no longer exists
+ - Enhancement: Play button style and colors
+ - Fix: Play button was enabled even if the game was not installed
+ - Removed some useless code
+
+1.0.0
+ - First release

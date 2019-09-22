@@ -4,26 +4,16 @@ Imports Microsoft.Win32
 Imports Microsoft.WindowsAPICodePack.Taskbar
 
 Public Class Form1
-    Public Property versionCode As String = "1"
-    Public Property version As String = "1.0.0"
+    Public Property versionCode As String = "2"
+    Public Property version As String = "1.1.0"
     Public Property isGameInstalled As Boolean
     Public Property gamePath As String
     Public Property isGameRunning As Boolean
     Public Property isBackupRunning As Boolean = False
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        logTxtBox.AppendText("Init: Log file created " & Now.ToString("MM/dd/yyyy HH:mm:ss"))
+        logTxtBox.AppendText("Init: Logging started: " & Now.ToString("MM/dd/yyyy HH:mm:ss"))
         logTxtBox.AppendText(Environment.NewLine & "Init: Version: " & version.ToString())
-
-        'Set default values
-        saveLocTextBox.Text = My.Settings.GameSavesDir
-        destLocTextBox.Text = My.Settings.BackupDir
-        freqSelectTimeUpDown.Value = My.Settings.BackupInterval
-        confirmExitChkBox.Checked = My.Settings.ConfirmExit
-        confirmStopBackupChkBox.Checked = My.Settings.ConfirmBackupInterruption
-        updateCheckerChkBox.Checked = My.Settings.checkUpdates
-        processCheckTimer.Interval = 500
-        processCheckTimer.Start()
 
         'Check if the game is installed
         Dim gameReg As RegistryKey
@@ -32,18 +22,45 @@ Public Class Form1
         Try
             gamePath = gameReg.GetValue("InstallDir").ToString()
             isGameInstalled = True
-            logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Wildlands is installed in: " & gamePath)
-            playGameBtn.Text = "Play Ghost Recon Wildlands"
             playGameBtn.Enabled = True
+            playGameBtn.Text = "Play Ghost Recon Wildlands"
+            logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Wildlands is installed in: " & gamePath)
             gameReg.Close()
-        Catch NullReferenceException As Exception
+        Catch nullValue As NullReferenceException
             isGameInstalled = False
-            logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: 'NullReferenceException' null value")
-            playGameBtn.Text = "Ghost Recon Wildlands not installed"
+            playGameBtn.Text = "Ghost Recon Wildlands is not installed"
+            logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " WARNING: 'NullReferenceException' Wildlands appears to not be installed.")
         End Try
+
+        'Set default values
+        saveLocTextBox.Text = My.Settings.GameSavesDir
+        destLocTextBox.Text = My.Settings.BackupDir
+        freqSelectTimeUpDown.Value = My.Settings.BackupInterval
+        confirmExitChkBox.Checked = My.Settings.ConfirmExit
+        confirmStopBackupChkBox.Checked = My.Settings.ConfirmBackupInterruption
+        updateCheckerChkBox.Checked = My.Settings.checkUpdates
+        WriteLogToFileToolStripMenuItem.Checked = My.Settings.writeLogFile
+        If gamePath <> Nothing Then
+            processCheckTimer.Interval = 500
+            processCheckTimer.Start()
+        End If
     End Sub
 
     Private Sub Form1_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
+        If saveLocTextBox.Text <> "" Then
+            If Not Directory.Exists(saveLocTextBox.Text.ToString()) Then
+                saveLocTextBox.Text = ""
+                logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " WARNING: The save games folder no longer exists.")
+            End If
+        End If
+
+        If destLocTextBox.Text <> "" Then
+            If Not Directory.Exists(destLocTextBox.Text.ToString()) Then
+                destLocTextBox.Text = ""
+                logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " WARNING: The backup directory no longer exists.")
+            End If
+        End If
+
         'Check for updates
         If updateCheckerChkBox.Checked = True Then
             'Dim remoteUrl As String = "http://localhost/grw/" 'Debugging only
@@ -53,13 +70,13 @@ Public Class Form1
             Dim dl As Boolean
 
             Try
-                Dim myWebClient As New WebClient()
-                myWebClient.DownloadFile(remoteResource, fileName) 'This will overwrite the file if it already exists
-                myWebClient.Dispose()
+                Dim updater As New WebClient()
+                updater.DownloadFile(remoteResource, fileName) 'This will overwrite the file if it already exists
+                updater.Dispose()
                 dl = True
             Catch WebException As Exception
                 dl = False
-                logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " WARNING: 'WebException' Connection failed")
+                logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " WARNING: 'WebException' Connection failed.")
             End Try
 
             If dl <> False Then
@@ -67,26 +84,24 @@ Public Class Form1
                     Dim fetchedVersionCode As Integer = File.ReadAllText(Application.StartupPath + "\" + fileName)
 
                     If fetchedVersionCode = versionCode Then
-                        logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: GHOST Buster is up to date")
+                        logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: GHOST Buster is up to date.")
                     ElseIf fetchedVersionCode > versionCode Then
-                        logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: New version of GHOST Buster available")
-                        Dim choice As Integer = MessageBox.Show("A new GHOST Buster update is available." & Environment.NewLine & "Do you want to visit the download page?",
+                        logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: New version of GHOST Buster is available.")
+                        Dim choice As Integer = MessageBox.Show("New version of GHOST Buster is available. Press OK to visit the releases page and download the newest version.",
                                         "Update available",
-                                        MessageBoxButtons.YesNo,
-                                        MessageBoxIcon.Question,
+                                        MessageBoxButtons.OKCancel,
+                                        MessageBoxIcon.Asterisk,
                                         MessageBoxDefaultButton.Button1)
-                        If choice = DialogResult.Yes Then
+                        If choice = DialogResult.OK Then
                             Dim dlPage As String = "https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest"
                             Process.Start(dlPage)
                         End If
                     ElseIf fetchedVersionCode < versionCode Then
-                        logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Version in use greater than the one currently available")
+                        logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: The version in use is greater than the one currently available.")
                     End If
                 Catch pathTooLong As PathTooLongException
                     logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " ERROR: 'PathTooLongException', Version check failed.")
-                Catch fileNotFound As FileNotFoundException
-                    logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " ERROR: 'FileNotFoundException', Version check failed.")
-                Catch InvalidCastException As Exception
+                Catch conversionError As InvalidCastException
                     logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " ERROR: 'InvalidCastException', Version check failed.")
                 End Try
             End If
@@ -104,39 +119,22 @@ Public Class Form1
             If choice = DialogResult.No Then
                 e.Cancel = True
             Else
-                backupBtn.Enabled = True
-                stopBtn.Enabled = False
-                saveLocTextBox.Enabled = True
-                browseSaveLocBtn.Enabled = True
-                destLocTextBox.Enabled = True
-                browseDestLocBtn.Enabled = True
-                freqSelectTimeUpDown.Enabled = True
-                restoreBtn.Enabled = True
-                backupTimer.Stop()
-
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Backup interrupted by the user.")
-
                 Application.Exit()
             End If
         End If
 
         'Save checkboxes prefs
-        If confirmExitChkBox.Checked = True Then
-            My.Settings.ConfirmExit = True
-        Else
-            My.Settings.ConfirmExit = False
+        If confirmExitChkBox.CheckState <> My.Settings.ConfirmExit Then
+            My.Settings.ConfirmExit = confirmExitChkBox.CheckState
         End If
 
-        If confirmStopBackupChkBox.Checked = True Then
-            My.Settings.ConfirmBackupInterruption = True
-        Else
-            My.Settings.ConfirmBackupInterruption = False
+        If confirmStopBackupChkBox.CheckState <> My.Settings.ConfirmBackupInterruption Then
+            My.Settings.ConfirmBackupInterruption = confirmStopBackupChkBox.CheckState
         End If
 
-        My.Settings.BackupInterval = freqSelectTimeUpDown.Value
-        If freqSelectTimeUpDown.Value = 1 Then
-            logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Backup interval saved. New interval: " & freqSelectTimeUpDown.Value & " minute.")
-        Else
+        If freqSelectTimeUpDown.Value <> My.Settings.BackupInterval Then
+            My.Settings.BackupInterval = freqSelectTimeUpDown.Value
             logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Backup interval saved. New interval: " & freqSelectTimeUpDown.Value & " minutes.")
         End If
     End Sub
@@ -185,23 +183,25 @@ Public Class Form1
     Private Sub browseSaveLocBtn_Click(sender As Object, e As EventArgs) Handles browseSaveLocBtn.Click
         Using O As New FolderBrowserDialog
             O.ShowNewFolderButton = False
-            O.Description = "Select the location of Wildlands savegames folder." & Environment.NewLine & "The game ID is 1771."
+            O.Description = "Select the location of Wildlands save games folder." & Environment.NewLine & "The game ID is 1771."
             O.SelectedPath = "C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\savegames"
             If O.ShowDialog = Windows.Forms.DialogResult.OK Then
                 saveLocTextBox.Text = O.SelectedPath
                 My.Settings.GameSavesDir = saveLocTextBox.Text
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Savegames location set to: " & O.SelectedPath)
+                O.Dispose()
             End If
         End Using
     End Sub
 
     Private Sub browseDestLocBtn_Click(sender As Object, e As EventArgs) Handles browseDestLocBtn.Click
         Using O As New FolderBrowserDialog
-            O.Description = "Select where you want to backup your save files. Every backup will create a new subfolder: ""yyyMMdd HHmm""."
+            O.Description = "Select where you want to backup your save files to. Every backup will create a new ""yyyMMdd HHmm"" subfolder."
             If O.ShowDialog = Windows.Forms.DialogResult.OK Then
                 destLocTextBox.Text = O.SelectedPath
                 My.Settings.BackupDir = destLocTextBox.Text
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Backup location set to: " & O.SelectedPath)
+                O.Dispose()
             End If
         End Using
     End Sub
@@ -230,7 +230,7 @@ Public Class Form1
             backupBtn.Enabled = False
             stopBtn.Enabled = True
 
-            'PERFORM THE FIRST BACKUP
+            'Perform the first backup
             Dim saveLoc As String = saveLocTextBox.Text
             Dim destLoc As String = destLocTextBox.Text & "\" & Now.ToString("yyyyMMdd HHmm")
 
@@ -240,7 +240,7 @@ Public Class Form1
                 Dim saveList As String() = Directory.GetFiles(saveLoc, "*.save")
                 For Each f As String In saveList
                     Dim fName As String = f.Substring(saveLoc.Length + 1)
-                    If (Not Directory.Exists(destLoc)) Then
+                    If Not Directory.Exists(destLoc) Then
                         Directory.CreateDirectory(destLoc)
                     End If
                     File.Copy(Path.Combine(saveLoc, fName), Path.Combine(destLoc, fName), True)
@@ -261,7 +261,7 @@ Public Class Form1
 
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " ERROR: 'PathTooLongException', Backup interrupted.")
 
-                MessageBox.Show("The path you specified cannot be handled because it is too long, as a result the process has been interrupted.",
+                MessageBox.Show("The path you specified cannot be handled because it is too long, as a result the backup process has been interrupted.",
                     "Backup Interrupted",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,
@@ -280,15 +280,15 @@ Public Class Form1
 
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " ERROR: 'DirectoryNotFoundException', Backup interrupted.")
 
-                MessageBox.Show("The specified directory no longer exists, as a result the process has been interrupted.",
-                    "Backup Interrupted",
+                MessageBox.Show("The specified directory no longer exists, as a result the backup process has been interrupted.",
+                    "Backup interrupted",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error,
                     MessageBoxDefaultButton.Button1)
             End Try
         ElseIf isGameRunning = False Then
-            MessageBox.Show("Wildlands is not running. Launch it and try again.",
-                "Notice",
+            MessageBox.Show("You need to launch Wildlands before starting the backup process.",
+                "Wildlands is not running",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Asterisk,
                 MessageBoxDefaultButton.Button1)
@@ -296,24 +296,63 @@ Public Class Form1
     End Sub
 
     Private Sub backupTimer_Tick(sender As Object, e As EventArgs) Handles backupTimer.Tick
-        Dim saveLoc As String = saveLocTextBox.Text
-        Dim destLoc As String = destLocTextBox.Text & "\" & Now.ToString("yyyyMMdd HHmm")
+        If isGameRunning = True Then
+            Dim saveLoc As String = saveLocTextBox.Text
+            Dim destLoc As String = destLocTextBox.Text & "\" & Now.ToString("yyyyMMdd HHmm")
 
-        'Dim destLoc As String = destLocTextBox.Text & "\" & "DEBUG " & Now.ToString("yyyyMMdd HHmm") 'Debugging only
+            'Dim destLoc As String = destLocTextBox.Text & "\" & "DEBUG " & Now.ToString("yyyyMMdd HHmm") 'Debugging only
 
-        Try
-            Dim saveList As String() = Directory.GetFiles(saveLoc, "*.save")
-            For Each f As String In saveList
-                Dim fName As String = f.Substring(saveLoc.Length + 1)
-                If (Not Directory.Exists(destLoc)) Then
-                    Directory.CreateDirectory(destLoc)
-                End If
-                File.Copy(Path.Combine(saveLoc, fName), Path.Combine(destLoc, fName), True)
-            Next
+            Try
+                Dim saveList As String() = Directory.GetFiles(saveLoc, "*.save")
+                For Each f As String In saveList
+                    Dim fName As String = f.Substring(saveLoc.Length + 1)
+                    If Not Directory.Exists(destLoc) Then
+                        Directory.CreateDirectory(destLoc)
+                    End If
+                    File.Copy(Path.Combine(saveLoc, fName), Path.Combine(destLoc, fName), True)
+                Next
 
-            logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Backup completed.")
+                logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Backup completed.")
 
-        Catch pathTooLong As PathTooLongException
+            Catch pathTooLong As PathTooLongException
+                backupBtn.Enabled = True
+                stopBtn.Enabled = False
+                saveLocTextBox.Enabled = True
+                browseSaveLocBtn.Enabled = True
+                destLocTextBox.Enabled = True
+                browseDestLocBtn.Enabled = True
+                freqSelectTimeUpDown.Enabled = True
+                restoreBtn.Enabled = True
+                backupTimer.Stop()
+
+                logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " ERROR: 'PathTooLongException', Backup interrupted.")
+
+                MessageBox.Show("The path you specified cannot be handled because it is too long, as a result the backup process has been interrupted.",
+                    "Backup interrupted",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1)
+
+            Catch dirNotFound As DirectoryNotFoundException
+                backupBtn.Enabled = True
+                stopBtn.Enabled = False
+                saveLocTextBox.Enabled = True
+                browseSaveLocBtn.Enabled = True
+                destLocTextBox.Enabled = True
+                browseDestLocBtn.Enabled = True
+                freqSelectTimeUpDown.Enabled = True
+                restoreBtn.Enabled = True
+                backupTimer.Stop()
+
+                logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " ERROR: 'DirectoryNotFoundException', Backup interrupted.")
+
+                MessageBox.Show("The directory no longer exists, as a result the backup process has been interrupted.",
+                    "Backup interrupted",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1)
+            End Try
+        Else
             backupBtn.Enabled = True
             stopBtn.Enabled = False
             saveLocTextBox.Enabled = True
@@ -323,34 +362,17 @@ Public Class Form1
             freqSelectTimeUpDown.Enabled = True
             restoreBtn.Enabled = True
             backupTimer.Stop()
+            isBackupRunning = False
+            taskbarProgressTimer.Stop()
 
-            logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " ERROR: 'PathTooLongException', Backup interrupted.")
+            logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " WARNING: Wildlands closed or crashed, Backup interrupted.")
 
-            MessageBox.Show("The path you specified cannot be handled because it is too long, as a result the process has been interrupted.",
-                "Backup Interrupted",
+            MessageBox.Show("Wildlands has been closed or crashed, as a result the backup process has been interrupted.",
+                "Wildlands is not running",
                 MessageBoxButtons.OK,
-                MessageBoxIcon.Error,
+                MessageBoxIcon.Warning,
                 MessageBoxDefaultButton.Button1)
-
-        Catch dirNotFound As DirectoryNotFoundException
-            backupBtn.Enabled = True
-            stopBtn.Enabled = False
-            saveLocTextBox.Enabled = True
-            browseSaveLocBtn.Enabled = True
-            destLocTextBox.Enabled = True
-            browseDestLocBtn.Enabled = True
-            freqSelectTimeUpDown.Enabled = True
-            restoreBtn.Enabled = True
-            backupTimer.Stop()
-
-            logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " ERROR: 'DirectoryNotFoundException', Backup interrupted.")
-
-            MessageBox.Show("The directory no longer exists, as a result the process has been interrupted.",
-                "Backup Interrupted",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error,
-                MessageBoxDefaultButton.Button1)
-        End Try
+        End If
     End Sub
 
     Private Sub taskbarProgressTimer_Tick(sender As Object, e As EventArgs) Handles taskbarProgressTimer.Tick
@@ -380,8 +402,6 @@ Public Class Form1
                 taskbarProgressTimer.Stop()
 
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Backup interrupted by the user.")
-            Else
-                Return
             End If
         Else
             isBackupRunning = False
@@ -407,15 +427,15 @@ Public Class Form1
                 MessageBoxIcon.Asterisk,
                 MessageBoxDefaultButton.Button1)
         ElseIf isGameRunning = True Then
-            MessageBox.Show("Quit Wildlands before proceeding!",
-                "Cannot Restore",
+            MessageBox.Show("You need to quit Wildlands before restoring the save games.",
+                "Cannot restore",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Warning,
                 MessageBoxDefaultButton.Button1)
         Else
             Dim choice As Integer = MessageBox.Show("Restoring a backup WILL OVERWRITE the current save files." _
                                         & Environment.NewLine & Environment.NewLine &
-                                        "This will copy the save files from your backup directory:" _
+                                        "This will copy the save files over from your backup directory:" _
                                         & Environment.NewLine & destLocTextBox.Text & Environment.NewLine & Environment.NewLine &
                                         "and will OVERWRITE the existing save files inside the game directory:" _
                                         & Environment.NewLine & saveLocTextBox.Text & Environment.NewLine & Environment.NewLine &
@@ -450,8 +470,8 @@ Public Class Form1
 
                     MessageBox.Show("The save files have been restored succefully." _
                         & Environment.NewLine &
-                        "Please select the backup folder again, without the ""yyyyMMdd HHMM"" folder.",
-                        "Restore Succeeded",
+                        "Please select the backup folder again, without the ""yyyyMMdd HHMM"" folder, by clicking the ""Browse..."" button.",
+                        "Restore succeeded",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information,
                         MessageBoxDefaultButton.Button1)
@@ -459,8 +479,8 @@ Public Class Form1
                 Catch pathTooLong As PathTooLongException
                     logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " ERROR: 'PathTooLongException', Couldn't restore the backup from " & destLocTextBox.Text & " to " & saveLocTextBox.Text)
 
-                    MessageBox.Show("The path you specified cannot be handled because it is too long, as a result the process has been interrupted.",
-                        "Restore Interrupted",
+                    MessageBox.Show("The path you specified cannot be handled because it is too long, as a result the restore process has been interrupted.",
+                        "Restore failed",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error,
                         MessageBoxDefaultButton.Button1)
@@ -468,13 +488,41 @@ Public Class Form1
                 Catch dirNotFound As DirectoryNotFoundException
                     logTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm") & " ERROR: 'DirectoryNotFoundException', Couldn't restore the backup from " & destLocTextBox.Text & " to " & saveLocTextBox.Text)
 
-                    MessageBox.Show("The directory no longer exists, as a result the process has been interrupted.",
-                        "Restore Interrupted",
+                    MessageBox.Show("The directory no longer exists, as a result the restore process has been interrupted.",
+                        "Restore failed",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error,
                         MessageBoxDefaultButton.Button1)
                 End Try
             End If
         End If
+    End Sub
+
+    Private Sub CopyToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopyToolStripMenuItem.Click
+        If logTxtBox.SelectedText <> "" Then
+            Clipboard.SetText(logTxtBox.SelectedText)
+        End If
+    End Sub
+
+    Private Sub SelectAllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SelectAllToolStripMenuItem.Click
+        logTxtBox.SelectAll()
+    End Sub
+
+    Private Sub WriteLogToFileToolStripMenuItem_CheckedChanged(sender As Object, e As EventArgs) Handles WriteLogToFileToolStripMenuItem.CheckedChanged
+
+    End Sub
+
+    Private Sub ExportLogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportLogToolStripMenuItem.Click
+        Using S As New SaveFileDialog
+            S.Title = "Save log as..."
+            S.InitialDirectory = Application.StartupPath.ToString()
+            S.FileName = "GHOSTbackup_" + Now.ToString("yyyyMMddHHmmss")
+            S.Filter = "Text file|.txt|Log file|*.log"
+            If S.ShowDialog = DialogResult.OK Then
+                My.Computer.FileSystem.WriteAllText(S.FileName.ToString(), logTxtBox.Text, False)
+                logTxtBox.AppendText(Environment.NewLine & "INFO: Log exported at " + S.FileName.ToString())
+                S.Dispose()
+            End If
+        End Using
     End Sub
 End Class

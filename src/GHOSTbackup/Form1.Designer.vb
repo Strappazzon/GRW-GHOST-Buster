@@ -41,6 +41,12 @@ Partial Class Form1
         Me.logoBigPictureBox = New System.Windows.Forms.PictureBox()
         Me.playGameBtn = New System.Windows.Forms.Button()
         Me.logTxtBox = New System.Windows.Forms.TextBox()
+        Me.logTxtBoxContext = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.CopyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SelectAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.WriteLogToFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExportLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.confirmExitChkBox = New System.Windows.Forms.CheckBox()
         Me.processCheckTimer = New System.Windows.Forms.Timer(Me.components)
         Me.confirmStopBackupChkBox = New System.Windows.Forms.CheckBox()
@@ -50,6 +56,7 @@ Partial Class Form1
         Me.backupGroupBox.SuspendLayout()
         CType(Me.freqSelectTimeUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.logoBigPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.logTxtBoxContext.SuspendLayout()
         Me.SuspendLayout()
         '
         'saveLocTextBox
@@ -133,18 +140,18 @@ Partial Class Form1
         Me.destLocHelpLabel.AutoSize = True
         Me.destLocHelpLabel.Location = New System.Drawing.Point(6, 80)
         Me.destLocHelpLabel.Name = "destLocHelpLabel"
-        Me.destLocHelpLabel.Size = New System.Drawing.Size(285, 13)
+        Me.destLocHelpLabel.Size = New System.Drawing.Size(270, 13)
         Me.destLocHelpLabel.TabIndex = 14
-        Me.destLocHelpLabel.Text = "Click the ""Browse..."" button to select the destination folder."
+        Me.destLocHelpLabel.Text = "Click the ""Browse..."" button to select the backup folder."
         '
         'saveLocHelpLabel
         '
         Me.saveLocHelpLabel.AutoSize = True
         Me.saveLocHelpLabel.Location = New System.Drawing.Point(6, 20)
         Me.saveLocHelpLabel.Name = "saveLocHelpLabel"
-        Me.saveLocHelpLabel.Size = New System.Drawing.Size(284, 13)
+        Me.saveLocHelpLabel.Size = New System.Drawing.Size(287, 13)
         Me.saveLocHelpLabel.TabIndex = 11
-        Me.saveLocHelpLabel.Text = "Click the ""Browse..."" button to open the savegames folder."
+        Me.saveLocHelpLabel.Text = "Click the ""Browse..."" button to open the save games folder."
         '
         'backupGroupBox
         '
@@ -189,7 +196,7 @@ Partial Class Form1
         Me.stopBtn.Name = "stopBtn"
         Me.stopBtn.Size = New System.Drawing.Size(92, 35)
         Me.stopBtn.TabIndex = 9
-        Me.stopBtn.Text = "Stop The Backup"
+        Me.stopBtn.Text = "Stop the Backup"
         Me.stopBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.stopBtn.UseVisualStyleBackColor = False
         '
@@ -206,7 +213,7 @@ Partial Class Form1
         Me.restoreBtn.Name = "restoreBtn"
         Me.restoreBtn.Size = New System.Drawing.Size(92, 35)
         Me.restoreBtn.TabIndex = 8
-        Me.restoreBtn.Text = "Restore savegames"
+        Me.restoreBtn.Text = "Restore" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "save games"
         Me.restoreBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.restoreBtn.UseVisualStyleBackColor = False
         '
@@ -215,9 +222,9 @@ Partial Class Form1
         Me.backupHelpLabel.AutoSize = True
         Me.backupHelpLabel.Location = New System.Drawing.Point(6, 16)
         Me.backupHelpLabel.Name = "backupHelpLabel"
-        Me.backupHelpLabel.Size = New System.Drawing.Size(175, 26)
+        Me.backupHelpLabel.Size = New System.Drawing.Size(133, 26)
         Me.backupHelpLabel.TabIndex = 5
-        Me.backupHelpLabel.Text = "Backup savegames every specified" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "amount of time."
+        Me.backupHelpLabel.Text = "Backup save games every" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "specified amount of time."
         '
         'backupBtn
         '
@@ -232,7 +239,7 @@ Partial Class Form1
         Me.backupBtn.Name = "backupBtn"
         Me.backupBtn.Size = New System.Drawing.Size(92, 35)
         Me.backupBtn.TabIndex = 7
-        Me.backupBtn.Text = "Start The Backup"
+        Me.backupBtn.Text = "Start the Backup"
         Me.backupBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.backupBtn.UseVisualStyleBackColor = False
         '
@@ -253,7 +260,10 @@ Partial Class Form1
         Me.playGameBtn.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
         Me.playGameBtn.Cursor = System.Windows.Forms.Cursors.Default
         Me.playGameBtn.Enabled = False
-        Me.playGameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.playGameBtn.FlatAppearance.BorderSize = 0
+        Me.playGameBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.playGameBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.playGameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.playGameBtn.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.playGameBtn.ForeColor = System.Drawing.Color.White
         Me.playGameBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -261,11 +271,12 @@ Partial Class Form1
         Me.playGameBtn.Name = "playGameBtn"
         Me.playGameBtn.Size = New System.Drawing.Size(293, 32)
         Me.playGameBtn.TabIndex = 0
-        Me.playGameBtn.Text = "{gamePath}"
+        Me.playGameBtn.Text = "gamePath"
         Me.playGameBtn.UseVisualStyleBackColor = False
         '
         'logTxtBox
         '
+        Me.logTxtBox.ContextMenuStrip = Me.logTxtBoxContext
         Me.logTxtBox.Location = New System.Drawing.Point(12, 215)
         Me.logTxtBox.Multiline = True
         Me.logTxtBox.Name = "logTxtBox"
@@ -273,6 +284,55 @@ Partial Class Form1
         Me.logTxtBox.ScrollBars = System.Windows.Forms.ScrollBars.Both
         Me.logTxtBox.Size = New System.Drawing.Size(293, 160)
         Me.logTxtBox.TabIndex = 3
+        '
+        'logTxtBoxContext
+        '
+        Me.logTxtBoxContext.BackColor = System.Drawing.SystemColors.Control
+        Me.logTxtBoxContext.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CopyToolStripMenuItem, Me.SelectAllToolStripMenuItem, Me.ToolStripSeparator1, Me.WriteLogToFileToolStripMenuItem, Me.ExportLogToolStripMenuItem})
+        Me.logTxtBoxContext.Name = "logTxtBoxContext"
+        Me.logTxtBoxContext.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.logTxtBoxContext.Size = New System.Drawing.Size(168, 98)
+        '
+        'CopyToolStripMenuItem
+        '
+        Me.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem"
+        Me.CopyToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
+        Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.CopyToolStripMenuItem.Text = "Copy"
+        Me.CopyToolStripMenuItem.ToolTipText = "Copy the selected text to clipboard."
+        '
+        'SelectAllToolStripMenuItem
+        '
+        Me.SelectAllToolStripMenuItem.Name = "SelectAllToolStripMenuItem"
+        Me.SelectAllToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
+        Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.SelectAllToolStripMenuItem.Text = "Select All"
+        Me.SelectAllToolStripMenuItem.ToolTipText = "Select all the text."
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(164, 6)
+        '
+        'WriteLogToFileToolStripMenuItem
+        '
+        Me.WriteLogToFileToolStripMenuItem.CheckOnClick = True
+        Me.WriteLogToFileToolStripMenuItem.Name = "WriteLogToFileToolStripMenuItem"
+        Me.WriteLogToFileToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.WriteLogToFileToolStripMenuItem.Text = "Write log to file"
+        Me.WriteLogToFileToolStripMenuItem.ToolTipText = "Write all events to a text file."
+        Me.WriteLogToFileToolStripMenuItem.Visible = False
+        '
+        'ExportLogToolStripMenuItem
+        '
+        Me.ExportLogToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ExportLogToolStripMenuItem.Image = CType(resources.GetObject("ExportLogToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ExportLogToolStripMenuItem.Name = "ExportLogToolStripMenuItem"
+        Me.ExportLogToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
+        Me.ExportLogToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.ExportLogToolStripMenuItem.Text = "Export log"
+        Me.ExportLogToolStripMenuItem.ToolTipText = "Export all events to a log file now."
         '
         'confirmExitChkBox
         '
@@ -350,6 +410,7 @@ Partial Class Form1
         Me.backupGroupBox.PerformLayout()
         CType(Me.freqSelectTimeUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.logoBigPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.logTxtBoxContext.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -376,4 +437,10 @@ Partial Class Form1
     Friend WithEvents backupHelpLabel As Label
     Friend WithEvents taskbarProgressTimer As Timer
     Friend WithEvents updateCheckerChkBox As CheckBox
+    Friend WithEvents logTxtBoxContext As ContextMenuStrip
+    Friend WithEvents CopyToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SelectAllToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents WriteLogToFileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ExportLogToolStripMenuItem As ToolStripMenuItem
 End Class
