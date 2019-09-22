@@ -125,6 +125,18 @@ Namespace My
                 Me("checkUpdates") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property writeLogFile() As Boolean
+            Get
+                Return CType(Me("writeLogFile"),Boolean)
+            End Get
+            Set
+                Me("writeLogFile") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
