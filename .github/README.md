@@ -26,32 +26,32 @@ Some friends of mine also requested it so I released it here on GitHub.
 
 ## Getting Started
 
-* Launch **GHOST Buster.exe**. If this is the first time you launch it, GHOST Buster will perform the following tasks:
-  * A file containing the program's settings will be created inside `%LOCALAPPDATA%\GHOSTbackup`
-  * The program will check the System Registry to see if Ghost Recon Wildlands is installed
+* Launch **GHOST Buster.exe**.
+  * Every time you launch it, the program will check the System Registry to see if Ghost Recon Wildlands is installed.
+  * When you close it, a file containing the program's settings will be created (or updated if it already exists) inside `%LOCALAPPDATA%\GHOSTbackup`
 
-* Click the first **Browse...** button to select the folder where Wildlands savegames are actually stored
-  * Usually they are located inside `C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\savegames\y0ur-r4nd0m-us3r-1dent1f13r\1771`
+* Click the first **Browse...** button to select the folder where Wildlands save games are actually stored.
+  * They are usually located inside `C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\savegames\y0ur-r4nd0m-us3r-1dent1f13r\1771`
 
-* Click the second **Browse...** button to select where Wildlands savegames will be backed up
+* Click the second **Browse...** button to select where Wildlands save games will be backed up to.
   * A folder with the format `yyyyMMdd HHMM` will be created at every backup
 
 * Finally, specify the backup interval and click the **Start The Backup** button. To interrupt the process, click **Stop The Backup**.
 
 ### Dead?
 
-* Close the game and interrupt the backup process
+* Close the game and interrupt the backup process.
 
-* Click the second **Browse...** button and select the folder that has been created before you died
-  * There is no quick way to restore a previous savegame. You will have to pick a folder manually for now. I will probably add such feature in the future.
+* Click the second **Browse...** button and select the last folder created before you died.
+  * There is no quick way to restore a previous save game, you will have to pick a folder manually *for now*.
 
-* Click **Restore savegames**
+* Click **Restore savegames**.
 
-> #### ⚠️ WARNING
+> ### ⚠️ **WARNING**
 >
-> Disable cloud synchronization before proceeding, otherwise Uplay will always redownload the old savegames rendering the restore process useless.
+> Disable cloud synchronization before proceeding, otherwise Uplay will download the old save games rendering the restore process useless.
 >
-> Also note that restoring a backup will **OVERWRITE** your old savegames and it **CANNOT BE UNDONE**.
+> Also note that restoring a backup will **OVERWRITE** your old save games. This **CANNOT BE UNDONE**.
 
 ## Settings
 
@@ -67,7 +67,7 @@ Some friends of mine also requested it so I released it here on GitHub.
   * _Disabled by default_
   * The program will check if the current version is up to date
 
-All settings will be stored inside `%LOCALAPPDATA%\GHOSTbackup`
+All settings are stored inside `%LOCALAPPDATA%\GHOSTbackup`.
 
 ## Download
 
