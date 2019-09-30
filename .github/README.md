@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-<h4 align="center">Backup and restore Ghost Recon Wildlands savegames.</h4>
+<h4 align="center">Backup and restore Ghost Recon Wildlands save games.</h4>
 
 <p align="center">
   <a href="#about">About</a> •
@@ -18,9 +18,9 @@
 
 ## About
 
-**GHOST Buster** will automatically backup your Wildlands savegames while the game is running.
+**GHOST Buster** will automatically backup your Wildlands save games while the game is running.
 
-I created this program to backup [Ghost Mode](https://web.archive.org/web/20190108052618/https://ghost-recon.ubisoft.com/wildlands/en-us/news/152-328968-16/special-operation-2-is-coming) savegames, hence the name "GHOST Buster".
+I created this software to backup [Ghost Mode](https://web.archive.org/web/20190108052618/https://ghost-recon.ubisoft.com/wildlands/en-us/news/152-328968-16/special-operation-2-is-coming) save games, hence the name "GHOST Buster".
 
 Some friends of mine also requested it so I released it here on GitHub.
 
@@ -45,7 +45,7 @@ Some friends of mine also requested it so I released it here on GitHub.
 * Click the second **Browse...** button and select the last folder created before you died.
   * There is no quick way to restore a previous save game, you will have to pick a folder manually *for now*.
 
-* Click **Restore savegames**.
+* Click **Restore save games**.
 
 > ### ⚠️ **WARNING**
 >
