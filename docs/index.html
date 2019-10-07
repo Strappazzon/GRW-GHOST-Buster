@@ -26,7 +26,7 @@
 		<a href="assets/screenshot.png"><img class="img-responsive" src="assets/screenshot.png" alt="GHOST Buster"></a>
 		<h1 id="title">GHOST Buster</h1>
 
-		<h4>Backup and restore Ghost Recon Wildlands savegames.</h4>
+		<h4>Backup and restore Ghost Recon Wildlands save games.</h4>
 
 		<p>
 		<a href="#about">About</a> •
@@ -40,23 +40,23 @@
 
 	<h2 id="about">About</h2>
 
-	<p><strong>GHOST Buster</strong> will automatically backup your Wildlands savegames while the game is running.</p>
+	<p><strong>GHOST Buster</strong> will automatically backup your Wildlands save games while the game is running.</p>
 
-	<p>I created this program to backup <a href="https://web.archive.org/web/20190108052618/https://ghost-recon.ubisoft.com/wildlands/en-us/news/152-328968-16/special-operation-2-is-coming" target="blank_">Ghost Mode</a> savegames, hence the name "GHOST Buster".</p>
+	<p>I created this software to backup <a href="https://web.archive.org/web/20190108052618/https://ghost-recon.ubisoft.com/wildlands/en-us/news/152-328968-16/special-operation-2-is-coming" target="blank_">Ghost Mode</a> save games, hence the name "GHOST Buster".</p>
 
 	<h2 id="getting-started">Getting Started</h2>
 
 	<ul>
-		<li>Launch <strong>GHOST Buster.exe</strong>. If this is the first time you launch it, GHOST Buster will perform the following tasks:</li>
+		<li>Launch <strong>GHOST Buster.exe</strong>.</li>
 		<ul>
-			<li>A file containing the program's settings will be created inside <code>%LOCALAPPDATA%\GHOSTbackup</code></li>
-			<li>The program will check the System Registry to see if Ghost Recon Wildlands is installed</li>
+			<li>Every time you launch it, the program will check the System Registry to see if Ghost Recon Wildlands is installed.</li>
+			<li>When you close it, a file containing the program's settings will be created (or updated if it already exists) inside <code>%LOCALAPPDATA%\GHOSTbackup</code></li>
 		</ul>
 
-		<li>Click the first <kbd>Browse...</kbd> button to select the folder where Wildlands savegames are actually stored</li>
-		<ul><li>Usually they are located inside <code>C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\savegames\y0ur-r4nd0m-us3r-1dent1f13r\1771</code></li></ul>
+		<li>Click the first <kbd>Browse...</kbd> button to select the folder where Wildlands save games are actually stored.</li>
+		<ul><li>They are usually located inside <code>C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\savegames\y0ur-r4nd0m-us3r-1dent1f13r\1771</code></li></ul>
 
-		<li>Click the second <kbd>Browse...</kbd> button to select where Wildlands savegames will be backed up</li>
+		<li>Click the second <kbd>Browse...</kbd> button to select where Wildlands save games will be backed to.</li>
 		<ul><li>A folder with the format <code>yyyyMMdd HHMM</code> will be created at every backup</li></ul>
 
 		<li>Finally, specify the backup interval and click the <kbd>Start The Backup</kbd> button. To interrupt the process, click <kbd>Stop The Backup</kbd>.</li>
@@ -67,17 +67,17 @@
 	<ul>
 		<li>Close the game and interrupt the backup process</li>
 
-		<li>Click the second <kbd>Browse...</kbd> button and select the folder that has been created before you died</li>
-			<ul><li>There is no quick way to restore a previous savegame. You will have to pick a folder manually for now. I will probably add such feature in the future.</li></ul>
+		<li>Click the second <kbd>Browse...</kbd> button and select the folder that has been created before you died.</li>
+			<ul><li>There is no quick way to restore a previous savegame. You will have to pick a folder manually <em>for now</em>.</li></ul>
 
-		<li>Click <kbd>Restore savegames</kbd></li>
+		<li>Click <kbd>Restore save games</kbd></li>
 	</ul>
 
 	<blockquote>
 	<p class="quote-title">⚠ WARNING</p>
 	<p class="quote-text">
-		Disable cloud synchronization before proceeding, otherwise Uplay will always redownload the old savegames rendering the restore process useless.
-		Also note that restoring a backup will <strong>OVERWRITE</strong> your old savegames and it <strong>CANNOT BE UNDONE</strong>.
+		Disable cloud synchronization before proceeding, otherwise Uplay will always redownload the old save games rendering the restore process useless.
+		Also note that restoring a backup will <strong>OVERWRITE</strong> your old save games. This <strong>CANNOT BE UNDONE</strong>.
 	</p>
 	</blockquote>
 
