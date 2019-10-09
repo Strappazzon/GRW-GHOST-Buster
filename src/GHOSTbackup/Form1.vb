@@ -4,18 +4,32 @@ Imports Microsoft.Win32
 Imports Microsoft.WindowsAPICodePack.Taskbar
 
 Public Class Form1
-    Public Property versionCode As String = "2"
-    Public Property version As String = "1.1.0"
+    Public Property versionCode As String = "3"
+    Public Property version As String = "1.2.0"
     Public Property isGameInstalled As Boolean
     Public Property gamePath As String
+    Public Property uplayPath As String
     Public Property isGameRunning As Boolean
     Public Property isBackupRunning As Boolean = False
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         logTxtBox.AppendText("Init: Logging started: " & Now.ToString("MM/dd/yyyy HH:mm:ss"))
-        logTxtBox.AppendText(Environment.NewLine & "Init: Version: " & version.ToString())
+        logTxtBox.AppendText(Environment.NewLine & "Init: Version: " & version)
 
-        'Check if the game is installed
+        'Get Uplay install dir
+        Dim uplayReg As RegistryKey
+        uplayReg = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher", False)
+
+        Try
+            uplayPath = uplayReg.GetValue("InstallDir").ToString()
+            logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Uplay is installed in: " & uplayPath)
+            uplayReg.Close()
+
+        Catch nullValue As NullReferenceException
+            logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " WARNING: 'NullReferenceException' Uplay appears to not be installed. Uplay is required to launch and play Wildlands.")
+        End Try
+
+        'Check if Wildlands is installed
         Dim gameReg As RegistryKey
         gameReg = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\1771", False)
 
@@ -48,15 +62,17 @@ Public Class Form1
 
     Private Sub Form1_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         If saveLocTextBox.Text <> "" Then
-            If Not Directory.Exists(saveLocTextBox.Text.ToString()) Then
+            If Not Directory.Exists(saveLocTextBox.Text) Then
                 saveLocTextBox.Text = ""
-                logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " WARNING: The save games folder no longer exists.")
+                My.Settings.GameSavesDir = ""
+                logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " WARNING: Wildlands save games folder no longer exists.")
             End If
         End If
 
         If destLocTextBox.Text <> "" Then
-            If Not Directory.Exists(destLocTextBox.Text.ToString()) Then
+            If Not Directory.Exists(destLocTextBox.Text) Then
                 destLocTextBox.Text = ""
+                My.Settings.BackupDir = ""
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " WARNING: The backup directory no longer exists.")
             End If
         End If
@@ -152,20 +168,37 @@ Public Class Form1
         Next
     End Sub
 
-    Private Sub logoBigPictureBox_Click(sender As Object, e As EventArgs) Handles logoBigPictureBox.Click
-        MessageBox.Show("GHOST Buster v" & version.ToString() _
-            & Environment.NewLine &
-            "This software is licensed under MIT." _
+    Private Sub HomePictureBtn_Click(sender As Object, e As EventArgs) Handles homePictureBtn.Click
+        aboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        homePictureBtn.Image = My.Resources.home_white
+        backupGroupBox.Visible = True
+        pathsGroupBox.Visible = True
+        aboutTitleLabel.Visible = False
+        aboutContainer.Visible = False
+    End Sub
+
+    Private Sub UplayLabel_Click(sender As Object, e As EventArgs) Handles uplayLabel.Click
+        If uplayPath <> Nothing Then
+            Process.Start(uplayPath + "Uplay.exe")
+        Else
+            MessageBox.Show("Uplay appears to not be installed.", "Cannot launch Uplay", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+        End If
+    End Sub
+
+    Private Sub AboutLabel_Click(sender As Object, e As EventArgs) Handles aboutLabel.Click
+        appInfoLabel.Text = Me.Text & " v" & version _
+            & Environment.NewLine & "Copyright (c) " & Date.Now.ToString("yyyy") & " Alberto Strappazzon" _
+            & Environment.NewLine & "This software is licensed under the MIT license." _
             & Environment.NewLine & Environment.NewLine &
-            "Author: Strappazzon" _
-            & Environment.NewLine &
-            "Homepage: https://strappazzon.github.io/GRW-GHOST-Buster",
-            "About GHOST Buster",
-            MessageBoxButtons.OK,
-            MessageBoxIcon.None,
-            MessageBoxDefaultButton.Button1,
-            0,
-            "https://github.com/Strappazzon/GRW-GHOST-Buster/issues")
+            "This software uses assets from Ghost Recon(R) Wildlands" _
+            & Environment.NewLine & "Copyright (c) Ubisoft Entertainment. All Rights Reserved."
+
+        homePictureBtn.Image = My.Resources.home
+        aboutLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
+        backupGroupBox.Visible = False
+        pathsGroupBox.Visible = False
+        aboutContainer.Visible = True
+        aboutTitleLabel.Visible = True
     End Sub
 
     Private Sub playGameBtn_Click(sender As Object, e As EventArgs) Handles playGameBtn.Click
@@ -194,6 +227,12 @@ Public Class Form1
         End Using
     End Sub
 
+    Private Sub ExploreSaveLocBtn_Click(sender As Object, e As EventArgs) Handles exploreSaveLocBtn.Click
+        If saveLocTextBox.Text <> "" Then
+            Process.Start("explorer.exe", saveLocTextBox.Text)
+        End If
+    End Sub
+
     Private Sub browseDestLocBtn_Click(sender As Object, e As EventArgs) Handles browseDestLocBtn.Click
         Using O As New FolderBrowserDialog
             O.Description = "Select where you want to backup your save files to. Every backup will create a new ""yyyMMdd HHmm"" subfolder."
@@ -206,13 +245,15 @@ Public Class Form1
         End Using
     End Sub
 
+    Private Sub ExploreDestLocBtn_Click(sender As Object, e As EventArgs) Handles exploreDestLocBtn.Click
+        If destLocTextBox.Text <> "" Then
+            Process.Start("explorer.exe", destLocTextBox.Text)
+        End If
+    End Sub
+
     Private Sub backupBtn_Click(sender As Object, e As EventArgs) Handles backupBtn.Click
         If saveLocTextBox.Text = "" Or destLocTextBox.Text = "" Then
-            MessageBox.Show("The working directories cannot be empty!",
-                "Notice",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Asterisk,
-                MessageBoxDefaultButton.Button1)
+            MessageBox.Show("The working directories cannot be empty!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
         ElseIf isGameRunning = True Then
             isBackupRunning = True
             restoreBtn.Enabled = False
@@ -412,6 +453,9 @@ Public Class Form1
                 freqSelectTimeUpDown.Enabled = True
                 backupTimer.Stop()
 
+                logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Backup interrupted by the user.")
+                logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Restore process started.")
+
                 Dim gameLoc As String = saveLocTextBox.Text
                 Dim backupLoc As String = destLocTextBox.Text
 
@@ -457,14 +501,30 @@ Public Class Form1
     Private Sub ExportLogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportLogToolStripMenuItem.Click
         Using S As New SaveFileDialog
             S.Title = "Save log as..."
-            S.InitialDirectory = Application.StartupPath.ToString()
+            S.InitialDirectory = Application.StartupPath
             S.FileName = "GHOSTbackup_" + Now.ToString("yyyyMMddHHmmss")
             S.Filter = "Text file|.txt|Log file|*.log"
             If S.ShowDialog = DialogResult.OK Then
                 My.Computer.FileSystem.WriteAllText(S.FileName.ToString(), logTxtBox.Text, False)
-                logTxtBox.AppendText(Environment.NewLine & "INFO: Log exported at " + S.FileName.ToString())
+                logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Log exported as " + S.FileName)
                 S.Dispose()
             End If
         End Using
+    End Sub
+
+    Private Sub WebsiteLabel_Click(sender As Object, e As EventArgs) Handles websiteLabel.Click
+        Process.Start("https://strappazzon.github.io/GRW-GHOST-Buster")
+    End Sub
+
+    Private Sub SupportLabel_Click(sender As Object, e As EventArgs) Handles supportLabel.Click
+        Process.Start("https://github.com/Strappazzon/GRW-GHOST-Buster/issues")
+    End Sub
+
+    Private Sub ChangelogLabel_Click(sender As Object, e As EventArgs) Handles changelogLabel.Click
+        Process.Start("https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/CHANGELOG.txt")
+    End Sub
+
+    Private Sub LicenseLabel_Click(sender As Object, e As EventArgs) Handles licenseLabel.Click
+        Process.Start("https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/LICENSE.txt")
     End Sub
 End Class
