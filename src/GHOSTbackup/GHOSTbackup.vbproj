@@ -134,7 +134,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon_512.ico" />
-    <None Include="res\logo.png" />
+    <None Include="res\home_white.png" />
+    <None Include="res\home.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
