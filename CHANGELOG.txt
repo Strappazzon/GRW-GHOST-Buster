@@ -1,3 +1,13 @@
+1.2.0
+ - UI: New menu
+ - UI: New about page
+ - Enhancement: Buttons to open working directories in File Explorer
+ - Fix: Working directories check at program launch
+ - Fix: Play button border color when the program window is inactive
+ - Changed logo according to the new UI changes
+ - Added copyright notice for Ghost Recon Wildlands assets
+ - Removed some useless code
+
 1.1.0
  - New: Added a custom context menu on the log text box
  - New: Log events can be saved manually to a file
