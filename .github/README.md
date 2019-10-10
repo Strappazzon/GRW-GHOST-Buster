@@ -27,7 +27,7 @@ Some friends of mine also requested it so I released it here on GitHub.
 ## Getting Started
 
 * Launch **GHOST Buster.exe**.
-  * Every time you launch it, the program will check the System Registry to see if Ghost Recon Wildlands is installed.
+  * Every time you launch it, the program will check the System Registry to see if Ghost Recon Wildlands and Uplay are installed.
   * When you close it, a file containing the program's settings will be created (or updated if it already exists) inside `%LOCALAPPDATA%\GHOSTbackup`
 
 * Click the first **Browse...** button to select the folder where Wildlands save games are actually stored.
