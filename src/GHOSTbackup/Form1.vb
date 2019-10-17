@@ -53,7 +53,7 @@ Public Class Form1
         confirmExitChkBox.Checked = My.Settings.ConfirmExit
         confirmStopBackupChkBox.Checked = My.Settings.ConfirmBackupInterruption
         updateCheckerChkBox.Checked = My.Settings.checkUpdates
-        WriteLogToFileToolStripMenuItem.Checked = My.Settings.writeLogFile
+        'WriteLogToFileToolStripMenuItem.Checked = My.Settings.writeLogFile
         If gamePath <> Nothing Then
             processCheckTimer.Interval = 500
             processCheckTimer.Start()
