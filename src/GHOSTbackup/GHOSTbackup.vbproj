@@ -134,6 +134,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon_512.ico" />
+    <None Include="res\info.png" />
+    <None Include="res\alert.png" />
     <None Include="res\home_white.png" />
     <None Include="res\home.png" />
   </ItemGroup>
