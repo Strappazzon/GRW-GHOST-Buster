@@ -55,9 +55,11 @@ Partial Class Form1
         Me.taskbarProgressTimer = New System.Windows.Forms.Timer(Me.components)
         Me.updateCheckerChkBox = New System.Windows.Forms.CheckBox()
         Me.topMenuContainer = New System.Windows.Forms.Panel()
+        Me.alertDot = New System.Windows.Forms.PictureBox()
         Me.aboutLabel = New System.Windows.Forms.Label()
         Me.homePictureBtn = New System.Windows.Forms.PictureBox()
         Me.uplayLabel = New System.Windows.Forms.Label()
+        Me.logLabel = New System.Windows.Forms.Label()
         Me.aboutContainer = New System.Windows.Forms.Panel()
         Me.licenseLabel = New System.Windows.Forms.Label()
         Me.changelogLabel = New System.Windows.Forms.Label()
@@ -65,14 +67,28 @@ Partial Class Form1
         Me.websiteLabel = New System.Windows.Forms.Label()
         Me.appInfoLabel = New System.Windows.Forms.Label()
         Me.aboutTitleLabel = New System.Windows.Forms.Label()
+        Me.logTitleLabel = New System.Windows.Forms.Label()
+        Me.logsContainer = New System.Windows.Forms.Panel()
+        Me.alertContainer = New System.Windows.Forms.Panel()
+        Me.dlBtnIcon = New System.Windows.Forms.PictureBox()
+        Me.alertDescriptionLabel = New System.Windows.Forms.Label()
+        Me.alertIcon = New System.Windows.Forms.PictureBox()
+        Me.closeAlertContainerIcon = New System.Windows.Forms.PictureBox()
+        Me.formPositionChkBox = New System.Windows.Forms.CheckBox()
         Me.pathsGroupBox.SuspendLayout()
         Me.backupGroupBox.SuspendLayout()
         CType(Me.freqSelectTimeUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.logoBigPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.logTxtBoxContext.SuspendLayout()
         Me.topMenuContainer.SuspendLayout()
+        CType(Me.alertDot, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.homePictureBtn, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.aboutContainer.SuspendLayout()
+        Me.logsContainer.SuspendLayout()
+        Me.alertContainer.SuspendLayout()
+        CType(Me.dlBtnIcon, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.alertIcon, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.closeAlertContainerIcon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'saveLocTextBox
@@ -279,9 +295,9 @@ Partial Class Form1
         Me.backupHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.backupHelpLabel.Location = New System.Drawing.Point(10, 23)
         Me.backupHelpLabel.Name = "backupHelpLabel"
-        Me.backupHelpLabel.Size = New System.Drawing.Size(219, 17)
+        Me.backupHelpLabel.Size = New System.Drawing.Size(282, 17)
         Me.backupHelpLabel.TabIndex = 5
-        Me.backupHelpLabel.Text = "Specify the frequency of the backup."
+        Me.backupHelpLabel.Text = "Specify the frequency of the backup in minutes."
         '
         'backupBtn
         '
@@ -304,7 +320,7 @@ Partial Class Form1
         '
         Me.logoBigPictureBox.BackColor = System.Drawing.Color.Transparent
         Me.logoBigPictureBox.Image = CType(resources.GetObject("logoBigPictureBox.Image"), System.Drawing.Image)
-        Me.logoBigPictureBox.Location = New System.Drawing.Point(12, 86)
+        Me.logoBigPictureBox.Location = New System.Drawing.Point(12, 85)
         Me.logoBigPictureBox.Name = "logoBigPictureBox"
         Me.logoBigPictureBox.Size = New System.Drawing.Size(293, 50)
         Me.logoBigPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -324,7 +340,7 @@ Partial Class Form1
         Me.playGameBtn.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.playGameBtn.ForeColor = System.Drawing.Color.White
         Me.playGameBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.playGameBtn.Location = New System.Drawing.Point(12, 149)
+        Me.playGameBtn.Location = New System.Drawing.Point(12, 150)
         Me.playGameBtn.Name = "playGameBtn"
         Me.playGameBtn.Size = New System.Drawing.Size(293, 32)
         Me.playGameBtn.TabIndex = 0
@@ -333,13 +349,17 @@ Partial Class Form1
         '
         'logTxtBox
         '
+        Me.logTxtBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.logTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.logTxtBox.ContextMenuStrip = Me.logTxtBoxContext
-        Me.logTxtBox.Location = New System.Drawing.Point(12, 289)
+        Me.logTxtBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.logTxtBox.ForeColor = System.Drawing.Color.White
+        Me.logTxtBox.Location = New System.Drawing.Point(0, 0)
         Me.logTxtBox.Multiline = True
         Me.logTxtBox.Name = "logTxtBox"
         Me.logTxtBox.ReadOnly = True
-        Me.logTxtBox.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.logTxtBox.Size = New System.Drawing.Size(293, 160)
+        Me.logTxtBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.logTxtBox.Size = New System.Drawing.Size(495, 297)
         Me.logTxtBox.TabIndex = 3
         '
         'logTxtBoxContext
@@ -397,11 +417,12 @@ Partial Class Form1
         Me.confirmExitChkBox.BackColor = System.Drawing.Color.Transparent
         Me.confirmExitChkBox.Checked = True
         Me.confirmExitChkBox.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.confirmExitChkBox.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.confirmExitChkBox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.confirmExitChkBox.ForeColor = System.Drawing.Color.White
-        Me.confirmExitChkBox.Location = New System.Drawing.Point(12, 204)
+        Me.confirmExitChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.confirmExitChkBox.Location = New System.Drawing.Point(14, 230)
         Me.confirmExitChkBox.Name = "confirmExitChkBox"
-        Me.confirmExitChkBox.Size = New System.Drawing.Size(196, 19)
+        Me.confirmExitChkBox.Size = New System.Drawing.Size(255, 24)
         Me.confirmExitChkBox.TabIndex = 1
         Me.confirmExitChkBox.Text = "Confirm exit (if backup is active)"
         Me.confirmExitChkBox.UseVisualStyleBackColor = False
@@ -413,11 +434,12 @@ Partial Class Form1
         '
         Me.confirmStopBackupChkBox.AutoSize = True
         Me.confirmStopBackupChkBox.BackColor = System.Drawing.Color.Transparent
-        Me.confirmStopBackupChkBox.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.confirmStopBackupChkBox.ForeColor = System.Drawing.Color.White
-        Me.confirmStopBackupChkBox.Location = New System.Drawing.Point(12, 229)
+        Me.confirmStopBackupChkBox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.confirmStopBackupChkBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.confirmStopBackupChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.confirmStopBackupChkBox.Location = New System.Drawing.Point(14, 260)
         Me.confirmStopBackupChkBox.Name = "confirmStopBackupChkBox"
-        Me.confirmStopBackupChkBox.Size = New System.Drawing.Size(178, 19)
+        Me.confirmStopBackupChkBox.Size = New System.Drawing.Size(228, 24)
         Me.confirmStopBackupChkBox.TabIndex = 2
         Me.confirmStopBackupChkBox.Text = "Confirm backup interruption"
         Me.confirmStopBackupChkBox.UseVisualStyleBackColor = False
@@ -430,11 +452,12 @@ Partial Class Form1
         '
         Me.updateCheckerChkBox.AutoSize = True
         Me.updateCheckerChkBox.BackColor = System.Drawing.Color.Transparent
-        Me.updateCheckerChkBox.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.updateCheckerChkBox.ForeColor = System.Drawing.Color.White
-        Me.updateCheckerChkBox.Location = New System.Drawing.Point(12, 254)
+        Me.updateCheckerChkBox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.updateCheckerChkBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.updateCheckerChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.updateCheckerChkBox.Location = New System.Drawing.Point(14, 290)
         Me.updateCheckerChkBox.Name = "updateCheckerChkBox"
-        Me.updateCheckerChkBox.Size = New System.Drawing.Size(122, 19)
+        Me.updateCheckerChkBox.Size = New System.Drawing.Size(154, 24)
         Me.updateCheckerChkBox.TabIndex = 11
         Me.updateCheckerChkBox.Text = "Check for updates"
         Me.updateCheckerChkBox.UseVisualStyleBackColor = False
@@ -442,14 +465,28 @@ Partial Class Form1
         'topMenuContainer
         '
         Me.topMenuContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.topMenuContainer.Controls.Add(Me.alertDot)
         Me.topMenuContainer.Controls.Add(Me.aboutLabel)
         Me.topMenuContainer.Controls.Add(Me.homePictureBtn)
         Me.topMenuContainer.Controls.Add(Me.uplayLabel)
+        Me.topMenuContainer.Controls.Add(Me.logLabel)
         Me.topMenuContainer.Dock = System.Windows.Forms.DockStyle.Top
         Me.topMenuContainer.Location = New System.Drawing.Point(0, 0)
         Me.topMenuContainer.Name = "topMenuContainer"
         Me.topMenuContainer.Size = New System.Drawing.Size(834, 60)
         Me.topMenuContainer.TabIndex = 12
+        '
+        'alertDot
+        '
+        Me.alertDot.BackColor = System.Drawing.Color.Transparent
+        Me.alertDot.Image = CType(resources.GetObject("alertDot.Image"), System.Drawing.Image)
+        Me.alertDot.Location = New System.Drawing.Point(178, 22)
+        Me.alertDot.Name = "alertDot"
+        Me.alertDot.Size = New System.Drawing.Size(10, 10)
+        Me.alertDot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.alertDot.TabIndex = 4
+        Me.alertDot.TabStop = False
+        Me.alertDot.Visible = False
         '
         'aboutLabel
         '
@@ -457,7 +494,7 @@ Partial Class Form1
         Me.aboutLabel.BackColor = System.Drawing.Color.Transparent
         Me.aboutLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.aboutLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.aboutLabel.Location = New System.Drawing.Point(142, 20)
+        Me.aboutLabel.Location = New System.Drawing.Point(212, 20)
         Me.aboutLabel.Name = "aboutLabel"
         Me.aboutLabel.Size = New System.Drawing.Size(57, 21)
         Me.aboutLabel.TabIndex = 2
@@ -484,6 +521,18 @@ Partial Class Form1
         Me.uplayLabel.Size = New System.Drawing.Size(55, 21)
         Me.uplayLabel.TabIndex = 0
         Me.uplayLabel.Text = "Uplay"
+        '
+        'logLabel
+        '
+        Me.logLabel.AutoSize = True
+        Me.logLabel.BackColor = System.Drawing.Color.Transparent
+        Me.logLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.logLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.logLabel.Location = New System.Drawing.Point(142, 20)
+        Me.logLabel.Name = "logLabel"
+        Me.logLabel.Size = New System.Drawing.Size(45, 21)
+        Me.logLabel.TabIndex = 3
+        Me.logLabel.Text = "Logs"
         '
         'aboutContainer
         '
@@ -586,6 +635,107 @@ Partial Class Form1
         Me.aboutTitleLabel.Text = "About"
         Me.aboutTitleLabel.Visible = False
         '
+        'logTitleLabel
+        '
+        Me.logTitleLabel.AutoSize = True
+        Me.logTitleLabel.BackColor = System.Drawing.Color.Transparent
+        Me.logTitleLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.logTitleLabel.ForeColor = System.Drawing.Color.White
+        Me.logTitleLabel.Location = New System.Drawing.Point(325, 115)
+        Me.logTitleLabel.Name = "logTitleLabel"
+        Me.logTitleLabel.Size = New System.Drawing.Size(45, 21)
+        Me.logTitleLabel.TabIndex = 15
+        Me.logTitleLabel.Text = "Logs"
+        Me.logTitleLabel.Visible = False
+        '
+        'logsContainer
+        '
+        Me.logsContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.logsContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.logsContainer.Controls.Add(Me.logTxtBox)
+        Me.logsContainer.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.logsContainer.Location = New System.Drawing.Point(325, 149)
+        Me.logsContainer.Name = "logsContainer"
+        Me.logsContainer.Size = New System.Drawing.Size(497, 299)
+        Me.logsContainer.TabIndex = 16
+        Me.logsContainer.Visible = False
+        '
+        'alertContainer
+        '
+        Me.alertContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(84, Byte), Integer))
+        Me.alertContainer.Controls.Add(Me.dlBtnIcon)
+        Me.alertContainer.Controls.Add(Me.alertDescriptionLabel)
+        Me.alertContainer.Controls.Add(Me.alertIcon)
+        Me.alertContainer.Controls.Add(Me.closeAlertContainerIcon)
+        Me.alertContainer.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.alertContainer.ForeColor = System.Drawing.Color.White
+        Me.alertContainer.Location = New System.Drawing.Point(0, 60)
+        Me.alertContainer.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
+        Me.alertContainer.Name = "alertContainer"
+        Me.alertContainer.Size = New System.Drawing.Size(834, 38)
+        Me.alertContainer.TabIndex = 17
+        Me.alertContainer.Visible = False
+        '
+        'dlBtnIcon
+        '
+        Me.dlBtnIcon.BackColor = System.Drawing.Color.Transparent
+        Me.dlBtnIcon.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.dlBtnIcon.Image = CType(resources.GetObject("dlBtnIcon.Image"), System.Drawing.Image)
+        Me.dlBtnIcon.Location = New System.Drawing.Point(775, 8)
+        Me.dlBtnIcon.Name = "dlBtnIcon"
+        Me.dlBtnIcon.Size = New System.Drawing.Size(24, 24)
+        Me.dlBtnIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.dlBtnIcon.TabIndex = 3
+        Me.dlBtnIcon.TabStop = False
+        Me.dlBtnIcon.Visible = False
+        '
+        'alertDescriptionLabel
+        '
+        Me.alertDescriptionLabel.AutoSize = True
+        Me.alertDescriptionLabel.BackColor = System.Drawing.Color.Transparent
+        Me.alertDescriptionLabel.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.alertDescriptionLabel.Location = New System.Drawing.Point(42, 12)
+        Me.alertDescriptionLabel.Name = "alertDescriptionLabel"
+        Me.alertDescriptionLabel.Size = New System.Drawing.Size(103, 17)
+        Me.alertDescriptionLabel.TabIndex = 2
+        Me.alertDescriptionLabel.Text = "alertDescription"
+        '
+        'alertIcon
+        '
+        Me.alertIcon.BackColor = System.Drawing.Color.Transparent
+        Me.alertIcon.Location = New System.Drawing.Point(12, 8)
+        Me.alertIcon.Name = "alertIcon"
+        Me.alertIcon.Size = New System.Drawing.Size(24, 24)
+        Me.alertIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.alertIcon.TabIndex = 1
+        Me.alertIcon.TabStop = False
+        '
+        'closeAlertContainerIcon
+        '
+        Me.closeAlertContainerIcon.BackColor = System.Drawing.Color.Transparent
+        Me.closeAlertContainerIcon.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.closeAlertContainerIcon.Image = CType(resources.GetObject("closeAlertContainerIcon.Image"), System.Drawing.Image)
+        Me.closeAlertContainerIcon.Location = New System.Drawing.Point(800, 8)
+        Me.closeAlertContainerIcon.Name = "closeAlertContainerIcon"
+        Me.closeAlertContainerIcon.Size = New System.Drawing.Size(24, 24)
+        Me.closeAlertContainerIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.closeAlertContainerIcon.TabIndex = 0
+        Me.closeAlertContainerIcon.TabStop = False
+        '
+        'formPositionChkBox
+        '
+        Me.formPositionChkBox.AutoSize = True
+        Me.formPositionChkBox.BackColor = System.Drawing.Color.Transparent
+        Me.formPositionChkBox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.formPositionChkBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.formPositionChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.formPositionChkBox.Location = New System.Drawing.Point(14, 320)
+        Me.formPositionChkBox.Name = "formPositionChkBox"
+        Me.formPositionChkBox.Size = New System.Drawing.Size(225, 24)
+        Me.formPositionChkBox.TabIndex = 18
+        Me.formPositionChkBox.Text = "Remember window position"
+        Me.formPositionChkBox.UseVisualStyleBackColor = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -594,17 +744,20 @@ Partial Class Form1
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(834, 461)
+        Me.Controls.Add(Me.formPositionChkBox)
+        Me.Controls.Add(Me.alertContainer)
+        Me.Controls.Add(Me.logTitleLabel)
         Me.Controls.Add(Me.aboutTitleLabel)
         Me.Controls.Add(Me.topMenuContainer)
         Me.Controls.Add(Me.updateCheckerChkBox)
         Me.Controls.Add(Me.confirmStopBackupChkBox)
         Me.Controls.Add(Me.confirmExitChkBox)
-        Me.Controls.Add(Me.logTxtBox)
         Me.Controls.Add(Me.playGameBtn)
         Me.Controls.Add(Me.logoBigPictureBox)
         Me.Controls.Add(Me.backupGroupBox)
         Me.Controls.Add(Me.pathsGroupBox)
         Me.Controls.Add(Me.aboutContainer)
+        Me.Controls.Add(Me.logsContainer)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
@@ -620,9 +773,17 @@ Partial Class Form1
         Me.logTxtBoxContext.ResumeLayout(False)
         Me.topMenuContainer.ResumeLayout(False)
         Me.topMenuContainer.PerformLayout()
+        CType(Me.alertDot, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.homePictureBtn, System.ComponentModel.ISupportInitialize).EndInit()
         Me.aboutContainer.ResumeLayout(False)
         Me.aboutContainer.PerformLayout()
+        Me.logsContainer.ResumeLayout(False)
+        Me.logsContainer.PerformLayout()
+        Me.alertContainer.ResumeLayout(False)
+        Me.alertContainer.PerformLayout()
+        CType(Me.dlBtnIcon, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.alertIcon, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.closeAlertContainerIcon, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -668,4 +829,14 @@ Partial Class Form1
     Friend WithEvents supportLabel As Label
     Friend WithEvents exploreDestLocBtn As Button
     Friend WithEvents exploreSaveLocBtn As Button
+    Friend WithEvents logLabel As Label
+    Friend WithEvents logTitleLabel As Label
+    Friend WithEvents logsContainer As Panel
+    Friend WithEvents alertContainer As Panel
+    Friend WithEvents closeAlertContainerIcon As PictureBox
+    Friend WithEvents alertIcon As PictureBox
+    Friend WithEvents alertDescriptionLabel As Label
+    Friend WithEvents formPositionChkBox As CheckBox
+    Friend WithEvents alertDot As PictureBox
+    Friend WithEvents dlBtnIcon As PictureBox
 End Class

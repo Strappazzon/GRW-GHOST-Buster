@@ -121,6 +121,7 @@ Public Class Form1
                 saveLocTextBox.Text = ""
                 My.Settings.GameSavesDir = ""
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " WARNING: Wildlands save games folder no longer exists.")
+                showAlert(48, "Wildlands save games folder no longer exists.")
             End If
         End If
 
@@ -128,13 +129,14 @@ Public Class Form1
             If Not Directory.Exists(destLocTextBox.Text) Then
                 destLocTextBox.Text = ""
                 My.Settings.BackupDir = ""
-                logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " WARNING: The backup directory no longer exists.")
+                logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " WARNING: The backup folder no longer exists.")
+                showAlert(48, "The backup folder no longer exists.")
             End If
         End If
 
         'Check for updates
         If updateCheckerChkBox.Checked = True Then
-            'Dim remoteUrl As String = "http://localhost/grw/" 'Debugging only
+            'Dim remoteUrl As String = "http://127.0.0.1/grw/" 'Debugging only
             Dim remoteUrl As String = "https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/"
             Dim fileName As String = "version"
             Dim remoteResource As String = remoteUrl + fileName
@@ -142,12 +144,14 @@ Public Class Form1
 
             Try
                 Dim updater As New WebClient()
-                updater.DownloadFile(remoteResource, fileName) 'This will overwrite the file if it already exists
+                updater.DownloadFile(remoteResource, fileName) 'This will always overwrite the file
                 updater.Dispose()
                 dl = True
+
             Catch WebException As Exception
                 dl = False
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " WARNING: 'WebException' Connection failed.")
+                showAlert(48, "Unable to check for updates. Connection failed.")
             End Try
 
             If dl <> False Then
@@ -158,24 +162,18 @@ Public Class Form1
                         logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: GHOST Buster is up to date.")
                     ElseIf fetchedVersionCode > versionCode Then
                         logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: New version of GHOST Buster is available.")
-                        Dim choice As Integer = MessageBox.Show("New version of GHOST Buster is available. Press OK to visit the releases page and download the newest version.",
-                                        "Update available",
-                                        MessageBoxButtons.OKCancel,
-                                        MessageBoxIcon.Asterisk,
-                                        MessageBoxDefaultButton.Button1)
-                        If choice = DialogResult.OK Then
-                            Dim dlPage As String = "https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest"
-                            Process.Start(dlPage)
-                        End If
+                        showAlert(64, "New version of GHOST Buster is available.", True)
                     ElseIf fetchedVersionCode < versionCode Then
                         logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: The version in use is greater than the one currently available.")
                     End If
 
                 Catch pathTooLong As PathTooLongException
                     logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " ERROR: 'PathTooLongException', Version check failed.")
+                    showAlert(48, "An error occured while checking " & Me.Text & " version.")
 
                 Catch conversionError As InvalidCastException
                     logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " ERROR: 'InvalidCastException', Version check failed.")
+                    showAlert(48, "An error occured while checking " & Me.Text & " version.")
                 End Try
             End If
         End If
@@ -230,19 +228,36 @@ Public Class Form1
 
     Private Sub HomePictureBtn_Click(sender As Object, e As EventArgs) Handles homePictureBtn.Click
         aboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        logLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         homePictureBtn.Image = My.Resources.home_white
         backupGroupBox.Visible = True
         pathsGroupBox.Visible = True
         aboutTitleLabel.Visible = False
         aboutContainer.Visible = False
+        logTitleLabel.Visible = False
+        logsContainer.Visible = False
     End Sub
 
     Private Sub UplayLabel_Click(sender As Object, e As EventArgs) Handles uplayLabel.Click
         If uplayPath <> Nothing Then
             Process.Start(uplayPath + "Uplay.exe")
         Else
-            MessageBox.Show("Uplay appears to not be installed.", "Cannot launch Uplay", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            showAlert(64, "Uplay appears to not be installed.")
         End If
+    End Sub
+
+    Private Sub logLabel_Click(sender As Object, e As EventArgs) Handles logLabel.Click
+        homePictureBtn.Image = My.Resources.home
+        logLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
+        aboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        backupGroupBox.Visible = False
+        pathsGroupBox.Visible = False
+        aboutTitleLabel.Visible = False
+        aboutContainer.Visible = False
+        logTitleLabel.Visible = True
+        logsContainer.Visible = True
+        alertDot.Visible = False
+        closeAlertContainerIcon_Click(sender, e)
     End Sub
 
     Private Sub AboutLabel_Click(sender As Object, e As EventArgs) Handles aboutLabel.Click
@@ -254,29 +269,73 @@ Public Class Form1
             & Environment.NewLine & "Copyright (c) Ubisoft Entertainment. All Rights Reserved."
 
         homePictureBtn.Image = My.Resources.home
+        logLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         aboutLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
         backupGroupBox.Visible = False
         pathsGroupBox.Visible = False
         aboutContainer.Visible = True
         aboutTitleLabel.Visible = True
+        logTitleLabel.Visible = False
+        logsContainer.Visible = False
+    End Sub
+
+    Private Sub dlBtnIcon_Click(sender As Object, e As EventArgs) Handles dlBtnIcon.Click
+        Process.Start("https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest")
+        closeAlertContainerIcon_Click(sender, e)
+    End Sub
+
+    Private Sub closeAlertContainerIcon_Click(sender As Object, e As EventArgs) Handles closeAlertContainerIcon.Click
+        alertContainer.Visible = False
+        logoBigPictureBox.Location = New Point(12, 85)
+        playGameBtn.Location = New Point(12, 150)
+        confirmExitChkBox.Location = New Point(14, 230)
+        confirmStopBackupChkBox.Location = New Point(14, 260)
+        updateCheckerChkBox.Location = New Point(14, 290)
+        formPositionChkBox.Location = New Point(14, 320)
     End Sub
 
     Private Sub playGameBtn_Click(sender As Object, e As EventArgs) Handles playGameBtn.Click
-        Process.Start(gamePath + "GRW.exe")
+        Process.Start(gamePath & "GRW.exe")
+    End Sub
+
+    Private Sub confirmExitChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles confirmExitChkBox.CheckedChanged
+        If confirmExitChkBox.Checked = True Then
+            confirmExitChkBox.ForeColor = Color.White
+        Else
+            confirmExitChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        End If
+    End Sub
+
+    Private Sub confirmStopBackupChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles confirmStopBackupChkBox.CheckedChanged
+        If confirmStopBackupChkBox.Checked = True Then
+            confirmStopBackupChkBox.ForeColor = Color.White
+        Else
+            confirmStopBackupChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        End If
     End Sub
 
     Private Sub updateCheckerChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles updateCheckerChkBox.CheckedChanged
         If updateCheckerChkBox.Checked = True Then
+            updateCheckerChkBox.ForeColor = Color.White
             My.Settings.checkUpdates = True
         Else
+            updateCheckerChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
             My.Settings.checkUpdates = False
+        End If
+    End Sub
+
+    Private Sub formPositionChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles formPositionChkBox.CheckedChanged
+        If formPositionChkBox.Checked = True Then
+            formPositionChkBox.ForeColor = Color.White
+        Else
+            formPositionChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
         End If
     End Sub
 
     Private Sub browseSaveLocBtn_Click(sender As Object, e As EventArgs) Handles browseSaveLocBtn.Click
         Using O As New FolderBrowserDialog
             O.ShowNewFolderButton = False
-            O.Description = "Select the location of Wildlands save games folder." & Environment.NewLine & "The game ID is 1771."
+            O.Description = "Select the location of Wildlands save games folder." & Environment.NewLine & "Uplay Game ID: 1771" ' & Environment.NewLine & "Steam App ID: 460930"
             O.SelectedPath = "C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\savegames"
             If O.ShowDialog = Windows.Forms.DialogResult.OK Then
                 saveLocTextBox.Text = O.SelectedPath
@@ -313,7 +372,7 @@ Public Class Form1
 
     Private Sub backupBtn_Click(sender As Object, e As EventArgs) Handles backupBtn.Click
         If saveLocTextBox.Text = "" Or destLocTextBox.Text = "" Then
-            MessageBox.Show("The working directories cannot be empty!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            showAlert(64, "The working directories cannot be empty.")
         ElseIf isGameRunning = True Then
             isBackupRunning = True
             restoreBtn.Enabled = False
@@ -485,7 +544,7 @@ Public Class Form1
 
     Private Sub restoreBtn_Click(sender As Object, e As EventArgs) Handles restoreBtn.Click
         If saveLocTextBox.Text = "" Or destLocTextBox.Text = "" Then
-            MessageBox.Show("The working directories cannot be empty!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            showAlert(64, "The working directories cannot be empty.")
         ElseIf isGameRunning = True Then
             MessageBox.Show("You need to quit Wildlands before restoring the save games.", "Cannot restore", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
