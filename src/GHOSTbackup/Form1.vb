@@ -4,15 +4,70 @@ Imports Microsoft.Win32
 Imports Microsoft.WindowsAPICodePack.Taskbar
 
 Public Class Form1
-    Public Property versionCode As String = "3"
-    Public Property version As String = "1.2.0"
+    Public ReadOnly Property versionCode As Integer = 4
+    Public ReadOnly Property version As String = "1.3.0"
     Public Property isGameInstalled As Boolean
     Public Property gamePath As String
     Public Property uplayPath As String
     Public Property isGameRunning As Boolean
     Public Property isBackupRunning As Boolean = False
 
+    Function loadFormPosition()
+        If My.Settings.RememberFormPosition = True Then
+            Dim formLocation As Point = My.Settings.WindowLocation
+
+            If (formLocation.X = -1) And (formLocation.Y = -1) Then
+                Return Nothing
+            End If
+
+            Dim bLocationVisible As Boolean = False
+            For Each S As Screen In Screen.AllScreens
+                If S.Bounds.Contains(formLocation) Then
+                    bLocationVisible = True
+                End If
+            Next
+
+            If Not bLocationVisible Then
+                Return Nothing
+            End If
+
+            StartPosition = FormStartPosition.Manual
+            Location = formLocation
+        End If
+    End Function
+
+    Function showAlert(alertType As Integer, alertDesc As String, Optional dlButton As Boolean = False)
+        If alertType = 48 Then
+            alertIcon.Image = My.Resources.alert
+            alertDot.Visible = True
+        ElseIf alertType = 64 Then
+            alertIcon.Image = My.Resources.info
+        End If
+
+        If dlButton = True Then
+            dlBtnIcon.Visible = True
+        Else
+            dlBtnIcon.Visible = False
+        End If
+
+        alertDescriptionLabel.Text = alertDesc
+
+        logoBigPictureBox.Location = New Point(12, 115)
+        playGameBtn.Location = New Point(12, 180)
+        confirmExitChkBox.Location = New Point(14, 260)
+        confirmStopBackupChkBox.Location = New Point(14, 290)
+        updateCheckerChkBox.Location = New Point(14, 320)
+        formPositionChkBox.Location = New Point(14, 350)
+        alertDescriptionLabel.Location = New Point(alertContainer.Width / 2 - alertDescriptionLabel.Width / 2, alertContainer.Height / 2 - alertDescriptionLabel.Height / 2)
+        alertIcon.Location = New Point(alertContainer.Width / 2 - alertDescriptionLabel.Width / 2 - 28, alertContainer.Height / 2 - alertIcon.Height / 2)
+        alertContainer.Visible = True
+    End Function
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Set window position
+        formPositionChkBox.Checked = My.Settings.RememberFormPosition
+        loadFormPosition()
+
         logTxtBox.AppendText("Init: Logging started: " & Now.ToString("MM/dd/yyyy HH:mm:ss"))
         logTxtBox.AppendText(Environment.NewLine & "Init: Version: " & version)
 
@@ -147,6 +202,11 @@ Public Class Form1
 
         If confirmStopBackupChkBox.CheckState <> My.Settings.ConfirmBackupInterruption Then
             My.Settings.ConfirmBackupInterruption = confirmStopBackupChkBox.CheckState
+        End If
+
+        If formPositionChkBox.CheckState <> My.Settings.RememberFormPosition Then
+            My.Settings.RememberFormPosition = formPositionChkBox.CheckState
+            My.Settings.WindowLocation = Location
         End If
 
         If freqSelectTimeUpDown.Value <> My.Settings.BackupInterval Then
