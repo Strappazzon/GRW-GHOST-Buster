@@ -467,7 +467,7 @@ Public Class Form1
                     Next
 
                     logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Backup from " & destLocTextBox.Text & " restored.")
-                    MessageBox.Show("The save files have been restored succefully." & Environment.NewLine & "Please select the backup folder again, without the ""yyyyMMdd HHMM"" folder, by clicking the ""Browse..."" button.",
+                    MessageBox.Show("The save files have been restored successfully." & Environment.NewLine & "Please select the backup folder again, without the ""yyyyMMdd HHMM"" folder, by clicking the ""Browse..."" button.",
                         "Restore succeeded",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Asterisk)
