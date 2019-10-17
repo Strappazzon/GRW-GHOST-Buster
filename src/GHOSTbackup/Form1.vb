@@ -21,7 +21,7 @@ Public Class Form1
         uplayReg = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher", False)
 
         Try
-            uplayPath = uplayReg.GetValue("InstallDir").ToString()
+            uplayPath = uplayReg.GetValue("InstallDir")
             logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Uplay is installed in: " & uplayPath)
             uplayReg.Close()
 
@@ -34,7 +34,7 @@ Public Class Form1
         gameReg = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\1771", False)
 
         Try
-            gamePath = gameReg.GetValue("InstallDir").ToString()
+            gamePath = gameReg.GetValue("InstallDir")
             isGameInstalled = True
             playGameBtn.Enabled = True
             playGameBtn.Text = "Play Ghost Recon Wildlands"
