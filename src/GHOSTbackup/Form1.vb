@@ -496,7 +496,7 @@ Public Class Form1
                                         "and will OVERWRITE the existing save files inside the game directory:" _
                                         & Environment.NewLine & Environment.NewLine & saveLocTextBox.Text & Environment.NewLine & Environment.NewLine &
                                         "Make sure to disable cloud sync from Uplay (Settings -> Uncheck ""Enable cloud synchronization for supported games"") otherwise the restored save files will be replaced with the" _
-                                        & "ones from the cloud as soon as you launch the game!" _
+                                        & "ones from the cloud as soon as you launch Wildlands!" _
                                         & Environment.NewLine & Environment.NewLine &
                                         "THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?",
                                         "READ CAREFULLY",
