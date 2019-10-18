@@ -67,6 +67,10 @@ Some friends of mine also requested it so I released it here on GitHub.
   * _Disabled by default_
   * The program will check if the current version is up to date
 
+* **Remember window position**
+  * _Disabled by default_
+  * GHOST Buster will remember where the window was located the last time the software was used
+
 All settings are stored inside `%LOCALAPPDATA%\GHOSTbackup`.
 
 ## Download
