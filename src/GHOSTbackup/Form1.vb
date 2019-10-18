@@ -54,10 +54,10 @@ Public Class Form1
 
         logoBigPictureBox.Location = New Point(12, 115)
         playGameBtn.Location = New Point(12, 180)
-        confirmExitChkBox.Location = New Point(14, 260)
-        confirmStopBackupChkBox.Location = New Point(14, 290)
-        updateCheckerChkBox.Location = New Point(14, 320)
-        formPositionChkBox.Location = New Point(14, 350)
+        confirmExitChkBox.Location = New Point(14, 255)
+        confirmStopBackupChkBox.Location = New Point(14, 280)
+        updateCheckerChkBox.Location = New Point(14, 305)
+        formPositionChkBox.Location = New Point(14, 330)
         alertDescriptionLabel.Location = New Point(alertContainer.Width / 2 - alertDescriptionLabel.Width / 2, alertContainer.Height / 2 - alertDescriptionLabel.Height / 2)
         alertIcon.Location = New Point(alertContainer.Width / 2 - alertDescriptionLabel.Width / 2 - 28, alertContainer.Height / 2 - alertIcon.Height / 2)
         alertContainer.Visible = True
@@ -289,9 +289,9 @@ Public Class Form1
         logoBigPictureBox.Location = New Point(12, 85)
         playGameBtn.Location = New Point(12, 150)
         confirmExitChkBox.Location = New Point(14, 230)
-        confirmStopBackupChkBox.Location = New Point(14, 260)
-        updateCheckerChkBox.Location = New Point(14, 290)
-        formPositionChkBox.Location = New Point(14, 320)
+        confirmStopBackupChkBox.Location = New Point(14, 255)
+        updateCheckerChkBox.Location = New Point(14, 280)
+        formPositionChkBox.Location = New Point(14, 305)
     End Sub
 
     Private Sub playGameBtn_Click(sender As Object, e As EventArgs) Handles playGameBtn.Click

@@ -417,12 +417,12 @@ Partial Class Form1
         Me.confirmExitChkBox.BackColor = System.Drawing.Color.Transparent
         Me.confirmExitChkBox.Checked = True
         Me.confirmExitChkBox.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.confirmExitChkBox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.confirmExitChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.confirmExitChkBox.ForeColor = System.Drawing.Color.White
         Me.confirmExitChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.confirmExitChkBox.Location = New System.Drawing.Point(14, 230)
         Me.confirmExitChkBox.Name = "confirmExitChkBox"
-        Me.confirmExitChkBox.Size = New System.Drawing.Size(255, 24)
+        Me.confirmExitChkBox.Size = New System.Drawing.Size(212, 21)
         Me.confirmExitChkBox.TabIndex = 1
         Me.confirmExitChkBox.Text = "Confirm exit (if backup is active)"
         Me.confirmExitChkBox.UseVisualStyleBackColor = False
@@ -434,12 +434,12 @@ Partial Class Form1
         '
         Me.confirmStopBackupChkBox.AutoSize = True
         Me.confirmStopBackupChkBox.BackColor = System.Drawing.Color.Transparent
-        Me.confirmStopBackupChkBox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.confirmStopBackupChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.confirmStopBackupChkBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.confirmStopBackupChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.confirmStopBackupChkBox.Location = New System.Drawing.Point(14, 260)
+        Me.confirmStopBackupChkBox.Location = New System.Drawing.Point(14, 255)
         Me.confirmStopBackupChkBox.Name = "confirmStopBackupChkBox"
-        Me.confirmStopBackupChkBox.Size = New System.Drawing.Size(228, 24)
+        Me.confirmStopBackupChkBox.Size = New System.Drawing.Size(191, 21)
         Me.confirmStopBackupChkBox.TabIndex = 2
         Me.confirmStopBackupChkBox.Text = "Confirm backup interruption"
         Me.confirmStopBackupChkBox.UseVisualStyleBackColor = False
@@ -452,12 +452,12 @@ Partial Class Form1
         '
         Me.updateCheckerChkBox.AutoSize = True
         Me.updateCheckerChkBox.BackColor = System.Drawing.Color.Transparent
-        Me.updateCheckerChkBox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.updateCheckerChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.updateCheckerChkBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.updateCheckerChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.updateCheckerChkBox.Location = New System.Drawing.Point(14, 290)
+        Me.updateCheckerChkBox.Location = New System.Drawing.Point(14, 280)
         Me.updateCheckerChkBox.Name = "updateCheckerChkBox"
-        Me.updateCheckerChkBox.Size = New System.Drawing.Size(154, 24)
+        Me.updateCheckerChkBox.Size = New System.Drawing.Size(133, 21)
         Me.updateCheckerChkBox.TabIndex = 11
         Me.updateCheckerChkBox.Text = "Check for updates"
         Me.updateCheckerChkBox.UseVisualStyleBackColor = False
@@ -726,12 +726,12 @@ Partial Class Form1
         '
         Me.formPositionChkBox.AutoSize = True
         Me.formPositionChkBox.BackColor = System.Drawing.Color.Transparent
-        Me.formPositionChkBox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.formPositionChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.formPositionChkBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.formPositionChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.formPositionChkBox.Location = New System.Drawing.Point(14, 320)
+        Me.formPositionChkBox.Location = New System.Drawing.Point(14, 305)
         Me.formPositionChkBox.Name = "formPositionChkBox"
-        Me.formPositionChkBox.Size = New System.Drawing.Size(225, 24)
+        Me.formPositionChkBox.Size = New System.Drawing.Size(190, 21)
         Me.formPositionChkBox.TabIndex = 18
         Me.formPositionChkBox.Text = "Remember window position"
         Me.formPositionChkBox.UseVisualStyleBackColor = False
