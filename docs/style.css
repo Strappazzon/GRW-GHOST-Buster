@@ -52,6 +52,7 @@ html {
 	background-position: center;
 	scrollbar-width: thin;
 	scrollbar-color: #8c8d8f #2d2f32;
+	cursor: url('assets/cursor.png'), auto;
 	background-color: #1c2127;
 	color: #fff;
 	font-family: 'Montserrat', sans-serif;
