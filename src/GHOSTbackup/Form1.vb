@@ -4,8 +4,8 @@ Imports Microsoft.Win32
 Imports Microsoft.WindowsAPICodePack.Taskbar
 
 Public Class Form1
-    Public ReadOnly Property versionCode As Integer = 4
-    Public ReadOnly Property version As String = "1.3.0"
+    Public ReadOnly Property versionCode As Integer = 5
+    Public ReadOnly Property version As String = "1.3.1"
     Public Property isGameInstalled As Boolean
     Public Property gamePath As String
     Public Property uplayPath As String
@@ -382,7 +382,7 @@ Public Class Form1
             browseDestLocBtn.Enabled = False
             freqSelectTimeUpDown.Enabled = False
             backupTimer.Interval = freqSelectTimeUpDown.Value * 60000
-            'backupTimer.Interval = 3000 'Debugging only
+            'backupTimer.Interval = 3000 'Debug
 
             backupTimer.Start()
             taskbarProgressTimer.Start()
