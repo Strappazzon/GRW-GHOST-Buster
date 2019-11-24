@@ -83,7 +83,7 @@ a:hover { text-decoration: underline; }
 
 a:active { color: #0077ee; text-decoration: none; }
 
-ul { line-height: 22px; }
+ul { line-height: 2; }
 
 img { vertical-align: middle; border-style: none; }
 
