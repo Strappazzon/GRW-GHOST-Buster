@@ -1,3 +1,6 @@
+1.3.1
+ - Reverted font change
+
 1.3.0
  - New: Added an option to remember the window position
  - UI: Replaced most of warnings with less intrusive notices
