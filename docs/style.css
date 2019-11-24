@@ -142,7 +142,8 @@ blockquote {
 	font-family: "Lucida Console", monospace;
 	color: #eee;
 	background-color: rgba(35, 35, 35, 0.7);
-	border: 1px solid #000;
+	border: 2px solid #54cdff;
+	border-left: 10px solid #54cdff;
 }
 
 .codeblock p { margin: 0; padding: 10px; }
