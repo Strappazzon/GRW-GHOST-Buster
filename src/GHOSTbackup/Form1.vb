@@ -136,25 +136,25 @@ Public Class Form1
 
         'Check for updates
         If updateCheckerChkBox.Checked = True Then
-            'Dim remoteUrl As String = "http://127.0.0.1/grw/" 'Debugging only
+            'Dim remoteUrl As String = "http://127.0.0.1/grw/" 'Debug
             Dim remoteUrl As String = "https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/"
             Dim fileName As String = "version"
             Dim remoteResource As String = remoteUrl + fileName
-            Dim dl As Boolean
+            Dim verDownloaded As Boolean
 
             Try
                 Dim updater As New WebClient()
                 updater.DownloadFile(remoteResource, fileName) 'This will always overwrite the file
                 updater.Dispose()
-                dl = True
+                verDownloaded = True
 
             Catch WebException As Exception
-                dl = False
+                verDownloaded = False
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " WARNING: 'WebException' Connection failed.")
                 showAlert(48, "Unable to check for updates. Connection failed.")
             End Try
 
-            If dl <> False Then
+            If verDownloaded <> False Then
                 Try
                     Dim fetchedVersionCode As Integer = File.ReadAllText(Application.StartupPath + "\" + fileName)
 
