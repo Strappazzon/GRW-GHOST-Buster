@@ -24,4 +24,5 @@
 [Rr]esources
 *.ico
 
+.release
 TODO.txt
