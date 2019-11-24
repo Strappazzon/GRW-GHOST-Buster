@@ -119,16 +119,18 @@ code {
 }
 
 blockquote {
-	color: #eee;
-	background-color: rgba(35, 35, 35, 0.7);
-	border: 1px solid #000;
+	color: #cecece;
+	background-color: rgba(51, 51, 51, 0.7);
 }
 
 .quote-title {
 	margin: 0px;
-	padding-left: 5px;
-	color: #000;
-	background-color: rgba(255, 200, 61, 0.7);
+	padding: 2px 5px 2px 5px;
+	color: #e2e2e2;
+	background-color: rgba(123, 123, 123, 1);
+	background-image: url('assets/pattern.png');
+	text-transform: uppercase;
+	font-size: 16px;
 	font-weight: bold;
 }
 
