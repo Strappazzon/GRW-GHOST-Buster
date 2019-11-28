@@ -4,13 +4,13 @@ Imports Microsoft.Win32
 Imports Microsoft.WindowsAPICodePack.Taskbar
 
 Public Class Form1
-    Public ReadOnly Property versionCode As Integer = 6
-    Public ReadOnly Property version As String = "1.3.2"
-    Public Property isGameInstalled As Boolean
-    Public Property gamePath As String
-    Public Property uplayPath As String
-    Public Property isGameRunning As Boolean
-    Public Property isBackupRunning As Boolean = False
+    Public ReadOnly versionCode As Integer = 6
+    Public ReadOnly version As String = "1.3.2"
+    Public isGameInstalled As Boolean
+    Public gamePath As String
+    Public uplayPath As String
+    Public isGameRunning As Boolean
+    Public isBackupRunning As Boolean = False
 
     Function loadFormPosition()
         If My.Settings.RememberFormPosition = True Then
