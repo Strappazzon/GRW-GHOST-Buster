@@ -262,7 +262,7 @@ Public Class Form1
 
     Private Sub AboutLabel_Click(sender As Object, e As EventArgs) Handles aboutLabel.Click
         appInfoLabel.Text = Me.Text & " v" & version _
-            & Environment.NewLine & "Copyright (c) " & Date.Now.ToString("yyyy") & " Alberto Strappazzon" _
+            & Environment.NewLine & "Copyright (c) 2019 Alberto Strappazzon" _
             & Environment.NewLine & "This software is licensed under the MIT license." _
             & Environment.NewLine & Environment.NewLine &
             "This software uses assets from Ghost Recon(R) Wildlands" _
