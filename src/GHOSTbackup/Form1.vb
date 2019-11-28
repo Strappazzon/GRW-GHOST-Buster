@@ -4,8 +4,8 @@ Imports Microsoft.Win32
 Imports Microsoft.WindowsAPICodePack.Taskbar
 
 Public Class Form1
-    Public ReadOnly Property versionCode As Integer = 5
-    Public ReadOnly Property version As String = "1.3.1"
+    Public ReadOnly Property versionCode As Integer = 6
+    Public ReadOnly Property version As String = "1.3.2"
     Public Property isGameInstalled As Boolean
     Public Property gamePath As String
     Public Property uplayPath As String
