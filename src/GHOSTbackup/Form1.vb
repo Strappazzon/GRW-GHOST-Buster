@@ -266,7 +266,9 @@ Public Class Form1
             & Environment.NewLine & "This software is licensed under the MIT license." _
             & Environment.NewLine & Environment.NewLine &
             "This software uses assets from Ghost Recon(R) Wildlands" _
-            & Environment.NewLine & "Copyright (c) Ubisoft Entertainment. All Rights Reserved."
+            & Environment.NewLine & "Copyright (c) Ubisoft Entertainment. All Rights Reserved." _
+            & Environment.NewLine & Environment.NewLine &
+            "Some icons are taken from Icons8 (https://icons8.com)."
 
         homePictureBtn.Image = My.Resources.home
         logLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)

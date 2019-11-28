@@ -558,7 +558,7 @@ Partial Class Form1
         Me.licenseLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.licenseLabel.Image = CType(resources.GetObject("licenseLabel.Image"), System.Drawing.Image)
         Me.licenseLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.licenseLabel.Location = New System.Drawing.Point(14, 218)
+        Me.licenseLabel.Location = New System.Drawing.Point(14, 246)
         Me.licenseLabel.Name = "licenseLabel"
         Me.licenseLabel.Size = New System.Drawing.Size(70, 17)
         Me.licenseLabel.TabIndex = 4
@@ -573,7 +573,7 @@ Partial Class Form1
         Me.changelogLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.changelogLabel.Image = CType(resources.GetObject("changelogLabel.Image"), System.Drawing.Image)
         Me.changelogLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.changelogLabel.Location = New System.Drawing.Point(14, 194)
+        Me.changelogLabel.Location = New System.Drawing.Point(14, 222)
         Me.changelogLabel.Name = "changelogLabel"
         Me.changelogLabel.Size = New System.Drawing.Size(90, 17)
         Me.changelogLabel.TabIndex = 3
@@ -588,7 +588,7 @@ Partial Class Form1
         Me.supportLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.supportLabel.Image = CType(resources.GetObject("supportLabel.Image"), System.Drawing.Image)
         Me.supportLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.supportLabel.Location = New System.Drawing.Point(14, 170)
+        Me.supportLabel.Location = New System.Drawing.Point(14, 198)
         Me.supportLabel.Name = "supportLabel"
         Me.supportLabel.Size = New System.Drawing.Size(75, 17)
         Me.supportLabel.TabIndex = 2
@@ -603,7 +603,7 @@ Partial Class Form1
         Me.websiteLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.websiteLabel.Image = CType(resources.GetObject("websiteLabel.Image"), System.Drawing.Image)
         Me.websiteLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.websiteLabel.Location = New System.Drawing.Point(14, 146)
+        Me.websiteLabel.Location = New System.Drawing.Point(14, 174)
         Me.websiteLabel.Name = "websiteLabel"
         Me.websiteLabel.Size = New System.Drawing.Size(117, 17)
         Me.websiteLabel.TabIndex = 1
