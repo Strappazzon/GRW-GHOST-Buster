@@ -1,7 +1,6 @@
 ﻿Imports System.IO
 Imports System.Net
 Imports Microsoft.Win32
-Imports Microsoft.WindowsAPICodePack.Taskbar
 
 Public Class Form1
     Public ReadOnly versionCode As Integer = 6
@@ -387,7 +386,6 @@ Public Class Form1
             'backupTimer.Interval = 3000 'Debug
 
             backupTimer.Start()
-            taskbarProgressTimer.Start()
             backupBtn.Enabled = False
             stopBtn.Enabled = True
 
@@ -496,17 +494,9 @@ Public Class Form1
             restoreBtn.Enabled = True
             backupTimer.Stop()
             isBackupRunning = False
-            taskbarProgressTimer.Stop()
 
             logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " WARNING: Wildlands closed or crashed, Backup interrupted.")
             MessageBox.Show("Wildlands has been closed or crashed, as a result the backup process has been interrupted.", "Wildlands is not running", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End If
-    End Sub
-
-    Private Sub taskbarProgressTimer_Tick(sender As Object, e As EventArgs) Handles taskbarProgressTimer.Tick
-        'Progress bar in the taskbar icon. It resets every backup.
-        If TaskbarManager.IsPlatformSupported And isBackupRunning = True Then
-            TaskbarManager.Instance.SetProgressValue(Date.Now.ToString("mmss") + freqSelectTimeUpDown.Value * 60000 / 10000, freqSelectTimeUpDown.Value * 60000)
         End If
     End Sub
 
@@ -524,7 +514,6 @@ Public Class Form1
                 restoreBtn.Enabled = True
                 backupTimer.Stop()
                 isBackupRunning = False
-                taskbarProgressTimer.Stop()
 
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Backup interrupted by the user.")
             End If

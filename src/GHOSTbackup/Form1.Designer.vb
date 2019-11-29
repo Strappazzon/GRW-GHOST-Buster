@@ -52,7 +52,6 @@ Partial Class Form1
         Me.confirmExitChkBox = New System.Windows.Forms.CheckBox()
         Me.processCheckTimer = New System.Windows.Forms.Timer(Me.components)
         Me.confirmStopBackupChkBox = New System.Windows.Forms.CheckBox()
-        Me.taskbarProgressTimer = New System.Windows.Forms.Timer(Me.components)
         Me.updateCheckerChkBox = New System.Windows.Forms.CheckBox()
         Me.topMenuContainer = New System.Windows.Forms.Panel()
         Me.alertDot = New System.Windows.Forms.PictureBox()
@@ -444,10 +443,6 @@ Partial Class Form1
         Me.confirmStopBackupChkBox.Text = "Confirm backup interruption"
         Me.confirmStopBackupChkBox.UseVisualStyleBackColor = False
         '
-        'taskbarProgressTimer
-        '
-        Me.taskbarProgressTimer.Interval = 1000
-        '
         'updateCheckerChkBox
         '
         Me.updateCheckerChkBox.AutoSize = True
@@ -808,7 +803,6 @@ Partial Class Form1
     Friend WithEvents processCheckTimer As Timer
     Friend WithEvents confirmStopBackupChkBox As CheckBox
     Friend WithEvents backupHelpLabel As Label
-    Friend WithEvents taskbarProgressTimer As Timer
     Friend WithEvents updateCheckerChkBox As CheckBox
     Friend WithEvents logTxtBoxContext As ContextMenuStrip
     Friend WithEvents CopyToolStripMenuItem As ToolStripMenuItem
