@@ -556,16 +556,6 @@ Public Class Form1
                                         MessageBoxIcon.Warning,
                                         MessageBoxDefaultButton.Button2)
             If choice = DialogResult.Yes Then
-                backupBtn.Enabled = True
-                stopBtn.Enabled = False
-                saveLocTextBox.Enabled = True
-                browseSaveLocBtn.Enabled = True
-                destLocTextBox.Enabled = True
-                browseDestLocBtn.Enabled = True
-                freqSelectTimeUpDown.Enabled = True
-                backupTimer.Stop()
-
-                logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Backup interrupted by the user.")
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Restore process started.")
 
                 Dim gameLoc As String = saveLocTextBox.Text
