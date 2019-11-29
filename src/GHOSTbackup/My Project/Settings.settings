@@ -17,10 +17,10 @@
     <Setting Name="ConfirmBackupInterruption" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="checkUpdates" Type="System.Boolean" Scope="User">
+    <Setting Name="CheckUpdates" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="writeLogFile" Type="System.Boolean" Scope="User">
+    <Setting Name="WriteLogFile" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="RememberFormPosition" Type="System.Boolean" Scope="User">

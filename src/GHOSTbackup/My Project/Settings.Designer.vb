@@ -117,24 +117,24 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property checkUpdates() As Boolean
+        Public Property CheckUpdates() As Boolean
             Get
-                Return CType(Me("checkUpdates"),Boolean)
+                Return CType(Me("CheckUpdates"),Boolean)
             End Get
             Set
-                Me("checkUpdates") = value
+                Me("CheckUpdates") = value
             End Set
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property writeLogFile() As Boolean
+        Public Property WriteLogFile() As Boolean
             Get
-                Return CType(Me("writeLogFile"),Boolean)
+                Return CType(Me("WriteLogFile"),Boolean)
             End Get
             Set
-                Me("writeLogFile") = value
+                Me("WriteLogFile") = value
             End Set
         End Property
         

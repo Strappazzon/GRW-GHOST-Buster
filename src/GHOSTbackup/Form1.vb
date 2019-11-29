@@ -107,8 +107,8 @@ Public Class Form1
         freqSelectTimeUpDown.Value = My.Settings.BackupInterval
         confirmExitChkBox.Checked = My.Settings.ConfirmExit
         confirmStopBackupChkBox.Checked = My.Settings.ConfirmBackupInterruption
-        updateCheckerChkBox.Checked = My.Settings.checkUpdates
-        'WriteLogToFileToolStripMenuItem.Checked = My.Settings.writeLogFile
+        updateCheckerChkBox.Checked = My.Settings.CheckUpdates
+        'WriteLogToFileToolStripMenuItem.Checked = My.Settings.WriteLogFile
         If gamePath <> Nothing Then
             processCheckTimer.Interval = 500
             processCheckTimer.Start()
@@ -319,10 +319,10 @@ Public Class Form1
     Private Sub updateCheckerChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles updateCheckerChkBox.CheckedChanged
         If updateCheckerChkBox.Checked = True Then
             updateCheckerChkBox.ForeColor = Color.White
-            My.Settings.checkUpdates = True
+            My.Settings.CheckUpdates = True
         Else
             updateCheckerChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
-            My.Settings.checkUpdates = False
+            My.Settings.CheckUpdates = False
         End If
     End Sub
 
