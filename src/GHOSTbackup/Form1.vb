@@ -62,6 +62,34 @@ Public Class Form1
         alertContainer.Visible = True
     End Function
 
+    Function startBackup()
+        backupTimer.Interval = freqSelectTimeUpDown.Value * 60000
+        'backupTimer.Interval = 3000 'Debug
+        backupTimer.Start()
+        isBackupRunning = True
+        freqSelectTimeUpDown.Enabled = False
+        backupBtn.Enabled = False
+        stopBtn.Enabled = True
+        restoreBtn.Enabled = False
+        saveLocTextBox.Enabled = False
+        browseSaveLocBtn.Enabled = False
+        destLocTextBox.Enabled = False
+        browseDestLocBtn.Enabled = False
+    End Function
+
+    Function stopBackup()
+        backupTimer.Stop()
+        isBackupRunning = False
+        freqSelectTimeUpDown.Enabled = True
+        backupBtn.Enabled = True
+        stopBtn.Enabled = False
+        restoreBtn.Enabled = True
+        saveLocTextBox.Enabled = True
+        browseSaveLocBtn.Enabled = True
+        destLocTextBox.Enabled = True
+        browseDestLocBtn.Enabled = True
+    End Function
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Set window position
         formPositionChkBox.Checked = My.Settings.RememberFormPosition
@@ -377,19 +405,7 @@ Public Class Form1
         If saveLocTextBox.Text = "" Or destLocTextBox.Text = "" Then
             showAlert(64, "The working directories cannot be empty.")
         ElseIf isGameRunning = True Then
-            isBackupRunning = True
-            restoreBtn.Enabled = False
-            saveLocTextBox.Enabled = False
-            browseSaveLocBtn.Enabled = False
-            destLocTextBox.Enabled = False
-            browseDestLocBtn.Enabled = False
-            freqSelectTimeUpDown.Enabled = False
-            backupTimer.Interval = freqSelectTimeUpDown.Value * 60000
-            'backupTimer.Interval = 3000 'Debug
-
-            backupTimer.Start()
-            backupBtn.Enabled = False
-            stopBtn.Enabled = True
+            startBackup()
 
             'Perform the first backup
             Dim saveLoc As String = saveLocTextBox.Text
@@ -408,30 +424,12 @@ Public Class Form1
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Performed the first backup.")
 
             Catch pathTooLong As PathTooLongException
-                backupBtn.Enabled = True
-                stopBtn.Enabled = False
-                saveLocTextBox.Enabled = True
-                browseSaveLocBtn.Enabled = True
-                destLocTextBox.Enabled = True
-                browseDestLocBtn.Enabled = True
-                freqSelectTimeUpDown.Enabled = True
-                restoreBtn.Enabled = True
-                backupTimer.Stop()
-
+                stopBackup()
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " ERROR: 'PathTooLongException', Backup interrupted.")
                 MessageBox.Show("The path you specified cannot be handled because it is too long, as a result the backup process has been interrupted.", "Backup Interrupted", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             Catch dirNotFound As DirectoryNotFoundException
-                backupBtn.Enabled = True
-                stopBtn.Enabled = False
-                saveLocTextBox.Enabled = True
-                browseSaveLocBtn.Enabled = True
-                destLocTextBox.Enabled = True
-                browseDestLocBtn.Enabled = True
-                freqSelectTimeUpDown.Enabled = True
-                restoreBtn.Enabled = True
-                backupTimer.Stop()
-
+                stopBackup()
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " ERROR: 'DirectoryNotFoundException', Backup interrupted.")
                 MessageBox.Show("The specified directory no longer exists, as a result the backup process has been interrupted.", "Backup interrupted", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
@@ -455,48 +453,20 @@ Public Class Form1
                     File.Copy(Path.Combine(saveLoc, fName), Path.Combine(destLoc, fName), True)
                 Next
 
-                logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Backup completed.")
+                logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Backup complete.")
 
             Catch pathTooLong As PathTooLongException
-                backupBtn.Enabled = True
-                stopBtn.Enabled = False
-                saveLocTextBox.Enabled = True
-                browseSaveLocBtn.Enabled = True
-                destLocTextBox.Enabled = True
-                browseDestLocBtn.Enabled = True
-                freqSelectTimeUpDown.Enabled = True
-                restoreBtn.Enabled = True
-                backupTimer.Stop()
-
+                stopBackup()
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " ERROR: 'PathTooLongException', Backup interrupted.")
                 MessageBox.Show("The path you specified cannot be handled because it is too long, as a result the backup process has been interrupted.", "Backup interrupted", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             Catch dirNotFound As DirectoryNotFoundException
-                backupBtn.Enabled = True
-                stopBtn.Enabled = False
-                saveLocTextBox.Enabled = True
-                browseSaveLocBtn.Enabled = True
-                destLocTextBox.Enabled = True
-                browseDestLocBtn.Enabled = True
-                freqSelectTimeUpDown.Enabled = True
-                restoreBtn.Enabled = True
-                backupTimer.Stop()
-
+                stopBackup()
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " ERROR: 'DirectoryNotFoundException', Backup interrupted.")
                 MessageBox.Show("The directory no longer exists, as a result the backup process has been interrupted.", "Backup interrupted", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         Else
-            backupBtn.Enabled = True
-            stopBtn.Enabled = False
-            saveLocTextBox.Enabled = True
-            browseSaveLocBtn.Enabled = True
-            destLocTextBox.Enabled = True
-            browseDestLocBtn.Enabled = True
-            freqSelectTimeUpDown.Enabled = True
-            restoreBtn.Enabled = True
-            backupTimer.Stop()
-            isBackupRunning = False
-
+            stopBackup()
             logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " WARNING: Wildlands closed or crashed, Backup interrupted.")
             MessageBox.Show("Wildlands has been closed or crashed, as a result the backup process has been interrupted.", "Wildlands is not running", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
@@ -506,31 +476,11 @@ Public Class Form1
         If confirmStopBackupChkBox.Checked = True Then
             Dim choice As Integer = MessageBox.Show("Are you sure you want to interrupt the backup process?", "Confirm backup interruption", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
             If choice = DialogResult.Yes Then
-                backupBtn.Enabled = True
-                stopBtn.Enabled = False
-                saveLocTextBox.Enabled = True
-                browseSaveLocBtn.Enabled = True
-                destLocTextBox.Enabled = True
-                browseDestLocBtn.Enabled = True
-                freqSelectTimeUpDown.Enabled = True
-                restoreBtn.Enabled = True
-                backupTimer.Stop()
-                isBackupRunning = False
-
+                stopBackup()
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Backup interrupted by the user.")
             End If
         Else
-            isBackupRunning = False
-            backupBtn.Enabled = True
-            stopBtn.Enabled = False
-            saveLocTextBox.Enabled = True
-            browseSaveLocBtn.Enabled = True
-            destLocTextBox.Enabled = True
-            browseDestLocBtn.Enabled = True
-            freqSelectTimeUpDown.Enabled = True
-            restoreBtn.Enabled = True
-            backupTimer.Stop()
-
+            stopBackup()
             logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Backup interrupted by the user.")
         End If
     End Sub
