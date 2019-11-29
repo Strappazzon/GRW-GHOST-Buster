@@ -166,6 +166,8 @@ Public Class Form1
                         logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: The version in use is greater than the one currently available.")
                     End If
 
+                    My.Computer.FileSystem.DeleteFile(Application.StartupPath + "\" + fileName)
+
                 Catch pathTooLong As PathTooLongException
                     logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " ERROR: 'PathTooLongException', Version check failed.")
                     showAlert(48, "An error occured while checking " & Me.Text & " version.")
