@@ -48,7 +48,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Icon_512.ico</ApplicationIcon>
+    <ApplicationIcon>Icon_256.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
@@ -127,7 +127,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Icon_512.ico" />
+    <Content Include="Icon_256.ico" />
     <None Include="res\info.png" />
     <None Include="res\alert.png" />
     <None Include="res\home_white.png" />
