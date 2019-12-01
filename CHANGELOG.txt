@@ -1,3 +1,6 @@
+1.3.4
+ - Enhancement: During the update check, the fetched version will no longer be stored on a file
+
 1.3.3
  - Enhancement: The version file will be deleted after comparing versions
  - Fix: Stopping the backup process before restoring save games
