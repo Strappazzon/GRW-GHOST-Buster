@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports System.IO.Compression
 Imports System.Net
 Imports Microsoft.Win32
 
@@ -163,48 +164,32 @@ Public Class Form1
 
         'Check for updates
         If updateCheckerChkBox.Checked = True Then
-            'Dim remoteUrl As String = "http://127.0.0.1/grw/" 'Debug
-            Dim remoteUrl As String = "https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/"
-            Dim fileName As String = "version"
-            Dim remoteResource As String = remoteUrl + fileName
-            Dim verDownloaded As Boolean
+            Dim versionUri As New Uri("https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/version")
+            Dim fetchedVer As String
 
             Try
-                Dim updater As New WebClient()
-                updater.DownloadFile(remoteResource, fileName) 'This will always overwrite the file
-                updater.Dispose()
-                verDownloaded = True
+                Using updater As New WebClient
+                    updater.Headers(HttpRequestHeader.AcceptEncoding) = "gzip"
+                    Using rs As New GZipStream(updater.OpenRead(versionUri), CompressionMode.Decompress)
+                        fetchedVer = New StreamReader(rs).ReadToEnd()
+                        rs.Dispose()
+                    End Using
+                    updater.Dispose()
+                End Using
 
-            Catch WebException As Exception
-                verDownloaded = False
+                If fetchedVer = versionCode Then
+                    logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: GHOST Buster is up to date.")
+                ElseIf fetchedVer > versionCode Then
+                    logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: New version of GHOST Buster is available.")
+                    showAlert(64, "New version of GHOST Buster is available.", True)
+                ElseIf fetchedVer < versionCode Then
+                    logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: The version in use is greater than the one currently available.")
+                End If
+
+            Catch connectionFailed As WebException
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " WARNING: 'WebException' Connection failed.")
                 showAlert(48, "Unable to check for updates. Connection failed.")
             End Try
-
-            If verDownloaded <> False Then
-                Try
-                    Dim fetchedVersionCode As Integer = File.ReadAllText(Application.StartupPath + "\" + fileName)
-
-                    If fetchedVersionCode = versionCode Then
-                        logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: GHOST Buster is up to date.")
-                    ElseIf fetchedVersionCode > versionCode Then
-                        logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: New version of GHOST Buster is available.")
-                        showAlert(64, "New version of GHOST Buster is available.", True)
-                    ElseIf fetchedVersionCode < versionCode Then
-                        logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: The version in use is greater than the one currently available.")
-                    End If
-
-                    My.Computer.FileSystem.DeleteFile(Application.StartupPath + "\" + fileName)
-
-                Catch pathTooLong As PathTooLongException
-                    logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " ERROR: 'PathTooLongException', Version check failed.")
-                    showAlert(48, "An error occured while checking " & Me.Text & " version.")
-
-                Catch conversionError As InvalidCastException
-                    logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " ERROR: 'InvalidCastException', Version check failed.")
-                    showAlert(48, "An error occured while checking " & Me.Text & " version.")
-                End Try
-            End If
         End If
     End Sub
 
