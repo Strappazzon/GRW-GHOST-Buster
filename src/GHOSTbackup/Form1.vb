@@ -4,8 +4,8 @@ Imports System.Net
 Imports Microsoft.Win32
 
 Public Class Form1
-    Public ReadOnly versionCode As Integer = 7
-    Public ReadOnly version As String = "1.3.3"
+    Public ReadOnly versionCode As Integer = 8
+    Public ReadOnly version As String = "1.3.4"
     Public isGameInstalled As Boolean
     Public gamePath As String
     Public uplayPath As String
