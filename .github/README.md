@@ -69,7 +69,7 @@ Some friends of mine also requested it so I released it here on GitHub.
 
 * **Remember window position**
   * _Disabled by default_
-  * GHOST Buster will remember where the window was located the last time the software was used
+  * The program will remember the window position the last time GHOST Buster was used
 
 All settings are stored inside `%LOCALAPPDATA%\GHOSTbackup`.
 
