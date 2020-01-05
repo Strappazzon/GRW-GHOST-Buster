@@ -205,7 +205,6 @@ Public Class Form1
                 e.Cancel = True
             Else
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Backup interrupted by the user.")
-                Application.Exit()
             End If
         End If
 
