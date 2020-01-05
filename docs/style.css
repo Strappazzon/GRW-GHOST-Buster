@@ -53,6 +53,7 @@ html {
 	scrollbar-width: thin;
 	scrollbar-color: #8c8d8f #2d2f32;
 	cursor: url('assets/cursor.png'), auto;
+	background-image: linear-gradient(0deg, rgba(27,32,38,0.7), rgba(27,32,38,0.7)), url('assets/bg2.jpg');
 	background-color: #1c2127;
 	color: #fff;
 	font-family: 'Montserrat', sans-serif;
