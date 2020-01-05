@@ -65,7 +65,6 @@ Public Class Form1
 
     Sub startBackup()
         backupTimer.Interval = freqSelectTimeUpDown.Value * 60000
-        'backupTimer.Interval = 3000 'Debug
         backupTimer.Start()
         isBackupRunning = True
         freqSelectTimeUpDown.Enabled = False
@@ -351,7 +350,7 @@ Public Class Form1
     Private Sub browseSaveLocBtn_Click(sender As Object, e As EventArgs) Handles browseSaveLocBtn.Click
         Using O As New FolderBrowserDialog
             O.ShowNewFolderButton = False
-            O.Description = "Select the location of Wildlands save games folder." & Environment.NewLine & "Uplay Game ID: 1771" ' & Environment.NewLine & "Steam App ID: 460930"
+            O.Description = "Select the location of Wildlands save games folder." & Environment.NewLine & "Uplay Game ID: 1771"
             O.SelectedPath = "C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\savegames"
             If O.ShowDialog = Windows.Forms.DialogResult.OK Then
                 saveLocTextBox.Text = O.SelectedPath
