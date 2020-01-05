@@ -65,7 +65,7 @@ Some friends of mine also requested it so I released it here on GitHub.
 
 * **Check for updates**
   * _Disabled by default_
-  * The program will check if the current version is up to date
+  * The program will connect to GitHub servers to check if the current version is up to date
 
 * **Remember window position**
   * _Disabled by default_
