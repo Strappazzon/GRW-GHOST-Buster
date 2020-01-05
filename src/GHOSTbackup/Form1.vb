@@ -36,7 +36,7 @@ Public Class Form1
         End If
     End Sub
 
-    Sub showAlert(alertType As Integer, alertDesc As String, Optional dlButton As Boolean = False)
+    Sub showAlert(alertType As Short, alertDesc As String, Optional dlButton As Boolean = False)
         If alertType = 48 Then
             alertIcon.Image = My.Resources.alert
             alertDot.Visible = True
