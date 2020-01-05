@@ -12,12 +12,12 @@ Public Class Form1
     Public isGameRunning As Boolean
     Public isBackupRunning As Boolean = False
 
-    Function loadFormPosition()
+    Sub loadFormPosition()
         If My.Settings.RememberFormPosition = True Then
             Dim formLocation As Point = My.Settings.WindowLocation
 
             If (formLocation.X = -1) And (formLocation.Y = -1) Then
-                Return Nothing
+                Return
             End If
 
             Dim bLocationVisible As Boolean = False
@@ -28,15 +28,15 @@ Public Class Form1
             Next
 
             If Not bLocationVisible Then
-                Return Nothing
+                Return
             End If
 
             StartPosition = FormStartPosition.Manual
             Location = formLocation
         End If
-    End Function
+    End Sub
 
-    Function showAlert(alertType As Integer, alertDesc As String, Optional dlButton As Boolean = False)
+    Sub showAlert(alertType As Integer, alertDesc As String, Optional dlButton As Boolean = False)
         If alertType = 48 Then
             alertIcon.Image = My.Resources.alert
             alertDot.Visible = True
@@ -61,9 +61,9 @@ Public Class Form1
         alertDescriptionLabel.Location = New Point(alertContainer.Width / 2 - alertDescriptionLabel.Width / 2, alertContainer.Height / 2 - alertDescriptionLabel.Height / 2)
         alertIcon.Location = New Point(alertContainer.Width / 2 - alertDescriptionLabel.Width / 2 - 28, alertContainer.Height / 2 - alertIcon.Height / 2)
         alertContainer.Visible = True
-    End Function
+    End Sub
 
-    Function startBackup()
+    Sub startBackup()
         backupTimer.Interval = freqSelectTimeUpDown.Value * 60000
         'backupTimer.Interval = 3000 'Debug
         backupTimer.Start()
@@ -76,9 +76,9 @@ Public Class Form1
         browseSaveLocBtn.Enabled = False
         destLocTextBox.Enabled = False
         browseDestLocBtn.Enabled = False
-    End Function
+    End Sub
 
-    Function stopBackup()
+    Sub stopBackup()
         backupTimer.Stop()
         isBackupRunning = False
         freqSelectTimeUpDown.Enabled = True
@@ -89,7 +89,7 @@ Public Class Form1
         browseSaveLocBtn.Enabled = True
         destLocTextBox.Enabled = True
         browseDestLocBtn.Enabled = True
-    End Function
+    End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Set window position
@@ -228,8 +228,8 @@ Public Class Form1
     End Sub
 
     Private Sub processCheckTimer_Tick(sender As Object, e As EventArgs) Handles processCheckTimer.Tick
-        For Each p As Process In Process.GetProcesses
-            If p.ProcessName = "GRW" Then
+        For Each P As Process In Process.GetProcesses
+            If P.ProcessName = "GRW" Then
                 isGameRunning = True
                 playGameBtn.Enabled = False
                 Exit For
@@ -398,8 +398,8 @@ Public Class Form1
 
             Try
                 Dim saveList As String() = Directory.GetFiles(saveLoc, "*.save")
-                For Each f As String In saveList
-                    Dim fName As String = f.Substring(saveLoc.Length + 1)
+                For Each F As String In saveList
+                    Dim fName As String = F.Substring(saveLoc.Length + 1)
                     If Not Directory.Exists(destLoc) Then
                         Directory.CreateDirectory(destLoc)
                     End If
@@ -419,7 +419,7 @@ Public Class Form1
                 MessageBox.Show("The specified directory no longer exists, as a result the backup process has been interrupted.", "Backup interrupted", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
         ElseIf isGameRunning = False Then
-            MessageBox.Show("You need to launch Wildlands before starting the backup process.", "Wildlands is not running", MessageBoxButtons.OK, MessageBoxIcon.Asterisk)
+            showAlert(64, "You need to launch Wildlands before starting the backup process.")
         End If
     End Sub
 
@@ -430,8 +430,8 @@ Public Class Form1
 
             Try
                 Dim saveList As String() = Directory.GetFiles(saveLoc, "*.save")
-                For Each f As String In saveList
-                    Dim fName As String = f.Substring(saveLoc.Length + 1)
+                For Each F As String In saveList
+                    Dim fName As String = F.Substring(saveLoc.Length + 1)
                     If Not Directory.Exists(destLoc) Then
                         Directory.CreateDirectory(destLoc)
                     End If
@@ -550,7 +550,7 @@ Public Class Form1
     End Sub
 
     Private Sub WebsiteLabel_Click(sender As Object, e As EventArgs) Handles websiteLabel.Click
-        Process.Start("https://strappazzon.github.io/GRW-GHOST-Buster")
+        Process.Start("https://strappazzon.xyz/GRW-GHOST-Buster")
     End Sub
 
     Private Sub SupportLabel_Click(sender As Object, e As EventArgs) Handles supportLabel.Click

@@ -343,7 +343,7 @@ Partial Class Form1
         Me.playGameBtn.Name = "playGameBtn"
         Me.playGameBtn.Size = New System.Drawing.Size(293, 32)
         Me.playGameBtn.TabIndex = 0
-        Me.playGameBtn.Text = "gamePath"
+        Me.playGameBtn.Text = "Play Ghost Recon Wildlands"
         Me.playGameBtn.UseVisualStyleBackColor = False
         '
         'logTxtBox
