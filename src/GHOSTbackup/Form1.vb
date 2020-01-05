@@ -169,6 +169,7 @@ Public Class Form1
 
             Try
                 Using updater As New WebClient
+                    updater.Headers(HttpRequestHeader.UserAgent) = "GHOST Buster (+https://strappazzon.xyz/GRW-GHOST-Buster)"
                     updater.Headers(HttpRequestHeader.AcceptEncoding) = "gzip"
                     Using rs As New GZipStream(updater.OpenRead(versionUri), CompressionMode.Decompress)
                         fetchedVer = New StreamReader(rs).ReadToEnd()
