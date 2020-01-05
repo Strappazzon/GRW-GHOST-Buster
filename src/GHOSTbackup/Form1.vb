@@ -369,7 +369,7 @@ Public Class Form1
 
     Private Sub browseDestLocBtn_Click(sender As Object, e As EventArgs) Handles browseDestLocBtn.Click
         Using O As New FolderBrowserDialog
-            O.Description = "Select where you want to backup your save files to. Every backup will create a new ""yyyMMdd HHmm"" subfolder."
+            O.Description = "Select where you want to backup your save files to. Every backup will create a new ""yyyyMMdd HHmm"" subfolder."
             If O.ShowDialog = Windows.Forms.DialogResult.OK Then
                 destLocTextBox.Text = O.SelectedPath
                 My.Settings.BackupDir = destLocTextBox.Text
