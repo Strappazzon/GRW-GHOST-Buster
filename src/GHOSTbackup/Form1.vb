@@ -541,8 +541,8 @@ Public Class Form1
             S.FileName = "GHOSTbackup_" + Now.ToString("yyyyMMddHHmmss")
             S.Filter = "Text file|.txt|Log file|*.log"
             If S.ShowDialog = DialogResult.OK Then
-                My.Computer.FileSystem.WriteAllText(S.FileName.ToString(), logTxtBox.Text, False)
                 logTxtBox.AppendText(Environment.NewLine & Now.ToString("[HH:mm]") & " INFO: Log exported as " + S.FileName)
+                File.AppendAllText(S.FileName, logTxtBox.Text)
                 S.Dispose()
             End If
         End Using
