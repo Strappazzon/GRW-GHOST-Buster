@@ -47,13 +47,13 @@ Partial Class Form1
         Me.CopyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SelectAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.WriteLogToFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExportLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.confirmExitChkBox = New System.Windows.Forms.CheckBox()
         Me.processCheckTimer = New System.Windows.Forms.Timer(Me.components)
         Me.confirmStopBackupChkBox = New System.Windows.Forms.CheckBox()
         Me.updateCheckerChkBox = New System.Windows.Forms.CheckBox()
         Me.topMenuContainer = New System.Windows.Forms.Panel()
+        Me.settingsPictureBtn = New System.Windows.Forms.PictureBox()
         Me.alertDot = New System.Windows.Forms.PictureBox()
         Me.aboutLabel = New System.Windows.Forms.Label()
         Me.homePictureBtn = New System.Windows.Forms.PictureBox()
@@ -74,12 +74,25 @@ Partial Class Form1
         Me.alertIcon = New System.Windows.Forms.PictureBox()
         Me.closeAlertContainerIcon = New System.Windows.Forms.PictureBox()
         Me.formPositionChkBox = New System.Windows.Forms.CheckBox()
+        Me.settingsTitleLabel = New System.Windows.Forms.Label()
+        Me.settingsContainer = New System.Windows.Forms.Panel()
+        Me.settingsWhichBackupLabel = New System.Windows.Forms.Label()
+        Me.settingsWhichBackupDropdownCombo = New System.Windows.Forms.ComboBox()
+        Me.settingsBrowseLogFolderBtn = New System.Windows.Forms.Button()
+        Me.settingsBrowseLogFileBtn = New System.Windows.Forms.Button()
+        Me.settingsLogFilePathTextBox = New System.Windows.Forms.TextBox()
+        Me.settingsDisableCloudSyncLabel = New System.Windows.Forms.Label()
+        Me.settingsDisableCloudSyncChkBox = New System.Windows.Forms.CheckBox()
+        Me.settingsWriteLogToFileChkBox = New System.Windows.Forms.CheckBox()
+        Me.latestBackupHelpLabel = New System.Windows.Forms.Label()
+        Me.latestBackupTimestampLabel = New System.Windows.Forms.Label()
         Me.pathsGroupBox.SuspendLayout()
         Me.backupGroupBox.SuspendLayout()
         CType(Me.freqSelectTimeUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.logoBigPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.logTxtBoxContext.SuspendLayout()
         Me.topMenuContainer.SuspendLayout()
+        CType(Me.settingsPictureBtn, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.alertDot, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.homePictureBtn, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.aboutContainer.SuspendLayout()
@@ -88,6 +101,7 @@ Partial Class Form1
         CType(Me.dlBtnIcon, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.alertIcon, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.closeAlertContainerIcon, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.settingsContainer.SuspendLayout()
         Me.SuspendLayout()
         '
         'saveLocTextBox
@@ -226,6 +240,8 @@ Partial Class Form1
         'backupGroupBox
         '
         Me.backupGroupBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.backupGroupBox.Controls.Add(Me.latestBackupTimestampLabel)
+        Me.backupGroupBox.Controls.Add(Me.latestBackupHelpLabel)
         Me.backupGroupBox.Controls.Add(Me.freqSelectTimeUpDown)
         Me.backupGroupBox.Controls.Add(Me.stopBtn)
         Me.backupGroupBox.Controls.Add(Me.restoreBtn)
@@ -294,9 +310,9 @@ Partial Class Form1
         Me.backupHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.backupHelpLabel.Location = New System.Drawing.Point(10, 23)
         Me.backupHelpLabel.Name = "backupHelpLabel"
-        Me.backupHelpLabel.Size = New System.Drawing.Size(282, 17)
+        Me.backupHelpLabel.Size = New System.Drawing.Size(244, 17)
         Me.backupHelpLabel.TabIndex = 5
-        Me.backupHelpLabel.Text = "Specify the frequency of the backup in minutes."
+        Me.backupHelpLabel.Text = "Specify the backup frequency in minutes."
         '
         'backupBtn
         '
@@ -364,10 +380,10 @@ Partial Class Form1
         'logTxtBoxContext
         '
         Me.logTxtBoxContext.BackColor = System.Drawing.SystemColors.Control
-        Me.logTxtBoxContext.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CopyToolStripMenuItem, Me.SelectAllToolStripMenuItem, Me.ToolStripSeparator1, Me.WriteLogToFileToolStripMenuItem, Me.ExportLogToolStripMenuItem})
+        Me.logTxtBoxContext.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CopyToolStripMenuItem, Me.SelectAllToolStripMenuItem, Me.ToolStripSeparator1, Me.ExportLogToolStripMenuItem})
         Me.logTxtBoxContext.Name = "logTxtBoxContext"
         Me.logTxtBoxContext.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.logTxtBoxContext.Size = New System.Drawing.Size(168, 98)
+        Me.logTxtBoxContext.Size = New System.Drawing.Size(168, 76)
         '
         'CopyToolStripMenuItem
         '
@@ -390,15 +406,6 @@ Partial Class Form1
         Me.ToolStripSeparator1.ForeColor = System.Drawing.SystemColors.ControlText
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(164, 6)
-        '
-        'WriteLogToFileToolStripMenuItem
-        '
-        Me.WriteLogToFileToolStripMenuItem.CheckOnClick = True
-        Me.WriteLogToFileToolStripMenuItem.Name = "WriteLogToFileToolStripMenuItem"
-        Me.WriteLogToFileToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
-        Me.WriteLogToFileToolStripMenuItem.Text = "Write log to file"
-        Me.WriteLogToFileToolStripMenuItem.ToolTipText = "Write all events to a text file."
-        Me.WriteLogToFileToolStripMenuItem.Visible = False
         '
         'ExportLogToolStripMenuItem
         '
@@ -460,6 +467,7 @@ Partial Class Form1
         'topMenuContainer
         '
         Me.topMenuContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.topMenuContainer.Controls.Add(Me.settingsPictureBtn)
         Me.topMenuContainer.Controls.Add(Me.alertDot)
         Me.topMenuContainer.Controls.Add(Me.aboutLabel)
         Me.topMenuContainer.Controls.Add(Me.homePictureBtn)
@@ -470,6 +478,16 @@ Partial Class Form1
         Me.topMenuContainer.Name = "topMenuContainer"
         Me.topMenuContainer.Size = New System.Drawing.Size(834, 60)
         Me.topMenuContainer.TabIndex = 12
+        '
+        'settingsPictureBtn
+        '
+        Me.settingsPictureBtn.BackColor = System.Drawing.Color.Transparent
+        Me.settingsPictureBtn.Image = CType(resources.GetObject("settingsPictureBtn.Image"), System.Drawing.Image)
+        Me.settingsPictureBtn.Location = New System.Drawing.Point(802, 22)
+        Me.settingsPictureBtn.Name = "settingsPictureBtn"
+        Me.settingsPictureBtn.Size = New System.Drawing.Size(21, 21)
+        Me.settingsPictureBtn.TabIndex = 5
+        Me.settingsPictureBtn.TabStop = False
         '
         'alertDot
         '
@@ -509,6 +527,7 @@ Partial Class Form1
         '
         Me.uplayLabel.AutoSize = True
         Me.uplayLabel.BackColor = System.Drawing.Color.Transparent
+        Me.uplayLabel.Enabled = False
         Me.uplayLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.uplayLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.uplayLabel.Location = New System.Drawing.Point(62, 20)
@@ -731,6 +750,172 @@ Partial Class Form1
         Me.formPositionChkBox.Text = "Remember window position"
         Me.formPositionChkBox.UseVisualStyleBackColor = False
         '
+        'settingsTitleLabel
+        '
+        Me.settingsTitleLabel.AutoSize = True
+        Me.settingsTitleLabel.BackColor = System.Drawing.Color.Transparent
+        Me.settingsTitleLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.settingsTitleLabel.ForeColor = System.Drawing.Color.White
+        Me.settingsTitleLabel.Location = New System.Drawing.Point(325, 115)
+        Me.settingsTitleLabel.Name = "settingsTitleLabel"
+        Me.settingsTitleLabel.Size = New System.Drawing.Size(152, 21)
+        Me.settingsTitleLabel.TabIndex = 19
+        Me.settingsTitleLabel.Text = "Advanced Settings"
+        Me.settingsTitleLabel.Visible = False
+        '
+        'settingsContainer
+        '
+        Me.settingsContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.settingsContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.settingsContainer.Controls.Add(Me.settingsWhichBackupLabel)
+        Me.settingsContainer.Controls.Add(Me.settingsWhichBackupDropdownCombo)
+        Me.settingsContainer.Controls.Add(Me.settingsBrowseLogFolderBtn)
+        Me.settingsContainer.Controls.Add(Me.settingsBrowseLogFileBtn)
+        Me.settingsContainer.Controls.Add(Me.settingsLogFilePathTextBox)
+        Me.settingsContainer.Controls.Add(Me.settingsDisableCloudSyncLabel)
+        Me.settingsContainer.Controls.Add(Me.settingsDisableCloudSyncChkBox)
+        Me.settingsContainer.Controls.Add(Me.settingsWriteLogToFileChkBox)
+        Me.settingsContainer.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.settingsContainer.Location = New System.Drawing.Point(325, 149)
+        Me.settingsContainer.Name = "settingsContainer"
+        Me.settingsContainer.Size = New System.Drawing.Size(497, 299)
+        Me.settingsContainer.TabIndex = 20
+        Me.settingsContainer.Visible = False
+        '
+        'settingsWhichBackupLabel
+        '
+        Me.settingsWhichBackupLabel.AutoSize = True
+        Me.settingsWhichBackupLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.settingsWhichBackupLabel.ForeColor = System.Drawing.Color.White
+        Me.settingsWhichBackupLabel.Location = New System.Drawing.Point(14, 130)
+        Me.settingsWhichBackupLabel.Name = "settingsWhichBackupLabel"
+        Me.settingsWhichBackupLabel.Size = New System.Drawing.Size(229, 17)
+        Me.settingsWhichBackupLabel.TabIndex = 21
+        Me.settingsWhichBackupLabel.Text = "Choose which backup will be restored"
+        '
+        'settingsWhichBackupDropdownCombo
+        '
+        Me.settingsWhichBackupDropdownCombo.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.settingsWhichBackupDropdownCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.settingsWhichBackupDropdownCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.settingsWhichBackupDropdownCombo.ForeColor = System.Drawing.Color.White
+        Me.settingsWhichBackupDropdownCombo.FormattingEnabled = True
+        Me.settingsWhichBackupDropdownCombo.Items.AddRange(New Object() {"Latest", "Second-to-last", "Let me decide"})
+        Me.settingsWhichBackupDropdownCombo.Location = New System.Drawing.Point(16, 155)
+        Me.settingsWhichBackupDropdownCombo.MaxDropDownItems = 3
+        Me.settingsWhichBackupDropdownCombo.Name = "settingsWhichBackupDropdownCombo"
+        Me.settingsWhichBackupDropdownCombo.Size = New System.Drawing.Size(464, 23)
+        Me.settingsWhichBackupDropdownCombo.TabIndex = 20
+        '
+        'settingsBrowseLogFolderBtn
+        '
+        Me.settingsBrowseLogFolderBtn.Enabled = False
+        Me.settingsBrowseLogFolderBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
+        Me.settingsBrowseLogFolderBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.settingsBrowseLogFolderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.settingsBrowseLogFolderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.settingsBrowseLogFolderBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.settingsBrowseLogFolderBtn.ForeColor = System.Drawing.Color.White
+        Me.settingsBrowseLogFolderBtn.Location = New System.Drawing.Point(430, 42)
+        Me.settingsBrowseLogFolderBtn.Name = "settingsBrowseLogFolderBtn"
+        Me.settingsBrowseLogFolderBtn.Size = New System.Drawing.Size(50, 30)
+        Me.settingsBrowseLogFolderBtn.TabIndex = 19
+        Me.settingsBrowseLogFolderBtn.Text = "Open"
+        Me.settingsBrowseLogFolderBtn.UseVisualStyleBackColor = True
+        '
+        'settingsBrowseLogFileBtn
+        '
+        Me.settingsBrowseLogFileBtn.Enabled = False
+        Me.settingsBrowseLogFileBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
+        Me.settingsBrowseLogFileBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.settingsBrowseLogFileBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.settingsBrowseLogFileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.settingsBrowseLogFileBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.settingsBrowseLogFileBtn.ForeColor = System.Drawing.Color.White
+        Me.settingsBrowseLogFileBtn.Image = CType(resources.GetObject("settingsBrowseLogFileBtn.Image"), System.Drawing.Image)
+        Me.settingsBrowseLogFileBtn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.settingsBrowseLogFileBtn.Location = New System.Drawing.Point(329, 42)
+        Me.settingsBrowseLogFileBtn.Name = "settingsBrowseLogFileBtn"
+        Me.settingsBrowseLogFileBtn.Size = New System.Drawing.Size(95, 30)
+        Me.settingsBrowseLogFileBtn.TabIndex = 14
+        Me.settingsBrowseLogFileBtn.Text = "Browse..."
+        Me.settingsBrowseLogFileBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.settingsBrowseLogFileBtn.UseVisualStyleBackColor = True
+        '
+        'settingsLogFilePathTextBox
+        '
+        Me.settingsLogFilePathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.settingsLogFilePathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.settingsLogFilePathTextBox.Enabled = False
+        Me.settingsLogFilePathTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.settingsLogFilePathTextBox.ForeColor = System.Drawing.Color.White
+        Me.settingsLogFilePathTextBox.Location = New System.Drawing.Point(32, 45)
+        Me.settingsLogFilePathTextBox.MaxLength = 256
+        Me.settingsLogFilePathTextBox.Name = "settingsLogFilePathTextBox"
+        Me.settingsLogFilePathTextBox.ReadOnly = True
+        Me.settingsLogFilePathTextBox.Size = New System.Drawing.Size(291, 23)
+        Me.settingsLogFilePathTextBox.TabIndex = 6
+        '
+        'settingsDisableCloudSyncLabel
+        '
+        Me.settingsDisableCloudSyncLabel.AutoSize = True
+        Me.settingsDisableCloudSyncLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.settingsDisableCloudSyncLabel.ForeColor = System.Drawing.Color.Silver
+        Me.settingsDisableCloudSyncLabel.Location = New System.Drawing.Point(12, 99)
+        Me.settingsDisableCloudSyncLabel.Name = "settingsDisableCloudSyncLabel"
+        Me.settingsDisableCloudSyncLabel.Size = New System.Drawing.Size(418, 13)
+        Me.settingsDisableCloudSyncLabel.TabIndex = 5
+        Me.settingsDisableCloudSyncLabel.Text = "The Uplay settings file may change at any time. Use this setting at your own risk" &
+    "."
+        '
+        'settingsDisableCloudSyncChkBox
+        '
+        Me.settingsDisableCloudSyncChkBox.AutoSize = True
+        Me.settingsDisableCloudSyncChkBox.BackColor = System.Drawing.Color.Transparent
+        Me.settingsDisableCloudSyncChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.settingsDisableCloudSyncChkBox.ForeColor = System.Drawing.Color.White
+        Me.settingsDisableCloudSyncChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.settingsDisableCloudSyncChkBox.Location = New System.Drawing.Point(14, 80)
+        Me.settingsDisableCloudSyncChkBox.Name = "settingsDisableCloudSyncChkBox"
+        Me.settingsDisableCloudSyncChkBox.Size = New System.Drawing.Size(336, 21)
+        Me.settingsDisableCloudSyncChkBox.TabIndex = 4
+        Me.settingsDisableCloudSyncChkBox.Text = "Let GHOST Buster disable cloud save synchronization"
+        Me.settingsDisableCloudSyncChkBox.UseVisualStyleBackColor = False
+        '
+        'settingsWriteLogToFileChkBox
+        '
+        Me.settingsWriteLogToFileChkBox.AutoSize = True
+        Me.settingsWriteLogToFileChkBox.BackColor = System.Drawing.Color.Transparent
+        Me.settingsWriteLogToFileChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.settingsWriteLogToFileChkBox.ForeColor = System.Drawing.Color.White
+        Me.settingsWriteLogToFileChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.settingsWriteLogToFileChkBox.Location = New System.Drawing.Point(14, 18)
+        Me.settingsWriteLogToFileChkBox.Name = "settingsWriteLogToFileChkBox"
+        Me.settingsWriteLogToFileChkBox.Size = New System.Drawing.Size(170, 21)
+        Me.settingsWriteLogToFileChkBox.TabIndex = 3
+        Me.settingsWriteLogToFileChkBox.Text = "Write events to a log file"
+        Me.settingsWriteLogToFileChkBox.UseVisualStyleBackColor = False
+        '
+        'latestBackupHelpLabel
+        '
+        Me.latestBackupHelpLabel.AutoSize = True
+        Me.latestBackupHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.latestBackupHelpLabel.Location = New System.Drawing.Point(306, 23)
+        Me.latestBackupHelpLabel.Name = "latestBackupHelpLabel"
+        Me.latestBackupHelpLabel.Size = New System.Drawing.Size(91, 17)
+        Me.latestBackupHelpLabel.TabIndex = 10
+        Me.latestBackupHelpLabel.Text = "Latest backup:"
+        '
+        'latestBackupTimestampLabel
+        '
+        Me.latestBackupTimestampLabel.AutoSize = True
+        Me.latestBackupTimestampLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.latestBackupTimestampLabel.Location = New System.Drawing.Point(394, 23)
+        Me.latestBackupTimestampLabel.Name = "latestBackupTimestampLabel"
+        Me.latestBackupTimestampLabel.Size = New System.Drawing.Size(96, 17)
+        Me.latestBackupTimestampLabel.TabIndex = 11
+        Me.latestBackupTimestampLabel.Text = "No backup yet."
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -739,6 +924,7 @@ Partial Class Form1
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(834, 461)
+        Me.Controls.Add(Me.settingsTitleLabel)
         Me.Controls.Add(Me.formPositionChkBox)
         Me.Controls.Add(Me.alertContainer)
         Me.Controls.Add(Me.logTitleLabel)
@@ -751,6 +937,7 @@ Partial Class Form1
         Me.Controls.Add(Me.logoBigPictureBox)
         Me.Controls.Add(Me.backupGroupBox)
         Me.Controls.Add(Me.pathsGroupBox)
+        Me.Controls.Add(Me.settingsContainer)
         Me.Controls.Add(Me.aboutContainer)
         Me.Controls.Add(Me.logsContainer)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -768,6 +955,7 @@ Partial Class Form1
         Me.logTxtBoxContext.ResumeLayout(False)
         Me.topMenuContainer.ResumeLayout(False)
         Me.topMenuContainer.PerformLayout()
+        CType(Me.settingsPictureBtn, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.alertDot, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.homePictureBtn, System.ComponentModel.ISupportInitialize).EndInit()
         Me.aboutContainer.ResumeLayout(False)
@@ -779,6 +967,8 @@ Partial Class Form1
         CType(Me.dlBtnIcon, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.alertIcon, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.closeAlertContainerIcon, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.settingsContainer.ResumeLayout(False)
+        Me.settingsContainer.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -808,7 +998,6 @@ Partial Class Form1
     Friend WithEvents CopyToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SelectAllToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents WriteLogToFileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExportLogToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents topMenuContainer As Panel
     Friend WithEvents uplayLabel As Label
@@ -833,4 +1022,17 @@ Partial Class Form1
     Friend WithEvents formPositionChkBox As CheckBox
     Friend WithEvents alertDot As PictureBox
     Friend WithEvents dlBtnIcon As PictureBox
+    Friend WithEvents settingsPictureBtn As PictureBox
+    Friend WithEvents settingsTitleLabel As Label
+    Friend WithEvents settingsContainer As Panel
+    Friend WithEvents settingsWriteLogToFileChkBox As CheckBox
+    Friend WithEvents settingsDisableCloudSyncChkBox As CheckBox
+    Friend WithEvents settingsDisableCloudSyncLabel As Label
+    Friend WithEvents settingsLogFilePathTextBox As TextBox
+    Friend WithEvents settingsBrowseLogFileBtn As Button
+    Friend WithEvents settingsBrowseLogFolderBtn As Button
+    Friend WithEvents settingsWhichBackupDropdownCombo As ComboBox
+    Friend WithEvents settingsWhichBackupLabel As Label
+    Friend WithEvents latestBackupHelpLabel As Label
+    Friend WithEvents latestBackupTimestampLabel As Label
 End Class
