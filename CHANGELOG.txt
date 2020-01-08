@@ -1,3 +1,30 @@
+1.4.0
+ - New: Added Advanced Settings
+ - New: Added the option to log events to a file (disabled by default)
+ - New: Added the option to let GHOST Buster disable Uplay cloud save synchronization before restoring a backup (disabled by default)
+ - UI: Disable Uplay button if Uplay is not installed
+ - UI: Replaced some MessageBoxes with a less intrusive alert
+ - Enhancement: Settings from old versions will move over to the new version of GHOST Buster
+    - The settings will migrate only if the program stays in the same directory
+ - Enhancement: The backup will be interrupted if Wildlands crashes or the user closes it
+ - Enhancement: Improved Wildlands process (GRW.exe) detection
+ - Enhancement: GHOST Buster will now detect the latest (default) and second-to-last backup before restoring the save games
+    - The user can still decide to restore which backup to restore by selecting "Let me decide" in the Advanced Settings (like GHOST Buster =< 1.3.4)
+ - Enhancement: Added latest backup timestamp to the main screen
+ - Fix: GHOST Buster asking for confirmation twice before closing it
+ - Fix: Play button flickering
+ - Fix: Typo
+ - Seconds will no longer be included in the file name when exporting the log file manually
+ - Don't log the backup frequency on close if it's been changed
+ - Log when the settings have been saved when closing GHOST Buster
+ - Replace forward slashes with backward slashes when logging Wildlands installation directory
+ - Added the following UserAgent HTTP Header to the updater: `GHOST Buster (+https://strappazzon.xyz/GRW-GHOST-Buster)`
+ - Changed some wording
+ - Removed unused code
+ - Refactoring
+ - Removed useless comments
+ - Added more comments to the code
+
 1.3.4
  - Enhancement: During the update check, the fetched version will no longer be stored on a file
 
