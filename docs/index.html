@@ -70,11 +70,8 @@
 
 	<ul>
 		<li>Close the game and interrupt the backup process</li>
-
-		<li>Click the second <kbd>Browse...</kbd> button and select the folder that has been created before you died.</li>
-			<ul><li>There is no quick way to restore a previous savegame. You will have to pick a folder manually <em>for now</em>.</li></ul>
-
 		<li>Click <kbd>Restore save games</kbd></li>
+		<ul><li>By default, GHOST Buster will restore the latest backup.</li></ul>
 	</ul>
 
 	<blockquote>
@@ -113,7 +110,38 @@
 		</ul>
 	</ul>
 
-	<p>All settings will be stored inside <code>%LOCALAPPDATA%\GHOSTbackup</code></p>
+	<h3 id="advanced-settings">Advanced Settings</h3>
+	<ul>
+		<li><strong>Write events to a log file</strong></li>
+		<ul>
+			<li><em>Disabled by default</em></li>
+			<li>The program will log all events (such as Errors and Warnings) to a file</li>
+		</ul>
+
+		<li><strong>Let GHOST Buster disable cloud save synchronization</strong></li>
+		<ul>
+			<li><em>Disabled by default</em></li>
+			<li>The program will disable Uplay cloud save synchronization prior restoring save games</li>
+			<li>Keep in mind that the Uplay settings file may change at any time so this setting may not be reliable</li>
+		</ul>
+
+		<li><strong>Choose which backup will be restored</strong></li>
+		<ul>
+			<li><em>Default setting: "Latest"</em></li>
+			<ul><li>When restoring a backup, GHOST Buster will restore the latest one</li></ul>
+		</ul>
+		<ul>
+			<li><em>"Second-to-last"</em></li>
+			<ul>
+				<li>When restoring a backup, GHOST Buster will restore the second-to-last one</li>
+				<li>If the second-to-last backup doesn't exist, you'll be prompted to restore the latest one instead</li>
+			</ul>
+		</ul>
+		<ul><em>"Let me decide"</em></ul>
+		<ul><li>You will have to select a <code>yyyyMMdd HHmm</code> backup folder manually before starting the restore process and switch back to its parent folder manually after restoring the backup</li></ul>
+	</ul>
+
+	<p>All settings are stored inside <code>%LOCALAPPDATA%\GHOSTbackup</code></p>
 
 	<h2 id="download">Download</h2>
 

@@ -41,11 +41,8 @@ Some friends of mine also requested it so I released it here on GitHub.
 ### Dead?
 
 * Close the game and interrupt the backup process.
-
-* Click the second **Browse...** button and select the last folder created before you died.
-  * There is no quick way to restore a previous save game, you will have to pick a folder manually *for now*.
-
-* Click **Restore save games**.
+* Click the **Restore save games** button.
+  * By default, GHOST Buster will restore the latest backup.
 
 > ### ⚠️ **WARNING**
 >
@@ -70,6 +67,26 @@ Some friends of mine also requested it so I released it here on GitHub.
 * **Remember window position**
   * _Disabled by default_
   * The program will remember the window position the last time GHOST Buster was used
+
+### Advanced Settings
+
+* **Write events to a log file**
+  * _Disabled by default_
+  * The program will log all events (such as Errors and Warnings) to a file
+
+* **Let GHOST Buster disable cloud save synchronization**
+  * _Disabled by default_
+  * The program will disable Uplay cloud save synchronization prior restoring save games
+  * Keep in mind that the Uplay settings file may change at any time so this setting may not be reliable
+
+* **Choose which backup will be restored**
+  * _Default setting: "Latest"_
+    * When restoring a backup, GHOST Buster will restore the latest one
+  * _"Second-to-last"_
+    * When restoring a backup, GHOST Buster will restore the second-to-last one
+    * If the second-to-last backup doesn't exist, you'll be prompted to restore the latest one instead
+  * _"Let me decide"_
+    * You will have to select a `yyyyMMdd HHmm` backup folder manually before starting the restore process and switch back to its parent folder manually after restoring the backup
 
 All settings are stored inside `%LOCALAPPDATA%\GHOSTbackup`.
 
