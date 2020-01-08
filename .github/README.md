@@ -30,11 +30,11 @@ Some friends of mine also requested it so I released it here on GitHub.
   * Every time you launch it, the program will check the System Registry to see if Ghost Recon Wildlands and Uplay are installed.
   * When you close it, a file containing the program's settings will be created (or updated if it already exists) inside `%LOCALAPPDATA%\GHOSTbackup`
 
-* Click the first **Browse...** button to select the folder where Wildlands save games are actually stored.
+* Click the first **Browse...** button to select Wildlands save games folder.
   * They are usually located inside `C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\savegames\y0ur-r4nd0m-us3r-1dent1f13r\1771`
 
 * Click the second **Browse...** button to select where Wildlands save games will be backed up to.
-  * A folder with the format `yyyyMMdd HHMM` will be created at every backup
+  * A `yyyyMMdd HHMM` sub-folder will be created with every backup
 
 * Finally, specify the backup interval and click the **Start The Backup** button. To interrupt the process, click **Stop The Backup**.
 
@@ -49,19 +49,19 @@ Some friends of mine also requested it so I released it here on GitHub.
 
 > ### ⚠️ **WARNING**
 >
-> Disable cloud synchronization before proceeding, otherwise Uplay will download the old save games rendering the restore process useless.
+> Disable cloud synchronization before restoring a backup, otherwise Uplay will redownload the old save games rendering the restore process useless.
 >
-> Also note that restoring a backup will **OVERWRITE** your old save games. This **CANNOT BE UNDONE**.
+> Also note that restoring a backup will **OVERWRITE** your old save games and it **CANNOT BE UNDONE**.
 
 ## Settings
 
 * **Confirm exit (if backup is active)**
   * _Enabled by default_
-  * The program will warn you before closing it if the backup is active
+  * The program will warn you before closing it if the backup process is still running
 
 * **Confirm backup interruption**
   * _Disabled by default_
-  * The program will ask you if you're sure you want to interrupt the current backup process
+  * The program will ask you if you're sure you want to interrupt the running backup process
 
 * **Check for updates**
   * _Disabled by default_
