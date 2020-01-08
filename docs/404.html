@@ -1,17 +1,23 @@
+---
+layout: none
+title: "Not Found | GHOST Buster"
+---
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Security-Policy" content="default-src 'self'">
-	<title>Not Found | GHOST Buster</title>
+	<title>{{ page.title }}</title>
+	<meta name="author" content="Alberto Strappazzon">
 	<meta name="robots" content="noindex">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="referrer" content="no-referrer">
-	<link rel="canonical" href="https://strappazzon.xyz/GRW-GHOST-Buster/404.html">
-	<link rel="icon" type="image/png" href="assets/favicon.png">
-	<link rel="stylesheet" href="style_404.css?v=1">
+	<link rel="canonical" href="{{ site.url }}{{ page.url | replace: 'index.html',''}}">
+	<link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}">
+	<link rel="stylesheet" href="{{ '/assets/css/style_404.css?v=1' | relative_url }}">
 </head>
 <body>
-	<a href="https://strappazzon.xyz/GRW-GHOST-Buster/">NOT</a>
+	<a href="{{ site.baseurl | prepend: site.url }}">NOT</a>
 </body>
 </html>
