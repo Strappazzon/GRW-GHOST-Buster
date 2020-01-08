@@ -5,8 +5,8 @@ Imports System.Text
 Imports Microsoft.Win32
 
 Public Class Form1
-    Public ReadOnly versionCode As Integer = 8
-    Public ReadOnly version As String = "1.3.4"
+    Public ReadOnly versionCode As Short = 9
+    Public ReadOnly version As String = "1.4.0"
     Public isGameInstalled As Boolean
     Public isUplayInstalled As Boolean
     Public gamePath As String
