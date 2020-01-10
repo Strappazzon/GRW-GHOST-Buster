@@ -18,6 +18,7 @@
   <a href="#about">About</a> •
   <a href="#getting-started">Getting Started</a> •
   <a href="#settings">Settings</a> •
+  <a href="#screenshots">Screenshots</a> •
   <a href="#download">Download</a> •
   <a href="#license">License</a>
 </p>
@@ -95,6 +96,34 @@ Some friends of mine also requested it so I released it here on GitHub.
     * You will have to select a `yyyyMMdd HHmm` backup folder manually before starting the restore process and switch back to its parent folder manually after restoring the backup
 
 All settings are stored inside `%LOCALAPPDATA%\GHOSTbackup`.
+
+## Screenshots
+
+### GHOST Buster preview
+
+<table>
+  <tr>
+    <th align="center">Main Screen</th>
+    <th align="center">Logs</th>
+  </tr>
+  <tr>
+    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot.png"></td>
+    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_logs.png"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th align="center">About</th>
+    <th align="center">Advanced Settings</th>
+  </tr>
+  <tr>
+    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_about.png"></td>
+    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_settings.png"></td>
+  </tr>
+</table>
+
+*Click an image to enlarge it*
 
 ## Download
 
