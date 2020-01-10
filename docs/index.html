@@ -8,7 +8,7 @@ description: "Backup and restore Ghost Recon Wildlands save games."
 <html lang="en-US">
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="Content-Security-Policy" content="default-src 'self'">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'">
 	<title>{{ page.title }}</title>
 	<meta name="description" content="{{ page.description }}">
 	<meta name="keywords" content="ghost buster,grw ghost buster,ghost buster wildlands,wildlands backup,wildlands backup savegames,wildlands backup save files,wildlands ghost mode backup">
@@ -26,6 +26,7 @@ description: "Backup and restore Ghost Recon Wildlands save games."
 	<link rel="canonical" href="{{ site.url }}{{ page.url | replace: 'index.html',''}}">
 	<link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
 	<link rel="stylesheet" href="{{ '/assets/css/styles.css?v=2' | relative_url }}">
+	<script src="{{ '/assets/js/gallery.js?v=1' | relative_url }}" defer></script>
 </head>
 <body>
 <div class="container">
@@ -39,6 +40,7 @@ description: "Backup and restore Ghost Recon Wildlands save games."
 		<a href="#about">About</a> •
 		<a href="#getting-started">Getting Started</a> •
 		<a href="#settings">Settings</a> •
+		<a href="#screenshots">Screenshots</a> •
 		<a href="#download">Download</a> •
 		<a href="#source-code">Source Code</a> •
 		<a href="#license">License</a>
@@ -147,6 +149,42 @@ description: "Backup and restore Ghost Recon Wildlands save games."
 	</ul>
 
 	<p>All settings are stored inside <code>%LOCALAPPDATA%\GHOSTbackup</code></p>
+
+	<h2 id="screenshots">Screenshots</h2>
+
+	<div class="gallery-title">GHOST Buster Preview</div>
+
+	<div class="gallery">
+		<div class="g-list">
+			<div class="g-item" onclick="changeScr('screenshot.png')">
+				<img src="{{ '/assets/img/screenshot_icon.png' | relative_url }}" alt="">
+				<strong>Main Screen</strong>
+				<br>
+				<span>The main screen of GHOST Buster</span>
+			</div>
+			<div class="g-item" onclick="changeScr('screenshot_logs.png')">
+				<img src="{{ '/assets/img/screenshot_icon.png' | relative_url }}" alt="">
+				<strong>Logs Screen</strong>
+				<br>
+				<span>All the events are logged here</span>
+			</div>
+			<div class="g-item" onclick="changeScr('screenshot_about.png')">
+				<img src="{{ '/assets/img/screenshot_icon.png' | relative_url }}" alt="">
+				<strong>About Screen</strong>
+				<br>
+				<span>Information about GHOST Buster</span>
+			</div>
+			<div class="g-item" onclick="changeScr('screenshot_settings.png')">
+				<img src="{{ '/assets/img/screenshot_icon.png' | relative_url }}" alt="">
+				<strong>Advanced Settings Screen</strong>
+				<br>
+				<span>GHOST Buster advanced settings</span>
+			</div>
+		</div>
+		<div class="g-scr-cnt">
+			<a id="scr-a" href="{{ '/assets/img/screenshot.png' | relative_url }}"><img id="scr" class="img-responsive" src="{{ '/assets/img/screenshot.png' | relative_url }}" alt="GHOST Buster Screenshot"></a>
+		</div>
+	</div>
 
 	<h2 id="download">Download</h2>
 
