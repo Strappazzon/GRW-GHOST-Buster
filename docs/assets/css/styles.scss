@@ -98,8 +98,8 @@ kbd {
 	font-family: "Lucida Console", monospace;
 	font-size: 12px;
 	cursor: pointer;
-	padding: 0px 5px 0px 5px;
-	margin: 0px 2px;
+	padding: 0 5px 0 5px;
+	margin: 0 2px;
 	color: #000;
 	background-color: #fcfcfc;
 	vertical-align: middle;
@@ -115,7 +115,7 @@ code {
 	background-color: rgba(35, 35, 35, 0.4);
 	border: 1px solid rgba(255, 200, 61, 1);
 	border-left: 5px solid rgba(255, 200, 61, 1);
-	margin: 0px;
+	margin: 0;
 	padding: 3px 5px;
 	word-break: break-all;
 }
@@ -126,7 +126,7 @@ blockquote {
 }
 
 .quote-title {
-	margin: 0px;
+	margin: 0;
 	padding: 2px 5px 2px 5px;
 	color: #e2e2e2;
 	background-color: rgba(123, 123, 123, 1);
@@ -136,7 +136,7 @@ blockquote {
 	font-weight: bold;
 }
 
-.quote-text { margin: 0px; padding: 10px; }
+.quote-text { margin: 0; padding: 10px; }
 
 .quote-text strong { border-bottom: 1px solid rgba(255, 200, 61, 0.7); }
 
