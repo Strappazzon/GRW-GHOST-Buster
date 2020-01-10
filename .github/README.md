@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="./Preview.png" alt="GHOST Buster"></a>
+  <img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/favicon.png" width="128px" alt="GHOST Buster Icon"></a>
   <br>
   GHOST Buster
   <br>
