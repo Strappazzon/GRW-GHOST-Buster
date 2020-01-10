@@ -67,6 +67,33 @@ html {
 
 body { margin: 25px 0 25px 0; text-align: left; }
 
+.notification {
+	position: fixed;
+	top: 75px;
+	right: -425px;
+	max-width: 450px;
+	padding: 10px 50px 10px 15px;
+	border: 2px solid #e72b2b;
+	border-left: 10px solid #e72b2b;
+	color: #e72b2b;
+	background-color: rgba(35, 35, 35, 0.8);
+	font-size: 16px;
+	font-style: italic;
+	transition: 0.5s ease-out;
+}
+
+.notification:hover {
+	right: 10px;
+	transition: 0.5s ease-in;
+}
+
+.notification img {
+	float: left;
+	padding-right: 5px;
+}
+
+@media (max-width: 992px) { .notification { display: none; } }
+
 .container {
 	width: 100%;
 	padding-right: 15px;
