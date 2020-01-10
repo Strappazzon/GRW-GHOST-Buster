@@ -55,8 +55,8 @@ html {
 	background-position: center;
 	scrollbar-width: thin;
 	scrollbar-color: #8c8d8f #2d2f32;
-	cursor: url("{{ '/assets/cursor.png' | relative_url }}"), auto;
-	background-image: linear-gradient(0deg, rgba(27,32,38,0.7), rgba(27,32,38,0.7)), url("{{ '/assets/bg.jpg' | relative_url }}");
+	cursor: url("{{ '/assets/img/cursor.png' | relative_url }}"), auto;
+	background-image: linear-gradient(0deg, rgba(27,32,38,0.7), rgba(27,32,38,0.7)), url("{{ '/assets/img/bg.jpg' | relative_url }}");
 	background-color: #1c2127;
 	color: #fff;
 	font-family: 'Montserrat', sans-serif;
@@ -132,7 +132,7 @@ blockquote {
 	padding: 2px 5px 2px 5px;
 	color: #e2e2e2;
 	background-color: rgba(123, 123, 123, 1);
-	background-image: url("{{ '/assets/pattern.png' | relative_url }}");
+	background-image: url("{{ '/assets/img/pattern.png' | relative_url }}");
 	text-transform: uppercase;
 	font-size: 16px;
 	font-weight: bold;
