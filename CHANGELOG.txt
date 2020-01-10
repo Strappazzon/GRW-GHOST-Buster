@@ -1,3 +1,6 @@
+1.4.1
+ - Removed AssemblyCompany
+
 1.4.0
  - New: Added Advanced Settings
  - New: Added the option to log events to a file (disabled by default)
