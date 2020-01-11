@@ -104,22 +104,22 @@ All settings are stored inside `%LOCALAPPDATA%\GHOSTbackup`.
 <table>
   <tr>
     <th align="center">Main Screen</th>
-    <th align="center">Logs</th>
+    <th align="center">Advanced Settings</th>
   </tr>
   <tr>
     <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot.png"></td>
-    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_logs.png"></td>
+    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_settings.png"></td>
   </tr>
 </table>
 
 <table>
   <tr>
+    <th align="center">Logs</th>
     <th align="center">About</th>
-    <th align="center">Advanced Settings</th>
   </tr>
   <tr>
+    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_logs.png"></td>
     <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_about.png"></td>
-    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_settings.png"></td>
   </tr>
 </table>
 
