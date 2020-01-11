@@ -128,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon_256.ico" />
+    <None Include="res\uplay.png" />
     <None Include="res\settings_white.png" />
     <None Include="res\settings.png" />
     <None Include="res\info.png" />

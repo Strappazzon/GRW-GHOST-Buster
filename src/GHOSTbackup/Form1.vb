@@ -317,7 +317,6 @@ Public Class Form1
 
             If uplayPath <> Nothing Then
                 isUplayInstalled = True
-                uplayLabel.Enabled = True
                 log("[INFO] Uplay is installed in: " & uplayPath)
             Else
                 isUplayInstalled = False
@@ -447,7 +446,7 @@ Public Class Form1
         homePictureBtn.Image = My.Resources.home_white
         aboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         logLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        settingsPictureBtn.Image = My.Resources.settings
+        settingsLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         backupGroupBox.Visible = True
         pathsGroupBox.Visible = True
         aboutTitleLabel.Visible = False
@@ -458,15 +457,26 @@ Public Class Form1
         settingsContainer.Visible = False
     End Sub
 
-    Private Sub UplayLabel_Click(sender As Object, e As EventArgs) Handles uplayLabel.Click
-        Process.Start(uplayPath & "Uplay.exe")
+    Private Sub settingsLabel_Click(sender As Object, e As EventArgs) Handles settingsLabel.Click
+        homePictureBtn.Image = My.Resources.home
+        aboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        logLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        settingsLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
+        backupGroupBox.Visible = False
+        pathsGroupBox.Visible = False
+        aboutTitleLabel.Visible = False
+        aboutContainer.Visible = False
+        logTitleLabel.Visible = False
+        logsContainer.Visible = False
+        settingsTitleLabel.Visible = True
+        settingsContainer.Visible = True
     End Sub
 
     Private Sub logLabel_Click(sender As Object, e As EventArgs) Handles logLabel.Click
         homePictureBtn.Image = My.Resources.home
         logLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
         aboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        settingsPictureBtn.Image = My.Resources.settings
+        settingsLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         backupGroupBox.Visible = False
         pathsGroupBox.Visible = False
         aboutTitleLabel.Visible = False
@@ -493,7 +503,7 @@ Public Class Form1
         homePictureBtn.Image = My.Resources.home
         logLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         aboutLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
-        settingsPictureBtn.Image = My.Resources.settings
+        settingsLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         backupGroupBox.Visible = False
         pathsGroupBox.Visible = False
         aboutContainer.Visible = True
@@ -504,19 +514,12 @@ Public Class Form1
         settingsContainer.Visible = False
     End Sub
 
-    Private Sub settingsPictureBtn_Click(sender As Object, e As EventArgs) Handles settingsPictureBtn.Click
-        homePictureBtn.Image = My.Resources.home
-        aboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        logLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        settingsPictureBtn.Image = My.Resources.settings_white
-        backupGroupBox.Visible = False
-        pathsGroupBox.Visible = False
-        aboutTitleLabel.Visible = False
-        aboutContainer.Visible = False
-        logTitleLabel.Visible = False
-        logsContainer.Visible = False
-        settingsTitleLabel.Visible = True
-        settingsContainer.Visible = True
+    Private Sub uplayPictureBtn_Click(sender As Object, e As EventArgs) Handles uplayPictureBtn.Click
+        If isUplayInstalled = True Then
+            Process.Start(uplayPath & "Uplay.exe")
+        Else
+            showAlert(64, "Uplay is not installed.")
+        End If
     End Sub
 
     Private Sub dlBtnIcon_Click(sender As Object, e As EventArgs) Handles dlBtnIcon.Click

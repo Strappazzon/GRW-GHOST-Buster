@@ -35,6 +35,8 @@ Partial Class Form1
         Me.destLocHelpLabel = New System.Windows.Forms.Label()
         Me.saveLocHelpLabel = New System.Windows.Forms.Label()
         Me.backupGroupBox = New System.Windows.Forms.GroupBox()
+        Me.latestBackupTimestampLabel = New System.Windows.Forms.Label()
+        Me.latestBackupHelpLabel = New System.Windows.Forms.Label()
         Me.freqSelectTimeUpDown = New System.Windows.Forms.NumericUpDown()
         Me.stopBtn = New System.Windows.Forms.Button()
         Me.restoreBtn = New System.Windows.Forms.Button()
@@ -53,11 +55,11 @@ Partial Class Form1
         Me.confirmStopBackupChkBox = New System.Windows.Forms.CheckBox()
         Me.updateCheckerChkBox = New System.Windows.Forms.CheckBox()
         Me.topMenuContainer = New System.Windows.Forms.Panel()
-        Me.settingsPictureBtn = New System.Windows.Forms.PictureBox()
+        Me.uplayPictureBtn = New System.Windows.Forms.PictureBox()
         Me.alertDot = New System.Windows.Forms.PictureBox()
         Me.aboutLabel = New System.Windows.Forms.Label()
         Me.homePictureBtn = New System.Windows.Forms.PictureBox()
-        Me.uplayLabel = New System.Windows.Forms.Label()
+        Me.settingsLabel = New System.Windows.Forms.Label()
         Me.logLabel = New System.Windows.Forms.Label()
         Me.aboutContainer = New System.Windows.Forms.Panel()
         Me.licenseLabel = New System.Windows.Forms.Label()
@@ -84,15 +86,13 @@ Partial Class Form1
         Me.settingsDisableCloudSyncLabel = New System.Windows.Forms.Label()
         Me.settingsDisableCloudSyncChkBox = New System.Windows.Forms.CheckBox()
         Me.settingsWriteLogToFileChkBox = New System.Windows.Forms.CheckBox()
-        Me.latestBackupHelpLabel = New System.Windows.Forms.Label()
-        Me.latestBackupTimestampLabel = New System.Windows.Forms.Label()
         Me.pathsGroupBox.SuspendLayout()
         Me.backupGroupBox.SuspendLayout()
         CType(Me.freqSelectTimeUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.logoBigPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.logTxtBoxContext.SuspendLayout()
         Me.topMenuContainer.SuspendLayout()
-        CType(Me.settingsPictureBtn, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.uplayPictureBtn, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.alertDot, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.homePictureBtn, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.aboutContainer.SuspendLayout()
@@ -255,6 +255,26 @@ Partial Class Form1
         Me.backupGroupBox.TabIndex = 4
         Me.backupGroupBox.TabStop = False
         Me.backupGroupBox.Text = "Available tasks"
+        '
+        'latestBackupTimestampLabel
+        '
+        Me.latestBackupTimestampLabel.AutoSize = True
+        Me.latestBackupTimestampLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.latestBackupTimestampLabel.Location = New System.Drawing.Point(394, 23)
+        Me.latestBackupTimestampLabel.Name = "latestBackupTimestampLabel"
+        Me.latestBackupTimestampLabel.Size = New System.Drawing.Size(96, 17)
+        Me.latestBackupTimestampLabel.TabIndex = 11
+        Me.latestBackupTimestampLabel.Text = "No backup yet."
+        '
+        'latestBackupHelpLabel
+        '
+        Me.latestBackupHelpLabel.AutoSize = True
+        Me.latestBackupHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.latestBackupHelpLabel.Location = New System.Drawing.Point(306, 23)
+        Me.latestBackupHelpLabel.Name = "latestBackupHelpLabel"
+        Me.latestBackupHelpLabel.Size = New System.Drawing.Size(91, 17)
+        Me.latestBackupHelpLabel.TabIndex = 10
+        Me.latestBackupHelpLabel.Text = "Latest backup:"
         '
         'freqSelectTimeUpDown
         '
@@ -467,11 +487,11 @@ Partial Class Form1
         'topMenuContainer
         '
         Me.topMenuContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
-        Me.topMenuContainer.Controls.Add(Me.settingsPictureBtn)
+        Me.topMenuContainer.Controls.Add(Me.uplayPictureBtn)
         Me.topMenuContainer.Controls.Add(Me.alertDot)
         Me.topMenuContainer.Controls.Add(Me.aboutLabel)
         Me.topMenuContainer.Controls.Add(Me.homePictureBtn)
-        Me.topMenuContainer.Controls.Add(Me.uplayLabel)
+        Me.topMenuContainer.Controls.Add(Me.settingsLabel)
         Me.topMenuContainer.Controls.Add(Me.logLabel)
         Me.topMenuContainer.Dock = System.Windows.Forms.DockStyle.Top
         Me.topMenuContainer.Location = New System.Drawing.Point(0, 0)
@@ -479,21 +499,21 @@ Partial Class Form1
         Me.topMenuContainer.Size = New System.Drawing.Size(834, 60)
         Me.topMenuContainer.TabIndex = 12
         '
-        'settingsPictureBtn
+        'uplayPictureBtn
         '
-        Me.settingsPictureBtn.BackColor = System.Drawing.Color.Transparent
-        Me.settingsPictureBtn.Image = CType(resources.GetObject("settingsPictureBtn.Image"), System.Drawing.Image)
-        Me.settingsPictureBtn.Location = New System.Drawing.Point(802, 22)
-        Me.settingsPictureBtn.Name = "settingsPictureBtn"
-        Me.settingsPictureBtn.Size = New System.Drawing.Size(21, 21)
-        Me.settingsPictureBtn.TabIndex = 5
-        Me.settingsPictureBtn.TabStop = False
+        Me.uplayPictureBtn.BackColor = System.Drawing.Color.Transparent
+        Me.uplayPictureBtn.Image = Global.GHOSTbackup.My.Resources.Resources.uplay
+        Me.uplayPictureBtn.Location = New System.Drawing.Point(802, 20)
+        Me.uplayPictureBtn.Name = "uplayPictureBtn"
+        Me.uplayPictureBtn.Size = New System.Drawing.Size(21, 21)
+        Me.uplayPictureBtn.TabIndex = 6
+        Me.uplayPictureBtn.TabStop = False
         '
         'alertDot
         '
         Me.alertDot.BackColor = System.Drawing.Color.Transparent
         Me.alertDot.Image = CType(resources.GetObject("alertDot.Image"), System.Drawing.Image)
-        Me.alertDot.Location = New System.Drawing.Point(178, 22)
+        Me.alertDot.Location = New System.Drawing.Point(190, 24)
         Me.alertDot.Name = "alertDot"
         Me.alertDot.Size = New System.Drawing.Size(10, 10)
         Me.alertDot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -507,7 +527,7 @@ Partial Class Form1
         Me.aboutLabel.BackColor = System.Drawing.Color.Transparent
         Me.aboutLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.aboutLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.aboutLabel.Location = New System.Drawing.Point(212, 20)
+        Me.aboutLabel.Location = New System.Drawing.Point(225, 20)
         Me.aboutLabel.Name = "aboutLabel"
         Me.aboutLabel.Size = New System.Drawing.Size(57, 21)
         Me.aboutLabel.TabIndex = 2
@@ -523,18 +543,17 @@ Partial Class Form1
         Me.homePictureBtn.TabIndex = 1
         Me.homePictureBtn.TabStop = False
         '
-        'uplayLabel
+        'settingsLabel
         '
-        Me.uplayLabel.AutoSize = True
-        Me.uplayLabel.BackColor = System.Drawing.Color.Transparent
-        Me.uplayLabel.Enabled = False
-        Me.uplayLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.uplayLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.uplayLabel.Location = New System.Drawing.Point(62, 20)
-        Me.uplayLabel.Name = "uplayLabel"
-        Me.uplayLabel.Size = New System.Drawing.Size(55, 21)
-        Me.uplayLabel.TabIndex = 0
-        Me.uplayLabel.Text = "Uplay"
+        Me.settingsLabel.AutoSize = True
+        Me.settingsLabel.BackColor = System.Drawing.Color.Transparent
+        Me.settingsLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.settingsLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.settingsLabel.Location = New System.Drawing.Point(60, 20)
+        Me.settingsLabel.Name = "settingsLabel"
+        Me.settingsLabel.Size = New System.Drawing.Size(72, 21)
+        Me.settingsLabel.TabIndex = 0
+        Me.settingsLabel.Text = "Settings"
         '
         'logLabel
         '
@@ -542,7 +561,7 @@ Partial Class Form1
         Me.logLabel.BackColor = System.Drawing.Color.Transparent
         Me.logLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.logLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.logLabel.Location = New System.Drawing.Point(142, 20)
+        Me.logLabel.Location = New System.Drawing.Point(155, 20)
         Me.logLabel.Name = "logLabel"
         Me.logLabel.Size = New System.Drawing.Size(45, 21)
         Me.logLabel.TabIndex = 3
@@ -896,26 +915,6 @@ Partial Class Form1
         Me.settingsWriteLogToFileChkBox.Text = "Write events to a log file"
         Me.settingsWriteLogToFileChkBox.UseVisualStyleBackColor = False
         '
-        'latestBackupHelpLabel
-        '
-        Me.latestBackupHelpLabel.AutoSize = True
-        Me.latestBackupHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.latestBackupHelpLabel.Location = New System.Drawing.Point(306, 23)
-        Me.latestBackupHelpLabel.Name = "latestBackupHelpLabel"
-        Me.latestBackupHelpLabel.Size = New System.Drawing.Size(91, 17)
-        Me.latestBackupHelpLabel.TabIndex = 10
-        Me.latestBackupHelpLabel.Text = "Latest backup:"
-        '
-        'latestBackupTimestampLabel
-        '
-        Me.latestBackupTimestampLabel.AutoSize = True
-        Me.latestBackupTimestampLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.latestBackupTimestampLabel.Location = New System.Drawing.Point(394, 23)
-        Me.latestBackupTimestampLabel.Name = "latestBackupTimestampLabel"
-        Me.latestBackupTimestampLabel.Size = New System.Drawing.Size(96, 17)
-        Me.latestBackupTimestampLabel.TabIndex = 11
-        Me.latestBackupTimestampLabel.Text = "No backup yet."
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -955,7 +954,7 @@ Partial Class Form1
         Me.logTxtBoxContext.ResumeLayout(False)
         Me.topMenuContainer.ResumeLayout(False)
         Me.topMenuContainer.PerformLayout()
-        CType(Me.settingsPictureBtn, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.uplayPictureBtn, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.alertDot, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.homePictureBtn, System.ComponentModel.ISupportInitialize).EndInit()
         Me.aboutContainer.ResumeLayout(False)
@@ -1000,7 +999,7 @@ Partial Class Form1
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents ExportLogToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents topMenuContainer As Panel
-    Friend WithEvents uplayLabel As Label
+    Friend WithEvents settingsLabel As Label
     Friend WithEvents homePictureBtn As PictureBox
     Friend WithEvents aboutLabel As Label
     Friend WithEvents aboutContainer As Panel
@@ -1022,7 +1021,6 @@ Partial Class Form1
     Friend WithEvents formPositionChkBox As CheckBox
     Friend WithEvents alertDot As PictureBox
     Friend WithEvents dlBtnIcon As PictureBox
-    Friend WithEvents settingsPictureBtn As PictureBox
     Friend WithEvents settingsTitleLabel As Label
     Friend WithEvents settingsContainer As Panel
     Friend WithEvents settingsWriteLogToFileChkBox As CheckBox
@@ -1035,4 +1033,5 @@ Partial Class Form1
     Friend WithEvents settingsWhichBackupLabel As Label
     Friend WithEvents latestBackupHelpLabel As Label
     Friend WithEvents latestBackupTimestampLabel As Label
+    Friend WithEvents uplayPictureBtn As PictureBox
 End Class
