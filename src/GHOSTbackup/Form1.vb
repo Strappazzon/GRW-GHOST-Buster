@@ -82,6 +82,69 @@ Public Class Form1
         alertContainer.Visible = True
     End Sub
 
+    Sub showMsgBox(ByVal Message As String, ByVal Title As String, ByVal Buttons As MessageBoxButtons, ByVal Icon As MessageBoxIcon, Optional ByVal DefaultButton As MessageBoxDefaultButton = MessageBoxDefaultButton.Button2)
+        'Custom MessageBox
+        '//docs.microsoft.com/en-us/dotnet/api/system.windows.forms.form.dialogresult
+
+        'Set Message and Message Title
+        'The content of the message (or part of it) is written using Rich Text Format
+        '//www.oreilly.com/library/view/rtf-pocket-guide/9781449302047/ch01.html
+        'When printing a string variable that is a path or otherwise contains any backward slashes they MUST be escaped with yourVariable.Replace("\", "\\")
+        CustomMsgBox.messageRTF.Rtf = Message
+        CustomMsgBox.titleLabel.Text = Title
+
+        If Buttons = MessageBoxButtons.OK OrElse Buttons = MessageBoxButtons.OKCancel Then
+            '[OK] or [OK][Cancel] dialog
+            CustomMsgBox.rButton.DialogResult = DialogResult.OK
+            CustomMsgBox.cButton.DialogResult = DialogResult.Cancel
+            'Hide [Yes] button and make [No] button the [OK] button
+            CustomMsgBox.lButton.Visible = False
+            CustomMsgBox.rButton.Text = "OK"
+            CustomMsgBox.AcceptButton = CustomMsgBox.rButton
+            CustomMsgBox.CancelButton = CustomMsgBox.cButton
+
+            Select Case DefaultButton
+                Case MessageBoxDefaultButton.Button1
+                    '[OK] button
+                    CustomMsgBox.ActiveControl = CustomMsgBox.rButton
+                Case MessageBoxDefaultButton.Button2, MessageBoxDefaultButton.Button3
+                    '[Cancel] button
+                    CustomMsgBox.ActiveControl = CustomMsgBox.cButton
+            End Select
+        ElseIf Buttons = MessageBoxButtons.YesNo OrElse MessageBoxButtons.YesNoCancel Then
+            '[Yes][No] or [Yes][No][Cancel] dialog
+            CustomMsgBox.lButton.DialogResult = DialogResult.Yes
+            CustomMsgBox.rButton.DialogResult = DialogResult.No
+            CustomMsgBox.cButton.DialogResult = DialogResult.Cancel
+            CustomMsgBox.AcceptButton = CustomMsgBox.lButton
+            CustomMsgBox.CancelButton = CustomMsgBox.cButton
+
+            Select Case DefaultButton
+                Case MessageBoxDefaultButton.Button1
+                    '[Yes] button
+                    CustomMsgBox.ActiveControl = CustomMsgBox.lButton
+                Case MessageBoxDefaultButton.Button2
+                    '[No] button
+                    CustomMsgBox.ActiveControl = CustomMsgBox.rButton
+                Case MessageBoxDefaultButton.Button3
+                    '[Cancel] button
+                    CustomMsgBox.ActiveControl = CustomMsgBox.cButton
+            End Select
+        End If
+
+        Select Case Icon
+            Case MessageBoxIcon.Error, MessageBoxIcon.Hand, MessageBoxIcon.Stop
+                CustomMsgBox.iconPictureBox.Image = My.Resources.error_icon
+            Case MessageBoxIcon.Exclamation, MessageBoxIcon.Warning
+                CustomMsgBox.iconPictureBox.Image = My.Resources.alert_triangle
+            Case MessageBoxIcon.Question
+                CustomMsgBox.iconPictureBox.Image = My.Resources.question_icon
+        End Select
+
+        'Display the custom MessageBox as a modal
+        CustomMsgBox.ShowDialog()
+    End Sub
+
     Sub log([event] As String)
         'Don't start the log file with an empty line if it's empty
         If logTxtBox.Text = "" Then

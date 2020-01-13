@@ -79,6 +79,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomMsgBox.Designer.vb">
+      <DependentUpon>CustomMsgBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CustomMsgBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CustomMsgBox.resx">
+      <DependentUpon>CustomMsgBox.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
@@ -128,6 +137,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon_256.ico" />
+    <None Include="res\question.png" />
+    <None Include="res\error.png" />
+    <None Include="res\alert_triangle.png" />
     <None Include="res\uplay.png" />
     <None Include="res\settings_white.png" />
     <None Include="res\settings.png" />
