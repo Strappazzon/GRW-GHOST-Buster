@@ -799,7 +799,7 @@ Public Class Form1
                     If parsedYAML.Contains("syncsavegames: true") Then
                         'Backup Uplay settings file
                         log("[INFO] Backing up Uplay settings file to " & pathToYAML & ".bak")
-                        File.Copy(pathToYAML, pathToYAML & ".bak", True)
+                        File.Copy(pathToYAML, pathToYAML & ".bak", False) 'Don't overwrite the backup file in the future
 
                         'Set syncsavegames to false (Disable cloud save sync)
                         Dim replacedYAML As String = parsedYAML.Replace("syncsavegames: true", "syncsavegames: false")
