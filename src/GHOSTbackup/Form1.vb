@@ -18,6 +18,7 @@ Public Class Form1
     Public secondToLastBackupExists As Boolean = False
 
     Sub upgradeSettings()
+        'Migrate settings to the new version
         'Unfortunately, settings migrate only if the new version is installed in the same directory as the old version
         '//bytes.com/topic/visual-basic-net/answers/854235-my-settings-upgrade-doesnt-upgrade#post3426232
         If My.Settings.MustUpgrade = True Then
@@ -50,7 +51,9 @@ Public Class Form1
             My.Settings.LogFilePath = settingsLogFilePathTextBox.Text
         End If
 
-        My.Settings.LogFilePath = settingsLogFilePathTextBox.Text
+        If settingsLogFilePathTextBox.Text <> My.Settings.LogFilePath Then
+            My.Settings.LogFilePath = settingsLogFilePathTextBox.Text
+        End If
 
         If settingsDisableCloudSyncChkBox.CheckState <> My.Settings.DisableCloudSync Then
             My.Settings.DisableCloudSync = settingsDisableCloudSyncChkBox.CheckState
@@ -88,6 +91,7 @@ Public Class Form1
     End Sub
 
     Sub showAlert(alertType As Short, alertDesc As String)
+        'Non-intrusive alert
         If alertType = 48 Then
             'Warning
             alertIcon.Image = My.Resources.alert
@@ -116,7 +120,7 @@ Public Class Form1
         '//docs.microsoft.com/en-us/dotnet/api/system.windows.forms.form.dialogresult
 
         'Set Message and Message Title
-        'The content of the message (or part of it) is written using Rich Text Format
+        'The content of the message is written in Rich Text Format
         '//www.oreilly.com/library/view/rtf-pocket-guide/9781449302047/ch01.html
         'When printing a string variable that is a path or otherwise contains any backward slashes they MUST be escaped with yourVariable.Replace("\", "\\")
         CustomMsgBox.messageRTF.Rtf = Message
@@ -175,7 +179,7 @@ Public Class Form1
     End Sub
 
     Sub log([event] As String)
-        'Don't start the log file with an empty line if it's empty
+        'Don't start the log file with an empty line
         If logTxtBox.Text = "" Then
             logTxtBox.AppendText(Now.ToString("HH:mm:ss") & " " & [event])
         Else
@@ -334,6 +338,28 @@ Public Class Form1
         End Try
     End Sub
 
+    Private Sub updater_DownloadStringCompleted(ByVal sender As Object, ByVal e As DownloadStringCompletedEventArgs)
+        If e.Error Is Nothing Then
+            Dim fetchedVer As Short = e.Result
+
+            'Compare downloaded GHOST Buster version number with the current one
+            If fetchedVer = versionCode Then
+                log("[INFO] GHOST Buster is up to date.")
+            ElseIf fetchedVer > versionCode Then
+                log("[INFO] New version of GHOST Buster is available.")
+                showMsgBox("{\rtf1 A newer version of GHOST Buster is available. Do you want to visit the download page now?}", "Update available", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+                If CustomMsgBox.DialogResult = DialogResult.Yes Then
+                    Process.Start("https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest")
+                End If
+            ElseIf fetchedVer < versionCode Then
+                log("[INFO] The version in use is greater than the one currently available.")
+            End If
+        Else
+            log("[ERROR] 'WebException' Unable to check for updates: " & (e.Error.Message & ".").Replace("..", "."))
+            showAlert(48, "Unable to check for updates. See the logs for more details.")
+        End If
+    End Sub
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Migrate settings from the old version
         upgradeSettings()
@@ -446,28 +472,6 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub updater_DownloadStringCompleted(ByVal sender As Object, ByVal e As DownloadStringCompletedEventArgs)
-        If e.Error Is Nothing Then
-            Dim fetchedVer As Short = e.Result
-
-            'Compare downloaded GHOST Buster version number with the current one
-            If fetchedVer = versionCode Then
-                log("[INFO] GHOST Buster is up to date.")
-            ElseIf fetchedVer > versionCode Then
-                log("[INFO] New version of GHOST Buster is available.")
-                showMsgBox("{\rtf1 A newer version of GHOST Buster is available. Do you want to visit the download page now?}", "Update available", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
-                If CustomMsgBox.DialogResult = DialogResult.Yes Then
-                    Process.Start("https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest")
-                End If
-            ElseIf fetchedVer < versionCode Then
-                log("[INFO] The version in use is greater than the one currently available.")
-            End If
-        Else
-            log("[ERROR] 'WebException' Unable to check for updates: " & (e.Error.Message & ".").Replace("..", "."))
-            showAlert(48, "Unable to check for updates. See the logs for more details.")
-        End If
-    End Sub
-
     Private Sub Form1_Closing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If isBackupRunning = True And confirmExitChkBox.Checked = True Then
             showMsgBox("{\rtf1 The backup process is still running. Do you want to interrupt it and exit?}", "Confirm exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
@@ -542,6 +546,7 @@ Public Class Form1
         settingsTitleLabel.Visible = False
         settingsContainer.Visible = False
         alertDot.Visible = False
+        'Close the alert when switching to Logs tab
         closeAlertContainerIcon_Click(sender, e)
     End Sub
 
@@ -571,6 +576,7 @@ Public Class Form1
     End Sub
 
     Private Sub uplayPictureBtn_Click(sender As Object, e As EventArgs) Handles uplayPictureBtn.Click
+        'Attempt to launch Uplay only if it's installed
         If isUplayInstalled = True Then
             Process.Start(uplayPath & "Uplay.exe")
         Else
@@ -643,6 +649,7 @@ Public Class Form1
     End Sub
 
     Private Sub ExploreSaveLocBtn_Click(sender As Object, e As EventArgs) Handles exploreSaveLocBtn.Click
+        'Open the save games directory in Windows Explorer
         If saveLocTextBox.Text <> "" Then
             Process.Start("explorer.exe", saveLocTextBox.Text)
         End If
@@ -777,6 +784,7 @@ Public Class Form1
         ElseIf isGameRunning = True Then
             showAlert(64, "You need to quit Wildlands before restoring a backup.")
         ElseIf isGameRunning = False And settingsDisableCloudSyncChkBox.Checked = True Then
+            'If the game is not running and "Let GHOST Buster disable cloud save synchronization" is checked
             'Check if Uplay is running or not before editing its settings file
             Dim uProc = Process.GetProcessesByName("upc")
             If uProc.Count > 0 Then
@@ -843,6 +851,7 @@ Public Class Form1
                 End Try
             End If
         ElseIf isGameRunning = False And settingsDisableCloudSyncChkBox.Checked = False Then
+            'If the game is not running and "Let GHOST Buster disable cloud save synchronization" is not checked
             restoreBackup()
         End If
     End Sub
