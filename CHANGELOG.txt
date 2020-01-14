@@ -1,3 +1,12 @@
+1.5.0
+ - Enhancement: Replaced MessageBoxes with custom ones
+ - Enhancement: Don't overwrite Uplay settings backup if one already exists
+ - Fix: Main thread blocked while checking for updates
+ - Fix: Settings saved every time Close (X) was pressed rather than on exit
+ - When an update is available a message box will be shown instead of the alert under the menu
+ - Refactoring
+ - Added more comments to the code
+
 1.4.2
  - Swap Advanced Settings and Uplay
     - "Uplay" is now an icon and "Settings" is now a label
