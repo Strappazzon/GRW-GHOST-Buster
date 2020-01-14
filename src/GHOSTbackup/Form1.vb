@@ -50,7 +50,7 @@ Public Class Form1
         End If
     End Sub
 
-    Sub showAlert(alertType As Short, alertDesc As String, Optional dlButton As Boolean = False)
+    Sub showAlert(alertType As Short, alertDesc As String)
         If alertType = 48 Then
             'Warning
             alertIcon.Image = My.Resources.alert
@@ -58,13 +58,6 @@ Public Class Form1
         ElseIf alertType = 64 Then
             'Info
             alertIcon.Image = My.Resources.info
-        End If
-
-        'Download button used when a new version of GHOST Buster is available
-        If dlButton = True Then
-            dlBtnIcon.Visible = True
-        Else
-            dlBtnIcon.Visible = False
         End If
 
         'Alert message
@@ -425,7 +418,10 @@ Public Class Form1
                 log("[INFO] GHOST Buster is up to date.")
             ElseIf fetchedVer > versionCode Then
                 log("[INFO] New version of GHOST Buster is available.")
-                showAlert(64, "New version of GHOST Buster is available.", True)
+                showMsgBox("{\rtf1 A newer version of GHOST Buster is available. Do you want to visit the download page now?}", "Update available", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+                If CustomMsgBox.DialogResult = DialogResult.Yes Then
+                    Process.Start("https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest")
+                End If
             ElseIf fetchedVer < versionCode Then
                 log("[INFO] The version in use is greater than the one currently available.")
             End If
@@ -574,12 +570,6 @@ Public Class Form1
         Else
             showAlert(64, "Uplay is not installed.")
         End If
-    End Sub
-
-    Private Sub dlBtnIcon_Click(sender As Object, e As EventArgs) Handles dlBtnIcon.Click
-        'Download button inside the alert
-        Process.Start("https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest")
-        closeAlertContainerIcon_Click(sender, e)
     End Sub
 
     Private Sub closeAlertContainerIcon_Click(sender As Object, e As EventArgs) Handles closeAlertContainerIcon.Click

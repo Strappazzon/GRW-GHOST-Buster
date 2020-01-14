@@ -71,7 +71,6 @@ Partial Class Form1
         Me.logTitleLabel = New System.Windows.Forms.Label()
         Me.logsContainer = New System.Windows.Forms.Panel()
         Me.alertContainer = New System.Windows.Forms.Panel()
-        Me.dlBtnIcon = New System.Windows.Forms.PictureBox()
         Me.alertDescriptionLabel = New System.Windows.Forms.Label()
         Me.alertIcon = New System.Windows.Forms.PictureBox()
         Me.closeAlertContainerIcon = New System.Windows.Forms.PictureBox()
@@ -98,7 +97,6 @@ Partial Class Form1
         Me.aboutContainer.SuspendLayout()
         Me.logsContainer.SuspendLayout()
         Me.alertContainer.SuspendLayout()
-        CType(Me.dlBtnIcon, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.alertIcon, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.closeAlertContainerIcon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.settingsContainer.SuspendLayout()
@@ -696,7 +694,6 @@ Partial Class Form1
         'alertContainer
         '
         Me.alertContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.alertContainer.Controls.Add(Me.dlBtnIcon)
         Me.alertContainer.Controls.Add(Me.alertDescriptionLabel)
         Me.alertContainer.Controls.Add(Me.alertIcon)
         Me.alertContainer.Controls.Add(Me.closeAlertContainerIcon)
@@ -708,19 +705,6 @@ Partial Class Form1
         Me.alertContainer.Size = New System.Drawing.Size(834, 38)
         Me.alertContainer.TabIndex = 17
         Me.alertContainer.Visible = False
-        '
-        'dlBtnIcon
-        '
-        Me.dlBtnIcon.BackColor = System.Drawing.Color.Transparent
-        Me.dlBtnIcon.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.dlBtnIcon.Image = CType(resources.GetObject("dlBtnIcon.Image"), System.Drawing.Image)
-        Me.dlBtnIcon.Location = New System.Drawing.Point(775, 8)
-        Me.dlBtnIcon.Name = "dlBtnIcon"
-        Me.dlBtnIcon.Size = New System.Drawing.Size(24, 24)
-        Me.dlBtnIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.dlBtnIcon.TabIndex = 3
-        Me.dlBtnIcon.TabStop = False
-        Me.dlBtnIcon.Visible = False
         '
         'alertDescriptionLabel
         '
@@ -963,7 +947,6 @@ Partial Class Form1
         Me.logsContainer.PerformLayout()
         Me.alertContainer.ResumeLayout(False)
         Me.alertContainer.PerformLayout()
-        CType(Me.dlBtnIcon, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.alertIcon, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.closeAlertContainerIcon, System.ComponentModel.ISupportInitialize).EndInit()
         Me.settingsContainer.ResumeLayout(False)
@@ -1020,7 +1003,6 @@ Partial Class Form1
     Friend WithEvents alertDescriptionLabel As Label
     Friend WithEvents formPositionChkBox As CheckBox
     Friend WithEvents alertDot As PictureBox
-    Friend WithEvents dlBtnIcon As PictureBox
     Friend WithEvents settingsTitleLabel As Label
     Friend WithEvents settingsContainer As Panel
     Friend WithEvents settingsWriteLogToFileChkBox As CheckBox
