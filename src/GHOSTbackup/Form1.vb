@@ -214,12 +214,11 @@ Public Class Form1
         Try
             If settingsWhichBackupDropdownCombo.SelectedIndex = 0 And latestBackupExists = True Then
                 'If "Latest" option is selected and the latest backup exists
-                Dim choice As Short = MessageBox.Show("You are about to restore a backup. This will copy the save files over from your backup directory:" & Environment.NewLine & Environment.NewLine & latestBackupLoc _
-                                      & Environment.NewLine & Environment.NewLine & "and will OVERWRITE the existing save files inside the game directory:" & Environment.NewLine & Environment.NewLine & saveLoc _
-                                      & Environment.NewLine & Environment.NewLine & "THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?",
-                                      "READ CAREFULLY",
-                                      MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
-                If choice = DialogResult.Yes Then
+                showMsgBox("{\rtf1 Restoring a backup will copy the save files over from the backup folder: " & latestBackupLoc.Replace("\", "\\") & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & saveLoc.Replace("\", "\\") _
+                           & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
+                           "Backup restore",
+                           MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+                If CustomMsgBox.DialogResult = DialogResult.Yes Then
                     Dim saveList As String() = Directory.GetFiles(latestBackupLoc, "*.save")
                     For Each F As String In saveList
                         Dim fName As String = F.Substring(latestBackupLoc.Length + 1)
@@ -234,15 +233,14 @@ Public Class Form1
             ElseIf settingsWhichBackupDropdownCombo.SelectedIndex = 0 And latestBackupExists = False Then
                 'If "Latest" option is selected and the latest backup doesn't exist
                 log("[INFO] No backup found. Restore process aborted.")
-                MessageBox.Show("You chose to restore the latest backup but you haven't backed up any save game yet. Backup at least once and try again.", "Backup doesn't exist", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                showMsgBox("{\rtf1 You chose to restore the latest backup but you haven't backed up any save game yet. Backup at least once and try again.}", "No backup found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             ElseIf settingsWhichBackupDropdownCombo.SelectedIndex = 1 And secondToLastBackupExists = True Then
                 'If "Second-to-last" option is selected and the second-to-last backup exists
-                Dim choice As Short = MessageBox.Show("You are about to restore a backup. This will copy the save files over from your backup directory:" & Environment.NewLine & Environment.NewLine & secToLastBackupLoc _
-                                      & Environment.NewLine & Environment.NewLine & "and will OVERWRITE the existing save files inside the game directory:" & Environment.NewLine & Environment.NewLine & saveLoc _
-                                      & Environment.NewLine & Environment.NewLine & "THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?",
-                                      "READ CAREFULLY",
-                                      MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
-                If choice = DialogResult.Yes Then
+                showMsgBox("{\rtf1 Restoring a backup will copy the save files over from the backup folder: " & secToLastBackupLoc.Replace("\", "\\") & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " _
+                           & saveLoc.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
+                           "Backup restore",
+                           MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+                If CustomMsgBox.DialogResult = DialogResult.Yes Then
                     Dim saveList As String() = Directory.GetFiles(secToLastBackupLoc, "*.save")
                     For Each F As String In saveList
                         Dim fName As String = F.Substring(secToLastBackupLoc.Length + 1)
@@ -256,13 +254,11 @@ Public Class Form1
                 End If
             ElseIf settingsWhichBackupDropdownCombo.SelectedIndex = 1 And secondToLastBackupExists = False And latestBackupExists = True Then
                 'If "Second-to-last" option is selected and the second-to-last backup doesn't exist
-                Dim choice As Short = MessageBox.Show("You chose to restore the second-to-last backup but it doesn't exist. Do you want to restore the latest backup instead? This will copy the save files over from your " _
-                                      & "backup directory:" & Environment.NewLine & Environment.NewLine & latestBackupLoc _
-                                      & Environment.NewLine & Environment.NewLine & "And will OVERWRITE the existing save files inside the game directory" & Environment.NewLine & Environment.NewLine & saveLoc _
-                                      & Environment.NewLine & Environment.NewLine & "THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?",
-                                      "Backup doesn't exist",
-                                      MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
-                If choice = DialogResult.Yes Then
+                showMsgBox("{\rtf1 You chose to restore the second-to-last backup but it doesn't exist. Do you want to restore the latest backup instead? This will copy the save files over from the backup folder: " & latestBackupLoc.Replace("\", "\\") _
+                           & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & saveLoc.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
+                           "Backup doesn't exist",
+                           MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+                If CustomMsgBox.DialogResult = DialogResult.Yes Then
                     'This will restore the latest backup instead
                     Dim saveList As String() = Directory.GetFiles(latestBackupLoc, "*.save")
                     For Each F As String In saveList
@@ -277,17 +273,15 @@ Public Class Form1
                 End If
             ElseIf settingsWhichBackupDropdownCombo.SelectedIndex = 1 And secondToLastBackupExists = False And latestBackupExists = False Then
                 'If "Second-to-last" option is selected and neither second-to-last nor latest backup exists
-                MessageBox.Show("You chose to restore the second-to-last backup but neither second-to-last nor latest backup exist. Backup at least once and try again.", "Backup doesn't exist",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                showMsgBox("{\rtf1 You chose to restore the second-to-last backup but neither second-to-last nor latest backup exist. Backup at least once and try again.}", "No backup found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 log("[INFO] No backup found (secondToLast, latest). Restore process aborted.")
             ElseIf settingsWhichBackupDropdownCombo.SelectedIndex = 2 Then
                 'If "Let me decide" option is selected the user will have to select a "yyyyMMdd HHmm" folder and switch back to the parent folder manually
-                Dim choice As Short = MessageBox.Show("You are about to restore a backup. This will copy the save files over from your backup directory:" & Environment.NewLine & Environment.NewLine & destLocTextBox.Text _
-                                      & Environment.NewLine & Environment.NewLine & "and will OVERWRITE the existing save files inside the game directory:" & Environment.NewLine & Environment.NewLine & saveLoc _
-                                      & Environment.NewLine & Environment.NewLine & "THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?",
-                                      "READ CAREFULLY",
-                                      MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
-                If choice = DialogResult.Yes Then
+                showMsgBox("{\rtf1 Restoring a backup will copy the save files over from the backup folder: " & destLocTextBox.Text.Replace("\", "\\") & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " _
+                           & saveLoc.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
+                           "Backup restore",
+                           MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+                If CustomMsgBox.DialogResult = DialogResult.Yes Then
                     Dim saveList As String() = Directory.GetFiles(backupLoc, "*.save")
                     For Each F As String In saveList
                         Dim fName As String = F.Substring(backupLoc.Length + 1)
@@ -303,11 +297,11 @@ Public Class Form1
 
         Catch pathTooLong As PathTooLongException
             log("[ERROR] 'PathTooLongException', Couldn't restore the backup from " & destLocTextBox.Text & " to " & saveLocTextBox.Text)
-            MessageBox.Show("The specified path cannot be handled because it's too long, as a result the restore process has been interrupted.", "Restore failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            showMsgBox("{\rtf1 The specified path cannot be handled because it's too long, as a result the restore process has been interrupted.}", "Restore failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
 
         Catch dirNotFound As DirectoryNotFoundException
             log("[ERROR] 'DirectoryNotFoundException', Couldn't restore the backup from " & destLocTextBox.Text & " to " & saveLocTextBox.Text)
-            MessageBox.Show("One or more folders no longer exist, as a result the restore process has been interrupted.", "Restore failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            showMsgBox("{\rtf1 One or more folders no longer exist, as a result the restore process has been interrupted.}", "Restore failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -446,8 +440,8 @@ Public Class Form1
 
     Private Sub Form1_Closing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If isBackupRunning = True And confirmExitChkBox.Checked = True Then
-            Dim choice As Short = MessageBox.Show("The backup process is still running. Do you want to interrupt it and exit?", "Confirm exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
-            If choice = DialogResult.No Then
+            showMsgBox("{\rtf1 The backup process is still running. Do you want to interrupt it and exit?}", "Confirm exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+            If CustomMsgBox.DialogResult = DialogResult.No OrElse CustomMsgBox.DialogResult = DialogResult.Cancel Then
                 e.Cancel = True
             End If
         End If
@@ -499,7 +493,7 @@ Public Class Form1
             If isBackupRunning = True Then
                 stopBackup()
                 log("[WARNING] Wildlands has been closed or crashed. Backup interrupted.")
-                MessageBox.Show("Wildlands has been closed or crashed, as a result the backup process has been interrupted.", "Wildlands is no longer running", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                showMsgBox("{\rtf1 Wildlands has been closed or crashed, as a result the backup process has been interrupted.}", "Wildlands is no longer running", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
             Else
             End If
         End If
@@ -716,11 +710,11 @@ Public Class Form1
             Catch pathTooLong As PathTooLongException
                 stopBackup()
                 log("[ERROR] 'PathTooLongException', Backup interrupted.")
-                MessageBox.Show("The specified path cannot be handled because it's too long, as a result the backup process has been interrupted.", "Backup Interrupted", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                showMsgBox("{\rtf1 The specified path cannot be handled because it's too long, as a result the backup process has been interrupted.}", "Backup Interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
             Catch dirNotFound As DirectoryNotFoundException
                 stopBackup()
                 log("[ERROR] 'DirectoryNotFoundException', Backup interrupted.")
-                MessageBox.Show("The specified folder no longer exists, as a result the backup process has been interrupted.", "Backup interrupted", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                showMsgBox("{\rtf1 The specified folder no longer exists, as a result the backup process has been interrupted.}", "Backup interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
             End Try
         ElseIf isGameRunning = False Then
             showAlert(64, "You need to launch Wildlands before starting the backup process.")
@@ -758,23 +752,23 @@ Public Class Form1
             Catch pathTooLong As PathTooLongException
                 stopBackup()
                 log("[ERROR] 'PathTooLongException', Backup interrupted.")
-                MessageBox.Show("The specified path cannot be handled because it's too long, as a result the backup process has been interrupted.", "Backup Interrupted", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                showMsgBox("{\rtf1 The specified path cannot be handled because it's too long, as a result the backup process has been interrupted.}", "Backup interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
             Catch dirNotFound As DirectoryNotFoundException
                 stopBackup()
                 log("[ERROR] 'DirectoryNotFoundException', Backup interrupted.")
-                MessageBox.Show("The specified folder no longer exists, as a result the backup process has been interrupted.", "Backup interrupted", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                showMsgBox("{\rtf1 The specified folder no longer exists, as a result the backup process has been interrupted.}", "Backup interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
             End Try
         Else
             stopBackup()
             log("[WARNING] Wildlands closed or crashed, Backup interrupted.")
-            MessageBox.Show("Wildlands has been closed or crashed, as a result the backup process has been interrupted.", "Wildlands is no longer running", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            showMsgBox("{\rtf1 Wildlands has been closed or crashed, as a result the backup process has been interrupted.}", "Wildlands is no longer running", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
         End If
     End Sub
 
     Private Sub stopBtn_Click(sender As Object, e As EventArgs) Handles stopBtn.Click
         If confirmStopBackupChkBox.Checked = True Then
-            Dim choice As Short = MessageBox.Show("Are you sure you want to interrupt the backup process?", "Confirm backup interruption", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
-            If choice = DialogResult.Yes Then
+            showMsgBox("{\rtf1 Are you sure you want to interrupt the backup process?}", "Backup interruption", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+            If CustomMsgBox.DialogResult = DialogResult.Yes Then
                 stopBackup()
                 log("[INFO] Backup interrupted by the user.")
             End If
@@ -793,7 +787,7 @@ Public Class Form1
             'Check if Uplay is running or not before editing its settings file
             Dim uProc = Process.GetProcessesByName("upc")
             If uProc.Count > 0 Then
-                MessageBox.Show("You need to quit Uplay before restoring a backup because you chose to let GHOST Buster disable cloud save synchronization for you.", "Cannot restore", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                showMsgBox("{\rtf1 You need to quit Uplay before restoring a backup because you chose to let GHOST Buster disable cloud save synchronization for you.}", "Cannot restore", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
             Else
                 'Disable Uplay cloud save synchronization
                 Try
@@ -836,10 +830,10 @@ Public Class Form1
                     settingsDisableCloudSyncChkBox.Checked = False
                     '...notify the user about the error
                     log("[ERROR] Parsing of ""settings.yml"" failed: File not found.")
-                    MessageBox.Show("""Let GHOST Buster disable cloud save synchronization"" setting has been disabled because an error occurred while trying to parse Uplay settings file: File not found." _
-                                    & Environment.NewLine & Environment.NewLine & "Make sure to DISABLE cloud save synchronization from Uplay (Settings -> Untick ""Enable cloud save synchronization for supported games"") " _
-                                    & "before launching Wildlands, otherwise the restored save games will be OVERWRITTEN with the old ones from the cloud!",
-                                    "Parsing failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    showMsgBox("{\rtf1 ""Let GHOST Buster disable cloud save synchronization"" setting has been disabled because an error occurred while trying to parse Uplay settings file: {\b File not found.}" _
+                               & "\line\line Make sure to {\b DISABLE} cloud save synchronization from Uplay (Settings -> Untick ""Enable cloud save synchronization for supported games"") before launching Wildlands, otherwise the restored save games will be " _
+                               & "{\b OVERWRITTEN} with the old ones from the cloud!",
+                               "Parsing failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
                     '...and proceed with the restore process anyway
                     restoreBackup()
                 Catch insufficentPermissions As UnauthorizedAccessException
@@ -847,10 +841,10 @@ Public Class Form1
                     settingsDisableCloudSyncChkBox.Checked = False
                     '...notify the user about the error
                     log("[ERROR] Parsing of ""settings.yml"" failed: File is read only.")
-                    MessageBox.Show("""Let GHOST Buster disable cloud save synchronization"" setting has been disabled because an error occurred while trying to parse Uplay settings file: File is read only." _
-                                    & Environment.NewLine & Environment.NewLine & "Make sure to DISABLE cloud save synchronization from Uplay (Settings -> Untick ""Enable cloud save synchronization for supported games"") " _
-                                    & "before launching Wildlands, otherwise the restored save games will be OVERWRITTEN with the old ones from the cloud!",
-                                    "Parsing failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    showMsgBox("{\rtf1 ""Let GHOST Buster disable cloud save synchronization"" setting has been disabled because an error occurred while trying to parse Uplay settings file: {\b File not found.}" _
+                               & "\line\line Make sure to {\b DISABLE} cloud save synchronization from Uplay (Settings -> Untick ""Enable cloud save synchronization for supported games"") before launching Wildlands, otherwise the restored save games will be " _
+                               & "{\b OVERWRITTEN} with the old ones from the cloud!",
+                               "Parsing failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
                     '...and proceed with the restore process anyway
                     restoreBackup()
                 End Try
