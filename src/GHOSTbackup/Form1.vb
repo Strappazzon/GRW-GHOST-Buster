@@ -26,6 +26,43 @@ Public Class Form1
         End If
     End Sub
 
+    Sub saveSettings()
+        'Save settings
+        If confirmExitChkBox.CheckState <> My.Settings.ConfirmExit Then
+            My.Settings.ConfirmExit = confirmExitChkBox.CheckState
+        End If
+
+        If confirmStopBackupChkBox.CheckState <> My.Settings.ConfirmBackupInterruption Then
+            My.Settings.ConfirmBackupInterruption = confirmStopBackupChkBox.CheckState
+        End If
+
+        If freqSelectTimeUpDown.Value <> My.Settings.BackupInterval Then
+            My.Settings.BackupInterval = freqSelectTimeUpDown.Value
+        End If
+
+        If formPositionChkBox.CheckState <> My.Settings.RememberFormPosition Then
+            My.Settings.RememberFormPosition = formPositionChkBox.CheckState
+            My.Settings.WindowLocation = Location
+        End If
+
+        If settingsWriteLogToFileChkBox.CheckState <> My.Settings.WriteLogFile Then
+            My.Settings.WriteLogFile = settingsWriteLogToFileChkBox.CheckState
+            My.Settings.LogFilePath = settingsLogFilePathTextBox.Text
+        End If
+
+        My.Settings.LogFilePath = settingsLogFilePathTextBox.Text
+
+        If settingsDisableCloudSyncChkBox.CheckState <> My.Settings.DisableCloudSync Then
+            My.Settings.DisableCloudSync = settingsDisableCloudSyncChkBox.CheckState
+        End If
+
+        If settingsWhichBackupDropdownCombo.SelectedIndex <> My.Settings.WhichBackup Then
+            My.Settings.WhichBackup = settingsWhichBackupDropdownCombo.SelectedIndex
+        End If
+
+        log("[INFO] Settings saved.")
+    End Sub
+
     Sub loadFormPosition()
         If My.Settings.RememberFormPosition = True Then
             Dim formLocation As Point = My.Settings.WindowLocation
@@ -436,43 +473,12 @@ Public Class Form1
             showMsgBox("{\rtf1 The backup process is still running. Do you want to interrupt it and exit?}", "Confirm exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
             If CustomMsgBox.DialogResult = DialogResult.No OrElse CustomMsgBox.DialogResult = DialogResult.Cancel Then
                 e.Cancel = True
+            Else
+                saveSettings()
             End If
+        Else
+            saveSettings()
         End If
-
-        'Save settings
-        If confirmExitChkBox.CheckState <> My.Settings.ConfirmExit Then
-            My.Settings.ConfirmExit = confirmExitChkBox.CheckState
-        End If
-
-        If confirmStopBackupChkBox.CheckState <> My.Settings.ConfirmBackupInterruption Then
-            My.Settings.ConfirmBackupInterruption = confirmStopBackupChkBox.CheckState
-        End If
-
-        If freqSelectTimeUpDown.Value <> My.Settings.BackupInterval Then
-            My.Settings.BackupInterval = freqSelectTimeUpDown.Value
-        End If
-
-        If formPositionChkBox.CheckState <> My.Settings.RememberFormPosition Then
-            My.Settings.RememberFormPosition = formPositionChkBox.CheckState
-            My.Settings.WindowLocation = Location
-        End If
-
-        If settingsWriteLogToFileChkBox.CheckState <> My.Settings.WriteLogFile Then
-            My.Settings.WriteLogFile = settingsWriteLogToFileChkBox.CheckState
-            My.Settings.LogFilePath = settingsLogFilePathTextBox.Text
-        End If
-
-        My.Settings.LogFilePath = settingsLogFilePathTextBox.Text
-
-        If settingsDisableCloudSyncChkBox.CheckState <> My.Settings.DisableCloudSync Then
-            My.Settings.DisableCloudSync = settingsDisableCloudSyncChkBox.CheckState
-        End If
-
-        If settingsWhichBackupDropdownCombo.SelectedIndex <> My.Settings.WhichBackup Then
-            My.Settings.WhichBackup = settingsWhichBackupDropdownCombo.SelectedIndex
-        End If
-
-        log("[INFO] Settings saved.")
     End Sub
 
     Private Sub processCheckTimer_Tick(sender As Object, e As EventArgs) Handles processCheckTimer.Tick
