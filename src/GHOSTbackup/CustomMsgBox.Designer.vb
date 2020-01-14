@@ -117,7 +117,7 @@ Partial Class CustomMsgBox
         'iconPictureBox
         '
         Me.iconPictureBox.BackColor = System.Drawing.Color.Transparent
-        Me.iconPictureBox.Location = New System.Drawing.Point(18, 50)
+        Me.iconPictureBox.Location = New System.Drawing.Point(18, 54)
         Me.iconPictureBox.Name = "iconPictureBox"
         Me.iconPictureBox.Size = New System.Drawing.Size(32, 32)
         Me.iconPictureBox.TabIndex = 4
