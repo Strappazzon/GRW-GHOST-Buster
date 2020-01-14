@@ -1,5 +1,4 @@
 ﻿Imports System.IO
-Imports System.IO.Compression
 Imports System.Net
 Imports System.Text
 Imports Microsoft.Win32
@@ -403,38 +402,36 @@ Public Class Form1
                 My.Settings.BackupDir = ""
             End If
         End If
+
+        'Check for updates
+        '//docs.microsoft.com/en-us/dotnet/api/system.net.downloadstringcompletedeventargs
+        If updateCheckerChkBox.Checked = True Then
+            Using updater As New WebClient
+                updater.Headers.Add("User-Agent", "GHOST Buster (+https://strappazzon.xyz/GRW-GHOST-Buster)")
+                Dim versionURI As New Uri("https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/version")
+                updater.DownloadStringAsync(versionURI)
+                'Call updater_DownloadStringCompleted when the download completes
+                AddHandler updater.DownloadStringCompleted, AddressOf updater_DownloadStringCompleted
+            End Using
+        End If
     End Sub
 
-    Private Sub Form1_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
-        'Check for updates
-        If updateCheckerChkBox.Checked = True Then
-            Try
-                Dim fetchedVer As Short
+    Private Sub updater_DownloadStringCompleted(ByVal sender As Object, ByVal e As DownloadStringCompletedEventArgs)
+        If e.Error Is Nothing Then
+            Dim fetchedVer As Short = e.Result
 
-                Using updater As New WebClient
-                    updater.Headers(HttpRequestHeader.UserAgent) = "GHOST Buster (+https://strappazzon.xyz/GRW-GHOST-Buster)"
-                    updater.Headers(HttpRequestHeader.AcceptEncoding) = "gzip"
-                    Using rs As New GZipStream(updater.OpenRead("https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/version"), CompressionMode.Decompress)
-                        fetchedVer = New StreamReader(rs).ReadToEnd()
-                        rs.Dispose()
-                    End Using
-                    updater.Dispose()
-                End Using
-
-                'Compare downloaded GHOST Buster version number with the current one
-                If fetchedVer = versionCode Then
-                    log("[INFO] GHOST Buster is up to date.")
-                ElseIf fetchedVer > versionCode Then
-                    log("[INFO] New version of GHOST Buster is available.")
-                    showAlert(64, "New version of GHOST Buster is available.", True)
-                ElseIf fetchedVer < versionCode Then
-                    log("[INFO] The version in use is greater than the one currently available.")
-                End If
-
-            Catch connectionFailed As WebException
-                log("[WARNING] 'WebException' Connection failed.")
-                showAlert(48, "Unable to check for updates: connection failed.")
-            End Try
+            'Compare downloaded GHOST Buster version number with the current one
+            If fetchedVer = versionCode Then
+                log("[INFO] GHOST Buster is up to date.")
+            ElseIf fetchedVer > versionCode Then
+                log("[INFO] New version of GHOST Buster is available.")
+                showAlert(64, "New version of GHOST Buster is available.", True)
+            ElseIf fetchedVer < versionCode Then
+                log("[INFO] The version in use is greater than the one currently available.")
+            End If
+        Else
+            log("[ERROR] 'WebException' Unable to check for updates: " & (e.Error.Message & ".").Replace("..", "."))
+            showAlert(48, "Unable to check for updates. See the logs for more details.")
         End If
     End Sub
 
