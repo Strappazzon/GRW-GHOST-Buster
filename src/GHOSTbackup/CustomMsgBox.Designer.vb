@@ -29,6 +29,7 @@ Partial Class CustomMsgBox
         Me.messageRTF = New System.Windows.Forms.RichTextBox()
         Me.cButton = New System.Windows.Forms.Button()
         Me.iconPictureBox = New System.Windows.Forms.PictureBox()
+        Me.backupDirsDropdownCombo = New System.Windows.Forms.ComboBox()
         CType(Me.iconPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -77,7 +78,7 @@ Partial Class CustomMsgBox
         Me.titleLabel.Location = New System.Drawing.Point(80, 50)
         Me.titleLabel.Name = "titleLabel"
         Me.titleLabel.Size = New System.Drawing.Size(111, 21)
-        Me.titleLabel.TabIndex = 4
+        Me.titleLabel.TabIndex = 5
         Me.titleLabel.Text = "Message title"
         '
         'messageRTF
@@ -93,7 +94,7 @@ Partial Class CustomMsgBox
         Me.messageRTF.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical
         Me.messageRTF.ShortcutsEnabled = False
         Me.messageRTF.Size = New System.Drawing.Size(550, 200)
-        Me.messageRTF.TabIndex = 3
+        Me.messageRTF.TabIndex = 4
         Me.messageRTF.TabStop = False
         Me.messageRTF.Text = "Message content"
         '
@@ -123,12 +124,29 @@ Partial Class CustomMsgBox
         Me.iconPictureBox.TabIndex = 4
         Me.iconPictureBox.TabStop = False
         '
+        'backupDirsDropdownCombo
+        '
+        Me.backupDirsDropdownCombo.BackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.backupDirsDropdownCombo.DropDownHeight = 152
+        Me.backupDirsDropdownCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.backupDirsDropdownCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.backupDirsDropdownCombo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.backupDirsDropdownCombo.ForeColor = System.Drawing.Color.White
+        Me.backupDirsDropdownCombo.FormattingEnabled = True
+        Me.backupDirsDropdownCombo.IntegralHeight = False
+        Me.backupDirsDropdownCombo.Location = New System.Drawing.Point(84, 300)
+        Me.backupDirsDropdownCombo.Name = "backupDirsDropdownCombo"
+        Me.backupDirsDropdownCombo.Size = New System.Drawing.Size(550, 23)
+        Me.backupDirsDropdownCombo.TabIndex = 3
+        Me.backupDirsDropdownCombo.Visible = False
+        '
         'CustomMsgBox
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(684, 401)
+        Me.Controls.Add(Me.backupDirsDropdownCombo)
         Me.Controls.Add(Me.cButton)
         Me.Controls.Add(Me.messageRTF)
         Me.Controls.Add(Me.iconPictureBox)
@@ -153,4 +171,5 @@ Partial Class CustomMsgBox
     Friend WithEvents iconPictureBox As PictureBox
     Friend WithEvents messageRTF As RichTextBox
     Friend WithEvents cButton As Button
+    Friend WithEvents backupDirsDropdownCombo As ComboBox
 End Class

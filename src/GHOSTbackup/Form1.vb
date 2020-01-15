@@ -16,6 +16,7 @@ Public Class Form1
     Public restoreTimestamp As Date
     Public latestBackupExists As Boolean = False
     Public secondToLastBackupExists As Boolean = False
+    Public Shared backupDirs As List(Of String)
 
     Sub upgradeSettings()
         'Migrate settings to the new version
@@ -312,30 +313,68 @@ Public Class Form1
                 showMsgBox("{\rtf1 You chose to restore the second-to-last backup but neither second-to-last nor latest backup exist. Backup at least once and try again.}", "No backup found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 log("[INFO] No backup found (secondToLast, latest). Restore process aborted.")
             ElseIf settingsWhichBackupDropdownCombo.SelectedIndex = 2 Then
-                'If "Let me decide" option is selected the user will have to select a "yyyyMMdd HHmm" folder and switch back to the parent folder manually
-                showMsgBox("{\rtf1 Restoring a backup will copy the save files over from the backup folder: " & destLocTextBox.Text.Replace("\", "\\") & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " _
-                           & saveLoc.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
+                'If "Let me decide" option is selected the user will be asked from what folder the backup should be restored from
+                'Get backup directory subfolders
+                '//docs.microsoft.com/en-us/dotnet/api/system.io.directory.enumeratedirectories
+                backupDirs = New List(Of String)(Directory.EnumerateDirectories(destLocTextBox.Text))
+
+                'Reverse the order of directories list (Most recent backup first)
+                '//docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.reverse
+                backupDirs.Reverse()
+
+                'Make the dropdown menu visible and set its max items
+                CustomMsgBox.backupDirsDropdownCombo.Visible = True
+                CustomMsgBox.backupDirsDropdownCombo.MaxDropDownItems = backupDirs.Count
+
+                'Add all directories to CustomMsgBox dropdown menu
+                For Each backupDir In backupDirs
+                    CustomMsgBox.backupDirsDropdownCombo.Items.Add(backupDir.Substring(backupDir.LastIndexOf(Path.DirectorySeparatorChar) + 1))
+                Next
+
+                'Select the first folder on the list
+                CustomMsgBox.backupDirsDropdownCombo.SelectedIndex = 0
+
+                showMsgBox("{\rtf1 Restoring a backup will copy the save files over from the backup folder that you selected from the list below (which is inside " & backupLoc.Replace("\", "\\") _
+                           & ")\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & saveLoc.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
                            "Backup restore",
                            MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
                 If CustomMsgBox.DialogResult = DialogResult.Yes Then
-                    Dim saveList As String() = Directory.GetFiles(backupLoc, "*.save")
+                    'Store selected backup subdirectory
+                    Dim backupSubDir = backupLoc & "\" & CustomMsgBox.backupDirsDropdownCombo.SelectedItem
+                    Dim saveList As String() = Directory.GetFiles(backupSubDir, "*.save")
                     For Each F As String In saveList
-                        Dim fName As String = F.Substring(backupLoc.Length + 1)
-                        File.Copy(Path.Combine(backupLoc, fName), Path.Combine(saveLoc, fName), True)
+                        Dim fName As String = F.Substring(backupSubDir.Length + 1)
+                        File.Copy(Path.Combine(backupSubDir, fName), Path.Combine(saveLoc, fName), True)
                     Next
 
-                    log("[INFO] Backup from " & backupLoc & " restored.")
+                    'Empty subdirectories list to avoid adding duplicates in the next restore process
+                    CustomMsgBox.backupDirsDropdownCombo.Items.Clear()
+                    backupDirs = Nothing
+
+                    log("[INFO] Backup from " & backupSubDir & " restored.")
                     showAlert(64, "Backup restored successfully.")
                 Else
+                    'Empty subdirectories list to avoid adding duplicates in the next restore process
+                    CustomMsgBox.backupDirsDropdownCombo.Items.Clear()
+                    backupDirs = Nothing
+
                     log("[INFO] Restore process cancelled by the user.")
                 End If
             End If
 
         Catch pathTooLong As PathTooLongException
+            'Empty subdirectories list to avoid adding duplicates in the next restore process
+            CustomMsgBox.backupDirsDropdownCombo.Items.Clear()
+            backupDirs = Nothing
+
             log("[ERROR] 'PathTooLongException', Couldn't restore the backup from " & destLocTextBox.Text & " to " & saveLocTextBox.Text)
             showMsgBox("{\rtf1 The specified path cannot be handled because it's too long, as a result the restore process has been interrupted.}", "Restore failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
 
         Catch dirNotFound As DirectoryNotFoundException
+            'Empty subdirectories list to avoid adding duplicates in the next restore process
+            CustomMsgBox.backupDirsDropdownCombo.Items.Clear()
+            backupDirs = Nothing
+
             log("[ERROR] 'DirectoryNotFoundException', Couldn't restore the backup from " & destLocTextBox.Text & " to " & saveLocTextBox.Text)
             showMsgBox("{\rtf1 One or more folders no longer exist, as a result the restore process has been interrupted.}", "Restore failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
         End Try
