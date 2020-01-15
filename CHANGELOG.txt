@@ -1,3 +1,7 @@
+1.6.0
+ - Enhancement: The user can now choose from a dropdown menu which backup to restore instead of changing the backup folder manually when "Let me choose" option is selected
+ - Fix: 'Yes' button hidden on [Yes] [No] and [Cancel] dialogs after an [OK] [Cancel] dialog was shown
+
 1.5.0
  - Enhancement: Replaced MessageBoxes with custom ones
  - Enhancement: Don't overwrite Uplay settings backup if one already exists
