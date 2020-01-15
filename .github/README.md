@@ -93,7 +93,7 @@ Some friends of mine also requested it so I released it here on GitHub.
     * When restoring a backup, GHOST Buster will restore the second-to-last one
     * If the second-to-last backup doesn't exist, you'll be prompted to restore the latest one instead
   * _"Let me decide"_
-    * You will have to select a `yyyyMMdd HHmm` backup folder manually before starting the restore process and switch back to its parent folder manually after restoring the backup
+    * You can choose which folder to restore a backup from
 
 All settings are stored inside `%LOCALAPPDATA%\GHOSTbackup`.
 
