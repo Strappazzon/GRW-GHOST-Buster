@@ -177,6 +177,15 @@ blockquote {
 
 .codeblock p { margin: 0; padding: 10px; }
 
+hr {
+	box-sizing: content-box;
+	overflow: visible;
+	margin: 1rem 0 1rem 0;
+	height: 0;
+	border: 0;
+	border-top: 3px solid rgba(170, 170, 170, 0.75);
+}
+
 .gallery-title {
 	width: 100%;
 	margin: 0 0 8px 0;
