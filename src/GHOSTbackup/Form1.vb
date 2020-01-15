@@ -149,6 +149,9 @@ Public Class Form1
             CustomMsgBox.lButton.DialogResult = DialogResult.Yes
             CustomMsgBox.rButton.DialogResult = DialogResult.No
             CustomMsgBox.cButton.DialogResult = DialogResult.Cancel
+            'Show [Yes] button and make [OK] button the [No] button
+            CustomMsgBox.lButton.Visible = True
+            CustomMsgBox.rButton.Text = "No"
             CustomMsgBox.AcceptButton = CustomMsgBox.lButton
             CustomMsgBox.CancelButton = CustomMsgBox.cButton
 
