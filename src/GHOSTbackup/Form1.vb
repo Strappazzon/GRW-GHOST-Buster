@@ -673,7 +673,7 @@ Public Class Form1
         'Choose save games directory
         Using O As New FolderBrowserDialog
             O.ShowNewFolderButton = False
-            O.Description = "Select the Wildlands save games folder." & Environment.NewLine & "Uplay Game ID: 1771"
+            O.Description = "Select Wildlands save games folder. If you don't know where it is, please consult PC Gaming Wiki."
             'Default Uplay install directory
             O.SelectedPath = "C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\savegames"
             If O.ShowDialog = DialogResult.OK Then
