@@ -67,15 +67,13 @@ Partial Class Form1
         Me.supportLabel = New System.Windows.Forms.Label()
         Me.websiteLabel = New System.Windows.Forms.Label()
         Me.appInfoLabel = New System.Windows.Forms.Label()
-        Me.aboutTitleLabel = New System.Windows.Forms.Label()
-        Me.logTitleLabel = New System.Windows.Forms.Label()
         Me.logsContainer = New System.Windows.Forms.Panel()
         Me.alertContainer = New System.Windows.Forms.Panel()
         Me.alertDescriptionLabel = New System.Windows.Forms.Label()
         Me.alertIcon = New System.Windows.Forms.PictureBox()
         Me.closeAlertContainerIcon = New System.Windows.Forms.PictureBox()
         Me.formPositionChkBox = New System.Windows.Forms.CheckBox()
-        Me.settingsTitleLabel = New System.Windows.Forms.Label()
+        Me.titleLabel = New System.Windows.Forms.Label()
         Me.settingsContainer = New System.Windows.Forms.Panel()
         Me.settingsWhichBackupLabel = New System.Windows.Forms.Label()
         Me.settingsWhichBackupDropdownCombo = New System.Windows.Forms.ComboBox()
@@ -653,32 +651,6 @@ Partial Class Form1
         Me.appInfoLabel.TabIndex = 0
         Me.appInfoLabel.Text = "appInfo"
         '
-        'aboutTitleLabel
-        '
-        Me.aboutTitleLabel.AutoSize = True
-        Me.aboutTitleLabel.BackColor = System.Drawing.Color.Transparent
-        Me.aboutTitleLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.aboutTitleLabel.ForeColor = System.Drawing.Color.White
-        Me.aboutTitleLabel.Location = New System.Drawing.Point(325, 115)
-        Me.aboutTitleLabel.Name = "aboutTitleLabel"
-        Me.aboutTitleLabel.Size = New System.Drawing.Size(57, 21)
-        Me.aboutTitleLabel.TabIndex = 14
-        Me.aboutTitleLabel.Text = "About"
-        Me.aboutTitleLabel.Visible = False
-        '
-        'logTitleLabel
-        '
-        Me.logTitleLabel.AutoSize = True
-        Me.logTitleLabel.BackColor = System.Drawing.Color.Transparent
-        Me.logTitleLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.logTitleLabel.ForeColor = System.Drawing.Color.White
-        Me.logTitleLabel.Location = New System.Drawing.Point(325, 115)
-        Me.logTitleLabel.Name = "logTitleLabel"
-        Me.logTitleLabel.Size = New System.Drawing.Size(45, 21)
-        Me.logTitleLabel.TabIndex = 15
-        Me.logTitleLabel.Text = "Logs"
-        Me.logTitleLabel.Visible = False
-        '
         'logsContainer
         '
         Me.logsContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
@@ -753,18 +725,18 @@ Partial Class Form1
         Me.formPositionChkBox.Text = "Remember window position"
         Me.formPositionChkBox.UseVisualStyleBackColor = False
         '
-        'settingsTitleLabel
+        'titleLabel
         '
-        Me.settingsTitleLabel.AutoSize = True
-        Me.settingsTitleLabel.BackColor = System.Drawing.Color.Transparent
-        Me.settingsTitleLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.settingsTitleLabel.ForeColor = System.Drawing.Color.White
-        Me.settingsTitleLabel.Location = New System.Drawing.Point(325, 115)
-        Me.settingsTitleLabel.Name = "settingsTitleLabel"
-        Me.settingsTitleLabel.Size = New System.Drawing.Size(152, 21)
-        Me.settingsTitleLabel.TabIndex = 19
-        Me.settingsTitleLabel.Text = "Advanced Settings"
-        Me.settingsTitleLabel.Visible = False
+        Me.titleLabel.AutoSize = True
+        Me.titleLabel.BackColor = System.Drawing.Color.Transparent
+        Me.titleLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.titleLabel.ForeColor = System.Drawing.Color.White
+        Me.titleLabel.Location = New System.Drawing.Point(325, 115)
+        Me.titleLabel.Name = "titleLabel"
+        Me.titleLabel.Size = New System.Drawing.Size(94, 21)
+        Me.titleLabel.TabIndex = 19
+        Me.titleLabel.Text = "{titleLabel}"
+        Me.titleLabel.Visible = False
         '
         'settingsContainer
         '
@@ -907,11 +879,9 @@ Partial Class Form1
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(834, 461)
-        Me.Controls.Add(Me.settingsTitleLabel)
+        Me.Controls.Add(Me.titleLabel)
         Me.Controls.Add(Me.formPositionChkBox)
         Me.Controls.Add(Me.alertContainer)
-        Me.Controls.Add(Me.logTitleLabel)
-        Me.Controls.Add(Me.aboutTitleLabel)
         Me.Controls.Add(Me.topMenuContainer)
         Me.Controls.Add(Me.updateCheckerChkBox)
         Me.Controls.Add(Me.confirmStopBackupChkBox)
@@ -986,7 +956,6 @@ Partial Class Form1
     Friend WithEvents homePictureBtn As PictureBox
     Friend WithEvents aboutLabel As Label
     Friend WithEvents aboutContainer As Panel
-    Friend WithEvents aboutTitleLabel As Label
     Friend WithEvents appInfoLabel As Label
     Friend WithEvents websiteLabel As Label
     Friend WithEvents licenseLabel As Label
@@ -995,7 +964,6 @@ Partial Class Form1
     Friend WithEvents exploreDestLocBtn As Button
     Friend WithEvents exploreSaveLocBtn As Button
     Friend WithEvents logLabel As Label
-    Friend WithEvents logTitleLabel As Label
     Friend WithEvents logsContainer As Panel
     Friend WithEvents alertContainer As Panel
     Friend WithEvents closeAlertContainerIcon As PictureBox
@@ -1003,7 +971,7 @@ Partial Class Form1
     Friend WithEvents alertDescriptionLabel As Label
     Friend WithEvents formPositionChkBox As CheckBox
     Friend WithEvents alertDot As PictureBox
-    Friend WithEvents settingsTitleLabel As Label
+    Friend WithEvents titleLabel As Label
     Friend WithEvents settingsContainer As Panel
     Friend WithEvents settingsWriteLogToFileChkBox As CheckBox
     Friend WithEvents settingsDisableCloudSyncChkBox As CheckBox

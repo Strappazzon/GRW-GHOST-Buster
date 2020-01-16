@@ -551,11 +551,9 @@ Public Class Form1
         settingsLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         backupGroupBox.Visible = True
         pathsGroupBox.Visible = True
-        aboutTitleLabel.Visible = False
         aboutContainer.Visible = False
-        logTitleLabel.Visible = False
         logsContainer.Visible = False
-        settingsTitleLabel.Visible = False
+        titleLabel.Visible = False
         settingsContainer.Visible = False
     End Sub
 
@@ -566,11 +564,10 @@ Public Class Form1
         settingsLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
         backupGroupBox.Visible = False
         pathsGroupBox.Visible = False
-        aboutTitleLabel.Visible = False
         aboutContainer.Visible = False
-        logTitleLabel.Visible = False
         logsContainer.Visible = False
-        settingsTitleLabel.Visible = True
+        titleLabel.Text = "Advanced Settings"
+        titleLabel.Visible = True
         settingsContainer.Visible = True
     End Sub
 
@@ -581,11 +578,10 @@ Public Class Form1
         settingsLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         backupGroupBox.Visible = False
         pathsGroupBox.Visible = False
-        aboutTitleLabel.Visible = False
         aboutContainer.Visible = False
-        logTitleLabel.Visible = True
         logsContainer.Visible = True
-        settingsTitleLabel.Visible = False
+        titleLabel.Text = "Logs"
+        titleLabel.Visible = True
         settingsContainer.Visible = False
         alertDot.Visible = False
         'Close the alert when switching to Logs tab
@@ -610,10 +606,9 @@ Public Class Form1
         backupGroupBox.Visible = False
         pathsGroupBox.Visible = False
         aboutContainer.Visible = True
-        aboutTitleLabel.Visible = True
-        logTitleLabel.Visible = False
         logsContainer.Visible = False
-        settingsTitleLabel.Visible = False
+        titleLabel.Text = "About"
+        titleLabel.Visible = True
         settingsContainer.Visible = False
     End Sub
 
