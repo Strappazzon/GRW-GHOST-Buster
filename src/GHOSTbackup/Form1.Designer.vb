@@ -80,9 +80,8 @@ Partial Class Form1
         Me.settingsBrowseLogFolderBtn = New System.Windows.Forms.Button()
         Me.settingsBrowseLogFileBtn = New System.Windows.Forms.Button()
         Me.settingsLogFilePathTextBox = New System.Windows.Forms.TextBox()
-        Me.settingsDisableCloudSyncLabel = New System.Windows.Forms.Label()
-        Me.settingsDisableCloudSyncChkBox = New System.Windows.Forms.CheckBox()
         Me.settingsWriteLogToFileChkBox = New System.Windows.Forms.CheckBox()
+        Me.disableCloudSyncChkBox = New System.Windows.Forms.CheckBox()
         Me.pathsGroupBox.SuspendLayout()
         Me.backupGroupBox.SuspendLayout()
         CType(Me.freqSelectTimeUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -473,7 +472,7 @@ Partial Class Form1
         Me.updateCheckerChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.updateCheckerChkBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.updateCheckerChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.updateCheckerChkBox.Location = New System.Drawing.Point(14, 280)
+        Me.updateCheckerChkBox.Location = New System.Drawing.Point(14, 305)
         Me.updateCheckerChkBox.Name = "updateCheckerChkBox"
         Me.updateCheckerChkBox.Size = New System.Drawing.Size(133, 21)
         Me.updateCheckerChkBox.TabIndex = 11
@@ -718,7 +717,7 @@ Partial Class Form1
         Me.formPositionChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.formPositionChkBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.formPositionChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.formPositionChkBox.Location = New System.Drawing.Point(14, 305)
+        Me.formPositionChkBox.Location = New System.Drawing.Point(14, 330)
         Me.formPositionChkBox.Name = "formPositionChkBox"
         Me.formPositionChkBox.Size = New System.Drawing.Size(190, 21)
         Me.formPositionChkBox.TabIndex = 18
@@ -747,8 +746,6 @@ Partial Class Form1
         Me.settingsContainer.Controls.Add(Me.settingsBrowseLogFolderBtn)
         Me.settingsContainer.Controls.Add(Me.settingsBrowseLogFileBtn)
         Me.settingsContainer.Controls.Add(Me.settingsLogFilePathTextBox)
-        Me.settingsContainer.Controls.Add(Me.settingsDisableCloudSyncLabel)
-        Me.settingsContainer.Controls.Add(Me.settingsDisableCloudSyncChkBox)
         Me.settingsContainer.Controls.Add(Me.settingsWriteLogToFileChkBox)
         Me.settingsContainer.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.settingsContainer.Location = New System.Drawing.Point(325, 149)
@@ -762,7 +759,7 @@ Partial Class Form1
         Me.settingsWhichBackupLabel.AutoSize = True
         Me.settingsWhichBackupLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.settingsWhichBackupLabel.ForeColor = System.Drawing.Color.White
-        Me.settingsWhichBackupLabel.Location = New System.Drawing.Point(14, 130)
+        Me.settingsWhichBackupLabel.Location = New System.Drawing.Point(14, 90)
         Me.settingsWhichBackupLabel.Name = "settingsWhichBackupLabel"
         Me.settingsWhichBackupLabel.Size = New System.Drawing.Size(229, 17)
         Me.settingsWhichBackupLabel.TabIndex = 21
@@ -776,7 +773,7 @@ Partial Class Form1
         Me.settingsWhichBackupDropdownCombo.ForeColor = System.Drawing.Color.White
         Me.settingsWhichBackupDropdownCombo.FormattingEnabled = True
         Me.settingsWhichBackupDropdownCombo.Items.AddRange(New Object() {"Latest", "Second-to-last", "Let me decide"})
-        Me.settingsWhichBackupDropdownCombo.Location = New System.Drawing.Point(16, 155)
+        Me.settingsWhichBackupDropdownCombo.Location = New System.Drawing.Point(16, 115)
         Me.settingsWhichBackupDropdownCombo.MaxDropDownItems = 3
         Me.settingsWhichBackupDropdownCombo.Name = "settingsWhichBackupDropdownCombo"
         Me.settingsWhichBackupDropdownCombo.Size = New System.Drawing.Size(464, 23)
@@ -809,9 +806,9 @@ Partial Class Form1
         Me.settingsBrowseLogFileBtn.ForeColor = System.Drawing.Color.White
         Me.settingsBrowseLogFileBtn.Image = CType(resources.GetObject("settingsBrowseLogFileBtn.Image"), System.Drawing.Image)
         Me.settingsBrowseLogFileBtn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.settingsBrowseLogFileBtn.Location = New System.Drawing.Point(329, 42)
+        Me.settingsBrowseLogFileBtn.Location = New System.Drawing.Point(334, 42)
         Me.settingsBrowseLogFileBtn.Name = "settingsBrowseLogFileBtn"
-        Me.settingsBrowseLogFileBtn.Size = New System.Drawing.Size(95, 30)
+        Me.settingsBrowseLogFileBtn.Size = New System.Drawing.Size(90, 30)
         Me.settingsBrowseLogFileBtn.TabIndex = 14
         Me.settingsBrowseLogFileBtn.Text = "Browse..."
         Me.settingsBrowseLogFileBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -828,34 +825,8 @@ Partial Class Form1
         Me.settingsLogFilePathTextBox.MaxLength = 256
         Me.settingsLogFilePathTextBox.Name = "settingsLogFilePathTextBox"
         Me.settingsLogFilePathTextBox.ReadOnly = True
-        Me.settingsLogFilePathTextBox.Size = New System.Drawing.Size(291, 23)
+        Me.settingsLogFilePathTextBox.Size = New System.Drawing.Size(296, 23)
         Me.settingsLogFilePathTextBox.TabIndex = 6
-        '
-        'settingsDisableCloudSyncLabel
-        '
-        Me.settingsDisableCloudSyncLabel.AutoSize = True
-        Me.settingsDisableCloudSyncLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.settingsDisableCloudSyncLabel.ForeColor = System.Drawing.Color.Silver
-        Me.settingsDisableCloudSyncLabel.Location = New System.Drawing.Point(12, 99)
-        Me.settingsDisableCloudSyncLabel.Name = "settingsDisableCloudSyncLabel"
-        Me.settingsDisableCloudSyncLabel.Size = New System.Drawing.Size(418, 13)
-        Me.settingsDisableCloudSyncLabel.TabIndex = 5
-        Me.settingsDisableCloudSyncLabel.Text = "The Uplay settings file may change at any time. Use this setting at your own risk" &
-    "."
-        '
-        'settingsDisableCloudSyncChkBox
-        '
-        Me.settingsDisableCloudSyncChkBox.AutoSize = True
-        Me.settingsDisableCloudSyncChkBox.BackColor = System.Drawing.Color.Transparent
-        Me.settingsDisableCloudSyncChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.settingsDisableCloudSyncChkBox.ForeColor = System.Drawing.Color.White
-        Me.settingsDisableCloudSyncChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.settingsDisableCloudSyncChkBox.Location = New System.Drawing.Point(14, 80)
-        Me.settingsDisableCloudSyncChkBox.Name = "settingsDisableCloudSyncChkBox"
-        Me.settingsDisableCloudSyncChkBox.Size = New System.Drawing.Size(336, 21)
-        Me.settingsDisableCloudSyncChkBox.TabIndex = 4
-        Me.settingsDisableCloudSyncChkBox.Text = "Let GHOST Buster disable cloud save synchronization"
-        Me.settingsDisableCloudSyncChkBox.UseVisualStyleBackColor = False
         '
         'settingsWriteLogToFileChkBox
         '
@@ -870,6 +841,20 @@ Partial Class Form1
         Me.settingsWriteLogToFileChkBox.TabIndex = 3
         Me.settingsWriteLogToFileChkBox.Text = "Write events to a log file"
         Me.settingsWriteLogToFileChkBox.UseVisualStyleBackColor = False
+        '
+        'disableCloudSyncChkBox
+        '
+        Me.disableCloudSyncChkBox.AutoSize = True
+        Me.disableCloudSyncChkBox.BackColor = System.Drawing.Color.Transparent
+        Me.disableCloudSyncChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.disableCloudSyncChkBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.disableCloudSyncChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.disableCloudSyncChkBox.Location = New System.Drawing.Point(14, 280)
+        Me.disableCloudSyncChkBox.Name = "disableCloudSyncChkBox"
+        Me.disableCloudSyncChkBox.Size = New System.Drawing.Size(202, 21)
+        Me.disableCloudSyncChkBox.TabIndex = 4
+        Me.disableCloudSyncChkBox.Text = "Disable Uplay cloud save sync"
+        Me.disableCloudSyncChkBox.UseVisualStyleBackColor = False
         '
         'Form1
         '
@@ -886,6 +871,7 @@ Partial Class Form1
         Me.Controls.Add(Me.updateCheckerChkBox)
         Me.Controls.Add(Me.confirmStopBackupChkBox)
         Me.Controls.Add(Me.confirmExitChkBox)
+        Me.Controls.Add(Me.disableCloudSyncChkBox)
         Me.Controls.Add(Me.playGameBtn)
         Me.Controls.Add(Me.logoBigPictureBox)
         Me.Controls.Add(Me.backupGroupBox)
@@ -974,8 +960,7 @@ Partial Class Form1
     Friend WithEvents titleLabel As Label
     Friend WithEvents settingsContainer As Panel
     Friend WithEvents settingsWriteLogToFileChkBox As CheckBox
-    Friend WithEvents settingsDisableCloudSyncChkBox As CheckBox
-    Friend WithEvents settingsDisableCloudSyncLabel As Label
+    Friend WithEvents disableCloudSyncChkBox As CheckBox
     Friend WithEvents settingsLogFilePathTextBox As TextBox
     Friend WithEvents settingsBrowseLogFileBtn As Button
     Friend WithEvents settingsBrowseLogFolderBtn As Button

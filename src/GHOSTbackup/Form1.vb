@@ -55,8 +55,8 @@ Public Class Form1
             My.Settings.LogFilePath = settingsLogFilePathTextBox.Text
         End If
 
-        If settingsDisableCloudSyncChkBox.CheckState <> My.Settings.DisableCloudSync Then
-            My.Settings.DisableCloudSync = settingsDisableCloudSyncChkBox.CheckState
+        If disableCloudSyncChkBox.CheckState <> My.Settings.DisableCloudSync Then
+            My.Settings.DisableCloudSync = disableCloudSyncChkBox.CheckState
         End If
 
         If settingsWhichBackupDropdownCombo.SelectedIndex <> My.Settings.WhichBackup Then
@@ -108,8 +108,9 @@ Public Class Form1
         playGameBtn.Location = New Point(12, 180)
         confirmExitChkBox.Location = New Point(14, 255)
         confirmStopBackupChkBox.Location = New Point(14, 280)
-        updateCheckerChkBox.Location = New Point(14, 305)
-        formPositionChkBox.Location = New Point(14, 330)
+        disableCloudSyncChkBox.Location = New Point(14, 305)
+        updateCheckerChkBox.Location = New Point(14, 330)
+        formPositionChkBox.Location = New Point(14, 355)
         alertDescriptionLabel.Location = New Point(alertContainer.Width / 2 - alertDescriptionLabel.Width / 2, alertContainer.Height / 2 - alertDescriptionLabel.Height / 2)
         alertIcon.Location = New Point(alertContainer.Width / 2 - alertDescriptionLabel.Width / 2 - 28, alertContainer.Height / 2 - alertIcon.Height / 2)
         alertContainer.Visible = True
@@ -419,7 +420,7 @@ Public Class Form1
         Else
             settingsLogFilePathTextBox.Text = My.Settings.LogFilePath
         End If
-        settingsDisableCloudSyncChkBox.Checked = My.Settings.DisableCloudSync
+        disableCloudSyncChkBox.Checked = My.Settings.DisableCloudSync
         settingsWhichBackupDropdownCombo.SelectedIndex = My.Settings.WhichBackup
 
         'Set window position
@@ -623,8 +624,9 @@ Public Class Form1
         playGameBtn.Location = New Point(12, 150)
         confirmExitChkBox.Location = New Point(14, 230)
         confirmStopBackupChkBox.Location = New Point(14, 255)
-        updateCheckerChkBox.Location = New Point(14, 280)
-        formPositionChkBox.Location = New Point(14, 305)
+        disableCloudSyncChkBox.Location = New Point(14, 280)
+        updateCheckerChkBox.Location = New Point(14, 305)
+        formPositionChkBox.Location = New Point(14, 330)
     End Sub
 
     Private Sub playGameBtn_Click(sender As Object, e As EventArgs) Handles playGameBtn.Click
@@ -644,6 +646,14 @@ Public Class Form1
             confirmStopBackupChkBox.ForeColor = Color.White
         Else
             confirmStopBackupChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        End If
+    End Sub
+
+    Private Sub disableCloudSyncChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles disableCloudSyncChkBox.CheckedChanged
+        If disableCloudSyncChkBox.Checked = True Then
+            disableCloudSyncChkBox.ForeColor = Color.White
+        Else
+            disableCloudSyncChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
         End If
     End Sub
 
@@ -816,7 +826,7 @@ Public Class Form1
             showAlert(64, "You need to specify both save games and backup folders.")
         ElseIf isGameRunning = True Then
             showAlert(64, "You need to quit Wildlands before restoring a backup.")
-        ElseIf isGameRunning = False And settingsDisableCloudSyncChkBox.Checked = True Then
+        ElseIf isGameRunning = False And disableCloudSyncChkBox.Checked = True Then
             'If the game is not running and "Let GHOST Buster disable cloud save synchronization" is checked
             'Check if Uplay is running or not before editing its settings file
             Dim uProc = Process.GetProcessesByName("upc")
@@ -861,7 +871,7 @@ Public Class Form1
 
                 Catch fileNotFound As FileNotFoundException
                     'Don't let GHOST Buster disable cloud save sync until the user enables the setting again...
-                    settingsDisableCloudSyncChkBox.Checked = False
+                    disableCloudSyncChkBox.Checked = False
                     '...notify the user about the error
                     log("[ERROR] Parsing of ""settings.yml"" failed: File not found.")
                     showMsgBox("{\rtf1 ""Let GHOST Buster disable cloud save synchronization"" setting has been disabled because an error occurred while trying to parse Uplay settings file: {\b File not found.}" _
@@ -872,7 +882,7 @@ Public Class Form1
                     restoreBackup()
                 Catch insufficentPermissions As UnauthorizedAccessException
                     'Don't let GHOST Buster disable cloud save sync until the user enables the setting again...
-                    settingsDisableCloudSyncChkBox.Checked = False
+                    disableCloudSyncChkBox.Checked = False
                     '...notify the user about the error
                     log("[ERROR] Parsing of ""settings.yml"" failed: File is read only.")
                     showMsgBox("{\rtf1 ""Let GHOST Buster disable cloud save synchronization"" setting has been disabled because an error occurred while trying to parse Uplay settings file: {\b File not found.}" _
@@ -883,7 +893,7 @@ Public Class Form1
                     restoreBackup()
                 End Try
             End If
-        ElseIf isGameRunning = False And settingsDisableCloudSyncChkBox.Checked = False Then
+        ElseIf isGameRunning = False And disableCloudSyncChkBox.Checked = False Then
             'If the game is not running and "Let GHOST Buster disable cloud save synchronization" is not checked
             restoreBackup()
         End If
