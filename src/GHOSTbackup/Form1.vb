@@ -6,7 +6,6 @@ Imports Microsoft.Win32
 Public Class Form1
     Public ReadOnly versionCode As Short = 13
     Public ReadOnly version As String = "1.6.0"
-    Public isGameInstalled As Boolean
     Public isUplayInstalled As Boolean
     Public gamePath As String
     Public uplayPath As String
@@ -445,19 +444,16 @@ Public Class Form1
             gameReg.Close()
 
             If gamePath <> Nothing Then
-                isGameInstalled = True
                 playGameBtn.Enabled = True
                 log("[INFO] Wildlands is installed in: " & gamePath)
                 processCheckTimer.Interval = 500
                 processCheckTimer.Start()
             Else
-                isGameInstalled = False
                 playGameBtn.Text = "Ghost Recon Wildlands is not installed"
                 log("[WARNING] Wildlands is not installed (""InstallDir"" is Null or Empty).")
             End If
 
         Catch nullValue As NullReferenceException
-            isGameInstalled = False
             playGameBtn.Text = "Ghost Recon Wildlands is not installed"
             log("[WARNING] 'NullReferenceException' Wildlands is not installed.")
         End Try
