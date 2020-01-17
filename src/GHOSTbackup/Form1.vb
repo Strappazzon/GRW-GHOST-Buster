@@ -6,10 +6,10 @@ Imports Microsoft.Win32
 Public Class Form1
     Public ReadOnly versionCode As Short = 13
     Public ReadOnly version As String = "1.6.0"
-    Public isUplayInstalled As Boolean
+    Public isUplayInstalled As Boolean = False
     Public gamePath As String
     Public uplayPath As String
-    Public isGameRunning As Boolean
+    Public isGameRunning As Boolean = False
     Public isBackupRunning As Boolean = False
     Public backupTimestamp As Date
     Public restoreTimestamp As Date
