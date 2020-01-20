@@ -937,7 +937,7 @@ Public Class Form1
     End Sub
 
     Private Sub LicenseLabel_Click(sender As Object, e As EventArgs) Handles licenseLabel.Click
-        Process.Start("https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/LICENSE.txt")
+        Process.Start("https://github.com/Strappazzon/GRW-GHOST-Buster/blob/master/LICENSE.txt")
     End Sub
 
     Private Sub settingsWriteLogToFileChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles settingsWriteLogToFileChkBox.CheckedChanged
