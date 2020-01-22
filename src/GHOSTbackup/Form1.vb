@@ -328,45 +328,51 @@ Public Class Form1
                 '//docs.microsoft.com/en-us/dotnet/api/system.io.directory.enumeratedirectories
                 backupDirs = New List(Of String)(Directory.EnumerateDirectories(destLocTextBox.Text))
 
-                'Reverse the order of directories list (Most recent backup first)
-                '//docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.reverse
-                backupDirs.Reverse()
+                'Check if the backup folder is empty or not
+                If backupDirs.Count <> 0 Then
+                    'Reverse the order of directories list (Most recent backup first)
+                    '//docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.reverse
+                    backupDirs.Reverse()
 
-                CustomMsgBox.backupDirsDropdownCombo.Visible = True
-
-                'Add all directories to CustomMsgBox dropdown menu
-                For Each backupDir In backupDirs
-                    CustomMsgBox.backupDirsDropdownCombo.Items.Add(backupDir.Substring(backupDir.LastIndexOf(Path.DirectorySeparatorChar) + 1))
-                Next
-
-                'Select the first folder on the list
-                CustomMsgBox.backupDirsDropdownCombo.SelectedIndex = 0
-
-                showMsgBox("{\rtf1 Restoring a backup will copy the save files over from the backup folder that you selected from the list below (which is inside " & backupLoc.Replace("\", "\\") _
-                           & ")\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & saveLoc.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
-                           "Backup restore",
-                           MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
-                If CustomMsgBox.DialogResult = DialogResult.Yes Then
-                    'Store selected backup subdirectory
-                    Dim backupSubDir = backupLoc & "\" & CustomMsgBox.backupDirsDropdownCombo.SelectedItem
-                    Dim saveList As String() = Directory.GetFiles(backupSubDir, "*.save")
-                    For Each F As String In saveList
-                        Dim fName As String = F.Substring(backupSubDir.Length + 1)
-                        File.Copy(Path.Combine(backupSubDir, fName), Path.Combine(saveLoc, fName), True)
+                    'Add all directories to CustomMsgBox dropdown menu
+                    For Each backupDir In backupDirs
+                        CustomMsgBox.backupDirsDropdownCombo.Items.Add(backupDir.Substring(backupDir.LastIndexOf(Path.DirectorySeparatorChar) + 1))
                     Next
 
-                    'Empty subdirectories list to avoid adding duplicates in the next restore process
-                    CustomMsgBox.backupDirsDropdownCombo.Items.Clear()
-                    backupDirs = Nothing
+                    CustomMsgBox.backupDirsDropdownCombo.Visible = True
+                    'Select the first folder on the list
+                    CustomMsgBox.backupDirsDropdownCombo.SelectedIndex = 0
 
-                    log("[INFO] Backup from " & backupSubDir & " restored.")
-                    showAlert(64, "Backup restored successfully.")
+                    showMsgBox("{\rtf1 Restoring a backup will copy the save files over from the backup folder that you selected from the list below (which is inside " & backupLoc.Replace("\", "\\") _
+                               & ")\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & saveLoc.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
+                               "Backup restore",
+                               MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+                    If CustomMsgBox.DialogResult = DialogResult.Yes Then
+                        'Store selected backup subdirectory
+                        Dim backupSubDir = backupLoc & "\" & CustomMsgBox.backupDirsDropdownCombo.SelectedItem
+                        Dim saveList As String() = Directory.GetFiles(backupSubDir, "*.save")
+                        For Each F As String In saveList
+                            Dim fName As String = F.Substring(backupSubDir.Length + 1)
+                            File.Copy(Path.Combine(backupSubDir, fName), Path.Combine(saveLoc, fName), True)
+                        Next
+
+                        'Empty subdirectories list to avoid adding duplicates in the next restore process
+                        CustomMsgBox.backupDirsDropdownCombo.Items.Clear()
+                        backupDirs = Nothing
+
+                        log("[INFO] Backup from " & backupSubDir & " restored.")
+                        showAlert(64, "Backup restored successfully.")
+                    Else
+                        'Empty subdirectories list to avoid adding duplicates in the next restore process
+                        CustomMsgBox.backupDirsDropdownCombo.Items.Clear()
+                        backupDirs = Nothing
+
+                        log("[INFO] Restore process cancelled by the user.")
+                    End If
                 Else
-                    'Empty subdirectories list to avoid adding duplicates in the next restore process
-                    CustomMsgBox.backupDirsDropdownCombo.Items.Clear()
                     backupDirs = Nothing
-
-                    log("[INFO] Restore process cancelled by the user.")
+                    showMsgBox("{\rtf1 The specified backup folder is empty. Backup at least once and try again.}", "No backup found", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+                    log("[INFO] No backup found (backup folder is empty). Restore process aborted.")
                 End If
             End If
 
