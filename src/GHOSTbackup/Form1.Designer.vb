@@ -75,6 +75,11 @@ Partial Class Form1
         Me.formPositionChkBox = New System.Windows.Forms.CheckBox()
         Me.titleLabel = New System.Windows.Forms.Label()
         Me.settingsContainer = New System.Windows.Forms.Panel()
+        Me.settingsNonUplayVersionRestartLabel = New System.Windows.Forms.Label()
+        Me.settingsOpenCustomExeFolderBtn = New System.Windows.Forms.Button()
+        Me.settingsBrowseCustomExeBtn = New System.Windows.Forms.Button()
+        Me.settingsCustomExeTextBox = New System.Windows.Forms.TextBox()
+        Me.settingsNonUplayVersionChkBox = New System.Windows.Forms.CheckBox()
         Me.settingsWhichBackupLabel = New System.Windows.Forms.Label()
         Me.settingsWhichBackupDropdownCombo = New System.Windows.Forms.ComboBox()
         Me.settingsBrowseLogFolderBtn = New System.Windows.Forms.Button()
@@ -741,6 +746,11 @@ Partial Class Form1
         '
         Me.settingsContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
         Me.settingsContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.settingsContainer.Controls.Add(Me.settingsNonUplayVersionRestartLabel)
+        Me.settingsContainer.Controls.Add(Me.settingsOpenCustomExeFolderBtn)
+        Me.settingsContainer.Controls.Add(Me.settingsBrowseCustomExeBtn)
+        Me.settingsContainer.Controls.Add(Me.settingsCustomExeTextBox)
+        Me.settingsContainer.Controls.Add(Me.settingsNonUplayVersionChkBox)
         Me.settingsContainer.Controls.Add(Me.settingsWhichBackupLabel)
         Me.settingsContainer.Controls.Add(Me.settingsWhichBackupDropdownCombo)
         Me.settingsContainer.Controls.Add(Me.settingsBrowseLogFolderBtn)
@@ -753,6 +763,81 @@ Partial Class Form1
         Me.settingsContainer.Size = New System.Drawing.Size(497, 299)
         Me.settingsContainer.TabIndex = 20
         Me.settingsContainer.Visible = False
+        '
+        'settingsNonUplayVersionRestartLabel
+        '
+        Me.settingsNonUplayVersionRestartLabel.AutoSize = True
+        Me.settingsNonUplayVersionRestartLabel.BackColor = System.Drawing.Color.Transparent
+        Me.settingsNonUplayVersionRestartLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.settingsNonUplayVersionRestartLabel.ForeColor = System.Drawing.Color.Silver
+        Me.settingsNonUplayVersionRestartLabel.Location = New System.Drawing.Point(30, 220)
+        Me.settingsNonUplayVersionRestartLabel.Name = "settingsNonUplayVersionRestartLabel"
+        Me.settingsNonUplayVersionRestartLabel.Size = New System.Drawing.Size(385, 13)
+        Me.settingsNonUplayVersionRestartLabel.TabIndex = 26
+        Me.settingsNonUplayVersionRestartLabel.Text = "You'll need to restart GHOST Buster in order for the change to take effect."
+        '
+        'settingsOpenCustomExeFolderBtn
+        '
+        Me.settingsOpenCustomExeFolderBtn.Enabled = False
+        Me.settingsOpenCustomExeFolderBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
+        Me.settingsOpenCustomExeFolderBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.settingsOpenCustomExeFolderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.settingsOpenCustomExeFolderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.settingsOpenCustomExeFolderBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.settingsOpenCustomExeFolderBtn.ForeColor = System.Drawing.Color.White
+        Me.settingsOpenCustomExeFolderBtn.Location = New System.Drawing.Point(398, 184)
+        Me.settingsOpenCustomExeFolderBtn.Name = "settingsOpenCustomExeFolderBtn"
+        Me.settingsOpenCustomExeFolderBtn.Size = New System.Drawing.Size(82, 30)
+        Me.settingsOpenCustomExeFolderBtn.TabIndex = 25
+        Me.settingsOpenCustomExeFolderBtn.Text = "Open Folder"
+        Me.settingsOpenCustomExeFolderBtn.UseVisualStyleBackColor = True
+        '
+        'settingsBrowseCustomExeBtn
+        '
+        Me.settingsBrowseCustomExeBtn.Enabled = False
+        Me.settingsBrowseCustomExeBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
+        Me.settingsBrowseCustomExeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.settingsBrowseCustomExeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.settingsBrowseCustomExeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.settingsBrowseCustomExeBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.settingsBrowseCustomExeBtn.ForeColor = System.Drawing.Color.White
+        Me.settingsBrowseCustomExeBtn.Image = CType(resources.GetObject("settingsBrowseCustomExeBtn.Image"), System.Drawing.Image)
+        Me.settingsBrowseCustomExeBtn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.settingsBrowseCustomExeBtn.Location = New System.Drawing.Point(302, 184)
+        Me.settingsBrowseCustomExeBtn.Name = "settingsBrowseCustomExeBtn"
+        Me.settingsBrowseCustomExeBtn.Size = New System.Drawing.Size(90, 30)
+        Me.settingsBrowseCustomExeBtn.TabIndex = 24
+        Me.settingsBrowseCustomExeBtn.Text = "Browse..."
+        Me.settingsBrowseCustomExeBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.settingsBrowseCustomExeBtn.UseVisualStyleBackColor = True
+        '
+        'settingsCustomExeTextBox
+        '
+        Me.settingsCustomExeTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.settingsCustomExeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.settingsCustomExeTextBox.Enabled = False
+        Me.settingsCustomExeTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.settingsCustomExeTextBox.ForeColor = System.Drawing.Color.White
+        Me.settingsCustomExeTextBox.Location = New System.Drawing.Point(32, 187)
+        Me.settingsCustomExeTextBox.MaxLength = 256
+        Me.settingsCustomExeTextBox.Name = "settingsCustomExeTextBox"
+        Me.settingsCustomExeTextBox.ReadOnly = True
+        Me.settingsCustomExeTextBox.Size = New System.Drawing.Size(264, 23)
+        Me.settingsCustomExeTextBox.TabIndex = 23
+        '
+        'settingsNonUplayVersionChkBox
+        '
+        Me.settingsNonUplayVersionChkBox.AutoSize = True
+        Me.settingsNonUplayVersionChkBox.BackColor = System.Drawing.Color.Transparent
+        Me.settingsNonUplayVersionChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.settingsNonUplayVersionChkBox.ForeColor = System.Drawing.Color.White
+        Me.settingsNonUplayVersionChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.settingsNonUplayVersionChkBox.Location = New System.Drawing.Point(14, 160)
+        Me.settingsNonUplayVersionChkBox.Name = "settingsNonUplayVersionChkBox"
+        Me.settingsNonUplayVersionChkBox.Size = New System.Drawing.Size(284, 21)
+        Me.settingsNonUplayVersionChkBox.TabIndex = 22
+        Me.settingsNonUplayVersionChkBox.Text = "I'm not using the Uplay version of Wildlands"
+        Me.settingsNonUplayVersionChkBox.UseVisualStyleBackColor = False
         '
         'settingsWhichBackupLabel
         '
@@ -969,4 +1054,9 @@ Partial Class Form1
     Friend WithEvents latestBackupHelpLabel As Label
     Friend WithEvents latestBackupTimestampLabel As Label
     Friend WithEvents uplayPictureBtn As PictureBox
+    Friend WithEvents settingsOpenCustomExeFolderBtn As Button
+    Friend WithEvents settingsBrowseCustomExeBtn As Button
+    Friend WithEvents settingsCustomExeTextBox As TextBox
+    Friend WithEvents settingsNonUplayVersionChkBox As CheckBox
+    Friend WithEvents settingsNonUplayVersionRestartLabel As Label
 End Class

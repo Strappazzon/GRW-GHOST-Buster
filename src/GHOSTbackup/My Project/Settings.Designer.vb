@@ -209,6 +209,30 @@ Namespace My
                 Me("WhichBackup") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property NoUplay() As Boolean
+            Get
+                Return CType(Me("NoUplay"),Boolean)
+            End Get
+            Set
+                Me("NoUplay") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property CustomExeLoc() As String
+            Get
+                Return CType(Me("CustomExeLoc"),String)
+            End Get
+            Set
+                Me("CustomExeLoc") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

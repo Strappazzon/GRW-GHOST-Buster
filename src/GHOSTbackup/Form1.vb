@@ -63,6 +63,12 @@ Public Class Form1
             My.Settings.WhichBackup = settingsWhichBackupDropdownCombo.SelectedIndex
         End If
 
+        'If Wildlands executable location is empty don't save these settings
+        If settingsNonUplayVersionChkBox.CheckState <> My.Settings.NoUplay AndAlso settingsCustomExeTextBox.Text <> "" Then
+            My.Settings.NoUplay = settingsNonUplayVersionChkBox.CheckState
+            My.Settings.CustomExeLoc = settingsCustomExeTextBox.Text
+        End If
+
         log("[INFO] Settings saved.")
     End Sub
 
@@ -225,6 +231,10 @@ Public Class Form1
         browseSaveLocBtn.Enabled = False
         destLocTextBox.Enabled = False
         browseDestLocBtn.Enabled = False
+        settingsNonUplayVersionChkBox.Enabled = False
+        settingsCustomExeTextBox.Enabled = False
+        settingsBrowseCustomExeBtn.Enabled = False
+        settingsOpenCustomExeFolderBtn.Enabled = False
     End Sub
 
     Sub stopBackup()
@@ -238,6 +248,10 @@ Public Class Form1
         browseSaveLocBtn.Enabled = True
         destLocTextBox.Enabled = True
         browseDestLocBtn.Enabled = True
+        settingsNonUplayVersionChkBox.Enabled = True
+        settingsCustomExeTextBox.Enabled = True
+        settingsBrowseCustomExeBtn.Enabled = True
+        settingsOpenCustomExeFolderBtn.Enabled = True
     End Sub
 
     Sub restoreBackup()
@@ -422,6 +436,8 @@ Public Class Form1
         End If
         disableCloudSyncChkBox.Checked = My.Settings.DisableCloudSync
         settingsWhichBackupDropdownCombo.SelectedIndex = My.Settings.WhichBackup
+        settingsNonUplayVersionChkBox.Checked = My.Settings.NoUplay
+        settingsCustomExeTextBox.Text = My.Settings.CustomExeLoc
 
         'Set window position
         loadFormPosition()
@@ -437,27 +453,43 @@ Public Class Form1
 #End If
 
         'Retrieve Wildlands install directory
-        Dim gameReg As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\1771", False)
-
-        Try
-            'Replace forward slashes
-            gamePath = TryCast(gameReg.GetValue("InstallDir"), String).Replace("/", "\")
-            gameReg.Close()
-
-            If gamePath <> Nothing Then
+        If settingsNonUplayVersionChkBox.Checked = True Then
+            If File.Exists(settingsCustomExeTextBox.Text) Then
+                gamePath = Directory.GetParent(settingsCustomExeTextBox.Text).ToString() & "\"
                 playGameBtn.Enabled = True
-                log("[INFO] Wildlands is installed in: " & gamePath)
+                log("[INFO] Wildlands is installed in: " & gamePath & " (Non-Uplay version).")
                 processCheckTimer.Interval = 500
                 processCheckTimer.Start()
             Else
-                playGameBtn.Text = "Ghost Recon Wildlands is not installed"
-                log("[WARNING] Wildlands is not installed (""InstallDir"" is Null or Empty).")
+                'Disable "I'm not using the Uplay version of Wildlands"
+                settingsNonUplayVersionChkBox.Checked = False
+                playGameBtn.Text = "Ghost Recon Wildlands not found"
+                log("[WARNING] Custom Wildlands executable " & settingsCustomExeTextBox.Text & " not found.")
+                showAlert(48, "The specified Wildlands executable could note be found.")
             End If
+        Else
+            Dim gameReg As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\1771", False)
 
-        Catch nullValue As NullReferenceException
-            playGameBtn.Text = "Ghost Recon Wildlands is not installed"
-            log("[WARNING] 'NullReferenceException' Wildlands is not installed.")
-        End Try
+            Try
+                'Replace forward slashes
+                gamePath = TryCast(gameReg.GetValue("InstallDir"), String).Replace("/", "\")
+                gameReg.Close()
+
+                If gamePath <> Nothing Then
+                    playGameBtn.Enabled = True
+                    log("[INFO] Wildlands is installed in: " & gamePath)
+                    processCheckTimer.Interval = 500
+                    processCheckTimer.Start()
+                Else
+                    playGameBtn.Text = "Ghost Recon Wildlands is not installed"
+                    log("[WARNING] Wildlands is not installed (""InstallDir"" is Null or Empty).")
+                End If
+
+            Catch nullValue As NullReferenceException
+                playGameBtn.Text = "Ghost Recon Wildlands is not installed"
+                log("[WARNING] 'NullReferenceException' Wildlands is not installed.")
+            End Try
+        End If
 
         'Retrieve Uplay install directory
         Dim uplayReg As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher", False)
@@ -971,6 +1003,45 @@ Public Class Form1
             Process.Start(settingsLogFilePathTextBox.Text)
         Else
             showAlert(64, "The event log file does not exist.")
+        End If
+    End Sub
+
+    Private Sub settingsNonUplayVersionChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles settingsNonUplayVersionChkBox.CheckedChanged
+        If settingsNonUplayVersionChkBox.Checked = False Then
+            settingsCustomExeTextBox.Enabled = False
+            settingsBrowseCustomExeBtn.Enabled = False
+            settingsOpenCustomExeFolderBtn.Enabled = False
+        Else
+            settingsCustomExeTextBox.Enabled = True
+            settingsBrowseCustomExeBtn.Enabled = True
+            settingsOpenCustomExeFolderBtn.Enabled = True
+        End If
+    End Sub
+
+    Private Sub settingsBrowseCustomExeBtn_Click(sender As Object, e As EventArgs) Handles settingsBrowseCustomExeBtn.Click
+        'Choose Wildlands executable
+        Using O As New OpenFileDialog
+            O.Filter = "Wildlands executable (GRW.exe)|GRW.exe"
+            O.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyComputer)
+            O.Title = "Select Wildlands executable"
+            If O.ShowDialog = DialogResult.OK Then
+                settingsCustomExeTextBox.Text = O.FileName
+                My.Settings.CustomExeLoc = settingsCustomExeTextBox.Text
+                log("[INFO] Custom Wildlands executable set: " & O.FileName)
+                O.Dispose()
+            End If
+        End Using
+    End Sub
+
+    Private Sub settingsOpenCustomExeFolderBtn_Click(sender As Object, e As EventArgs) Handles settingsOpenCustomExeFolderBtn.Click
+        'Open custom Wildlands location in Windows Explorer...
+        If settingsCustomExeTextBox.Text <> "" Then
+            '...if it exists.
+            If Directory.Exists(Directory.GetParent(settingsCustomExeTextBox.Text).ToString()) Then
+                Process.Start(Directory.GetParent(settingsCustomExeTextBox.Text).ToString())
+            Else
+                showAlert(64, "The specified folder does not exist.")
+            End If
         End If
     End Sub
 End Class

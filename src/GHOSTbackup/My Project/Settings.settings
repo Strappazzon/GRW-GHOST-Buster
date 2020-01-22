@@ -41,5 +41,11 @@
     <Setting Name="WhichBackup" Type="System.Int16" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="NoUplay" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="CustomExeLoc" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
