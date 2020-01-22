@@ -11,9 +11,9 @@ Public Class Form1
     Public uplayPath As String
     Public isGameRunning As Boolean = False
     Public isBackupRunning As Boolean = False
-    Public Shared backupDirs As List(Of String)
+    Public backupDirs As List(Of String)
 
-    Sub upgradeSettings()
+    Private Sub upgradeSettings()
         'Migrate settings to the new version
         'Unfortunately, settings migrate only if the new version is installed in the same directory as the old version
         '//bytes.com/topic/visual-basic-net/answers/854235-my-settings-upgrade-doesnt-upgrade#post3426232
@@ -23,7 +23,7 @@ Public Class Form1
         End If
     End Sub
 
-    Sub saveSettings()
+    Private Sub saveSettings()
         'Save settings
         If confirmExitChkBox.CheckState <> My.Settings.ConfirmExit Then
             My.Settings.ConfirmExit = confirmExitChkBox.CheckState
@@ -68,7 +68,7 @@ Public Class Form1
         log("[INFO] Settings saved.")
     End Sub
 
-    Sub loadFormPosition()
+    Private Sub loadFormPosition()
         If My.Settings.RememberFormPosition = True Then
             Dim formLocation As Point = My.Settings.WindowLocation
 
@@ -92,7 +92,7 @@ Public Class Form1
         End If
     End Sub
 
-    Sub showAlert(alertType As Short, alertDesc As String)
+    Private Sub showAlert(alertType As Short, alertDesc As String)
         'Non-intrusive alert
         If alertType = 48 Then
             'Warning
@@ -118,7 +118,7 @@ Public Class Form1
         alertContainer.Visible = True
     End Sub
 
-    Sub showMsgBox(ByVal Message As String, ByVal Title As String, ByVal Buttons As MessageBoxButtons, ByVal Icon As MessageBoxIcon, Optional ByVal DefaultButton As MessageBoxDefaultButton = MessageBoxDefaultButton.Button2)
+    Private Sub showMsgBox(ByVal Message As String, ByVal Title As String, ByVal Buttons As MessageBoxButtons, ByVal Icon As MessageBoxIcon, Optional ByVal DefaultButton As MessageBoxDefaultButton = MessageBoxDefaultButton.Button2)
         'Custom MessageBox
         '//docs.microsoft.com/en-us/dotnet/api/system.windows.forms.form.dialogresult
 
@@ -184,7 +184,7 @@ Public Class Form1
         CustomMsgBox.ShowDialog()
     End Sub
 
-    Sub log([event] As String)
+    Private Sub log([event] As String)
         'Don't start the log file with an empty line
         If logTxtBox.Text = "" Then
             logTxtBox.AppendText(Now.ToString("HH:mm:ss") & " " & [event])
@@ -215,7 +215,7 @@ Public Class Form1
         End If
     End Sub
 
-    Sub startBackup()
+    Private Sub startBackup()
         backupTimer.Interval = freqSelectTimeUpDown.Value * 60000
         backupTimer.Start()
         isBackupRunning = True
@@ -233,7 +233,7 @@ Public Class Form1
         settingsOpenCustomExeFolderBtn.Enabled = False
     End Sub
 
-    Sub stopBackup()
+    Private Sub stopBackup()
         backupTimer.Stop()
         isBackupRunning = False
         freqSelectTimeUpDown.Enabled = True
@@ -250,7 +250,7 @@ Public Class Form1
         settingsOpenCustomExeFolderBtn.Enabled = True
     End Sub
 
-    Sub restoreBackup()
+    Private Sub restoreBackup()
         log("[INFO] Restore process started.")
 
         Dim saveLoc As String = saveLocTextBox.Text
