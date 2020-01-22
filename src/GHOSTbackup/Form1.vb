@@ -468,66 +468,62 @@ Public Class Form1
                 showAlert(48, "The specified Wildlands executable could note be found.")
             End If
         Else
-            Dim gameReg As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\1771", False)
+            Using gameReg As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\1771", False)
+                Try
+                    'Replace forward slashes
+                    gamePath = TryCast(gameReg.GetValue("InstallDir"), String).Replace("/", "\")
+                    gameReg.Close()
 
-            Try
-                'Replace forward slashes
-                gamePath = TryCast(gameReg.GetValue("InstallDir"), String).Replace("/", "\")
-                gameReg.Close()
+                    If gamePath <> Nothing Then
+                        playGameBtn.Enabled = True
+                        log("[INFO] Wildlands is installed in: " & gamePath)
+                        processCheckTimer.Interval = 500
+                        processCheckTimer.Start()
+                    Else
+                        playGameBtn.Text = "Ghost Recon Wildlands is not installed"
+                        log("[WARNING] Wildlands is not installed (""InstallDir"" is Null or Empty).")
+                    End If
 
-                If gamePath <> Nothing Then
-                    playGameBtn.Enabled = True
-                    log("[INFO] Wildlands is installed in: " & gamePath)
-                    processCheckTimer.Interval = 500
-                    processCheckTimer.Start()
-                Else
+                Catch nullValue As NullReferenceException
                     playGameBtn.Text = "Ghost Recon Wildlands is not installed"
-                    log("[WARNING] Wildlands is not installed (""InstallDir"" is Null or Empty).")
-                End If
-
-            Catch nullValue As NullReferenceException
-                playGameBtn.Text = "Ghost Recon Wildlands is not installed"
-                log("[WARNING] 'NullReferenceException' Wildlands is not installed.")
-            End Try
+                    log("[WARNING] 'NullReferenceException' Wildlands is not installed.")
+                End Try
+            End Using
         End If
 
         'Retrieve Uplay install directory
-        Dim uplayReg As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher", False)
+        Using uplayReg As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher", False)
+            Try
+                uplayPath = uplayReg.GetValue("InstallDir")
+                uplayReg.Close()
 
-        Try
-            uplayPath = uplayReg.GetValue("InstallDir")
-            uplayReg.Close()
+                If uplayPath <> Nothing Then
+                    isUplayInstalled = True
+                    log("[INFO] Uplay is installed in: " & uplayPath)
+                Else
+                    isUplayInstalled = False
+                    log("[WARNING] Uplay is not installed (""InstallDir"" is Null or Empty). Uplay is required to launch and play Wildlands.")
+                End If
 
-            If uplayPath <> Nothing Then
-                isUplayInstalled = True
-                log("[INFO] Uplay is installed in: " & uplayPath)
-            Else
-                isUplayInstalled = False
-                log("[WARNING] Uplay is not installed (""InstallDir"" is Null or Empty). Uplay is required to launch and play Wildlands.")
-            End If
-
-        Catch nullValue As NullReferenceException
-            log("[WARNING] 'NullReferenceException' Uplay is not installed. Uplay is required to launch and play Wildlands.")
-        End Try
+            Catch nullValue As NullReferenceException
+                log("[WARNING] 'NullReferenceException' Uplay is not installed. Uplay is required to launch and play Wildlands.")
+            End Try
+        End Using
 
         'Check if save games directory exists
-        If saveLocTextBox.Text <> "" Then
-            If Not Directory.Exists(saveLocTextBox.Text) Then
-                log("[WARNING] Wildlands save games folder " & saveLocTextBox.Text & " no longer exists.")
-                showAlert(48, "Wildlands save games folder no longer exists.")
-                saveLocTextBox.Text = ""
-                My.Settings.GameSavesDir = ""
-            End If
+        If saveLocTextBox.Text <> "" AndAlso Not Directory.Exists(saveLocTextBox.Text) Then
+            log("[WARNING] Wildlands save games folder " & saveLocTextBox.Text & " no longer exists.")
+            showAlert(48, "Wildlands save games folder no longer exists.")
+            saveLocTextBox.Text = ""
+            My.Settings.GameSavesDir = ""
         End If
 
         'Check if backup directory exists
-        If destLocTextBox.Text <> "" Then
-            If Not Directory.Exists(destLocTextBox.Text) Then
-                log("[WARNING] Backup folder " & destLocTextBox.Text & " no longer exists.")
-                showAlert(48, "Backup folder no longer exists.")
-                destLocTextBox.Text = ""
-                My.Settings.BackupDir = ""
-            End If
+        If destLocTextBox.Text <> "" AndAlso Not Directory.Exists(destLocTextBox.Text) Then
+            log("[WARNING] Backup folder " & destLocTextBox.Text & " no longer exists.")
+            showAlert(48, "Backup folder no longer exists.")
+            destLocTextBox.Text = ""
+            My.Settings.BackupDir = ""
         End If
 
         'Check for updates
@@ -999,7 +995,7 @@ Public Class Form1
 
     Private Sub settingsBrowseLogFolderBtn_Click(sender As Object, e As EventArgs) Handles settingsBrowseLogFolderBtn.Click
         'Open log file with the default text editor
-        If settingsLogFilePathTextBox.Text <> "" And File.Exists(settingsLogFilePathTextBox.Text) Then
+        If settingsLogFilePathTextBox.Text <> "" AndAlso File.Exists(settingsLogFilePathTextBox.Text) Then
             Process.Start(settingsLogFilePathTextBox.Text)
         Else
             showAlert(64, "The event log file does not exist.")
@@ -1035,13 +1031,10 @@ Public Class Form1
 
     Private Sub settingsOpenCustomExeFolderBtn_Click(sender As Object, e As EventArgs) Handles settingsOpenCustomExeFolderBtn.Click
         'Open custom Wildlands location in Windows Explorer...
-        If settingsCustomExeTextBox.Text <> "" Then
-            '...if it exists.
-            If Directory.Exists(Directory.GetParent(settingsCustomExeTextBox.Text).ToString()) Then
-                Process.Start(Directory.GetParent(settingsCustomExeTextBox.Text).ToString())
-            Else
-                showAlert(64, "The specified folder does not exist.")
-            End If
+        If settingsCustomExeTextBox.Text <> "" AndAlso Directory.Exists(Directory.GetParent(settingsCustomExeTextBox.Text).ToString()) Then
+            Process.Start(Directory.GetParent(settingsCustomExeTextBox.Text).ToString())
+        Else
+            showAlert(64, "The specified folder does not exist.")
         End If
     End Sub
 End Class
