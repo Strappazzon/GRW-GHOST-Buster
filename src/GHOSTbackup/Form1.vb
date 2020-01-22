@@ -570,7 +570,6 @@ Public Class Form1
                 stopBackup()
                 log("[WARNING] Wildlands has been closed or crashed. Backup interrupted.")
                 showMsgBox("{\rtf1 Wildlands {\b has been closed or crashed}, as a result the backup process has been interrupted.}", "Wildlands is no longer running", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
-            Else
             End If
         End If
     End Sub
