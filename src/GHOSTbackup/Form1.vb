@@ -737,6 +737,11 @@ Public Class Form1
                 My.Settings.BackupDir = destLocTextBox.Text
                 log("[INFO] Backup directory set to: " & O.SelectedPath)
                 O.Dispose()
+                'Reset latest and second-to-last backup timestamps
+                My.Settings.LatestBackupTime = Nothing
+                My.Settings.SecondToLastBackupTime = Nothing
+                latestBackupHelpLabel.Text = "Latest backup: No backup yet."
+                latestBackupHelpLabel.Location = New Point(306, 23)
             End If
         End Using
     End Sub
