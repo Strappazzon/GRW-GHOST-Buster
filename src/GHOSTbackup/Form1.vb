@@ -4,17 +4,13 @@ Imports System.Text
 Imports Microsoft.Win32
 
 Public Class Form1
-    Public ReadOnly versionCode As Short = 13
-    Public ReadOnly version As String = "1.6.0"
+    Public ReadOnly versionCode As Short = 14
+    Public ReadOnly version As String = "1.7.0"
     Public isUplayInstalled As Boolean = False
     Public gamePath As String
     Public uplayPath As String
     Public isGameRunning As Boolean = False
     Public isBackupRunning As Boolean = False
-    Public backupTimestamp As Date
-    Public restoreTimestamp As Date
-    Public latestBackupExists As Boolean = False
-    Public secondToLastBackupExists As Boolean = False
     Public Shared backupDirs As List(Of String)
 
     Sub upgradeSettings()
@@ -259,11 +255,11 @@ Public Class Form1
 
         Dim saveLoc As String = saveLocTextBox.Text
         Dim backupLoc As String = destLocTextBox.Text
-        Dim latestBackupLoc As String = destLocTextBox.Text & backupTimestamp.ToString("\\yyyyMMdd HHmm")
-        Dim secToLastBackupLoc As String = destLocTextBox.Text & restoreTimestamp.ToString("\\yyyyMMdd HHmm")
+        Dim latestBackupLoc As String = destLocTextBox.Text & My.Settings.LatestBackupTime.ToString("\\yyyyMMdd HHmm")
+        Dim secToLastBackupLoc As String = destLocTextBox.Text & My.Settings.SecondToLastBackupTime.ToString("\\yyyyMMdd HHmm")
 
         Try
-            If settingsWhichBackupDropdownCombo.SelectedIndex = 0 And latestBackupExists = True Then
+            If settingsWhichBackupDropdownCombo.SelectedIndex = 0 And My.Settings.LatestBackupTime <> Nothing Then
                 'If "Latest" option is selected and the latest backup exists
                 showMsgBox("{\rtf1 Restoring a backup will copy the save files over from the backup folder: " & latestBackupLoc.Replace("\", "\\") & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & saveLoc.Replace("\", "\\") _
                            & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
@@ -281,11 +277,11 @@ Public Class Form1
                 Else
                     log("[INFO] Restore process cancelled by the user.")
                 End If
-            ElseIf settingsWhichBackupDropdownCombo.SelectedIndex = 0 And latestBackupExists = False Then
+            ElseIf settingsWhichBackupDropdownCombo.SelectedIndex = 0 And My.Settings.LatestBackupTime = Nothing Then
                 'If "Latest" option is selected and the latest backup doesn't exist
                 log("[INFO] No backup found. Restore process aborted.")
                 showMsgBox("{\rtf1 You chose to restore the latest backup but you haven't backed up any save game yet. Backup at least once and try again.}", "No backup found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            ElseIf settingsWhichBackupDropdownCombo.SelectedIndex = 1 And secondToLastBackupExists = True Then
+            ElseIf settingsWhichBackupDropdownCombo.SelectedIndex = 1 And My.Settings.SecondToLastBackupTime <> Nothing Then
                 'If "Second-to-last" option is selected and the second-to-last backup exists
                 showMsgBox("{\rtf1 Restoring a backup will copy the save files over from the backup folder: " & secToLastBackupLoc.Replace("\", "\\") & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " _
                            & saveLoc.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
@@ -303,7 +299,7 @@ Public Class Form1
                 Else
                     log("[INFO] Restore process cancelled by the user.")
                 End If
-            ElseIf settingsWhichBackupDropdownCombo.SelectedIndex = 1 And secondToLastBackupExists = False And latestBackupExists = True Then
+            ElseIf settingsWhichBackupDropdownCombo.SelectedIndex = 1 And My.Settings.SecondToLastBackupTime = Nothing And My.Settings.LatestBackupTime <> Nothing Then
                 'If "Second-to-last" option is selected and the second-to-last backup doesn't exist
                 showMsgBox("{\rtf1 You chose to restore the second-to-last backup but it doesn't exist. Do you want to restore the latest backup instead? This will copy the save files over from the backup folder: " & latestBackupLoc.Replace("\", "\\") _
                            & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & saveLoc.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
@@ -322,7 +318,7 @@ Public Class Form1
                 Else
                     log("[INFO] Restore process cancelled by the user.")
                 End If
-            ElseIf settingsWhichBackupDropdownCombo.SelectedIndex = 1 And secondToLastBackupExists = False And latestBackupExists = False Then
+            ElseIf settingsWhichBackupDropdownCombo.SelectedIndex = 1 And My.Settings.SecondToLastBackupTime = Nothing And My.Settings.LatestBackupTime = Nothing Then
                 'If "Second-to-last" option is selected and neither second-to-last nor latest backup exists
                 showMsgBox("{\rtf1 You chose to restore the second-to-last backup but neither second-to-last nor latest backup exist. Backup at least once and try again.}", "No backup found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 log("[INFO] No backup found (secondToLast, latest). Restore process aborted.")
@@ -438,6 +434,13 @@ Public Class Form1
         settingsWhichBackupDropdownCombo.SelectedIndex = My.Settings.WhichBackup
         settingsNonUplayVersionChkBox.Checked = My.Settings.NoUplay
         settingsCustomExeTextBox.Text = My.Settings.CustomExeLoc
+        If My.Settings.LatestBackupTime <> Nothing Then
+            'Write the latest backup timestamp on the main screen...
+            latestBackupTimestampLabel.Text = My.Settings.LatestBackupTime.ToString("MM/dd/yyyy hh:mm tt")
+            '...and move it to the left so it won't be cut off.
+            latestBackupHelpLabel.Location = New Point(269, 23)
+            latestBackupTimestampLabel.Location = New Point(357, 23)
+        End If
 
         'Set window position
         loadFormPosition()
@@ -753,17 +756,16 @@ Public Class Form1
             startBackup()
 
             'Store timestamp of this backup
-            backupTimestamp = Now
-            latestBackupExists = True
+            My.Settings.LatestBackupTime = Now
 
             'Write the timestamp of this backup on the main screen
             'And move it to the left so it won't be cut off
-            latestBackupTimestampLabel.Text = backupTimestamp.ToString("MM/dd/yyyy hh:mm tt")
+            latestBackupTimestampLabel.Text = My.Settings.LatestBackupTime.ToString("MM/dd/yyyy hh:mm tt")
             latestBackupHelpLabel.Location = New Point(269, 23)
             latestBackupTimestampLabel.Location = New Point(357, 23)
 
             Dim saveLoc As String = saveLocTextBox.Text
-            Dim destLoc As String = destLocTextBox.Text & backupTimestamp.ToString("\\yyyyMMdd HHmm")
+            Dim destLoc As String = destLocTextBox.Text & My.Settings.LatestBackupTime.ToString("\\yyyyMMdd HHmm")
 
             Try
                 Dim saveList As String() = Directory.GetFiles(saveLoc, "*.save")
@@ -795,17 +797,16 @@ Public Class Form1
     Private Sub backupTimer_Tick(sender As Object, e As EventArgs) Handles backupTimer.Tick
         If isGameRunning = True Then
             'Store timestamp of this backup
-            backupTimestamp = Now
+            My.Settings.LatestBackupTime = Now
             'Store the second-to-last backup timestamp
             '//stackoverflow.com/a/20849720
-            restoreTimestamp = backupTimestamp.Subtract(TimeSpan.FromMinutes(freqSelectTimeUpDown.Value))
-            secondToLastBackupExists = True
+            My.Settings.SecondToLastBackupTime = My.Settings.LatestBackupTime.Subtract(TimeSpan.FromMinutes(freqSelectTimeUpDown.Value))
 
             'Write the timestamp of this backup on the main screen
-            latestBackupTimestampLabel.Text = backupTimestamp.ToString("MM/dd/yyyy hh:mm tt")
+            latestBackupTimestampLabel.Text = My.Settings.LatestBackupTime.ToString("MM/dd/yyyy hh:mm tt")
 
             Dim saveLoc As String = saveLocTextBox.Text
-            Dim destLoc As String = destLocTextBox.Text & backupTimestamp.ToString("\\yyyyMMdd HHmm")
+            Dim destLoc As String = destLocTextBox.Text & My.Settings.LatestBackupTime.ToString("\\yyyyMMdd HHmm")
 
             Try
                 Dim saveList As String() = Directory.GetFiles(saveLoc, "*.save")

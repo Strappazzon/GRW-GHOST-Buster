@@ -233,6 +233,28 @@ Namespace My
                 Me("CustomExeLoc") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property LatestBackupTime() As Date
+            Get
+                Return CType(Me("LatestBackupTime"),Date)
+            End Get
+            Set
+                Me("LatestBackupTime") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property SecondToLastBackupTime() As Date
+            Get
+                Return CType(Me("SecondToLastBackupTime"),Date)
+            End Get
+            Set
+                Me("SecondToLastBackupTime") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
