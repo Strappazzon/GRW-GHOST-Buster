@@ -436,10 +436,9 @@ Public Class Form1
         settingsCustomExeTextBox.Text = My.Settings.CustomExeLoc
         If My.Settings.LatestBackupTime <> Nothing Then
             'Write the latest backup timestamp on the main screen...
-            latestBackupTimestampLabel.Text = My.Settings.LatestBackupTime.ToString("MM/dd/yyyy hh:mm tt")
+            latestBackupHelpLabel.Text = "Latest backup: " & My.Settings.LatestBackupTime.ToString("MM/dd/yyyy hh:mm tt")
             '...and move it to the left so it won't be cut off.
             latestBackupHelpLabel.Location = New Point(269, 23)
-            latestBackupTimestampLabel.Location = New Point(357, 23)
         End If
 
         'Set window position
@@ -760,9 +759,8 @@ Public Class Form1
 
             'Write the timestamp of this backup on the main screen
             'And move it to the left so it won't be cut off
-            latestBackupTimestampLabel.Text = My.Settings.LatestBackupTime.ToString("MM/dd/yyyy hh:mm tt")
+            latestBackupHelpLabel.Text = "Latest backup: " & My.Settings.LatestBackupTime.ToString("MM/dd/yyyy hh:mm tt")
             latestBackupHelpLabel.Location = New Point(269, 23)
-            latestBackupTimestampLabel.Location = New Point(357, 23)
 
             Dim saveLoc As String = saveLocTextBox.Text
             Dim destLoc As String = destLocTextBox.Text & My.Settings.LatestBackupTime.ToString("\\yyyyMMdd HHmm")
@@ -803,7 +801,7 @@ Public Class Form1
             My.Settings.SecondToLastBackupTime = My.Settings.LatestBackupTime.Subtract(TimeSpan.FromMinutes(freqSelectTimeUpDown.Value))
 
             'Write the timestamp of this backup on the main screen
-            latestBackupTimestampLabel.Text = My.Settings.LatestBackupTime.ToString("MM/dd/yyyy hh:mm tt")
+            latestBackupHelpLabel.Text = "Latest backup: " & My.Settings.LatestBackupTime.ToString("MM/dd/yyyy hh:mm tt")
 
             Dim saveLoc As String = saveLocTextBox.Text
             Dim destLoc As String = destLocTextBox.Text & My.Settings.LatestBackupTime.ToString("\\yyyyMMdd HHmm")

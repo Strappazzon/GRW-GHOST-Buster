@@ -35,7 +35,6 @@ Partial Class Form1
         Me.destLocHelpLabel = New System.Windows.Forms.Label()
         Me.saveLocHelpLabel = New System.Windows.Forms.Label()
         Me.backupGroupBox = New System.Windows.Forms.GroupBox()
-        Me.latestBackupTimestampLabel = New System.Windows.Forms.Label()
         Me.latestBackupHelpLabel = New System.Windows.Forms.Label()
         Me.freqSelectTimeUpDown = New System.Windows.Forms.NumericUpDown()
         Me.stopBtn = New System.Windows.Forms.Button()
@@ -240,7 +239,6 @@ Partial Class Form1
         'backupGroupBox
         '
         Me.backupGroupBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(220, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
-        Me.backupGroupBox.Controls.Add(Me.latestBackupTimestampLabel)
         Me.backupGroupBox.Controls.Add(Me.latestBackupHelpLabel)
         Me.backupGroupBox.Controls.Add(Me.freqSelectTimeUpDown)
         Me.backupGroupBox.Controls.Add(Me.stopBtn)
@@ -256,25 +254,15 @@ Partial Class Form1
         Me.backupGroupBox.TabStop = False
         Me.backupGroupBox.Text = "Available tasks"
         '
-        'latestBackupTimestampLabel
-        '
-        Me.latestBackupTimestampLabel.AutoSize = True
-        Me.latestBackupTimestampLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.latestBackupTimestampLabel.Location = New System.Drawing.Point(394, 23)
-        Me.latestBackupTimestampLabel.Name = "latestBackupTimestampLabel"
-        Me.latestBackupTimestampLabel.Size = New System.Drawing.Size(96, 17)
-        Me.latestBackupTimestampLabel.TabIndex = 11
-        Me.latestBackupTimestampLabel.Text = "No backup yet."
-        '
         'latestBackupHelpLabel
         '
         Me.latestBackupHelpLabel.AutoSize = True
         Me.latestBackupHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.latestBackupHelpLabel.Location = New System.Drawing.Point(306, 23)
         Me.latestBackupHelpLabel.Name = "latestBackupHelpLabel"
-        Me.latestBackupHelpLabel.Size = New System.Drawing.Size(91, 17)
+        Me.latestBackupHelpLabel.Size = New System.Drawing.Size(183, 17)
         Me.latestBackupHelpLabel.TabIndex = 10
-        Me.latestBackupHelpLabel.Text = "Latest backup:"
+        Me.latestBackupHelpLabel.Text = "Latest backup: No backup yet."
         '
         'freqSelectTimeUpDown
         '
@@ -1052,7 +1040,6 @@ Partial Class Form1
     Friend WithEvents settingsWhichBackupDropdownCombo As ComboBox
     Friend WithEvents settingsWhichBackupLabel As Label
     Friend WithEvents latestBackupHelpLabel As Label
-    Friend WithEvents latestBackupTimestampLabel As Label
     Friend WithEvents uplayPictureBtn As PictureBox
     Friend WithEvents settingsOpenCustomExeFolderBtn As Button
     Friend WithEvents settingsBrowseCustomExeBtn As Button
