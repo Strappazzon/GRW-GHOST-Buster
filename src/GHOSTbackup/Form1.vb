@@ -332,9 +332,7 @@ Public Class Form1
                 '//docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.reverse
                 backupDirs.Reverse()
 
-                'Make the dropdown menu visible and set its max items
                 CustomMsgBox.backupDirsDropdownCombo.Visible = True
-                CustomMsgBox.backupDirsDropdownCombo.MaxDropDownItems = backupDirs.Count
 
                 'Add all directories to CustomMsgBox dropdown menu
                 For Each backupDir In backupDirs
