@@ -465,7 +465,7 @@ Public Class Form1
             'Write the latest backup timestamp on the main screen...
             latestBackupHelpLabel.Text = "Latest backup: " & My.Settings.LatestBackupTime.ToString("MM/dd/yyyy hh:mm tt")
             '...and move it to the left so it won't be cut off.
-            latestBackupHelpLabel.Location = New Point(269, 23)
+            latestBackupHelpLabel.Location = New Point(269, 8)
         End If
 
         'Set window position
@@ -555,7 +555,7 @@ Public Class Form1
             My.Settings.LatestBackupTime = Nothing
             My.Settings.SecondToLastBackupTime = Nothing
             latestBackupHelpLabel.Text = "Latest backup: No backup yet."
-            latestBackupHelpLabel.Location = New Point(306, 23)
+            latestBackupHelpLabel.Location = New Point(306, 8)
         End If
 
         'Check for updates
@@ -605,8 +605,10 @@ Public Class Form1
         aboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         logLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         settingsLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        backupGroupBox.Visible = True
-        pathsGroupBox.Visible = True
+        tasksTitleLabel.Visible = True
+        tasksContainer.Visible = True
+        foldersTitleLabel.Visible = True
+        foldersContainer.Visible = True
         aboutContainer.Visible = False
         logsContainer.Visible = False
         titleLabel.Visible = False
@@ -618,8 +620,10 @@ Public Class Form1
         aboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         logLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         settingsLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
-        backupGroupBox.Visible = False
-        pathsGroupBox.Visible = False
+        tasksTitleLabel.Visible = False
+        tasksContainer.Visible = False
+        foldersTitleLabel.Visible = False
+        foldersContainer.Visible = False
         aboutContainer.Visible = False
         logsContainer.Visible = False
         titleLabel.Text = "Advanced Settings"
@@ -632,8 +636,10 @@ Public Class Form1
         logLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
         aboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         settingsLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        backupGroupBox.Visible = False
-        pathsGroupBox.Visible = False
+        tasksTitleLabel.Visible = False
+        tasksContainer.Visible = False
+        foldersTitleLabel.Visible = False
+        foldersContainer.Visible = False
         aboutContainer.Visible = False
         logsContainer.Visible = True
         titleLabel.Text = "Logs"
@@ -659,8 +665,10 @@ Public Class Form1
         logLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         aboutLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
         settingsLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        backupGroupBox.Visible = False
-        pathsGroupBox.Visible = False
+        tasksTitleLabel.Visible = False
+        tasksContainer.Visible = False
+        foldersTitleLabel.Visible = False
+        foldersContainer.Visible = False
         aboutContainer.Visible = True
         logsContainer.Visible = False
         titleLabel.Text = "About"
@@ -766,7 +774,7 @@ Public Class Form1
                 My.Settings.LatestBackupTime = Nothing
                 My.Settings.SecondToLastBackupTime = Nothing
                 latestBackupHelpLabel.Text = "Latest backup: No backup yet."
-                latestBackupHelpLabel.Location = New Point(306, 23)
+                latestBackupHelpLabel.Location = New Point(306, 8)
             End If
         End Using
     End Sub
@@ -790,7 +798,7 @@ Public Class Form1
             'Write the timestamp of this backup on the main screen
             'And move it to the left so it won't be cut off
             latestBackupHelpLabel.Text = "Latest backup: " & My.Settings.LatestBackupTime.ToString("MM/dd/yyyy hh:mm tt")
-            latestBackupHelpLabel.Location = New Point(269, 23)
+            latestBackupHelpLabel.Location = New Point(269, 8)
 
             Dim saveLoc As String = saveLocTextBox.Text
             Dim destLoc As String = destLocTextBox.Text & My.Settings.LatestBackupTime.ToString("\\yyyyMMdd HHmm")
