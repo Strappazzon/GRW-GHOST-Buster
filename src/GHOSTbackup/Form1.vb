@@ -40,6 +40,11 @@ Public Class Form1
         End If
 
         'Check for updates
+        If updateCheckerChkBox.CheckState <> My.Settings.CheckUpdates Then
+            My.Settings.CheckUpdates = updateCheckerChkBox.CheckState
+        End If
+
+        'Remember form position, Window location
         If formPositionChkBox.CheckState <> My.Settings.RememberFormPosition Then
             My.Settings.RememberFormPosition = formPositionChkBox.CheckState
             My.Settings.WindowLocation = Location
@@ -714,10 +719,8 @@ Public Class Form1
     Private Sub updateCheckerChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles updateCheckerChkBox.CheckedChanged
         If updateCheckerChkBox.Checked = True Then
             updateCheckerChkBox.ForeColor = Color.White
-            My.Settings.CheckUpdates = True
         Else
             updateCheckerChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
-            My.Settings.CheckUpdates = False
         End If
     End Sub
 
