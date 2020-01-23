@@ -224,7 +224,7 @@ Partial Class Form1
         Me.destLocHelpLabel.Name = "destLocHelpLabel"
         Me.destLocHelpLabel.Size = New System.Drawing.Size(88, 17)
         Me.destLocHelpLabel.TabIndex = 4
-        Me.destLocHelpLabel.Text = "Click the ""Browse..."" button to select the backup folder."
+        Me.destLocHelpLabel.Text = "Backup folder"
         '
         'saveLocHelpLabel
         '
@@ -234,7 +234,7 @@ Partial Class Form1
         Me.saveLocHelpLabel.Name = "saveLocHelpLabel"
         Me.saveLocHelpLabel.Size = New System.Drawing.Size(177, 17)
         Me.saveLocHelpLabel.TabIndex = 0
-        Me.saveLocHelpLabel.Text = "Click the ""Browse..."" button to open Wildlands save games folder."
+        Me.saveLocHelpLabel.Text = "Wildlands save games folder"
         '
         'backupGroupBox
         '
