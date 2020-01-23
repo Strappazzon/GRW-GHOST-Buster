@@ -184,7 +184,7 @@ Partial Class Form1
         Me.pathsGroupBox.Size = New System.Drawing.Size(497, 135)
         Me.pathsGroupBox.TabIndex = 10
         Me.pathsGroupBox.TabStop = False
-        Me.pathsGroupBox.Text = "Working directories"
+        Me.pathsGroupBox.Text = "Folders"
         '
         'exploreSaveLocBtn
         '
@@ -252,7 +252,7 @@ Partial Class Form1
         Me.backupGroupBox.Size = New System.Drawing.Size(497, 100)
         Me.backupGroupBox.TabIndex = 4
         Me.backupGroupBox.TabStop = False
-        Me.backupGroupBox.Text = "Available tasks"
+        Me.backupGroupBox.Text = "Tasks"
         '
         'latestBackupHelpLabel
         '
