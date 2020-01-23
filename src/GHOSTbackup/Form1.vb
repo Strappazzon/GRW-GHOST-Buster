@@ -65,6 +65,14 @@ Public Class Form1
             My.Settings.CustomExeLoc = settingsCustomExeTextBox.Text
         End If
 
+        If saveLocTextBox.Text <> My.Settings.GameSavesDir Then
+            My.Settings.GameSavesDir = saveLocTextBox.Text
+        End If
+
+        If destLocTextBox.Text <> My.Settings.BackupDir Then
+            My.Settings.BackupDir = destLocTextBox.Text
+        End If
+
         log("[INFO] Settings saved.")
     End Sub
 
@@ -521,7 +529,6 @@ Public Class Form1
             log("[WARNING] Wildlands save games folder " & saveLocTextBox.Text & " no longer exists.")
             showAlert(48, "Wildlands save games folder no longer exists.")
             saveLocTextBox.Text = ""
-            My.Settings.GameSavesDir = ""
         End If
 
         'Check if backup directory exists
@@ -529,7 +536,6 @@ Public Class Form1
             log("[WARNING] Backup folder " & destLocTextBox.Text & " no longer exists.")
             showAlert(48, "Backup folder no longer exists.")
             destLocTextBox.Text = ""
-            My.Settings.BackupDir = ""
             'Reset latest and second-to-last backup timestamps
             My.Settings.LatestBackupTime = Nothing
             My.Settings.SecondToLastBackupTime = Nothing
@@ -722,7 +728,6 @@ Public Class Form1
             O.SelectedPath = "C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\savegames"
             If O.ShowDialog = DialogResult.OK Then
                 saveLocTextBox.Text = O.SelectedPath
-                My.Settings.GameSavesDir = saveLocTextBox.Text
                 log("[INFO] Save games directory set to: " & O.SelectedPath)
                 O.Dispose()
             End If
@@ -742,7 +747,6 @@ Public Class Form1
             O.Description = "Select where you want to backup your save files to. Every backup will create a new ""yyyyMMdd HHmm"" subfolder."
             If O.ShowDialog = DialogResult.OK Then
                 destLocTextBox.Text = O.SelectedPath
-                My.Settings.BackupDir = destLocTextBox.Text
                 log("[INFO] Backup directory set to: " & O.SelectedPath)
                 O.Dispose()
                 'Reset latest and second-to-last backup timestamps
