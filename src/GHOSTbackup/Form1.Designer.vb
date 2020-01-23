@@ -177,7 +177,7 @@ Partial Class Form1
         Me.pathsGroupBox.Controls.Add(Me.saveLocTextBox)
         Me.pathsGroupBox.Controls.Add(Me.browseDestLocBtn)
         Me.pathsGroupBox.Controls.Add(Me.browseSaveLocBtn)
-        Me.pathsGroupBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.pathsGroupBox.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pathsGroupBox.ForeColor = System.Drawing.Color.White
         Me.pathsGroupBox.Location = New System.Drawing.Point(325, 314)
         Me.pathsGroupBox.Name = "pathsGroupBox"
@@ -245,7 +245,7 @@ Partial Class Form1
         Me.backupGroupBox.Controls.Add(Me.restoreBtn)
         Me.backupGroupBox.Controls.Add(Me.backupHelpLabel)
         Me.backupGroupBox.Controls.Add(Me.backupBtn)
-        Me.backupGroupBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.backupGroupBox.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.backupGroupBox.ForeColor = System.Drawing.Color.White
         Me.backupGroupBox.Location = New System.Drawing.Point(325, 204)
         Me.backupGroupBox.Name = "backupGroupBox"
