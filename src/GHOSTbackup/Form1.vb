@@ -530,6 +530,11 @@ Public Class Form1
             showAlert(48, "Backup folder no longer exists.")
             destLocTextBox.Text = ""
             My.Settings.BackupDir = ""
+            'Reset latest and second-to-last backup timestamps
+            My.Settings.LatestBackupTime = Nothing
+            My.Settings.SecondToLastBackupTime = Nothing
+            latestBackupHelpLabel.Text = "Latest backup: No backup yet."
+            latestBackupHelpLabel.Location = New Point(306, 23)
         End If
 
         'Check for updates
