@@ -112,7 +112,6 @@ Partial Class Form1
         Me.saveLocTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.saveLocTextBox.ForeColor = System.Drawing.Color.White
         Me.saveLocTextBox.Location = New System.Drawing.Point(12, 33)
-        Me.saveLocTextBox.MaxLength = 256
         Me.saveLocTextBox.Name = "saveLocTextBox"
         Me.saveLocTextBox.ReadOnly = True
         Me.saveLocTextBox.Size = New System.Drawing.Size(321, 23)
@@ -163,7 +162,6 @@ Partial Class Form1
         Me.destLocTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.destLocTextBox.ForeColor = System.Drawing.Color.White
         Me.destLocTextBox.Location = New System.Drawing.Point(12, 88)
-        Me.destLocTextBox.MaxLength = 256
         Me.destLocTextBox.Name = "destLocTextBox"
         Me.destLocTextBox.ReadOnly = True
         Me.destLocTextBox.Size = New System.Drawing.Size(321, 23)
@@ -243,7 +241,6 @@ Partial Class Form1
         'stopBtn
         '
         Me.stopBtn.BackColor = System.Drawing.Color.Transparent
-        Me.stopBtn.Cursor = System.Windows.Forms.Cursors.Default
         Me.stopBtn.Enabled = False
         Me.stopBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.stopBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -261,7 +258,6 @@ Partial Class Form1
         'restoreBtn
         '
         Me.restoreBtn.BackColor = System.Drawing.Color.Transparent
-        Me.restoreBtn.Cursor = System.Windows.Forms.Cursors.Default
         Me.restoreBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.restoreBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.restoreBtn.ForeColor = System.Drawing.Color.White
@@ -288,7 +284,6 @@ Partial Class Form1
         'backupBtn
         '
         Me.backupBtn.BackColor = System.Drawing.Color.Transparent
-        Me.backupBtn.Cursor = System.Windows.Forms.Cursors.Default
         Me.backupBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.backupBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.backupBtn.ForeColor = System.Drawing.Color.White
@@ -858,7 +853,6 @@ Partial Class Form1
         Me.settingsLogFilePathTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.settingsLogFilePathTextBox.ForeColor = System.Drawing.Color.White
         Me.settingsLogFilePathTextBox.Location = New System.Drawing.Point(32, 45)
-        Me.settingsLogFilePathTextBox.MaxLength = 256
         Me.settingsLogFilePathTextBox.Name = "settingsLogFilePathTextBox"
         Me.settingsLogFilePathTextBox.ReadOnly = True
         Me.settingsLogFilePathTextBox.Size = New System.Drawing.Size(296, 23)
