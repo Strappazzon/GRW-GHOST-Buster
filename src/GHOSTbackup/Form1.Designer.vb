@@ -113,7 +113,7 @@ Partial Class Form1
         Me.saveLocTextBox.Name = "saveLocTextBox"
         Me.saveLocTextBox.ReadOnly = True
         Me.saveLocTextBox.Size = New System.Drawing.Size(316, 23)
-        Me.saveLocTextBox.TabIndex = 12
+        Me.saveLocTextBox.TabIndex = 1
         '
         'browseSaveLocBtn
         '
@@ -128,7 +128,7 @@ Partial Class Form1
         Me.browseSaveLocBtn.Location = New System.Drawing.Point(334, 41)
         Me.browseSaveLocBtn.Name = "browseSaveLocBtn"
         Me.browseSaveLocBtn.Size = New System.Drawing.Size(95, 30)
-        Me.browseSaveLocBtn.TabIndex = 13
+        Me.browseSaveLocBtn.TabIndex = 2
         Me.browseSaveLocBtn.Text = "Browse..."
         Me.browseSaveLocBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.browseSaveLocBtn.UseVisualStyleBackColor = True
@@ -146,7 +146,7 @@ Partial Class Form1
         Me.browseDestLocBtn.Location = New System.Drawing.Point(334, 93)
         Me.browseDestLocBtn.Name = "browseDestLocBtn"
         Me.browseDestLocBtn.Size = New System.Drawing.Size(95, 30)
-        Me.browseDestLocBtn.TabIndex = 16
+        Me.browseDestLocBtn.TabIndex = 6
         Me.browseDestLocBtn.Text = "Browse..."
         Me.browseDestLocBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.browseDestLocBtn.UseVisualStyleBackColor = True
@@ -161,7 +161,7 @@ Partial Class Form1
         Me.destLocTextBox.Name = "destLocTextBox"
         Me.destLocTextBox.ReadOnly = True
         Me.destLocTextBox.Size = New System.Drawing.Size(316, 23)
-        Me.destLocTextBox.TabIndex = 15
+        Me.destLocTextBox.TabIndex = 5
         '
         'backupTimer
         '
@@ -182,7 +182,7 @@ Partial Class Form1
         Me.pathsGroupBox.Location = New System.Drawing.Point(325, 314)
         Me.pathsGroupBox.Name = "pathsGroupBox"
         Me.pathsGroupBox.Size = New System.Drawing.Size(497, 135)
-        Me.pathsGroupBox.TabIndex = 10
+        Me.pathsGroupBox.TabIndex = 7
         Me.pathsGroupBox.TabStop = False
         Me.pathsGroupBox.Text = "Folders"
         '
@@ -197,7 +197,7 @@ Partial Class Form1
         Me.exploreSaveLocBtn.Location = New System.Drawing.Point(435, 41)
         Me.exploreSaveLocBtn.Name = "exploreSaveLocBtn"
         Me.exploreSaveLocBtn.Size = New System.Drawing.Size(50, 30)
-        Me.exploreSaveLocBtn.TabIndex = 18
+        Me.exploreSaveLocBtn.TabIndex = 3
         Me.exploreSaveLocBtn.Text = "Open"
         Me.exploreSaveLocBtn.UseVisualStyleBackColor = True
         '
@@ -212,7 +212,7 @@ Partial Class Form1
         Me.exploreDestLocBtn.Location = New System.Drawing.Point(435, 93)
         Me.exploreDestLocBtn.Name = "exploreDestLocBtn"
         Me.exploreDestLocBtn.Size = New System.Drawing.Size(50, 30)
-        Me.exploreDestLocBtn.TabIndex = 17
+        Me.exploreDestLocBtn.TabIndex = 7
         Me.exploreDestLocBtn.Text = "Open"
         Me.exploreDestLocBtn.UseVisualStyleBackColor = True
         '
@@ -223,7 +223,7 @@ Partial Class Form1
         Me.destLocHelpLabel.Location = New System.Drawing.Point(10, 75)
         Me.destLocHelpLabel.Name = "destLocHelpLabel"
         Me.destLocHelpLabel.Size = New System.Drawing.Size(298, 15)
-        Me.destLocHelpLabel.TabIndex = 14
+        Me.destLocHelpLabel.TabIndex = 4
         Me.destLocHelpLabel.Text = "Click the ""Browse..."" button to select the backup folder."
         '
         'saveLocHelpLabel
@@ -233,7 +233,7 @@ Partial Class Form1
         Me.saveLocHelpLabel.Location = New System.Drawing.Point(10, 23)
         Me.saveLocHelpLabel.Name = "saveLocHelpLabel"
         Me.saveLocHelpLabel.Size = New System.Drawing.Size(352, 15)
-        Me.saveLocHelpLabel.TabIndex = 11
+        Me.saveLocHelpLabel.TabIndex = 0
         Me.saveLocHelpLabel.Text = "Click the ""Browse..."" button to open Wildlands save games folder."
         '
         'backupGroupBox
@@ -250,7 +250,7 @@ Partial Class Form1
         Me.backupGroupBox.Location = New System.Drawing.Point(325, 204)
         Me.backupGroupBox.Name = "backupGroupBox"
         Me.backupGroupBox.Size = New System.Drawing.Size(497, 100)
-        Me.backupGroupBox.TabIndex = 4
+        Me.backupGroupBox.TabIndex = 6
         Me.backupGroupBox.TabStop = False
         Me.backupGroupBox.Text = "Tasks"
         '
@@ -261,7 +261,7 @@ Partial Class Form1
         Me.latestBackupHelpLabel.Location = New System.Drawing.Point(306, 23)
         Me.latestBackupHelpLabel.Name = "latestBackupHelpLabel"
         Me.latestBackupHelpLabel.Size = New System.Drawing.Size(183, 17)
-        Me.latestBackupHelpLabel.TabIndex = 10
+        Me.latestBackupHelpLabel.TabIndex = 1
         Me.latestBackupHelpLabel.Text = "Latest backup: No backup yet."
         '
         'freqSelectTimeUpDown
@@ -273,7 +273,7 @@ Partial Class Form1
         Me.freqSelectTimeUpDown.Name = "freqSelectTimeUpDown"
         Me.freqSelectTimeUpDown.ReadOnly = True
         Me.freqSelectTimeUpDown.Size = New System.Drawing.Size(160, 25)
-        Me.freqSelectTimeUpDown.TabIndex = 6
+        Me.freqSelectTimeUpDown.TabIndex = 2
         Me.freqSelectTimeUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.freqSelectTimeUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
@@ -290,7 +290,7 @@ Partial Class Form1
         Me.stopBtn.Location = New System.Drawing.Point(284, 54)
         Me.stopBtn.Name = "stopBtn"
         Me.stopBtn.Size = New System.Drawing.Size(95, 35)
-        Me.stopBtn.TabIndex = 9
+        Me.stopBtn.TabIndex = 4
         Me.stopBtn.Text = "Stop the Backup"
         Me.stopBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.stopBtn.UseVisualStyleBackColor = False
@@ -307,7 +307,7 @@ Partial Class Form1
         Me.restoreBtn.Location = New System.Drawing.Point(385, 54)
         Me.restoreBtn.Name = "restoreBtn"
         Me.restoreBtn.Size = New System.Drawing.Size(100, 35)
-        Me.restoreBtn.TabIndex = 8
+        Me.restoreBtn.TabIndex = 5
         Me.restoreBtn.Text = "Restore" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "save games"
         Me.restoreBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.restoreBtn.UseVisualStyleBackColor = False
@@ -319,7 +319,7 @@ Partial Class Form1
         Me.backupHelpLabel.Location = New System.Drawing.Point(10, 23)
         Me.backupHelpLabel.Name = "backupHelpLabel"
         Me.backupHelpLabel.Size = New System.Drawing.Size(244, 17)
-        Me.backupHelpLabel.TabIndex = 5
+        Me.backupHelpLabel.TabIndex = 0
         Me.backupHelpLabel.Text = "Specify the backup frequency in minutes."
         '
         'backupBtn
@@ -334,7 +334,7 @@ Partial Class Form1
         Me.backupBtn.Location = New System.Drawing.Point(183, 54)
         Me.backupBtn.Name = "backupBtn"
         Me.backupBtn.Size = New System.Drawing.Size(95, 35)
-        Me.backupBtn.TabIndex = 7
+        Me.backupBtn.TabIndex = 3
         Me.backupBtn.Text = "Start the Backup"
         Me.backupBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.backupBtn.UseVisualStyleBackColor = False
@@ -383,7 +383,7 @@ Partial Class Form1
         Me.logTxtBox.ReadOnly = True
         Me.logTxtBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.logTxtBox.Size = New System.Drawing.Size(495, 297)
-        Me.logTxtBox.TabIndex = 3
+        Me.logTxtBox.TabIndex = 0
         '
         'logTxtBoxContext
         '
@@ -468,7 +468,7 @@ Partial Class Form1
         Me.updateCheckerChkBox.Location = New System.Drawing.Point(14, 305)
         Me.updateCheckerChkBox.Name = "updateCheckerChkBox"
         Me.updateCheckerChkBox.Size = New System.Drawing.Size(133, 21)
-        Me.updateCheckerChkBox.TabIndex = 11
+        Me.updateCheckerChkBox.TabIndex = 4
         Me.updateCheckerChkBox.Text = "Check for updates"
         Me.updateCheckerChkBox.UseVisualStyleBackColor = False
         '
@@ -485,7 +485,7 @@ Partial Class Form1
         Me.topMenuContainer.Location = New System.Drawing.Point(0, 0)
         Me.topMenuContainer.Name = "topMenuContainer"
         Me.topMenuContainer.Size = New System.Drawing.Size(834, 60)
-        Me.topMenuContainer.TabIndex = 12
+        Me.topMenuContainer.TabIndex = 0
         '
         'uplayPictureBtn
         '
@@ -552,7 +552,7 @@ Partial Class Form1
         Me.logLabel.Location = New System.Drawing.Point(155, 20)
         Me.logLabel.Name = "logLabel"
         Me.logLabel.Size = New System.Drawing.Size(45, 21)
-        Me.logLabel.TabIndex = 3
+        Me.logLabel.TabIndex = 1
         Me.logLabel.Text = "Logs"
         '
         'aboutContainer
@@ -568,7 +568,7 @@ Partial Class Form1
         Me.aboutContainer.Location = New System.Drawing.Point(325, 149)
         Me.aboutContainer.Name = "aboutContainer"
         Me.aboutContainer.Size = New System.Drawing.Size(497, 299)
-        Me.aboutContainer.TabIndex = 13
+        Me.aboutContainer.TabIndex = 10
         Me.aboutContainer.Visible = False
         '
         'licenseLabel
@@ -652,7 +652,7 @@ Partial Class Form1
         Me.logsContainer.Location = New System.Drawing.Point(325, 149)
         Me.logsContainer.Name = "logsContainer"
         Me.logsContainer.Size = New System.Drawing.Size(497, 299)
-        Me.logsContainer.TabIndex = 16
+        Me.logsContainer.TabIndex = 9
         Me.logsContainer.Visible = False
         '
         'alertContainer
@@ -678,7 +678,7 @@ Partial Class Form1
         Me.alertDescriptionLabel.Location = New System.Drawing.Point(42, 12)
         Me.alertDescriptionLabel.Name = "alertDescriptionLabel"
         Me.alertDescriptionLabel.Size = New System.Drawing.Size(103, 17)
-        Me.alertDescriptionLabel.TabIndex = 2
+        Me.alertDescriptionLabel.TabIndex = 0
         Me.alertDescriptionLabel.Text = "alertDescription"
         '
         'alertIcon
@@ -713,7 +713,7 @@ Partial Class Form1
         Me.formPositionChkBox.Location = New System.Drawing.Point(14, 330)
         Me.formPositionChkBox.Name = "formPositionChkBox"
         Me.formPositionChkBox.Size = New System.Drawing.Size(190, 21)
-        Me.formPositionChkBox.TabIndex = 18
+        Me.formPositionChkBox.TabIndex = 5
         Me.formPositionChkBox.Text = "Remember window position"
         Me.formPositionChkBox.UseVisualStyleBackColor = False
         '
@@ -749,7 +749,7 @@ Partial Class Form1
         Me.settingsContainer.Location = New System.Drawing.Point(325, 149)
         Me.settingsContainer.Name = "settingsContainer"
         Me.settingsContainer.Size = New System.Drawing.Size(497, 299)
-        Me.settingsContainer.TabIndex = 20
+        Me.settingsContainer.TabIndex = 8
         Me.settingsContainer.Visible = False
         '
         'settingsNonUplayVersionRestartLabel
@@ -761,7 +761,7 @@ Partial Class Form1
         Me.settingsNonUplayVersionRestartLabel.Location = New System.Drawing.Point(30, 220)
         Me.settingsNonUplayVersionRestartLabel.Name = "settingsNonUplayVersionRestartLabel"
         Me.settingsNonUplayVersionRestartLabel.Size = New System.Drawing.Size(385, 13)
-        Me.settingsNonUplayVersionRestartLabel.TabIndex = 26
+        Me.settingsNonUplayVersionRestartLabel.TabIndex = 10
         Me.settingsNonUplayVersionRestartLabel.Text = "You'll need to restart GHOST Buster in order for the change to take effect."
         '
         'settingsOpenCustomExeFolderBtn
@@ -776,7 +776,7 @@ Partial Class Form1
         Me.settingsOpenCustomExeFolderBtn.Location = New System.Drawing.Point(398, 184)
         Me.settingsOpenCustomExeFolderBtn.Name = "settingsOpenCustomExeFolderBtn"
         Me.settingsOpenCustomExeFolderBtn.Size = New System.Drawing.Size(82, 30)
-        Me.settingsOpenCustomExeFolderBtn.TabIndex = 25
+        Me.settingsOpenCustomExeFolderBtn.TabIndex = 9
         Me.settingsOpenCustomExeFolderBtn.Text = "Open Folder"
         Me.settingsOpenCustomExeFolderBtn.UseVisualStyleBackColor = True
         '
@@ -794,7 +794,7 @@ Partial Class Form1
         Me.settingsBrowseCustomExeBtn.Location = New System.Drawing.Point(302, 184)
         Me.settingsBrowseCustomExeBtn.Name = "settingsBrowseCustomExeBtn"
         Me.settingsBrowseCustomExeBtn.Size = New System.Drawing.Size(90, 30)
-        Me.settingsBrowseCustomExeBtn.TabIndex = 24
+        Me.settingsBrowseCustomExeBtn.TabIndex = 8
         Me.settingsBrowseCustomExeBtn.Text = "Browse..."
         Me.settingsBrowseCustomExeBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.settingsBrowseCustomExeBtn.UseVisualStyleBackColor = True
@@ -811,7 +811,7 @@ Partial Class Form1
         Me.settingsCustomExeTextBox.Name = "settingsCustomExeTextBox"
         Me.settingsCustomExeTextBox.ReadOnly = True
         Me.settingsCustomExeTextBox.Size = New System.Drawing.Size(264, 23)
-        Me.settingsCustomExeTextBox.TabIndex = 23
+        Me.settingsCustomExeTextBox.TabIndex = 7
         '
         'settingsNonUplayVersionChkBox
         '
@@ -823,7 +823,7 @@ Partial Class Form1
         Me.settingsNonUplayVersionChkBox.Location = New System.Drawing.Point(14, 160)
         Me.settingsNonUplayVersionChkBox.Name = "settingsNonUplayVersionChkBox"
         Me.settingsNonUplayVersionChkBox.Size = New System.Drawing.Size(284, 21)
-        Me.settingsNonUplayVersionChkBox.TabIndex = 22
+        Me.settingsNonUplayVersionChkBox.TabIndex = 6
         Me.settingsNonUplayVersionChkBox.Text = "I'm not using the Uplay version of Wildlands"
         Me.settingsNonUplayVersionChkBox.UseVisualStyleBackColor = False
         '
@@ -835,7 +835,7 @@ Partial Class Form1
         Me.settingsWhichBackupLabel.Location = New System.Drawing.Point(14, 90)
         Me.settingsWhichBackupLabel.Name = "settingsWhichBackupLabel"
         Me.settingsWhichBackupLabel.Size = New System.Drawing.Size(229, 17)
-        Me.settingsWhichBackupLabel.TabIndex = 21
+        Me.settingsWhichBackupLabel.TabIndex = 4
         Me.settingsWhichBackupLabel.Text = "Choose which backup will be restored"
         '
         'settingsWhichBackupDropdownCombo
@@ -850,7 +850,7 @@ Partial Class Form1
         Me.settingsWhichBackupDropdownCombo.MaxDropDownItems = 3
         Me.settingsWhichBackupDropdownCombo.Name = "settingsWhichBackupDropdownCombo"
         Me.settingsWhichBackupDropdownCombo.Size = New System.Drawing.Size(464, 23)
-        Me.settingsWhichBackupDropdownCombo.TabIndex = 20
+        Me.settingsWhichBackupDropdownCombo.TabIndex = 5
         '
         'settingsBrowseLogFolderBtn
         '
@@ -864,7 +864,7 @@ Partial Class Form1
         Me.settingsBrowseLogFolderBtn.Location = New System.Drawing.Point(430, 42)
         Me.settingsBrowseLogFolderBtn.Name = "settingsBrowseLogFolderBtn"
         Me.settingsBrowseLogFolderBtn.Size = New System.Drawing.Size(50, 30)
-        Me.settingsBrowseLogFolderBtn.TabIndex = 19
+        Me.settingsBrowseLogFolderBtn.TabIndex = 3
         Me.settingsBrowseLogFolderBtn.Text = "Open"
         Me.settingsBrowseLogFolderBtn.UseVisualStyleBackColor = True
         '
@@ -882,7 +882,7 @@ Partial Class Form1
         Me.settingsBrowseLogFileBtn.Location = New System.Drawing.Point(334, 42)
         Me.settingsBrowseLogFileBtn.Name = "settingsBrowseLogFileBtn"
         Me.settingsBrowseLogFileBtn.Size = New System.Drawing.Size(90, 30)
-        Me.settingsBrowseLogFileBtn.TabIndex = 14
+        Me.settingsBrowseLogFileBtn.TabIndex = 2
         Me.settingsBrowseLogFileBtn.Text = "Browse..."
         Me.settingsBrowseLogFileBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.settingsBrowseLogFileBtn.UseVisualStyleBackColor = True
@@ -899,7 +899,7 @@ Partial Class Form1
         Me.settingsLogFilePathTextBox.Name = "settingsLogFilePathTextBox"
         Me.settingsLogFilePathTextBox.ReadOnly = True
         Me.settingsLogFilePathTextBox.Size = New System.Drawing.Size(296, 23)
-        Me.settingsLogFilePathTextBox.TabIndex = 6
+        Me.settingsLogFilePathTextBox.TabIndex = 1
         '
         'settingsWriteLogToFileChkBox
         '
@@ -911,7 +911,7 @@ Partial Class Form1
         Me.settingsWriteLogToFileChkBox.Location = New System.Drawing.Point(14, 18)
         Me.settingsWriteLogToFileChkBox.Name = "settingsWriteLogToFileChkBox"
         Me.settingsWriteLogToFileChkBox.Size = New System.Drawing.Size(170, 21)
-        Me.settingsWriteLogToFileChkBox.TabIndex = 3
+        Me.settingsWriteLogToFileChkBox.TabIndex = 0
         Me.settingsWriteLogToFileChkBox.Text = "Write events to a log file"
         Me.settingsWriteLogToFileChkBox.UseVisualStyleBackColor = False
         '
@@ -925,7 +925,7 @@ Partial Class Form1
         Me.disableCloudSyncChkBox.Location = New System.Drawing.Point(14, 280)
         Me.disableCloudSyncChkBox.Name = "disableCloudSyncChkBox"
         Me.disableCloudSyncChkBox.Size = New System.Drawing.Size(202, 21)
-        Me.disableCloudSyncChkBox.TabIndex = 4
+        Me.disableCloudSyncChkBox.TabIndex = 3
         Me.disableCloudSyncChkBox.Text = "Disable Uplay cloud save sync"
         Me.disableCloudSyncChkBox.UseVisualStyleBackColor = False
         '
