@@ -24,53 +24,63 @@ Public Class Form1
     End Sub
 
     Private Sub saveSettings()
-        'Save settings
+        'Confirm exit (if backup is active)
         If confirmExitChkBox.CheckState <> My.Settings.ConfirmExit Then
             My.Settings.ConfirmExit = confirmExitChkBox.CheckState
         End If
 
+        'Confirm backup interruption
         If confirmStopBackupChkBox.CheckState <> My.Settings.ConfirmBackupInterruption Then
             My.Settings.ConfirmBackupInterruption = confirmStopBackupChkBox.CheckState
         End If
 
-        If freqSelectTimeUpDown.Value <> My.Settings.BackupInterval Then
-            My.Settings.BackupInterval = freqSelectTimeUpDown.Value
+        'Disable Uplay cloud save sync
+        If disableCloudSyncChkBox.CheckState <> My.Settings.DisableCloudSync Then
+            My.Settings.DisableCloudSync = disableCloudSyncChkBox.CheckState
         End If
 
+        'Check for updates
         If formPositionChkBox.CheckState <> My.Settings.RememberFormPosition Then
             My.Settings.RememberFormPosition = formPositionChkBox.CheckState
             My.Settings.WindowLocation = Location
         End If
 
+        'Backup frequency
+        If freqSelectTimeUpDown.Value <> My.Settings.BackupInterval Then
+            My.Settings.BackupInterval = freqSelectTimeUpDown.Value
+        End If
+
+        'Wildlands save games folder
+        If saveLocTextBox.Text <> My.Settings.GameSavesDir Then
+            My.Settings.GameSavesDir = saveLocTextBox.Text
+        End If
+
+        'Backup folder
+        If destLocTextBox.Text <> My.Settings.BackupDir Then
+            My.Settings.BackupDir = destLocTextBox.Text
+        End If
+
+        'Write events to a log file
         If settingsWriteLogToFileChkBox.CheckState <> My.Settings.WriteLogFile Then
             My.Settings.WriteLogFile = settingsWriteLogToFileChkBox.CheckState
             My.Settings.LogFilePath = settingsLogFilePathTextBox.Text
         End If
 
+        'Log file location
         If settingsLogFilePathTextBox.Text <> My.Settings.LogFilePath Then
             My.Settings.LogFilePath = settingsLogFilePathTextBox.Text
         End If
 
-        If disableCloudSyncChkBox.CheckState <> My.Settings.DisableCloudSync Then
-            My.Settings.DisableCloudSync = disableCloudSyncChkBox.CheckState
-        End If
-
+        'Choose which backup will be restored
         If settingsWhichBackupDropdownCombo.SelectedIndex <> My.Settings.WhichBackup Then
             My.Settings.WhichBackup = settingsWhichBackupDropdownCombo.SelectedIndex
         End If
 
+        'I'm not using the Uplay version of Wildlands, Custom Wildlands executable location
         'If Wildlands executable location is empty don't save these settings
         If settingsNonUplayVersionChkBox.CheckState <> My.Settings.NoUplay AndAlso settingsCustomExeTextBox.Text <> "" Then
             My.Settings.NoUplay = settingsNonUplayVersionChkBox.CheckState
             My.Settings.CustomExeLoc = settingsCustomExeTextBox.Text
-        End If
-
-        If saveLocTextBox.Text <> My.Settings.GameSavesDir Then
-            My.Settings.GameSavesDir = saveLocTextBox.Text
-        End If
-
-        If destLocTextBox.Text <> My.Settings.BackupDir Then
-            My.Settings.BackupDir = destLocTextBox.Text
         End If
 
         log("[INFO] Settings saved.")
