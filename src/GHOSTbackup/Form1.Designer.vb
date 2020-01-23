@@ -108,11 +108,11 @@ Partial Class Form1
         Me.saveLocTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.saveLocTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.saveLocTextBox.ForeColor = System.Drawing.Color.Black
-        Me.saveLocTextBox.Location = New System.Drawing.Point(12, 45)
+        Me.saveLocTextBox.Location = New System.Drawing.Point(12, 48)
         Me.saveLocTextBox.MaxLength = 256
         Me.saveLocTextBox.Name = "saveLocTextBox"
         Me.saveLocTextBox.ReadOnly = True
-        Me.saveLocTextBox.Size = New System.Drawing.Size(316, 23)
+        Me.saveLocTextBox.Size = New System.Drawing.Size(321, 23)
         Me.saveLocTextBox.TabIndex = 1
         '
         'browseSaveLocBtn
@@ -125,9 +125,9 @@ Partial Class Form1
         Me.browseSaveLocBtn.ForeColor = System.Drawing.Color.White
         Me.browseSaveLocBtn.Image = CType(resources.GetObject("browseSaveLocBtn.Image"), System.Drawing.Image)
         Me.browseSaveLocBtn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.browseSaveLocBtn.Location = New System.Drawing.Point(334, 41)
+        Me.browseSaveLocBtn.Location = New System.Drawing.Point(339, 44)
         Me.browseSaveLocBtn.Name = "browseSaveLocBtn"
-        Me.browseSaveLocBtn.Size = New System.Drawing.Size(95, 30)
+        Me.browseSaveLocBtn.Size = New System.Drawing.Size(90, 30)
         Me.browseSaveLocBtn.TabIndex = 2
         Me.browseSaveLocBtn.Text = "Browse..."
         Me.browseSaveLocBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -143,9 +143,9 @@ Partial Class Form1
         Me.browseDestLocBtn.ForeColor = System.Drawing.Color.White
         Me.browseDestLocBtn.Image = CType(resources.GetObject("browseDestLocBtn.Image"), System.Drawing.Image)
         Me.browseDestLocBtn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.browseDestLocBtn.Location = New System.Drawing.Point(334, 93)
+        Me.browseDestLocBtn.Location = New System.Drawing.Point(339, 99)
         Me.browseDestLocBtn.Name = "browseDestLocBtn"
-        Me.browseDestLocBtn.Size = New System.Drawing.Size(95, 30)
+        Me.browseDestLocBtn.Size = New System.Drawing.Size(90, 30)
         Me.browseDestLocBtn.TabIndex = 6
         Me.browseDestLocBtn.Text = "Browse..."
         Me.browseDestLocBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -156,11 +156,11 @@ Partial Class Form1
         Me.destLocTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.destLocTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.destLocTextBox.ForeColor = System.Drawing.Color.Black
-        Me.destLocTextBox.Location = New System.Drawing.Point(12, 97)
+        Me.destLocTextBox.Location = New System.Drawing.Point(12, 103)
         Me.destLocTextBox.MaxLength = 256
         Me.destLocTextBox.Name = "destLocTextBox"
         Me.destLocTextBox.ReadOnly = True
-        Me.destLocTextBox.Size = New System.Drawing.Size(316, 23)
+        Me.destLocTextBox.Size = New System.Drawing.Size(321, 23)
         Me.destLocTextBox.TabIndex = 5
         '
         'backupTimer
@@ -179,9 +179,9 @@ Partial Class Form1
         Me.pathsGroupBox.Controls.Add(Me.browseSaveLocBtn)
         Me.pathsGroupBox.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pathsGroupBox.ForeColor = System.Drawing.Color.White
-        Me.pathsGroupBox.Location = New System.Drawing.Point(325, 314)
+        Me.pathsGroupBox.Location = New System.Drawing.Point(325, 309)
         Me.pathsGroupBox.Name = "pathsGroupBox"
-        Me.pathsGroupBox.Size = New System.Drawing.Size(497, 135)
+        Me.pathsGroupBox.Size = New System.Drawing.Size(497, 140)
         Me.pathsGroupBox.TabIndex = 7
         Me.pathsGroupBox.TabStop = False
         Me.pathsGroupBox.Text = "Folders"
@@ -194,7 +194,7 @@ Partial Class Form1
         Me.exploreSaveLocBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.exploreSaveLocBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.exploreSaveLocBtn.ForeColor = System.Drawing.Color.White
-        Me.exploreSaveLocBtn.Location = New System.Drawing.Point(435, 41)
+        Me.exploreSaveLocBtn.Location = New System.Drawing.Point(435, 44)
         Me.exploreSaveLocBtn.Name = "exploreSaveLocBtn"
         Me.exploreSaveLocBtn.Size = New System.Drawing.Size(50, 30)
         Me.exploreSaveLocBtn.TabIndex = 3
@@ -209,7 +209,7 @@ Partial Class Form1
         Me.exploreDestLocBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.exploreDestLocBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.exploreDestLocBtn.ForeColor = System.Drawing.Color.White
-        Me.exploreDestLocBtn.Location = New System.Drawing.Point(435, 93)
+        Me.exploreDestLocBtn.Location = New System.Drawing.Point(435, 99)
         Me.exploreDestLocBtn.Name = "exploreDestLocBtn"
         Me.exploreDestLocBtn.Size = New System.Drawing.Size(50, 30)
         Me.exploreDestLocBtn.TabIndex = 7
@@ -219,20 +219,20 @@ Partial Class Form1
         'destLocHelpLabel
         '
         Me.destLocHelpLabel.AutoSize = True
-        Me.destLocHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.destLocHelpLabel.Location = New System.Drawing.Point(10, 75)
+        Me.destLocHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.destLocHelpLabel.Location = New System.Drawing.Point(10, 78)
         Me.destLocHelpLabel.Name = "destLocHelpLabel"
-        Me.destLocHelpLabel.Size = New System.Drawing.Size(298, 15)
+        Me.destLocHelpLabel.Size = New System.Drawing.Size(88, 17)
         Me.destLocHelpLabel.TabIndex = 4
         Me.destLocHelpLabel.Text = "Click the ""Browse..."" button to select the backup folder."
         '
         'saveLocHelpLabel
         '
         Me.saveLocHelpLabel.AutoSize = True
-        Me.saveLocHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.saveLocHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.saveLocHelpLabel.Location = New System.Drawing.Point(10, 23)
         Me.saveLocHelpLabel.Name = "saveLocHelpLabel"
-        Me.saveLocHelpLabel.Size = New System.Drawing.Size(352, 15)
+        Me.saveLocHelpLabel.Size = New System.Drawing.Size(177, 17)
         Me.saveLocHelpLabel.TabIndex = 0
         Me.saveLocHelpLabel.Text = "Click the ""Browse..."" button to open Wildlands save games folder."
         '
