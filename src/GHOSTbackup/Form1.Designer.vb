@@ -76,18 +76,18 @@ Partial Class Form1
         Me.settingsBrowseCustomExeBtn = New System.Windows.Forms.Button()
         Me.settingsCustomExeTextBox = New System.Windows.Forms.TextBox()
         Me.settingsNonUplayVersionChkBox = New System.Windows.Forms.CheckBox()
-        Me.settingsWhichBackupLabel = New System.Windows.Forms.Label()
-        Me.settingsWhichBackupDropdownCombo = New System.Windows.Forms.ComboBox()
         Me.settingsBrowseLogFolderBtn = New System.Windows.Forms.Button()
         Me.settingsBrowseLogFileBtn = New System.Windows.Forms.Button()
         Me.settingsLogFilePathTextBox = New System.Windows.Forms.TextBox()
         Me.settingsWriteLogToFileChkBox = New System.Windows.Forms.CheckBox()
+        Me.whichBackupLabel = New System.Windows.Forms.Label()
+        Me.whichBackupDropdownCombo = New System.Windows.Forms.ComboBox()
         Me.disableCloudSyncChkBox = New System.Windows.Forms.CheckBox()
         Me.foldersContainer = New System.Windows.Forms.Panel()
         Me.foldersTitleLabel = New System.Windows.Forms.Label()
         Me.tasksContainer = New System.Windows.Forms.Panel()
-        Me.tasksTitleLabel = New System.Windows.Forms.Label()
         Me.latestBackupHelpLabel = New System.Windows.Forms.Label()
+        Me.tasksTitleLabel = New System.Windows.Forms.Label()
         CType(Me.freqSelectTimeUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.logoBigPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.logTxtBoxContext.SuspendLayout()
@@ -206,7 +206,7 @@ Partial Class Form1
         '
         Me.destLocHelpLabel.AutoSize = True
         Me.destLocHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.destLocHelpLabel.Location = New System.Drawing.Point(10, 63)
+        Me.destLocHelpLabel.Location = New System.Drawing.Point(10, 67)
         Me.destLocHelpLabel.Name = "destLocHelpLabel"
         Me.destLocHelpLabel.Size = New System.Drawing.Size(88, 17)
         Me.destLocHelpLabel.TabIndex = 4
@@ -216,7 +216,7 @@ Partial Class Form1
         '
         Me.saveLocHelpLabel.AutoSize = True
         Me.saveLocHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.saveLocHelpLabel.Location = New System.Drawing.Point(10, 8)
+        Me.saveLocHelpLabel.Location = New System.Drawing.Point(10, 12)
         Me.saveLocHelpLabel.Name = "saveLocHelpLabel"
         Me.saveLocHelpLabel.Size = New System.Drawing.Size(177, 17)
         Me.saveLocHelpLabel.TabIndex = 0
@@ -228,13 +228,13 @@ Partial Class Form1
         Me.freqSelectTimeUpDown.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.freqSelectTimeUpDown.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.freqSelectTimeUpDown.ForeColor = System.Drawing.Color.White
-        Me.freqSelectTimeUpDown.Location = New System.Drawing.Point(14, 40)
+        Me.freqSelectTimeUpDown.Location = New System.Drawing.Point(14, 88)
         Me.freqSelectTimeUpDown.Maximum = New Decimal(New Integer() {60, 0, 0, 0})
         Me.freqSelectTimeUpDown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.freqSelectTimeUpDown.Name = "freqSelectTimeUpDown"
         Me.freqSelectTimeUpDown.ReadOnly = True
-        Me.freqSelectTimeUpDown.Size = New System.Drawing.Size(157, 25)
-        Me.freqSelectTimeUpDown.TabIndex = 2
+        Me.freqSelectTimeUpDown.Size = New System.Drawing.Size(183, 25)
+        Me.freqSelectTimeUpDown.TabIndex = 5
         Me.freqSelectTimeUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.freqSelectTimeUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
@@ -247,10 +247,10 @@ Partial Class Form1
         Me.stopBtn.ForeColor = System.Drawing.Color.White
         Me.stopBtn.Image = CType(resources.GetObject("stopBtn.Image"), System.Drawing.Image)
         Me.stopBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.stopBtn.Location = New System.Drawing.Point(299, 34)
+        Me.stopBtn.Location = New System.Drawing.Point(108, 14)
         Me.stopBtn.Name = "stopBtn"
         Me.stopBtn.Size = New System.Drawing.Size(90, 35)
-        Me.stopBtn.TabIndex = 4
+        Me.stopBtn.TabIndex = 1
         Me.stopBtn.Text = "Stop" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Backup"
         Me.stopBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.stopBtn.UseVisualStyleBackColor = False
@@ -263,10 +263,10 @@ Partial Class Form1
         Me.restoreBtn.ForeColor = System.Drawing.Color.White
         Me.restoreBtn.Image = CType(resources.GetObject("restoreBtn.Image"), System.Drawing.Image)
         Me.restoreBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.restoreBtn.Location = New System.Drawing.Point(395, 34)
+        Me.restoreBtn.Location = New System.Drawing.Point(204, 14)
         Me.restoreBtn.Name = "restoreBtn"
         Me.restoreBtn.Size = New System.Drawing.Size(90, 35)
-        Me.restoreBtn.TabIndex = 5
+        Me.restoreBtn.TabIndex = 2
         Me.restoreBtn.Text = "Restore" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Backup"
         Me.restoreBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.restoreBtn.UseVisualStyleBackColor = False
@@ -275,10 +275,10 @@ Partial Class Form1
         '
         Me.backupHelpLabel.AutoSize = True
         Me.backupHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.backupHelpLabel.Location = New System.Drawing.Point(10, 8)
+        Me.backupHelpLabel.Location = New System.Drawing.Point(10, 65)
         Me.backupHelpLabel.Name = "backupHelpLabel"
         Me.backupHelpLabel.Size = New System.Drawing.Size(167, 17)
-        Me.backupHelpLabel.TabIndex = 0
+        Me.backupHelpLabel.TabIndex = 4
         Me.backupHelpLabel.Text = "Backup frequency (minutes)"
         '
         'backupBtn
@@ -289,10 +289,10 @@ Partial Class Form1
         Me.backupBtn.ForeColor = System.Drawing.Color.White
         Me.backupBtn.Image = CType(resources.GetObject("backupBtn.Image"), System.Drawing.Image)
         Me.backupBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.backupBtn.Location = New System.Drawing.Point(203, 34)
+        Me.backupBtn.Location = New System.Drawing.Point(12, 14)
         Me.backupBtn.Name = "backupBtn"
         Me.backupBtn.Size = New System.Drawing.Size(90, 35)
-        Me.backupBtn.TabIndex = 3
+        Me.backupBtn.TabIndex = 0
         Me.backupBtn.Text = "Start" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Backup"
         Me.backupBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.backupBtn.UseVisualStyleBackColor = False
@@ -697,8 +697,6 @@ Partial Class Form1
         Me.settingsContainer.Controls.Add(Me.settingsBrowseCustomExeBtn)
         Me.settingsContainer.Controls.Add(Me.settingsCustomExeTextBox)
         Me.settingsContainer.Controls.Add(Me.settingsNonUplayVersionChkBox)
-        Me.settingsContainer.Controls.Add(Me.settingsWhichBackupLabel)
-        Me.settingsContainer.Controls.Add(Me.settingsWhichBackupDropdownCombo)
         Me.settingsContainer.Controls.Add(Me.settingsBrowseLogFolderBtn)
         Me.settingsContainer.Controls.Add(Me.settingsBrowseLogFileBtn)
         Me.settingsContainer.Controls.Add(Me.settingsLogFilePathTextBox)
@@ -716,7 +714,7 @@ Partial Class Form1
         Me.settingsNonUplayVersionRestartLabel.BackColor = System.Drawing.Color.Transparent
         Me.settingsNonUplayVersionRestartLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.settingsNonUplayVersionRestartLabel.ForeColor = System.Drawing.Color.Silver
-        Me.settingsNonUplayVersionRestartLabel.Location = New System.Drawing.Point(30, 220)
+        Me.settingsNonUplayVersionRestartLabel.Location = New System.Drawing.Point(30, 150)
         Me.settingsNonUplayVersionRestartLabel.Name = "settingsNonUplayVersionRestartLabel"
         Me.settingsNonUplayVersionRestartLabel.Size = New System.Drawing.Size(385, 13)
         Me.settingsNonUplayVersionRestartLabel.TabIndex = 10
@@ -731,7 +729,7 @@ Partial Class Form1
         Me.settingsOpenCustomExeFolderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.settingsOpenCustomExeFolderBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.settingsOpenCustomExeFolderBtn.ForeColor = System.Drawing.Color.White
-        Me.settingsOpenCustomExeFolderBtn.Location = New System.Drawing.Point(398, 184)
+        Me.settingsOpenCustomExeFolderBtn.Location = New System.Drawing.Point(398, 114)
         Me.settingsOpenCustomExeFolderBtn.Name = "settingsOpenCustomExeFolderBtn"
         Me.settingsOpenCustomExeFolderBtn.Size = New System.Drawing.Size(82, 30)
         Me.settingsOpenCustomExeFolderBtn.TabIndex = 9
@@ -749,7 +747,7 @@ Partial Class Form1
         Me.settingsBrowseCustomExeBtn.ForeColor = System.Drawing.Color.White
         Me.settingsBrowseCustomExeBtn.Image = CType(resources.GetObject("settingsBrowseCustomExeBtn.Image"), System.Drawing.Image)
         Me.settingsBrowseCustomExeBtn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.settingsBrowseCustomExeBtn.Location = New System.Drawing.Point(302, 184)
+        Me.settingsBrowseCustomExeBtn.Location = New System.Drawing.Point(302, 114)
         Me.settingsBrowseCustomExeBtn.Name = "settingsBrowseCustomExeBtn"
         Me.settingsBrowseCustomExeBtn.Size = New System.Drawing.Size(90, 30)
         Me.settingsBrowseCustomExeBtn.TabIndex = 8
@@ -764,7 +762,7 @@ Partial Class Form1
         Me.settingsCustomExeTextBox.Enabled = False
         Me.settingsCustomExeTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.settingsCustomExeTextBox.ForeColor = System.Drawing.Color.White
-        Me.settingsCustomExeTextBox.Location = New System.Drawing.Point(32, 187)
+        Me.settingsCustomExeTextBox.Location = New System.Drawing.Point(32, 117)
         Me.settingsCustomExeTextBox.MaxLength = 256
         Me.settingsCustomExeTextBox.Name = "settingsCustomExeTextBox"
         Me.settingsCustomExeTextBox.ReadOnly = True
@@ -778,37 +776,12 @@ Partial Class Form1
         Me.settingsNonUplayVersionChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.settingsNonUplayVersionChkBox.ForeColor = System.Drawing.Color.White
         Me.settingsNonUplayVersionChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.settingsNonUplayVersionChkBox.Location = New System.Drawing.Point(14, 160)
+        Me.settingsNonUplayVersionChkBox.Location = New System.Drawing.Point(14, 90)
         Me.settingsNonUplayVersionChkBox.Name = "settingsNonUplayVersionChkBox"
         Me.settingsNonUplayVersionChkBox.Size = New System.Drawing.Size(284, 21)
         Me.settingsNonUplayVersionChkBox.TabIndex = 6
         Me.settingsNonUplayVersionChkBox.Text = "I'm not using the Uplay version of Wildlands"
         Me.settingsNonUplayVersionChkBox.UseVisualStyleBackColor = False
-        '
-        'settingsWhichBackupLabel
-        '
-        Me.settingsWhichBackupLabel.AutoSize = True
-        Me.settingsWhichBackupLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.settingsWhichBackupLabel.ForeColor = System.Drawing.Color.White
-        Me.settingsWhichBackupLabel.Location = New System.Drawing.Point(14, 90)
-        Me.settingsWhichBackupLabel.Name = "settingsWhichBackupLabel"
-        Me.settingsWhichBackupLabel.Size = New System.Drawing.Size(229, 17)
-        Me.settingsWhichBackupLabel.TabIndex = 4
-        Me.settingsWhichBackupLabel.Text = "Choose which backup will be restored"
-        '
-        'settingsWhichBackupDropdownCombo
-        '
-        Me.settingsWhichBackupDropdownCombo.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.settingsWhichBackupDropdownCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.settingsWhichBackupDropdownCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.settingsWhichBackupDropdownCombo.ForeColor = System.Drawing.Color.White
-        Me.settingsWhichBackupDropdownCombo.FormattingEnabled = True
-        Me.settingsWhichBackupDropdownCombo.Items.AddRange(New Object() {"Latest", "Second-to-last", "Let me decide"})
-        Me.settingsWhichBackupDropdownCombo.Location = New System.Drawing.Point(16, 115)
-        Me.settingsWhichBackupDropdownCombo.MaxDropDownItems = 3
-        Me.settingsWhichBackupDropdownCombo.Name = "settingsWhichBackupDropdownCombo"
-        Me.settingsWhichBackupDropdownCombo.Size = New System.Drawing.Size(464, 23)
-        Me.settingsWhichBackupDropdownCombo.TabIndex = 5
         '
         'settingsBrowseLogFolderBtn
         '
@@ -872,6 +845,32 @@ Partial Class Form1
         Me.settingsWriteLogToFileChkBox.Text = "Write events to a log file"
         Me.settingsWriteLogToFileChkBox.UseVisualStyleBackColor = False
         '
+        'whichBackupLabel
+        '
+        Me.whichBackupLabel.AutoSize = True
+        Me.whichBackupLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.whichBackupLabel.ForeColor = System.Drawing.Color.White
+        Me.whichBackupLabel.Location = New System.Drawing.Point(203, 65)
+        Me.whichBackupLabel.Name = "whichBackupLabel"
+        Me.whichBackupLabel.Size = New System.Drawing.Size(111, 17)
+        Me.whichBackupLabel.TabIndex = 6
+        Me.whichBackupLabel.Text = "Backup to restore"
+        '
+        'whichBackupDropdownCombo
+        '
+        Me.whichBackupDropdownCombo.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.whichBackupDropdownCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.whichBackupDropdownCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.whichBackupDropdownCombo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.whichBackupDropdownCombo.ForeColor = System.Drawing.Color.White
+        Me.whichBackupDropdownCombo.FormattingEnabled = True
+        Me.whichBackupDropdownCombo.Items.AddRange(New Object() {"Latest", "Second-to-last", "Let me decide"})
+        Me.whichBackupDropdownCombo.Location = New System.Drawing.Point(206, 88)
+        Me.whichBackupDropdownCombo.MaxDropDownItems = 3
+        Me.whichBackupDropdownCombo.Name = "whichBackupDropdownCombo"
+        Me.whichBackupDropdownCombo.Size = New System.Drawing.Size(279, 25)
+        Me.whichBackupDropdownCombo.TabIndex = 7
+        '
         'disableCloudSyncChkBox
         '
         Me.disableCloudSyncChkBox.AutoSize = True
@@ -926,13 +925,25 @@ Partial Class Form1
         Me.tasksContainer.Controls.Add(Me.freqSelectTimeUpDown)
         Me.tasksContainer.Controls.Add(Me.backupBtn)
         Me.tasksContainer.Controls.Add(Me.stopBtn)
+        Me.tasksContainer.Controls.Add(Me.whichBackupLabel)
+        Me.tasksContainer.Controls.Add(Me.whichBackupDropdownCombo)
         Me.tasksContainer.Controls.Add(Me.restoreBtn)
         Me.tasksContainer.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tasksContainer.ForeColor = System.Drawing.Color.White
-        Me.tasksContainer.Location = New System.Drawing.Point(325, 196)
+        Me.tasksContainer.Location = New System.Drawing.Point(325, 149)
         Me.tasksContainer.Name = "tasksContainer"
-        Me.tasksContainer.Size = New System.Drawing.Size(497, 80)
+        Me.tasksContainer.Size = New System.Drawing.Size(497, 127)
         Me.tasksContainer.TabIndex = 9
+        '
+        'latestBackupHelpLabel
+        '
+        Me.latestBackupHelpLabel.AutoSize = True
+        Me.latestBackupHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.latestBackupHelpLabel.Location = New System.Drawing.Point(300, 22)
+        Me.latestBackupHelpLabel.Name = "latestBackupHelpLabel"
+        Me.latestBackupHelpLabel.Size = New System.Drawing.Size(183, 17)
+        Me.latestBackupHelpLabel.TabIndex = 3
+        Me.latestBackupHelpLabel.Text = "Latest backup: No backup yet."
         '
         'tasksTitleLabel
         '
@@ -940,21 +951,11 @@ Partial Class Form1
         Me.tasksTitleLabel.BackColor = System.Drawing.Color.Transparent
         Me.tasksTitleLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tasksTitleLabel.ForeColor = System.Drawing.Color.White
-        Me.tasksTitleLabel.Location = New System.Drawing.Point(325, 162)
+        Me.tasksTitleLabel.Location = New System.Drawing.Point(325, 115)
         Me.tasksTitleLabel.Name = "tasksTitleLabel"
         Me.tasksTitleLabel.Size = New System.Drawing.Size(50, 21)
         Me.tasksTitleLabel.TabIndex = 8
         Me.tasksTitleLabel.Text = "Tasks"
-        '
-        'latestBackupHelpLabel
-        '
-        Me.latestBackupHelpLabel.AutoSize = True
-        Me.latestBackupHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.latestBackupHelpLabel.Location = New System.Drawing.Point(306, 8)
-        Me.latestBackupHelpLabel.Name = "latestBackupHelpLabel"
-        Me.latestBackupHelpLabel.Size = New System.Drawing.Size(183, 17)
-        Me.latestBackupHelpLabel.TabIndex = 1
-        Me.latestBackupHelpLabel.Text = "Latest backup: No backup yet."
         '
         'Form1
         '
@@ -1064,8 +1065,8 @@ Partial Class Form1
     Friend WithEvents settingsLogFilePathTextBox As TextBox
     Friend WithEvents settingsBrowseLogFileBtn As Button
     Friend WithEvents settingsBrowseLogFolderBtn As Button
-    Friend WithEvents settingsWhichBackupDropdownCombo As ComboBox
-    Friend WithEvents settingsWhichBackupLabel As Label
+    Friend WithEvents whichBackupDropdownCombo As ComboBox
+    Friend WithEvents whichBackupLabel As Label
     Friend WithEvents uplayPictureBtn As PictureBox
     Friend WithEvents settingsOpenCustomExeFolderBtn As Button
     Friend WithEvents settingsBrowseCustomExeBtn As Button
