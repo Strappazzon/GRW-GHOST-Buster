@@ -80,10 +80,10 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("1")>  _
-        Public Property BackupInterval() As Integer
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+        Public Property BackupInterval() As Short
             Get
-                Return CType(Me("BackupInterval"),Integer)
+                Return CType(Me("BackupInterval"),Short)
             End Get
             Set
                 Me("BackupInterval") = value
