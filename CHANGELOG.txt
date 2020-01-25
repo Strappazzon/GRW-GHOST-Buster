@@ -1,3 +1,23 @@
+1.7.0
+ - UI: Reordered items inside "Tasks" container (Main screen)
+ - UI: Changed the description and size of some items in the main screen
+ - UI: Changed the main screen to be more consistent with the other screens
+ - Enhancement: Moved "Choose which backup will be restored" setting from the Advanced Settings screen to the main screen
+ - Enhancement: Added support for non-Uplay versions of Wildlands
+ - Enhancement: Latest and second-to-last backup timestamps will be stored in the application settings
+ - Enhancement: Formatted some messages
+ - Enhancement: Adjusted Tab Indexes
+ - The default backup frequency has been increased to 5 minutes (from 1 minute)
+ - This change only affects users that will launch GHOST Buster for the fisrt time
+ - The user will not be able to start the restore process if the backup folder is empty when the "Let me decide" option is selected
+ - Latest and second-to-last backup timestamps will be reset after changing the backup folder location
+ - Save "Check for updates" setting on exit
+ - Save games and backup folders will be saved on exit
+ - Changed message box "Question" icon
+ - Changed some wording
+ - Changed license link (About screen)
+ - Refactoring
+
 1.6.0
  - Enhancement: The user can now choose from a dropdown menu which backup to restore instead of changing the backup folder manually when "Let me choose" option is selected
  - Fix: 'Yes' button hidden on [Yes] [No] and [Cancel] dialogs after an [OK] [Cancel] dialog was shown
