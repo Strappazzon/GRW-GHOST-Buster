@@ -39,7 +39,7 @@ I created this software to backup [Ghost Mode](https://web.archive.org/web/20190
   * Refer to the [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Tom_Clancy%27s_Ghost_Recon_Wildlands#Save_game_data_location) if you don't know where they are located
 
 * Click the second **Browse...** button to select where Wildlands save games will be backed up to
-  * A `yyyyMMdd HHMM` sub-folder will be created with every backup
+  * Each backup will be stored inside a `yyyyMMdd HHMM` sub-folder
   * If you change this folder in the future, the latest and second-to-last backup timestamps will be reset
 
 * Specify the backup frequency and click the **Start Backup** button. To interrupt the process, click **Stop Backup**
