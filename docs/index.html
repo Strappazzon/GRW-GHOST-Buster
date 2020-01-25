@@ -68,21 +68,40 @@ description: "Backup and restore Ghost Recon Wildlands save games."
 			<li>When you close it, a file containing the program's settings will be created (or updated if it already exists) inside <code>%LOCALAPPDATA%\GHOSTbackup</code></li>
 		</ul>
 
-		<li>Click the first <kbd>Browse...</kbd> button to select Wildlands save games folder.</li>
-		<ul><li>They are usually located inside <code>C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\savegames\y0ur-r4nd0m-us3r-1dent1f13r\1771</code></li></ul>
+		<li>Click the first <kbd>Browse...</kbd> button to select Wildlands save games folder</li>
+		<ul><li>Refer to the <a href="https://www.pcgamingwiki.com/wiki/Tom_Clancy%27s_Ghost_Recon_Wildlands#Save_game_data_location">PC Gaming Wiki</a> if you don't know where they are located</li></ul>
 
-		<li>Click the second <kbd>Browse...</kbd> button to select where Wildlands save games will be backed up to.</li>
-		<ul><li>A <code>yyyyMMdd HHMM</code> sub-folder will be created with every backup</li></ul>
+		<li>Click the second <kbd>Browse...</kbd> button to select where Wildlands save games will be backed up to</li>
+		<ul>
+			<li>A <code>yyyyMMdd HHMM</code> sub-folder will be created with every backup</li>
+			<li>If you change this folder in the future, the latest and second-to-last backup timestamps will be reset</li>
+		</ul>
 
-		<li>Finally, specify the backup interval and click the <kbd>Start The Backup</kbd> button. To interrupt the process, click <kbd>Stop The Backup</kbd>.</li>
+		<li>Specify the backup frequency and click the <kbd>Start Backup</kbd> button. To interrupt the process, click <kbd>Stop Backup</kbd></li>
+		<ul><li>You can specify a value between 1 and 60</li></ul>
 	</ul>
 
 	<h3 id="dead">Dead?</h3>
 
 	<ul>
-		<li>Close the game and interrupt the backup process</li>
-		<li>Click <kbd>Restore save games</kbd></li>
-		<ul><li>By default, GHOST Buster will restore the latest backup.</li></ul>
+		<li>Close the game</li>
+		<li>Choose which backup you want to restore</li>
+		<ul>
+			<li><em>Latest</em></li>
+			<ul><li>GHOST Buster will restore the latest backup</li></ul>
+		</ul>
+		<ul>
+			<li><em>Second-to-last</em></li>
+			<ul>
+				<li>GHOST Buster will restore the second-to-last backup</li>
+				<li>If it doesn't exist, you'll be prompted to restore the latest backup instead</li>
+			</ul>
+		</ul>
+		<ul>
+			<li><em>Let me decide</em></li>
+			<ul><li>You can choose which backup to restore</li></ul>
+		</ul>
+		<li>Click the <kbd>Restore Backup</kbd> button</li>
 	</ul>
 
 	<blockquote>
@@ -108,6 +127,13 @@ description: "Backup and restore Ghost Recon Wildlands save games."
 			<li>The program will ask you if you're sure you want to interrupt the running backup process</li>
 		</ul>
 
+		<li><strong>Disable Uplay cloud save sync</strong></li>
+		<ul>
+			<li><em>Disabled by default</em></li>
+			<li>The program will disable Uplay cloud save synchronization prior restoring save games</li>
+			<li>Keep in mind that the Uplay settings file may change at any time so this setting may not be reliable</li>
+		</ul>
+
 		<li><strong>Check for updates</strong></li>
 		<ul>
 			<li><em>Disabled by default</em></li>
@@ -129,28 +155,11 @@ description: "Backup and restore Ghost Recon Wildlands save games."
 			<li>The program will log all events (such as Errors and Warnings) to a file</li>
 		</ul>
 
-		<li><strong>Let GHOST Buster disable cloud save synchronization</strong></li>
+		<li><strong>I'm not using the Uplay version of Wildlands</strong></li>
 		<ul>
 			<li><em>Disabled by default</em></li>
-			<li>The program will disable Uplay cloud save synchronization prior restoring save games</li>
-			<li>Keep in mind that the Uplay settings file may change at any time so this setting may not be reliable</li>
-		</ul>
-
-		<li><strong>Choose which backup will be restored</strong></li>
-		<ul>
-			<li><em>Default setting: "Latest"</em></li>
-			<ul><li>When restoring a backup, GHOST Buster will restore the latest one</li></ul>
-		</ul>
-		<ul>
-			<li><em>"Second-to-last"</em></li>
-			<ul>
-				<li>When restoring a backup, GHOST Buster will restore the second-to-last one</li>
-				<li>If the second-to-last backup doesn't exist, you'll be prompted to restore the latest one instead</li>
-			</ul>
-		</ul>
-		<ul>
-			<li><em>"Let me decide"</em></li>
-			<ul><li>You can choose which folder to restore a backup from</li></ul>
+			<li>You can specify a different location for the Wildlands executable</li>
+			<li>The program needs to be restarted in order for the change to take effect</li>
 		</ul>
 	</ul>
 
