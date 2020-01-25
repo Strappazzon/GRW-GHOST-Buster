@@ -31,8 +31,8 @@ I created this software to backup [Ghost Mode](https://web.archive.org/web/20190
 
 ## Getting Started
 
-* Launch **GHOST Buster.exe**.
-  * Every time you launch it, the program will check the System Registry to see if Ghost Recon Wildlands and Uplay are installed.
+* Launch **GHOST Buster.exe**
+  * Every time you launch it, the program will check the System Registry to see if Ghost Recon Wildlands and Uplay are installed
   * When you close it, a file containing the program's settings will be created (or updated if it already exists) inside `%LOCALAPPDATA%\GHOSTbackup`
 
 * Click the first **Browse...** button to select Wildlands save games folder
