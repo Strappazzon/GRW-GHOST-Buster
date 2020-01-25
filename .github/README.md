@@ -104,29 +104,24 @@ All settings are stored inside `%LOCALAPPDATA%\GHOSTbackup`.
 
 ### GHOST Buster preview
 
-<table>
-  <tr>
-    <th align="center">Main Screen</th>
-    <th align="center">Advanced Settings</th>
-  </tr>
-  <tr>
-    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot.png"></td>
-    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_settings.png"></td>
-  </tr>
-</table>
+_Click an image to enlarge it_
 
 <table>
   <tr>
+    <th align="center">Main Screen</th>
+    <th align="center">Backup Restore</th>
+    <th align="center">Advanced Settings</th>
     <th align="center">Logs</th>
     <th align="center">About</th>
   </tr>
   <tr>
+    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot.png"></td>
+    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_restore.png"></td>
+    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_settings.png"></td>
     <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_logs.png"></td>
     <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_about.png"></td>
   </tr>
 </table>
-
-*Click an image to enlarge it*
 
 ## Download
 
