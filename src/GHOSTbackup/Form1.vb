@@ -744,7 +744,6 @@ Public Class Form1
             'Default Uplay install directory
             O.SelectedPath = "C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\savegames"
             If O.ShowDialog = DialogResult.OK Then
-                O.Dispose()
                 SavegamesLocTextBox.Text = O.SelectedPath
                 Log("[INFO] Save games directory set to: " & O.SelectedPath)
             End If
@@ -763,7 +762,6 @@ Public Class Form1
         Using O As New FolderBrowserDialog
             O.Description = "Select where you want to backup your save files to. Every backup will create a new ""yyyyMMdd HHmm"" subfolder."
             If O.ShowDialog = DialogResult.OK Then
-                O.Dispose()
                 BackupLocTextBox.Text = O.SelectedPath
                 Log("[INFO] Backup directory set to: " & O.SelectedPath)
                 'Reset latest and second-to-last backup timestamps
@@ -978,7 +976,6 @@ Public Class Form1
             S.FileName = "GHOSTbackup_" & Now.ToString("yyyyMMddHHmm")
             S.Filter = "Text file|.txt|Log file|*.log"
             If S.ShowDialog = DialogResult.OK Then
-                S.Dispose()
                 File.AppendAllText(S.FileName, LogTxtBox.Text)
                 Log("[INFO] Log exported to " & S.FileName)
             End If
@@ -1018,7 +1015,6 @@ Public Class Form1
         Using O As New FolderBrowserDialog
             O.Description = "Select where you want to save the event log file to."
             If O.ShowDialog = DialogResult.OK Then
-                O.Dispose()
                 SettingsLogFilePathTextBox.Text = O.SelectedPath & "\event.log"
                 My.Settings.LogFilePath = SettingsLogFilePathTextBox.Text
                 Log("[INFO] Log file directory set to: " & O.SelectedPath)
@@ -1054,7 +1050,6 @@ Public Class Form1
             O.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyComputer)
             O.Title = "Select Wildlands executable"
             If O.ShowDialog = DialogResult.OK Then
-                O.Dispose()
                 SettingsCustomExeTextBox.Text = O.FileName
                 My.Settings.CustomExeLoc = SettingsCustomExeTextBox.Text
                 Log("[INFO] Custom Wildlands executable set: " & O.FileName)
