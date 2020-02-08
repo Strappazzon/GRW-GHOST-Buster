@@ -574,7 +574,7 @@ Public Class Form1
             PlayGameBtn.Enabled = True
             If IsBackupRunning = True Then
                 StopBackup()
-                Log("[WARNING] Wildlands has been closed or crashed. Backup interrupted.")
+                Log("[INFO] Wildlands has been closed or crashed. Backup interrupted.")
                 ShowMsgBox("{\rtf1 Wildlands {\b has been closed or crashed}, as a result the backup process has been interrupted.}", "Wildlands is no longer running", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
             End If
         End If
@@ -838,7 +838,7 @@ Public Class Form1
             End Try
         Else
             StopBackup()
-            Log("[WARNING] Wildlands closed or crashed, Backup interrupted.")
+            Log("[INFO] Wildlands closed or crashed, Backup interrupted.")
             ShowMsgBox("{\rtf1 Wildlands {\b has been closed or crashed}, as a result the backup process has been interrupted.}", "Wildlands is no longer running", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
         End If
     End Sub
