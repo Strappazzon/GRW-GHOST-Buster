@@ -222,18 +222,10 @@ Public Class Form1
             Try
                 File.AppendAllText(SettingsLogFilePathTextBox.Text, LogToFile.ToString())
 
-            Catch pathTooLong As PathTooLongException
+            Catch ex As Exception
                 SettingsWriteLogToFileChkBox.Checked = False
-                LogTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " [ERROR] 'PathTooLongException', Log session to file interrupted.")
-                ShowAlert(48, "Logging to file disabled (Path is too long).")
-            Catch dirNotFound As DirectoryNotFoundException
-                SettingsWriteLogToFileChkBox.Checked = False
-                LogTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " [ERROR] 'DirectoryNotFoundException', Log session to file interrupted.")
-                ShowAlert(48, "Logging to file disabled (Directory not found).")
-            Catch insufficentPermissions As UnauthorizedAccessException
-                SettingsWriteLogToFileChkBox.Checked = False
-                LogTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " [ERROR] 'UnauthorizedAccessException', Log session to file interrupted.")
-                ShowAlert(48, "Logging to file disabled (Insufficent permissions).")
+                LogTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " [ERROR] '" & ex.Message() & "', Log session to file interrupted.")
+                ShowAlert(48, "Logging to file disabled due to an error.")
             End Try
         End If
     End Sub
@@ -399,21 +391,13 @@ Public Class Form1
                 End If
             End If
 
-        Catch pathTooLong As PathTooLongException
+        Catch ex As Exception
             'Empty subdirectories list to avoid adding duplicates in the next restore process
             CustomMsgBox.backupDirsDropdownCombo.Items.Clear()
             BackupDirs = Nothing
 
-            Log("[ERROR] 'PathTooLongException', Couldn't restore the backup from " & BackupLocTextBox.Text & " to " & SavegamesLocTextBox.Text)
-            ShowMsgBox("{\rtf1 The specified {\b path cannot be handled because it's too long}, as a result the restore process has been interrupted.}", "Restore failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
-
-        Catch dirNotFound As DirectoryNotFoundException
-            'Empty subdirectories list to avoid adding duplicates in the next restore process
-            CustomMsgBox.backupDirsDropdownCombo.Items.Clear()
-            BackupDirs = Nothing
-
-            Log("[ERROR] 'DirectoryNotFoundException', Couldn't restore the backup from " & BackupLocTextBox.Text & " to " & SavegamesLocTextBox.Text)
-            ShowMsgBox("{\rtf1 One or more {\b folders no longer exist}, as a result the restore process has been interrupted.}", "Restore failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+            Log("[ERROR] '" & ex.Message() & "', Couldn't restore the backup from " & BackupLocTextBox.Text & " to " & SavegamesLocTextBox.Text)
+            ShowMsgBox("{\rtf1 The restore process has been {\b interrupted due to an error.} Please check the logs for more details.}", "Restore failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -435,7 +419,7 @@ Public Class Form1
             End If
         Else
             Log("[ERROR] 'WebException' Unable to check for updates: " & (e.Error.Message & ".").Replace("..", "."))
-            ShowAlert(48, "Unable to check for updates. See the logs for more details.")
+            ShowAlert(48, "Unable to check for updates. Please check the logs for more details.")
         End If
     End Sub
 
@@ -510,9 +494,9 @@ Public Class Form1
                         Log("[WARNING] Wildlands is not installed (""InstallDir"" is Null or Empty).")
                     End If
 
-                Catch nullValue As NullReferenceException
+                Catch ex As Exception
                     PlayGameBtn.Text = "Ghost Recon Wildlands is not installed"
-                    Log("[WARNING] 'NullReferenceException' Wildlands is not installed.")
+                    Log("[ERROR] '" & ex.Message() & "' Wildlands is not installed.")
                 End Try
             End Using
         End If
@@ -530,8 +514,8 @@ Public Class Form1
                     Log("[WARNING] Uplay is not installed (""InstallDir"" is Null or Empty). Uplay is required to launch and play Wildlands.")
                 End If
 
-            Catch nullValue As NullReferenceException
-                Log("[WARNING] 'NullReferenceException' Uplay is not installed. Uplay is required to launch and play Wildlands.")
+            Catch ex As Exception
+                Log("[ERROR] '" & ex.Message() & "' Uplay is not installed. Uplay is required to launch and play Wildlands.")
             End Try
         End Using
 
@@ -809,14 +793,10 @@ Public Class Form1
 
                 Log("[INFO] Performed the first backup.")
 
-            Catch pathTooLong As PathTooLongException
+            Catch ex As Exception
                 StopBackup()
-                Log("[ERROR] 'PathTooLongException', Backup interrupted.")
-                ShowMsgBox("{\rtf1 The specified {\b path cannot be handled because it's too long}, as a result the backup process has been interrupted.}", "Backup Interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
-            Catch dirNotFound As DirectoryNotFoundException
-                StopBackup()
-                Log("[ERROR] 'DirectoryNotFoundException', Backup interrupted.")
-                ShowMsgBox("{\rtf1 The specified {\b folder no longer exists}, as a result the backup process has been interrupted.}", "Backup interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+                Log("[ERROR] '" & ex.Message() & "', Backup interrupted.")
+                ShowMsgBox("{\rtf1 The backup process has been {\b interrupted due to an error.} Please check the logs for more details.}", "Backup Interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
             End Try
         ElseIf IsGameRunning = False Then
             ShowAlert(64, "You need to launch Wildlands before starting the backup process.")
@@ -851,14 +831,10 @@ Public Class Form1
 
                 Log("[INFO] Backup complete.")
 
-            Catch pathTooLong As PathTooLongException
+            Catch ex As Exception
                 StopBackup()
-                Log("[ERROR] 'PathTooLongException', Backup interrupted.")
-                ShowMsgBox("{\rtf1 The specified {\b path cannot be handled because it's too long}, as a result the backup process has been interrupted.}", "Backup interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
-            Catch dirNotFound As DirectoryNotFoundException
-                StopBackup()
-                Log("[ERROR] 'DirectoryNotFoundException', Backup interrupted.")
-                ShowMsgBox("{\rtf1 The specified {\b folder no longer exists}, as a result the backup process has been interrupted.}", "Backup interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+                Log("[ERROR] '" & ex.message() & "', Backup interrupted.")
+                ShowMsgBox("{\rtf1 The backup process has been {\b interrupted due to an error.} Please check the logs for more details.}", "Backup interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
             End Try
         Else
             StopBackup()
@@ -928,23 +904,12 @@ Public Class Form1
                         RestoreBackup()
                     End If
 
-                Catch fileNotFound As FileNotFoundException
+                Catch ex As Exception
                     'Don't let GHOST Buster disable cloud save sync until the user enables the setting again...
                     DisableCloudSyncChkBox.Checked = False
                     '...notify the user about the error
-                    Log("[ERROR] Parsing of ""settings.yml"" failed: File not found.")
-                    ShowMsgBox("{\rtf1 ""Let GHOST Buster disable cloud save synchronization"" setting has been {\b disabled because an error occurred} while trying to parse Uplay settings file: {\b File not found.}" _
-                               & "\line\line Make sure to {\b DISABLE} cloud save synchronization from Uplay (Settings -> Untick ""Enable cloud save synchronization for supported games"") before launching Wildlands, otherwise the restored save games will be " _
-                               & "{\b OVERWRITTEN} with the old ones from the cloud!",
-                               "Parsing failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
-                    '...and proceed with the restore process anyway
-                    RestoreBackup()
-                Catch insufficentPermissions As UnauthorizedAccessException
-                    'Don't let GHOST Buster disable cloud save sync until the user enables the setting again...
-                    DisableCloudSyncChkBox.Checked = False
-                    '...notify the user about the error
-                    Log("[ERROR] Parsing of ""settings.yml"" failed: File is read only.")
-                    ShowMsgBox("{\rtf1 ""Let GHOST Buster disable cloud save synchronization"" setting has been {\b disabled because an error occurred} while trying to parse Uplay settings file: {\b File not found.}" _
+                    Log("[ERROR] Parsing of ""settings.yml"" failed: """ & ex.Message().TrimEnd(".") & """.")
+                    ShowMsgBox("{\rtf1 ""Let GHOST Buster disable cloud save synchronization"" setting has been {\b disabled because an error occurred} while trying to parse Uplay settings file." _
                                & "\line\line Make sure to {\b DISABLE} cloud save synchronization from Uplay (Settings -> Untick ""Enable cloud save synchronization for supported games"") before launching Wildlands, otherwise the restored save games will be " _
                                & "{\b OVERWRITTEN} with the old ones from the cloud!",
                                "Parsing failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
