@@ -4,16 +4,16 @@ Imports System.Text
 Imports Microsoft.Win32
 
 Public Class Form1
-    Public ReadOnly versionCode As Short = 14
-    Public ReadOnly version As String = "1.7.0"
-    Public isUplayInstalled As Boolean = False
-    Public gamePath As String
-    Public uplayPath As String
-    Public isGameRunning As Boolean = False
-    Public isBackupRunning As Boolean = False
-    Public backupDirs As List(Of String)
+    Public ReadOnly VersionCode As Short = 14
+    Public ReadOnly Version As String = "1.7.0"
+    Public IsUplayInstalled As Boolean = False
+    Public GamePath As String
+    Public UplayPath As String
+    Public IsGameRunning As Boolean = False
+    Public IsBackupRunning As Boolean = False
+    Public BackupDirs As List(Of String)
 
-    Private Sub upgradeSettings()
+    Private Sub UpgradeSettings()
         'Migrate settings to the new version
         'Unfortunately, settings migrate only if the new version is installed in the same directory as the old version
         '//bytes.com/topic/visual-basic-net/answers/854235-my-settings-upgrade-doesnt-upgrade#post3426232
@@ -23,125 +23,125 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub saveSettings()
+    Private Sub SaveSettings()
         'Confirm exit (if backup is active)
-        If confirmExitChkBox.CheckState <> My.Settings.ConfirmExit Then
-            My.Settings.ConfirmExit = confirmExitChkBox.CheckState
+        If ConfirmExitChkBox.CheckState <> My.Settings.ConfirmExit Then
+            My.Settings.ConfirmExit = ConfirmExitChkBox.CheckState
         End If
 
         'Confirm backup interruption
-        If confirmStopBackupChkBox.CheckState <> My.Settings.ConfirmBackupInterruption Then
-            My.Settings.ConfirmBackupInterruption = confirmStopBackupChkBox.CheckState
+        If ConfirmStopBackupChkBox.CheckState <> My.Settings.ConfirmBackupInterruption Then
+            My.Settings.ConfirmBackupInterruption = ConfirmStopBackupChkBox.CheckState
         End If
 
         'Disable Uplay cloud save sync
-        If disableCloudSyncChkBox.CheckState <> My.Settings.DisableCloudSync Then
-            My.Settings.DisableCloudSync = disableCloudSyncChkBox.CheckState
+        If DisableCloudSyncChkBox.CheckState <> My.Settings.DisableCloudSync Then
+            My.Settings.DisableCloudSync = DisableCloudSyncChkBox.CheckState
         End If
 
         'Check for updates
-        If updateCheckerChkBox.CheckState <> My.Settings.CheckUpdates Then
-            My.Settings.CheckUpdates = updateCheckerChkBox.CheckState
+        If CheckUpdatesChkBox.CheckState <> My.Settings.CheckUpdates Then
+            My.Settings.CheckUpdates = CheckUpdatesChkBox.CheckState
         End If
 
         'Remember form position, Window location
-        If formPositionChkBox.CheckState <> My.Settings.RememberFormPosition Then
-            My.Settings.RememberFormPosition = formPositionChkBox.CheckState
+        If RememberFormPositionChkBox.CheckState <> My.Settings.RememberFormPosition Then
+            My.Settings.RememberFormPosition = RememberFormPositionChkBox.CheckState
             My.Settings.WindowLocation = Location
         End If
 
         'Backup frequency
-        If freqSelectTimeUpDown.Value <> My.Settings.BackupInterval Then
-            My.Settings.BackupInterval = freqSelectTimeUpDown.Value
+        If BackupFreqUpDown.Value <> My.Settings.BackupInterval Then
+            My.Settings.BackupInterval = BackupFreqUpDown.Value
         End If
 
         'Choose which backup will be restored
-        If whichBackupDropdownCombo.SelectedIndex <> My.Settings.WhichBackup Then
-            My.Settings.WhichBackup = whichBackupDropdownCombo.SelectedIndex
+        If WhichBackupDropdownCombo.SelectedIndex <> My.Settings.WhichBackup Then
+            My.Settings.WhichBackup = WhichBackupDropdownCombo.SelectedIndex
         End If
 
         'Wildlands save games folder
-        If saveLocTextBox.Text <> My.Settings.GameSavesDir Then
-            My.Settings.GameSavesDir = saveLocTextBox.Text
+        If SavegamesLocTextBox.Text <> My.Settings.GameSavesDir Then
+            My.Settings.GameSavesDir = SavegamesLocTextBox.Text
         End If
 
         'Backup folder
-        If destLocTextBox.Text <> My.Settings.BackupDir Then
-            My.Settings.BackupDir = destLocTextBox.Text
+        If BackupLocTextBox.Text <> My.Settings.BackupDir Then
+            My.Settings.BackupDir = BackupLocTextBox.Text
         End If
 
         'Write events to a log file
-        If settingsWriteLogToFileChkBox.CheckState <> My.Settings.WriteLogFile Then
-            My.Settings.WriteLogFile = settingsWriteLogToFileChkBox.CheckState
-            My.Settings.LogFilePath = settingsLogFilePathTextBox.Text
+        If SettingsWriteLogToFileChkBox.CheckState <> My.Settings.WriteLogFile Then
+            My.Settings.WriteLogFile = SettingsWriteLogToFileChkBox.CheckState
+            My.Settings.LogFilePath = SettingsLogFilePathTextBox.Text
         End If
 
         'Log file location
-        If settingsLogFilePathTextBox.Text <> My.Settings.LogFilePath Then
-            My.Settings.LogFilePath = settingsLogFilePathTextBox.Text
+        If SettingsLogFilePathTextBox.Text <> My.Settings.LogFilePath Then
+            My.Settings.LogFilePath = SettingsLogFilePathTextBox.Text
         End If
 
         'I'm not using the Uplay version of Wildlands, Custom Wildlands executable location
         'If Wildlands executable location is empty don't save these settings
-        If settingsNonUplayVersionChkBox.CheckState <> My.Settings.NoUplay AndAlso settingsCustomExeTextBox.Text <> "" Then
-            My.Settings.NoUplay = settingsNonUplayVersionChkBox.CheckState
-            My.Settings.CustomExeLoc = settingsCustomExeTextBox.Text
+        If SettingsNonUplayVersionChkBox.CheckState <> My.Settings.NoUplay AndAlso SettingsCustomExeTextBox.Text <> "" Then
+            My.Settings.NoUplay = SettingsNonUplayVersionChkBox.CheckState
+            My.Settings.CustomExeLoc = SettingsCustomExeTextBox.Text
         End If
 
-        log("[INFO] Settings saved.")
+        Log("[INFO] Settings saved.")
     End Sub
 
-    Private Sub loadFormPosition()
+    Private Sub LoadFormPosition()
         If My.Settings.RememberFormPosition = True Then
-            Dim formLocation As Point = My.Settings.WindowLocation
+            Dim FormLocation As Point = My.Settings.WindowLocation
 
-            If (formLocation.X = -1) And (formLocation.Y = -1) Then
+            If (FormLocation.X = -1) And (FormLocation.Y = -1) Then
                 Return
             End If
 
-            Dim bLocationVisible As Boolean = False
+            Dim LocationVisible As Boolean = False
             For Each S As Screen In Screen.AllScreens
-                If S.Bounds.Contains(formLocation) Then
-                    bLocationVisible = True
+                If S.Bounds.Contains(FormLocation) Then
+                    LocationVisible = True
                 End If
             Next
 
-            If Not bLocationVisible Then
+            If Not LocationVisible Then
                 Return
             End If
 
             StartPosition = FormStartPosition.Manual
-            Location = formLocation
+            Location = FormLocation
         End If
     End Sub
 
-    Private Sub showAlert(alertType As Short, alertDesc As String)
+    Private Sub ShowAlert(AlertType As Short, AlertDesc As String)
         'Non-intrusive alert
-        If alertType = 48 Then
+        If AlertType = 48 Then
             'Warning
-            alertIcon.Image = My.Resources.alert
-            alertDot.Visible = True
-        ElseIf alertType = 64 Then
+            AlertIcon.Image = My.Resources.alert
+            AlertDot.Visible = True
+        ElseIf AlertType = 64 Then
             'Info
-            alertIcon.Image = My.Resources.info
+            AlertIcon.Image = My.Resources.info
         End If
 
         'Alert message
-        alertDescriptionLabel.Text = alertDesc
+        AlertDescriptionLabel.Text = AlertDesc
 
-        logoBigPictureBox.Location = New Point(12, 115)
-        playGameBtn.Location = New Point(12, 180)
-        confirmExitChkBox.Location = New Point(14, 255)
-        confirmStopBackupChkBox.Location = New Point(14, 280)
-        disableCloudSyncChkBox.Location = New Point(14, 305)
-        updateCheckerChkBox.Location = New Point(14, 330)
-        formPositionChkBox.Location = New Point(14, 355)
-        alertDescriptionLabel.Location = New Point(alertContainer.Width / 2 - alertDescriptionLabel.Width / 2, alertContainer.Height / 2 - alertDescriptionLabel.Height / 2)
-        alertIcon.Location = New Point(alertContainer.Width / 2 - alertDescriptionLabel.Width / 2 - 28, alertContainer.Height / 2 - alertIcon.Height / 2)
-        alertContainer.Visible = True
+        LogoBigPictureBox.Location = New Point(12, 115)
+        PlayGameBtn.Location = New Point(12, 180)
+        ConfirmExitChkBox.Location = New Point(14, 255)
+        ConfirmStopBackupChkBox.Location = New Point(14, 280)
+        DisableCloudSyncChkBox.Location = New Point(14, 305)
+        CheckUpdatesChkBox.Location = New Point(14, 330)
+        RememberFormPositionChkBox.Location = New Point(14, 355)
+        AlertDescriptionLabel.Location = New Point(AlertContainer.Width / 2 - AlertDescriptionLabel.Width / 2, AlertContainer.Height / 2 - AlertDescriptionLabel.Height / 2)
+        AlertIcon.Location = New Point(AlertContainer.Width / 2 - AlertDescriptionLabel.Width / 2 - 28, AlertContainer.Height / 2 - AlertIcon.Height / 2)
+        AlertContainer.Visible = True
     End Sub
 
-    Private Sub showMsgBox(ByVal Message As String, ByVal Title As String, ByVal Buttons As MessageBoxButtons, ByVal Icon As MessageBoxIcon, Optional ByVal DefaultButton As MessageBoxDefaultButton = MessageBoxDefaultButton.Button2)
+    Private Sub ShowMsgBox(ByVal Message As String, ByVal Title As String, ByVal Buttons As MessageBoxButtons, ByVal Icon As MessageBoxIcon, Optional ByVal DefaultButton As MessageBoxDefaultButton = MessageBoxDefaultButton.Button2)
         'Custom MessageBox
         '//docs.microsoft.com/en-us/dotnet/api/system.windows.forms.form.dialogresult
 
@@ -207,451 +207,448 @@ Public Class Form1
         CustomMsgBox.ShowDialog()
     End Sub
 
-    Private Sub log([event] As String)
+    Private Sub Log([Event] As String)
         'Don't start the log file with an empty line
-        If logTxtBox.Text = "" Then
-            logTxtBox.AppendText(Now.ToString("HH:mm:ss") & " " & [event])
+        If LogTxtBox.Text = "" Then
+            LogTxtBox.AppendText(Now.ToString("HH:mm:ss") & " " & [Event])
         Else
-            logTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " " & [event])
+            LogTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " " & [Event])
         End If
 
-        If settingsWriteLogToFileChkBox.Checked = True Then
-            Dim logToFile As New StringBuilder
-            logToFile.AppendLine(Now.ToString("HH:mm:ss") & " " & [event])
+        If SettingsWriteLogToFileChkBox.Checked = True Then
+            Dim LogToFile As New StringBuilder
+            LogToFile.AppendLine(Now.ToString("HH:mm:ss") & " " & [Event])
 
             Try
-                File.AppendAllText(settingsLogFilePathTextBox.Text, logToFile.ToString())
+                File.AppendAllText(SettingsLogFilePathTextBox.Text, LogToFile.ToString())
 
             Catch pathTooLong As PathTooLongException
-                settingsWriteLogToFileChkBox.Checked = False
-                logTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " [ERROR] 'PathTooLongException', Log session to file interrupted.")
-                showAlert(48, "Logging to file disabled (Path is too long).")
+                SettingsWriteLogToFileChkBox.Checked = False
+                LogTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " [ERROR] 'PathTooLongException', Log session to file interrupted.")
+                ShowAlert(48, "Logging to file disabled (Path is too long).")
             Catch dirNotFound As DirectoryNotFoundException
-                settingsWriteLogToFileChkBox.Checked = False
-                logTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " [ERROR] 'DirectoryNotFoundException', Log session to file interrupted.")
-                showAlert(48, "Logging to file disabled (Directory not found).")
+                SettingsWriteLogToFileChkBox.Checked = False
+                LogTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " [ERROR] 'DirectoryNotFoundException', Log session to file interrupted.")
+                ShowAlert(48, "Logging to file disabled (Directory not found).")
             Catch insufficentPermissions As UnauthorizedAccessException
-                settingsWriteLogToFileChkBox.Checked = False
-                logTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " [ERROR] 'UnauthorizedAccessException', Log session to file interrupted.")
-                showAlert(48, "Logging to file disabled (Insufficent permissions).")
+                SettingsWriteLogToFileChkBox.Checked = False
+                LogTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " [ERROR] 'UnauthorizedAccessException', Log session to file interrupted.")
+                ShowAlert(48, "Logging to file disabled (Insufficent permissions).")
             End Try
         End If
     End Sub
 
-    Private Sub startBackup()
-        backupTimer.Interval = freqSelectTimeUpDown.Value * 60000
-        backupTimer.Start()
-        isBackupRunning = True
-        freqSelectTimeUpDown.Enabled = False
-        backupBtn.Enabled = False
-        stopBtn.Enabled = True
-        restoreBtn.Enabled = False
-        saveLocTextBox.Enabled = False
-        browseSaveLocBtn.Enabled = False
-        destLocTextBox.Enabled = False
-        browseDestLocBtn.Enabled = False
-        settingsNonUplayVersionChkBox.Enabled = False
-        settingsCustomExeTextBox.Enabled = False
-        settingsBrowseCustomExeBtn.Enabled = False
-        settingsOpenCustomExeFolderBtn.Enabled = False
+    Private Sub StartBackup()
+        BackupTimer.Interval = BackupFreqUpDown.Value * 60000
+        BackupTimer.Start()
+        IsBackupRunning = True
+        BackupFreqUpDown.Enabled = False
+        BackupBtn.Enabled = False
+        StopBtn.Enabled = True
+        RestoreBtn.Enabled = False
+        SavegamesLocTextBox.Enabled = False
+        BrowseSavegamesLocBtn.Enabled = False
+        BackupLocTextBox.Enabled = False
+        BrowseBackupLocBtn.Enabled = False
+        SettingsNonUplayVersionChkBox.Enabled = False
+        SettingsCustomExeTextBox.Enabled = False
+        SettingsBrowseCustomExeBtn.Enabled = False
+        SettingsOpenCustomExeFolderBtn.Enabled = False
     End Sub
 
-    Private Sub stopBackup()
-        backupTimer.Stop()
-        isBackupRunning = False
-        freqSelectTimeUpDown.Enabled = True
-        backupBtn.Enabled = True
-        stopBtn.Enabled = False
-        restoreBtn.Enabled = True
-        saveLocTextBox.Enabled = True
-        browseSaveLocBtn.Enabled = True
-        destLocTextBox.Enabled = True
-        browseDestLocBtn.Enabled = True
-        settingsNonUplayVersionChkBox.Enabled = True
-        settingsCustomExeTextBox.Enabled = True
-        settingsBrowseCustomExeBtn.Enabled = True
-        settingsOpenCustomExeFolderBtn.Enabled = True
+    Private Sub StopBackup()
+        BackupTimer.Stop()
+        IsBackupRunning = False
+        BackupFreqUpDown.Enabled = True
+        BackupBtn.Enabled = True
+        StopBtn.Enabled = False
+        RestoreBtn.Enabled = True
+        SavegamesLocTextBox.Enabled = True
+        BrowseSavegamesLocBtn.Enabled = True
+        BackupLocTextBox.Enabled = True
+        BrowseBackupLocBtn.Enabled = True
+        SettingsNonUplayVersionChkBox.Enabled = True
+        SettingsCustomExeTextBox.Enabled = True
+        SettingsBrowseCustomExeBtn.Enabled = True
+        SettingsOpenCustomExeFolderBtn.Enabled = True
     End Sub
 
-    Private Sub restoreBackup()
-        log("[INFO] Restore process started.")
+    Private Sub RestoreBackup()
+        Log("[INFO] Restore process started.")
 
-        Dim saveLoc As String = saveLocTextBox.Text
-        Dim backupLoc As String = destLocTextBox.Text
-        Dim latestBackupLoc As String = destLocTextBox.Text & My.Settings.LatestBackupTime.ToString("\\yyyyMMdd HHmm")
-        Dim secToLastBackupLoc As String = destLocTextBox.Text & My.Settings.SecondToLastBackupTime.ToString("\\yyyyMMdd HHmm")
+        Dim SaveLoc As String = SavegamesLocTextBox.Text
+        Dim BackupLoc As String = BackupLocTextBox.Text
+        Dim LatestBackupLoc As String = BackupLocTextBox.Text & My.Settings.LatestBackupTime.ToString("\\yyyyMMdd HHmm")
+        Dim SecToLastBackupLoc As String = BackupLocTextBox.Text & My.Settings.SecondToLastBackupTime.ToString("\\yyyyMMdd HHmm")
 
         Try
-            If whichBackupDropdownCombo.SelectedIndex = 0 And My.Settings.LatestBackupTime <> Nothing Then
+            If WhichBackupDropdownCombo.SelectedIndex = 0 And My.Settings.LatestBackupTime <> Nothing Then
                 'If "Latest" option is selected and the latest backup exists
-                showMsgBox("{\rtf1 Restoring a backup will copy the save files over from the backup folder: " & latestBackupLoc.Replace("\", "\\") & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & saveLoc.Replace("\", "\\") _
+                ShowMsgBox("{\rtf1 Restoring a backup will copy the save files over from the backup folder: " & LatestBackupLoc.Replace("\", "\\") & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & SaveLoc.Replace("\", "\\") _
                            & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
                            "Backup restore",
                            MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
                 If CustomMsgBox.DialogResult = DialogResult.Yes Then
-                    Dim saveList As String() = Directory.GetFiles(latestBackupLoc, "*.save")
-                    For Each F As String In saveList
-                        Dim fName As String = F.Substring(latestBackupLoc.Length + 1)
-                        File.Copy(Path.Combine(latestBackupLoc, fName), Path.Combine(saveLoc, fName), True)
+                    Dim SavegamesList As String() = Directory.GetFiles(LatestBackupLoc, "*.save")
+                    For Each F As String In SavegamesList
+                        Dim FileName As String = F.Substring(LatestBackupLoc.Length + 1)
+                        File.Copy(Path.Combine(LatestBackupLoc, FileName), Path.Combine(SaveLoc, FileName), True)
                     Next
 
-                    log("[INFO] Backup from " & latestBackupLoc & " restored.")
-                    showAlert(64, "Backup restored successfully.")
+                    Log("[INFO] Backup from " & LatestBackupLoc & " restored.")
+                    ShowAlert(64, "Backup restored successfully.")
                 Else
-                    log("[INFO] Restore process cancelled by the user.")
+                    Log("[INFO] Restore process cancelled by the user.")
                 End If
-            ElseIf whichBackupDropdownCombo.SelectedIndex = 0 And My.Settings.LatestBackupTime = Nothing Then
+            ElseIf WhichBackupDropdownCombo.SelectedIndex = 0 And My.Settings.LatestBackupTime = Nothing Then
                 'If "Latest" option is selected and the latest backup doesn't exist
-                log("[INFO] No backup found. Restore process aborted.")
-                showMsgBox("{\rtf1 You chose to restore the latest backup but {\b you haven't backed up any save game yet.} Backup at least once and try again.}", "No backup found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            ElseIf whichBackupDropdownCombo.SelectedIndex = 1 And My.Settings.SecondToLastBackupTime <> Nothing Then
+                Log("[INFO] No backup found. Restore process aborted.")
+                ShowMsgBox("{\rtf1 You chose to restore the latest backup but {\b you haven't backed up any save game yet.} Backup at least once and try again.}", "No backup found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            ElseIf WhichBackupDropdownCombo.SelectedIndex = 1 And My.Settings.SecondToLastBackupTime <> Nothing Then
                 'If "Second-to-last" option is selected and the second-to-last backup exists
-                showMsgBox("{\rtf1 Restoring a backup will copy the save files over from the backup folder: " & secToLastBackupLoc.Replace("\", "\\") & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " _
-                           & saveLoc.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
+                ShowMsgBox("{\rtf1 Restoring a backup will copy the save files over from the backup folder: " & SecToLastBackupLoc.Replace("\", "\\") & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " _
+                           & SaveLoc.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
                            "Backup restore",
                            MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
                 If CustomMsgBox.DialogResult = DialogResult.Yes Then
-                    Dim saveList As String() = Directory.GetFiles(secToLastBackupLoc, "*.save")
-                    For Each F As String In saveList
-                        Dim fName As String = F.Substring(secToLastBackupLoc.Length + 1)
-                        File.Copy(Path.Combine(secToLastBackupLoc, fName), Path.Combine(saveLoc, fName), True)
+                    Dim SavegamesList As String() = Directory.GetFiles(SecToLastBackupLoc, "*.save")
+                    For Each F As String In SavegamesList
+                        Dim FileName As String = F.Substring(SecToLastBackupLoc.Length + 1)
+                        File.Copy(Path.Combine(SecToLastBackupLoc, FileName), Path.Combine(SaveLoc, FileName), True)
                     Next
 
-                    log("[INFO] Backup from " & secToLastBackupLoc & " restored.")
-                    showAlert(64, "Backup restored successfully.")
+                    Log("[INFO] Backup from " & SecToLastBackupLoc & " restored.")
+                    ShowAlert(64, "Backup restored successfully.")
                 Else
-                    log("[INFO] Restore process cancelled by the user.")
+                    Log("[INFO] Restore process cancelled by the user.")
                 End If
-            ElseIf whichBackupDropdownCombo.SelectedIndex = 1 And My.Settings.SecondToLastBackupTime = Nothing And My.Settings.LatestBackupTime <> Nothing Then
+            ElseIf WhichBackupDropdownCombo.SelectedIndex = 1 And My.Settings.SecondToLastBackupTime = Nothing And My.Settings.LatestBackupTime <> Nothing Then
                 'If "Second-to-last" option is selected and the second-to-last backup doesn't exist
-                showMsgBox("{\rtf1 You chose to restore the second-to-last backup but {\b it doesn't exist.} Do you want to restore the latest backup instead? This will copy the save files over from the backup folder: " & latestBackupLoc.Replace("\", "\\") _
-                           & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & saveLoc.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
+                ShowMsgBox("{\rtf1 You chose to restore the second-to-last backup but {\b it doesn't exist.} Do you want to restore the latest backup instead? This will copy the save files over from the backup folder: " & LatestBackupLoc.Replace("\", "\\") _
+                           & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & SaveLoc.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
                            "Backup doesn't exist",
                            MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
                 If CustomMsgBox.DialogResult = DialogResult.Yes Then
                     'This will restore the latest backup instead
-                    Dim saveList As String() = Directory.GetFiles(latestBackupLoc, "*.save")
-                    For Each F As String In saveList
-                        Dim fName As String = F.Substring(latestBackupLoc.Length + 1)
-                        File.Copy(Path.Combine(latestBackupLoc, fName), Path.Combine(saveLoc, fName), True)
+                    Dim SavegamesList As String() = Directory.GetFiles(LatestBackupLoc, "*.save")
+                    For Each F As String In SavegamesList
+                        Dim FileName As String = F.Substring(LatestBackupLoc.Length + 1)
+                        File.Copy(Path.Combine(LatestBackupLoc, FileName), Path.Combine(SaveLoc, FileName), True)
                     Next
 
-                    log("[INFO] Backup from " & latestBackupLoc & " restored.")
-                    showAlert(64, "Backup restored successfully.")
+                    Log("[INFO] Backup from " & LatestBackupLoc & " restored.")
+                    ShowAlert(64, "Backup restored successfully.")
                 Else
-                    log("[INFO] Restore process cancelled by the user.")
+                    Log("[INFO] Restore process cancelled by the user.")
                 End If
-            ElseIf whichBackupDropdownCombo.SelectedIndex = 1 And My.Settings.SecondToLastBackupTime = Nothing And My.Settings.LatestBackupTime = Nothing Then
+            ElseIf WhichBackupDropdownCombo.SelectedIndex = 1 And My.Settings.SecondToLastBackupTime = Nothing And My.Settings.LatestBackupTime = Nothing Then
                 'If "Second-to-last" option is selected and neither second-to-last nor latest backup exists
-                showMsgBox("{\rtf1 You chose to restore the second-to-last backup but {\b neither second-to-last nor latest backup exist.} Backup at least once and try again.}", "No backup found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                log("[INFO] No backup found (secondToLast, latest). Restore process aborted.")
-            ElseIf whichBackupDropdownCombo.SelectedIndex = 2 Then
+                ShowMsgBox("{\rtf1 You chose to restore the second-to-last backup but {\b neither second-to-last nor latest backup exist.} Backup at least once and try again.}", "No backup found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Log("[INFO] No backup found (secondToLast, latest). Restore process aborted.")
+            ElseIf WhichBackupDropdownCombo.SelectedIndex = 2 Then
                 'If "Let me decide" option is selected the user will be asked from what folder the backup should be restored from
                 'Get backup directory subfolders
                 '//docs.microsoft.com/en-us/dotnet/api/system.io.directory.enumeratedirectories
-                backupDirs = New List(Of String)(Directory.EnumerateDirectories(destLocTextBox.Text))
+                BackupDirs = New List(Of String)(Directory.EnumerateDirectories(BackupLocTextBox.Text))
 
                 'Check if the backup folder is empty or not
-                If backupDirs.Count <> 0 Then
+                If BackupDirs.Count <> 0 Then
                     'Reverse the order of directories list (Most recent backup first)
                     '//docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.reverse
-                    backupDirs.Reverse()
+                    BackupDirs.Reverse()
 
                     'Add all directories to CustomMsgBox dropdown menu
-                    For Each backupDir In backupDirs
-                        CustomMsgBox.backupDirsDropdownCombo.Items.Add(backupDir.Substring(backupDir.LastIndexOf(Path.DirectorySeparatorChar) + 1))
+                    For Each BackupDir In BackupDirs
+                        CustomMsgBox.backupDirsDropdownCombo.Items.Add(BackupDir.Substring(BackupDir.LastIndexOf(Path.DirectorySeparatorChar) + 1))
                     Next
 
                     CustomMsgBox.backupDirsDropdownCombo.Visible = True
                     'Select the first folder on the list
                     CustomMsgBox.backupDirsDropdownCombo.SelectedIndex = 0
 
-                    showMsgBox("{\rtf1 Restoring a backup will copy the save files over from the backup folder that you selected from the list below (which is inside " & backupLoc.Replace("\", "\\") _
-                               & ")\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & saveLoc.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
+                    ShowMsgBox("{\rtf1 Restoring a backup will copy the save files over from the backup folder that you selected from the list below (which is inside " & BackupLoc.Replace("\", "\\") _
+                               & ")\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & SaveLoc.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
                                "Backup restore",
                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
                     If CustomMsgBox.DialogResult = DialogResult.Yes Then
                         'Store selected backup subdirectory
-                        Dim backupSubDir = backupLoc & "\" & CustomMsgBox.backupDirsDropdownCombo.SelectedItem
-                        Dim saveList As String() = Directory.GetFiles(backupSubDir, "*.save")
-                        For Each F As String In saveList
-                            Dim fName As String = F.Substring(backupSubDir.Length + 1)
-                            File.Copy(Path.Combine(backupSubDir, fName), Path.Combine(saveLoc, fName), True)
+                        Dim BackupSubDir = BackupLoc & "\" & CustomMsgBox.backupDirsDropdownCombo.SelectedItem
+                        Dim SavegamesList As String() = Directory.GetFiles(BackupSubDir, "*.save")
+                        For Each F As String In SavegamesList
+                            Dim FileName As String = F.Substring(BackupSubDir.Length + 1)
+                            File.Copy(Path.Combine(BackupSubDir, FileName), Path.Combine(SaveLoc, FileName), True)
                         Next
 
                         'Empty subdirectories list to avoid adding duplicates in the next restore process
                         CustomMsgBox.backupDirsDropdownCombo.Items.Clear()
-                        backupDirs = Nothing
+                        BackupDirs = Nothing
 
-                        log("[INFO] Backup from " & backupSubDir & " restored.")
-                        showAlert(64, "Backup restored successfully.")
+                        Log("[INFO] Backup from " & BackupSubDir & " restored.")
+                        ShowAlert(64, "Backup restored successfully.")
                     Else
                         'Empty subdirectories list to avoid adding duplicates in the next restore process
                         CustomMsgBox.backupDirsDropdownCombo.Items.Clear()
-                        backupDirs = Nothing
+                        BackupDirs = Nothing
 
-                        log("[INFO] Restore process cancelled by the user.")
+                        Log("[INFO] Restore process cancelled by the user.")
                     End If
                 Else
-                    backupDirs = Nothing
-                    showMsgBox("{\rtf1 The specified {\b backup folder is empty.} Backup at least once and try again.}", "No backup found", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
-                    log("[INFO] No backup found (backup folder is empty). Restore process aborted.")
+                    BackupDirs = Nothing
+                    ShowMsgBox("{\rtf1 The specified {\b backup folder is empty.} Backup at least once and try again.}", "No backup found", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+                    Log("[INFO] No backup found (backup folder is empty). Restore process aborted.")
                 End If
             End If
 
         Catch pathTooLong As PathTooLongException
             'Empty subdirectories list to avoid adding duplicates in the next restore process
             CustomMsgBox.backupDirsDropdownCombo.Items.Clear()
-            backupDirs = Nothing
+            BackupDirs = Nothing
 
-            log("[ERROR] 'PathTooLongException', Couldn't restore the backup from " & destLocTextBox.Text & " to " & saveLocTextBox.Text)
-            showMsgBox("{\rtf1 The specified {\b path cannot be handled because it's too long}, as a result the restore process has been interrupted.}", "Restore failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+            Log("[ERROR] 'PathTooLongException', Couldn't restore the backup from " & BackupLocTextBox.Text & " to " & SavegamesLocTextBox.Text)
+            ShowMsgBox("{\rtf1 The specified {\b path cannot be handled because it's too long}, as a result the restore process has been interrupted.}", "Restore failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
 
         Catch dirNotFound As DirectoryNotFoundException
             'Empty subdirectories list to avoid adding duplicates in the next restore process
             CustomMsgBox.backupDirsDropdownCombo.Items.Clear()
-            backupDirs = Nothing
+            BackupDirs = Nothing
 
-            log("[ERROR] 'DirectoryNotFoundException', Couldn't restore the backup from " & destLocTextBox.Text & " to " & saveLocTextBox.Text)
-            showMsgBox("{\rtf1 One or more {\b folders no longer exist}, as a result the restore process has been interrupted.}", "Restore failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+            Log("[ERROR] 'DirectoryNotFoundException', Couldn't restore the backup from " & BackupLocTextBox.Text & " to " & SavegamesLocTextBox.Text)
+            ShowMsgBox("{\rtf1 One or more {\b folders no longer exist}, as a result the restore process has been interrupted.}", "Restore failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
         End Try
     End Sub
 
-    Private Sub updater_DownloadStringCompleted(ByVal sender As Object, ByVal e As DownloadStringCompletedEventArgs)
+    Private Sub Updater_DownloadStringCompleted(ByVal sender As Object, ByVal e As DownloadStringCompletedEventArgs)
         If e.Error Is Nothing Then
-            Dim fetchedVer As Short = e.Result
+            Dim FetchedVer As Short = e.Result
 
             'Compare downloaded GHOST Buster version number with the current one
-            If fetchedVer = versionCode Then
-                log("[INFO] GHOST Buster is up to date.")
-            ElseIf fetchedVer > versionCode Then
-                log("[INFO] New version of GHOST Buster is available.")
-                showMsgBox("{\rtf1 A newer version of GHOST Buster is available. Do you want to {\b visit the download page} now?}", "Update available", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+            If FetchedVer = VersionCode Then
+                Log("[INFO] GHOST Buster is up to date.")
+            ElseIf FetchedVer > VersionCode Then
+                Log("[INFO] New version of GHOST Buster is available.")
+                ShowMsgBox("{\rtf1 A newer version of GHOST Buster is available. Do you want to {\b visit the download page} now?}", "Update available", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
                 If CustomMsgBox.DialogResult = DialogResult.Yes Then
                     Process.Start("https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest")
                 End If
-            ElseIf fetchedVer < versionCode Then
-                log("[INFO] The version in use is greater than the one currently available.")
+            ElseIf FetchedVer < VersionCode Then
+                Log("[INFO] The version in use is greater than the one currently available.")
             End If
         Else
-            log("[ERROR] 'WebException' Unable to check for updates: " & (e.Error.Message & ".").Replace("..", "."))
-            showAlert(48, "Unable to check for updates. See the logs for more details.")
+            Log("[ERROR] 'WebException' Unable to check for updates: " & (e.Error.Message & ".").Replace("..", "."))
+            ShowAlert(48, "Unable to check for updates. See the logs for more details.")
         End If
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Migrate settings from the old version
-        upgradeSettings()
+        UpgradeSettings()
 
         'Load settings and set defaults
-        saveLocTextBox.Text = My.Settings.GameSavesDir
-        destLocTextBox.Text = My.Settings.BackupDir
-        freqSelectTimeUpDown.Value = My.Settings.BackupInterval
-        confirmExitChkBox.Checked = My.Settings.ConfirmExit
-        confirmStopBackupChkBox.Checked = My.Settings.ConfirmBackupInterruption
-        updateCheckerChkBox.Checked = My.Settings.CheckUpdates
-        settingsWriteLogToFileChkBox.Checked = My.Settings.WriteLogFile
-        formPositionChkBox.Checked = My.Settings.RememberFormPosition
+        SavegamesLocTextBox.Text = My.Settings.GameSavesDir
+        BackupLocTextBox.Text = My.Settings.BackupDir
+        BackupFreqUpDown.Value = My.Settings.BackupInterval
+        ConfirmExitChkBox.Checked = My.Settings.ConfirmExit
+        ConfirmStopBackupChkBox.Checked = My.Settings.ConfirmBackupInterruption
+        CheckUpdatesChkBox.Checked = My.Settings.CheckUpdates
+        SettingsWriteLogToFileChkBox.Checked = My.Settings.WriteLogFile
+        RememberFormPositionChkBox.Checked = My.Settings.RememberFormPosition
         If My.Settings.LogFilePath = "" Then
-            settingsLogFilePathTextBox.Text = Application.StartupPath & "\event.log"
+            SettingsLogFilePathTextBox.Text = Application.StartupPath & "\event.log"
         Else
-            settingsLogFilePathTextBox.Text = My.Settings.LogFilePath
+            SettingsLogFilePathTextBox.Text = My.Settings.LogFilePath
         End If
-        disableCloudSyncChkBox.Checked = My.Settings.DisableCloudSync
-        whichBackupDropdownCombo.SelectedIndex = My.Settings.WhichBackup
-        settingsNonUplayVersionChkBox.Checked = My.Settings.NoUplay
-        settingsCustomExeTextBox.Text = My.Settings.CustomExeLoc
+        DisableCloudSyncChkBox.Checked = My.Settings.DisableCloudSync
+        WhichBackupDropdownCombo.SelectedIndex = My.Settings.WhichBackup
+        SettingsNonUplayVersionChkBox.Checked = My.Settings.NoUplay
+        SettingsCustomExeTextBox.Text = My.Settings.CustomExeLoc
         If My.Settings.LatestBackupTime <> Nothing Then
             'Write the latest backup timestamp on the main screen
-            latestBackupHelpLabel.Text = "Latest backup:" & Environment.NewLine & My.Settings.LatestBackupTime.ToString("MM/dd/yyyy hh:mm tt")
-            latestBackupHelpLabel.Location = New Point(300, 14)
+            LatestBackupHelpLabel.Text = "Latest backup:" & Environment.NewLine & My.Settings.LatestBackupTime.ToString("MM/dd/yyyy hh:mm tt")
+            LatestBackupHelpLabel.Location = New Point(300, 14)
         End If
 
         'Set window position
-        loadFormPosition()
+        LoadFormPosition()
 
         'Start logging session
-        log("[LOG SESSION] -------------------- START --------------------")
-        log("[INFO] GHOST Buster version: " & version)
+        Log("[LOG SESSION] -------------------- START --------------------")
+        Log("[INFO] GHOST Buster version: " & Version)
 
 #If DEBUG Then
-        log("[INFO] Environment is DEVELOPMENT")
+        Log("[INFO] Environment is DEVELOPMENT")
 #Else
-        log("[INFO] Environment is PRODUCTION")
+        Log("[INFO] Environment is PRODUCTION")
 #End If
 
         'Retrieve Wildlands install directory
-        If settingsNonUplayVersionChkBox.Checked = True Then
-            If File.Exists(settingsCustomExeTextBox.Text) Then
-                gamePath = Directory.GetParent(settingsCustomExeTextBox.Text).ToString() & "\"
-                playGameBtn.Enabled = True
-                log("[INFO] Wildlands is installed in: " & gamePath & " (Non-Uplay version).")
-                processCheckTimer.Interval = 500
-                processCheckTimer.Start()
+        If SettingsNonUplayVersionChkBox.Checked = True Then
+            If File.Exists(SettingsCustomExeTextBox.Text) Then
+                GamePath = Directory.GetParent(SettingsCustomExeTextBox.Text).ToString() & "\"
+                PlayGameBtn.Enabled = True
+                Log("[INFO] Wildlands is installed in: " & GamePath & " (Non-Uplay version).")
+                ProcessCheckTimer.Interval = 500
+                ProcessCheckTimer.Start()
             Else
                 'Disable "I'm not using the Uplay version of Wildlands"
-                settingsNonUplayVersionChkBox.Checked = False
-                playGameBtn.Text = "Ghost Recon Wildlands not found"
-                log("[WARNING] Custom Wildlands executable " & settingsCustomExeTextBox.Text & " not found.")
-                showAlert(48, "The specified Wildlands executable could note be found.")
+                SettingsNonUplayVersionChkBox.Checked = False
+                PlayGameBtn.Text = "Ghost Recon Wildlands not found"
+                Log("[WARNING] Custom Wildlands executable " & SettingsCustomExeTextBox.Text & " not found.")
+                ShowAlert(48, "The specified Wildlands executable could note be found.")
             End If
         Else
-            Using gameReg As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\1771", False)
+            Using GameRegKey As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\1771", False)
                 Try
-                    'Replace forward slashes
-                    gamePath = TryCast(gameReg.GetValue("InstallDir"), String).Replace("/", "\")
-                    gameReg.Close()
+                    GamePath = TryCast(GameRegKey.GetValue("InstallDir"), String).Replace("/", "\") 'Replace any forward slashes with backward slashes
 
-                    If gamePath <> Nothing Then
-                        playGameBtn.Enabled = True
-                        log("[INFO] Wildlands is installed in: " & gamePath)
-                        processCheckTimer.Interval = 500
-                        processCheckTimer.Start()
+                    If GamePath <> Nothing Then
+                        PlayGameBtn.Enabled = True
+                        Log("[INFO] Wildlands is installed in: " & GamePath)
+                        ProcessCheckTimer.Interval = 500
+                        ProcessCheckTimer.Start()
                     Else
-                        playGameBtn.Text = "Ghost Recon Wildlands is not installed"
-                        log("[WARNING] Wildlands is not installed (""InstallDir"" is Null or Empty).")
+                        PlayGameBtn.Text = "Ghost Recon Wildlands is not installed"
+                        Log("[WARNING] Wildlands is not installed (""InstallDir"" is Null or Empty).")
                     End If
 
                 Catch nullValue As NullReferenceException
-                    playGameBtn.Text = "Ghost Recon Wildlands is not installed"
-                    log("[WARNING] 'NullReferenceException' Wildlands is not installed.")
+                    PlayGameBtn.Text = "Ghost Recon Wildlands is not installed"
+                    Log("[WARNING] 'NullReferenceException' Wildlands is not installed.")
                 End Try
             End Using
         End If
 
         'Retrieve Uplay install directory
-        Using uplayReg As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher", False)
+        Using UplayRegKey As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher", False)
             Try
-                uplayPath = uplayReg.GetValue("InstallDir")
-                uplayReg.Close()
+                UplayPath = UplayRegKey.GetValue("InstallDir")
 
-                If uplayPath <> Nothing Then
-                    isUplayInstalled = True
-                    log("[INFO] Uplay is installed in: " & uplayPath)
+                If UplayPath <> Nothing Then
+                    IsUplayInstalled = True
+                    Log("[INFO] Uplay is installed in: " & UplayPath)
                 Else
-                    isUplayInstalled = False
-                    log("[WARNING] Uplay is not installed (""InstallDir"" is Null or Empty). Uplay is required to launch and play Wildlands.")
+                    IsUplayInstalled = False
+                    Log("[WARNING] Uplay is not installed (""InstallDir"" is Null or Empty). Uplay is required to launch and play Wildlands.")
                 End If
 
             Catch nullValue As NullReferenceException
-                log("[WARNING] 'NullReferenceException' Uplay is not installed. Uplay is required to launch and play Wildlands.")
+                Log("[WARNING] 'NullReferenceException' Uplay is not installed. Uplay is required to launch and play Wildlands.")
             End Try
         End Using
 
         'Check if save games directory exists
-        If saveLocTextBox.Text <> "" AndAlso Not Directory.Exists(saveLocTextBox.Text) Then
-            log("[WARNING] Wildlands save games folder " & saveLocTextBox.Text & " no longer exists.")
-            showAlert(48, "Wildlands save games folder no longer exists.")
-            saveLocTextBox.Text = ""
+        If SavegamesLocTextBox.Text <> "" AndAlso Not Directory.Exists(SavegamesLocTextBox.Text) Then
+            Log("[WARNING] Wildlands save games folder " & SavegamesLocTextBox.Text & " no longer exists.")
+            ShowAlert(48, "Wildlands save games folder no longer exists.")
+            SavegamesLocTextBox.Text = ""
         End If
 
         'Check if backup directory exists
-        If destLocTextBox.Text <> "" AndAlso Not Directory.Exists(destLocTextBox.Text) Then
-            log("[WARNING] Backup folder " & destLocTextBox.Text & " no longer exists.")
-            showAlert(48, "Backup folder no longer exists.")
-            destLocTextBox.Text = ""
+        If BackupLocTextBox.Text <> "" AndAlso Not Directory.Exists(BackupLocTextBox.Text) Then
+            Log("[WARNING] Backup folder " & BackupLocTextBox.Text & " no longer exists.")
+            ShowAlert(48, "Backup folder no longer exists.")
+            BackupLocTextBox.Text = ""
             'Reset latest and second-to-last backup timestamps
             My.Settings.LatestBackupTime = Nothing
             My.Settings.SecondToLastBackupTime = Nothing
-            latestBackupHelpLabel.Text = "Latest backup: No backup yet."
-            latestBackupHelpLabel.Location = New Point(300, 22)
+            LatestBackupHelpLabel.Text = "Latest backup: No backup yet."
+            LatestBackupHelpLabel.Location = New Point(300, 22)
         End If
 
         'Check for updates
         '//docs.microsoft.com/en-us/dotnet/api/system.net.downloadstringcompletedeventargs
-        If updateCheckerChkBox.Checked = True Then
-            Using updater As New WebClient
-                updater.Headers.Add("User-Agent", "GHOST Buster (+https://strappazzon.xyz/GRW-GHOST-Buster)")
-                Dim versionURI As New Uri("https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/version")
-                updater.DownloadStringAsync(versionURI)
+        If CheckUpdatesChkBox.Checked = True Then
+            Using Updater As New WebClient
+                Updater.Headers.Add("User-Agent", "GHOST Buster (+https://strappazzon.xyz/GRW-GHOST-Buster)")
+                Dim VersionURI As New Uri("https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/version")
+                Updater.DownloadStringAsync(VersionURI)
                 'Call updater_DownloadStringCompleted when the download completes
-                AddHandler updater.DownloadStringCompleted, AddressOf updater_DownloadStringCompleted
+                AddHandler Updater.DownloadStringCompleted, AddressOf Updater_DownloadStringCompleted
             End Using
         End If
     End Sub
 
     Private Sub Form1_Closing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
-        If isBackupRunning = True And confirmExitChkBox.Checked = True Then
-            showMsgBox("{\rtf1 The backup process is still running. Do you want to {\b interrupt it and exit?}}", "Confirm exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+        If IsBackupRunning = True And ConfirmExitChkBox.Checked = True Then
+            ShowMsgBox("{\rtf1 The backup process is still running. Do you want to {\b interrupt it and exit?}}", "Confirm exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
             If CustomMsgBox.DialogResult = DialogResult.No OrElse CustomMsgBox.DialogResult = DialogResult.Cancel Then
                 e.Cancel = True
             Else
-                saveSettings()
+                SaveSettings()
             End If
         Else
-            saveSettings()
+            SaveSettings()
         End If
     End Sub
 
-    Private Sub processCheckTimer_Tick(sender As Object, e As EventArgs) Handles processCheckTimer.Tick
-        Dim wProc = Process.GetProcessesByName("GRW")
-        If wProc.Count > 0 Then
-            isGameRunning = True
-            playGameBtn.Enabled = False
+    Private Sub ProcessCheckTimer_Tick(sender As Object, e As EventArgs) Handles ProcessCheckTimer.Tick
+        Dim WildlandsProc = Process.GetProcessesByName("GRW")
+        If WildlandsProc.Count > 0 Then
+            IsGameRunning = True
+            PlayGameBtn.Enabled = False
         Else
-            isGameRunning = False
-            playGameBtn.Enabled = True
-            If isBackupRunning = True Then
-                stopBackup()
-                log("[WARNING] Wildlands has been closed or crashed. Backup interrupted.")
-                showMsgBox("{\rtf1 Wildlands {\b has been closed or crashed}, as a result the backup process has been interrupted.}", "Wildlands is no longer running", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+            IsGameRunning = False
+            PlayGameBtn.Enabled = True
+            If IsBackupRunning = True Then
+                StopBackup()
+                Log("[WARNING] Wildlands has been closed or crashed. Backup interrupted.")
+                ShowMsgBox("{\rtf1 Wildlands {\b has been closed or crashed}, as a result the backup process has been interrupted.}", "Wildlands is no longer running", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
             End If
         End If
     End Sub
 
-    Private Sub HomePictureBtn_Click(sender As Object, e As EventArgs) Handles homePictureBtn.Click
-        homePictureBtn.Image = My.Resources.home_white
-        aboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        logLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        settingsLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        tasksTitleLabel.Visible = True
-        tasksContainer.Visible = True
-        foldersTitleLabel.Visible = True
-        foldersContainer.Visible = True
-        aboutContainer.Visible = False
-        logsContainer.Visible = False
-        titleLabel.Visible = False
-        settingsContainer.Visible = False
+    Private Sub HomePictureBtn_Click(sender As Object, e As EventArgs) Handles HomePictureBtn.Click
+        HomePictureBtn.Image = My.Resources.home_white
+        AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        SettingsLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        TasksTitleLabel.Visible = True
+        TasksContainer.Visible = True
+        FoldersTitleLabel.Visible = True
+        FoldersContainer.Visible = True
+        AboutContainer.Visible = False
+        LogsContainer.Visible = False
+        TitleLabel.Visible = False
+        SettingsContainer.Visible = False
     End Sub
 
-    Private Sub settingsLabel_Click(sender As Object, e As EventArgs) Handles settingsLabel.Click
-        homePictureBtn.Image = My.Resources.home
-        aboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        logLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        settingsLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
-        tasksTitleLabel.Visible = False
-        tasksContainer.Visible = False
-        foldersTitleLabel.Visible = False
-        foldersContainer.Visible = False
-        aboutContainer.Visible = False
-        logsContainer.Visible = False
-        titleLabel.Text = "Advanced Settings"
-        titleLabel.Visible = True
-        settingsContainer.Visible = True
+    Private Sub SettingsLabel_Click(sender As Object, e As EventArgs) Handles SettingsLabel.Click
+        HomePictureBtn.Image = My.Resources.home
+        AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        SettingsLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
+        TasksTitleLabel.Visible = False
+        TasksContainer.Visible = False
+        FoldersTitleLabel.Visible = False
+        FoldersContainer.Visible = False
+        AboutContainer.Visible = False
+        LogsContainer.Visible = False
+        TitleLabel.Text = "Advanced Settings"
+        TitleLabel.Visible = True
+        SettingsContainer.Visible = True
     End Sub
 
-    Private Sub logLabel_Click(sender As Object, e As EventArgs) Handles logLabel.Click
-        homePictureBtn.Image = My.Resources.home
-        logLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
-        aboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        settingsLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        tasksTitleLabel.Visible = False
-        tasksContainer.Visible = False
-        foldersTitleLabel.Visible = False
-        foldersContainer.Visible = False
-        aboutContainer.Visible = False
-        logsContainer.Visible = True
-        titleLabel.Text = "Logs"
-        titleLabel.Visible = True
-        settingsContainer.Visible = False
-        alertDot.Visible = False
+    Private Sub LogLabel_Click(sender As Object, e As EventArgs) Handles LogLabel.Click
+        HomePictureBtn.Image = My.Resources.home
+        LogLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
+        AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        SettingsLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        TasksTitleLabel.Visible = False
+        TasksContainer.Visible = False
+        FoldersTitleLabel.Visible = False
+        FoldersContainer.Visible = False
+        AboutContainer.Visible = False
+        LogsContainer.Visible = True
+        TitleLabel.Text = "Logs"
+        TitleLabel.Visible = True
+        SettingsContainer.Visible = False
+        AlertDot.Visible = False
         'Close the alert when switching to Logs tab
-        closeAlertContainerIcon_Click(sender, e)
+        CloseAlertContainerIcon_Click(sender, e)
     End Sub
 
-    Private Sub AboutLabel_Click(sender As Object, e As EventArgs) Handles aboutLabel.Click
+    Private Sub AboutLabel_Click(sender As Object, e As EventArgs) Handles AboutLabel.Click
         'Write application info. This is more convenient for me than using the Form Designer.
-        appInfoLabel.Text = "GHOST Buster v" & version _
+        AppInfoLabel.Text = "GHOST Buster v" & Version _
                             & Environment.NewLine & "Copyright (c) 2019 - 2020 Alberto Strappazzon" _
                             & Environment.NewLine & "This software is licensed under the MIT license." _
                             & Environment.NewLine & Environment.NewLine &
@@ -660,86 +657,86 @@ Public Class Form1
                             & Environment.NewLine & Environment.NewLine &
                             "Some icons are taken from Icons8 (https://icons8.com)."
 
-        homePictureBtn.Image = My.Resources.home
-        logLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        aboutLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
-        settingsLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        tasksTitleLabel.Visible = False
-        tasksContainer.Visible = False
-        foldersTitleLabel.Visible = False
-        foldersContainer.Visible = False
-        aboutContainer.Visible = True
-        logsContainer.Visible = False
-        titleLabel.Text = "About"
-        titleLabel.Visible = True
-        settingsContainer.Visible = False
+        HomePictureBtn.Image = My.Resources.home
+        LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        AboutLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
+        SettingsLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        TasksTitleLabel.Visible = False
+        TasksContainer.Visible = False
+        FoldersTitleLabel.Visible = False
+        FoldersContainer.Visible = False
+        AboutContainer.Visible = True
+        LogsContainer.Visible = False
+        TitleLabel.Text = "About"
+        TitleLabel.Visible = True
+        SettingsContainer.Visible = False
     End Sub
 
-    Private Sub uplayPictureBtn_Click(sender As Object, e As EventArgs) Handles uplayPictureBtn.Click
+    Private Sub UplayPictureBtn_Click(sender As Object, e As EventArgs) Handles UplayPictureBtn.Click
         'Attempt to launch Uplay only if it's installed
-        If isUplayInstalled = True Then
-            Process.Start(uplayPath & "Uplay.exe")
+        If IsUplayInstalled = True Then
+            Process.Start(UplayPath & "Uplay.exe")
         Else
-            showAlert(64, "Uplay is not installed.")
+            ShowAlert(64, "Uplay is not installed.")
         End If
     End Sub
 
-    Private Sub closeAlertContainerIcon_Click(sender As Object, e As EventArgs) Handles closeAlertContainerIcon.Click
-        alertContainer.Visible = False
-        logoBigPictureBox.Location = New Point(12, 85)
-        playGameBtn.Location = New Point(12, 150)
-        confirmExitChkBox.Location = New Point(14, 230)
-        confirmStopBackupChkBox.Location = New Point(14, 255)
-        disableCloudSyncChkBox.Location = New Point(14, 280)
-        updateCheckerChkBox.Location = New Point(14, 305)
-        formPositionChkBox.Location = New Point(14, 330)
+    Private Sub CloseAlertContainerIcon_Click(sender As Object, e As EventArgs) Handles CloseAlertContainerIcon.Click
+        AlertContainer.Visible = False
+        LogoBigPictureBox.Location = New Point(12, 85)
+        PlayGameBtn.Location = New Point(12, 150)
+        ConfirmExitChkBox.Location = New Point(14, 230)
+        ConfirmStopBackupChkBox.Location = New Point(14, 255)
+        DisableCloudSyncChkBox.Location = New Point(14, 280)
+        CheckUpdatesChkBox.Location = New Point(14, 305)
+        RememberFormPositionChkBox.Location = New Point(14, 330)
     End Sub
 
-    Private Sub playGameBtn_Click(sender As Object, e As EventArgs) Handles playGameBtn.Click
-        Process.Start(gamePath & "GRW.exe")
+    Private Sub PlayGameBtn_Click(sender As Object, e As EventArgs) Handles PlayGameBtn.Click
+        Process.Start(GamePath & "GRW.exe")
     End Sub
 
-    Private Sub confirmExitChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles confirmExitChkBox.CheckedChanged
-        If confirmExitChkBox.Checked = True Then
-            confirmExitChkBox.ForeColor = Color.White
+    Private Sub ConfirmExitChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles ConfirmExitChkBox.CheckedChanged
+        If ConfirmExitChkBox.Checked = True Then
+            ConfirmExitChkBox.ForeColor = Color.White
         Else
-            confirmExitChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            ConfirmExitChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
         End If
     End Sub
 
-    Private Sub confirmStopBackupChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles confirmStopBackupChkBox.CheckedChanged
-        If confirmStopBackupChkBox.Checked = True Then
-            confirmStopBackupChkBox.ForeColor = Color.White
+    Private Sub ConfirmStopBackupChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles ConfirmStopBackupChkBox.CheckedChanged
+        If ConfirmStopBackupChkBox.Checked = True Then
+            ConfirmStopBackupChkBox.ForeColor = Color.White
         Else
-            confirmStopBackupChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            ConfirmStopBackupChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
         End If
     End Sub
 
-    Private Sub disableCloudSyncChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles disableCloudSyncChkBox.CheckedChanged
-        If disableCloudSyncChkBox.Checked = True Then
-            disableCloudSyncChkBox.ForeColor = Color.White
+    Private Sub DisableCloudSyncChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles DisableCloudSyncChkBox.CheckedChanged
+        If DisableCloudSyncChkBox.Checked = True Then
+            DisableCloudSyncChkBox.ForeColor = Color.White
         Else
-            disableCloudSyncChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            DisableCloudSyncChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
         End If
     End Sub
 
-    Private Sub updateCheckerChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles updateCheckerChkBox.CheckedChanged
-        If updateCheckerChkBox.Checked = True Then
-            updateCheckerChkBox.ForeColor = Color.White
+    Private Sub CheckUpdatesChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles CheckUpdatesChkBox.CheckedChanged
+        If CheckUpdatesChkBox.Checked = True Then
+            CheckUpdatesChkBox.ForeColor = Color.White
         Else
-            updateCheckerChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            CheckUpdatesChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
         End If
     End Sub
 
-    Private Sub formPositionChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles formPositionChkBox.CheckedChanged
-        If formPositionChkBox.Checked = True Then
-            formPositionChkBox.ForeColor = Color.White
+    Private Sub RememberFormPositionChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles RememberFormPositionChkBox.CheckedChanged
+        If RememberFormPositionChkBox.Checked = True Then
+            RememberFormPositionChkBox.ForeColor = Color.White
         Else
-            formPositionChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            RememberFormPositionChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
         End If
     End Sub
 
-    Private Sub browseSaveLocBtn_Click(sender As Object, e As EventArgs) Handles browseSaveLocBtn.Click
+    Private Sub BrowseSavegamesLocBtn_Click(sender As Object, e As EventArgs) Handles BrowseSavegamesLocBtn.Click
         'Choose save games directory
         Using O As New FolderBrowserDialog
             O.ShowNewFolderButton = False
@@ -747,230 +744,230 @@ Public Class Form1
             'Default Uplay install directory
             O.SelectedPath = "C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\savegames"
             If O.ShowDialog = DialogResult.OK Then
-                saveLocTextBox.Text = O.SelectedPath
-                log("[INFO] Save games directory set to: " & O.SelectedPath)
                 O.Dispose()
+                SavegamesLocTextBox.Text = O.SelectedPath
+                Log("[INFO] Save games directory set to: " & O.SelectedPath)
             End If
         End Using
     End Sub
 
-    Private Sub ExploreSaveLocBtn_Click(sender As Object, e As EventArgs) Handles exploreSaveLocBtn.Click
+    Private Sub ExploreSavegamesLocBtn_Click(sender As Object, e As EventArgs) Handles ExploreSavegamesLocBtn.Click
         'Open the save games directory in Windows Explorer
-        If saveLocTextBox.Text <> "" Then
-            Process.Start("explorer.exe", saveLocTextBox.Text)
+        If SavegamesLocTextBox.Text <> "" Then
+            Process.Start("explorer.exe", SavegamesLocTextBox.Text)
         End If
     End Sub
 
-    Private Sub browseDestLocBtn_Click(sender As Object, e As EventArgs) Handles browseDestLocBtn.Click
+    Private Sub BrowseBackupLocBtn_Click(sender As Object, e As EventArgs) Handles BrowseBackupLocBtn.Click
         'Choose backup directory
         Using O As New FolderBrowserDialog
             O.Description = "Select where you want to backup your save files to. Every backup will create a new ""yyyyMMdd HHmm"" subfolder."
             If O.ShowDialog = DialogResult.OK Then
-                destLocTextBox.Text = O.SelectedPath
-                log("[INFO] Backup directory set to: " & O.SelectedPath)
                 O.Dispose()
+                BackupLocTextBox.Text = O.SelectedPath
+                Log("[INFO] Backup directory set to: " & O.SelectedPath)
                 'Reset latest and second-to-last backup timestamps
                 My.Settings.LatestBackupTime = Nothing
                 My.Settings.SecondToLastBackupTime = Nothing
-                latestBackupHelpLabel.Text = "Latest backup: No backup yet."
-                latestBackupHelpLabel.Location = New Point(300, 22)
+                LatestBackupHelpLabel.Text = "Latest backup: No backup yet."
+                LatestBackupHelpLabel.Location = New Point(300, 22)
             End If
         End Using
     End Sub
 
-    Private Sub ExploreDestLocBtn_Click(sender As Object, e As EventArgs) Handles exploreDestLocBtn.Click
+    Private Sub ExploreBackupLocBtn_Click(sender As Object, e As EventArgs) Handles ExploreBackupLocBtn.Click
         'Open backup directory in Windows Explorer
-        If destLocTextBox.Text <> "" Then
-            Process.Start("explorer.exe", destLocTextBox.Text)
+        If BackupLocTextBox.Text <> "" Then
+            Process.Start("explorer.exe", BackupLocTextBox.Text)
         End If
     End Sub
 
-    Private Sub backupBtn_Click(sender As Object, e As EventArgs) Handles backupBtn.Click
-        If saveLocTextBox.Text = "" Or destLocTextBox.Text = "" Then
-            showAlert(64, "You need to specify both save games and backup folders.")
-        ElseIf isGameRunning = True Then 'Perform the first backup
-            startBackup()
+    Private Sub BackupBtn_Click(sender As Object, e As EventArgs) Handles BackupBtn.Click
+        If SavegamesLocTextBox.Text = "" Or BackupLocTextBox.Text = "" Then
+            ShowAlert(64, "You need to specify both save games and backup folders.")
+        ElseIf IsGameRunning = True Then 'Perform the first backup
+            StartBackup()
 
             'Store timestamp of this backup
             My.Settings.LatestBackupTime = Now
 
             'Write the timestamp of this backup on the main screen
-            latestBackupHelpLabel.Text = "Latest backup:" & Environment.NewLine & My.Settings.LatestBackupTime.ToString("MM/dd/yyyy hh:mm tt")
-            latestBackupHelpLabel.Location = New Point(300, 14)
+            LatestBackupHelpLabel.Text = "Latest backup:" & Environment.NewLine & My.Settings.LatestBackupTime.ToString("MM/dd/yyyy hh:mm tt")
+            LatestBackupHelpLabel.Location = New Point(300, 14)
 
-            Dim saveLoc As String = saveLocTextBox.Text
-            Dim destLoc As String = destLocTextBox.Text & My.Settings.LatestBackupTime.ToString("\\yyyyMMdd HHmm")
+            Dim SaveLoc As String = SavegamesLocTextBox.Text
+            Dim BackupLoc As String = BackupLocTextBox.Text & My.Settings.LatestBackupTime.ToString("\\yyyyMMdd HHmm")
 
             Try
-                Dim saveList As String() = Directory.GetFiles(saveLoc, "*.save")
+                Dim SavegamesList As String() = Directory.GetFiles(SaveLoc, "*.save")
 
-                For Each F As String In saveList
-                    If Not Directory.Exists(destLoc) Then
-                        Directory.CreateDirectory(destLoc)
+                For Each F As String In SavegamesList
+                    If Not Directory.Exists(BackupLoc) Then
+                        Directory.CreateDirectory(BackupLoc)
                     End If
-                    Dim fName As String = F.Substring(saveLoc.Length + 1)
-                    File.Copy(Path.Combine(saveLoc, fName), Path.Combine(destLoc, fName), True)
+                    Dim FileName As String = F.Substring(SaveLoc.Length + 1)
+                    File.Copy(Path.Combine(SaveLoc, FileName), Path.Combine(BackupLoc, FileName), True)
                 Next
 
-                log("[INFO] Performed the first backup.")
+                Log("[INFO] Performed the first backup.")
 
             Catch pathTooLong As PathTooLongException
-                stopBackup()
-                log("[ERROR] 'PathTooLongException', Backup interrupted.")
-                showMsgBox("{\rtf1 The specified {\b path cannot be handled because it's too long}, as a result the backup process has been interrupted.}", "Backup Interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+                StopBackup()
+                Log("[ERROR] 'PathTooLongException', Backup interrupted.")
+                ShowMsgBox("{\rtf1 The specified {\b path cannot be handled because it's too long}, as a result the backup process has been interrupted.}", "Backup Interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
             Catch dirNotFound As DirectoryNotFoundException
-                stopBackup()
-                log("[ERROR] 'DirectoryNotFoundException', Backup interrupted.")
-                showMsgBox("{\rtf1 The specified {\b folder no longer exists}, as a result the backup process has been interrupted.}", "Backup interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+                StopBackup()
+                Log("[ERROR] 'DirectoryNotFoundException', Backup interrupted.")
+                ShowMsgBox("{\rtf1 The specified {\b folder no longer exists}, as a result the backup process has been interrupted.}", "Backup interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
             End Try
-        ElseIf isGameRunning = False Then
-            showAlert(64, "You need to launch Wildlands before starting the backup process.")
+        ElseIf IsGameRunning = False Then
+            ShowAlert(64, "You need to launch Wildlands before starting the backup process.")
         End If
     End Sub
 
-    Private Sub backupTimer_Tick(sender As Object, e As EventArgs) Handles backupTimer.Tick
-        If isGameRunning = True Then
+    Private Sub BackupTimer_Tick(sender As Object, e As EventArgs) Handles BackupTimer.Tick
+        If IsGameRunning = True Then
             'Store timestamp of this backup
             My.Settings.LatestBackupTime = Now
             'Store the second-to-last backup timestamp
             '//stackoverflow.com/a/20849720
-            My.Settings.SecondToLastBackupTime = My.Settings.LatestBackupTime.Subtract(TimeSpan.FromMinutes(freqSelectTimeUpDown.Value))
+            My.Settings.SecondToLastBackupTime = My.Settings.LatestBackupTime.Subtract(TimeSpan.FromMinutes(BackupFreqUpDown.Value))
 
             'Write the timestamp of this backup on the main screen
-            latestBackupHelpLabel.Text = "Latest backup:" & Environment.NewLine & My.Settings.LatestBackupTime.ToString("MM/dd/yyyy hh:mm tt")
-            latestBackupHelpLabel.Location = New Point(300, 14)
+            LatestBackupHelpLabel.Text = "Latest backup:" & Environment.NewLine & My.Settings.LatestBackupTime.ToString("MM/dd/yyyy hh:mm tt")
+            LatestBackupHelpLabel.Location = New Point(300, 14)
 
-            Dim saveLoc As String = saveLocTextBox.Text
-            Dim destLoc As String = destLocTextBox.Text & My.Settings.LatestBackupTime.ToString("\\yyyyMMdd HHmm")
+            Dim SaveLoc As String = SavegamesLocTextBox.Text
+            Dim BackupLoc As String = BackupLocTextBox.Text & My.Settings.LatestBackupTime.ToString("\\yyyyMMdd HHmm")
 
             Try
-                Dim saveList As String() = Directory.GetFiles(saveLoc, "*.save")
+                Dim SavegamesList As String() = Directory.GetFiles(SaveLoc, "*.save")
 
-                For Each F As String In saveList
-                    If Not Directory.Exists(destLoc) Then
-                        Directory.CreateDirectory(destLoc)
+                For Each F As String In SavegamesList
+                    If Not Directory.Exists(BackupLoc) Then
+                        Directory.CreateDirectory(BackupLoc)
                     End If
-                    Dim fName As String = F.Substring(saveLoc.Length + 1)
-                    File.Copy(Path.Combine(saveLoc, fName), Path.Combine(destLoc, fName), True)
+                    Dim FileName As String = F.Substring(SaveLoc.Length + 1)
+                    File.Copy(Path.Combine(SaveLoc, FileName), Path.Combine(BackupLoc, FileName), True)
                 Next
 
-                log("[INFO] Backup complete.")
+                Log("[INFO] Backup complete.")
 
             Catch pathTooLong As PathTooLongException
-                stopBackup()
-                log("[ERROR] 'PathTooLongException', Backup interrupted.")
-                showMsgBox("{\rtf1 The specified {\b path cannot be handled because it's too long}, as a result the backup process has been interrupted.}", "Backup interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+                StopBackup()
+                Log("[ERROR] 'PathTooLongException', Backup interrupted.")
+                ShowMsgBox("{\rtf1 The specified {\b path cannot be handled because it's too long}, as a result the backup process has been interrupted.}", "Backup interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
             Catch dirNotFound As DirectoryNotFoundException
-                stopBackup()
-                log("[ERROR] 'DirectoryNotFoundException', Backup interrupted.")
-                showMsgBox("{\rtf1 The specified {\b folder no longer exists}, as a result the backup process has been interrupted.}", "Backup interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+                StopBackup()
+                Log("[ERROR] 'DirectoryNotFoundException', Backup interrupted.")
+                ShowMsgBox("{\rtf1 The specified {\b folder no longer exists}, as a result the backup process has been interrupted.}", "Backup interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
             End Try
         Else
-            stopBackup()
-            log("[WARNING] Wildlands closed or crashed, Backup interrupted.")
-            showMsgBox("{\rtf1 Wildlands {\b has been closed or crashed}, as a result the backup process has been interrupted.}", "Wildlands is no longer running", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+            StopBackup()
+            Log("[WARNING] Wildlands closed or crashed, Backup interrupted.")
+            ShowMsgBox("{\rtf1 Wildlands {\b has been closed or crashed}, as a result the backup process has been interrupted.}", "Wildlands is no longer running", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
         End If
     End Sub
 
-    Private Sub stopBtn_Click(sender As Object, e As EventArgs) Handles stopBtn.Click
-        If confirmStopBackupChkBox.Checked = True Then
-            showMsgBox("{\rtf1 Are you sure you want to {\b interrupt the backup process?}}", "Backup interruption", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+    Private Sub StopBtn_Click(sender As Object, e As EventArgs) Handles StopBtn.Click
+        If ConfirmStopBackupChkBox.Checked = True Then
+            ShowMsgBox("{\rtf1 Are you sure you want to {\b interrupt the backup process?}}", "Backup interruption", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
             If CustomMsgBox.DialogResult = DialogResult.Yes Then
-                stopBackup()
-                log("[INFO] Backup interrupted by the user.")
+                StopBackup()
+                Log("[INFO] Backup interrupted by the user.")
             End If
         Else
-            stopBackup()
-            log("[INFO] Backup interrupted by the user.")
+            StopBackup()
+            Log("[INFO] Backup interrupted by the user.")
         End If
     End Sub
 
-    Private Sub restoreBtn_Click(sender As Object, e As EventArgs) Handles restoreBtn.Click
-        If saveLocTextBox.Text = "" Or destLocTextBox.Text = "" Then
-            showAlert(64, "You need to specify both save games and backup folders.")
-        ElseIf isGameRunning = True Then
-            showAlert(64, "You need to quit Wildlands before restoring a backup.")
-        ElseIf isGameRunning = False And disableCloudSyncChkBox.Checked = True Then
+    Private Sub RestoreBtn_Click(sender As Object, e As EventArgs) Handles RestoreBtn.Click
+        If SavegamesLocTextBox.Text = "" Or BackupLocTextBox.Text = "" Then
+            ShowAlert(64, "You need to specify both save games and backup folders.")
+        ElseIf IsGameRunning = True Then
+            ShowAlert(64, "You need to quit Wildlands before restoring a backup.")
+        ElseIf IsGameRunning = False And DisableCloudSyncChkBox.Checked = True Then
             'If the game is not running and "Let GHOST Buster disable cloud save synchronization" is checked
             'Check if Uplay is running or not before editing its settings file
-            Dim uProc = Process.GetProcessesByName("upc")
-            If uProc.Count > 0 Then
-                showMsgBox("{\rtf1 You need to {\b quit Uplay before restoring a backup} because you chose to let GHOST Buster disable cloud save synchronization for you.}", "Cannot restore", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+            Dim UplayProc = Process.GetProcessesByName("upc")
+            If UplayProc.Count > 0 Then
+                ShowMsgBox("{\rtf1 You need to {\b quit Uplay before restoring a backup} because you chose to let GHOST Buster disable cloud save synchronization for you.}", "Cannot restore", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
             Else
                 'Disable Uplay cloud save synchronization
                 Try
-                    Dim pathToYAML As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\Ubisoft Game Launcher\settings.yml"
-                    log("[INFO] Parsing and evaluating Uplay settings file: " & pathToYAML)
-                    Dim parsedYAML As String = File.ReadAllText(pathToYAML)
+                    Dim UplayYAMLPath As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\Ubisoft Game Launcher\settings.yml"
+                    Log("[INFO] Parsing and evaluating Uplay settings file: " & UplayYAMLPath)
+                    Dim ParsedUplayYAML As String = File.ReadAllText(UplayYAMLPath)
 
-                    If parsedYAML.Contains("syncsavegames: true") Then
+                    If ParsedUplayYAML.Contains("syncsavegames: true") Then
                         'Backup Uplay settings file
-                        log("[INFO] Backing up Uplay settings file to " & pathToYAML & ".bak")
-                        File.Copy(pathToYAML, pathToYAML & ".bak", False) 'Don't overwrite the backup file in the future
+                        Log("[INFO] Backing up Uplay settings file to " & UplayYAMLPath & ".bak")
+                        File.Copy(UplayYAMLPath, UplayYAMLPath & ".bak", False) 'Don't overwrite the backup file in the future
 
                         'Set syncsavegames to false (Disable cloud save sync)
-                        Dim replacedYAML As String = parsedYAML.Replace("syncsavegames: true", "syncsavegames: false")
-                        File.WriteAllText(pathToYAML, replacedYAML)
-                        log("[INFO] Uplay cloud save synchronization disabled")
+                        Dim ReplacedUplayYAML As String = ParsedUplayYAML.Replace("syncsavegames: true", "syncsavegames: false")
+                        File.WriteAllText(UplayYAMLPath, ReplacedUplayYAML)
+                        Log("[INFO] Uplay cloud save synchronization disabled.")
 
                         'Launch Uplay again...
-                        If isUplayInstalled = True Then
-                            Process.Start(uplayPath & "Uplay.exe")
+                        If IsUplayInstalled = True Then
+                            Process.Start(UplayPath & "Uplay.exe")
                         End If
 
                         '...and restore the backup
-                        restoreBackup()
-                    ElseIf parsedYAML.Contains("syncsavegames: false") Then
+                        RestoreBackup()
+                    ElseIf ParsedUplayYAML.Contains("syncsavegames: false") Then
                         'Don't replace anything if syncsavegames is already set to false
-                        log("[INFO] Uplay cloud synchronization is already disabled")
+                        Log("[INFO] Uplay cloud synchronization is already disabled.")
 
                         'Launch Uplay again...
-                        If isUplayInstalled = True Then
-                            Process.Start(uplayPath & "Uplay.exe")
+                        If IsUplayInstalled = True Then
+                            Process.Start(UplayPath & "Uplay.exe")
                         End If
 
                         '...and restore the backup
-                        restoreBackup()
+                        RestoreBackup()
                     End If
 
                 Catch fileNotFound As FileNotFoundException
                     'Don't let GHOST Buster disable cloud save sync until the user enables the setting again...
-                    disableCloudSyncChkBox.Checked = False
+                    DisableCloudSyncChkBox.Checked = False
                     '...notify the user about the error
-                    log("[ERROR] Parsing of ""settings.yml"" failed: File not found.")
-                    showMsgBox("{\rtf1 ""Let GHOST Buster disable cloud save synchronization"" setting has been {\b disabled because an error occurred} while trying to parse Uplay settings file: {\b File not found.}" _
+                    Log("[ERROR] Parsing of ""settings.yml"" failed: File not found.")
+                    ShowMsgBox("{\rtf1 ""Let GHOST Buster disable cloud save synchronization"" setting has been {\b disabled because an error occurred} while trying to parse Uplay settings file: {\b File not found.}" _
                                & "\line\line Make sure to {\b DISABLE} cloud save synchronization from Uplay (Settings -> Untick ""Enable cloud save synchronization for supported games"") before launching Wildlands, otherwise the restored save games will be " _
                                & "{\b OVERWRITTEN} with the old ones from the cloud!",
                                "Parsing failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
                     '...and proceed with the restore process anyway
-                    restoreBackup()
+                    RestoreBackup()
                 Catch insufficentPermissions As UnauthorizedAccessException
                     'Don't let GHOST Buster disable cloud save sync until the user enables the setting again...
-                    disableCloudSyncChkBox.Checked = False
+                    DisableCloudSyncChkBox.Checked = False
                     '...notify the user about the error
-                    log("[ERROR] Parsing of ""settings.yml"" failed: File is read only.")
-                    showMsgBox("{\rtf1 ""Let GHOST Buster disable cloud save synchronization"" setting has been {\b disabled because an error occurred} while trying to parse Uplay settings file: {\b File not found.}" _
+                    Log("[ERROR] Parsing of ""settings.yml"" failed: File is read only.")
+                    ShowMsgBox("{\rtf1 ""Let GHOST Buster disable cloud save synchronization"" setting has been {\b disabled because an error occurred} while trying to parse Uplay settings file: {\b File not found.}" _
                                & "\line\line Make sure to {\b DISABLE} cloud save synchronization from Uplay (Settings -> Untick ""Enable cloud save synchronization for supported games"") before launching Wildlands, otherwise the restored save games will be " _
                                & "{\b OVERWRITTEN} with the old ones from the cloud!",
                                "Parsing failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
                     '...and proceed with the restore process anyway
-                    restoreBackup()
+                    RestoreBackup()
                 End Try
             End If
-        ElseIf isGameRunning = False And disableCloudSyncChkBox.Checked = False Then
+        ElseIf IsGameRunning = False And DisableCloudSyncChkBox.Checked = False Then
             'If the game is not running and "Let GHOST Buster disable cloud save synchronization" is not checked
-            restoreBackup()
+            RestoreBackup()
         End If
     End Sub
 
     Private Sub CopyToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopyToolStripMenuItem.Click
-        If logTxtBox.SelectedText <> "" Then
-            Clipboard.SetText(logTxtBox.SelectedText)
+        If LogTxtBox.SelectedText <> "" Then
+            Clipboard.SetText(LogTxtBox.SelectedText)
         End If
     End Sub
 
     Private Sub SelectAllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SelectAllToolStripMenuItem.Click
-        logTxtBox.SelectAll()
+        LogTxtBox.SelectAll()
     End Sub
 
     Private Sub ExportLogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportLogToolStripMenuItem.Click
@@ -981,96 +978,96 @@ Public Class Form1
             S.FileName = "GHOSTbackup_" & Now.ToString("yyyyMMddHHmm")
             S.Filter = "Text file|.txt|Log file|*.log"
             If S.ShowDialog = DialogResult.OK Then
-                File.AppendAllText(S.FileName, logTxtBox.Text)
-                log("[INFO] Log exported to " & S.FileName)
                 S.Dispose()
+                File.AppendAllText(S.FileName, LogTxtBox.Text)
+                Log("[INFO] Log exported to " & S.FileName)
             End If
         End Using
     End Sub
 
-    Private Sub WebsiteLabel_Click(sender As Object, e As EventArgs) Handles websiteLabel.Click
+    Private Sub WebsiteLabel_Click(sender As Object, e As EventArgs) Handles WebsiteLabel.Click
         Process.Start("https://strappazzon.xyz/GRW-GHOST-Buster")
     End Sub
 
-    Private Sub SupportLabel_Click(sender As Object, e As EventArgs) Handles supportLabel.Click
+    Private Sub SupportLabel_Click(sender As Object, e As EventArgs) Handles SupportLabel.Click
         Process.Start("https://github.com/Strappazzon/GRW-GHOST-Buster/issues")
     End Sub
 
-    Private Sub ChangelogLabel_Click(sender As Object, e As EventArgs) Handles changelogLabel.Click
+    Private Sub ChangelogLabel_Click(sender As Object, e As EventArgs) Handles ChangelogLabel.Click
         Process.Start("https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/CHANGELOG.txt")
     End Sub
 
-    Private Sub LicenseLabel_Click(sender As Object, e As EventArgs) Handles licenseLabel.Click
+    Private Sub LicenseLabel_Click(sender As Object, e As EventArgs) Handles LicenseLabel.Click
         Process.Start("https://github.com/Strappazzon/GRW-GHOST-Buster/blob/master/LICENSE.txt")
     End Sub
 
-    Private Sub settingsWriteLogToFileChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles settingsWriteLogToFileChkBox.CheckedChanged
-        If settingsWriteLogToFileChkBox.Checked = False Then
-            settingsLogFilePathTextBox.Enabled = False
-            settingsBrowseLogFileBtn.Enabled = False
-            settingsBrowseLogFolderBtn.Enabled = False
+    Private Sub SettingsWriteLogToFileChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles SettingsWriteLogToFileChkBox.CheckedChanged
+        If SettingsWriteLogToFileChkBox.Checked = False Then
+            SettingsLogFilePathTextBox.Enabled = False
+            SettingsBrowseLogFileBtn.Enabled = False
+            SettingsOpenLogBtn.Enabled = False
         Else
-            settingsLogFilePathTextBox.Enabled = True
-            settingsBrowseLogFileBtn.Enabled = True
-            settingsBrowseLogFolderBtn.Enabled = True
+            SettingsLogFilePathTextBox.Enabled = True
+            SettingsBrowseLogFileBtn.Enabled = True
+            SettingsOpenLogBtn.Enabled = True
         End If
     End Sub
 
-    Private Sub settingsBrowseLogFileBtn_Click(sender As Object, e As EventArgs) Handles settingsBrowseLogFileBtn.Click
+    Private Sub SettingsBrowseLogFileBtn_Click(sender As Object, e As EventArgs) Handles SettingsBrowseLogFileBtn.Click
         'Choose log file directory
         Using O As New FolderBrowserDialog
             O.Description = "Select where you want to save the event log file to."
             If O.ShowDialog = DialogResult.OK Then
-                settingsLogFilePathTextBox.Text = O.SelectedPath & "\event.log"
-                My.Settings.LogFilePath = settingsLogFilePathTextBox.Text
-                log("[INFO] Log file directory set to: " & O.SelectedPath)
                 O.Dispose()
+                SettingsLogFilePathTextBox.Text = O.SelectedPath & "\event.log"
+                My.Settings.LogFilePath = SettingsLogFilePathTextBox.Text
+                Log("[INFO] Log file directory set to: " & O.SelectedPath)
             End If
         End Using
     End Sub
 
-    Private Sub settingsBrowseLogFolderBtn_Click(sender As Object, e As EventArgs) Handles settingsBrowseLogFolderBtn.Click
+    Private Sub SettingsOpenLogBtn_Click(sender As Object, e As EventArgs) Handles SettingsOpenLogBtn.Click
         'Open log file with the default text editor
-        If settingsLogFilePathTextBox.Text <> "" AndAlso File.Exists(settingsLogFilePathTextBox.Text) Then
-            Process.Start(settingsLogFilePathTextBox.Text)
+        If SettingsLogFilePathTextBox.Text <> "" AndAlso File.Exists(SettingsLogFilePathTextBox.Text) Then
+            Process.Start(SettingsLogFilePathTextBox.Text)
         Else
-            showAlert(64, "The event log file does not exist.")
+            ShowAlert(64, "The event log file does not exist.")
         End If
     End Sub
 
-    Private Sub settingsNonUplayVersionChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles settingsNonUplayVersionChkBox.CheckedChanged
-        If settingsNonUplayVersionChkBox.Checked = False Then
-            settingsCustomExeTextBox.Enabled = False
-            settingsBrowseCustomExeBtn.Enabled = False
-            settingsOpenCustomExeFolderBtn.Enabled = False
+    Private Sub SettingsNonUplayVersionChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles SettingsNonUplayVersionChkBox.CheckedChanged
+        If SettingsNonUplayVersionChkBox.Checked = False Then
+            SettingsCustomExeTextBox.Enabled = False
+            SettingsBrowseCustomExeBtn.Enabled = False
+            SettingsOpenCustomExeFolderBtn.Enabled = False
         Else
-            settingsCustomExeTextBox.Enabled = True
-            settingsBrowseCustomExeBtn.Enabled = True
-            settingsOpenCustomExeFolderBtn.Enabled = True
+            SettingsCustomExeTextBox.Enabled = True
+            SettingsBrowseCustomExeBtn.Enabled = True
+            SettingsOpenCustomExeFolderBtn.Enabled = True
         End If
     End Sub
 
-    Private Sub settingsBrowseCustomExeBtn_Click(sender As Object, e As EventArgs) Handles settingsBrowseCustomExeBtn.Click
+    Private Sub SettingsBrowseCustomExeBtn_Click(sender As Object, e As EventArgs) Handles SettingsBrowseCustomExeBtn.Click
         'Choose Wildlands executable
         Using O As New OpenFileDialog
             O.Filter = "Wildlands executable (GRW.exe)|GRW.exe"
             O.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyComputer)
             O.Title = "Select Wildlands executable"
             If O.ShowDialog = DialogResult.OK Then
-                settingsCustomExeTextBox.Text = O.FileName
-                My.Settings.CustomExeLoc = settingsCustomExeTextBox.Text
-                log("[INFO] Custom Wildlands executable set: " & O.FileName)
                 O.Dispose()
+                SettingsCustomExeTextBox.Text = O.FileName
+                My.Settings.CustomExeLoc = SettingsCustomExeTextBox.Text
+                Log("[INFO] Custom Wildlands executable set: " & O.FileName)
             End If
         End Using
     End Sub
 
-    Private Sub settingsOpenCustomExeFolderBtn_Click(sender As Object, e As EventArgs) Handles settingsOpenCustomExeFolderBtn.Click
+    Private Sub SettingsOpenCustomExeFolderBtn_Click(sender As Object, e As EventArgs) Handles SettingsOpenCustomExeFolderBtn.Click
         'Open custom Wildlands location in Windows Explorer...
-        If settingsCustomExeTextBox.Text <> "" AndAlso Directory.Exists(Directory.GetParent(settingsCustomExeTextBox.Text).ToString()) Then
-            Process.Start(Directory.GetParent(settingsCustomExeTextBox.Text).ToString())
+        If SettingsCustomExeTextBox.Text <> "" AndAlso Directory.Exists(Directory.GetParent(SettingsCustomExeTextBox.Text).ToString()) Then
+            Process.Start(Directory.GetParent(SettingsCustomExeTextBox.Text).ToString())
         Else
-            showAlert(64, "The specified folder does not exist.")
+            ShowAlert(64, "The specified folder does not exist.")
         End If
     End Sub
 End Class
