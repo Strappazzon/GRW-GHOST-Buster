@@ -510,7 +510,6 @@ Public Class Form1
                     IsUplayInstalled = True
                     Log("[INFO] Uplay is installed in: " & UplayPath)
                 Else
-                    IsUplayInstalled = False
                     Log("[WARNING] Uplay is not installed (""InstallDir"" is Null or Empty). Uplay is required to launch and play Wildlands.")
                 End If
 
