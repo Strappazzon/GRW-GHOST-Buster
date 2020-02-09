@@ -236,23 +236,36 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property LatestBackupTime() As Date
+        Public Property LatestBackupTimestamp() As Date
             Get
-                Return CType(Me("LatestBackupTime"),Date)
+                Return CType(Me("LatestBackupTimestamp"),Date)
             End Get
             Set
-                Me("LatestBackupTime") = value
+                Me("LatestBackupTimestamp") = value
             End Set
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property SecondToLastBackupTime() As Date
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property LatestBackupDir() As String
             Get
-                Return CType(Me("SecondToLastBackupTime"),Date)
+                Return CType(Me("LatestBackupDir"),String)
             End Get
             Set
-                Me("SecondToLastBackupTime") = value
+                Me("LatestBackupDir") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property SecToLastBackupDir() As String
+            Get
+                Return CType(Me("SecToLastBackupDir"),String)
+            End Get
+            Set
+                Me("SecToLastBackupDir") = value
             End Set
         End Property
     End Class
