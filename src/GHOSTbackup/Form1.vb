@@ -627,6 +627,8 @@ Public Class Form1
         AlertDot.Visible = False
         'Close the alert when switching to Logs tab
         CloseAlertContainerIcon_Click(sender, e)
+        'Scroll to the last line when switching to the Logs tab
+        LogTxtBox.ScrollToCaret()
     End Sub
 
     Private Sub AboutLabel_Click(sender As Object, e As EventArgs) Handles AboutLabel.Click
