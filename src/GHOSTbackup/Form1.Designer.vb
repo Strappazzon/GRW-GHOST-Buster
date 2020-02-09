@@ -681,7 +681,7 @@ Partial Class Form1
         Me.TitleLabel.BackColor = System.Drawing.Color.Transparent
         Me.TitleLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TitleLabel.ForeColor = System.Drawing.Color.White
-        Me.TitleLabel.Location = New System.Drawing.Point(325, 115)
+        Me.TitleLabel.Location = New System.Drawing.Point(322, 115)
         Me.TitleLabel.Name = "TitleLabel"
         Me.TitleLabel.Size = New System.Drawing.Size(94, 21)
         Me.TitleLabel.TabIndex = 12
@@ -910,7 +910,7 @@ Partial Class Form1
         Me.FoldersTitleLabel.BackColor = System.Drawing.Color.Transparent
         Me.FoldersTitleLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FoldersTitleLabel.ForeColor = System.Drawing.Color.White
-        Me.FoldersTitleLabel.Location = New System.Drawing.Point(325, 289)
+        Me.FoldersTitleLabel.Location = New System.Drawing.Point(322, 289)
         Me.FoldersTitleLabel.Name = "FoldersTitleLabel"
         Me.FoldersTitleLabel.Size = New System.Drawing.Size(65, 21)
         Me.FoldersTitleLabel.TabIndex = 10
@@ -951,7 +951,7 @@ Partial Class Form1
         Me.TasksTitleLabel.BackColor = System.Drawing.Color.Transparent
         Me.TasksTitleLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TasksTitleLabel.ForeColor = System.Drawing.Color.White
-        Me.TasksTitleLabel.Location = New System.Drawing.Point(325, 115)
+        Me.TasksTitleLabel.Location = New System.Drawing.Point(322, 115)
         Me.TasksTitleLabel.Name = "TasksTitleLabel"
         Me.TasksTitleLabel.Size = New System.Drawing.Size(50, 21)
         Me.TasksTitleLabel.TabIndex = 8
