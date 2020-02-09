@@ -4,14 +4,14 @@ Imports System.Text
 Imports Microsoft.Win32
 
 Public Class Form1
-    Public ReadOnly VersionCode As Short = 14
-    Public ReadOnly Version As String = "1.7.0"
-    Public IsUplayInstalled As Boolean = False
-    Public GamePath As String
-    Public UplayPath As String
-    Public IsGameRunning As Boolean = False
-    Public IsBackupRunning As Boolean = False
-    Public BackupDirs As List(Of String)
+    Private ReadOnly VersionCode As Short = 14
+    Private ReadOnly Version As String = "1.7.0"
+    Private IsUplayInstalled As Boolean = False
+    Private GamePath As String
+    Private UplayPath As String
+    Private IsGameRunning As Boolean = False
+    Private IsBackupRunning As Boolean = False
+    Private BackupDirs As List(Of String)
 
     Private Sub UpgradeSettings()
         'Migrate settings to the new version
