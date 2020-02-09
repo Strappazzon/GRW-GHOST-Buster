@@ -224,7 +224,7 @@ Public Class Form1
 
             Catch ex As Exception
                 SettingsWriteLogToFileChkBox.Checked = False
-                LogTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " [ERROR] '" & ex.Message() & "', Log session to file interrupted.")
+                LogTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " [ERROR] Log session to file interrupted: " & ex.Message())
                 ShowAlert(48, "Logging to file disabled due to an error.")
             End Try
         End If
@@ -396,7 +396,7 @@ Public Class Form1
             CustomMsgBox.backupDirsDropdownCombo.Items.Clear()
             BackupDirs = Nothing
 
-            Log("[ERROR] '" & ex.Message() & "', Couldn't restore the backup from " & BackupLocTextBox.Text & " to " & SavegamesLocTextBox.Text)
+            Log("[ERROR] Could not restore the backup: " & ex.Message())
             ShowMsgBox("{\rtf1 The restore process has been {\b interrupted due to an error.} Please check the logs for more details.}", "Restore failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
         End Try
     End Sub
@@ -418,7 +418,7 @@ Public Class Form1
                 Log("[INFO] The version in use is greater than the one currently available.")
             End If
         Else
-            Log("[ERROR] 'WebException' Unable to check for updates: " & (e.Error.Message & ".").Replace("..", "."))
+            Log("[ERROR] Unable to check for updates: " & e.Error.Message())
             ShowAlert(48, "Unable to check for updates. Please check the logs for more details.")
         End If
     End Sub
@@ -496,7 +496,7 @@ Public Class Form1
 
                 Catch ex As Exception
                     PlayGameBtn.Text = "Ghost Recon Wildlands is not installed"
-                    Log("[ERROR] '" & ex.Message() & "' Wildlands is not installed.")
+                    Log("[ERROR] Wildlands is not installed: " & ex.Message())
                 End Try
             End Using
         End If
@@ -514,7 +514,7 @@ Public Class Form1
                 End If
 
             Catch ex As Exception
-                Log("[ERROR] '" & ex.Message() & "' Uplay is not installed. Uplay is required to launch and play Wildlands.")
+                Log("[ERROR] Uplay is not installed: " & ex.Message().TrimEnd(".") & "." & " Uplay is required to launch and play Wildlands.")
             End Try
         End Using
 
@@ -794,7 +794,7 @@ Public Class Form1
 
             Catch ex As Exception
                 StopBackup()
-                Log("[ERROR] '" & ex.Message() & "', Backup interrupted.")
+                Log("[ERROR] Backup interrupted: " & ex.Message())
                 ShowMsgBox("{\rtf1 The backup process has been {\b interrupted due to an error.} Please check the logs for more details.}", "Backup Interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
             End Try
         ElseIf IsGameRunning = False Then
@@ -832,7 +832,7 @@ Public Class Form1
 
             Catch ex As Exception
                 StopBackup()
-                Log("[ERROR] '" & ex.Message() & "', Backup interrupted.")
+                Log("[ERROR] Backup interrupted: " & ex.Message())
                 ShowMsgBox("{\rtf1 The backup process has been {\b interrupted due to an error.} Please check the logs for more details.}", "Backup interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
             End Try
         Else
@@ -907,7 +907,7 @@ Public Class Form1
                     'Don't let GHOST Buster disable cloud save sync until the user enables the setting again...
                     DisableCloudSyncChkBox.Checked = False
                     '...notify the user about the error
-                    Log("[ERROR] Parsing of ""settings.yml"" failed: """ & ex.Message().TrimEnd(".") & """.")
+                    Log("[ERROR] Parsing of ""settings.yml"" failed: " & ex.Message())
                     ShowMsgBox("{\rtf1 ""Let GHOST Buster disable cloud save synchronization"" setting has been {\b disabled because an error occurred} while trying to parse Uplay settings file." _
                                & "\line\line Make sure to {\b DISABLE} cloud save synchronization from Uplay (Settings -> Untick ""Enable cloud save synchronization for supported games"") before launching Wildlands, otherwise the restored save games will be " _
                                & "{\b OVERWRITTEN} with the old ones from the cloud!",
