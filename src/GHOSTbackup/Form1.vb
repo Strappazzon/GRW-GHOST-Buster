@@ -857,15 +857,15 @@ Public Class Form1
 
     Private Sub RestoreBtn_Click(sender As Object, e As EventArgs) Handles RestoreBtn.Click
         If SavegamesLocTextBox.Text = "" Or BackupLocTextBox.Text = "" Then
-            ShowAlert(64, "You need to specify both save games and backup folders.")
+            ShowAlert(64, "You must specify both save games and backup folders.")
         ElseIf IsGameRunning = True Then
-            ShowAlert(64, "You need to quit Wildlands before restoring a backup.")
+            ShowAlert(64, "You must quit Wildlands before restoring a backup.")
         ElseIf IsGameRunning = False And DisableCloudSyncChkBox.Checked = True Then
             'If the game is not running and "Let GHOST Buster disable cloud save synchronization" is checked
             'Check if Uplay is running or not before editing its settings file
             Dim UplayProc = Process.GetProcessesByName("upc")
             If UplayProc.Count > 0 Then
-                ShowMsgBox("{\rtf1 You need to {\b quit Uplay before restoring a backup} because you chose to let GHOST Buster disable cloud save synchronization for you.}", "Cannot restore", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+                ShowMsgBox("{\rtf1 You must {\b quit Uplay before restoring a backup} because you chose to let GHOST Buster disable cloud save synchronization for you.}", "Cannot restore", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
             Else
                 'Disable Uplay cloud save synchronization
                 Try
