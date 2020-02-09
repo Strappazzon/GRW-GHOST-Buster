@@ -149,58 +149,58 @@ Public Class Form1
         'The content of the message is written in Rich Text Format
         '//www.oreilly.com/library/view/rtf-pocket-guide/9781449302047/ch01.html
         'When printing a string variable that is a path or otherwise contains any backward slashes they MUST be escaped with yourVariable.Replace("\", "\\")
-        CustomMsgBox.messageRTF.Rtf = Message
-        CustomMsgBox.titleLabel.Text = Title
+        CustomMsgBox.MessageRTF.Rtf = Message
+        CustomMsgBox.TitleLabel.Text = Title
 
         If Buttons = MessageBoxButtons.OK OrElse Buttons = MessageBoxButtons.OKCancel Then
             '[OK] or [OK][Cancel] dialog
-            CustomMsgBox.rButton.DialogResult = DialogResult.OK
-            CustomMsgBox.cButton.DialogResult = DialogResult.Cancel
+            CustomMsgBox.RightButton.DialogResult = DialogResult.OK
+            CustomMsgBox.CancelButton.DialogResult = DialogResult.Cancel
             'Hide [Yes] button and make [No] button the [OK] button
-            CustomMsgBox.lButton.Visible = False
-            CustomMsgBox.rButton.Text = "OK"
-            CustomMsgBox.AcceptButton = CustomMsgBox.rButton
-            CustomMsgBox.CancelButton = CustomMsgBox.cButton
+            CustomMsgBox.LeftButton.Visible = False
+            CustomMsgBox.RightButton.Text = "OK"
+            CustomMsgBox.AcceptButton = CustomMsgBox.RightButton
+            CustomMsgBox.CancelButton = CustomMsgBox.CancelButton
 
             Select Case DefaultButton
                 Case MessageBoxDefaultButton.Button1
                     '[OK] button
-                    CustomMsgBox.ActiveControl = CustomMsgBox.rButton
+                    CustomMsgBox.ActiveControl = CustomMsgBox.RightButton
                 Case MessageBoxDefaultButton.Button2, MessageBoxDefaultButton.Button3
                     '[Cancel] button
-                    CustomMsgBox.ActiveControl = CustomMsgBox.cButton
+                    CustomMsgBox.ActiveControl = CustomMsgBox.CancelButton
             End Select
         ElseIf Buttons = MessageBoxButtons.YesNo OrElse MessageBoxButtons.YesNoCancel Then
             '[Yes][No] or [Yes][No][Cancel] dialog
-            CustomMsgBox.lButton.DialogResult = DialogResult.Yes
-            CustomMsgBox.rButton.DialogResult = DialogResult.No
-            CustomMsgBox.cButton.DialogResult = DialogResult.Cancel
+            CustomMsgBox.LeftButton.DialogResult = DialogResult.Yes
+            CustomMsgBox.RightButton.DialogResult = DialogResult.No
+            CustomMsgBox.CancelButton.DialogResult = DialogResult.Cancel
             'Show [Yes] button and make [OK] button the [No] button
-            CustomMsgBox.lButton.Visible = True
-            CustomMsgBox.rButton.Text = "No"
-            CustomMsgBox.AcceptButton = CustomMsgBox.lButton
-            CustomMsgBox.CancelButton = CustomMsgBox.cButton
+            CustomMsgBox.LeftButton.Visible = True
+            CustomMsgBox.RightButton.Text = "No"
+            CustomMsgBox.AcceptButton = CustomMsgBox.LeftButton
+            CustomMsgBox.CancelButton = CustomMsgBox.CancelButton
 
             Select Case DefaultButton
                 Case MessageBoxDefaultButton.Button1
                     '[Yes] button
-                    CustomMsgBox.ActiveControl = CustomMsgBox.lButton
+                    CustomMsgBox.ActiveControl = CustomMsgBox.LeftButton
                 Case MessageBoxDefaultButton.Button2
                     '[No] button
-                    CustomMsgBox.ActiveControl = CustomMsgBox.rButton
+                    CustomMsgBox.ActiveControl = CustomMsgBox.RightButton
                 Case MessageBoxDefaultButton.Button3
                     '[Cancel] button
-                    CustomMsgBox.ActiveControl = CustomMsgBox.cButton
+                    CustomMsgBox.ActiveControl = CustomMsgBox.CancelButton
             End Select
         End If
 
         Select Case Icon
             Case MessageBoxIcon.Error, MessageBoxIcon.Hand, MessageBoxIcon.Stop
-                CustomMsgBox.iconPictureBox.Image = My.Resources.error_icon
+                CustomMsgBox.IconPictureBox.Image = My.Resources.error_icon
             Case MessageBoxIcon.Exclamation, MessageBoxIcon.Warning
-                CustomMsgBox.iconPictureBox.Image = My.Resources.alert_triangle
+                CustomMsgBox.IconPictureBox.Image = My.Resources.alert_triangle
             Case MessageBoxIcon.Question
-                CustomMsgBox.iconPictureBox.Image = My.Resources.question_icon
+                CustomMsgBox.IconPictureBox.Image = My.Resources.question_icon
         End Select
 
         'Display the custom MessageBox as a modal
@@ -347,12 +347,12 @@ Public Class Form1
 
                     'Add all directories to CustomMsgBox dropdown menu
                     For Each BackupDir In BackupDirs
-                        CustomMsgBox.backupDirsDropdownCombo.Items.Add(BackupDir.Substring(BackupDir.LastIndexOf(Path.DirectorySeparatorChar) + 1))
+                        CustomMsgBox.BackupDirsDropdownCombo.Items.Add(BackupDir.Substring(BackupDir.LastIndexOf(Path.DirectorySeparatorChar) + 1))
                     Next
 
-                    CustomMsgBox.backupDirsDropdownCombo.Visible = True
+                    CustomMsgBox.BackupDirsDropdownCombo.Visible = True
                     'Select the first folder on the list
-                    CustomMsgBox.backupDirsDropdownCombo.SelectedIndex = 0
+                    CustomMsgBox.BackupDirsDropdownCombo.SelectedIndex = 0
 
                     ShowMsgBox("{\rtf1 Restoring a backup will copy the save files over from the backup folder that you selected from the list below (which is inside " & BackupLocTextBox.Text.Replace("\", "\\") _
                                & ")\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & SavegamesLocTextBox.Text.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
@@ -360,7 +360,7 @@ Public Class Form1
                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
                     If CustomMsgBox.DialogResult = DialogResult.Yes Then
                         'Store selected backup subdirectory
-                        Dim BackupSubDir = BackupLocTextBox.Text & "\" & CustomMsgBox.backupDirsDropdownCombo.SelectedItem
+                        Dim BackupSubDir = BackupLocTextBox.Text & "\" & CustomMsgBox.BackupDirsDropdownCombo.SelectedItem
                         Dim SavegamesList As String() = Directory.GetFiles(BackupSubDir, "*.save")
                         For Each F As String In SavegamesList
                             Dim FileName As String = F.Substring(BackupSubDir.Length + 1)
@@ -368,14 +368,14 @@ Public Class Form1
                         Next
 
                         'Empty subdirectories list to avoid adding duplicates in the next restore process
-                        CustomMsgBox.backupDirsDropdownCombo.Items.Clear()
+                        CustomMsgBox.BackupDirsDropdownCombo.Items.Clear()
                         BackupDirs = Nothing
 
                         Log("[INFO] Backup from " & BackupSubDir & " restored.")
                         ShowAlert(64, "Backup restored successfully.")
                     Else
                         'Empty subdirectories list to avoid adding duplicates in the next restore process
-                        CustomMsgBox.backupDirsDropdownCombo.Items.Clear()
+                        CustomMsgBox.BackupDirsDropdownCombo.Items.Clear()
                         BackupDirs = Nothing
 
                         Log("[INFO] Restore process cancelled by the user.")
@@ -389,7 +389,7 @@ Public Class Form1
 
         Catch ex As Exception
             'Empty subdirectories list to avoid adding duplicates in the next restore process
-            CustomMsgBox.backupDirsDropdownCombo.Items.Clear()
+            CustomMsgBox.BackupDirsDropdownCombo.Items.Clear()
             BackupDirs = Nothing
 
             Log("[ERROR] Could not restore the backup: " & ex.Message())

@@ -23,122 +23,122 @@ Partial Class CustomMsgBox
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CustomMsgBox))
-        Me.rButton = New System.Windows.Forms.Button()
-        Me.lButton = New System.Windows.Forms.Button()
-        Me.titleLabel = New System.Windows.Forms.Label()
-        Me.messageRTF = New System.Windows.Forms.RichTextBox()
-        Me.cButton = New System.Windows.Forms.Button()
-        Me.iconPictureBox = New System.Windows.Forms.PictureBox()
-        Me.backupDirsDropdownCombo = New System.Windows.Forms.ComboBox()
-        CType(Me.iconPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.RightButton = New System.Windows.Forms.Button()
+        Me.LeftButton = New System.Windows.Forms.Button()
+        Me.TitleLabel = New System.Windows.Forms.Label()
+        Me.MessageRTF = New System.Windows.Forms.RichTextBox()
+        Me.CancelButton = New System.Windows.Forms.Button()
+        Me.IconPictureBox = New System.Windows.Forms.PictureBox()
+        Me.BackupDirsDropdownCombo = New System.Windows.Forms.ComboBox()
+        CType(Me.IconPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'rButton
+        'RightButton
         '
-        Me.rButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
-        Me.rButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
-        Me.rButton.FlatAppearance.BorderSize = 0
-        Me.rButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
-        Me.rButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.rButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.rButton.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rButton.ForeColor = System.Drawing.Color.White
-        Me.rButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.rButton.Location = New System.Drawing.Point(541, 359)
-        Me.rButton.Name = "rButton"
-        Me.rButton.Size = New System.Drawing.Size(128, 30)
-        Me.rButton.TabIndex = 0
-        Me.rButton.Text = "No"
-        Me.rButton.UseVisualStyleBackColor = False
+        Me.RightButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.RightButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.RightButton.FlatAppearance.BorderSize = 0
+        Me.RightButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.RightButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.RightButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.RightButton.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RightButton.ForeColor = System.Drawing.Color.White
+        Me.RightButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.RightButton.Location = New System.Drawing.Point(541, 359)
+        Me.RightButton.Name = "RightButton"
+        Me.RightButton.Size = New System.Drawing.Size(128, 30)
+        Me.RightButton.TabIndex = 0
+        Me.RightButton.Text = "No"
+        Me.RightButton.UseVisualStyleBackColor = False
         '
-        'lButton
+        'LeftButton
         '
-        Me.lButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
-        Me.lButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
-        Me.lButton.FlatAppearance.BorderSize = 0
-        Me.lButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
-        Me.lButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.lButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.lButton.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lButton.ForeColor = System.Drawing.Color.White
-        Me.lButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.lButton.Location = New System.Drawing.Point(407, 359)
-        Me.lButton.Name = "lButton"
-        Me.lButton.Size = New System.Drawing.Size(128, 30)
-        Me.lButton.TabIndex = 1
-        Me.lButton.Text = "Yes"
-        Me.lButton.UseVisualStyleBackColor = False
+        Me.LeftButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.LeftButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.LeftButton.FlatAppearance.BorderSize = 0
+        Me.LeftButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.LeftButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.LeftButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.LeftButton.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LeftButton.ForeColor = System.Drawing.Color.White
+        Me.LeftButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LeftButton.Location = New System.Drawing.Point(407, 359)
+        Me.LeftButton.Name = "LeftButton"
+        Me.LeftButton.Size = New System.Drawing.Size(128, 30)
+        Me.LeftButton.TabIndex = 1
+        Me.LeftButton.Text = "Yes"
+        Me.LeftButton.UseVisualStyleBackColor = False
         '
-        'titleLabel
+        'TitleLabel
         '
-        Me.titleLabel.AutoSize = True
-        Me.titleLabel.BackColor = System.Drawing.Color.Transparent
-        Me.titleLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.titleLabel.ForeColor = System.Drawing.Color.White
-        Me.titleLabel.Location = New System.Drawing.Point(80, 50)
-        Me.titleLabel.Name = "titleLabel"
-        Me.titleLabel.Size = New System.Drawing.Size(111, 21)
-        Me.titleLabel.TabIndex = 5
-        Me.titleLabel.Text = "Message title"
+        Me.TitleLabel.AutoSize = True
+        Me.TitleLabel.BackColor = System.Drawing.Color.Transparent
+        Me.TitleLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TitleLabel.ForeColor = System.Drawing.Color.White
+        Me.TitleLabel.Location = New System.Drawing.Point(80, 50)
+        Me.TitleLabel.Name = "TitleLabel"
+        Me.TitleLabel.Size = New System.Drawing.Size(111, 21)
+        Me.TitleLabel.TabIndex = 5
+        Me.TitleLabel.Text = "Message title"
         '
-        'messageRTF
+        'MessageRTF
         '
-        Me.messageRTF.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
-        Me.messageRTF.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.messageRTF.Cursor = System.Windows.Forms.Cursors.Default
-        Me.messageRTF.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.messageRTF.ForeColor = System.Drawing.Color.White
-        Me.messageRTF.Location = New System.Drawing.Point(84, 88)
-        Me.messageRTF.Name = "messageRTF"
-        Me.messageRTF.ReadOnly = True
-        Me.messageRTF.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical
-        Me.messageRTF.ShortcutsEnabled = False
-        Me.messageRTF.Size = New System.Drawing.Size(550, 200)
-        Me.messageRTF.TabIndex = 4
-        Me.messageRTF.TabStop = False
-        Me.messageRTF.Text = "Message content"
+        Me.MessageRTF.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.MessageRTF.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.MessageRTF.Cursor = System.Windows.Forms.Cursors.Default
+        Me.MessageRTF.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MessageRTF.ForeColor = System.Drawing.Color.White
+        Me.MessageRTF.Location = New System.Drawing.Point(84, 88)
+        Me.MessageRTF.Name = "MessageRTF"
+        Me.MessageRTF.ReadOnly = True
+        Me.MessageRTF.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical
+        Me.MessageRTF.ShortcutsEnabled = False
+        Me.MessageRTF.Size = New System.Drawing.Size(550, 200)
+        Me.MessageRTF.TabIndex = 4
+        Me.MessageRTF.TabStop = False
+        Me.MessageRTF.Text = "Message content"
         '
-        'cButton
+        'CancelButton
         '
-        Me.cButton.BackColor = System.Drawing.Color.Transparent
-        Me.cButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
-        Me.cButton.FlatAppearance.BorderSize = 0
-        Me.cButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.cButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.cButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cButton.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cButton.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cButton.Location = New System.Drawing.Point(8, 363)
-        Me.cButton.Name = "cButton"
-        Me.cButton.Size = New System.Drawing.Size(55, 23)
-        Me.cButton.TabIndex = 2
-        Me.cButton.Text = "Cancel"
-        Me.cButton.UseVisualStyleBackColor = False
+        Me.CancelButton.BackColor = System.Drawing.Color.Transparent
+        Me.CancelButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.CancelButton.FlatAppearance.BorderSize = 0
+        Me.CancelButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.CancelButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CancelButton.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CancelButton.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CancelButton.Location = New System.Drawing.Point(8, 363)
+        Me.CancelButton.Name = "CancelButton"
+        Me.CancelButton.Size = New System.Drawing.Size(55, 23)
+        Me.CancelButton.TabIndex = 2
+        Me.CancelButton.Text = "Cancel"
+        Me.CancelButton.UseVisualStyleBackColor = False
         '
-        'iconPictureBox
+        'IconPictureBox
         '
-        Me.iconPictureBox.BackColor = System.Drawing.Color.Transparent
-        Me.iconPictureBox.Location = New System.Drawing.Point(18, 54)
-        Me.iconPictureBox.Name = "iconPictureBox"
-        Me.iconPictureBox.Size = New System.Drawing.Size(32, 32)
-        Me.iconPictureBox.TabIndex = 4
-        Me.iconPictureBox.TabStop = False
+        Me.IconPictureBox.BackColor = System.Drawing.Color.Transparent
+        Me.IconPictureBox.Location = New System.Drawing.Point(18, 54)
+        Me.IconPictureBox.Name = "IconPictureBox"
+        Me.IconPictureBox.Size = New System.Drawing.Size(32, 32)
+        Me.IconPictureBox.TabIndex = 4
+        Me.IconPictureBox.TabStop = False
         '
-        'backupDirsDropdownCombo
+        'BackupDirsDropdownCombo
         '
-        Me.backupDirsDropdownCombo.BackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.backupDirsDropdownCombo.DropDownHeight = 152
-        Me.backupDirsDropdownCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.backupDirsDropdownCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.backupDirsDropdownCombo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.backupDirsDropdownCombo.ForeColor = System.Drawing.Color.White
-        Me.backupDirsDropdownCombo.FormattingEnabled = True
-        Me.backupDirsDropdownCombo.IntegralHeight = False
-        Me.backupDirsDropdownCombo.Location = New System.Drawing.Point(84, 300)
-        Me.backupDirsDropdownCombo.Name = "backupDirsDropdownCombo"
-        Me.backupDirsDropdownCombo.Size = New System.Drawing.Size(550, 23)
-        Me.backupDirsDropdownCombo.TabIndex = 3
-        Me.backupDirsDropdownCombo.Visible = False
+        Me.BackupDirsDropdownCombo.BackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.BackupDirsDropdownCombo.DropDownHeight = 152
+        Me.BackupDirsDropdownCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.BackupDirsDropdownCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BackupDirsDropdownCombo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BackupDirsDropdownCombo.ForeColor = System.Drawing.Color.White
+        Me.BackupDirsDropdownCombo.FormattingEnabled = True
+        Me.BackupDirsDropdownCombo.IntegralHeight = False
+        Me.BackupDirsDropdownCombo.Location = New System.Drawing.Point(84, 300)
+        Me.BackupDirsDropdownCombo.Name = "BackupDirsDropdownCombo"
+        Me.BackupDirsDropdownCombo.Size = New System.Drawing.Size(550, 23)
+        Me.BackupDirsDropdownCombo.TabIndex = 3
+        Me.BackupDirsDropdownCombo.Visible = False
         '
         'CustomMsgBox
         '
@@ -146,30 +146,30 @@ Partial Class CustomMsgBox
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(684, 401)
-        Me.Controls.Add(Me.backupDirsDropdownCombo)
-        Me.Controls.Add(Me.cButton)
-        Me.Controls.Add(Me.messageRTF)
-        Me.Controls.Add(Me.iconPictureBox)
-        Me.Controls.Add(Me.titleLabel)
-        Me.Controls.Add(Me.lButton)
-        Me.Controls.Add(Me.rButton)
+        Me.Controls.Add(Me.BackupDirsDropdownCombo)
+        Me.Controls.Add(Me.CancelButton)
+        Me.Controls.Add(Me.MessageRTF)
+        Me.Controls.Add(Me.IconPictureBox)
+        Me.Controls.Add(Me.TitleLabel)
+        Me.Controls.Add(Me.LeftButton)
+        Me.Controls.Add(Me.RightButton)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "CustomMsgBox"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "GHOST Buster"
-        CType(Me.iconPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IconPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Friend WithEvents rButton As Button
-    Friend WithEvents lButton As Button
-    Friend WithEvents titleLabel As Label
-    Friend WithEvents iconPictureBox As PictureBox
-    Friend WithEvents messageRTF As RichTextBox
-    Friend WithEvents cButton As Button
-    Friend WithEvents backupDirsDropdownCombo As ComboBox
+    Friend WithEvents RightButton As Button
+    Friend WithEvents LeftButton As Button
+    Friend WithEvents TitleLabel As Label
+    Friend WithEvents IconPictureBox As PictureBox
+    Friend WithEvents MessageRTF As RichTextBox
+    Friend WithEvents CancelButton As Button
+    Friend WithEvents BackupDirsDropdownCombo As ComboBox
 End Class
