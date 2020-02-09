@@ -765,7 +765,7 @@ Public Class Form1
 
     Private Sub BackupBtn_Click(sender As Object, e As EventArgs) Handles BackupBtn.Click
         If SavegamesLocTextBox.Text = "" Or BackupLocTextBox.Text = "" Then
-            ShowAlert(64, "You need to specify both save games and backup folders.")
+            ShowAlert(64, "You must specify both save games and backup folders.")
         ElseIf IsGameRunning = True Then 'Perform the first backup
             StartBackup()
 
@@ -798,7 +798,7 @@ Public Class Form1
                 ShowMsgBox("{\rtf1 The backup process has been {\b interrupted due to an error.} Please check the logs for more details.}", "Backup Interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
             End Try
         ElseIf IsGameRunning = False Then
-            ShowAlert(64, "You need to launch Wildlands before starting the backup process.")
+            ShowAlert(64, "You must launch Wildlands before starting the backup process.")
         End If
     End Sub
 
