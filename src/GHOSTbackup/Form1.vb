@@ -832,7 +832,7 @@ Public Class Form1
 
             Catch ex As Exception
                 StopBackup()
-                Log("[ERROR] '" & ex.message() & "', Backup interrupted.")
+                Log("[ERROR] '" & ex.Message() & "', Backup interrupted.")
                 ShowMsgBox("{\rtf1 The backup process has been {\b interrupted due to an error.} Please check the logs for more details.}", "Backup interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
             End Try
         Else
