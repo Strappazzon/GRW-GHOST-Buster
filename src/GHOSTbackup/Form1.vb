@@ -383,7 +383,7 @@ Public Class Form1
                 Else
                     BackupDirs = Nothing
                     ShowMsgBox("{\rtf1 The specified {\b backup folder is empty.} Backup at least once and try again.}", "No backup found", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
-                    Log("[INFO] No backup found (backup folder is empty). Restore process aborted.")
+                    Log("[INFO] No backup found inside " & BackupLocTextBox.Text & ". Restore process aborted.")
                 End If
             End If
 
