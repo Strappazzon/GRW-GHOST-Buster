@@ -6,7 +6,6 @@ Imports Microsoft.Win32
 Public Class Form1
     Private ReadOnly VersionCode As Short = 14
     Private ReadOnly Version As String = "1.7.0"
-    Private IsUplayInstalled As Boolean = False
     Private GamePath As String
     Private UplayPath As String
     Private IsGameRunning As Boolean = False
@@ -505,7 +504,6 @@ Public Class Form1
                 UplayPath = UplayRegKey.GetValue("InstallDir")
 
                 If UplayPath <> Nothing Then
-                    IsUplayInstalled = True
                     Log("[INFO] Uplay is installed in: " & UplayPath)
                 Else
                     Log("[WARNING] Uplay is not installed (""InstallDir"" is Null or Empty). Uplay is required to launch and play Wildlands.")
@@ -651,8 +649,8 @@ Public Class Form1
     End Sub
 
     Private Sub UplayPictureBtn_Click(sender As Object, e As EventArgs) Handles UplayPictureBtn.Click
-        'Attempt to launch Uplay only if it's installed
-        If IsUplayInstalled = True Then
+        'Launch Uplay only if it's installed
+        If UplayPath <> Nothing Then
             Process.Start(UplayPath & "Uplay.exe")
         Else
             ShowAlert(64, "Uplay is not installed.")
@@ -872,7 +870,7 @@ Public Class Form1
                         Log("[INFO] Uplay cloud save synchronization disabled.")
 
                         'Launch Uplay again...
-                        If IsUplayInstalled = True Then
+                        If UplayPath <> Nothing Then
                             Process.Start(UplayPath & "Uplay.exe")
                         End If
 
@@ -883,7 +881,7 @@ Public Class Form1
                         Log("[INFO] Uplay cloud synchronization is already disabled.")
 
                         'Launch Uplay again...
-                        If IsUplayInstalled = True Then
+                        If UplayPath <> Nothing Then
                             Process.Start(UplayPath & "Uplay.exe")
                         End If
 
