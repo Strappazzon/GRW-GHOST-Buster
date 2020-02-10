@@ -345,9 +345,11 @@ Public Class Form1
                     '//docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.reverse
                     BackupDirs.Reverse()
 
-                    'Add all directories to CustomMsgBox dropdown menu
                     For Each BackupDir In BackupDirs
-                        CustomMsgBox.BackupDirsDropdownCombo.Items.Add(BackupDir.Substring(BackupDir.LastIndexOf(Path.DirectorySeparatorChar) + 1))
+                        'Add all directories to CustomMsgBox dropdown menu
+                        'Also append their creation date and time and if a backup was created less than 1 hour ago, display "Created X minutes ago" instead
+                        CustomMsgBox.BackupDirsDropdownCombo.Items.Add(BackupDir.Substring(BackupDir.LastIndexOf(Path.DirectorySeparatorChar) + 1) & " - Created " &
+                        If(Directory.GetCreationTime(BackupDir) > Now.AddHours(-1), Now.Subtract(Directory.GetCreationTime(BackupDir)).ToString("mm") & " minutes ago", Directory.GetCreationTime(BackupDir).ToString("MMMM dd yyyy \a\t HH:mm")))
                     Next
 
                     CustomMsgBox.BackupDirsDropdownCombo.Visible = True
@@ -360,7 +362,7 @@ Public Class Form1
                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
                     If CustomMsgBox.DialogResult = DialogResult.Yes Then
                         'Store selected backup subdirectory
-                        Dim BackupSubDir = BackupLocTextBox.Text & "\" & CustomMsgBox.BackupDirsDropdownCombo.SelectedItem
+                        Dim BackupSubDir = BackupLocTextBox.Text & "\" & CustomMsgBox.BackupDirsDropdownCombo.SelectedItem.ToString().Substring(0, 13)
                         Dim SavegamesList As String() = Directory.GetFiles(BackupSubDir, "*.save")
                         For Each F As String In SavegamesList
                             Dim FileName As String = F.Substring(BackupSubDir.Length + 1)
