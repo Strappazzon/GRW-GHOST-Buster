@@ -435,7 +435,7 @@ Public Class Form1
         SettingsWriteLogToFileChkBox.Checked = My.Settings.WriteLogFile
         RememberFormPositionChkBox.Checked = My.Settings.RememberFormPosition
         If My.Settings.LogFilePath = "" Then
-            SettingsLogFilePathTextBox.Text = Application.StartupPath & "\event.log"
+            SettingsLogFilePathTextBox.Text = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\event.log"
         Else
             SettingsLogFilePathTextBox.Text = My.Settings.LogFilePath
         End If
@@ -969,7 +969,7 @@ Public Class Form1
             If O.ShowDialog = DialogResult.OK Then
                 SettingsLogFilePathTextBox.Text = O.SelectedPath & "\event.log"
                 My.Settings.LogFilePath = SettingsLogFilePathTextBox.Text
-                Log("[INFO] Log file directory set to: " & O.SelectedPath)
+                Log("[INFO] Log file path set to: " & SettingsLogFilePathTextBox.Text)
             End If
         End Using
     End Sub
