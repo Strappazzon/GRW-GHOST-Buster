@@ -443,7 +443,7 @@ Public Class Form1
         SettingsCustomExeTextBox.Text = My.Settings.CustomExeLoc
         If My.Settings.LatestBackupTimestamp <> Nothing Then
             'Write the latest backup timestamp on the main screen
-            LatestBackupHelpLabel.Text = "Latest backup:" & Environment.NewLine & My.Settings.LatestBackupTimestamp.ToString("MM/dd/yyyy hh:mm tt")
+            LatestBackupHelpLabel.Text = "Latest backup:" & Environment.NewLine & My.Settings.LatestBackupTimestamp.ToString("yyyy-MM-dd HH:mm")
             LatestBackupHelpLabel.Location = New Point(300, 14)
         End If
 
@@ -764,7 +764,7 @@ Public Class Form1
             My.Settings.LatestBackupDir = BackupLocTextBox.Text & My.Settings.LatestBackupTimestamp.ToString("\\yyyyMMdd HHmm")
 
             'Write the timestamp of this backup on the main screen
-            LatestBackupHelpLabel.Text = "Latest backup:" & Environment.NewLine & My.Settings.LatestBackupTimestamp.ToString("MM/dd/yyyy hh:mm tt")
+            LatestBackupHelpLabel.Text = "Latest backup:" & Environment.NewLine & My.Settings.LatestBackupTimestamp.ToString("yyyy-MM-dd HH:mm")
             LatestBackupHelpLabel.Location = New Point(300, 14)
 
             Try
@@ -800,7 +800,7 @@ Public Class Form1
             My.Settings.SecToLastBackupDir = BackupLocTextBox.Text & My.Settings.LatestBackupTimestamp.Subtract(TimeSpan.FromMinutes(BackupFreqUpDown.Value)).ToString("\\yyyyMMdd HHmm")
 
             'Write the timestamp of this backup on the main screen
-            LatestBackupHelpLabel.Text = "Latest backup:" & Environment.NewLine & My.Settings.LatestBackupTimestamp.ToString("MM/dd/yyyy hh:mm tt")
+            LatestBackupHelpLabel.Text = "Latest backup:" & Environment.NewLine & My.Settings.LatestBackupTimestamp.ToString("yyyy-MM-dd HH:mm")
             LatestBackupHelpLabel.Location = New Point(300, 14)
 
             Try
