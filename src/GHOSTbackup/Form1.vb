@@ -1010,7 +1010,7 @@ Public Class Form1
     End Sub
 
     Private Sub SettingsOpenCustomExeFolderBtn_Click(sender As Object, e As EventArgs) Handles SettingsOpenCustomExeFolderBtn.Click
-        'Open custom Wildlands location in Windows Explorer...
+        'Open custom Wildlands location in Windows Explorer if it exists
         If SettingsCustomExeTextBox.Text <> "" AndAlso Directory.Exists(Directory.GetParent(SettingsCustomExeTextBox.Text).ToString()) Then
             Process.Start(Directory.GetParent(SettingsCustomExeTextBox.Text).ToString())
         Else
