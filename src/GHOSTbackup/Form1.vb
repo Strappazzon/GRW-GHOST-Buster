@@ -785,7 +785,7 @@ Public Class Form1
             Catch ex As Exception
                 StopBackup()
                 Log("[ERROR] Backup interrupted: " & ex.Message())
-                ShowMsgBox("{\rtf1 The backup process has been {\b interrupted due to an error.} Please check the logs for more details.}", "Backup Interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+                ShowMsgBox("{\rtf1 The backup process has been {\b interrupted due to an error.} Please check the logs for more details.}", "Backup interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
             End Try
         ElseIf IsGameRunning = False Then
             ShowAlert(64, "You must launch Wildlands before starting the backup process.")
