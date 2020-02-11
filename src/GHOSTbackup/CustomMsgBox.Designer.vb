@@ -27,7 +27,7 @@ Partial Class CustomMsgBox
         Me.LeftButton = New System.Windows.Forms.Button()
         Me.TitleLabel = New System.Windows.Forms.Label()
         Me.MessageRTF = New System.Windows.Forms.RichTextBox()
-        Me.CancelButton = New System.Windows.Forms.Button()
+        Me.CancelLabel = New System.Windows.Forms.Button()
         Me.IconPictureBox = New System.Windows.Forms.PictureBox()
         Me.BackupDirsDropdownCombo = New System.Windows.Forms.ComboBox()
         CType(Me.IconPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -98,22 +98,22 @@ Partial Class CustomMsgBox
         Me.MessageRTF.TabStop = False
         Me.MessageRTF.Text = "Message content"
         '
-        'CancelButton
+        'CancelLabel
         '
-        Me.CancelButton.BackColor = System.Drawing.Color.Transparent
-        Me.CancelButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
-        Me.CancelButton.FlatAppearance.BorderSize = 0
-        Me.CancelButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.CancelButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
-        Me.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CancelButton.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CancelButton.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CancelButton.Location = New System.Drawing.Point(8, 363)
-        Me.CancelButton.Name = "CancelButton"
-        Me.CancelButton.Size = New System.Drawing.Size(55, 23)
-        Me.CancelButton.TabIndex = 2
-        Me.CancelButton.Text = "Cancel"
-        Me.CancelButton.UseVisualStyleBackColor = False
+        Me.CancelLabel.BackColor = System.Drawing.Color.Transparent
+        Me.CancelLabel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.CancelLabel.FlatAppearance.BorderSize = 0
+        Me.CancelLabel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.CancelLabel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.CancelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CancelLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CancelLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CancelLabel.Location = New System.Drawing.Point(8, 363)
+        Me.CancelLabel.Name = "CancelLabel"
+        Me.CancelLabel.Size = New System.Drawing.Size(55, 23)
+        Me.CancelLabel.TabIndex = 2
+        Me.CancelLabel.Text = "Cancel"
+        Me.CancelLabel.UseVisualStyleBackColor = False
         '
         'IconPictureBox
         '
@@ -147,7 +147,7 @@ Partial Class CustomMsgBox
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(684, 401)
         Me.Controls.Add(Me.BackupDirsDropdownCombo)
-        Me.Controls.Add(Me.CancelButton)
+        Me.Controls.Add(Me.CancelLabel)
         Me.Controls.Add(Me.MessageRTF)
         Me.Controls.Add(Me.IconPictureBox)
         Me.Controls.Add(Me.TitleLabel)
@@ -170,6 +170,6 @@ Partial Class CustomMsgBox
     Friend WithEvents TitleLabel As Label
     Friend WithEvents IconPictureBox As PictureBox
     Friend WithEvents MessageRTF As RichTextBox
-    Friend WithEvents CancelButton As Button
+    Friend WithEvents CancelLabel As Button
     Friend WithEvents BackupDirsDropdownCombo As ComboBox
 End Class

@@ -154,12 +154,12 @@ Public Class Form1
         If Buttons = MessageBoxButtons.OK OrElse Buttons = MessageBoxButtons.OKCancel Then
             '[OK] or [OK][Cancel] dialog
             CustomMsgBox.RightButton.DialogResult = DialogResult.OK
-            CustomMsgBox.CancelButton.DialogResult = DialogResult.Cancel
+            CustomMsgBox.CancelLabel.DialogResult = DialogResult.Cancel
             'Hide [Yes] button and make [No] button the [OK] button
             CustomMsgBox.LeftButton.Visible = False
             CustomMsgBox.RightButton.Text = "OK"
             CustomMsgBox.AcceptButton = CustomMsgBox.RightButton
-            CustomMsgBox.CancelButton = CustomMsgBox.CancelButton
+            CustomMsgBox.CancelLabel = CustomMsgBox.CancelLabel
 
             Select Case DefaultButton
                 Case MessageBoxDefaultButton.Button1
@@ -167,18 +167,18 @@ Public Class Form1
                     CustomMsgBox.ActiveControl = CustomMsgBox.RightButton
                 Case MessageBoxDefaultButton.Button2, MessageBoxDefaultButton.Button3
                     '[Cancel] button
-                    CustomMsgBox.ActiveControl = CustomMsgBox.CancelButton
+                    CustomMsgBox.ActiveControl = CustomMsgBox.CancelLabel
             End Select
         ElseIf Buttons = MessageBoxButtons.YesNo OrElse MessageBoxButtons.YesNoCancel Then
             '[Yes][No] or [Yes][No][Cancel] dialog
             CustomMsgBox.LeftButton.DialogResult = DialogResult.Yes
             CustomMsgBox.RightButton.DialogResult = DialogResult.No
-            CustomMsgBox.CancelButton.DialogResult = DialogResult.Cancel
+            CustomMsgBox.CancelLabel.DialogResult = DialogResult.Cancel
             'Show [Yes] button and make [OK] button the [No] button
             CustomMsgBox.LeftButton.Visible = True
             CustomMsgBox.RightButton.Text = "No"
             CustomMsgBox.AcceptButton = CustomMsgBox.LeftButton
-            CustomMsgBox.CancelButton = CustomMsgBox.CancelButton
+            CustomMsgBox.CancelLabel = CustomMsgBox.CancelLabel
 
             Select Case DefaultButton
                 Case MessageBoxDefaultButton.Button1
@@ -189,7 +189,7 @@ Public Class Form1
                     CustomMsgBox.ActiveControl = CustomMsgBox.RightButton
                 Case MessageBoxDefaultButton.Button3
                     '[Cancel] button
-                    CustomMsgBox.ActiveControl = CustomMsgBox.CancelButton
+                    CustomMsgBox.ActiveControl = CustomMsgBox.CancelLabel
             End Select
         End If
 

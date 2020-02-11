@@ -10,6 +10,6 @@
         '//www.codeproject.com/Answers/272781/How-to-hide-the-caret-in-RichTextBox#answer1
         MessageRTF.SelectionLength = 0
         MessageRTF.SelectionStart = MessageRTF.TextLength
-        ActiveControl = CancelButton
+        ActiveControl = CancelLabel
     End Sub
 End Class
