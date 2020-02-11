@@ -406,22 +406,23 @@ Public Class Form1
                 '//docs.microsoft.com/en-us/dotnet/api/system.io.directory.enumeratedirectories
                 BackupDirs = New List(Of String)(Directory.EnumerateDirectories(BackupLocTextBox.Text))
 
-                'Check if the backup folder is empty or not
+                'Check whether the backup folder is empty or not
                 If BackupDirs.Count <> 0 Then
-                    'Reverse the order of directories list (Most recent backup first)
+                    'Reverse the order of directories list (most recent backup first)
                     '//docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.reverse
                     BackupDirs.Reverse()
 
                     For Each BackupDir In BackupDirs
-                        'Add all directories to CustomMsgBox dropdown menu
+                        'Add all enumerated directories to the backup restore dialog's dropdown menu
                         'Also append their creation date and time and if a backup was created less than 1 hour ago, display "Created X minutes ago" instead
                         CustomMsgBox.BackupDirsDropdownCombo.Items.Add(BackupDir.Substring(BackupDir.LastIndexOf(Path.DirectorySeparatorChar) + 1) & " - Created " &
                         If(Directory.GetCreationTime(BackupDir) > Now.AddHours(-1),
                           (Now.Subtract(Directory.GetCreationTime(BackupDir)).ToString("mm") & " minutes ago").Replace("00 minutes ago", "less than a minute ago"), Directory.GetCreationTime(BackupDir).ToString("MMMM dd yyyy \a\t HH:mm")))
                     Next
 
+                    'Display the dropdown menu...
                     CustomMsgBox.BackupDirsDropdownCombo.Visible = True
-                    'Select the first folder on the list
+                    '...and select the first folder on the list
                     CustomMsgBox.BackupDirsDropdownCombo.SelectedIndex = 0
 
                     ShowMsgBox("{\rtf1 Restoring a backup will copy the save files over from the backup folder that you selected from the list below (which is inside " & BackupLocTextBox.Text.Replace("\", "\\") _
@@ -429,7 +430,7 @@ Public Class Form1
                                "Backup restore",
                                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
                     If CustomMsgBox.DialogResult = DialogResult.Yes Then
-                        'Store selected backup subdirectory
+                        'Store the selected backup subdirectory and truncate "Created at..."
                         Dim BackupSubDir = BackupLocTextBox.Text & "\" & CustomMsgBox.BackupDirsDropdownCombo.SelectedItem.ToString().Substring(0, 13)
                         Dim SavegamesList As String() = Directory.GetFiles(BackupSubDir, "*.save")
                         For Each F As String In SavegamesList
