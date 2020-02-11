@@ -348,7 +348,8 @@ Public Class Form1
                         'Add all directories to CustomMsgBox dropdown menu
                         'Also append their creation date and time and if a backup was created less than 1 hour ago, display "Created X minutes ago" instead
                         CustomMsgBox.BackupDirsDropdownCombo.Items.Add(BackupDir.Substring(BackupDir.LastIndexOf(Path.DirectorySeparatorChar) + 1) & " - Created " &
-                        If(Directory.GetCreationTime(BackupDir) > Now.AddHours(-1), Now.Subtract(Directory.GetCreationTime(BackupDir)).ToString("mm") & " minutes ago", Directory.GetCreationTime(BackupDir).ToString("MMMM dd yyyy \a\t HH:mm")))
+                        If(Directory.GetCreationTime(BackupDir) > Now.AddHours(-1),
+                          (Now.Subtract(Directory.GetCreationTime(BackupDir)).ToString("mm") & " minutes ago").Replace("00 minutes ago", "less than a minute ago"), Directory.GetCreationTime(BackupDir).ToString("MMMM dd yyyy \a\t HH:mm")))
                     Next
 
                     CustomMsgBox.BackupDirsDropdownCombo.Visible = True
