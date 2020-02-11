@@ -838,7 +838,6 @@ Public Class Form1
 
             Try
                 Dim SavegamesList As String() = Directory.GetFiles(SavegamesLocTextBox.Text, "*.save")
-
                 For Each F As String In SavegamesList
                     If Not Directory.Exists(My.Settings.LatestBackupDir) Then
                         Directory.CreateDirectory(My.Settings.LatestBackupDir)
@@ -847,7 +846,7 @@ Public Class Form1
                     File.Copy(Path.Combine(SavegamesLocTextBox.Text, FileName), Path.Combine(My.Settings.LatestBackupDir, FileName), True)
                 Next
 
-                Log("[INFO] Performed the first backup.")
+                Log("[INFO] Performed the first backup " & "(" & SavegamesList.Length & " files copied to " & My.Settings.LatestBackupDir & ").")
 
             Catch ex As Exception
                 StopBackup()
@@ -874,7 +873,6 @@ Public Class Form1
 
             Try
                 Dim SavegamesList As String() = Directory.GetFiles(SavegamesLocTextBox.Text, "*.save")
-
                 For Each F As String In SavegamesList
                     If Not Directory.Exists(My.Settings.LatestBackupDir) Then
                         Directory.CreateDirectory(My.Settings.LatestBackupDir)
@@ -883,7 +881,7 @@ Public Class Form1
                     File.Copy(Path.Combine(SavegamesLocTextBox.Text, FileName), Path.Combine(My.Settings.LatestBackupDir, FileName), True)
                 Next
 
-                Log("[INFO] Backup complete.")
+                Log("[INFO] Backup complete " & "(" & SavegamesList.Length & " files copied to " & My.Settings.LatestBackupDir & ").")
 
             Catch ex As Exception
                 StopBackup()
