@@ -125,17 +125,17 @@ kbd {
 	font-family: "Lucida Console", monospace;
 	font-size: 12px;
 	cursor: pointer;
-	padding: 0 5px 0 5px;
-	margin: 0 2px;
-	color: #000;
-	background-color: #fcfcfc;
+	padding: 0 5px;
+	margin: 0 3px;
+	color: #fff;
+	background-color: rgba(28, 33, 39, 0.6);
 	vertical-align: middle;
-	border: solid 1px #ccc;
-	border-bottom-color: rgb(204, 204, 204);
-	border-bottom-color: #bbb;
-	border-radius: 3px;
-	box-shadow: inset 0 -1px 0 #bbb;
+	border: solid 1px #a0a0a0;
 }
+
+kbd:hover { background-color: rgba(28, 33, 39, 1); }
+
+kbd > img { margin-right: 5px; }
 
 code {
 	color: rgba(255, 200, 61, 0.7);
