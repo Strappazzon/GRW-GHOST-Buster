@@ -114,7 +114,9 @@ a:hover { text-decoration: underline; }
 
 a:active { color: #0077ee; text-decoration: none; }
 
-ul { line-height: 2; }
+ul { list-style: square; line-height: 2; }
+
+ul > ul { list-style: circle; line-height: 2.3; }
 
 img { vertical-align: middle; border-style: none; }
 
@@ -134,6 +136,8 @@ kbd {
 }
 
 kbd:hover { background-color: rgba(28, 33, 39, 1); }
+
+ul kbd { line-height: 2; }
 
 kbd > img { margin-right: 5px; }
 
