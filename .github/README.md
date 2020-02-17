@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://strappazzon.xyz/GRW-GHOST-Buster"><img alt="HTML Version" src="https://img.shields.io/badge/HTML%20Version-%23ff5f2f?style=flat-square&logo=HTML5&logoColor=%23ffffff"></a>
-  <img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/Strappazzon/GRW-GHOST-Buster/total?color=%2399ca48&label=Downloads&logo=DocuSign&logoColor=%23ffffff&style=flat-square">
+  <a href="https://github.com/Strappazzon/GRW-GHOST-Buster/releases"><img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/Strappazzon/GRW-GHOST-Buster/total?color=%2399ca48&label=Downloads&logo=DocuSign&logoColor=%23ffffff&style=flat-square"></a>
   <a href="https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest"><img alt="Latest Release" src="https://img.shields.io/github/v/release/Strappazzon/GRW-GHOST-Buster?color=%230077ee&include_prereleases&label=Latest%20Release&style=flat-square"></a>
 </p>
 
