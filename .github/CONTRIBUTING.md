@@ -17,6 +17,7 @@ This project and everyone participating in it is governed by the [GHOST Buster C
 * When reporting a bug please describe the steps which reproduce the problem.
 * When reporting an error include the event log from GHOST Buster (**Logs** tab or **event.log** file). Include the logs in the issue in a [file attachment](https://help.github.com/en/github/managing-your-work-on-github/file-attachments-on-issues-and-pull-requests) or put it in a [PrivateBin](https://privatebin.net/) and provide the link to that paste.
 * When reporting a crash include the stack trace from GHOST Buster (click the "**▼ Details**" button in the crash window). Include the stack trace in the issue in a [file attachment](https://help.github.com/en/github/managing-your-work-on-github/file-attachments-on-issues-and-pull-requests), or put it in a [PrivateBin](https://privatebin.net/) and provide the link to that paste.
+* All issues must be properly formatted with Markdown. If you don't know what that is, read [Mastering Markdown](https://guides.github.com/features/mastering-markdown/) before submitting an issue.
 
 ## Code Contribution
 
