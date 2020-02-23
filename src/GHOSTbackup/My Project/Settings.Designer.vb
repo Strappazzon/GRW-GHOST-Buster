@@ -233,41 +233,6 @@ Namespace My
                 Me("CustomExeLoc") = value
             End Set
         End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property LatestBackupTimestamp() As Date
-            Get
-                Return CType(Me("LatestBackupTimestamp"),Date)
-            End Get
-            Set
-                Me("LatestBackupTimestamp") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property LatestBackupDir() As String
-            Get
-                Return CType(Me("LatestBackupDir"),String)
-            End Get
-            Set
-                Me("LatestBackupDir") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property SecToLastBackupDir() As String
-            Get
-                Return CType(Me("SecToLastBackupDir"),String)
-            End Get
-            Set
-                Me("SecToLastBackupDir") = value
-            End Set
-        End Property
     End Class
 End Namespace
 
