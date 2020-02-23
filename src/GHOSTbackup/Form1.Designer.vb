@@ -205,6 +205,7 @@ Partial Class Form1
         'BackupLocHelpLabel
         '
         Me.BackupLocHelpLabel.AutoSize = True
+        Me.BackupLocHelpLabel.BackColor = System.Drawing.Color.Transparent
         Me.BackupLocHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BackupLocHelpLabel.Location = New System.Drawing.Point(10, 67)
         Me.BackupLocHelpLabel.Name = "BackupLocHelpLabel"
@@ -215,6 +216,7 @@ Partial Class Form1
         'SavegamesLocHelpLabel
         '
         Me.SavegamesLocHelpLabel.AutoSize = True
+        Me.SavegamesLocHelpLabel.BackColor = System.Drawing.Color.Transparent
         Me.SavegamesLocHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SavegamesLocHelpLabel.Location = New System.Drawing.Point(10, 12)
         Me.SavegamesLocHelpLabel.Name = "SavegamesLocHelpLabel"
@@ -274,6 +276,7 @@ Partial Class Form1
         'BackupFreqHelpLabel
         '
         Me.BackupFreqHelpLabel.AutoSize = True
+        Me.BackupFreqHelpLabel.BackColor = System.Drawing.Color.Transparent
         Me.BackupFreqHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BackupFreqHelpLabel.Location = New System.Drawing.Point(10, 65)
         Me.BackupFreqHelpLabel.Name = "BackupFreqHelpLabel"
@@ -848,6 +851,7 @@ Partial Class Form1
         'WhichBackupLabel
         '
         Me.WhichBackupLabel.AutoSize = True
+        Me.WhichBackupLabel.BackColor = System.Drawing.Color.Transparent
         Me.WhichBackupLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.WhichBackupLabel.ForeColor = System.Drawing.Color.White
         Me.WhichBackupLabel.Location = New System.Drawing.Point(203, 65)
@@ -938,6 +942,7 @@ Partial Class Form1
         'LatestBackupHelpLabel
         '
         Me.LatestBackupHelpLabel.AutoSize = True
+        Me.LatestBackupHelpLabel.BackColor = System.Drawing.Color.Transparent
         Me.LatestBackupHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LatestBackupHelpLabel.Location = New System.Drawing.Point(300, 22)
         Me.LatestBackupHelpLabel.Name = "LatestBackupHelpLabel"
