@@ -301,7 +301,7 @@ Public Class Form1
                             Next
 
                             Log("[INFO] Backup from " & BackupDirs.Item(BackupDirs.Count - 1) & " restored.")
-                            ShowAlert(64, "Backup restored successfully.")
+                            ShowAlert(64, "Backup successfully restored.")
                         Else
                             Log("[INFO] Restore process cancelled by the user.")
                         End If
@@ -340,7 +340,7 @@ Public Class Form1
                             Next
 
                             Log("[INFO] Backup from " & BackupDirs.Item(BackupDirs.Count - 2) & " restored.")
-                            ShowAlert(64, "Backup restored successfully.")
+                            ShowAlert(64, "Backup successfully restored.")
                         Else
                             Log("[INFO] Restore process cancelled by the user.")
                         End If
@@ -360,7 +360,7 @@ Public Class Form1
                             Next
 
                             Log("[INFO] Backup from " & BackupDirs.Item(BackupDirs.Count - 1) & " restored.")
-                            ShowAlert(64, "Backup restored successfully.")
+                            ShowAlert(64, "Backup successfully restored.")
                         Else
                             Log("[INFO] Restore process cancelled by the user.")
                         End If
@@ -413,7 +413,7 @@ Public Class Form1
                             Next
 
                             Log("[INFO] Backup from " & BackupSubDir & " restored.")
-                            ShowAlert(64, "Backup restored successfully.")
+                            ShowAlert(64, "Backup successfully restored.")
                         Else
                             Log("[INFO] Restore process cancelled by the user.")
                         End If
