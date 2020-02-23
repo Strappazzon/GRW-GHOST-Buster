@@ -556,7 +556,7 @@ Public Class Form1
                 SettingsNonUplayVersionChkBox.Checked = False
                 PlayGameBtn.Text = "Ghost Recon Wildlands not found"
                 Log("[WARNING] Custom Wildlands executable " & SettingsCustomExeTextBox.Text & " not found.")
-                ShowAlert(48, "The specified Wildlands executable could note be found.")
+                ShowAlert(48, "The selected Wildlands executable could not be found.")
             End If
         Else
             Using GameRegKey As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\1771", False)
