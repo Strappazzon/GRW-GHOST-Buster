@@ -206,6 +206,14 @@ Public Class Form1
         CustomMsgBox.ShowDialog()
     End Sub
 
+    Private Sub HelpToolTip_Draw(sender As Object, e As DrawToolTipEventArgs) Handles HelpToolTip.Draw
+        'Draw tooltip with custom colors
+        e.DrawBackground()
+        'Don't draw the border
+        'e.DrawBorder()
+        e.DrawText()
+    End Sub
+
     Private Sub Log([Event] As String)
         'Don't start the log file with an empty line
         If LogTxtBox.Text = "" Then

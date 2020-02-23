@@ -88,6 +88,7 @@ Partial Class Form1
         Me.TasksContainer = New System.Windows.Forms.Panel()
         Me.LatestBackupHelpLabel = New System.Windows.Forms.Label()
         Me.TasksTitleLabel = New System.Windows.Forms.Label()
+        Me.HelpToolTip = New System.Windows.Forms.ToolTip(Me.components)
         CType(Me.BackupFreqUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LogoBigPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LogTxtBoxContextMenu.SuspendLayout()
@@ -400,6 +401,8 @@ Partial Class Form1
         Me.ConfirmExitChkBox.Size = New System.Drawing.Size(212, 21)
         Me.ConfirmExitChkBox.TabIndex = 3
         Me.ConfirmExitChkBox.Text = "Confirm exit (if backup is active)"
+        Me.HelpToolTip.SetToolTip(Me.ConfirmExitChkBox, "If checked, GHOST Buster will show a confirmation dialog before exiting when the " &
+        "backup process is running.")
         Me.ConfirmExitChkBox.UseVisualStyleBackColor = False
         '
         'ProcessCheckTimer
@@ -417,6 +420,8 @@ Partial Class Form1
         Me.ConfirmStopBackupChkBox.Size = New System.Drawing.Size(191, 21)
         Me.ConfirmStopBackupChkBox.TabIndex = 4
         Me.ConfirmStopBackupChkBox.Text = "Confirm backup interruption"
+        Me.HelpToolTip.SetToolTip(Me.ConfirmStopBackupChkBox, "If checked, GHOST Buster will show a confirmation dialog before interrupting the " &
+        "backup process.")
         Me.ConfirmStopBackupChkBox.UseVisualStyleBackColor = False
         '
         'CheckUpdatesChkBox
@@ -431,6 +436,8 @@ Partial Class Form1
         Me.CheckUpdatesChkBox.Size = New System.Drawing.Size(133, 21)
         Me.CheckUpdatesChkBox.TabIndex = 6
         Me.CheckUpdatesChkBox.Text = "Check for updates"
+        Me.HelpToolTip.SetToolTip(Me.CheckUpdatesChkBox, "If checked, GHOST Buster will check if the current version is up to date when ope" &
+        "ning.")
         Me.CheckUpdatesChkBox.UseVisualStyleBackColor = False
         '
         'TopMenuContainer
@@ -457,6 +464,7 @@ Partial Class Form1
         Me.UplayPictureBtn.Size = New System.Drawing.Size(21, 21)
         Me.UplayPictureBtn.TabIndex = 6
         Me.UplayPictureBtn.TabStop = False
+        Me.HelpToolTip.SetToolTip(Me.UplayPictureBtn, "Launch Uplay")
         '
         'AlertDot
         '
@@ -491,6 +499,7 @@ Partial Class Form1
         Me.HomePictureBtn.Size = New System.Drawing.Size(21, 21)
         Me.HomePictureBtn.TabIndex = 1
         Me.HomePictureBtn.TabStop = False
+        Me.HelpToolTip.SetToolTip(Me.HomePictureBtn, "Main Screen")
         '
         'SettingsLabel
         '
@@ -676,6 +685,7 @@ Partial Class Form1
         Me.RememberFormPositionChkBox.Size = New System.Drawing.Size(190, 21)
         Me.RememberFormPositionChkBox.TabIndex = 7
         Me.RememberFormPositionChkBox.Text = "Remember window position"
+        Me.HelpToolTip.SetToolTip(Me.RememberFormPositionChkBox, "If checked, GHOST Buster will restore its position on the screen when reopened.")
         Me.RememberFormPositionChkBox.UseVisualStyleBackColor = False
         '
         'TitleLabel
@@ -887,6 +897,8 @@ Partial Class Form1
         Me.DisableCloudSyncChkBox.Size = New System.Drawing.Size(202, 21)
         Me.DisableCloudSyncChkBox.TabIndex = 5
         Me.DisableCloudSyncChkBox.Text = "Disable Uplay cloud save sync"
+        Me.HelpToolTip.SetToolTip(Me.DisableCloudSyncChkBox, "If checked, GHOST Buster will disable Uplay cloud save synchronization before res" &
+        "toring a backup.")
         Me.DisableCloudSyncChkBox.UseVisualStyleBackColor = False
         '
         'FoldersContainer
@@ -961,6 +973,13 @@ Partial Class Form1
         Me.TasksTitleLabel.Size = New System.Drawing.Size(50, 21)
         Me.TasksTitleLabel.TabIndex = 8
         Me.TasksTitleLabel.Text = "Tasks"
+        '
+        'HelpToolTip
+        '
+        Me.HelpToolTip.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(84, Byte), Integer))
+        Me.HelpToolTip.ForeColor = System.Drawing.Color.White
+        Me.HelpToolTip.OwnerDraw = True
+        Me.HelpToolTip.UseFading = False
         '
         'Form1
         '
@@ -1083,4 +1102,5 @@ Partial Class Form1
     Friend WithEvents TasksContainer As Panel
     Friend WithEvents TasksTitleLabel As Label
     Friend WithEvents LatestBackupHelpLabel As Label
+    Friend WithEvents HelpToolTip As ToolTip
 End Class
