@@ -506,6 +506,19 @@
   <metadata name="UplayPictureBtn.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="UplayPictureBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAGOSURBVDhPrVQtTwNBFLyQkOCQGGx/QUVlNaohoVeLq6vFIJAEgUA2aUJS1TapqAGFqq86d6q6
+        +syJZWb79qPbhS4XJpns3XvzZnfvdl9mMJipi7uFur5/V2fmvT9Xa3CHeFeLUiHFY7AGFVjC5AZjR97J
+        scjTgIInr9iw4qoxrkBO0gNH8r4BC/ANbInNIZAowdBUcbWyC05a+TmPdX+hXqkTuz2QiBbAtIuR3/Qo
+        F+HmdqmuxFKb8nuGIpqlGhoWML7Upvjb5wg8MgiW3A7G2EQnid1NtWkIJPiDzElowo5YOchK9wI869hc
+        5TbmuJJcO4hPGD8Agu40NDMtGLeQrTtBM9OKcQsE/FvU1HTHuIWcTSf4j+0j0AoEupDnDxOO8pl6MESu
+        LTW//yh2KAS3nqDm6iUdBTShaS4pB64oENF46q/SJ/JsLEa75WUSKwdZ7acn/AuHYnMMfkMIvoKCU/ww
+        Df5HcBvY9jPEKVd2bZtJClDAEzEBYy0y3k9TIceqByN2tBdwiJjroRZZ9g3iKVYcx6Ks0QAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
   <metadata name="AlertDot.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

@@ -458,7 +458,7 @@ Partial Class Form1
         'UplayPictureBtn
         '
         Me.UplayPictureBtn.BackColor = System.Drawing.Color.Transparent
-        Me.UplayPictureBtn.Image = Global.GHOSTbackup.My.Resources.Resources.uplay
+        Me.UplayPictureBtn.Image = CType(resources.GetObject("UplayPictureBtn.Image"), System.Drawing.Image)
         Me.UplayPictureBtn.Location = New System.Drawing.Point(802, 20)
         Me.UplayPictureBtn.Name = "UplayPictureBtn"
         Me.UplayPictureBtn.Size = New System.Drawing.Size(21, 21)
