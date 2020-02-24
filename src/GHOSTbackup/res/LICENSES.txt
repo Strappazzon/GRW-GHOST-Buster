@@ -1,0 +1,5 @@
+Icons8 <https://icons8.com/>
+
+- Question (question.png) <https://icons8.com/icons/set/question>
+- Alert (alert_triangle.png) <https://icons8.com/icons/set/error>
+- Error (error.png) <https://icons8.com/icons/set/x>
