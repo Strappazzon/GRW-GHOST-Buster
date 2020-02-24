@@ -61,4 +61,8 @@ GRW-GHOST-Buster/
  └─ src                      # GHOST Buster source code
      ├─ BUILDING.md          # Building instructions
      ├─ GHOSTbackup.sln      # Visual Studio solution
+     │
+     └─ GHOSTbackup
+         └─ res              # GHOST Buster assets used in the UI
+             └─ LICENSES.txt # Assets licenses
 ```
