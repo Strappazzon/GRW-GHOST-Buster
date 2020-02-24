@@ -1,6 +1,6 @@
 # GHOST Buster Contribution Guidelines
 
-:tada: **Thanks for taking the time and effort to make GHOST Backup better!**
+:tada: **Thanks for taking the time and effort to make GHOST Buster better!**
 
 ## Code of Conduct
 
@@ -31,4 +31,34 @@ This project and everyone participating in it is governed by the [GHOST Buster C
 * Use the present tense ("Add feature" not "Added feature").
 * Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
 * Reference issues and pull requests after the first line.
-* When only changing the website or README file, start the commit message with `docs:` ("docs: Update index.html").
+* When changing the website, README, documentation, etc., start the commit message with `docs:` ("docs: Update index.html").
+
+## Project Structure
+
+### Repository Structure
+
+This is a brief description on how the repository files and folders are structured and what each one contains. It only contains the most relevant files and folders as most of them are brief and self-explanatory.
+
+```
+GRW-GHOST-Buster/
+ ├─ .gitignore               # Ignored files, directories and paths
+ ├─ version                  # File used by GHOST Buster updater
+ │
+ ├─ .github                  # GitHub files
+ │   ├─ CODE_OF_CONDUCT.md   # Code of Conduct
+ │   ├─ CONTRIBUTING.md      # Contributing guidelines
+ │   ├─ README.md            # Repository Readme file
+ │   └─ ISSUE_TEMPLATE       # Issue templates
+ │
+ ├─ script                   # Scripts
+ │   ├─ build.bat            # Build GHOST Buster from source
+ │   └─ jekyll-serve.bat     # Preview the website locally
+ │   
+ ├─ docs
+ │   ├─ _config.yml          # Jekyll configuration
+ │   └─ assets               # Website assets (images, CSS, ...)
+ │   
+ └─ src                      # GHOST Buster source code
+     ├─ BUILDING.md          # Building instructions
+     ├─ GHOSTbackup.sln      # Visual Studio solution
+```
