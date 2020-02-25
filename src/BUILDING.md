@@ -29,6 +29,6 @@ The compiled binary will be inside the `.\GHOSTbackup\bin\Debug` folder
 
 ## Building with build script
 
-1. Run `Build.bat` located in your cloned repository (In this case: `.\GRW-GHOST-Buster\src\Build.bat`).
+1. Run `build.bat` located in your cloned repository (In this case: `.\GRW-GHOST-Buster\script\build.bat`).
 
 The compiled binary will be inside the `.\GHOSTbackup\bin\Release` folder.
