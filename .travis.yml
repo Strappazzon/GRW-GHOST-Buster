@@ -1,0 +1,4 @@
+language: csharp
+solution: src/GHOSTbackup.sln
+script:
+  - msbuild /p:Configuration=Release src/GHOSTbackup.sln
