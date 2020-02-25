@@ -822,8 +822,10 @@ Public Class Form1
 
     Private Sub ExploreSavegamesLocBtn_Click(sender As Object, e As EventArgs) Handles ExploreSavegamesLocBtn.Click
         'Open the save games directory in Windows Explorer
-        If SavegamesLocTextBox.Text <> "" Then
+        If SavegamesLocTextBox.Text <> "" AndAlso Directory.Exists(SavegamesLocTextBox.Text) Then
             Process.Start("explorer.exe", SavegamesLocTextBox.Text)
+        Else
+            ShowAlert(64, "Wildlands save games folder no loger exists.")
         End If
     End Sub
 
@@ -842,8 +844,10 @@ Public Class Form1
 
     Private Sub ExploreBackupLocBtn_Click(sender As Object, e As EventArgs) Handles ExploreBackupLocBtn.Click
         'Open backup directory in Windows Explorer
-        If BackupLocTextBox.Text <> "" Then
+        If BackupLocTextBox.Text <> "" AndAlso Directory.Exists(BackupLocTextBox.Text) Then
             Process.Start("explorer.exe", BackupLocTextBox.Text)
+        Else
+            ShowAlert(64, "Backup folder no longer exists.")
         End If
     End Sub
 
