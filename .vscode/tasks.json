@@ -17,7 +17,8 @@
 			"command": "jekyll build -s \"./docs/\" -d \"./docs/_site/\"",
 			"group": "build",
 			"presentation": {
-				"reveal": "always"
+				"reveal": "always",
+				"panel": "dedicated"
 			}
 		},
 		{
@@ -26,7 +27,8 @@
 			"command": "jekyll serve -s \"./docs/\" -d \"./docs/_site/\"",
 			"group": "test",
 			"presentation": {
-				"reveal": "always"
+				"reveal": "always",
+				"panel": "dedicated"
 			}
 		}
 	]
