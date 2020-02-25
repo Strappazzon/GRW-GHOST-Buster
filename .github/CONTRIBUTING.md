@@ -49,13 +49,16 @@ This is a brief description on how the repository files and folders are structur
 GRW-GHOST-Buster/
  ├─ .gitignore               # Ignored files, directories and paths
  ├─ version                  # File used by GHOST Buster updater
- │
+ │   
  ├─ .github                  # GitHub files
  │   ├─ CODE_OF_CONDUCT.md   # Code of Conduct
  │   ├─ CONTRIBUTING.md      # Contributing guidelines
  │   ├─ README.md            # Repository Readme file
  │   └─ ISSUE_TEMPLATE       # Issue templates
- │
+ │   
+ ├─ .vscode                  # Visual Studio Code-related files
+ │   └─ tasks.json           # Visual Studio Code tasks
+ │   
  ├─ script                   # Scripts
  │   ├─ build.bat            # Build GHOST Buster from source
  │   └─ jekyll-serve.bat     # Preview the website locally
