@@ -127,6 +127,14 @@ _Click an image to enlarge it_
 
 You can [download](https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest) the latest version of GHOST Buster from the Releases page.
 
+## Contributing
+
+If you are interested in fixing issues and contributing directly to the code base, please see:
+
+* [Building GHOST Buster from its source code](https://github.com/Strappazzon/GRW-GHOST-Buster/blob/master/src/BUILDING.md)
+* [Contribution Guidelines](./CONTRIBUTING.md)
+* [Code of Conduct](./CODE_OF_CONDUCT.md)
+
 ## License
 
 ```
