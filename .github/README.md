@@ -40,7 +40,7 @@ I created this software to backup [Ghost Mode](https://web.archive.org/web/20190
 
 * Click the second **Browse...** button to select where Wildlands save games will be backed up to
   * Each backup will be stored inside a `yyyyMMdd HHMM` sub-folder
-  * If you change this folder in the future, the latest and second-to-last backup timestamps will be reset
+  * GHOST Buster will try to detect the latest backup time stamp and display it in the main screen
 
 * Specify the backup frequency and click the **Start Backup** button. To interrupt the process, click **Stop Backup**
   * You can specify a value between 1 and 60
@@ -92,6 +92,7 @@ I created this software to backup [Ghost Mode](https://web.archive.org/web/20190
 * **Write events to a log file**
   * _Disabled by default_
   * The program will log all events (such as Errors and Warnings) to a file
+  * The default log file path is `%LOCALAPPDATA%\GHOSTbackup\event.log`
 
 * **I'm not using the Uplay version of Wildlands**
   * _Disabled by default_

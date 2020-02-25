@@ -74,7 +74,7 @@ description: "Backup and restore Ghost Recon Wildlands save games."
 		<li>Click the second <kbd><img src="{{ '/assets/img/icon-37-2.png' | relative_url }}" width="14px" height="13px" alt="" draggable="false">Browse...</kbd> button to select where Wildlands save games will be backed up to</li>
 		<ul>
 			<li>Each backup will be stored inside a <code>yyyyMMdd HHMM</code> sub-folder</li>
-			<li>If you change this folder in the future, the latest and second-to-last backup timestamps will be reset</li>
+			<li>GHOST Buster will try to detect the latest backup time stamp and display it in the main screen</li>
 		</ul>
 
 		<li>Specify the backup frequency and click the <kbd><img src="{{ '/assets/img/icon-34-1.png' | relative_url }}" width="16px" height="14px" alt="" draggable="false">Start Backup</kbd> button. To interrupt the process, click <kbd><img src="{{ '/assets/img/icon-38-2.png' | relative_url }}" width="14px" height="15px" alt="" draggable="false">Stop Backup</kbd></li>
@@ -153,6 +153,7 @@ description: "Backup and restore Ghost Recon Wildlands save games."
 		<ul>
 			<li><em>Disabled by default</em></li>
 			<li>The program will log all events (such as Errors and Warnings) to a file</li>
+			<li>The default log file path is <code>%LOCALAPPDATA%\GHOSTbackup\event.log</code></li>
 		</ul>
 
 		<li><strong>I'm not using the Uplay version of Wildlands</strong></li>
