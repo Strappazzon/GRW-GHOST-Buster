@@ -19,6 +19,12 @@ This project and everyone participating in it is governed by the [GHOST Buster C
 * When reporting a crash include the stack trace from GHOST Buster (click the "**▼ Details**" button in the crash window). Include the stack trace in the issue in a [file attachment](https://help.github.com/en/github/managing-your-work-on-github/file-attachments-on-issues-and-pull-requests), or put it in a [PrivateBin](https://privatebin.net/) and provide the link to that paste.
 * All issues must be properly formatted with Markdown. If you don't know what that is, read [Mastering Markdown](https://guides.github.com/features/mastering-markdown/) before submitting an issue.
 
+### DO NOT post "+1" comments
+
+**DO NOT post "+1", "me too", or similar comments - they just add noise to an issue.**
+
+If you don't have any additional info/context to add but would like to indicate that you're affected by the issue, upvote the original issue by clicking its [+:smiley:] button and hitting :thumbsup: (+1) icon.
+
 ## Code Contribution
 
 * Make changes on a separate branch, not on the master branch, then send your changes as a pull request.
