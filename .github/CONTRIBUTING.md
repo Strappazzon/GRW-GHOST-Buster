@@ -58,6 +58,10 @@ See [docs/README.md](https://github.com/Strappazzon/GRW-GHOST-Buster/blob/master
 * When changing the website, README, documentation, etc., start the commit message with `docs:` ("docs: Update index.html").
 * When changing files outside the `src` folder, end the commit message with `[travis skip]` [to skip the Travis CI build](https://docs.travis-ci.com/user/customizing-the-build/#skipping-a-build) ("docs: Update README.md [travis skip]").
 
+## Licensing
+
+By contributing to this repository, you agree to license your work under the current license of this repository: In this case, MIT.
+
 ## Project Structure
 
 ### Repository Structure
