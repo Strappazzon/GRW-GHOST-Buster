@@ -1,3 +1,20 @@
+1.8.0
+ - UI: Added tooltips to check boxes and some buttons
+ - UI: Made some labels background transparent
+ - UI: Use ISO 8601 standard to represent the latest backup time on main screen
+ - UI: Moved the title labels in the main screen slightly to the left so they are aligned with the panels below
+ - Enhancement: The latest and second-to-last backup will be automatically detected from the current backup folder instead of saving their path and timestamp at every backup
+ - Enhancement: Added folder creation time to the backup restore dialog
+ - Enhancement: When browsing for save games folder select the path detected by GHOST Buster instead of attempting to select the Ubisoft's default one (C:\Program Files (x86)\Ubisoft\Ubisoft Game Launcher\savegames)
+ - Logger: Wildlands crashing or closing will be logged as INFO instead of WARNING
+ - Logger: The log message when a backup completes now will display how many save files have been copied
+ - Logger: Changed message when attempting to restore a backup from an empty folder
+ - If the save games/backup folder no longer exists, an alert will be shown instead of opening the Documents folder in Windows Explorer
+ - The log will scroll to the last line when switching to the Logs tab
+ - Changed the default log file path to %LOCALAPPDATA%\GHOSTbackup\event.log
+ - Changed some wording and fixed grammar and typos
+ - Refactoring
+
 1.7.0
  - UI: Reordered items inside "Tasks" container (Main screen)
  - UI: Changed the description and size of some items in the main screen
