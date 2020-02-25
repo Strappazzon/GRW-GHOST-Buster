@@ -1,0 +1,33 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Compile GHOST Buster",
+			"type": "shell",
+			"command": "\"${env:WinDir}\\Microsoft.NET\\Framework\\v4.0.30319\\msbuild.exe\" \".\\src\\GHOSTbackup.sln\" /t:Build /p:Configuration=Release",
+			"group": "build",
+			"presentation": {
+				"focus": true,
+				"panel": "new"
+			}
+		},
+		{
+			"label": "Build Website",
+			"type": "shell",
+			"command": "jekyll build -s \"./docs/\" -d \"./docs/_site/\"",
+			"group": "build",
+			"presentation": {
+				"reveal": "always"
+			}
+		},
+		{
+			"label": "Serve Website",
+			"type": "shell",
+			"command": "jekyll serve -s \"./docs/\" -d \"./docs/_site/\"",
+			"group": "test",
+			"presentation": {
+				"reveal": "always"
+			}
+		}
+	]
+}
