@@ -1,3 +1,6 @@
+1.8.1
+ - Enhancement: When lauching GHOST Buster, the latest backup timestamp will be detected asynchronously to avoid slow startup time if the backup folder contains a lot of backups
+
 1.8.0
  - UI: Added tooltips to check boxes and some buttons
  - UI: Made some labels background transparent
