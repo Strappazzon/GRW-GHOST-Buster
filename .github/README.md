@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://strappazzon.xyz/GRW-GHOST-Buster"><img alt="HTML Version" src="https://img.shields.io/badge/HTML%20Version-%23ff5f2f?style=flat-square&logo=HTML5&logoColor=%23ffffff"></a>
-  <a href="https://github.com/Strappazzon/GRW-GHOST-Buster/releases"><img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/Strappazzon/GRW-GHOST-Buster/total?color=%2399ca48&label=Downloads&logo=DocuSign&logoColor=%23ffffff&style=flat-square"></a>
+  <a href="https://github.com/Strappazzon/GRW-GHOST-Buster/releases"><img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/Strappazzon/GRW-GHOST-Buster/total?color=%23dd3333&label=Downloads&logo=DocuSign&logoColor=%23ffffff&style=flat-square"></a>
   <a href="https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest"><img alt="Latest Release" src="https://img.shields.io/github/v/release/Strappazzon/GRW-GHOST-Buster?color=%230077ee&include_prereleases&label=Latest%20Release&style=flat-square"></a>
   <a href="https://travis-ci.org/Strappazzon/GRW-GHOST-Buster/builds"><img alt="Build Status" src="https://img.shields.io/travis/Strappazzon/GRW-GHOST-Buster/ci?color=%23724cdb&label=Build&logo=travis-ci&logoColor=%23ffffff&style=flat-square"></a>
 </p>
