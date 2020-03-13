@@ -5,8 +5,8 @@ Imports System.Text
 Imports Microsoft.Win32
 
 Public Class Form1
-    Private ReadOnly VersionCode As Short = 15
-    Private ReadOnly Version As String = "1.8.0"
+    Private ReadOnly VersionCode As Short = 16
+    Private ReadOnly Version As String = "1.8.1"
     Private GamePath As String
     Private UplayPath As String
     Private IsGameRunning As Boolean = False
