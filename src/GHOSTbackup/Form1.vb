@@ -409,8 +409,8 @@ Public Class Form1
                         CustomMsgBox.BackupDirsDropdownCombo.SelectedIndex = 0
 
                         'Ask the user from which folder the backup should be restored from
-                        ShowMsgBox("{\rtf1 Restoring a backup will copy the save files over from the backup folder that you selected from the list below (which is inside " & BackupLocTextBox.Text.Replace("\", "\\") _
-                                       & ")\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & SavegamesLocTextBox.Text.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
+                        ShowMsgBox("{\rtf1 Restoring a backup will copy the save files over from the backup folder: " & BackupLocTextBox.Text.Replace("\", "\\") & "\\" & CustomMsgBox.BackupDirsDropdownCombo.SelectedItem.ToString().Substring(0, 13) _
+                                       & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & SavegamesLocTextBox.Text.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
                                        "Backup restore",
                                        MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
                         If CustomMsgBox.DialogResult = DialogResult.Yes Then

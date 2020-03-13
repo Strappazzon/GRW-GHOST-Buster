@@ -18,4 +18,9 @@
         MessageRTF.SelectionStart = MessageRTF.TextLength
         ActiveControl = CancelLabel
     End Sub
+
+    Private Sub BackupDirsDropdownCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles BackupDirsDropdownCombo.SelectedIndexChanged
+        MessageRTF.Rtf = "{\rtf1 Restoring a backup will copy the save files over from the backup folder: " & Form1.BackupLocTextBox.Text.Replace("\", "\\") & "\\" & BackupDirsDropdownCombo.SelectedItem.ToString().Substring(0, 13) _
+                         & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & Form1.SavegamesLocTextBox.Text.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}"
+    End Sub
 End Class
