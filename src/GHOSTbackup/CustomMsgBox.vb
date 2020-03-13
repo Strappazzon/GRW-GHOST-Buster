@@ -12,4 +12,10 @@
         MessageRTF.SelectionStart = MessageRTF.TextLength
         ActiveControl = CancelLabel
     End Sub
+
+    Private Sub MessageRTF_KeyDown(sender As Object, e As KeyEventArgs) Handles MessageRTF.KeyDown
+        MessageRTF.SelectionLength = 0
+        MessageRTF.SelectionStart = MessageRTF.TextLength
+        ActiveControl = CancelLabel
+    End Sub
 End Class
