@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿Imports System.ComponentModel
+Imports System.IO
 Imports System.Net
 Imports System.Text
 Imports Microsoft.Win32
@@ -11,6 +12,7 @@ Public Class Form1
     Private IsGameRunning As Boolean = False
     Private IsBackupRunning As Boolean = False
     Private ReadOnly BackupDirs As New List(Of String)
+    Private WithEvents DetectBackupTimestamp As New BackgroundWorker()
 
     Private Sub UpgradeSettings()
         'Migrate settings to the new version
@@ -454,42 +456,53 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub DetectBackupTimestamp()
+    Private Sub DetectBackupTimestamp_DoWork(sender As Object, e As DoWorkEventArgs) Handles DetectBackupTimestamp.DoWork
         'Detect and display the latest backup timestamp
-        If BackupLocTextBox.Text <> "" Then
-            'If the current backup directory is not empty
-            Try
-                'Loop through every directory in the current backup directory
-                For Each BackupDir In Directory.EnumerateDirectories(BackupLocTextBox.Text)
-                    'Get every save file inside each subdirectory
-                    Dim SavegamesList As String() = Directory.GetFiles(BackupDir, "*.save")
-                    If SavegamesList.Length > 0 Then
-                        'If a subdirectory contains save files add it to the list
-                        BackupDirs.Add(BackupDir)
-                    End If
-                Next
-
-                'If the current backup directory contains at least one valid backup
-                If BackupDirs.Count >= 1 Then
-                    'Display the timestamp of the last folder in the list
-                    LatestBackupHelpLabel.Text = "Latest backup:" & Environment.NewLine & Directory.GetCreationTime(BackupDirs.Item(BackupDirs.Count - 1)).ToString("yyyy-MM-dd HH:mm")
-                    LatestBackupHelpLabel.Location = New Point(300, 14)
-                Else
-                    Log("[INFO] No valid backup found inside the current backup directory.")
-
-                    LatestBackupHelpLabel.Text = "Latest backup: No backup yet."
-                    LatestBackupHelpLabel.Location = New Point(300, 22)
+        Try
+            'Loop through every directory in the current backup directory
+            For Each BackupDir In Directory.EnumerateDirectories(BackupLocTextBox.Text)
+                'Get every save file inside each subdirectory
+                Dim SavegamesList As String() = Directory.GetFiles(BackupDir, "*.save")
+                If SavegamesList.Length > 0 Then
+                    'If a subdirectory contains save files add it to the list
+                    BackupDirs.Add(BackupDir)
                 End If
-            Catch ex As Exception
-                Log("[ERROR] An error occurred while enumerating backup directories: " & ex.Message())
-                ShowAlert(48, "Unable to get latest backup timestamp. Please check the logs for more details.")
+            Next
 
-                LatestBackupHelpLabel.Text = "Latest backup: No backup yet."
-                LatestBackupHelpLabel.Location = New Point(300, 22)
-            Finally
-                'Empty backup directories list
-                BackupDirs.Clear()
-            End Try
+            'If the current backup directory contains at least one valid backup
+            If BackupDirs.Count >= 1 Then
+                'Store the timestamp of the last directory in the list
+                e.Result = Directory.GetCreationTime(BackupDirs.Item(BackupDirs.Count - 1)).ToString("yyyy-MM-dd HH:mm")
+            Else
+                'No valid directory found, set Result to Nothing
+                e.Result = Nothing
+            End If
+        Catch ex As Exception
+            'Store the exception message
+            e.Result = ex.Message()
+        Finally
+            'Empty backup directories list
+            BackupDirs.Clear()
+        End Try
+    End Sub
+
+    Private Sub DetectBackupTimestamp_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles DetectBackupTimestamp.RunWorkerCompleted
+        'An hack to match a valid timestamp because I couldn't get Regex.Match() to work
+        '//stackoverflow.com/a/29062802
+        If e.Result() <> Nothing AndAlso (Mid(e.Result().ToString(), 14, 1) = ":" And Mid(e.Result().ToString(), 5, 1) = "-" And Mid(e.Result().ToString(), 8, 1) = "-") Then
+            LatestBackupHelpLabel.Text = "Latest backup:" & Environment.NewLine & e.Result()
+            LatestBackupHelpLabel.Location = New Point(300, 14)
+        ElseIf e.Result() Is Nothing Then
+            Log("[INFO] No valid backup found inside the current backup directory.")
+
+            LatestBackupHelpLabel.Text = "Latest backup: No backup yet."
+            LatestBackupHelpLabel.Location = New Point(300, 22)
+        Else
+            Log("[ERROR] An error occurred while enumerating backup directories: " & e.Result())
+            ShowAlert(48, "Unable to get latest backup timestamp. Please check the logs for more details.")
+
+            LatestBackupHelpLabel.Text = "Latest backup: Error."
+            LatestBackupHelpLabel.Location = New Point(300, 22)
         End If
     End Sub
 
@@ -618,7 +631,12 @@ Public Class Form1
             BackupLocTextBox.Text = ""
         End If
 
-        DetectBackupTimestamp()
+        'Detect latest backup timestamp
+        If BackupLocTextBox.Text <> "" Then
+            LatestBackupHelpLabel.Text = "Latest backup: " & Environment.NewLine & "Please wait..."
+            LatestBackupHelpLabel.Location = New Point(300, 14)
+            DetectBackupTimestamp.RunWorkerAsync()
+        End If
 
         'Check for updates
         '//docs.microsoft.com/en-us/dotnet/api/system.net.downloadstringcompletedeventargs
@@ -837,7 +855,10 @@ Public Class Form1
                 BackupLocTextBox.Text = O.SelectedPath
                 Log("[INFO] Backup directory set to: " & O.SelectedPath)
 
-                DetectBackupTimestamp()
+                'Detect latest backup timestamp
+                LatestBackupHelpLabel.Text = "Latest backup: " & Environment.NewLine & "Please wait..."
+                LatestBackupHelpLabel.Location = New Point(300, 14)
+                DetectBackupTimestamp.RunWorkerAsync()
             End If
         End Using
     End Sub
