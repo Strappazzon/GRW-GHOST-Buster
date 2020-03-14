@@ -464,7 +464,7 @@ Partial Class Form1
         Me.UplayPictureBtn.Size = New System.Drawing.Size(21, 21)
         Me.UplayPictureBtn.TabIndex = 6
         Me.UplayPictureBtn.TabStop = False
-        Me.HelpToolTip.SetToolTip(Me.UplayPictureBtn, "Launch Uplay")
+        Me.HelpToolTip.SetToolTip(Me.UplayPictureBtn, "Launch Uplay.")
         '
         'AlertDot
         '
