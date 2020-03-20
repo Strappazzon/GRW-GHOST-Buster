@@ -2,3 +2,8 @@ language: csharp
 solution: src/GHOSTbackup.sln
 script:
   - msbuild /p:Configuration=Release src/GHOSTbackup.sln
+
+# Don't build dev branches
+branches:
+  except:
+  - /^dev-.*$/
