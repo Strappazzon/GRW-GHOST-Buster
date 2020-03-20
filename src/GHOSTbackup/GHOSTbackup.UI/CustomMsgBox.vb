@@ -1,0 +1,94 @@
+﻿Public Class CustomMsgBox
+    'Custom MessageBox Class
+    '//docs.microsoft.com/en-us/dotnet/api/system.windows.forms.form.dialogresult
+
+    Public Overloads Shared Sub Show(ByVal Message As String, ByVal Title As String, ByVal Buttons As MessageBoxButtons, ByVal Icon As MessageBoxIcon, Optional ByVal DefaultButton As MessageBoxDefaultButton = MessageBoxDefaultButton.Button2)
+        'The content of Message MUST be written in Rich Text Format
+        '//www.oreilly.com/library/view/rtf-pocket-guide/9781449302047/ch01.html
+        'When printing a string variable that is a path or otherwise contains any backward slashes they MUST be escaped with .Replace("\", "\\")
+        CustomMsgBox.MessageRTF.Rtf = Message
+        CustomMsgBox.TitleLabel.Text = Title
+
+        If Buttons = MessageBoxButtons.OK OrElse Buttons = MessageBoxButtons.OKCancel Then
+            '[OK] or [OK][Cancel] dialog
+            CustomMsgBox.RightButton.DialogResult = DialogResult.OK
+            CustomMsgBox.CancelLabel.DialogResult = DialogResult.Cancel
+            'Hide [Yes] button and make [No] button the [OK] button
+            CustomMsgBox.LeftButton.Visible = False
+            CustomMsgBox.RightButton.Text = "OK"
+            CustomMsgBox.AcceptButton = CustomMsgBox.RightButton
+            CustomMsgBox.CancelLabel = CustomMsgBox.CancelLabel
+
+            Select Case DefaultButton
+                Case MessageBoxDefaultButton.Button1
+                    '[OK] button
+                    CustomMsgBox.ActiveControl = CustomMsgBox.RightButton
+                Case MessageBoxDefaultButton.Button2, MessageBoxDefaultButton.Button3
+                    '[Cancel] button
+                    CustomMsgBox.ActiveControl = CustomMsgBox.CancelLabel
+            End Select
+        ElseIf Buttons = MessageBoxButtons.YesNo OrElse MessageBoxButtons.YesNoCancel Then
+            '[Yes][No] or [Yes][No][Cancel] dialog
+            CustomMsgBox.LeftButton.DialogResult = DialogResult.Yes
+            CustomMsgBox.RightButton.DialogResult = DialogResult.No
+            CustomMsgBox.CancelLabel.DialogResult = DialogResult.Cancel
+            'Show [Yes] button and make [OK] button the [No] button
+            CustomMsgBox.LeftButton.Visible = True
+            CustomMsgBox.RightButton.Text = "No"
+            CustomMsgBox.AcceptButton = CustomMsgBox.LeftButton
+            CustomMsgBox.CancelLabel = CustomMsgBox.CancelLabel
+
+            Select Case DefaultButton
+                Case MessageBoxDefaultButton.Button1
+                    '[Yes] button
+                    CustomMsgBox.ActiveControl = CustomMsgBox.LeftButton
+                Case MessageBoxDefaultButton.Button2
+                    '[No] button
+                    CustomMsgBox.ActiveControl = CustomMsgBox.RightButton
+                Case MessageBoxDefaultButton.Button3
+                    '[Cancel] button
+                    CustomMsgBox.ActiveControl = CustomMsgBox.CancelLabel
+            End Select
+        End If
+
+        Select Case Icon
+            Case MessageBoxIcon.Error, MessageBoxIcon.Hand, MessageBoxIcon.Stop
+                CustomMsgBox.IconPictureBox.Image = My.Resources.error_icon
+            Case MessageBoxIcon.Exclamation, MessageBoxIcon.Warning
+                CustomMsgBox.IconPictureBox.Image = My.Resources.alert_triangle
+            Case MessageBoxIcon.Question
+                CustomMsgBox.IconPictureBox.Image = My.Resources.question_icon
+        End Select
+
+        'Display the custom MessageBox as a modal
+        CustomMsgBox.ShowDialog()
+    End Sub
+
+    Private Sub CustomMsgBox_Closing(sender As Object, e As FormClosingEventArgs) Handles Me.Closing
+        'Hide the dropdown menu, if visible, to avoid displaying it again if not necessary
+        If BackupDirsDropdownCombo.Visible = True Then
+            BackupDirsDropdownCombo.Visible = False
+        End If
+    End Sub
+
+    Private Sub MessageRTF_MouseDown(sender As Object, e As MouseEventArgs) Handles MessageRTF.MouseDown
+        'An hack to disable the caret
+        '//www.codeproject.com/Answers/272781/How-to-hide-the-caret-in-RichTextBox#answer1
+        MessageRTF.SelectionLength = 0
+        MessageRTF.SelectionStart = MessageRTF.TextLength
+        ActiveControl = CancelLabel
+    End Sub
+
+    Private Sub MessageRTF_KeyDown(sender As Object, e As KeyEventArgs) Handles MessageRTF.KeyDown
+        'An hack to disable the caret
+        MessageRTF.SelectionLength = 0
+        MessageRTF.SelectionStart = MessageRTF.TextLength
+        ActiveControl = CancelLabel
+    End Sub
+
+    Private Sub BackupDirsDropdownCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles BackupDirsDropdownCombo.SelectedIndexChanged
+        'Update backup folder path when selecting which backup to restore
+        MessageRTF.Rtf = "{\rtf1 Restoring a backup will copy the save files over from the backup folder: " & Form1.BackupLocTextBox.Text.Replace("\", "\\") & "\\" & BackupDirsDropdownCombo.SelectedItem.ToString().Substring(0, 13) _
+                         & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & Form1.SavegamesLocTextBox.Text.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}"
+    End Sub
+End Class

@@ -28,7 +28,6 @@ Partial Class Form1
         Me.BrowseSavegamesLocBtn = New System.Windows.Forms.Button()
         Me.BrowseBackupLocBtn = New System.Windows.Forms.Button()
         Me.BackupLocTextBox = New System.Windows.Forms.TextBox()
-        Me.BackupTimer = New System.Windows.Forms.Timer(Me.components)
         Me.ExploreSavegamesLocBtn = New System.Windows.Forms.Button()
         Me.ExploreBackupLocBtn = New System.Windows.Forms.Button()
         Me.BackupLocHelpLabel = New System.Windows.Forms.Label()
@@ -47,7 +46,6 @@ Partial Class Form1
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExportLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfirmExitChkBox = New System.Windows.Forms.CheckBox()
-        Me.ProcessCheckTimer = New System.Windows.Forms.Timer(Me.components)
         Me.ConfirmStopBackupChkBox = New System.Windows.Forms.CheckBox()
         Me.CheckUpdatesChkBox = New System.Windows.Forms.CheckBox()
         Me.TopMenuContainer = New System.Windows.Forms.Panel()
@@ -167,9 +165,6 @@ Partial Class Form1
         Me.BackupLocTextBox.ReadOnly = True
         Me.BackupLocTextBox.Size = New System.Drawing.Size(321, 23)
         Me.BackupLocTextBox.TabIndex = 5
-        '
-        'BackupTimer
-        '
         '
         'ExploreSavegamesLocBtn
         '
@@ -404,9 +399,6 @@ Partial Class Form1
         Me.HelpToolTip.SetToolTip(Me.ConfirmExitChkBox, "If checked, GHOST Buster will show a confirmation dialog before exiting when the " &
         "backup process is running.")
         Me.ConfirmExitChkBox.UseVisualStyleBackColor = False
-        '
-        'ProcessCheckTimer
-        '
         '
         'ConfirmStopBackupChkBox
         '
@@ -1042,7 +1034,6 @@ Partial Class Form1
     Friend WithEvents BrowseSavegamesLocBtn As Button
     Friend WithEvents BrowseBackupLocBtn As Button
     Friend WithEvents BackupLocTextBox As TextBox
-    Friend WithEvents BackupTimer As Timer
     Friend WithEvents SavegamesLocHelpLabel As Label
     Friend WithEvents BackupLocHelpLabel As Label
     Friend WithEvents BackupBtn As Button
@@ -1053,7 +1044,6 @@ Partial Class Form1
     Friend WithEvents PlayGameBtn As Button
     Friend WithEvents LogTxtBox As TextBox
     Friend WithEvents ConfirmExitChkBox As CheckBox
-    Friend WithEvents ProcessCheckTimer As Timer
     Friend WithEvents ConfirmStopBackupChkBox As CheckBox
     Friend WithEvents BackupFreqHelpLabel As Label
     Friend WithEvents CheckUpdatesChkBox As CheckBox
