@@ -302,62 +302,11 @@ Public Class Form1
             Banner.Show(64, "You must quit Wildlands before restoring a backup.")
         ElseIf IsGameRunning = False And DisableCloudSyncChkBox.Checked = True Then
             'If the game is not running and "Let GHOST Buster disable cloud save synchronization" is checked
-            'Check if Uplay is running or not before editing its settings file
-            Dim UplayProc = Process.GetProcessesByName("upc")
-            If UplayProc.Count > 0 Then
-                CustomMsgBox.Show("{\rtf1 You must {\b quit Uplay before restoring a backup} because you chose to let GHOST Buster disable cloud save synchronization for you.}", "Cannot restore", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
-            Else
-                'Disable Uplay cloud save synchronization
-                Try
-                    Dim UplayYAMLPath As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\Ubisoft Game Launcher\settings.yml"
-                    Logger.Log("[INFO] Parsing and evaluating Uplay settings file: " & UplayYAMLPath)
-                    Dim ParsedUplayYAML As String = File.ReadAllText(UplayYAMLPath)
-
-                    If ParsedUplayYAML.Contains("syncsavegames: true") Then
-                        'Backup Uplay settings file
-                        Logger.Log("[INFO] Backing up Uplay settings file to " & UplayYAMLPath & ".bak")
-                        File.Copy(UplayYAMLPath, UplayYAMLPath & ".bak", False) 'Don't overwrite the backup file in the future
-
-                        'Set syncsavegames to false (Disable cloud save sync)
-                        Dim ReplacedUplayYAML As String = ParsedUplayYAML.Replace("syncsavegames: true", "syncsavegames: false")
-                        File.WriteAllText(UplayYAMLPath, ReplacedUplayYAML)
-                        Logger.Log("[INFO] Uplay cloud save synchronization disabled.")
-
-                        'Launch Uplay again...
-                        If UplayPath <> Nothing Then
-                            Process.Start(UplayPath & "Uplay.exe")
-                        End If
-
-                        '...and restore the backup
-                        RestoreBackup()
-                    ElseIf ParsedUplayYAML.Contains("syncsavegames: false") Then
-                        'Don't replace anything if syncsavegames is already set to false
-                        Logger.Log("[INFO] Uplay cloud synchronization is already disabled.")
-
-                        'Launch Uplay again...
-                        If UplayPath <> Nothing Then
-                            Process.Start(UplayPath & "Uplay.exe")
-                        End If
-
-                        '...and restore the backup
-                        RestoreBackup()
-                    End If
-
-                Catch ex As Exception
-                    'Don't let GHOST Buster disable cloud save sync until the user enables the setting again...
-                    DisableCloudSyncChkBox.Checked = False
-                    '...notify the user about the error
-                    Logger.Log("[ERROR] Parsing of ""settings.yml"" failed: " & ex.Message())
-                    CustomMsgBox.Show("{\rtf1 ""Let GHOST Buster disable cloud save synchronization"" setting has been {\b disabled because an error occurred} while trying to parse Uplay settings file." _
-                               & "\line\line Make sure to {\b DISABLE} cloud save synchronization from Uplay (Settings -> Untick ""Enable cloud save synchronization for supported games"") before launching Wildlands, otherwise the restored save games will be " _
-                               & "{\b OVERWRITTEN} with the old ones from the cloud!",
-                               "Parsing failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
-                    '...and proceed with the restore process anyway
-                    RestoreBackup()
-                End Try
-            End If
+            'Disable Uplay cloud save synchronization
+            DisableCloudSync()
         ElseIf IsGameRunning = False And DisableCloudSyncChkBox.Checked = False Then
             'If the game is not running and "Let GHOST Buster disable cloud save synchronization" is not checked
+            'Start the backup process
             RestoreBackup()
         End If
     End Sub
