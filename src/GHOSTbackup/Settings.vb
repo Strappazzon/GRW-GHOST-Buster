@@ -7,8 +7,6 @@ Public Class Settings
     Private Shared ReadOnly SettingsFile As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\ghostbackup.cfg"
     Private Shared ReadOnly ConfigParser = New FileIniDataParser()
 
-    '' TODO: LOGGING
-
     Public Shared Sub Init()
         If Not File.Exists(SettingsFile) Then
             'Create directory
