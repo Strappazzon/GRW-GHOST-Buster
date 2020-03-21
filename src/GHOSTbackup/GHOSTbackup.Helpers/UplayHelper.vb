@@ -75,4 +75,37 @@ Public Class UplayHelper
             RestoreBackup()
         End Try
     End Sub
+
+    Public Shared Sub EnableCloudSync()
+        Try
+            'Enable Uplay cloud save synchronization
+            Dim UplayYamlPath As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\Ubisoft Game Launcher\settings.yml"
+            Logger.Log("[INFO] Parsing and evaluating Uplay settings file: " & UplayYamlPath)
+            Dim ParsedUplayYaml As String = File.ReadAllText(UplayYamlPath)
+
+            If ParsedUplayYaml.Contains("syncsavegames: false") Then
+                'If cloud save sync is disabled
+                'Check if Uplay is running or not before editing its settings file
+                Dim UplayProc = Process.GetProcessesByName("upc")
+                If UplayProc.Count > 0 Then
+                    CustomMsgBox.Show("{\rtf1 GHOST Buster was unable to enable cloud save synchronization {\b because Uplay is running.} Please re-enable it manually from Uplay (Settings -> Tick ""Enable cloud save synchronization for supported games"").",
+                                      "Cannot enable cloud sync",
+                                      MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+                Else
+                    'Enable cloud save sync
+                    Dim ReplacedUplayYaml As String = ParsedUplayYaml.Replace("syncsavegames: false", "syncsavegames: true")
+                    File.WriteAllText(UplayYamlPath, ReplacedUplayYaml)
+                    Logger.Log("[INFO] Uplay cloud save synchronization re-enabled.")
+                End If
+            Else
+                'Don't replace anything
+                Logger.Log("[INFO] Uplay cloud synchronization is already enabled.")
+            End If
+        Catch ex As Exception
+            Logger.Log("[ERROR] Parsing of ""settings.yml"" failed: " & ex.Message())
+            CustomMsgBox.Show("{\rtf1 {\b An error occurred} while trying to parse Uplay settings file. Please re-enable cloud save synchronization manually from Uplay (Settings -> Tick ""Enable cloud save synchronization for supported games"").",
+                              "Parsing failed",
+                              MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+        End Try
+    End Sub
 End Class

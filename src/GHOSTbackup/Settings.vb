@@ -30,6 +30,7 @@ Public Class Settings
             ConfigData("Backup")("WhichBackupToRestore") = "0" '0=Latest, 1=Second-to-Last, 2=Let me decide
             'Uplay
             ConfigData("Uplay")("DisableCloudSyncOnRestore") = "False"
+            ConfigData("Uplay")("EnableCloudSyncOnQuit") = "True"
             ConfigData("Uplay")("NoUplay") = "False"
             ConfigData("Uplay")("WildlandsCustomPath") = Nothing
 
@@ -62,6 +63,7 @@ Public Class Settings
             Form1.WhichBackupDropdownCombo.SelectedIndex = WhichBackupToRestore()
             'Uplay
             Form1.DisableCloudSyncChkBox.Checked = DisableCloudSyncOnRestore()
+            Form1.EnableCloudSyncChkBox.Checked = EnableCloudSyncOnQuit()
             Form1.SettingsNonUplayVersionChkBox.Checked = NoUplay()
             Form1.SettingsCustomExeTextBox.Text = WildlandsCustomPath()
         End If
@@ -88,6 +90,7 @@ Public Class Settings
         ConfigData("Backup")("WhichBackupToRestore") = Form1.WhichBackupDropdownCombo.SelectedIndex
         'Uplay
         ConfigData("Uplay")("DisableCloudSyncOnRestore") = Form1.DisableCloudSyncChkBox.Checked
+        ConfigData("Uplay")("EnableCloudSyncOnQuit") = Form1.EnableCloudSyncChkBox.Checked
         ConfigData("Uplay")("NoUplay") = If(Form1.SettingsNonUplayVersionChkBox.Checked = True AndAlso Form1.SettingsCustomExeTextBox.Text <> "", Form1.SettingsNonUplayVersionChkBox.Checked, False)
         ConfigData("Uplay")("WildlandsCustomPath") = If(Form1.SettingsNonUplayVersionChkBox.Checked = True AndAlso Form1.SettingsCustomExeTextBox.Text <> "", Form1.SettingsCustomExeTextBox.Text, Nothing)
 
@@ -233,6 +236,17 @@ Public Class Settings
             Return Boolean.Parse(Value)
         Else
             Return False
+        End If
+    End Function
+
+    Public Shared Function EnableCloudSyncOnQuit() As Boolean
+        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+
+        Dim Value As String = ConfigData("Uplay")("EnableCloudSyncOnQuit")
+        If Value <> Nothing Then
+            Return Boolean.Parse(Value)
+        Else
+            Return True
         End If
     End Function
 

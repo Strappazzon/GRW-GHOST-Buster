@@ -79,10 +79,22 @@ Public Class Form1
             If CustomMsgBox.DialogResult = DialogResult.No OrElse CustomMsgBox.DialogResult = DialogResult.Cancel Then
                 e.Cancel = True
             Else
+                'Save settings before quitting
                 Settings.Save()
+
+                'Enable Uplay cloud save synchronization again before quitting
+                If DisableCloudSyncChkBox.Checked = True AndAlso (EnableCloudSyncChkBox.Enabled = True And EnableCloudSyncChkBox.Checked = True) Then
+                    EnableCloudSync()
+                End If
             End If
         Else
+            'Save settings before quitting
             Settings.Save()
+
+            'Enable Uplay cloud save synchronization again before quitting
+            If DisableCloudSyncChkBox.Checked = True AndAlso (EnableCloudSyncChkBox.Enabled = True And EnableCloudSyncChkBox.Checked = True) Then
+                EnableCloudSync()
+            End If
         End If
     End Sub
 
@@ -175,13 +187,16 @@ Public Class Form1
 
     Private Sub CloseAlertContainerIcon_Click(sender As Object, e As EventArgs) Handles CloseAlertContainerIcon.Click
         AlertContainer.Visible = False
+        'Move logo and Play button
         LogoBigPictureBox.Location = New Point(12, 85)
         PlayGameBtn.Location = New Point(12, 150)
+        'Move checkboxes
         ConfirmExitChkBox.Location = New Point(14, 230)
         ConfirmStopBackupChkBox.Location = New Point(14, 255)
         DisableCloudSyncChkBox.Location = New Point(14, 280)
-        CheckUpdatesChkBox.Location = New Point(14, 305)
-        RememberFormPositionChkBox.Location = New Point(14, 330)
+        EnableCloudSyncChkBox.Location = New Point(14, 305)
+        CheckUpdatesChkBox.Location = New Point(14, 330)
+        RememberFormPositionChkBox.Location = New Point(14, 355)
     End Sub
 
     Private Sub PlayGameBtn_Click(sender As Object, e As EventArgs) Handles PlayGameBtn.Click
@@ -207,8 +222,18 @@ Public Class Form1
     Private Sub DisableCloudSyncChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles DisableCloudSyncChkBox.CheckedChanged
         If DisableCloudSyncChkBox.Checked = True Then
             DisableCloudSyncChkBox.ForeColor = Color.White
+            EnableCloudSyncChkBox.Enabled = True
         Else
             DisableCloudSyncChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            EnableCloudSyncChkBox.Enabled = False
+        End If
+    End Sub
+
+    Private Sub EnableCloudSyncChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles EnableCloudSyncChkBox.CheckedChanged
+        If EnableCloudSyncChkBox.Checked = True Then
+            EnableCloudSyncChkBox.ForeColor = Color.White
+        Else
+            EnableCloudSyncChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
         End If
     End Sub
 
