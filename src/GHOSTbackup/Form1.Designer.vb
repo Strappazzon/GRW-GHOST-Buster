@@ -394,9 +394,9 @@ Partial Class Form1
         Me.ConfirmExitChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ConfirmExitChkBox.Location = New System.Drawing.Point(14, 230)
         Me.ConfirmExitChkBox.Name = "ConfirmExitChkBox"
-        Me.ConfirmExitChkBox.Size = New System.Drawing.Size(212, 21)
+        Me.ConfirmExitChkBox.Size = New System.Drawing.Size(238, 21)
         Me.ConfirmExitChkBox.TabIndex = 3
-        Me.ConfirmExitChkBox.Text = "Confirm exit (if backup is active)"
+        Me.ConfirmExitChkBox.Text = "Confirm exit when backup is running"
         Me.HelpToolTip.SetToolTip(Me.ConfirmExitChkBox, "If checked, GHOST Buster will show a confirmation dialog before exiting when the " &
         "backup process is running.")
         Me.ConfirmExitChkBox.UseVisualStyleBackColor = False
@@ -887,9 +887,9 @@ Partial Class Form1
         Me.DisableCloudSyncChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.DisableCloudSyncChkBox.Location = New System.Drawing.Point(14, 280)
         Me.DisableCloudSyncChkBox.Name = "DisableCloudSyncChkBox"
-        Me.DisableCloudSyncChkBox.Size = New System.Drawing.Size(202, 21)
+        Me.DisableCloudSyncChkBox.Size = New System.Drawing.Size(267, 21)
         Me.DisableCloudSyncChkBox.TabIndex = 5
-        Me.DisableCloudSyncChkBox.Text = "Disable Uplay cloud save sync"
+        Me.DisableCloudSyncChkBox.Text = "Disable Uplay cloud save sync on restore"
         Me.HelpToolTip.SetToolTip(Me.DisableCloudSyncChkBox, "If checked, GHOST Buster will disable Uplay cloud save synchronization before res" &
         "toring a backup.")
         Me.DisableCloudSyncChkBox.UseVisualStyleBackColor = False
