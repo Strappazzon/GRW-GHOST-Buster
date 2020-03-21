@@ -1,36 +1,11 @@
 ﻿Imports System.IO
 Imports GHOSTbackup.BackupHelper
-Imports GHOSTbackup.Settings
 Imports GHOSTbackup.Updater
 Imports GHOSTbackup.UplayHelper
 Imports GHOSTbackup.Var
 Imports GHOSTbackup.WildlandsHelper
 
 Public Class Form1
-    Private Sub LoadFormPosition()
-        If My.Settings.RememberFormPosition = True Then
-            Dim FormLocation As Point = My.Settings.WindowLocation
-
-            If (FormLocation.X = -1) And (FormLocation.Y = -1) Then
-                Return
-            End If
-
-            Dim LocationVisible As Boolean = False
-            For Each S As Screen In Screen.AllScreens
-                If S.Bounds.Contains(FormLocation) Then
-                    LocationVisible = True
-                End If
-            Next
-
-            If Not LocationVisible Then
-                Return
-            End If
-
-            StartPosition = FormStartPosition.Manual
-            Location = FormLocation
-        End If
-    End Sub
-
     Private Sub HelpToolTip_Draw(sender As Object, e As DrawToolTipEventArgs) Handles HelpToolTip.Draw
         'Draw tooltip with custom colors
         e.DrawBackground()
@@ -39,14 +14,29 @@ Public Class Form1
         e.DrawText()
     End Sub
 
+    Private Sub LoadFormPosition()
+        If Settings.RememberFormPosition = True Then
+            Dim FormLocation As Point = Settings.FormPosition
+
+            If FormLocation.X <> -1 Or FormLocation.Y <> -1 Then
+                Dim LocationVisible As Boolean = False
+                For Each S As Screen In Screen.AllScreens
+                    If S.Bounds.Contains(FormLocation) Then
+                        LocationVisible = True
+                    End If
+                Next
+
+                If LocationVisible Then
+                    StartPosition = FormStartPosition.Manual
+                    Location = FormLocation
+                End If
+            End If
+        End If
+    End Sub
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Migrate settings from the old version
-        UpgradeSettings()
-
         'Load settings and set defaults
-        LoadSettings()
-
-        'Set window position
+        Settings.Init()
         LoadFormPosition()
 
         'Start logging session
@@ -89,10 +79,10 @@ Public Class Form1
             If CustomMsgBox.DialogResult = DialogResult.No OrElse CustomMsgBox.DialogResult = DialogResult.Cancel Then
                 e.Cancel = True
             Else
-                SaveSettings()
+                Settings.Save()
             End If
         Else
-            SaveSettings()
+            Settings.Save()
         End If
     End Sub
 
@@ -430,7 +420,6 @@ Public Class Form1
             O.Description = "Select where you want to save the event log file to."
             If O.ShowDialog = DialogResult.OK Then
                 SettingsLogFilePathTextBox.Text = O.SelectedPath & "\event.log"
-                My.Settings.LogFilePath = SettingsLogFilePathTextBox.Text
                 Logger.Log("[INFO] Log file path set to: " & SettingsLogFilePathTextBox.Text)
             End If
         End Using
@@ -465,7 +454,6 @@ Public Class Form1
             O.Title = "Select Wildlands executable"
             If O.ShowDialog = DialogResult.OK Then
                 SettingsCustomExeTextBox.Text = O.FileName
-                My.Settings.CustomExeLoc = SettingsCustomExeTextBox.Text
                 Logger.Log("[INFO] Custom Wildlands executable set: " & O.FileName)
             End If
         End Using

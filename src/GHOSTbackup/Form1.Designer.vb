@@ -234,7 +234,7 @@ Partial Class Form1
         Me.BackupFreqUpDown.Size = New System.Drawing.Size(183, 25)
         Me.BackupFreqUpDown.TabIndex = 5
         Me.BackupFreqUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.BackupFreqUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.BackupFreqUpDown.Value = New Decimal(New Integer() {5, 0, 0, 0})
         '
         'StopBtn
         '
