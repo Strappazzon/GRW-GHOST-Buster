@@ -4,7 +4,9 @@
         If AlertType = 48 Then
             'Warning
             Form1.AlertIcon.Image = My.Resources.alert
-            Form1.AlertDot.Visible = True
+            If Form1.TitleLabel.Text <> "Logs" Then
+                Form1.AlertDot.Visible = True
+            End If
         ElseIf AlertType = 64 Then
             'Info
             Form1.AlertIcon.Image = My.Resources.info
