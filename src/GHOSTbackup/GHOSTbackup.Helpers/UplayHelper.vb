@@ -66,10 +66,10 @@ Public Class UplayHelper
             Form1.DisableCloudSyncChkBox.Checked = False
 
             Logger.Log("[ERROR] Parsing of ""settings.yml"" failed: " & ex.Message())
-            CustomMsgBox.Show("{\rtf1 ""Let GHOST Buster disable cloud save synchronization"" setting has been {\b disabled because an error occurred} while trying to parse Uplay settings file." _
-                       & "\line\line Make sure to {\b DISABLE} cloud save synchronization from Uplay (Settings -> Untick ""Enable cloud save synchronization for supported games"") before launching Wildlands, otherwise the restored save games will be " _
-                       & "{\b OVERWRITTEN} with the old ones from the cloud!",
-                       "Parsing failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+            CustomMsgBox.Show("{\rtf1 ""Let GHOST Buster disable cloud save synchronization"" setting has been {\b disabled because an error occurred} while trying to parse Uplay settings file. \line\line Make sure to {\b DISABLE} cloud save " _
+                              & "synchronization from Uplay (Settings -> Untick ""Enable cloud save synchronization for supported games"") before launching Wildlands, otherwise the restored save games will be {\b OVERWRITTEN} with the old ones from the cloud!",
+                              "Parsing failed",
+                              MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
 
             'Start the restore process anyway
             RestoreBackup()

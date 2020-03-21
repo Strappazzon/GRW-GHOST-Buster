@@ -194,9 +194,9 @@ Public Class BackupHelper
                         'If at least one directory contains save files
                         'Ask the user before restoring the latest backup
                         CustomMsgBox.Show("{\rtf1 Restoring a backup will copy the save files over from the backup folder: " & BackupDirs.Item(BackupDirs.Count - 1).Replace("\", "\\") & "\line\line and will {\b OVERWRITE} the existing save files inside the " _
-                                   & "game folder: " & Form1.SavegamesLocTextBox.Text.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
-                                   "Backup restore",
-                                   MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+                                          & "game folder: " & Form1.SavegamesLocTextBox.Text.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
+                                          "Backup restore",
+                                          MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
                         If CustomMsgBox.DialogResult = DialogResult.Yes Then
                             Dim SavegamesList As String() = Directory.GetFiles(BackupDirs.Item(BackupDirs.Count - 1), "*.save")
                             For Each F As String In SavegamesList
@@ -233,9 +233,9 @@ Public Class BackupHelper
                         'Restore second-to-last backup if at least two valid backup directories exist
                         'Ask the user before restoring the second-to-last backup
                         CustomMsgBox.Show("{\rtf1 Restoring a backup will copy the save files over from the backup folder: " & BackupDirs.Item(BackupDirs.Count - 2).Replace("\", "\\") & "\line\line and will {\b OVERWRITE} the existing save files inside the " _
-                                   & "game folder: " & Form1.SavegamesLocTextBox.Text.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
-                                   "Backup restore",
-                                   MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+                                          & "game folder: " & Form1.SavegamesLocTextBox.Text.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
+                                          "Backup restore",
+                                          MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
                         If CustomMsgBox.DialogResult = DialogResult.Yes Then
                             Dim SavegamesList As String() = Directory.GetFiles(BackupDirs.Item(BackupDirs.Count - 2), "*.save")
                             For Each F As String In SavegamesList
@@ -252,10 +252,10 @@ Public Class BackupHelper
                         'If only one valid backup directory exists ask the user to restore the latest backup instead
                         'Ask the user before restoring the latest backup
                         CustomMsgBox.Show("{\rtf1 You chose to restore the second-to-last backup but {\b it doesn't exist.} Do you want to restore the latest backup instead? This will copy the save files over from the backup folder: " _
-                                   & BackupDirs.Item(BackupDirs.Count - 1).Replace("\", "\\") & "\line\line And will {\b OVERWRITE} the existing save files inside the game folder: " & Form1.SavegamesLocTextBox.Text.Replace("\", "\\") _
-                                   & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
-                                   "Backup doesn't exist",
-                                   MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+                                          & BackupDirs.Item(BackupDirs.Count - 1).Replace("\", "\\") & "\line\line And will {\b OVERWRITE} the existing save files inside the game folder: " & Form1.SavegamesLocTextBox.Text.Replace("\", "\\") _
+                                          & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
+                                          "Backup doesn't exist",
+                                          MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
                         If CustomMsgBox.DialogResult = DialogResult.Yes Then
                             Dim SavegamesList As String() = Directory.GetFiles(BackupDirs.Item(BackupDirs.Count - 1), "*.save")
                             For Each F As String In SavegamesList
@@ -304,9 +304,9 @@ Public Class BackupHelper
 
                         'Ask the user from which folder the backup should be restored from
                         CustomMsgBox.Show("{\rtf1 Restoring a backup will copy the save files over from the backup folder: " & Form1.BackupLocTextBox.Text.Replace("\", "\\") & "\\" & CustomMsgBox.BackupDirsDropdownCombo.SelectedItem.ToString().Substring(0, 13) _
-                                   & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & Form1.SavegamesLocTextBox.Text.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
-                                   "Backup restore",
-                                   MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+                                          & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & Form1.SavegamesLocTextBox.Text.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}",
+                                          "Backup restore",
+                                          MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
                         If CustomMsgBox.DialogResult = DialogResult.Yes Then
                             'Store the selected backup subdirectory and truncate "Created at..." with .Substring(startIndex, lenght)
                             Dim BackupSubDir = Form1.BackupLocTextBox.Text & "\" & CustomMsgBox.BackupDirsDropdownCombo.SelectedItem.ToString().Substring(0, 13)
