@@ -25,7 +25,7 @@ Public Class Settings
             ConfigData("Logging")("LogFilePath") = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\event.log"
             'Backup
             ConfigData("Backup")("SavegamesDirectory") = Nothing
-            ConfigData("Backup")("BackupDirectory") = Nothing
+            ConfigData("Backup")("BackupDirectory") = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\Savegames"
             ConfigData("Backup")("BackupFrequency") = "5"
             ConfigData("Backup")("WhichBackupToRestore") = "0" '0=Latest, 1=Second-to-Last, 2=Let me decide
             'Uplay
@@ -37,8 +37,13 @@ Public Class Settings
             File.WriteAllText(SettingsFile, ConfigData.ToString())
 
             'Set default settings
-            Form1.SettingsLogFilePathTextBox.Text = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\event.log"
+            'Backup
+            'Create default backup directory
+            Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\Savegames")
+            Form1.BackupLocTextBox.Text = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\Savegames"
             Form1.WhichBackupDropdownCombo.SelectedIndex = 0
+            'Logging
+            Form1.SettingsLogFilePathTextBox.Text = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\event.log"
         Else
             'Load settings
 
