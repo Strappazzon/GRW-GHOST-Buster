@@ -1,0 +1,13 @@
+Icons8
+https://icons8.com/
+https://icons8.com/license
+
+- Alert (alert_triangle.png) https://icons8.com/icons/set/error
+- Changelog (changelog.png) https://icons8.com/icons/set/update-file
+- Close (close.png) https://icons8.com/icons/set/delete
+- Error (error.png) https://icons8.com/icons/set/x
+- Home (Home_Icon.png, Home_Icon_White.png) https://icons8.com/icons/set/home
+- License (license.png) https://icons8.com/icons/set/license
+- Question, Support (question.png, support.png) https://icons8.com/icons/set/question
+- Uplay (uplay.png) https://icons8.com/icons/set/uplay
+- Website (website.png) https://icons8.com/icons/set/globe
