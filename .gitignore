@@ -29,10 +29,10 @@
 [Rr]es
 [Rr]esources
 *.ico
-
 !Icon_256.ico
+
 .release
 TODO.txt
 
 # Jekyll
-_site
+**/_site
