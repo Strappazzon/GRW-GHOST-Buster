@@ -26,10 +26,16 @@
 [Tt]humbs.db
 
 # Custom application assets/resources
-[Rr]es
-[Rr]esources
-*.ico
-!Icon_256.ico
+!**/[Rr]es
+**/[Rr]es/GRW/
+**/[Rr]es/bg.*
+**/[Rr]es/logo_*
+!**/[Rr]esources
+**/[Rr]esources/GRW/
+**/[Rr]esources/bg.*
+**/[Rr]esources/logo_*
+**/*.ico
+**/!Icon_256.ico
 
 .release
 TODO.txt

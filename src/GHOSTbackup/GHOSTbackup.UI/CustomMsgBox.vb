@@ -53,11 +53,11 @@
 
         Select Case Icon
             Case MessageBoxIcon.Error, MessageBoxIcon.Hand, MessageBoxIcon.Stop
-                CustomMsgBox.IconPictureBox.Image = My.Resources.error_icon
+                CustomMsgBox.IconPictureBox.Image = My.Resources.CustomMsgBox_Error
             Case MessageBoxIcon.Exclamation, MessageBoxIcon.Warning
-                CustomMsgBox.IconPictureBox.Image = My.Resources.alert_triangle
+                CustomMsgBox.IconPictureBox.Image = My.Resources.CustomMsgBox_Warning
             Case MessageBoxIcon.Question
-                CustomMsgBox.IconPictureBox.Image = My.Resources.question_icon
+                CustomMsgBox.IconPictureBox.Image = My.Resources.CustomMsgBox_Question
         End Select
 
         'Display the custom MessageBox as a modal

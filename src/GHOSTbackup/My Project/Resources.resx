@@ -117,63 +117,47 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="home" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAABGdBTUEAALGPC/xhBQAAARxJREFUOE9j
-        GFAQvOa/KpRJOfDc9p89dNX/pUD8H4jXADEnVIo8ELX0vyDQkANQA2H4GBCLQpWQBoAaFYH4OtQgdHyb
-        5OAIX/HfFKjxBZpB6PhN2Mr/1lAt+EHI6v/+QA1f0QzAhb8DDQ6DasUOgApSgQp/o2kkhP8AHZILNQIJ
-        /P/PCDSwAYsGojHQ4IkNDf+ZwOaBGEDB1eiKyMSrwQaD0iHIlUCbOoCCR9AUEYuPgPSDzAGZB3YtDJAb
-        BCB9UCMwAQ5DLwDFXWAYxEeTJ8vQ/VBpMADx0eRHDcVjKFBBEboGIN4ElQYDEB9NHoSLoNKYIHbRf26g
-        rTFARWkgDEx7KUFr/8tApcEgYvl/WZA4TA1IPUgfVHpIAQYGALJ2csM/VCokAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="home_white" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAABGdBTUEAALGPC/xhBQAAAPZJREFUOE/t
-        kr0OwVAYhqtLI50MNgaDSzBZ7TaTEZulV9DR6iJMTG6AQcw2gxswWMVAUu97ztdotRqnlYjEkzxJv783
-        TVPrqwRB0JTH4iDMgTNIFrAso3wgoALXTIuwhVVZMQOHDbhnSgoHaPY5cNCCR15ncIJtOckGi1145tUb
-        XGBPTtPBwhBeuW3ADY4l4gGaJehzowBTaIeBNpyz+wGYYzOU/yHfcgI3MA+84z1zHPW2IdLMgy8RSTjU
-        OzF2sBOR9TPGoSsZK1jrdox/6Asw9PROjKWMFax1O4Yn4yQYurAPR+IA1mSsQF2XfrjDfVfGP4Vl3QHu
-        CVHvErecEwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="alert" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAatJREFUSEvd
-        VTtOw0AUfDegCgo1n4bfBcJB6IhA3CahhNyA2IBEoOcABCq4Q5ILxBLFMmPGdqxdfyIqGGlkv5l9z+vn
-        3bX9f7gH23SRnYMj8EnkPbWOhq0Pd29bKvQFOnAGTkXeU6M34liltYOL7QSJC3AJDtytHcjKQQ3jhvCT
-        dCxyZNVDxZn0Ae5IroS7s12NZU5PchhqC2fOhA3JjeBY5czBrmQfMNnzJV5/W1IJbmynpMIS9CYJ/BtJ
-        ZWi18KMNJHmA90Iq9KBvwhr+6oJ5AcNhJvuSPDQ+ILLDtEZsfUkFYLA9M4VBsDipMAj482CbYDyDrwqD
-        aPkA7pOJwgIQuUOnCoNgcVJhEPDfwUeFBSC2adElqTAI+IuqFvFscaFd2xbIPU5rRHYmqUC+TLHUJHmA
-        X7+KxnaV1qg6BGGwTQk3jaQS4FW2CLPfS3Nju5bkY+Wo+ATXPSqYU39UEJhBcdhVvMkqNHMWbz7sMnAg
-        yNnwlYd40JGsHNTUcxbm2HbFMyChy+WGa/bDYZE3kW38+eGg57jWt6UOSO6gSF+FJil5T+03v8w/ArNv
-        J+tsG5avb24AAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="info" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAAg1JREFUSEu1lTtOw0AQhvcGqUBQ82h4XSAchA4E4gQhONwBKIFj8Og5AI8K7hCC
-        bBOlSCQK8/8za68Xr4kjheLTrMez/2+vZ9cmy7J/JZicJ25wMlBOE4XjLmJvtGC66QHGV8jfCRwzx3t5
-        rURw9ik0MViyot8gAwPwosQfNsd711I7o0HbikwQL00n2bZ5S2w0l17YGta2mxpAnJOSd9P7XLdiJfHC
-        ADHFnOEacm9gAoPdaQZ4VXmad9CCgROLfuEMaNqycwYQXw4b9Eb8qFzziT45BHIDJ3xs0WtnkL/JBBo3
-        pjMKGrAj8NGw5iKMSXl0PFpczhkgyjf5hsFi1SBK93ETnZHuyJMVlMRCnHlsIpeZbnxYNWC7SSuWxYFb
-        HuIvEfENOKfPZaoaRMktDF7lqeqpLlGVZ2jdVw10lz6XCkPUGKARHE/IPYQMsETSohzXETDwxEHdEvFs
-        0e2/5Qt4TDPYQC4zUXxUNSjaFK3mtV5ZLGAQ5bVfiOk5xjVtyo2mnYQtL5sm723XMVGyZ9FruVcYrCCO
-        6zeaf1TwbGkVBmw/Z6JoS+YGPCo454+jonrYvembWIPym3i54aoVb3TY0QARhXr+wwjfRHYoxHhPEAPm
-        uOZjqeWcxv8DLVyW9dSfCo+QPiL3CZCx/nBYw1rOmdGg9MuMD0UIO1TgmDl0i9SwdprBfxFMzo/M/ACw
-        J5rIuUpyUgAAAABJRU5ErkJggg==
-</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="alert_triangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\alert_triangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Home_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Home_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="error_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Home_Icon_White" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Home_Icon_White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="question_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\res\question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Banner_Alert_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Banner_Alert_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Banner_Info_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Banner_Info_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="About_Changelog_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\changelog.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="About_License_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\license.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="About_Support_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\support.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="About_Web_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\website.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Banner_Close_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CustomMsgBox_Error" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CustomMsgBox_Question" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CustomMsgBox_Warning" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alert_triangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alert_dot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Uplay_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\uplay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

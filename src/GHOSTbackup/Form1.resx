@@ -496,29 +496,9 @@
   <metadata name="UplayPictureBtn.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="UplayPictureBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAABGdBTUEAALGPC/xhBQAAAY5JREFUOE+t
-        VC1PA0EUvJCQ4JAYbH9BRWU1qiGhV4urq8UgkASBQDZpQlLVNqmoAYWqrzp3qrr6zIllZvv2o9uFLhcm
-        mezde/Nmd+92X2YwmKmLu4W6vn9XZ+a9P1drcId4V4tSIcVjsAYVWMLkBmNH3smxyNOAgiev2LDiqjGu
-        QE7SA0fyvgEL8A1sic0hkCjB0FRxtbILTlr5OY91f6FeqRO7PZCIFsC0i5Hf9CgX4eZ2qa7EUpvye4Yi
-        mqUaGhYwvtSm+NvnCDwyCJbcDsbYRCeJ3U21aQgk+IPMSWjCjlg5yEr3Ajzr2FzlNua4klw7iE8YPwCC
-        7jQ0My0Yt5CtO0Ez04pxCwT8W9TUdMe4hZxNJ/iP7SPQCgS6kOcPE47ymXowRK4tNb//KHYoBLeeoObq
-        JR0FNKFpLikHrigQ0Xjqr9In8mwsRrvlZRIrB1ntpyf8C4dicwx+Qwi+goJT/DAN/kdwG9j2M8QpV3Zt
-        m0kKUMATMQFjLTLeT1Mhx6oHI3a0F3CImOuhFln2DeIpVhzHoqzRAAAAAElFTkSuQmCC
-</value>
-  </data>
   <metadata name="AlertDot.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="AlertDot.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAAIFJREFUKFOd0k0OQDAQhuGuOIQz4l4u0oUFzsKCVX1v04rIICyepJmfppmpC53L
-        CmnEy5xwJkYu1uXiSgYJN8hRc9z8VJyNUtJQn4Jvahp4p5W0eBq2S/DJ+rVh/vUk5mwlLQ0NpTAyq+Bs
-        kjhWvC2OC4/FZSywlV6WhDOx9DWc2wG5A18/gc7j0gAAAABJRU5ErkJggg==
-</value>
-  </data>
   <metadata name="AboutLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -537,59 +517,15 @@
   <metadata name="LicenseLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="LicenseLabel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAUBJREFUOE+1
-        k88qRGEYh4+FveIC1CQ7LDDKxgVYEMYwkdUo3IZyB7Kz8t+MZMGCsnABoxE7m9lTykTG63n1K2fONycb
-        fvX0/Xmf93xfZ85E/5LZPctMH9rm1JH1OD7P71q3yr+Hho2ZAzP4EMbeusrpQSogn0LdmxL4ntfmpYeR
-        kGx0HuFd8xPpYSguSXJeNR4Xt6yd8dzX3HJRenPmdqwL4U5NjYmydSCPe3Nu31bZ+1StOlmyTrX9hDc/
-        EpP8pO0WzY7Ph9XWHB7ST7EWk59ic6fGz9onvXWQrhJNcS6lpcSsDakK91BSk1OGB6i4IzsMwgL4hzPA
-        Oxhj/H4A72GUqw8yb7Cflx4GwU/xpmvwm5zBBVTgBrx2Kz0Mp2T9BKQXqPt/grEX3uCZm+TYG5KeHuQ1
-        KGrpn/gKLGv5l4miL1CjWAMOHimqAAAAAElFTkSuQmCC
-</value>
-  </data>
   <metadata name="ChangelogLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="ChangelogLabel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAU1JREFUOE+t
-        k08rRGEUxt+oycpClJKN5ews/PsComwYc5EalCxZ+ABuk4XGh7CRMRcfgZX5ArK3sFESipLk+J3r1L3d
-        ue/Nwqlf73nP+zzPe7sz1/1bVSPphv0gkijN4pm0YNNk/sI8A5LDDTwHLQlNml/cUs0YY/QpKucySv+E
-        5sDknVUUoOeETLB/QbcXG7LlC4A2lFSzdCqT9K8wFZvSVRDQgWrNltQfAi7R7EKtciEjZkuqIOCds4Uw
-        lC76Mv0066DZkvIF8PMFy00Zpr9Ozb+goaFm9wZc2c1qvuUljq0eSy+ha+w/YMfs+QEIt1nL2qvZpHGh
-        P2R+Z1vvE2wxn9VeX9zKifSbXPUbzN9sm/9X1r8v6xB8wqNeYnLHWZNZ27a/HxOCeuZDqjPvg3vQ0Hko
-        QQO+OZ8zu78QDujNal4/kh7WcXhgVnPOuR8QAr/CVV3NAgAAAABJRU5ErkJggg==
-</value>
-  </data>
   <metadata name="SupportLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="SupportLabel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAASdJREFUOE9j
-        oAkIXfVfK2T1/0ogPR+EQezwFf81odK4AVAxP1DxMiD9D4j/o+F/YSv/L4le8p8PqhwVABXwA/ElJA1n
-        gYalA3EukH0bSfwiVkOgNsMUnUuY/58jeM1/QyBbN2D9fwEgfQdJfhFUGwQABbSAGO5soFN7gNgRyP4L
-        wkD/6wD5hTB5IP4HNFwDqp2BAShZhSSJjsEGAF1YgCZeAdUONmAemiQyTotY/l8KSD9GFgcaOBeqHa8B
-        Kzy3/WcH0ufRxDEMwOWFBKBCWyziIIzwAiiRAAWwxT0u/BclEEEA6Iol6AqBYlOB9DQs4guh2hAAlDiA
-        khfRFGIz4ILfxv+8UG2oAGrIIiDG5p2/IJtxakYGIP8BFZcDNcEyUxmGn6kDGBgA9e/Bm0rcQckAAAAA
-        SUVORK5CYII=
-</value>
-  </data>
   <metadata name="WebsiteLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="WebsiteLabel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAVFJREFUOE+1
-        kz1Ow0AQhQ3UIDgAHRJwmfAfQjgFDSRUPgfiNwoKBCREA6KBA9CQgpYCJQFRUiLi4ZvVbFjbSQdPelrP
-        7HvPnrUd/QvWmjIDK3AfHq1eSHX9TOZtezgWr2RSDTCBkmFSPJf6Zl0mTJ6GbiB6zJg8PzFvsHZha2CI
-        pgcGz1f6DdaCalh1tDdYcyYPnY/moMcum6QPzqNEP1m5lDlruWaV5ldgVD6UGjJtkj7oj8F3WLGWCzim
-        ccfjxqw+YNa2c2DvHs+BlW7+Q5o3dh2GeL44oYH6NhuwS7MTiYxYnQtxQgUaan0bvyP4QyR1wVp6l281
-        ehK6VT6VKTTL1L3UISoQ6Gts+4NDuEedCoHPsIv2xJlC2IfUgm24FMcyWmxKk+swQPlUuJZxs6VhITWo
-        34TO+QG9sad3HmoOofMh3sGk/4X+TNu5mf8GUfQDHd1zTZmN3vcAAAAASUVORK5CYII=
-</value>
-  </data>
   <metadata name="AppInfoLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -608,15 +544,6 @@
   <metadata name="CloseAlertContainerIcon.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="CloseAlertContainerIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAMJJREFUSEvt
-        lMEOwiAMhnkJjb7/3cNIsRz1oHF60oOPo8W0xiBUYDPZYV9CRkr7/2RtMDPTwwLuaV023i859JOQax0e
-        OsAdh/KQeE/rQetWYvISp1yuOXE4j3NuYcFfueCOiGs++iLOBYAVH+mUmDSLC5rJYHEhZTKauBA1MXzf
-        +5pJU4luPc7NP0kZaNNVxV9/UaqhqcZzeh3atAw20cSFZpMScaHJpIPtmQtaHruew3noRkdKrH+uqSbU
-        cmhmMhjzBPhzcs0gmyBwAAAAAElFTkSuQmCC
-</value>
-  </data>
   <metadata name="RememberFormPositionChkBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

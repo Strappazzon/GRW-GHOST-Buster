@@ -451,7 +451,7 @@ Partial Class Form1
         'UplayPictureBtn
         '
         Me.UplayPictureBtn.BackColor = System.Drawing.Color.Transparent
-        Me.UplayPictureBtn.Image = CType(resources.GetObject("UplayPictureBtn.Image"), System.Drawing.Image)
+        Me.UplayPictureBtn.Image = Global.GHOSTbackup.My.Resources.Resources.Uplay_Icon
         Me.UplayPictureBtn.Location = New System.Drawing.Point(802, 20)
         Me.UplayPictureBtn.Name = "UplayPictureBtn"
         Me.UplayPictureBtn.Size = New System.Drawing.Size(21, 21)
@@ -462,7 +462,7 @@ Partial Class Form1
         'AlertDot
         '
         Me.AlertDot.BackColor = System.Drawing.Color.Transparent
-        Me.AlertDot.Image = CType(resources.GetObject("AlertDot.Image"), System.Drawing.Image)
+        Me.AlertDot.Image = Global.GHOSTbackup.My.Resources.Resources.Dot
         Me.AlertDot.Location = New System.Drawing.Point(190, 24)
         Me.AlertDot.Name = "AlertDot"
         Me.AlertDot.Size = New System.Drawing.Size(10, 10)
@@ -486,7 +486,7 @@ Partial Class Form1
         'HomePictureBtn
         '
         Me.HomePictureBtn.BackColor = System.Drawing.Color.Transparent
-        Me.HomePictureBtn.Image = Global.GHOSTbackup.My.Resources.Resources.home_white
+        Me.HomePictureBtn.Image = Global.GHOSTbackup.My.Resources.Resources.Home_Icon_White
         Me.HomePictureBtn.Location = New System.Drawing.Point(12, 20)
         Me.HomePictureBtn.Name = "HomePictureBtn"
         Me.HomePictureBtn.Size = New System.Drawing.Size(21, 21)
@@ -540,7 +540,7 @@ Partial Class Form1
         Me.LicenseLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.LicenseLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LicenseLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.LicenseLabel.Image = CType(resources.GetObject("LicenseLabel.Image"), System.Drawing.Image)
+        Me.LicenseLabel.Image = Global.GHOSTbackup.My.Resources.Resources.About_License_Icon
         Me.LicenseLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.LicenseLabel.Location = New System.Drawing.Point(14, 246)
         Me.LicenseLabel.Name = "LicenseLabel"
@@ -555,7 +555,7 @@ Partial Class Form1
         Me.ChangelogLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ChangelogLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChangelogLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ChangelogLabel.Image = CType(resources.GetObject("ChangelogLabel.Image"), System.Drawing.Image)
+        Me.ChangelogLabel.Image = Global.GHOSTbackup.My.Resources.Resources.About_Changelog_Icon
         Me.ChangelogLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ChangelogLabel.Location = New System.Drawing.Point(14, 222)
         Me.ChangelogLabel.Name = "ChangelogLabel"
@@ -570,7 +570,7 @@ Partial Class Form1
         Me.SupportLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.SupportLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SupportLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SupportLabel.Image = CType(resources.GetObject("SupportLabel.Image"), System.Drawing.Image)
+        Me.SupportLabel.Image = Global.GHOSTbackup.My.Resources.Resources.About_Support_Icon
         Me.SupportLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.SupportLabel.Location = New System.Drawing.Point(14, 198)
         Me.SupportLabel.Name = "SupportLabel"
@@ -585,7 +585,7 @@ Partial Class Form1
         Me.WebsiteLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.WebsiteLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.WebsiteLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.WebsiteLabel.Image = CType(resources.GetObject("WebsiteLabel.Image"), System.Drawing.Image)
+        Me.WebsiteLabel.Image = Global.GHOSTbackup.My.Resources.Resources.About_Web_Icon
         Me.WebsiteLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.WebsiteLabel.Location = New System.Drawing.Point(14, 174)
         Me.WebsiteLabel.Name = "WebsiteLabel"
@@ -658,7 +658,7 @@ Partial Class Form1
         '
         Me.CloseAlertContainerIcon.BackColor = System.Drawing.Color.Transparent
         Me.CloseAlertContainerIcon.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.CloseAlertContainerIcon.Image = CType(resources.GetObject("CloseAlertContainerIcon.Image"), System.Drawing.Image)
+        Me.CloseAlertContainerIcon.Image = Global.GHOSTbackup.My.Resources.Resources.Banner_Close_Icon
         Me.CloseAlertContainerIcon.Location = New System.Drawing.Point(800, 8)
         Me.CloseAlertContainerIcon.Name = "CloseAlertContainerIcon"
         Me.CloseAlertContainerIcon.Size = New System.Drawing.Size(24, 24)

@@ -129,9 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -149,17 +149,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon_256.ico" />
+    <None Include="Resources\website.png" />
+    <None Include="Resources\support.png" />
+    <None Include="Resources\license.png" />
+    <None Include="Resources\changelog.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\alert_dot.png" />
+    <None Include="Resources\Banner_Info_Icon.png" />
+    <None Include="Resources\Home_Icon_White.png" />
+    <None Include="Resources\Home_Icon.png" />
+    <None Include="Resources\Banner_Alert_Icon.png" />
     <None Include="packages.config" />
-    <None Include="res\question.png" />
-    <None Include="res\error.png" />
-    <None Include="res\alert_triangle.png" />
-    <None Include="res\uplay.png" />
-    <None Include="res\settings_white.png" />
-    <None Include="res\settings.png" />
-    <None Include="res\info.png" />
-    <None Include="res\alert.png" />
-    <None Include="res\home_white.png" />
-    <None Include="res\home.png" />
+    <None Include="Resources\question.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\alert_triangle.png" />
+    <None Include="Resources\uplay.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

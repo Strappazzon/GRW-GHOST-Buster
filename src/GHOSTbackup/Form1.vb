@@ -99,7 +99,7 @@ Public Class Form1
     End Sub
 
     Private Sub HomePictureBtn_Click(sender As Object, e As EventArgs) Handles HomePictureBtn.Click
-        HomePictureBtn.Image = My.Resources.home_white
+        HomePictureBtn.Image = My.Resources.Home_Icon_White
         AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         SettingsLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
@@ -114,7 +114,7 @@ Public Class Form1
     End Sub
 
     Private Sub SettingsLabel_Click(sender As Object, e As EventArgs) Handles SettingsLabel.Click
-        HomePictureBtn.Image = My.Resources.home
+        HomePictureBtn.Image = My.Resources.Home_Icon
         AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         SettingsLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
@@ -130,7 +130,7 @@ Public Class Form1
     End Sub
 
     Private Sub LogLabel_Click(sender As Object, e As EventArgs) Handles LogLabel.Click
-        HomePictureBtn.Image = My.Resources.home
+        HomePictureBtn.Image = My.Resources.Home_Icon
         LogLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
         AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         SettingsLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
@@ -161,7 +161,7 @@ Public Class Form1
                             & Environment.NewLine & Environment.NewLine &
                             "Some icons are taken from Icons8 (https://icons8.com)."
 
-        HomePictureBtn.Image = My.Resources.home
+        HomePictureBtn.Image = My.Resources.Home_Icon
         LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         AboutLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
         SettingsLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
