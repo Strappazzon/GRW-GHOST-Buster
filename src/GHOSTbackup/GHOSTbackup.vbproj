@@ -85,6 +85,16 @@
     <Compile Include="GHOSTbackup.Helpers\BackupHelper.vb" />
     <Compile Include="GHOSTbackup.Helpers\UplayHelper.vb" />
     <Compile Include="GHOSTbackup.Helpers\WildlandsHelper.vb" />
+    <Compile Include="GHOSTbackup.Localization\Strings.it-IT.Designer.vb">
+      <DependentUpon>Strings.it-IT.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="GHOSTbackup.Localization\Strings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
     <Compile Include="GHOSTbackup.UI\Banner.vb" />
     <Compile Include="GHOSTbackup.UI\CustomMsgBox.Designer.vb">
       <DependentUpon>CustomMsgBox.vb</DependentUpon>
@@ -121,6 +131,16 @@
     <Compile Include="Var.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="GHOSTbackup.Localization\Strings.it-IT.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.it-IT.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GHOSTbackup.Localization\Strings.resx">
+      <CustomToolNamespace>Localization</CustomToolNamespace>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="GHOSTbackup.UI\CustomMsgBox.resx">
       <DependentUpon>CustomMsgBox.vb</DependentUpon>
     </EmbeddedResource>

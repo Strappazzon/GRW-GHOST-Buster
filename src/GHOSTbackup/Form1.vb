@@ -73,6 +73,12 @@ Public Class Form1
         CheckUpdates()
     End Sub
 
+#Region "Test Localization"
+    Private Sub Form1_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        CustomMsgBox.Show("{\rtf1 " & Localization.Strings.TestMessage & "}", Localization.Strings.TestTitle, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+    End Sub
+#End Region
+
     Private Sub Form1_Closing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If IsBackupRunning = True And ConfirmExitChkBox.Checked = True Then
             CustomMsgBox.Show("{\rtf1 The backup process is still running. Do you want to {\b interrupt it and exit?}}", "Confirm exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
