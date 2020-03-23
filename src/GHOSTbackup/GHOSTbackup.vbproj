@@ -92,14 +92,14 @@
     <Compile Include="GHOSTbackup.UI\CustomMsgBox.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.vb">
+    <Compile Include="GHOSTbackup.UI\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
+    <Compile Include="GHOSTbackup.UI\Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Logger.vb" />
+    <Compile Include="GHOSTbackup.Helpers\Logger.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -116,15 +116,15 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="GHOSTbackup.Helpers\ProcessHelper.vb" />
-    <Compile Include="Settings.vb" />
-    <Compile Include="Updater.vb" />
+    <Compile Include="GHOSTbackup.Helpers\Settings.vb" />
+    <Compile Include="GHOSTbackup.Helpers\Updater.vb" />
     <Compile Include="Var.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="GHOSTbackup.UI\CustomMsgBox.resx">
       <DependentUpon>CustomMsgBox.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="GHOSTbackup.UI\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
