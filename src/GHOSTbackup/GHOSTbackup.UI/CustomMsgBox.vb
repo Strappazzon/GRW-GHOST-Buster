@@ -17,7 +17,7 @@
             CustomMsgBox.LeftButton.Visible = False
             CustomMsgBox.RightButton.Text = "OK"
             CustomMsgBox.AcceptButton = CustomMsgBox.RightButton
-            CustomMsgBox.CancelLabel = CustomMsgBox.CancelLabel
+            CustomMsgBox.CancelButton = CustomMsgBox.CancelLabel
 
             Select Case DefaultButton
                 Case MessageBoxDefaultButton.Button1
@@ -36,7 +36,7 @@
             CustomMsgBox.LeftButton.Visible = True
             CustomMsgBox.RightButton.Text = "No"
             CustomMsgBox.AcceptButton = CustomMsgBox.LeftButton
-            CustomMsgBox.CancelLabel = CustomMsgBox.CancelLabel
+            CustomMsgBox.CancelButton = CustomMsgBox.CancelLabel
 
             Select Case DefaultButton
                 Case MessageBoxDefaultButton.Button1
