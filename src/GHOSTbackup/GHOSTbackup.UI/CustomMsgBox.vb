@@ -26,6 +26,8 @@
                 Case MessageBoxDefaultButton.Button2, MessageBoxDefaultButton.Button3
                     '[Cancel] button
                     CustomMsgBox.ActiveControl = CustomMsgBox.CancelLabel
+                Case Else
+                    Exit Select
             End Select
         ElseIf Buttons = MessageBoxButtons.YesNo OrElse MessageBoxButtons.YesNoCancel Then
             '[Yes][No] or [Yes][No][Cancel] dialog
@@ -48,6 +50,8 @@
                 Case MessageBoxDefaultButton.Button3
                     '[Cancel] button
                     CustomMsgBox.ActiveControl = CustomMsgBox.CancelLabel
+                Case Else
+                    Exit Select
             End Select
         End If
 
@@ -58,6 +62,8 @@
                 CustomMsgBox.IconPictureBox.Image = My.Resources.CustomMsgBox_Warning
             Case MessageBoxIcon.Question
                 CustomMsgBox.IconPictureBox.Image = My.Resources.CustomMsgBox_Question
+            Case Else
+                Exit Select
         End Select
 
         'Display the custom MessageBox as a modal
