@@ -101,12 +101,11 @@ Public Class Settings
 
         'Write settings to file
         File.WriteAllText(SettingsFile, ConfigData.ToString())
-
         Logger.Log("[INFO] Settings saved.")
     End Sub
 
 #Region "GHOST Buster"
-    Public Shared Function ConfirmExit() As Boolean
+    Private Shared Function ConfirmExit() As Boolean
         Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("GHOSTbackup")("ConfirmExit")
@@ -117,7 +116,7 @@ Public Class Settings
         End If
     End Function
 
-    Public Shared Function ConfirmBackupInterruption() As Boolean
+    Private Shared Function ConfirmBackupInterruption() As Boolean
         Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("GHOSTbackup")("ConfirmBackupInterruption")
@@ -128,7 +127,7 @@ Public Class Settings
         End If
     End Function
 
-    Public Shared Function CheckForUpdates() As Boolean
+    Private Shared Function CheckForUpdates() As Boolean
         Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("GHOSTbackup")("CheckForUpdates")
@@ -166,7 +165,7 @@ Public Class Settings
 #End Region
 
 #Region "Logging"
-    Public Shared Function WriteEventsToFile() As Boolean
+    Private Shared Function WriteEventsToFile() As Boolean
         Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Logging")("WriteEventsToFile")
@@ -177,7 +176,7 @@ Public Class Settings
         End If
     End Function
 
-    Public Shared Function LogFilePath() As String
+    Private Shared Function LogFilePath() As String
         Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Logging")("LogFilePath")
@@ -190,21 +189,21 @@ Public Class Settings
 #End Region
 
 #Region "Backup"
-    Public Shared Function SavegamesDirectory() As String
+    Private Shared Function SavegamesDirectory() As String
         Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Backup")("SavegamesDirectory")
         Return Value
     End Function
 
-    Public Shared Function BackupDirectory() As String
+    Private Shared Function BackupDirectory() As String
         Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Backup")("BackupDirectory")
         Return Value
     End Function
 
-    Public Shared Function BackupFrequency() As Decimal
+    Private Shared Function BackupFrequency() As Decimal
         Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Backup")("BackupFrequency")
@@ -215,7 +214,7 @@ Public Class Settings
         End If
     End Function
 
-    Public Shared Function WhichBackupToRestore() As Integer
+    Private Shared Function WhichBackupToRestore() As Integer
         Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Backup")("WhichBackupToRestore")
@@ -228,7 +227,7 @@ Public Class Settings
 #End Region
 
 #Region "Uplay"
-    Public Shared Function DisableCloudSyncOnRestore() As Boolean
+    Private Shared Function DisableCloudSyncOnRestore() As Boolean
         Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Uplay")("DisableCloudSyncOnRestore")
@@ -239,7 +238,7 @@ Public Class Settings
         End If
     End Function
 
-    Public Shared Function EnableCloudSyncOnQuit() As Boolean
+    Private Shared Function EnableCloudSyncOnQuit() As Boolean
         Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Uplay")("EnableCloudSyncOnQuit")
@@ -250,7 +249,7 @@ Public Class Settings
         End If
     End Function
 
-    Public Shared Function NoUplay() As Boolean
+    Private Shared Function NoUplay() As Boolean
         Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Uplay")("NoUplay")
@@ -261,7 +260,7 @@ Public Class Settings
         End If
     End Function
 
-    Public Shared Function WildlandsCustomPath() As String
+    Private Shared Function WildlandsCustomPath() As String
         Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Uplay")("WildlandsCustomPath")
