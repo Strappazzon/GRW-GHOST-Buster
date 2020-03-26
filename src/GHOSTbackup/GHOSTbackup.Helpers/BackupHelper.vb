@@ -123,10 +123,12 @@ Public Class BackupHelper
                 Form1.LatestBackupHelpLabel.Location = New Point(300, 14)
 
                 Logger.Log("[INFO] Performed the first backup " & "(" & SavegamesList.Length & " files copied to " & BackupDirectory & ").")
+                Notification.Show("Performed first backup.")
 
             Catch ex As Exception
                 StopBackup()
                 Logger.Log("[ERROR] Backup interrupted: " & ex.Message())
+                Notification.Show("Backup interrupted because an error occurred.")
                 CustomMsgBox.Show("{\rtf1 The backup process has been {\b interrupted due to an error.} Please check the logs for more details.}", "Backup interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
             End Try
         ElseIf IsGameRunning = False Then
@@ -155,10 +157,12 @@ Public Class BackupHelper
                 Form1.LatestBackupHelpLabel.Location = New Point(300, 14)
 
                 Logger.Log("[INFO] Backup complete " & "(" & SavegamesList.Length & " files copied to " & BackupDirectory & ").")
+                Notification.Show("Backup complete.")
 
             Catch ex As Exception
                 StopBackup()
                 Logger.Log("[ERROR] Backup interrupted: " & ex.Message())
+                Notification.Show("Backup interrupted because an error occurred.")
                 CustomMsgBox.Show("{\rtf1 The backup process has been {\b interrupted due to an error.} Please check the logs for more details.}", "Backup interrupted", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
             End Try
         Else

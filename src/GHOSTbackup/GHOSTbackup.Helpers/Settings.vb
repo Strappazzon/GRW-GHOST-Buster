@@ -27,6 +27,7 @@ Public Class Settings
             ConfigData("Backup")("SavegamesDirectory") = Nothing
             ConfigData("Backup")("BackupDirectory") = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\Savegames"
             ConfigData("Backup")("BackupFrequency") = "5"
+            ConfigData("Backup")("DisplayNotification") = "False"
             ConfigData("Backup")("WhichBackupToRestore") = "0" '0=Latest, 1=Second-to-Last, 2=Let me decide
             'Uplay
             ConfigData("Uplay")("DisableCloudSyncOnRestore") = "False"
@@ -60,6 +61,7 @@ Public Class Settings
             Form1.SavegamesLocTextBox.Text = SavegamesDirectory()
             Form1.BackupLocTextBox.Text = BackupDirectory()
             Form1.BackupFreqUpDown.Value = BackupFrequency()
+            Form1.DisplayNotificationChkBox.Checked = DisplayNotification()
             Form1.WhichBackupDropdownCombo.SelectedIndex = WhichBackupToRestore()
             'Uplay
             Form1.DisableCloudSyncChkBox.Checked = DisableCloudSyncOnRestore()
@@ -87,6 +89,7 @@ Public Class Settings
         ConfigData("Backup")("SavegamesDirectory") = Form1.SavegamesLocTextBox.Text
         ConfigData("Backup")("BackupDirectory") = Form1.BackupLocTextBox.Text
         ConfigData("Backup")("BackupFrequency") = Form1.BackupFreqUpDown.Value
+        ConfigData("Backup")("DisplayNotification") = Form1.DisplayNotificationChkBox.Checked
         ConfigData("Backup")("WhichBackupToRestore") = Form1.WhichBackupDropdownCombo.SelectedIndex
         'Uplay
         ConfigData("Uplay")("DisableCloudSyncOnRestore") = Form1.DisableCloudSyncChkBox.Checked
@@ -211,6 +214,17 @@ Public Class Settings
             Return Decimal.Round(Decimal.Parse(Value), 0)
         Else
             Return Decimal.Round(5, 0)
+        End If
+    End Function
+
+    Private Shared Function DisplayNotification() As Boolean
+        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+
+        Dim Value As String = ConfigData("Backup")("DisplayNotification")
+        If Value <> Nothing Then
+            Return Boolean.Parse(Value)
+        Else
+            Return False
         End If
     End Function
 

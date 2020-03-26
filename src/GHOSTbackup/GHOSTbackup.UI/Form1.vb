@@ -191,12 +191,13 @@ Public Class Form1
         LogoBigPictureBox.Location = New Point(12, 85)
         PlayGameBtn.Location = New Point(12, 150)
         'Move checkboxes
-        ConfirmExitChkBox.Location = New Point(14, 230)
-        ConfirmStopBackupChkBox.Location = New Point(14, 255)
-        DisableCloudSyncChkBox.Location = New Point(14, 280)
-        EnableCloudSyncChkBox.Location = New Point(14, 305)
-        CheckUpdatesChkBox.Location = New Point(14, 330)
-        RememberFormPositionChkBox.Location = New Point(14, 355)
+        ConfirmExitChkBox.Location = New Point(14, 225)
+        ConfirmStopBackupChkBox.Location = New Point(14, 250)
+        DisplayNotificationChkBox.Location = New Point(14, 275)
+        DisableCloudSyncChkBox.Location = New Point(14, 300)
+        EnableCloudSyncChkBox.Location = New Point(14, 325)
+        CheckUpdatesChkBox.Location = New Point(14, 350)
+        RememberFormPositionChkBox.Location = New Point(14, 375)
     End Sub
 
     Private Sub PlayGameBtn_Click(sender As Object, e As EventArgs) Handles PlayGameBtn.Click
@@ -216,6 +217,14 @@ Public Class Form1
             ConfirmStopBackupChkBox.ForeColor = Color.White
         Else
             ConfirmStopBackupChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        End If
+    End Sub
+
+    Private Sub DisplayNotificationChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles DisplayNotificationChkBox.CheckedChanged
+        If DisplayNotificationChkBox.Checked = True Then
+            DisplayNotificationChkBox.ForeColor = Color.White
+        Else
+            DisplayNotificationChkBox.ForeColor = Color.FromArgb(255, 85, 170, 255)
         End If
     End Sub
 

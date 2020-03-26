@@ -100,6 +100,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GHOSTbackup.Helpers\Logger.vb" />
+    <Compile Include="GHOSTbackup.UI\Notification.Designer.vb">
+      <DependentUpon>Notification.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GHOSTbackup.UI\Notification.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -127,6 +133,9 @@
     <EmbeddedResource Include="GHOSTbackup.UI\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GHOSTbackup.UI\Notification.resx">
+      <DependentUpon>Notification.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
@@ -149,6 +158,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon_256.ico" />
+    <None Include="Resources\notification_form_bg.png" />
+    <None Include="Resources\notification_image.png" />
     <None Include="Resources\website.png" />
     <None Include="Resources\support.png" />
     <None Include="Resources\license.png" />

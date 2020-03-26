@@ -88,6 +88,7 @@ Partial Class Form1
         Me.TasksTitleLabel = New System.Windows.Forms.Label()
         Me.HelpToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.EnableCloudSyncChkBox = New System.Windows.Forms.CheckBox()
+        Me.DisplayNotificationChkBox = New System.Windows.Forms.CheckBox()
         CType(Me.BackupFreqUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LogoBigPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LogTxtBoxContextMenu.SuspendLayout()
@@ -392,7 +393,7 @@ Partial Class Form1
         Me.ConfirmExitChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ConfirmExitChkBox.ForeColor = System.Drawing.Color.White
         Me.ConfirmExitChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ConfirmExitChkBox.Location = New System.Drawing.Point(14, 230)
+        Me.ConfirmExitChkBox.Location = New System.Drawing.Point(14, 225)
         Me.ConfirmExitChkBox.Name = "ConfirmExitChkBox"
         Me.ConfirmExitChkBox.Size = New System.Drawing.Size(238, 21)
         Me.ConfirmExitChkBox.TabIndex = 3
@@ -408,7 +409,7 @@ Partial Class Form1
         Me.ConfirmStopBackupChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ConfirmStopBackupChkBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ConfirmStopBackupChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ConfirmStopBackupChkBox.Location = New System.Drawing.Point(14, 255)
+        Me.ConfirmStopBackupChkBox.Location = New System.Drawing.Point(14, 250)
         Me.ConfirmStopBackupChkBox.Name = "ConfirmStopBackupChkBox"
         Me.ConfirmStopBackupChkBox.Size = New System.Drawing.Size(191, 21)
         Me.ConfirmStopBackupChkBox.TabIndex = 4
@@ -424,10 +425,10 @@ Partial Class Form1
         Me.CheckUpdatesChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CheckUpdatesChkBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CheckUpdatesChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.CheckUpdatesChkBox.Location = New System.Drawing.Point(14, 330)
+        Me.CheckUpdatesChkBox.Location = New System.Drawing.Point(14, 350)
         Me.CheckUpdatesChkBox.Name = "CheckUpdatesChkBox"
         Me.CheckUpdatesChkBox.Size = New System.Drawing.Size(133, 21)
-        Me.CheckUpdatesChkBox.TabIndex = 7
+        Me.CheckUpdatesChkBox.TabIndex = 8
         Me.CheckUpdatesChkBox.Text = "Check for updates"
         Me.HelpToolTip.SetToolTip(Me.CheckUpdatesChkBox, "If checked, GHOST Buster will check if the current version is up to date when ope" &
         "ning.")
@@ -531,7 +532,7 @@ Partial Class Form1
         Me.AboutContainer.Location = New System.Drawing.Point(325, 149)
         Me.AboutContainer.Name = "AboutContainer"
         Me.AboutContainer.Size = New System.Drawing.Size(497, 299)
-        Me.AboutContainer.TabIndex = 15
+        Me.AboutContainer.TabIndex = 17
         Me.AboutContainer.Visible = False
         '
         'LicenseLabel
@@ -615,7 +616,7 @@ Partial Class Form1
         Me.LogsContainer.Location = New System.Drawing.Point(325, 149)
         Me.LogsContainer.Name = "LogsContainer"
         Me.LogsContainer.Size = New System.Drawing.Size(497, 299)
-        Me.LogsContainer.TabIndex = 14
+        Me.LogsContainer.TabIndex = 16
         Me.LogsContainer.Visible = False
         '
         'AlertContainer
@@ -673,10 +674,10 @@ Partial Class Form1
         Me.RememberFormPositionChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RememberFormPositionChkBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.RememberFormPositionChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.RememberFormPositionChkBox.Location = New System.Drawing.Point(14, 355)
+        Me.RememberFormPositionChkBox.Location = New System.Drawing.Point(14, 375)
         Me.RememberFormPositionChkBox.Name = "RememberFormPositionChkBox"
         Me.RememberFormPositionChkBox.Size = New System.Drawing.Size(190, 21)
-        Me.RememberFormPositionChkBox.TabIndex = 8
+        Me.RememberFormPositionChkBox.TabIndex = 9
         Me.RememberFormPositionChkBox.Text = "Remember window position"
         Me.HelpToolTip.SetToolTip(Me.RememberFormPositionChkBox, "If checked, GHOST Buster will restore its position on the screen when reopened.")
         Me.RememberFormPositionChkBox.UseVisualStyleBackColor = False
@@ -690,7 +691,7 @@ Partial Class Form1
         Me.TitleLabel.Location = New System.Drawing.Point(322, 115)
         Me.TitleLabel.Name = "TitleLabel"
         Me.TitleLabel.Size = New System.Drawing.Size(94, 21)
-        Me.TitleLabel.TabIndex = 13
+        Me.TitleLabel.TabIndex = 14
         Me.TitleLabel.Text = "{titleLabel}"
         Me.TitleLabel.Visible = False
         '
@@ -711,7 +712,7 @@ Partial Class Form1
         Me.SettingsContainer.Location = New System.Drawing.Point(325, 149)
         Me.SettingsContainer.Name = "SettingsContainer"
         Me.SettingsContainer.Size = New System.Drawing.Size(497, 299)
-        Me.SettingsContainer.TabIndex = 14
+        Me.SettingsContainer.TabIndex = 15
         Me.SettingsContainer.Visible = False
         '
         'SettingsNonUplayVersionRestartLabel
@@ -885,10 +886,10 @@ Partial Class Form1
         Me.DisableCloudSyncChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DisableCloudSyncChkBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DisableCloudSyncChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.DisableCloudSyncChkBox.Location = New System.Drawing.Point(14, 280)
+        Me.DisableCloudSyncChkBox.Location = New System.Drawing.Point(14, 300)
         Me.DisableCloudSyncChkBox.Name = "DisableCloudSyncChkBox"
         Me.DisableCloudSyncChkBox.Size = New System.Drawing.Size(267, 21)
-        Me.DisableCloudSyncChkBox.TabIndex = 5
+        Me.DisableCloudSyncChkBox.TabIndex = 6
         Me.DisableCloudSyncChkBox.Text = "Disable Uplay cloud save sync on restore"
         Me.HelpToolTip.SetToolTip(Me.DisableCloudSyncChkBox, "If checked, GHOST Buster will disable Uplay cloud save synchronization before res" &
         "toring a backup.")
@@ -911,7 +912,7 @@ Partial Class Form1
         Me.FoldersContainer.Location = New System.Drawing.Point(325, 323)
         Me.FoldersContainer.Name = "FoldersContainer"
         Me.FoldersContainer.Size = New System.Drawing.Size(497, 125)
-        Me.FoldersContainer.TabIndex = 12
+        Me.FoldersContainer.TabIndex = 13
         '
         'FoldersTitleLabel
         '
@@ -922,7 +923,7 @@ Partial Class Form1
         Me.FoldersTitleLabel.Location = New System.Drawing.Point(322, 289)
         Me.FoldersTitleLabel.Name = "FoldersTitleLabel"
         Me.FoldersTitleLabel.Size = New System.Drawing.Size(65, 21)
-        Me.FoldersTitleLabel.TabIndex = 11
+        Me.FoldersTitleLabel.TabIndex = 12
         Me.FoldersTitleLabel.Text = "Folders"
         '
         'TasksContainer
@@ -942,7 +943,7 @@ Partial Class Form1
         Me.TasksContainer.Location = New System.Drawing.Point(325, 149)
         Me.TasksContainer.Name = "TasksContainer"
         Me.TasksContainer.Size = New System.Drawing.Size(497, 127)
-        Me.TasksContainer.TabIndex = 10
+        Me.TasksContainer.TabIndex = 11
         '
         'LatestBackupHelpLabel
         '
@@ -964,7 +965,7 @@ Partial Class Form1
         Me.TasksTitleLabel.Location = New System.Drawing.Point(322, 115)
         Me.TasksTitleLabel.Name = "TasksTitleLabel"
         Me.TasksTitleLabel.Size = New System.Drawing.Size(50, 21)
-        Me.TasksTitleLabel.TabIndex = 9
+        Me.TasksTitleLabel.TabIndex = 10
         Me.TasksTitleLabel.Text = "Tasks"
         '
         'HelpToolTip
@@ -984,14 +985,30 @@ Partial Class Form1
         Me.EnableCloudSyncChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EnableCloudSyncChkBox.ForeColor = System.Drawing.Color.White
         Me.EnableCloudSyncChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.EnableCloudSyncChkBox.Location = New System.Drawing.Point(14, 305)
+        Me.EnableCloudSyncChkBox.Location = New System.Drawing.Point(14, 325)
         Me.EnableCloudSyncChkBox.Name = "EnableCloudSyncChkBox"
         Me.EnableCloudSyncChkBox.Size = New System.Drawing.Size(241, 21)
-        Me.EnableCloudSyncChkBox.TabIndex = 6
+        Me.EnableCloudSyncChkBox.TabIndex = 7
         Me.EnableCloudSyncChkBox.Text = "Enable Uplay cloud save sync on exit"
         Me.HelpToolTip.SetToolTip(Me.EnableCloudSyncChkBox, "If checked, GHOST Buster will enable  Uplay cloud save synchronization again befo" &
         "re  quitting.")
         Me.EnableCloudSyncChkBox.UseVisualStyleBackColor = False
+        '
+        'DisplayNotificationChkBox
+        '
+        Me.DisplayNotificationChkBox.AutoSize = True
+        Me.DisplayNotificationChkBox.BackColor = System.Drawing.Color.Transparent
+        Me.DisplayNotificationChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DisplayNotificationChkBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DisplayNotificationChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.DisplayNotificationChkBox.Location = New System.Drawing.Point(14, 275)
+        Me.DisplayNotificationChkBox.Name = "DisplayNotificationChkBox"
+        Me.DisplayNotificationChkBox.Size = New System.Drawing.Size(233, 21)
+        Me.DisplayNotificationChkBox.TabIndex = 5
+        Me.DisplayNotificationChkBox.Text = "Display notifications about backups"
+        Me.HelpToolTip.SetToolTip(Me.DisplayNotificationChkBox, "If checked, GHOST Buster will display a notification at the edge of the screen ab" &
+        "out backups.")
+        Me.DisplayNotificationChkBox.UseVisualStyleBackColor = False
         '
         'Form1
         '
@@ -1001,6 +1018,7 @@ Partial Class Form1
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(834, 461)
+        Me.Controls.Add(Me.DisplayNotificationChkBox)
         Me.Controls.Add(Me.EnableCloudSyncChkBox)
         Me.Controls.Add(Me.TasksTitleLabel)
         Me.Controls.Add(Me.TasksContainer)
@@ -1115,4 +1133,5 @@ Partial Class Form1
     Friend WithEvents LatestBackupHelpLabel As Label
     Friend WithEvents HelpToolTip As ToolTip
     Friend WithEvents EnableCloudSyncChkBox As CheckBox
+    Friend WithEvents DisplayNotificationChkBox As CheckBox
 End Class
