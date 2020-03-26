@@ -1,7 +1,7 @@
 ﻿Imports GHOSTbackup.BackupHelper
 Imports GHOSTbackup.Var
 
-Public NotInheritable Class ProcessHelper
+Public Class ProcessHelper
     Private Shared WithEvents CheckProcessTimer As New Timer()
 
     Public Shared Sub StartProcessTimer()
