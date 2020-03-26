@@ -62,10 +62,6 @@ Partial Class Form1
         Me.WebsiteLabel = New System.Windows.Forms.Label()
         Me.AppInfoLabel = New System.Windows.Forms.Label()
         Me.LogsContainer = New System.Windows.Forms.Panel()
-        Me.AlertContainer = New System.Windows.Forms.Panel()
-        Me.AlertDescriptionLabel = New System.Windows.Forms.Label()
-        Me.AlertIcon = New System.Windows.Forms.PictureBox()
-        Me.CloseAlertContainerIcon = New System.Windows.Forms.PictureBox()
         Me.RememberFormPositionChkBox = New System.Windows.Forms.CheckBox()
         Me.TitleLabel = New System.Windows.Forms.Label()
         Me.SettingsContainer = New System.Windows.Forms.Panel()
@@ -98,9 +94,6 @@ Partial Class Form1
         CType(Me.HomePictureBtn, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AboutContainer.SuspendLayout()
         Me.LogsContainer.SuspendLayout()
-        Me.AlertContainer.SuspendLayout()
-        CType(Me.AlertIcon, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CloseAlertContainerIcon, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SettingsContainer.SuspendLayout()
         Me.FoldersContainer.SuspendLayout()
         Me.TasksContainer.SuspendLayout()
@@ -619,54 +612,6 @@ Partial Class Form1
         Me.LogsContainer.TabIndex = 16
         Me.LogsContainer.Visible = False
         '
-        'AlertContainer
-        '
-        Me.AlertContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(84, Byte), Integer))
-        Me.AlertContainer.Controls.Add(Me.AlertDescriptionLabel)
-        Me.AlertContainer.Controls.Add(Me.AlertIcon)
-        Me.AlertContainer.Controls.Add(Me.CloseAlertContainerIcon)
-        Me.AlertContainer.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AlertContainer.ForeColor = System.Drawing.Color.White
-        Me.AlertContainer.Location = New System.Drawing.Point(0, 60)
-        Me.AlertContainer.Margin = New System.Windows.Forms.Padding(0, 3, 0, 3)
-        Me.AlertContainer.Name = "AlertContainer"
-        Me.AlertContainer.Size = New System.Drawing.Size(834, 38)
-        Me.AlertContainer.TabIndex = 1
-        Me.AlertContainer.Visible = False
-        '
-        'AlertDescriptionLabel
-        '
-        Me.AlertDescriptionLabel.AutoSize = True
-        Me.AlertDescriptionLabel.BackColor = System.Drawing.Color.Transparent
-        Me.AlertDescriptionLabel.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AlertDescriptionLabel.Location = New System.Drawing.Point(42, 12)
-        Me.AlertDescriptionLabel.Name = "AlertDescriptionLabel"
-        Me.AlertDescriptionLabel.Size = New System.Drawing.Size(136, 17)
-        Me.AlertDescriptionLabel.TabIndex = 0
-        Me.AlertDescriptionLabel.Text = "AlertDescriptionLabel"
-        '
-        'AlertIcon
-        '
-        Me.AlertIcon.BackColor = System.Drawing.Color.Transparent
-        Me.AlertIcon.Location = New System.Drawing.Point(12, 8)
-        Me.AlertIcon.Name = "AlertIcon"
-        Me.AlertIcon.Size = New System.Drawing.Size(24, 24)
-        Me.AlertIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.AlertIcon.TabIndex = 1
-        Me.AlertIcon.TabStop = False
-        '
-        'CloseAlertContainerIcon
-        '
-        Me.CloseAlertContainerIcon.BackColor = System.Drawing.Color.Transparent
-        Me.CloseAlertContainerIcon.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.CloseAlertContainerIcon.Image = Global.GHOSTbackup.My.Resources.Resources.Banner_Close_Icon
-        Me.CloseAlertContainerIcon.Location = New System.Drawing.Point(800, 8)
-        Me.CloseAlertContainerIcon.Name = "CloseAlertContainerIcon"
-        Me.CloseAlertContainerIcon.Size = New System.Drawing.Size(24, 24)
-        Me.CloseAlertContainerIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.CloseAlertContainerIcon.TabIndex = 0
-        Me.CloseAlertContainerIcon.TabStop = False
-        '
         'RememberFormPositionChkBox
         '
         Me.RememberFormPositionChkBox.AutoSize = True
@@ -1026,7 +971,6 @@ Partial Class Form1
         Me.Controls.Add(Me.FoldersContainer)
         Me.Controls.Add(Me.TitleLabel)
         Me.Controls.Add(Me.RememberFormPositionChkBox)
-        Me.Controls.Add(Me.AlertContainer)
         Me.Controls.Add(Me.TopMenuContainer)
         Me.Controls.Add(Me.CheckUpdatesChkBox)
         Me.Controls.Add(Me.ConfirmStopBackupChkBox)
@@ -1055,10 +999,6 @@ Partial Class Form1
         Me.AboutContainer.PerformLayout()
         Me.LogsContainer.ResumeLayout(False)
         Me.LogsContainer.PerformLayout()
-        Me.AlertContainer.ResumeLayout(False)
-        Me.AlertContainer.PerformLayout()
-        CType(Me.AlertIcon, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CloseAlertContainerIcon, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SettingsContainer.ResumeLayout(False)
         Me.SettingsContainer.PerformLayout()
         Me.FoldersContainer.ResumeLayout(False)
@@ -1105,10 +1045,6 @@ Partial Class Form1
     Friend WithEvents ExploreSavegamesLocBtn As Button
     Friend WithEvents LogLabel As Label
     Friend WithEvents LogsContainer As Panel
-    Friend WithEvents AlertContainer As Panel
-    Friend WithEvents CloseAlertContainerIcon As PictureBox
-    Friend WithEvents AlertIcon As PictureBox
-    Friend WithEvents AlertDescriptionLabel As Label
     Friend WithEvents RememberFormPositionChkBox As CheckBox
     Friend WithEvents AlertDot As PictureBox
     Friend WithEvents TitleLabel As Label

@@ -145,7 +145,7 @@ Public Class Form1
         SettingsContainer.Visible = False
         AlertDot.Visible = False
         'Close the alert when switching to Logs tab
-        CloseAlertContainerIcon_Click(sender, e)
+        Banner.CloseBanner_Click(sender, e)
         'Scroll to the last line when switching to the Logs tab
         LogTxtBox.ScrollToCaret()
     End Sub
@@ -183,21 +183,6 @@ Public Class Form1
         Else
             Banner.Show(64, "Uplay is not installed.")
         End If
-    End Sub
-
-    Private Sub CloseAlertContainerIcon_Click(sender As Object, e As EventArgs) Handles CloseAlertContainerIcon.Click
-        AlertContainer.Visible = False
-        'Move logo and Play button
-        LogoBigPictureBox.Location = New Point(12, 85)
-        PlayGameBtn.Location = New Point(12, 150)
-        'Move checkboxes
-        ConfirmExitChkBox.Location = New Point(14, 225)
-        ConfirmStopBackupChkBox.Location = New Point(14, 250)
-        DisplayNotificationChkBox.Location = New Point(14, 275)
-        DisableCloudSyncChkBox.Location = New Point(14, 300)
-        EnableCloudSyncChkBox.Location = New Point(14, 325)
-        CheckUpdatesChkBox.Location = New Point(14, 350)
-        RememberFormPositionChkBox.Location = New Point(14, 375)
     End Sub
 
     Private Sub PlayGameBtn_Click(sender As Object, e As EventArgs) Handles PlayGameBtn.Click
