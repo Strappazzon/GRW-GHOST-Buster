@@ -268,7 +268,7 @@ Public Class Form1
         If SavegamesLocTextBox.Text <> "" AndAlso Directory.Exists(SavegamesLocTextBox.Text) Then
             Process.Start("explorer.exe", SavegamesLocTextBox.Text)
         Else
-            Banner.Show(64, "Wildlands save games folder no loger exists.")
+            Banner.Show(64, "Wildlands save games folder doesn't exist.")
         End If
     End Sub
 
@@ -293,7 +293,7 @@ Public Class Form1
         If BackupLocTextBox.Text <> "" AndAlso Directory.Exists(BackupLocTextBox.Text) Then
             Process.Start("explorer.exe", BackupLocTextBox.Text)
         Else
-            Banner.Show(64, "Backup folder no longer exists.")
+            Banner.Show(64, "Backup folder doesn't exist.")
         End If
     End Sub
 
