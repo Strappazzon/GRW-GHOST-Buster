@@ -4,8 +4,18 @@
 		{
 			"label": "Compile GHOST Buster",
 			"type": "shell",
-			"command": "\"${env:WinDir}\\Microsoft.NET\\Framework\\v4.0.30319\\msbuild.exe\" \".\\src\\GHOSTbackup.sln\" /t:Build /p:Configuration=Release",
+			"command": "${workspaceFolder}\"\\script\\build.ps1\"",
 			"group": "build",
+			"presentation": {
+				"focus": true,
+				"panel": "new"
+			}
+		},
+		{
+			"label": "Release GHOST Buster",
+			"type": "shell",
+			"command": "${workspaceFolder}\"\\script\\release.ps1\"",
+			"group": "none",
 			"presentation": {
 				"focus": true,
 				"panel": "new"
