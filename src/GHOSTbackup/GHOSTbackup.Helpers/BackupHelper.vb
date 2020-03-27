@@ -4,6 +4,7 @@ Imports GHOSTbackup.Var
 
 Public Class BackupHelper
     Private Shared WithEvents DetectBackupTimestamp As New BackgroundWorker()
+    Private Shared Property ErrorMessage As String = Nothing
     Private Shared WithEvents BackupTimer As New Timer()
     Public Shared ReadOnly BackupDirs As New List(Of String)
 
@@ -35,7 +36,7 @@ Public Class BackupHelper
                 e.Result = Nothing
             End If
         Catch ex As Exception
-            e.Result = ex.Message()
+            ErrorMessage = ex.Message()
         Finally
             'Empty backup directories list
             BackupDirs.Clear()
@@ -43,22 +44,24 @@ Public Class BackupHelper
     End Sub
 
     Private Shared Sub DetectBackupTimestamp_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles DetectBackupTimestamp.RunWorkerCompleted
-        'An hack to match a valid timestamp
-        '//stackoverflow.com/a/29062802
-        If (e.Result() <> Nothing) AndAlso (Mid(e.Result().ToString(), 14, 1) = ":" And Mid(e.Result().ToString(), 5, 1) = "-" And Mid(e.Result().ToString(), 8, 1) = "-") Then
-            Form1.LatestBackupHelpLabel.Text = "Latest backup:" & Environment.NewLine & e.Result()
-            Form1.LatestBackupHelpLabel.Location = New Point(300, 14)
-        ElseIf e.Result() = Nothing Then
-            Logger.Log("[INFO] No valid backup found inside the current backup directory.")
+        If ErrorMessage = Nothing Then
+            If e.Result = Nothing Then
+                Logger.Log("[INFO] No valid backup found inside the current backup directory.")
 
-            Form1.LatestBackupHelpLabel.Text = "Latest backup: No backup yet."
-            Form1.LatestBackupHelpLabel.Location = New Point(300, 22)
+                Form1.LatestBackupHelpLabel.Text = "Latest backup: No backup yet."
+                Form1.LatestBackupHelpLabel.Location = New Point(300, 22)
+            Else
+                Form1.LatestBackupHelpLabel.Text = "Latest backup:" & Environment.NewLine & e.Result()
+                Form1.LatestBackupHelpLabel.Location = New Point(300, 14)
+            End If
         Else
-            Logger.Log("[ERROR] An error occurred while enumerating backup directories: " & e.Result())
+            Logger.Log("[ERROR] An error occurred while enumerating backup directories: " & ErrorMessage)
             Banner.Show(48, "Unable to get latest backup timestamp. Please check the logs for more details.")
 
             Form1.LatestBackupHelpLabel.Text = "Latest backup: Error."
             Form1.LatestBackupHelpLabel.Location = New Point(300, 22)
+
+            ErrorMessage = Nothing
         End If
     End Sub
 
