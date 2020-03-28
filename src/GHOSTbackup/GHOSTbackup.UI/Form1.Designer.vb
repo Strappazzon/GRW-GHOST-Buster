@@ -115,7 +115,7 @@ Partial Class Form1
         Me.BrowseSavegamesLocBtn.BackColor = System.Drawing.Color.Transparent
         Me.BrowseSavegamesLocBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
         Me.BrowseSavegamesLocBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.BrowseSavegamesLocBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.BrowseSavegamesLocBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.BrowseSavegamesLocBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BrowseSavegamesLocBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BrowseSavegamesLocBtn.ForeColor = System.Drawing.Color.White
@@ -134,7 +134,7 @@ Partial Class Form1
         Me.BrowseBackupLocBtn.BackColor = System.Drawing.Color.Transparent
         Me.BrowseBackupLocBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
         Me.BrowseBackupLocBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.BrowseBackupLocBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.BrowseBackupLocBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.BrowseBackupLocBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BrowseBackupLocBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BrowseBackupLocBtn.ForeColor = System.Drawing.Color.White
@@ -165,7 +165,7 @@ Partial Class Form1
         Me.ExploreSavegamesLocBtn.BackColor = System.Drawing.Color.Transparent
         Me.ExploreSavegamesLocBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
         Me.ExploreSavegamesLocBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.ExploreSavegamesLocBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.ExploreSavegamesLocBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.ExploreSavegamesLocBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ExploreSavegamesLocBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ExploreSavegamesLocBtn.ForeColor = System.Drawing.Color.White
@@ -181,7 +181,7 @@ Partial Class Form1
         Me.ExploreBackupLocBtn.BackColor = System.Drawing.Color.Transparent
         Me.ExploreBackupLocBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
         Me.ExploreBackupLocBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.ExploreBackupLocBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.ExploreBackupLocBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.ExploreBackupLocBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ExploreBackupLocBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ExploreBackupLocBtn.ForeColor = System.Drawing.Color.White
@@ -234,14 +234,17 @@ Partial Class Form1
         '
         Me.StopBtn.BackColor = System.Drawing.Color.Transparent
         Me.StopBtn.Enabled = False
-        Me.StopBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.StopBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
+        Me.StopBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.StopBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.StopBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.StopBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.StopBtn.ForeColor = System.Drawing.Color.White
         Me.StopBtn.Image = CType(resources.GetObject("StopBtn.Image"), System.Drawing.Image)
         Me.StopBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.StopBtn.Location = New System.Drawing.Point(108, 14)
         Me.StopBtn.Name = "StopBtn"
-        Me.StopBtn.Size = New System.Drawing.Size(90, 35)
+        Me.StopBtn.Size = New System.Drawing.Size(90, 36)
         Me.StopBtn.TabIndex = 1
         Me.StopBtn.Text = "Stop" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Backup"
         Me.StopBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -250,14 +253,17 @@ Partial Class Form1
         'RestoreBtn
         '
         Me.RestoreBtn.BackColor = System.Drawing.Color.Transparent
-        Me.RestoreBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.RestoreBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
+        Me.RestoreBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.RestoreBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.RestoreBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.RestoreBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RestoreBtn.ForeColor = System.Drawing.Color.White
         Me.RestoreBtn.Image = CType(resources.GetObject("RestoreBtn.Image"), System.Drawing.Image)
         Me.RestoreBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.RestoreBtn.Location = New System.Drawing.Point(204, 14)
         Me.RestoreBtn.Name = "RestoreBtn"
-        Me.RestoreBtn.Size = New System.Drawing.Size(90, 35)
+        Me.RestoreBtn.Size = New System.Drawing.Size(90, 36)
         Me.RestoreBtn.TabIndex = 2
         Me.RestoreBtn.Text = "Restore" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Backup"
         Me.RestoreBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -277,14 +283,17 @@ Partial Class Form1
         'BackupBtn
         '
         Me.BackupBtn.BackColor = System.Drawing.Color.Transparent
-        Me.BackupBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.BackupBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
+        Me.BackupBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.BackupBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BackupBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BackupBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BackupBtn.ForeColor = System.Drawing.Color.White
         Me.BackupBtn.Image = CType(resources.GetObject("BackupBtn.Image"), System.Drawing.Image)
         Me.BackupBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BackupBtn.Location = New System.Drawing.Point(12, 14)
         Me.BackupBtn.Name = "BackupBtn"
-        Me.BackupBtn.Size = New System.Drawing.Size(90, 35)
+        Me.BackupBtn.Size = New System.Drawing.Size(90, 36)
         Me.BackupBtn.TabIndex = 0
         Me.BackupBtn.Text = "Start" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Backup"
         Me.BackupBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -349,7 +358,7 @@ Partial Class Form1
         Me.CopyToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem"
         Me.CopyToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
         Me.CopyToolStripMenuItem.Text = "Copy"
         Me.CopyToolStripMenuItem.ToolTipText = "Copy the selected text to clipboard."
         '
@@ -358,7 +367,7 @@ Partial Class Form1
         Me.SelectAllToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.SelectAllToolStripMenuItem.Name = "SelectAllToolStripMenuItem"
         Me.SelectAllToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
-        Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
+        Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
         Me.SelectAllToolStripMenuItem.Text = "Select All"
         Me.SelectAllToolStripMenuItem.ToolTipText = "Select all the text."
         '
@@ -672,7 +681,7 @@ Partial Class Form1
         Me.SettingsOpenCustomExeFolderBtn.Enabled = False
         Me.SettingsOpenCustomExeFolderBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
         Me.SettingsOpenCustomExeFolderBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.SettingsOpenCustomExeFolderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.SettingsOpenCustomExeFolderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.SettingsOpenCustomExeFolderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SettingsOpenCustomExeFolderBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsOpenCustomExeFolderBtn.ForeColor = System.Drawing.Color.White
@@ -688,7 +697,7 @@ Partial Class Form1
         Me.SettingsBrowseCustomExeBtn.Enabled = False
         Me.SettingsBrowseCustomExeBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
         Me.SettingsBrowseCustomExeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.SettingsBrowseCustomExeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.SettingsBrowseCustomExeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.SettingsBrowseCustomExeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SettingsBrowseCustomExeBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsBrowseCustomExeBtn.ForeColor = System.Drawing.Color.White
@@ -735,7 +744,7 @@ Partial Class Form1
         Me.SettingsOpenLogBtn.Enabled = False
         Me.SettingsOpenLogBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
         Me.SettingsOpenLogBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.SettingsOpenLogBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.SettingsOpenLogBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.SettingsOpenLogBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SettingsOpenLogBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsOpenLogBtn.ForeColor = System.Drawing.Color.White
@@ -751,7 +760,7 @@ Partial Class Form1
         Me.SettingsBrowseLogFileBtn.Enabled = False
         Me.SettingsBrowseLogFileBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
         Me.SettingsBrowseLogFileBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.SettingsBrowseLogFileBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.SettingsBrowseLogFileBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.SettingsBrowseLogFileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SettingsBrowseLogFileBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsBrowseLogFileBtn.ForeColor = System.Drawing.Color.White
