@@ -43,7 +43,6 @@ Partial Class Form1
         Me.LogTxtBoxContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.CopyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SelectAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExportLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ConfirmExitChkBox = New System.Windows.Forms.CheckBox()
         Me.ConfirmStopBackupChkBox = New System.Windows.Forms.CheckBox()
@@ -339,14 +338,15 @@ Partial Class Form1
         '
         'LogTxtBoxContextMenu
         '
-        Me.LogTxtBoxContextMenu.BackColor = System.Drawing.SystemColors.Control
-        Me.LogTxtBoxContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CopyToolStripMenuItem, Me.SelectAllToolStripMenuItem, Me.ToolStripSeparator1, Me.ExportLogToolStripMenuItem})
+        Me.LogTxtBoxContextMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(58, Byte), Integer), CType(CType(69, Byte), Integer))
+        Me.LogTxtBoxContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CopyToolStripMenuItem, Me.SelectAllToolStripMenuItem, Me.ExportLogToolStripMenuItem})
         Me.LogTxtBoxContextMenu.Name = "logTxtBoxContext"
         Me.LogTxtBoxContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.LogTxtBoxContextMenu.Size = New System.Drawing.Size(168, 76)
+        Me.LogTxtBoxContextMenu.Size = New System.Drawing.Size(177, 70)
         '
         'CopyToolStripMenuItem
         '
+        Me.CopyToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem"
         Me.CopyToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
         Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
@@ -355,27 +355,22 @@ Partial Class Form1
         '
         'SelectAllToolStripMenuItem
         '
+        Me.SelectAllToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.SelectAllToolStripMenuItem.Name = "SelectAllToolStripMenuItem"
         Me.SelectAllToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
         Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
         Me.SelectAllToolStripMenuItem.Text = "Select All"
         Me.SelectAllToolStripMenuItem.ToolTipText = "Select all the text."
         '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(164, 6)
-        '
         'ExportLogToolStripMenuItem
         '
-        Me.ExportLogToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.ExportLogToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.ExportLogToolStripMenuItem.Image = CType(resources.GetObject("ExportLogToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ExportLogToolStripMenuItem.Name = "ExportLogToolStripMenuItem"
         Me.ExportLogToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.ExportLogToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
-        Me.ExportLogToolStripMenuItem.Text = "Export log"
-        Me.ExportLogToolStripMenuItem.ToolTipText = "Export all events to a log file now."
+        Me.ExportLogToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.ExportLogToolStripMenuItem.Text = "Export log..."
+        Me.ExportLogToolStripMenuItem.ToolTipText = "Export all events to a file."
         '
         'ConfirmExitChkBox
         '
@@ -1029,7 +1024,6 @@ Partial Class Form1
     Friend WithEvents LogTxtBoxContextMenu As ContextMenuStrip
     Friend WithEvents CopyToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SelectAllToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents ExportLogToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TopMenuContainer As Panel
     Friend WithEvents SettingsLabel As Label
