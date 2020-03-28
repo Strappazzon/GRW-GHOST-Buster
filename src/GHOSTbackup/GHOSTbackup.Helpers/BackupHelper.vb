@@ -139,7 +139,7 @@ Public Class BackupHelper
         End If
     End Sub
 
-    Private Sub BackupTimer_Tick(sender As Object, e As EventArgs)
+    Private Shared Sub BackupTimer_Tick(sender As Object, e As EventArgs) Handles BackupTimer.Tick
         If IsGameRunning = True Then
             Try
                 'Store latest backup timestamp and subdirectory
