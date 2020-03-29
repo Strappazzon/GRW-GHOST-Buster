@@ -69,7 +69,7 @@ Public Class Settings
             'Create default backup directory
             Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\Savegames")
             Form1.BackupLocTextBox.Text = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\Savegames"
-            Form1.WhichBackupDropdownCombo.SelectedIndex = 0
+            Form1.WhichBackupDropdown.SelectedIndex = 0
             'Logging
             Form1.SettingsLogFilePathTextBox.Text = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\event.log"
         Else
@@ -86,9 +86,9 @@ Public Class Settings
             'Backup
             Form1.SavegamesLocTextBox.Text = SavegamesDirectory()
             Form1.BackupLocTextBox.Text = BackupDirectory()
-            Form1.BackupFreqUpDown.Value = BackupFrequency()
+            Form1.BackupFreqTextBox.Text = BackupFrequency()
             Form1.DisplayNotificationChkBox.Checked = DisplayNotification()
-            Form1.WhichBackupDropdownCombo.SelectedIndex = WhichBackupToRestore()
+            Form1.WhichBackupDropdown.SelectedIndex = WhichBackupToRestore()
             'Uplay
             Form1.DisableCloudSyncChkBox.Checked = DisableCloudSyncOnRestore()
             Form1.EnableCloudSyncChkBox.Checked = EnableCloudSyncOnQuit()
@@ -114,9 +114,9 @@ Public Class Settings
         'Backup
         ConfigData("Backup")("SavegamesDirectory") = Form1.SavegamesLocTextBox.Text
         ConfigData("Backup")("BackupDirectory") = Form1.BackupLocTextBox.Text
-        ConfigData("Backup")("BackupFrequency") = Form1.BackupFreqUpDown.Value
+        ConfigData("Backup")("BackupFrequency") = If(Form1.BackupFreqTextBox.Text = "" OrElse Form1.BackupFreqTextBox.Text = "0", "5", Form1.BackupFreqTextBox.Text)
         ConfigData("Backup")("DisplayNotification") = Form1.DisplayNotificationChkBox.Checked
-        ConfigData("Backup")("WhichBackupToRestore") = Form1.WhichBackupDropdownCombo.SelectedIndex
+        ConfigData("Backup")("WhichBackupToRestore") = Form1.WhichBackupDropdown.SelectedIndex
         'Uplay
         ConfigData("Uplay")("DisableCloudSyncOnRestore") = Form1.DisableCloudSyncChkBox.Checked
         ConfigData("Uplay")("EnableCloudSyncOnQuit") = Form1.EnableCloudSyncChkBox.Checked
@@ -232,14 +232,14 @@ Public Class Settings
         Return Value
     End Function
 
-    Private Shared Function BackupFrequency() As Decimal
+    Private Shared Function BackupFrequency() As String
         Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Backup")("BackupFrequency")
         If Value <> Nothing Then
-            Return Decimal.Round(Decimal.Parse(Value), 0)
+            Return Value
         Else
-            Return Decimal.Round(5, 0)
+            Return "5"
         End If
     End Function
 

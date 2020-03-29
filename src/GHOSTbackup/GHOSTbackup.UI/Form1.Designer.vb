@@ -32,10 +32,9 @@ Partial Class Form1
         Me.ExploreBackupLocBtn = New System.Windows.Forms.Button()
         Me.BackupLocHelpLabel = New System.Windows.Forms.Label()
         Me.SavegamesLocHelpLabel = New System.Windows.Forms.Label()
-        Me.BackupFreqUpDown = New System.Windows.Forms.NumericUpDown()
         Me.StopBtn = New System.Windows.Forms.Button()
         Me.RestoreBtn = New System.Windows.Forms.Button()
-        Me.BackupFreqHelpLabel = New System.Windows.Forms.Label()
+        Me.BackupFreqHelp1Label = New System.Windows.Forms.Label()
         Me.BackupBtn = New System.Windows.Forms.Button()
         Me.LogoBigPictureBox = New System.Windows.Forms.PictureBox()
         Me.PlayGameBtn = New System.Windows.Forms.Button()
@@ -74,17 +73,18 @@ Partial Class Form1
         Me.SettingsLogFilePathTextBox = New System.Windows.Forms.TextBox()
         Me.SettingsWriteLogToFileChkBox = New System.Windows.Forms.CheckBox()
         Me.WhichBackupLabel = New System.Windows.Forms.Label()
-        Me.WhichBackupDropdownCombo = New System.Windows.Forms.ComboBox()
         Me.DisableCloudSyncChkBox = New System.Windows.Forms.CheckBox()
         Me.FoldersContainer = New System.Windows.Forms.Panel()
         Me.FoldersTitleLabel = New System.Windows.Forms.Label()
         Me.TasksContainer = New System.Windows.Forms.Panel()
+        Me.WhichBackupDropdown = New System.Windows.Forms.ComboBox()
+        Me.BackupFreqHelp2Label = New System.Windows.Forms.Label()
+        Me.BackupFreqTextBox = New System.Windows.Forms.TextBox()
         Me.LatestBackupHelpLabel = New System.Windows.Forms.Label()
         Me.TasksTitleLabel = New System.Windows.Forms.Label()
         Me.HelpToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.EnableCloudSyncChkBox = New System.Windows.Forms.CheckBox()
         Me.DisplayNotificationChkBox = New System.Windows.Forms.CheckBox()
-        CType(Me.BackupFreqUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LogoBigPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LogTxtBoxContextMenu.SuspendLayout()
         Me.TopMenuContainer.SuspendLayout()
@@ -104,7 +104,7 @@ Partial Class Form1
         Me.SavegamesLocTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.SavegamesLocTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SavegamesLocTextBox.ForeColor = System.Drawing.Color.White
-        Me.SavegamesLocTextBox.Location = New System.Drawing.Point(12, 33)
+        Me.SavegamesLocTextBox.Location = New System.Drawing.Point(12, 36)
         Me.SavegamesLocTextBox.Name = "SavegamesLocTextBox"
         Me.SavegamesLocTextBox.ReadOnly = True
         Me.SavegamesLocTextBox.Size = New System.Drawing.Size(321, 23)
@@ -121,7 +121,7 @@ Partial Class Form1
         Me.BrowseSavegamesLocBtn.ForeColor = System.Drawing.Color.White
         Me.BrowseSavegamesLocBtn.Image = CType(resources.GetObject("BrowseSavegamesLocBtn.Image"), System.Drawing.Image)
         Me.BrowseSavegamesLocBtn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.BrowseSavegamesLocBtn.Location = New System.Drawing.Point(339, 29)
+        Me.BrowseSavegamesLocBtn.Location = New System.Drawing.Point(339, 32)
         Me.BrowseSavegamesLocBtn.Name = "BrowseSavegamesLocBtn"
         Me.BrowseSavegamesLocBtn.Size = New System.Drawing.Size(90, 30)
         Me.BrowseSavegamesLocBtn.TabIndex = 2
@@ -140,7 +140,7 @@ Partial Class Form1
         Me.BrowseBackupLocBtn.ForeColor = System.Drawing.Color.White
         Me.BrowseBackupLocBtn.Image = CType(resources.GetObject("BrowseBackupLocBtn.Image"), System.Drawing.Image)
         Me.BrowseBackupLocBtn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.BrowseBackupLocBtn.Location = New System.Drawing.Point(339, 84)
+        Me.BrowseBackupLocBtn.Location = New System.Drawing.Point(339, 90)
         Me.BrowseBackupLocBtn.Name = "BrowseBackupLocBtn"
         Me.BrowseBackupLocBtn.Size = New System.Drawing.Size(90, 30)
         Me.BrowseBackupLocBtn.TabIndex = 6
@@ -154,7 +154,7 @@ Partial Class Form1
         Me.BackupLocTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.BackupLocTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BackupLocTextBox.ForeColor = System.Drawing.Color.White
-        Me.BackupLocTextBox.Location = New System.Drawing.Point(12, 88)
+        Me.BackupLocTextBox.Location = New System.Drawing.Point(12, 94)
         Me.BackupLocTextBox.Name = "BackupLocTextBox"
         Me.BackupLocTextBox.ReadOnly = True
         Me.BackupLocTextBox.Size = New System.Drawing.Size(321, 23)
@@ -169,7 +169,7 @@ Partial Class Form1
         Me.ExploreSavegamesLocBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ExploreSavegamesLocBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ExploreSavegamesLocBtn.ForeColor = System.Drawing.Color.White
-        Me.ExploreSavegamesLocBtn.Location = New System.Drawing.Point(435, 29)
+        Me.ExploreSavegamesLocBtn.Location = New System.Drawing.Point(435, 32)
         Me.ExploreSavegamesLocBtn.Name = "ExploreSavegamesLocBtn"
         Me.ExploreSavegamesLocBtn.Size = New System.Drawing.Size(50, 30)
         Me.ExploreSavegamesLocBtn.TabIndex = 3
@@ -185,7 +185,7 @@ Partial Class Form1
         Me.ExploreBackupLocBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ExploreBackupLocBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ExploreBackupLocBtn.ForeColor = System.Drawing.Color.White
-        Me.ExploreBackupLocBtn.Location = New System.Drawing.Point(435, 84)
+        Me.ExploreBackupLocBtn.Location = New System.Drawing.Point(435, 90)
         Me.ExploreBackupLocBtn.Name = "ExploreBackupLocBtn"
         Me.ExploreBackupLocBtn.Size = New System.Drawing.Size(50, 30)
         Me.ExploreBackupLocBtn.TabIndex = 7
@@ -197,7 +197,7 @@ Partial Class Form1
         Me.BackupLocHelpLabel.AutoSize = True
         Me.BackupLocHelpLabel.BackColor = System.Drawing.Color.Transparent
         Me.BackupLocHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BackupLocHelpLabel.Location = New System.Drawing.Point(10, 67)
+        Me.BackupLocHelpLabel.Location = New System.Drawing.Point(10, 70)
         Me.BackupLocHelpLabel.Name = "BackupLocHelpLabel"
         Me.BackupLocHelpLabel.Size = New System.Drawing.Size(88, 17)
         Me.BackupLocHelpLabel.TabIndex = 4
@@ -214,22 +214,6 @@ Partial Class Form1
         Me.SavegamesLocHelpLabel.TabIndex = 0
         Me.SavegamesLocHelpLabel.Text = "Wildlands save games folder"
         '
-        'BackupFreqUpDown
-        '
-        Me.BackupFreqUpDown.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.BackupFreqUpDown.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.BackupFreqUpDown.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BackupFreqUpDown.ForeColor = System.Drawing.Color.White
-        Me.BackupFreqUpDown.Location = New System.Drawing.Point(14, 88)
-        Me.BackupFreqUpDown.Maximum = New Decimal(New Integer() {60, 0, 0, 0})
-        Me.BackupFreqUpDown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.BackupFreqUpDown.Name = "BackupFreqUpDown"
-        Me.BackupFreqUpDown.ReadOnly = True
-        Me.BackupFreqUpDown.Size = New System.Drawing.Size(183, 25)
-        Me.BackupFreqUpDown.TabIndex = 5
-        Me.BackupFreqUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.BackupFreqUpDown.Value = New Decimal(New Integer() {5, 0, 0, 0})
-        '
         'StopBtn
         '
         Me.StopBtn.BackColor = System.Drawing.Color.Transparent
@@ -242,10 +226,10 @@ Partial Class Form1
         Me.StopBtn.ForeColor = System.Drawing.Color.White
         Me.StopBtn.Image = CType(resources.GetObject("StopBtn.Image"), System.Drawing.Image)
         Me.StopBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.StopBtn.Location = New System.Drawing.Point(108, 14)
+        Me.StopBtn.Location = New System.Drawing.Point(12, 62)
         Me.StopBtn.Name = "StopBtn"
         Me.StopBtn.Size = New System.Drawing.Size(90, 36)
-        Me.StopBtn.TabIndex = 1
+        Me.StopBtn.TabIndex = 5
         Me.StopBtn.Text = "Stop" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Backup"
         Me.StopBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.StopBtn.UseVisualStyleBackColor = False
@@ -261,24 +245,24 @@ Partial Class Form1
         Me.RestoreBtn.ForeColor = System.Drawing.Color.White
         Me.RestoreBtn.Image = CType(resources.GetObject("RestoreBtn.Image"), System.Drawing.Image)
         Me.RestoreBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.RestoreBtn.Location = New System.Drawing.Point(204, 14)
+        Me.RestoreBtn.Location = New System.Drawing.Point(114, 62)
         Me.RestoreBtn.Name = "RestoreBtn"
         Me.RestoreBtn.Size = New System.Drawing.Size(90, 36)
-        Me.RestoreBtn.TabIndex = 2
+        Me.RestoreBtn.TabIndex = 6
         Me.RestoreBtn.Text = "Restore" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Backup"
         Me.RestoreBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.RestoreBtn.UseVisualStyleBackColor = False
         '
-        'BackupFreqHelpLabel
+        'BackupFreqHelp1Label
         '
-        Me.BackupFreqHelpLabel.AutoSize = True
-        Me.BackupFreqHelpLabel.BackColor = System.Drawing.Color.Transparent
-        Me.BackupFreqHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BackupFreqHelpLabel.Location = New System.Drawing.Point(10, 65)
-        Me.BackupFreqHelpLabel.Name = "BackupFreqHelpLabel"
-        Me.BackupFreqHelpLabel.Size = New System.Drawing.Size(167, 17)
-        Me.BackupFreqHelpLabel.TabIndex = 4
-        Me.BackupFreqHelpLabel.Text = "Backup frequency (minutes)"
+        Me.BackupFreqHelp1Label.AutoSize = True
+        Me.BackupFreqHelp1Label.BackColor = System.Drawing.Color.Transparent
+        Me.BackupFreqHelp1Label.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BackupFreqHelp1Label.Location = New System.Drawing.Point(112, 23)
+        Me.BackupFreqHelp1Label.Name = "BackupFreqHelp1Label"
+        Me.BackupFreqHelp1Label.Size = New System.Drawing.Size(84, 17)
+        Me.BackupFreqHelp1Label.TabIndex = 1
+        Me.BackupFreqHelp1Label.Text = "Backup every"
         '
         'BackupBtn
         '
@@ -313,7 +297,6 @@ Partial Class Form1
         'PlayGameBtn
         '
         Me.PlayGameBtn.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
-        Me.PlayGameBtn.Cursor = System.Windows.Forms.Cursors.Default
         Me.PlayGameBtn.Enabled = False
         Me.PlayGameBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
         Me.PlayGameBtn.FlatAppearance.BorderSize = 0
@@ -535,7 +518,6 @@ Partial Class Form1
         'LicenseLabel
         '
         Me.LicenseLabel.BackColor = System.Drawing.Color.Transparent
-        Me.LicenseLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.LicenseLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LicenseLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.LicenseLabel.Image = Global.GHOSTbackup.My.Resources.Resources.About_License_Icon
@@ -550,7 +532,6 @@ Partial Class Form1
         'ChangelogLabel
         '
         Me.ChangelogLabel.BackColor = System.Drawing.Color.Transparent
-        Me.ChangelogLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ChangelogLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChangelogLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ChangelogLabel.Image = Global.GHOSTbackup.My.Resources.Resources.About_Changelog_Icon
@@ -565,7 +546,6 @@ Partial Class Form1
         'SupportLabel
         '
         Me.SupportLabel.BackColor = System.Drawing.Color.Transparent
-        Me.SupportLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.SupportLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SupportLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SupportLabel.Image = Global.GHOSTbackup.My.Resources.Resources.About_Support_Icon
@@ -580,7 +560,6 @@ Partial Class Form1
         'WebsiteLabel
         '
         Me.WebsiteLabel.BackColor = System.Drawing.Color.Transparent
-        Me.WebsiteLabel.Cursor = System.Windows.Forms.Cursors.Hand
         Me.WebsiteLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.WebsiteLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.WebsiteLabel.Image = Global.GHOSTbackup.My.Resources.Resources.About_Web_Icon
@@ -807,26 +786,11 @@ Partial Class Form1
         Me.WhichBackupLabel.BackColor = System.Drawing.Color.Transparent
         Me.WhichBackupLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.WhichBackupLabel.ForeColor = System.Drawing.Color.White
-        Me.WhichBackupLabel.Location = New System.Drawing.Point(203, 65)
+        Me.WhichBackupLabel.Location = New System.Drawing.Point(212, 54)
         Me.WhichBackupLabel.Name = "WhichBackupLabel"
         Me.WhichBackupLabel.Size = New System.Drawing.Size(111, 17)
-        Me.WhichBackupLabel.TabIndex = 6
+        Me.WhichBackupLabel.TabIndex = 7
         Me.WhichBackupLabel.Text = "Backup to restore"
-        '
-        'WhichBackupDropdownCombo
-        '
-        Me.WhichBackupDropdownCombo.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.WhichBackupDropdownCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.WhichBackupDropdownCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.WhichBackupDropdownCombo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.WhichBackupDropdownCombo.ForeColor = System.Drawing.Color.White
-        Me.WhichBackupDropdownCombo.FormattingEnabled = True
-        Me.WhichBackupDropdownCombo.Items.AddRange(New Object() {"Latest", "Second-to-last", "Let me decide"})
-        Me.WhichBackupDropdownCombo.Location = New System.Drawing.Point(206, 88)
-        Me.WhichBackupDropdownCombo.MaxDropDownItems = 3
-        Me.WhichBackupDropdownCombo.Name = "WhichBackupDropdownCombo"
-        Me.WhichBackupDropdownCombo.Size = New System.Drawing.Size(279, 25)
-        Me.WhichBackupDropdownCombo.TabIndex = 7
         '
         'DisableCloudSyncChkBox
         '
@@ -858,9 +822,9 @@ Partial Class Form1
         Me.FoldersContainer.Controls.Add(Me.BackupLocTextBox)
         Me.FoldersContainer.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FoldersContainer.ForeColor = System.Drawing.Color.White
-        Me.FoldersContainer.Location = New System.Drawing.Point(325, 323)
+        Me.FoldersContainer.Location = New System.Drawing.Point(325, 311)
         Me.FoldersContainer.Name = "FoldersContainer"
-        Me.FoldersContainer.Size = New System.Drawing.Size(497, 125)
+        Me.FoldersContainer.Size = New System.Drawing.Size(497, 137)
         Me.FoldersContainer.TabIndex = 13
         '
         'FoldersTitleLabel
@@ -869,7 +833,7 @@ Partial Class Form1
         Me.FoldersTitleLabel.BackColor = System.Drawing.Color.Transparent
         Me.FoldersTitleLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FoldersTitleLabel.ForeColor = System.Drawing.Color.White
-        Me.FoldersTitleLabel.Location = New System.Drawing.Point(322, 289)
+        Me.FoldersTitleLabel.Location = New System.Drawing.Point(322, 277)
         Me.FoldersTitleLabel.Name = "FoldersTitleLabel"
         Me.FoldersTitleLabel.Size = New System.Drawing.Size(65, 21)
         Me.FoldersTitleLabel.TabIndex = 12
@@ -879,30 +843,70 @@ Partial Class Form1
         '
         Me.TasksContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
         Me.TasksContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TasksContainer.Controls.Add(Me.WhichBackupDropdown)
+        Me.TasksContainer.Controls.Add(Me.BackupFreqHelp2Label)
+        Me.TasksContainer.Controls.Add(Me.BackupFreqTextBox)
         Me.TasksContainer.Controls.Add(Me.LatestBackupHelpLabel)
-        Me.TasksContainer.Controls.Add(Me.BackupFreqHelpLabel)
-        Me.TasksContainer.Controls.Add(Me.BackupFreqUpDown)
+        Me.TasksContainer.Controls.Add(Me.BackupFreqHelp1Label)
         Me.TasksContainer.Controls.Add(Me.BackupBtn)
         Me.TasksContainer.Controls.Add(Me.StopBtn)
         Me.TasksContainer.Controls.Add(Me.WhichBackupLabel)
-        Me.TasksContainer.Controls.Add(Me.WhichBackupDropdownCombo)
         Me.TasksContainer.Controls.Add(Me.RestoreBtn)
         Me.TasksContainer.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TasksContainer.ForeColor = System.Drawing.Color.White
         Me.TasksContainer.Location = New System.Drawing.Point(325, 149)
         Me.TasksContainer.Name = "TasksContainer"
-        Me.TasksContainer.Size = New System.Drawing.Size(497, 127)
+        Me.TasksContainer.Size = New System.Drawing.Size(497, 115)
         Me.TasksContainer.TabIndex = 11
+        '
+        'WhichBackupDropdown
+        '
+        Me.WhichBackupDropdown.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.WhichBackupDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.WhichBackupDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.WhichBackupDropdown.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.WhichBackupDropdown.ForeColor = System.Drawing.Color.White
+        Me.WhichBackupDropdown.Items.AddRange(New Object() {"Latest", "Second-to-last", "Choose"})
+        Me.WhichBackupDropdown.Location = New System.Drawing.Point(214, 76)
+        Me.WhichBackupDropdown.Name = "WhichBackupDropdown"
+        Me.WhichBackupDropdown.Size = New System.Drawing.Size(271, 25)
+        Me.WhichBackupDropdown.TabIndex = 8
+        '
+        'BackupFreqHelp2Label
+        '
+        Me.BackupFreqHelp2Label.AutoSize = True
+        Me.BackupFreqHelp2Label.BackColor = System.Drawing.Color.Transparent
+        Me.BackupFreqHelp2Label.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BackupFreqHelp2Label.Location = New System.Drawing.Point(233, 23)
+        Me.BackupFreqHelp2Label.Name = "BackupFreqHelp2Label"
+        Me.BackupFreqHelp2Label.Size = New System.Drawing.Size(56, 17)
+        Me.BackupFreqHelp2Label.TabIndex = 3
+        Me.BackupFreqHelp2Label.Text = "minutes."
+        '
+        'BackupFreqTextBox
+        '
+        Me.BackupFreqTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.BackupFreqTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.BackupFreqTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BackupFreqTextBox.ForeColor = System.Drawing.Color.White
+        Me.BackupFreqTextBox.Location = New System.Drawing.Point(196, 22)
+        Me.BackupFreqTextBox.MaxLength = 3
+        Me.BackupFreqTextBox.Name = "BackupFreqTextBox"
+        Me.BackupFreqTextBox.ShortcutsEnabled = False
+        Me.BackupFreqTextBox.Size = New System.Drawing.Size(34, 23)
+        Me.BackupFreqTextBox.TabIndex = 2
+        Me.BackupFreqTextBox.Text = "5"
+        Me.BackupFreqTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'LatestBackupHelpLabel
         '
         Me.LatestBackupHelpLabel.AutoSize = True
         Me.LatestBackupHelpLabel.BackColor = System.Drawing.Color.Transparent
         Me.LatestBackupHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LatestBackupHelpLabel.Location = New System.Drawing.Point(300, 22)
+        Me.LatestBackupHelpLabel.Location = New System.Drawing.Point(286, 23)
         Me.LatestBackupHelpLabel.Name = "LatestBackupHelpLabel"
         Me.LatestBackupHelpLabel.Size = New System.Drawing.Size(183, 17)
-        Me.LatestBackupHelpLabel.TabIndex = 3
+        Me.LatestBackupHelpLabel.TabIndex = 4
         Me.LatestBackupHelpLabel.Text = "Latest backup: No backup yet."
         '
         'TasksTitleLabel
@@ -991,7 +995,6 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "GHOST Buster"
-        CType(Me.BackupFreqUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LogoBigPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LogTxtBoxContextMenu.ResumeLayout(False)
         Me.TopMenuContainer.ResumeLayout(False)
@@ -1020,7 +1023,6 @@ Partial Class Form1
     Friend WithEvents SavegamesLocHelpLabel As Label
     Friend WithEvents BackupLocHelpLabel As Label
     Friend WithEvents BackupBtn As Button
-    Friend WithEvents BackupFreqUpDown As NumericUpDown
     Friend WithEvents StopBtn As Button
     Friend WithEvents RestoreBtn As Button
     Friend WithEvents LogoBigPictureBox As PictureBox
@@ -1028,7 +1030,7 @@ Partial Class Form1
     Friend WithEvents LogTxtBox As TextBox
     Friend WithEvents ConfirmExitChkBox As CheckBox
     Friend WithEvents ConfirmStopBackupChkBox As CheckBox
-    Friend WithEvents BackupFreqHelpLabel As Label
+    Friend WithEvents BackupFreqHelp1Label As Label
     Friend WithEvents CheckUpdatesChkBox As CheckBox
     Friend WithEvents LogTxtBoxContextMenu As ContextMenuStrip
     Friend WithEvents CopyToolStripMenuItem As ToolStripMenuItem
@@ -1057,7 +1059,6 @@ Partial Class Form1
     Friend WithEvents SettingsLogFilePathTextBox As TextBox
     Friend WithEvents SettingsBrowseLogFileBtn As Button
     Friend WithEvents SettingsOpenLogBtn As Button
-    Friend WithEvents WhichBackupDropdownCombo As ComboBox
     Friend WithEvents WhichBackupLabel As Label
     Friend WithEvents UplayPictureBtn As PictureBox
     Friend WithEvents SettingsOpenCustomExeFolderBtn As Button
@@ -1073,4 +1074,7 @@ Partial Class Form1
     Friend WithEvents HelpToolTip As ToolTip
     Friend WithEvents EnableCloudSyncChkBox As CheckBox
     Friend WithEvents DisplayNotificationChkBox As CheckBox
+    Friend WithEvents BackupFreqTextBox As TextBox
+    Friend WithEvents BackupFreqHelp2Label As Label
+    Friend WithEvents WhichBackupDropdown As ComboBox
 End Class

@@ -75,27 +75,24 @@ Public Class BackupHelper
                 Logger.Log("[INFO] No valid backup found inside the current backup directory.")
 
                 Form1.LatestBackupHelpLabel.Text = "Latest backup: No backup yet."
-                Form1.LatestBackupHelpLabel.Location = New Point(300, 22)
             Else
-                Form1.LatestBackupHelpLabel.Text = "Latest backup:" & Environment.NewLine & e.Result()
-                Form1.LatestBackupHelpLabel.Location = New Point(300, 14)
+                Form1.LatestBackupHelpLabel.Text = "Latest backup: " & e.Result()
             End If
         Else
             Logger.Log("[ERROR] An error occurred while enumerating backup directories: " & ErrorMessage)
             Banner.Show(48, "Unable to get latest backup timestamp. Please check the logs for more details.")
 
             Form1.LatestBackupHelpLabel.Text = "Latest backup: Error."
-            Form1.LatestBackupHelpLabel.Location = New Point(300, 22)
 
             ErrorMessage = Nothing
         End If
     End Sub
 
     Public Shared Sub StartBackup()
-        BackupTimer.Interval = Form1.BackupFreqUpDown.Value * 60000
+        BackupTimer.Interval = Integer.Parse(Form1.BackupFreqTextBox.Text) * 60000
         BackupTimer.Start()
         IsBackupRunning = True
-        Form1.BackupFreqUpDown.Enabled = False
+        Form1.BackupFreqTextBox.Enabled = False
         Form1.BackupBtn.Enabled = False
         Form1.StopBtn.Enabled = True
         Form1.RestoreBtn.Enabled = False
@@ -112,7 +109,7 @@ Public Class BackupHelper
     Public Shared Sub StopBackup()
         BackupTimer.Stop()
         IsBackupRunning = False
-        Form1.BackupFreqUpDown.Enabled = True
+        Form1.BackupFreqTextBox.Enabled = True
         Form1.BackupBtn.Enabled = True
         Form1.StopBtn.Enabled = False
         Form1.RestoreBtn.Enabled = True
@@ -148,8 +145,7 @@ Public Class BackupHelper
                 Next
 
                 'Write the timestamp of this backup on the main screen
-                Form1.LatestBackupHelpLabel.Text = "Latest backup:" & Environment.NewLine & BackupTimestamp.ToString("yyyy-MM-dd HH:mm")
-                Form1.LatestBackupHelpLabel.Location = New Point(300, 14)
+                Form1.LatestBackupHelpLabel.Text = "Latest backup: " & BackupTimestamp.ToString("yyyy-MM-dd HH:mm")
 
                 Logger.Log("[INFO] Performed the first backup " & "(" & SavegamesList.Length & " files copied to " & BackupDirectory & ").")
                 Notification.Show("Performed first backup.")
@@ -182,8 +178,7 @@ Public Class BackupHelper
                 Next
 
                 'Write the timestamp of this backup on the main screen
-                Form1.LatestBackupHelpLabel.Text = "Latest backup:" & Environment.NewLine & BackupTimestamp.ToString("yyyy-MM-dd HH:mm")
-                Form1.LatestBackupHelpLabel.Location = New Point(300, 14)
+                Form1.LatestBackupHelpLabel.Text = "Latest backup: " & BackupTimestamp.ToString("yyyy-MM-dd HH:mm")
 
                 Logger.Log("[INFO] Backup complete " & "(" & SavegamesList.Length & " files copied to " & BackupDirectory & ").")
                 Notification.Show("Backup complete.")
@@ -211,7 +206,7 @@ Public Class BackupHelper
 
             'If the current backup folder is not empty proceed with the restore process
             If EnumeratedDirs.Count > 0 Then
-                If Form1.WhichBackupDropdownCombo.SelectedIndex = 0 Then
+                If Form1.WhichBackupDropdown.SelectedIndex = 0 Then
                     'If "Latest" option is selected
                     'Loop through every directory in the list
                     For Each BackupDir In EnumeratedDirs
@@ -248,9 +243,8 @@ Public Class BackupHelper
                         Logger.Log("[INFO] No valid backup found inside " & Form1.BackupLocTextBox.Text & ". Restore process aborted.")
 
                         Form1.LatestBackupHelpLabel.Text = "Latest backup: No backup yet."
-                        Form1.LatestBackupHelpLabel.Location = New Point(300, 22)
                     End If
-                ElseIf Form1.WhichBackupDropdownCombo.SelectedIndex = 1 Then
+                ElseIf Form1.WhichBackupDropdown.SelectedIndex = 1 Then
                     'If "Second-to-last" option is selected
                     'Loop through every directory in the list
                     For Each BackupDir In EnumeratedDirs
@@ -307,9 +301,8 @@ Public Class BackupHelper
                         Logger.Log("[INFO] No valid backup found inside " & Form1.BackupLocTextBox.Text & ". Restore process aborted.")
 
                         Form1.LatestBackupHelpLabel.Text = "Latest backup: No backup yet."
-                        Form1.LatestBackupHelpLabel.Location = New Point(300, 22)
                     End If
-                ElseIf Form1.WhichBackupDropdownCombo.SelectedIndex = 2 Then
+                ElseIf Form1.WhichBackupDropdown.SelectedIndex = 2 Then
                     'If "Let me decide" option is selected
                     'Reverse the order of the directories list (most recent backup first)
                     '//docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.reverse
@@ -360,7 +353,6 @@ Public Class BackupHelper
                         Logger.Log("[INFO] No valid backup found inside " & Form1.BackupLocTextBox.Text & ". Restore process aborted.")
 
                         Form1.LatestBackupHelpLabel.Text = "Latest backup: No backup yet."
-                        Form1.LatestBackupHelpLabel.Location = New Point(300, 22)
                     End If
                 End If
             Else
@@ -368,7 +360,6 @@ Public Class BackupHelper
                 Logger.Log("[INFO] No backup found inside " & Form1.BackupLocTextBox.Text & ". Restore process aborted.")
 
                 Form1.LatestBackupHelpLabel.Text = "Latest backup: No backup yet."
-                Form1.LatestBackupHelpLabel.Location = New Point(300, 22)
             End If
 
         Catch ex As Exception

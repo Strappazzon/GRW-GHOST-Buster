@@ -90,8 +90,7 @@ Public Class Form1
 
         'Detect latest backup timestamp
         If BackupLocTextBox.Text <> "" Then
-            LatestBackupHelpLabel.Text = "Latest backup: " & Environment.NewLine & "Please wait..."
-            LatestBackupHelpLabel.Location = New Point(300, 14)
+            LatestBackupHelpLabel.Text = "Latest backup: Please wait..."
             DetectLatestBackup()
         End If
 
@@ -307,8 +306,7 @@ Public Class Form1
                 Logger.Log("[INFO] Backup directory set to: " & O.SelectedPath)
 
                 'Detect latest backup timestamp
-                LatestBackupHelpLabel.Text = "Latest backup: " & Environment.NewLine & "Please wait..."
-                LatestBackupHelpLabel.Location = New Point(300, 14)
+                LatestBackupHelpLabel.Text = "Latest backup: Please wait..."
                 DetectLatestBackup()
             End If
         End Using
@@ -324,7 +322,19 @@ Public Class Form1
     End Sub
 
     Private Sub BackupBtn_Click(sender As Object, e As EventArgs) Handles BackupBtn.Click
-        PerformFirstBackup()
+        'Start the backup only if the value is > 0
+        If BackupFreqTextBox.Text = "" OrElse BackupFreqTextBox.Text = "0" Then
+            CustomMsgBox.Show("{\rtf1 The backup frequency {\b cannot be empty or 0}.}", "Invalid value", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+        Else
+            PerformFirstBackup()
+        End If
+    End Sub
+
+    Private Sub BackupFreqTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles BackupFreqTextBox.KeyPress
+        'Accept only numbers
+        If (Not Char.IsNumber(e.KeyChar)) AndAlso (Not Char.IsControl(e.KeyChar)) Then
+            e.KeyChar = ""
+        End If
     End Sub
 
     Private Sub StopBtn_Click(sender As Object, e As EventArgs) Handles StopBtn.Click
