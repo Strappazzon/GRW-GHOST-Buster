@@ -28,7 +28,8 @@ Public Class CustomMsgBox
     'Custom MessageBox Class
     '//docs.microsoft.com/en-us/dotnet/api/system.windows.forms.form.dialogresult
 
-    Public Overloads Shared Sub Show(ByVal Message As String, ByVal Title As String, ByVal Buttons As MessageBoxButtons, ByVal Icon As MessageBoxIcon, Optional ByVal DefaultButton As MessageBoxDefaultButton = MessageBoxDefaultButton.Button2)
+#Region "Show Methods"
+    Public Overloads Shared Sub Show(ByVal Message As String, ByVal Title As String, ByVal Buttons As MessageBoxButtons, ByVal Icon As MessageBoxIcon, ByVal DefaultButton As MessageBoxDefaultButton)
         'The content of Message MUST be written in Rich Text Format
         '//www.oreilly.com/library/view/rtf-pocket-guide/9781449302047/ch01.html
         'When printing a string variable that is a path or otherwise contains any backward slashes they MUST be escaped with .Replace("\", "\\")
@@ -95,6 +96,53 @@ Public Class CustomMsgBox
         'Display the custom MessageBox as a modal
         CustomMsgBox.ShowDialog()
     End Sub
+
+    Public Overloads Shared Sub Show(ByVal Message As String, ByVal Title As String, ByVal Buttons As MessageBoxButtons, ByVal Icon As MessageBoxIcon)
+        'The content of Message MUST be written in Rich Text Format
+        '//www.oreilly.com/library/view/rtf-pocket-guide/9781449302047/ch01.html
+        'When printing a string variable that is a path or otherwise contains any backward slashes they MUST be escaped with .Replace("\", "\\")
+        CustomMsgBox.MessageRTF.Rtf = Message
+        CustomMsgBox.TitleLabel.Text = Title
+
+        If Buttons = MessageBoxButtons.OK OrElse Buttons = MessageBoxButtons.OKCancel Then
+            '[OK] or [OK][Cancel] dialog
+            CustomMsgBox.RightButton.DialogResult = DialogResult.OK
+            CustomMsgBox.CancelLabel.DialogResult = DialogResult.Cancel
+            'Hide [Yes] button and make [No] button the [OK] button
+            CustomMsgBox.LeftButton.Visible = False
+            CustomMsgBox.RightButton.Text = "OK"
+            CustomMsgBox.AcceptButton = CustomMsgBox.RightButton
+            CustomMsgBox.CancelButton = CustomMsgBox.CancelLabel
+        ElseIf Buttons = MessageBoxButtons.YesNo OrElse MessageBoxButtons.YesNoCancel Then
+            '[Yes][No] or [Yes][No][Cancel] dialog
+            CustomMsgBox.LeftButton.DialogResult = DialogResult.Yes
+            CustomMsgBox.RightButton.DialogResult = DialogResult.No
+            CustomMsgBox.CancelLabel.DialogResult = DialogResult.Cancel
+            'Show [Yes] button and make [OK] button the [No] button
+            CustomMsgBox.LeftButton.Visible = True
+            CustomMsgBox.RightButton.Text = "No"
+            CustomMsgBox.AcceptButton = CustomMsgBox.LeftButton
+            CustomMsgBox.CancelButton = CustomMsgBox.CancelLabel
+        End If
+
+        'Set [Cancel] button as the default button
+        CustomMsgBox.ActiveControl = CustomMsgBox.CancelLabel
+
+        Select Case Icon
+            Case MessageBoxIcon.Error, MessageBoxIcon.Hand, MessageBoxIcon.Stop
+                CustomMsgBox.IconPictureBox.Image = My.Resources.CustomMsgBox_Error
+            Case MessageBoxIcon.Exclamation, MessageBoxIcon.Warning
+                CustomMsgBox.IconPictureBox.Image = My.Resources.CustomMsgBox_Warning
+            Case MessageBoxIcon.Question
+                CustomMsgBox.IconPictureBox.Image = My.Resources.CustomMsgBox_Question
+            Case Else
+                Exit Select
+        End Select
+
+        'Display the custom MessageBox as a modal
+        CustomMsgBox.ShowDialog()
+    End Sub
+#End Region
 
     Private Sub CustomMsgBox_Closing(sender As Object, e As FormClosingEventArgs) Handles Me.Closing
         'Hide the dropdown menu, if visible, to avoid displaying it again if not necessary

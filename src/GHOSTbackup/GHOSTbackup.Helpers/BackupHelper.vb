@@ -239,7 +239,7 @@ Public Class BackupHelper
                         End If
                     Else
                         'If no directory contains any save files
-                        CustomMsgBox.Show("{\rtf1 The current {\b backup folder doesn't contain any backup.} Backup at least once and try again.}", "No backup found", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+                        CustomMsgBox.Show("{\rtf1 The current {\b backup folder doesn't contain any backup.} Backup at least once and try again.}", "No backup found", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
                         Logger.Log("[INFO] No valid backup found inside " & Form1.BackupLocTextBox.Text & ". Restore process aborted.")
 
                         Form1.LatestBackupHelpLabel.Text = "Latest backup: No backup yet."
@@ -297,7 +297,7 @@ Public Class BackupHelper
                         End If
                     Else
                         'If no valid backup directory is found (.Count = 0) display an error
-                        CustomMsgBox.Show("{\rtf1 The current {\b backup folder doesn't contain any backup.} Backup at least once and try again.}", "No backup found", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+                        CustomMsgBox.Show("{\rtf1 The current {\b backup folder doesn't contain any backup.} Backup at least once and try again.}", "No backup found", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
                         Logger.Log("[INFO] No valid backup found inside " & Form1.BackupLocTextBox.Text & ". Restore process aborted.")
 
                         Form1.LatestBackupHelpLabel.Text = "Latest backup: No backup yet."
@@ -349,14 +349,14 @@ Public Class BackupHelper
                         End If
                     Else
                         'If no directory contains any save files
-                        CustomMsgBox.Show("{\rtf1 The current {\b backup folder doesn't contain any backup.} Backup at least once and try again.}", "No backup found", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+                        CustomMsgBox.Show("{\rtf1 The current {\b backup folder doesn't contain any backup.} Backup at least once and try again.}", "No backup found", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
                         Logger.Log("[INFO] No valid backup found inside " & Form1.BackupLocTextBox.Text & ". Restore process aborted.")
 
                         Form1.LatestBackupHelpLabel.Text = "Latest backup: No backup yet."
                     End If
                 End If
             Else
-                CustomMsgBox.Show("{\rtf1 The current {\b backup folder is empty.} Backup at least once and try again.}", "No backup found", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+                CustomMsgBox.Show("{\rtf1 The current {\b backup folder is empty.} Backup at least once and try again.}", "No backup found", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
                 Logger.Log("[INFO] No backup found inside " & Form1.BackupLocTextBox.Text & ". Restore process aborted.")
 
                 Form1.LatestBackupHelpLabel.Text = "Latest backup: No backup yet."
