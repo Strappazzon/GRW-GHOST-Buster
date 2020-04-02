@@ -390,19 +390,19 @@ Public Class Form1
         End Using
     End Sub
 
-    Private Sub WebsiteLabel_Click(sender As Object, e As EventArgs) Handles WebsiteLabel.Click
+    Private Sub WebsiteLink_Click(sender As Object, e As EventArgs) Handles WebsiteLink.Click
         Process.Start("https://strappazzon.xyz/GRW-GHOST-Buster")
     End Sub
 
-    Private Sub SupportLabel_Click(sender As Object, e As EventArgs) Handles SupportLabel.Click
+    Private Sub SupportLink_Click(sender As Object, e As EventArgs) Handles SupportLink.Click
         Process.Start("https://github.com/Strappazzon/GRW-GHOST-Buster/issues")
     End Sub
 
-    Private Sub ChangelogLabel_Click(sender As Object, e As EventArgs) Handles ChangelogLabel.Click
+    Private Sub ChangelogLink_Click(sender As Object, e As EventArgs) Handles ChangelogLink.Click
         Process.Start("https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/CHANGELOG.txt")
     End Sub
 
-    Private Sub LicenseLabel_Click(sender As Object, e As EventArgs) Handles LicenseLabel.Click
+    Private Sub LicenseLink_Click(sender As Object, e As EventArgs) Handles LicenseLink.Click
         Process.Start("https://github.com/Strappazzon/GRW-GHOST-Buster/blob/master/LICENSE.txt")
     End Sub
 

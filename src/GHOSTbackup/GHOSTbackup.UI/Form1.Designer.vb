@@ -54,10 +54,10 @@ Partial Class Form1
         Me.SettingsLabel = New System.Windows.Forms.Label()
         Me.LogLabel = New System.Windows.Forms.Label()
         Me.AboutContainer = New System.Windows.Forms.Panel()
-        Me.LicenseLabel = New System.Windows.Forms.Label()
-        Me.ChangelogLabel = New System.Windows.Forms.Label()
-        Me.SupportLabel = New System.Windows.Forms.Label()
-        Me.WebsiteLabel = New System.Windows.Forms.Label()
+        Me.LicenseLink = New System.Windows.Forms.CheckBox()
+        Me.ChangelogLink = New System.Windows.Forms.CheckBox()
+        Me.SupportLink = New System.Windows.Forms.CheckBox()
+        Me.WebsiteLink = New System.Windows.Forms.CheckBox()
         Me.AppInfoLabel = New System.Windows.Forms.Label()
         Me.LogsContainer = New System.Windows.Forms.Panel()
         Me.RememberFormPositionChkBox = New System.Windows.Forms.CheckBox()
@@ -503,10 +503,10 @@ Partial Class Form1
         '
         Me.AboutContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
         Me.AboutContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.AboutContainer.Controls.Add(Me.LicenseLabel)
-        Me.AboutContainer.Controls.Add(Me.ChangelogLabel)
-        Me.AboutContainer.Controls.Add(Me.SupportLabel)
-        Me.AboutContainer.Controls.Add(Me.WebsiteLabel)
+        Me.AboutContainer.Controls.Add(Me.LicenseLink)
+        Me.AboutContainer.Controls.Add(Me.ChangelogLink)
+        Me.AboutContainer.Controls.Add(Me.SupportLink)
+        Me.AboutContainer.Controls.Add(Me.WebsiteLink)
         Me.AboutContainer.Controls.Add(Me.AppInfoLabel)
         Me.AboutContainer.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AboutContainer.Location = New System.Drawing.Point(325, 149)
@@ -515,61 +515,97 @@ Partial Class Form1
         Me.AboutContainer.TabIndex = 17
         Me.AboutContainer.Visible = False
         '
-        'LicenseLabel
+        'LicenseLink
         '
-        Me.LicenseLabel.BackColor = System.Drawing.Color.Transparent
-        Me.LicenseLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LicenseLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.LicenseLabel.Image = Global.GHOSTbackup.My.Resources.Resources.About_License_Icon
-        Me.LicenseLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.LicenseLabel.Location = New System.Drawing.Point(14, 246)
-        Me.LicenseLabel.Name = "LicenseLabel"
-        Me.LicenseLabel.Size = New System.Drawing.Size(70, 17)
-        Me.LicenseLabel.TabIndex = 4
-        Me.LicenseLabel.Text = "License"
-        Me.LicenseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.LicenseLink.Appearance = System.Windows.Forms.Appearance.Button
+        Me.LicenseLink.AutoSize = True
+        Me.LicenseLink.BackColor = System.Drawing.Color.Transparent
+        Me.LicenseLink.FlatAppearance.BorderSize = 0
+        Me.LicenseLink.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent
+        Me.LicenseLink.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.LicenseLink.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.LicenseLink.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.LicenseLink.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LicenseLink.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.LicenseLink.Image = Global.GHOSTbackup.My.Resources.Resources.About_License_Icon
+        Me.LicenseLink.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LicenseLink.Location = New System.Drawing.Point(14, 246)
+        Me.LicenseLink.Name = "LicenseLink"
+        Me.LicenseLink.Size = New System.Drawing.Size(76, 27)
+        Me.LicenseLink.TabIndex = 4
+        Me.LicenseLink.Text = "License"
+        Me.LicenseLink.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.LicenseLink.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.LicenseLink.UseVisualStyleBackColor = False
         '
-        'ChangelogLabel
+        'ChangelogLink
         '
-        Me.ChangelogLabel.BackColor = System.Drawing.Color.Transparent
-        Me.ChangelogLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ChangelogLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ChangelogLabel.Image = Global.GHOSTbackup.My.Resources.Resources.About_Changelog_Icon
-        Me.ChangelogLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ChangelogLabel.Location = New System.Drawing.Point(14, 222)
-        Me.ChangelogLabel.Name = "ChangelogLabel"
-        Me.ChangelogLabel.Size = New System.Drawing.Size(90, 17)
-        Me.ChangelogLabel.TabIndex = 3
-        Me.ChangelogLabel.Text = "Changelog"
-        Me.ChangelogLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ChangelogLink.Appearance = System.Windows.Forms.Appearance.Button
+        Me.ChangelogLink.AutoSize = True
+        Me.ChangelogLink.BackColor = System.Drawing.Color.Transparent
+        Me.ChangelogLink.FlatAppearance.BorderSize = 0
+        Me.ChangelogLink.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent
+        Me.ChangelogLink.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.ChangelogLink.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.ChangelogLink.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ChangelogLink.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ChangelogLink.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ChangelogLink.Image = Global.GHOSTbackup.My.Resources.Resources.About_Changelog_Icon
+        Me.ChangelogLink.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ChangelogLink.Location = New System.Drawing.Point(14, 222)
+        Me.ChangelogLink.Name = "ChangelogLink"
+        Me.ChangelogLink.Size = New System.Drawing.Size(97, 27)
+        Me.ChangelogLink.TabIndex = 3
+        Me.ChangelogLink.Text = "Changelog"
+        Me.ChangelogLink.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ChangelogLink.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ChangelogLink.UseVisualStyleBackColor = False
         '
-        'SupportLabel
+        'SupportLink
         '
-        Me.SupportLabel.BackColor = System.Drawing.Color.Transparent
-        Me.SupportLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SupportLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SupportLabel.Image = Global.GHOSTbackup.My.Resources.Resources.About_Support_Icon
-        Me.SupportLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.SupportLabel.Location = New System.Drawing.Point(14, 198)
-        Me.SupportLabel.Name = "SupportLabel"
-        Me.SupportLabel.Size = New System.Drawing.Size(75, 17)
-        Me.SupportLabel.TabIndex = 2
-        Me.SupportLabel.Text = "Support"
-        Me.SupportLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.SupportLink.Appearance = System.Windows.Forms.Appearance.Button
+        Me.SupportLink.AutoSize = True
+        Me.SupportLink.BackColor = System.Drawing.Color.Transparent
+        Me.SupportLink.FlatAppearance.BorderSize = 0
+        Me.SupportLink.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent
+        Me.SupportLink.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.SupportLink.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.SupportLink.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SupportLink.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SupportLink.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SupportLink.Image = Global.GHOSTbackup.My.Resources.Resources.About_Support_Icon
+        Me.SupportLink.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.SupportLink.Location = New System.Drawing.Point(14, 198)
+        Me.SupportLink.Name = "SupportLink"
+        Me.SupportLink.Size = New System.Drawing.Size(81, 27)
+        Me.SupportLink.TabIndex = 2
+        Me.SupportLink.Text = "Support"
+        Me.SupportLink.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.SupportLink.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.SupportLink.UseVisualStyleBackColor = False
         '
-        'WebsiteLabel
+        'WebsiteLink
         '
-        Me.WebsiteLabel.BackColor = System.Drawing.Color.Transparent
-        Me.WebsiteLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.WebsiteLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.WebsiteLabel.Image = Global.GHOSTbackup.My.Resources.Resources.About_Web_Icon
-        Me.WebsiteLabel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.WebsiteLabel.Location = New System.Drawing.Point(14, 174)
-        Me.WebsiteLabel.Name = "WebsiteLabel"
-        Me.WebsiteLabel.Size = New System.Drawing.Size(117, 17)
-        Me.WebsiteLabel.TabIndex = 1
-        Me.WebsiteLabel.Text = "Official Website"
-        Me.WebsiteLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.WebsiteLink.Appearance = System.Windows.Forms.Appearance.Button
+        Me.WebsiteLink.AutoSize = True
+        Me.WebsiteLink.BackColor = System.Drawing.Color.Transparent
+        Me.WebsiteLink.FlatAppearance.BorderSize = 0
+        Me.WebsiteLink.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent
+        Me.WebsiteLink.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.WebsiteLink.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.WebsiteLink.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.WebsiteLink.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.WebsiteLink.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.WebsiteLink.Image = Global.GHOSTbackup.My.Resources.Resources.About_Web_Icon
+        Me.WebsiteLink.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.WebsiteLink.Location = New System.Drawing.Point(14, 174)
+        Me.WebsiteLink.Name = "WebsiteLink"
+        Me.WebsiteLink.Size = New System.Drawing.Size(124, 27)
+        Me.WebsiteLink.TabIndex = 1
+        Me.WebsiteLink.Text = "Official Website"
+        Me.WebsiteLink.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.WebsiteLink.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.WebsiteLink.UseVisualStyleBackColor = False
         '
         'AppInfoLabel
         '
@@ -1042,10 +1078,6 @@ Partial Class Form1
     Friend WithEvents AboutLabel As Label
     Friend WithEvents AboutContainer As Panel
     Friend WithEvents AppInfoLabel As Label
-    Friend WithEvents WebsiteLabel As Label
-    Friend WithEvents LicenseLabel As Label
-    Friend WithEvents ChangelogLabel As Label
-    Friend WithEvents SupportLabel As Label
     Friend WithEvents ExploreBackupLocBtn As Button
     Friend WithEvents ExploreSavegamesLocBtn As Button
     Friend WithEvents LogLabel As Label
@@ -1077,4 +1109,8 @@ Partial Class Form1
     Friend WithEvents BackupFreqTextBox As TextBox
     Friend WithEvents BackupFreqHelp2Label As Label
     Friend WithEvents WhichBackupDropdown As ComboBox
+    Friend WithEvents WebsiteLink As CheckBox
+    Friend WithEvents SupportLink As CheckBox
+    Friend WithEvents ChangelogLink As CheckBox
+    Friend WithEvents LicenseLink As CheckBox
 End Class
