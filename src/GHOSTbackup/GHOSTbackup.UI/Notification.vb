@@ -31,6 +31,7 @@ Public Class Notification
         Notification.MessageLabel.Text = Message
 
         'Display the notification
+        'Use My.Forms.Show because msbuild complains
         My.Forms.Notification.Show()
     End Sub
 

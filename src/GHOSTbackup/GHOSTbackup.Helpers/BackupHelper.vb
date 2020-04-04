@@ -312,12 +312,18 @@ Public Class BackupHelper
                         Dim SavegamesList As String() = Directory.GetFiles(BackupDir, "*.save")
                         If SavegamesList.Length > 0 Then
                             'If a subdirectory contains save files add it to the list and to the backup restore dialog's dropdown menu
-                            'Also append their creation date and time, and if a backup was created less than 1 hour ago display "Created X minutes ago" instead
                             BackupDirs.Add(BackupDir)
-                            CustomMsgBox.BackupDirsDropdownCombo.Items.Add(BackupDir.Substring(BackupDir.LastIndexOf(Path.DirectorySeparatorChar) + 1) & Localization.GetString("msgbox_dropdown_backup_timestamp_created") &
-                                If(Directory.GetCreationTime(BackupDir) > Now.AddHours(-1),
-                                Regex.Replace(Now.Subtract(Directory.GetCreationTime(BackupDir)).ToString("mm") & Localization.GetString("msgbox_dropdown_backup_timestamp"), "^[0-9]{2}\ [a-z\ ]+$", Localization.GetString("msgbox_dropdown_backup_timestamp_00")),
-                                Directory.GetCreationTime(BackupDir).ToString("F", CultureInfo.CurrentUICulture)))
+                            'Append backup creation timestamp
+                            'If it's been created less than an hour ago, append "Created XX minutes ago" and if it's been created less than a minute ago replace "00 minutes ago" with "Less than a minute ago"
+                            CustomMsgBox.BackupDirsDropdownCombo.Items.Add(
+                                BackupDir.Substring(BackupDir.LastIndexOf(Path.DirectorySeparatorChar) + 1) &
+                                Localization.GetString("msgbox_dropdown_backup_timestamp_created") &
+                                If(
+                                    Directory.GetCreationTime(BackupDir) > Now.AddHours(-1),
+                                    Regex.Replace(Now.Subtract(Directory.GetCreationTime(BackupDir)).ToString("mm") & Localization.GetString("msgbox_dropdown_backup_timestamp"), "^[0-9]{2}\ [a-z\ ]+$", Localization.GetString("msgbox_dropdown_backup_timestamp_00")),
+                                    Directory.GetCreationTime(BackupDir).ToString("F", CultureInfo.CurrentUICulture)
+                                )
+                            )
                         End If
                     Next
 

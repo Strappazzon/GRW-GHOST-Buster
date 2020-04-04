@@ -41,7 +41,7 @@ Public Class Settings
             'Create default settings
             Dim ConfigData As IniData = New IniData()
             'GHOST Buster
-            ConfigData("GHOSTbackup")("Language") = "0" 'See Localization.SetLanguage() function
+            ConfigData("GHOSTbackup")("Language") = "0" 'See Localization.GetLanguage() function
             ConfigData("GHOSTbackup")("ConfirmExit") = "True"
             ConfigData("GHOSTbackup")("ConfirmBackupInterruption") = "False"
             ConfigData("GHOSTbackup")("CheckForUpdates") = "False"
