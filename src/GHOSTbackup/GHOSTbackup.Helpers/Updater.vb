@@ -27,7 +27,7 @@
 Imports System.Net
 
 Public Class Updater
-    Private Const VersionCode As Short = 16
+    Private Shared ReadOnly VersionCode As Integer = 16
 
     Public Shared Sub CheckUpdates()
         'Check for updates
