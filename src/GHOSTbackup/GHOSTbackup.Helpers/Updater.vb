@@ -45,7 +45,7 @@ Public Class Updater
 
     Private Shared Sub Updater_DownloadStringCompleted(ByVal sender As Object, ByVal e As DownloadStringCompletedEventArgs)
         If e.Error Is Nothing Then
-            Dim FetchedVer As Short = e.Result
+            Dim FetchedVer As Integer = e.Result
 
             'Compare downloaded GHOST Buster version number with the current one
             If FetchedVer = VersionCode Then
