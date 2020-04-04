@@ -58,7 +58,7 @@ Public Class BackupHelper
             'If the current backup directory contains at least one valid backup
             If BackupDirs.Count >= 1 Then
                 'Store the timestamp of the last directory in the list
-                e.Result = Directory.GetCreationTime(BackupDirs.Item(BackupDirs.Count - 1)).ToString("yyyy-MM-dd HH:mm")
+                e.Result = Directory.GetCreationTime(BackupDirs.Item(BackupDirs.Count - 1)).ToString("g", CultureInfo.CurrentUICulture)
             Else
                 'No valid directory found, set Result to Nothing
                 e.Result = Nothing
