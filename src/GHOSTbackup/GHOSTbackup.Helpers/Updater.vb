@@ -33,9 +33,9 @@ Public Class Updater
         'Check for updates
         '//docs.microsoft.com/en-us/dotnet/api/system.net.downloadstringcompletedeventargs
         If Form1.CheckUpdatesChkBox.Checked = True Then
-            Using Updater As New WebClient
+            Using Updater As WebClient = New WebClient()
                 Updater.Headers.Add("User-Agent", "GHOST Buster (+https://strappazzon.xyz/GRW-GHOST-Buster)")
-                Dim VersionURI As New Uri("https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/version")
+                Dim VersionURI As Uri = New Uri("https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/version")
                 Updater.DownloadStringAsync(VersionURI)
                 'Call updater_DownloadStringCompleted when the download completes
                 AddHandler Updater.DownloadStringCompleted, AddressOf Updater_DownloadStringCompleted
@@ -43,7 +43,7 @@ Public Class Updater
         End If
     End Sub
 
-    Private Shared Sub Updater_DownloadStringCompleted(ByVal sender As Object, ByVal e As DownloadStringCompletedEventArgs)
+    Private Shared Sub Updater_DownloadStringCompleted(sender As Object, e As DownloadStringCompletedEventArgs)
         If e.Error Is Nothing Then
             Dim FetchedVer As Integer = e.Result
 
