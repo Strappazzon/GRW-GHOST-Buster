@@ -371,7 +371,7 @@
     <value>Uplay non è installato.</value>
   </data>
   <data name="dialog_browse_backup_desc" xml:space="preserve">
-    <value>Seleziona dove vuoi eseguire il backup dei file di salvataggio. Ogni backup creerà una nuova sotto-cartella "yyyyMMdd".</value>
+    <value>Seleziona dove vuoi eseguire il backup dei file di salvataggio. Ogni backup creerà una nuova sotto-cartella "yyyyMMdd HHmm".</value>
   </data>
   <data name="msgbox_backup_error_title" xml:space="preserve">
     <value>Backup interrotto</value>
@@ -422,7 +422,7 @@
     <value>{\rtf1 La cartella di backup selezionata {\b è vuota.} Esegui almeno un backup e riprova.}</value>
   </data>
   <data name="msgbox_restore_error" xml:space="preserve">
-    <value>{\rtf1 Il ripristino del backup è stato {\b interrotto a causa di un errore.} Pre favore controlla i log per i dettagli.}</value>
+    <value>{\rtf1 Il ripristino del backup è stato {\b interrotto a causa di un errore.} Per favore controlla i log per i dettagli.}</value>
   </data>
   <data name="msgbox_restore_error_title" xml:space="preserve">
     <value>Ripristino fallito</value>
@@ -467,7 +467,7 @@
     <value>{\rtf1 Non è stato possibile abilitare la sincronizzazione salvataggi cloud di Uplay {\b perché Uplay è in esecuzione.} Per favore riattivala manualmente da Uplay (Impostazioni -&gt; Spunta "Attiva la sincronizzazione salvataggio Cloud nei giochi compatibili").}</value>
   </data>
   <data name="msgbox_enable_sync_uplay_error_title" xml:space="preserve">
-    <value>Impossibile attivare la sinc. cloud</value>
+    <value>Impossibile attivare la sincronizzazione cloud</value>
   </data>
   <data name="msgbox_enable_sync_error" xml:space="preserve">
     <value>{\rtf1 {\b Si è verificato un errore} durante il tentativo di analisi del file impostazioni di Uplay. Per favore riattiva manualmente la sincronizzazione salvataggi cloud da Uplay (Impostazioni -&gt; Spunta "Attiva la sincronizzazione salvataggio Cloud nei giochi compatibili").}</value>

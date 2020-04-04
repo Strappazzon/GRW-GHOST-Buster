@@ -524,7 +524,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to {\rtf1 You must {\b quit Uplay before restoring a backup} because you chose to let GHOST Buster disable cloud save synchronization for you.}.
+        '''  Looks up a localized string similar to {\rtf1 You must {\b quit Uplay before restoring a backup} because you chose to let GHOST Buster disable Uplay cloud save synchronization for you.}.
         '''</summary>
         Friend Shared ReadOnly Property msgbox_quit_before_restore_sync() As String
             Get

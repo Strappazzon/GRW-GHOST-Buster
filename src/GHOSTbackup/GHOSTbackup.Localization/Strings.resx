@@ -389,7 +389,7 @@
   </data>
   <data name="msgbox_backup_restore" xml:space="preserve">
     <value>{\rtf1 Restoring a backup will copy the save files over from the backup folder: &lt;0&gt;\line\line and will {\b OVERWRITE} the existing save files inside the game folder: &lt;1&gt;\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}</value>
-    <comment>This string MUST be written in Rich Text Format.</comment>
+    <comment>This string MUST be written in Rich Text Format</comment>
   </data>
   <data name="msgbox_invalid_backup_folder" xml:space="preserve">
     <value>{\rtf1 The current {\b backup folder doesn't contain any backup.} Backup at least once and try again.}</value>
@@ -403,7 +403,7 @@
   </data>
   <data name="msgbox_backup_restore_no_sectolast" xml:space="preserve">
     <value>{\rtf1 You chose to restore the second-to-last backup but {\b it doesn't exist.} Do you want to restore the latest backup instead? This will copy the save files over from the backup folder: &lt;0&gt;\line\line And will {\b OVERWRITE} the existing save files inside the game folder: &lt;1&gt;\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}</value>
-    <comment>This string MUST be written in Rich Text Format.</comment>
+    <comment>This string MUST be written in Rich Text Format</comment>
   </data>
   <data name="msgbox_backup_404_title" xml:space="preserve">
     <value>Backup doesn't exist</value>
@@ -421,7 +421,7 @@
   </data>
   <data name="msgbox_backup_restore_dynamic" xml:space="preserve">
     <value>{\rtf1 Restoring a backup will copy the save files over from the backup folder: &lt;0&gt;\\&lt;1&gt;\line\line and will {\b OVERWRITE} the existing save files inside the game folder: &lt;2&gt;\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}</value>
-    <comment>This string MUST be written in Rich Text Format.</comment>
+    <comment>This string MUST be written in Rich Text Format</comment>
   </data>
   <data name="msgbox_empty_backup_folder" xml:space="preserve">
     <value>{\rtf1 The current {\b backup folder is empty.} Backup at least once and try again.}</value>
@@ -466,7 +466,7 @@
     <value>Update available</value>
   </data>
   <data name="msgbox_quit_before_restore_sync" xml:space="preserve">
-    <value>{\rtf1 You must {\b quit Uplay before restoring a backup} because you chose to let GHOST Buster disable cloud save synchronization for you.}</value>
+    <value>{\rtf1 You must {\b quit Uplay before restoring a backup} because you chose to let GHOST Buster disable Uplay cloud save synchronization for you.}</value>
     <comment>This string MUST be written in Rich Text Format</comment>
   </data>
   <data name="msgbox_quit_before_restore_sync_title" xml:space="preserve">
