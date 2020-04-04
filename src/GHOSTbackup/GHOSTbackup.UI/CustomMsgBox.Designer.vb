@@ -100,6 +100,7 @@ Partial Class CustomMsgBox
         '
         'CancelLabel
         '
+        Me.CancelLabel.AutoSize = True
         Me.CancelLabel.BackColor = System.Drawing.Color.Transparent
         Me.CancelLabel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
         Me.CancelLabel.FlatAppearance.BorderSize = 0
@@ -108,9 +109,9 @@ Partial Class CustomMsgBox
         Me.CancelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CancelLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CancelLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CancelLabel.Location = New System.Drawing.Point(8, 363)
+        Me.CancelLabel.Location = New System.Drawing.Point(8, 362)
         Me.CancelLabel.Name = "CancelLabel"
-        Me.CancelLabel.Size = New System.Drawing.Size(55, 23)
+        Me.CancelLabel.Size = New System.Drawing.Size(56, 27)
         Me.CancelLabel.TabIndex = 2
         Me.CancelLabel.Text = "Cancel"
         Me.CancelLabel.UseVisualStyleBackColor = False

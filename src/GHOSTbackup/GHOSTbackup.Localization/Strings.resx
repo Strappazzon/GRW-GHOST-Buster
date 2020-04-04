@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="banner_backup_folder_404_info" xml:space="preserve">
+    <value>Backup folder doesn't exist.</value>
+  </data>
+  <data name="banner_backup_folder_deleted" xml:space="preserve">
+    <value>Backup folder no longer exists.</value>
+  </data>
+  <data name="banner_backup_restored" xml:space="preserve">
+    <value>Backup successfully restored.</value>
+  </data>
+  <data name="banner_customexe_404_error" xml:space="preserve">
+    <value>The selected Wildlands executable could not be found.</value>
+  </data>
+  <data name="banner_folder_404_info" xml:space="preserve">
+    <value>The current folder does not exist.</value>
+  </data>
+  <data name="banner_launch_before_backup_info" xml:space="preserve">
+    <value>You must launch Wildlands before starting the backup process.</value>
+  </data>
+  <data name="banner_log_error" xml:space="preserve">
+    <value>Logging to file disabled due to an error.</value>
+  </data>
+  <data name="banner_log_file_404_info" xml:space="preserve">
+    <value>The event log file does not exist.</value>
+  </data>
+  <data name="banner_quit_before_restore_info" xml:space="preserve">
+    <value>You must quit Wildlands before restoring a backup.</value>
+  </data>
+  <data name="banner_savegames_folder_404_info" xml:space="preserve">
+    <value>Wildlands save games folder doesn't exist.</value>
+  </data>
+  <data name="banner_savegames_folder_deleted" xml:space="preserve">
+    <value>Wildlands save games folder no longer exists.</value>
+  </data>
+  <data name="banner_specify_folders_info" xml:space="preserve">
+    <value>You must specify both save games and backup folders.</value>
+  </data>
+  <data name="banner_timestamp_error" xml:space="preserve">
+    <value>Unable to get latest backup timestamp. Please check the logs for more details.</value>
+  </data>
+  <data name="banner_update_error" xml:space="preserve">
+    <value>Unable to check for updates. Please check the logs for more details.</value>
+  </data>
+  <data name="banner_uplay_not_installed" xml:space="preserve">
+    <value>Uplay is not installed.</value>
+  </data>
+  <data name="dialog_browse_backup_desc" xml:space="preserve">
+    <value>Select where you want to backup your save files to. Every backup will create a new "yyyyMMdd HHmm" subfolder.</value>
+  </data>
+  <data name="dialog_browse_customexe_filter" xml:space="preserve">
+    <value>Wildlands executable (GRW.exe)|{0}</value>
+  </data>
+  <data name="dialog_browse_customexe_title" xml:space="preserve">
+    <value>Select Wildlands executable.</value>
+  </data>
+  <data name="dialog_browse_log_destination_desc" xml:space="preserve">
+    <value>Select where you want to save the event log file to.</value>
+  </data>
+  <data name="dialog_browse_savegames_desc" xml:space="preserve">
+    <value>Select Wildlands save games folder. If you don't know where it is, please consult PC Gaming Wiki.</value>
+  </data>
+  <data name="dialog_save_log_filter" xml:space="preserve">
+    <value>Text file|{0}|Log file|{1}</value>
+  </data>
+  <data name="dialog_save_log_title" xml:space="preserve">
+    <value>Save log as...</value>
+  </data>
+  <data name="msgbox_btn_cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="msgbox_btn_no" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="msgbox_btn_ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="msgbox_btn_yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="notification_msg_backup_complete" xml:space="preserve">
+    <value>Backup complete.</value>
+  </data>
+  <data name="notification_msg_backup_error" xml:space="preserve">
+    <value>Backup interrupted because an error occurred.</value>
+  </data>
+  <data name="notification_msg_first_backup" xml:space="preserve">
+    <value>Performed first backup.</value>
+  </data>
+  <data name="tooltip_backup_notification" xml:space="preserve">
+    <value>If checked, GHOST Buster will display a notification at the edge of the screen about backups.</value>
+  </data>
+  <data name="tooltip_confirm_backup_interruption" xml:space="preserve">
+    <value>If checked, GHOST Buster will show a confirmation dialog before interrupting the backup process.</value>
+  </data>
+  <data name="tooltip_confirm_exit" xml:space="preserve">
+    <value>If checked, GHOST Buster will show a confirmation dialog before exiting when the backup process is running.</value>
+  </data>
+  <data name="tooltip_coordinates" xml:space="preserve">
+    <value>If checked, GHOST Buster will restore its position on the screen when reopened.</value>
+  </data>
+  <data name="tooltip_disable_sync" xml:space="preserve">
+    <value>If checked, GHOST Buster will disable Uplay cloud save synchronization before restoring a backup.</value>
+  </data>
+  <data name="tooltip_enable_sync" xml:space="preserve">
+    <value>If checked, GHOST Buster will enable  Uplay cloud save synchronization again before  quitting.</value>
+  </data>
+  <data name="tooltip_launch_uplay" xml:space="preserve">
+    <value>Launch Uplay.</value>
+  </data>
+  <data name="tooltip_updates" xml:space="preserve">
+    <value>If checked, GHOST Buster will check if the current version is up to date when opening.</value>
+  </data>
+  <data name="topmenu_about" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="topmenu_logs" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+  <data name="topmenu_settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="ui_about_about" xml:space="preserve">
+    <value>GHOST Buster v{0}\nCopyright (c) 2019 - 2020 Alberto Strappazzon\nThis software is licensed under the MIT license.\n\nThis software uses assets from Tom Clancy's Ghost Recon(R) Wildlands\nCopyright (c) Ubisoft Entertainment. All Rights Reserved.\n\nSome icons are taken from Icons8 (https://icons8.com).</value>
+    <comment>75 characters per line max</comment>
+  </data>
+  <data name="ui_about_changelog" xml:space="preserve">
+    <value>Changelog</value>
+  </data>
+  <data name="ui_about_issues" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="ui_about_legal" xml:space="preserve">
+    <value>License</value>
+  </data>
+  <data name="ui_about_www" xml:space="preserve">
+    <value>Official Website</value>
+  </data>
+  <data name="ui_backup_notification" xml:space="preserve">
+    <value>Display notifications about backups</value>
+    <comment>44 characters per line max</comment>
+  </data>
+  <data name="ui_btn_browse" xml:space="preserve">
+    <value>Browse...</value>
+  </data>
+  <data name="ui_btn_open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="ui_btn_open_folder" xml:space="preserve">
+    <value>Open Folder</value>
+  </data>
+  <data name="ui_confirm_backup_interruption" xml:space="preserve">
+    <value>Confirm backup interruption</value>
+    <comment>44 characters per line max</comment>
+  </data>
+  <data name="ui_confirm_exit" xml:space="preserve">
+    <value>Confirm exit when backup is running</value>
+    <comment>44 characters per line max</comment>
+  </data>
+  <data name="ui_coordinates" xml:space="preserve">
+    <value>Remember window position</value>
+    <comment>44 characters per line max</comment>
+  </data>
+  <data name="ui_disable_sync" xml:space="preserve">
+    <value>Disable Uplay cloud save sync on restore</value>
+    <comment>44 characters per line max</comment>
+  </data>
+  <data name="ui_enable_sync" xml:space="preserve">
+    <value>Enable Uplay cloud save sync on exit</value>
+    <comment>44 characters per line max</comment>
+  </data>
+  <data name="ui_folders_backup" xml:space="preserve">
+    <value>Backup folder</value>
+  </data>
+  <data name="ui_folders_wildlands" xml:space="preserve">
+    <value>Wildlands save games folder</value>
+  </data>
+  <data name="ui_play" xml:space="preserve">
+    <value>Play Ghost Recon Wildlands</value>
+  </data>
+  <data name="ui_play_disabled" xml:space="preserve">
+    <value>Ghost Recon Wildlands is not installed</value>
+  </data>
+  <data name="ui_play_disabled_404" xml:space="preserve">
+    <value>Ghost Recon Wildlands not found</value>
+  </data>
+  <data name="ui_settings_lang_choice" xml:space="preserve">
+    <value>Interface language:</value>
+  </data>
+  <data name="ui_settings_log_file" xml:space="preserve">
+    <value>Write events to a log file</value>
+  </data>
+  <data name="ui_settings_nouplay" xml:space="preserve">
+    <value>I'm not using the Uplay version of Wildlands</value>
+  </data>
+  <data name="ui_settings_restart" xml:space="preserve">
+    <value>You'll need to restart GHOST Buster in order for the change to take effect.</value>
+  </data>
+  <data name="ui_tasks_backup" xml:space="preserve">
+    <value>Start\nBackup</value>
+  </data>
+  <data name="ui_tasks_dropdown_choose" xml:space="preserve">
+    <value>Choose</value>
+  </data>
+  <data name="ui_tasks_dropdown_latest" xml:space="preserve">
+    <value>Latest</value>
+  </data>
+  <data name="ui_tasks_dropdown_second" xml:space="preserve">
+    <value>Second-to-last</value>
+  </data>
+  <data name="ui_tasks_freq" xml:space="preserve">
+    <value>Backup every</value>
+  </data>
+  <data name="ui_tasks_freq_minutes" xml:space="preserve">
+    <value>mins.</value>
+    <comment>Minutes</comment>
+  </data>
+  <data name="ui_tasks_latest" xml:space="preserve">
+    <value>Latest: </value>
+    <comment>Add a SPACE at the end of the string</comment>
+  </data>
+  <data name="ui_tasks_latest_error" xml:space="preserve">
+    <value>Latest: Error.</value>
+  </data>
+  <data name="ui_tasks_latest_loading" xml:space="preserve">
+    <value>Ultimo: Please wait...</value>
+  </data>
+  <data name="ui_tasks_latest_none" xml:space="preserve">
+    <value>Latest: No backup yet.</value>
+  </data>
+  <data name="ui_tasks_restore" xml:space="preserve">
+    <value>Restore\nBackup</value>
+  </data>
+  <data name="ui_tasks_restore_choice" xml:space="preserve">
+    <value>Backup to restore</value>
+  </data>
+  <data name="ui_tasks_stop" xml:space="preserve">
+    <value>Stop\nBackup</value>
+  </data>
+  <data name="ui_title_about" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="ui_title_folders" xml:space="preserve">
+    <value>Folders</value>
+  </data>
+  <data name="ui_title_logs" xml:space="preserve">
+    <value>Logs</value>
+  </data>
+  <data name="ui_title_settings" xml:space="preserve">
+    <value>Advanced Settings</value>
+  </data>
+  <data name="ui_title_tasks" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="ui_updates" xml:space="preserve">
+    <value>Check for updates</value>
+    <comment>44 characters per line max</comment>
+  </data>
+  <data name="msgbox_backup_error" xml:space="preserve">
+    <value>{\rtf1 The backup process has been {\b interrupted due to an error.} Please check the logs for more details.}</value>
+    <comment>This string MUST be written in Rich Text Format</comment>
+  </data>
+  <data name="msgbox_backup_error_title" xml:space="preserve">
+    <value>Backup interrupted</value>
+  </data>
+  <data name="msgbox_wildlands_closed_crashed" xml:space="preserve">
+    <value>{\rtf1 Wildlands {\b has been closed or crashed}, as a result the backup process has been interrupted.}</value>
+    <comment>This string MUST be written in Rich Text Format</comment>
+  </data>
+  <data name="msgbox_wildlands_closed_crashed_title" xml:space="preserve">
+    <value>Wildlands is no longer running</value>
+  </data>
+  <data name="msgbox_backup_restore" xml:space="preserve">
+    <value>{\rtf1 Restoring a backup will copy the save files over from the backup folder: &lt;0&gt;\line\line and will {\b OVERWRITE} the existing save files inside the game folder: &lt;1&gt;\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}</value>
+    <comment>This string MUST be written in Rich Text Format.</comment>
+  </data>
+  <data name="msgbox_invalid_backup_folder" xml:space="preserve">
+    <value>{\rtf1 The current {\b backup folder doesn't contain any backup.} Backup at least once and try again.}</value>
+    <comment>This string MUST be written in Rich Text Format</comment>
+  </data>
+  <data name="msgbox_invalid_backup_folder_title" xml:space="preserve">
+    <value>No backup found</value>
+  </data>
+  <data name="msgbox_backup_restore_title" xml:space="preserve">
+    <value>Backup restore</value>
+  </data>
+  <data name="msgbox_backup_restore_no_sectolast" xml:space="preserve">
+    <value>{\rtf1 You chose to restore the second-to-last backup but {\b it doesn't exist.} Do you want to restore the latest backup instead? This will copy the save files over from the backup folder: &lt;0&gt;\line\line And will {\b OVERWRITE} the existing save files inside the game folder: &lt;1&gt;\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}</value>
+    <comment>This string MUST be written in Rich Text Format.</comment>
+  </data>
+  <data name="msgbox_backup_404_title" xml:space="preserve">
+    <value>Backup doesn't exist</value>
+  </data>
+  <data name="msgbox_dropdown_backup_timestamp" xml:space="preserve">
+    <value> minutes ago</value>
+    <comment>Prepend a SPACE to this string!</comment>
+  </data>
+  <data name="msgbox_dropdown_backup_timestamp_00" xml:space="preserve">
+    <value>less than a minute ago</value>
+  </data>
+  <data name="msgbox_dropdown_backup_timestamp_created" xml:space="preserve">
+    <value> - Created </value>
+    <comment>Prepend and append a SPACE to this string!</comment>
+  </data>
+  <data name="msgbox_backup_restore_dynamic" xml:space="preserve">
+    <value>{\rtf1 Restoring a backup will copy the save files over from the backup folder: &lt;0&gt;\\&lt;1&gt;\line\line and will {\b OVERWRITE} the existing save files inside the game folder: &lt;2&gt;\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}</value>
+    <comment>This string MUST be written in Rich Text Format.</comment>
+  </data>
+  <data name="msgbox_empty_backup_folder" xml:space="preserve">
+    <value>{\rtf1 The current {\b backup folder is empty.} Backup at least once and try again.}</value>
+    <comment>This string MUST be written in Rich Text Format</comment>
+  </data>
+  <data name="msgbox_empty_backup_folder_title" xml:space="preserve">
+    <value>No backup found</value>
+  </data>
+  <data name="msgbox_restore_error" xml:space="preserve">
+    <value>{\rtf1 The restore process has been {\b interrupted due to an error.} Please check the logs for more details.}</value>
+    <comment>This string MUST be written in Rich Text Format</comment>
+  </data>
+  <data name="msgbox_restore_error_title" xml:space="preserve">
+    <value>Restore failed</value>
+  </data>
+  <data name="msgbox_confirm_exit" xml:space="preserve">
+    <value>{\rtf1 The backup process is still running. Do you want to {\b interrupt it and exit?}}</value>
+    <comment>This string MUST be written in Rich Text Format</comment>
+  </data>
+  <data name="msgbox_confirm_exit_title" xml:space="preserve">
+    <value>Confirm exit</value>
+  </data>
+  <data name="msgbox_backup_frequency_invalid" xml:space="preserve">
+    <value>{\rtf1 The backup frequency {\b cannot be empty or 0.}}</value>
+    <comment>This string MUST be written in Rich Text Format</comment>
+  </data>
+  <data name="msgbox_invalid_value_title" xml:space="preserve">
+    <value>Invalid value</value>
+  </data>
+  <data name="msgbox_confirm_backup_interruption" xml:space="preserve">
+    <value>{\rtf1 Are you sure you want to {\b interrupt the backup process?}}</value>
+    <comment>This string MUST be written in Rich Text Format</comment>
+  </data>
+  <data name="msgbox_confirm_backup_interruption_title" xml:space="preserve">
+    <value>Backup interruption</value>
+  </data>
+  <data name="msgbox_update_available" xml:space="preserve">
+    <value>{\rtf1 A newer version of GHOST Buster is available. Do you want to {\b visit the download page} now?}</value>
+    <comment>This string MUST be written in Rich Text Format</comment>
+  </data>
+  <data name="msgbox_update_available_title" xml:space="preserve">
+    <value>Update available</value>
+  </data>
+  <data name="msgbox_quit_before_restore_sync" xml:space="preserve">
+    <value>{\rtf1 You must {\b quit Uplay before restoring a backup} because you chose to let GHOST Buster disable cloud save synchronization for you.}</value>
+    <comment>This string MUST be written in Rich Text Format</comment>
+  </data>
+  <data name="msgbox_quit_before_restore_sync_title" xml:space="preserve">
+    <value>Cannot restore</value>
+  </data>
+  <data name="msgbox_disable_sync_error" xml:space="preserve">
+    <value>{\rtf1 "&lt;0&gt;" setting has been {\b disabled because an error occurred} while trying to parse Uplay settings file. \line\line Make sure to {\b DISABLE} cloud save synchronization from Uplay (Settings -&gt; Untick "Enable cloud save synchronization for supported games") before launching Wildlands, otherwise the restored save games will be {\b OVERWRITTEN} with the old ones from the cloud!}</value>
+    <comment>This string MUST be written in Rich Text Format</comment>
+  </data>
+  <data name="msgbox_parsing_error_title" xml:space="preserve">
+    <value>Parsing failed</value>
+  </data>
+  <data name="msgbox_enable_sync_uplay_error" xml:space="preserve">
+    <value>{\rtf1 GHOST Buster was unable to enable cloud save synchronization {\b because Uplay is running.} Please re-enable it manually from Uplay (Settings -&gt; Tick "Enable cloud save synchronization for supported games").}</value>
+    <comment>This string MUST be written in Rich Text Format</comment>
+  </data>
+  <data name="msgbox_enable_sync_uplay_error_title" xml:space="preserve">
+    <value>Cannot enable cloud sync</value>
+  </data>
+  <data name="msgbox_enable_sync_error" xml:space="preserve">
+    <value>{\rtf1 {\b An error occurred} while trying to parse Uplay settings file. Please re-enable cloud save synchronization manually from Uplay (Settings -&gt; Tick "Enable cloud save synchronization for supported games").}</value>
+    <comment>This string MUST be written in Rich Text Format</comment>
+  </data>
+  <data name="ui_logs_context_copy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="ui_logs_context_selectall" xml:space="preserve">
+    <value>Select all</value>
+  </data>
+  <data name="ui_logs_context_export" xml:space="preserve">
+    <value>Save log as...</value>
+  </data>
+</root>

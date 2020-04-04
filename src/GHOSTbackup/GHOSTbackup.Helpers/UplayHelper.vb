@@ -60,7 +60,7 @@ Public Class UplayHelper
                 'Check if Uplay is running or not before editing its settings file
                 Dim UplayProc = Process.GetProcessesByName("upc")
                 If UplayProc.Count > 0 Then
-                    CustomMsgBox.Show("{\rtf1 You must {\b quit Uplay before restoring a backup} because you chose to let GHOST Buster disable cloud save synchronization for you.}", "Cannot restore", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+                    CustomMsgBox.Show(Localization.GetString("msgbox_quit_before_restore_sync"), Localization.GetString("msgbox_quit_before_restore_sync_title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
                 Else
                     'Backup Uplay settings file without overwriting an existing backup
                     Logger.Log("[INFO] Backing up Uplay settings file to " & UplayYamlPath & ".bak")
@@ -92,10 +92,7 @@ Public Class UplayHelper
             Form1.DisableCloudSyncChkBox.Checked = False
 
             Logger.Log("[ERROR] Parsing of ""settings.yml"" failed: " & ex.Message())
-            CustomMsgBox.Show("{\rtf1 ""Let GHOST Buster disable cloud save synchronization"" setting has been {\b disabled because an error occurred} while trying to parse Uplay settings file. \line\line Make sure to {\b DISABLE} cloud save " _
-                              & "synchronization from Uplay (Settings -> Untick ""Enable cloud save synchronization for supported games"") before launching Wildlands, otherwise the restored save games will be {\b OVERWRITTEN} with the old ones from the cloud!",
-                              "Parsing failed",
-                              MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+            CustomMsgBox.Show(Localization.GetString("msgbox_disable_sync_error"), Localization.GetString("msgbox_parsing_error_title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
 
             'Start the restore process anyway
             RestoreBackup()
@@ -114,9 +111,7 @@ Public Class UplayHelper
                 'Check if Uplay is running or not before editing its settings file
                 Dim UplayProc = Process.GetProcessesByName("upc")
                 If UplayProc.Count > 0 Then
-                    CustomMsgBox.Show("{\rtf1 GHOST Buster was unable to enable cloud save synchronization {\b because Uplay is running.} Please re-enable it manually from Uplay (Settings -> Tick ""Enable cloud save synchronization for supported games"").",
-                                      "Cannot enable cloud sync",
-                                      MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+                    CustomMsgBox.Show(Localization.GetString("msgbox_enable_sync_uplay_error"), Localization.GetString("msgbox_enable_sync_uplay_error_title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
                 Else
                     'Enable cloud save sync
                     Dim ReplacedUplayYaml As String = ParsedUplayYaml.Replace("syncsavegames: false", "syncsavegames: true")
@@ -129,9 +124,7 @@ Public Class UplayHelper
             End If
         Catch ex As Exception
             Logger.Log("[ERROR] Parsing of ""settings.yml"" failed: " & ex.Message())
-            CustomMsgBox.Show("{\rtf1 {\b An error occurred} while trying to parse Uplay settings file. Please re-enable cloud save synchronization manually from Uplay (Settings -> Tick ""Enable cloud save synchronization for supported games"").",
-                              "Parsing failed",
-                              MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+            CustomMsgBox.Show(Localization.GetString("msgbox_enable_sync_error"), Localization.GetString("msgbox_parsing_error_title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
         End Try
     End Sub
 End Class

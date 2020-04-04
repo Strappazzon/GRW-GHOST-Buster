@@ -65,6 +65,18 @@ Public Class Form1
         Settings.Init()
         LoadFormPosition()
 
+        'Load localization
+        Localization.Load()
+
+        'Align form items
+        SettingsLabel.Location = New Point(HomePictureBtn.Location.X + HomePictureBtn.Width + 20, 20)
+        LogLabel.Location = New Point(SettingsLabel.Location.X + SettingsLabel.Width + 20, 20)
+        AlertDot.Location = New Point(LogLabel.Location.X + LogLabel.Width - 10, 22)
+        AboutLabel.Location = New Point(LogLabel.Location.X + LogLabel.Width + 20, 20)
+        BackupFreqTextBox.Location = New Point(BackupFreqHelp1Label.Location.X + BackupFreqHelp1Label.Width, 22)
+        BackupFreqHelp2Label.Location = New Point(BackupFreqTextBox.Location.X + BackupFreqTextBox.Width, 23)
+        LatestBackupHelpLabel.Location = New Point(BackupFreqHelp2Label.Location.X + BackupFreqHelp2Label.Width - 3, 23)
+
         'Start logging session
         Logger.StartSession()
 
@@ -77,20 +89,20 @@ Public Class Form1
         'Check if save games directory exists
         If SavegamesLocTextBox.Text <> "" AndAlso Not Directory.Exists(SavegamesLocTextBox.Text) Then
             Logger.Log("[WARNING] Wildlands save games folder " & SavegamesLocTextBox.Text & " no longer exists.")
-            Banner.Show(48, "Wildlands save games folder no longer exists.")
+            Banner.Show(48, Localization.GetString("banner_savegames_folder_deleted"))
             SavegamesLocTextBox.Text = ""
         End If
 
         'Check if backup directory exists
         If BackupLocTextBox.Text <> "" AndAlso Not Directory.Exists(BackupLocTextBox.Text) Then
             Logger.Log("[WARNING] Backup folder " & BackupLocTextBox.Text & " no longer exists.")
-            Banner.Show(48, "Backup folder no longer exists.")
+            Banner.Show(48, Localization.GetString("banner_backup_folder_deleted"))
             BackupLocTextBox.Text = ""
         End If
 
         'Detect latest backup timestamp
         If BackupLocTextBox.Text <> "" Then
-            LatestBackupHelpLabel.Text = "Latest backup: Please wait..."
+            LatestBackupHelpLabel.Text = Localization.GetString("ui_tasks_latest_loading")
             DetectLatestBackup()
         End If
 
@@ -100,7 +112,7 @@ Public Class Form1
 
     Private Sub Form1_Closing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If IsBackupRunning = True And ConfirmExitChkBox.Checked = True Then
-            CustomMsgBox.Show("{\rtf1 The backup process is still running. Do you want to {\b interrupt it and exit?}}", "Confirm exit", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+            CustomMsgBox.Show(Localization.GetString("msgbox_confirm_exit"), Localization.GetString("msgbox_confirm_exit_title"), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
             If CustomMsgBox.DialogResult = DialogResult.No OrElse CustomMsgBox.DialogResult = DialogResult.Cancel Then
                 e.Cancel = True
             Else
@@ -149,7 +161,7 @@ Public Class Form1
         FoldersContainer.Visible = False
         AboutContainer.Visible = False
         LogsContainer.Visible = False
-        TitleLabel.Text = "Advanced Settings"
+        TitleLabel.Text = Localization.GetString("ui_title_settings")
         TitleLabel.Visible = True
         SettingsContainer.Visible = True
     End Sub
@@ -165,7 +177,7 @@ Public Class Form1
         FoldersContainer.Visible = False
         AboutContainer.Visible = False
         LogsContainer.Visible = True
-        TitleLabel.Text = "Logs"
+        TitleLabel.Text = Localization.GetString("ui_title_logs")
         TitleLabel.Visible = True
         SettingsContainer.Visible = False
         AlertDot.Visible = False
@@ -176,16 +188,6 @@ Public Class Form1
     End Sub
 
     Private Sub AboutLabel_Click(sender As Object, e As EventArgs) Handles AboutLabel.Click
-        'Write application info. This is more convenient for me than using the Form Designer.
-        AppInfoLabel.Text = "GHOST Buster v" & Version _
-                            & Environment.NewLine & "Copyright (c) 2019 - 2020 Alberto Strappazzon" _
-                            & Environment.NewLine & "This software is licensed under the MIT license." _
-                            & Environment.NewLine & Environment.NewLine &
-                            "This software uses assets from Tom Clancy's Ghost Recon(R) Wildlands" _
-                            & Environment.NewLine & "Copyright (c) Ubisoft Entertainment. All Rights Reserved." _
-                            & Environment.NewLine & Environment.NewLine &
-                            "Some icons are taken from Icons8 (https://icons8.com)."
-
         HomePictureBtn.Image = My.Resources.Home_Icon
         LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         AboutLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
@@ -196,7 +198,7 @@ Public Class Form1
         FoldersContainer.Visible = False
         AboutContainer.Visible = True
         LogsContainer.Visible = False
-        TitleLabel.Text = "About"
+        TitleLabel.Text = Localization.GetString("ui_title_about")
         TitleLabel.Visible = True
         SettingsContainer.Visible = False
     End Sub
@@ -206,7 +208,7 @@ Public Class Form1
         If UplayPath <> Nothing Then
             Process.Start(UplayPath & "Uplay.exe")
         Else
-            Banner.Show(64, "Uplay is not installed.")
+            Banner.Show(64, Localization.GetString("banner_uplay_not_installed"))
         End If
     End Sub
 
@@ -276,7 +278,7 @@ Public Class Form1
         'Choose save games directory
         Using O As New FolderBrowserDialog
             O.ShowNewFolderButton = False
-            O.Description = "Select Wildlands save games folder. If you don't know where it is, please consult PC Gaming Wiki."
+            O.Description = Localization.GetString("dialog_browse_savegames_desc")
             If SettingsNonUplayVersionChkBox.Checked = False Then
                 'Select Uplay save games path if using the Uplay version of the game
                 O.SelectedPath = UplayPath & "savegames"
@@ -293,20 +295,20 @@ Public Class Form1
         If SavegamesLocTextBox.Text <> "" AndAlso Directory.Exists(SavegamesLocTextBox.Text) Then
             Process.Start("explorer.exe", SavegamesLocTextBox.Text)
         Else
-            Banner.Show(64, "Wildlands save games folder doesn't exist.")
+            Banner.Show(64, Localization.GetString("banner_savegames_folder_404_info"))
         End If
     End Sub
 
     Private Sub BrowseBackupLocBtn_Click(sender As Object, e As EventArgs) Handles BrowseBackupLocBtn.Click
         'Choose backup directory
         Using O As New FolderBrowserDialog
-            O.Description = "Select where you want to backup your save files to. Every backup will create a new ""yyyyMMdd HHmm"" subfolder."
+            O.Description = Localization.GetString("dialog_browse_backup_desc")
             If O.ShowDialog = DialogResult.OK Then
                 BackupLocTextBox.Text = O.SelectedPath
                 Logger.Log("[INFO] Backup directory set to: " & O.SelectedPath)
 
                 'Detect latest backup timestamp
-                LatestBackupHelpLabel.Text = "Latest backup: Please wait..."
+                LatestBackupHelpLabel.Text = Localization.GetString("ui_tasks_latest_loading")
                 DetectLatestBackup()
             End If
         End Using
@@ -317,14 +319,14 @@ Public Class Form1
         If BackupLocTextBox.Text <> "" AndAlso Directory.Exists(BackupLocTextBox.Text) Then
             Process.Start("explorer.exe", BackupLocTextBox.Text)
         Else
-            Banner.Show(64, "Backup folder doesn't exist.")
+            Banner.Show(64, Localization.GetString("banner_backup_folder_404_info"))
         End If
     End Sub
 
     Private Sub BackupBtn_Click(sender As Object, e As EventArgs) Handles BackupBtn.Click
         'Start the backup only if the value is > 0
         If BackupFreqTextBox.Text = "" OrElse BackupFreqTextBox.Text = "0" Then
-            CustomMsgBox.Show("{\rtf1 The backup frequency {\b cannot be empty or 0}.}", "Invalid value", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+            CustomMsgBox.Show(Localization.GetString("msgbox_backup_frequency_invalid"), Localization.GetString("msgbox_invalid_value_title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
         Else
             PerformFirstBackup()
         End If
@@ -339,7 +341,7 @@ Public Class Form1
 
     Private Sub StopBtn_Click(sender As Object, e As EventArgs) Handles StopBtn.Click
         If ConfirmStopBackupChkBox.Checked = True Then
-            CustomMsgBox.Show("{\rtf1 Are you sure you want to {\b interrupt the backup process?}}", "Backup interruption", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+            CustomMsgBox.Show(Localization.GetString("msgbox_confirm_backup_interruption"), Localization.GetString("msgbox_confirm_backup_interruption_title"), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
             If CustomMsgBox.DialogResult = DialogResult.Yes Then
                 StopBackup()
                 Logger.Log("[INFO] Backup interrupted by the user.")
@@ -352,9 +354,9 @@ Public Class Form1
 
     Private Sub RestoreBtn_Click(sender As Object, e As EventArgs) Handles RestoreBtn.Click
         If SavegamesLocTextBox.Text = "" Or BackupLocTextBox.Text = "" Then
-            Banner.Show(64, "You must specify both save games and backup folders.")
+            Banner.Show(64, Localization.GetString("banner_specify_folders_info"))
         ElseIf IsGameRunning = True Then
-            Banner.Show(64, "You must quit Wildlands before restoring a backup.")
+            Banner.Show(64, Localization.GetString("banner_quit_before_restore_info"))
         ElseIf IsGameRunning = False And DisableCloudSyncChkBox.Checked = True Then
             'If the game is not running and "Let GHOST Buster disable cloud save synchronization" is checked
             'Disable Uplay cloud save synchronization
@@ -379,10 +381,10 @@ Public Class Form1
     Private Sub ExportLogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportLogToolStripMenuItem.Click
         'Export log TextBox content to a text file
         Using S As New SaveFileDialog
-            S.Title = "Save log as..."
+            S.Title = Localization.GetString("dialog_save_log_title")
             S.InitialDirectory = Application.StartupPath
             S.FileName = "GHOSTbackup_" & Now.ToString("yyyyMMddHHmm")
-            S.Filter = "Text file|.txt|Log file|*.log"
+            S.Filter = String.Format(Localization.GetString("dialog_save_log_filter"), "*.txt", "*.log")
             If S.ShowDialog = DialogResult.OK Then
                 File.AppendAllText(S.FileName, LogTxtBox.Text)
                 Logger.Log("[INFO] Log exported to " & S.FileName)
@@ -421,7 +423,7 @@ Public Class Form1
     Private Sub SettingsBrowseLogFileBtn_Click(sender As Object, e As EventArgs) Handles SettingsBrowseLogFileBtn.Click
         'Choose log file directory
         Using O As New FolderBrowserDialog
-            O.Description = "Select where you want to save the event log file to."
+            O.Description = Localization.GetString("dialog_browse_log_destination_desc")
             If O.ShowDialog = DialogResult.OK Then
                 SettingsLogFilePathTextBox.Text = O.SelectedPath & "\event.log"
                 Logger.Log("[INFO] Log file path set to: " & SettingsLogFilePathTextBox.Text)
@@ -434,7 +436,7 @@ Public Class Form1
         If SettingsLogFilePathTextBox.Text <> "" AndAlso File.Exists(SettingsLogFilePathTextBox.Text) Then
             Process.Start(SettingsLogFilePathTextBox.Text)
         Else
-            Banner.Show(64, "The event log file does not exist.")
+            Banner.Show(64, Localization.GetString("banner_log_file_404_info"))
         End If
     End Sub
 
@@ -453,9 +455,9 @@ Public Class Form1
     Private Sub SettingsBrowseCustomExeBtn_Click(sender As Object, e As EventArgs) Handles SettingsBrowseCustomExeBtn.Click
         'Choose Wildlands executable
         Using O As New OpenFileDialog
-            O.Filter = "Wildlands executable (GRW.exe)|GRW.exe"
+            O.Filter = String.Format(Localization.GetString("dialog_browse_customexe_filter"), "GRW.exe")
             O.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyComputer)
-            O.Title = "Select Wildlands executable"
+            O.Title = Localization.GetString("dialog_browse_customexe_title")
             If O.ShowDialog = DialogResult.OK Then
                 SettingsCustomExeTextBox.Text = O.FileName
                 Logger.Log("[INFO] Custom Wildlands executable set: " & O.FileName)
@@ -468,7 +470,7 @@ Public Class Form1
         If SettingsCustomExeTextBox.Text <> "" AndAlso Directory.Exists(Directory.GetParent(SettingsCustomExeTextBox.Text).ToString()) Then
             Process.Start(Directory.GetParent(SettingsCustomExeTextBox.Text).ToString())
         Else
-            Banner.Show(64, "The current folder does not exist.")
+            Banner.Show(64, Localization.GetString("banner_folder_404_info"))
         End If
     End Sub
 End Class

@@ -13,6 +13,9 @@
 *.exe
 *.dll
 
+# Compiled localization files
+**/*.resources
+
 # User-specific files
 *.user
 

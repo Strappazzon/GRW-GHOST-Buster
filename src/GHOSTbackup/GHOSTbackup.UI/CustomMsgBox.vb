@@ -42,7 +42,7 @@ Public Class CustomMsgBox
             CustomMsgBox.CancelLabel.DialogResult = DialogResult.Cancel
             'Hide [Yes] button and make [No] button the [OK] button
             CustomMsgBox.LeftButton.Visible = False
-            CustomMsgBox.RightButton.Text = "OK"
+            CustomMsgBox.RightButton.Text = Localization.GetString("msgbox_btn_ok")
             CustomMsgBox.AcceptButton = CustomMsgBox.RightButton
             CustomMsgBox.CancelButton = CustomMsgBox.CancelLabel
 
@@ -63,7 +63,7 @@ Public Class CustomMsgBox
             CustomMsgBox.CancelLabel.DialogResult = DialogResult.Cancel
             'Show [Yes] button and make [OK] button the [No] button
             CustomMsgBox.LeftButton.Visible = True
-            CustomMsgBox.RightButton.Text = "No"
+            CustomMsgBox.RightButton.Text = Localization.GetString("msgbox_btn_no")
             CustomMsgBox.AcceptButton = CustomMsgBox.LeftButton
             CustomMsgBox.CancelButton = CustomMsgBox.CancelLabel
 
@@ -110,7 +110,7 @@ Public Class CustomMsgBox
             CustomMsgBox.CancelLabel.DialogResult = DialogResult.Cancel
             'Hide [Yes] button and make [No] button the [OK] button
             CustomMsgBox.LeftButton.Visible = False
-            CustomMsgBox.RightButton.Text = "OK"
+            CustomMsgBox.RightButton.Text = Localization.GetString("msgbox_btn_ok")
             CustomMsgBox.AcceptButton = CustomMsgBox.RightButton
             CustomMsgBox.CancelButton = CustomMsgBox.CancelLabel
         ElseIf Buttons = MessageBoxButtons.YesNo OrElse MessageBoxButtons.YesNoCancel Then
@@ -120,7 +120,7 @@ Public Class CustomMsgBox
             CustomMsgBox.CancelLabel.DialogResult = DialogResult.Cancel
             'Show [Yes] button and make [OK] button the [No] button
             CustomMsgBox.LeftButton.Visible = True
-            CustomMsgBox.RightButton.Text = "No"
+            CustomMsgBox.RightButton.Text = Localization.GetString("msgbox_btn_no")
             CustomMsgBox.AcceptButton = CustomMsgBox.LeftButton
             CustomMsgBox.CancelButton = CustomMsgBox.CancelLabel
         End If
@@ -168,7 +168,6 @@ Public Class CustomMsgBox
 
     Private Sub BackupDirsDropdownCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles BackupDirsDropdownCombo.SelectedIndexChanged
         'Update backup folder path when selecting which backup to restore
-        MessageRTF.Rtf = "{\rtf1 Restoring a backup will copy the save files over from the backup folder: " & Form1.BackupLocTextBox.Text.Replace("\", "\\") & "\\" & BackupDirsDropdownCombo.SelectedItem.ToString().Substring(0, 13) _
-                         & "\line\line and will {\b OVERWRITE} the existing save files inside the game folder: " & Form1.SavegamesLocTextBox.Text.Replace("\", "\\") & "\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}"
+        MessageRTF.Rtf = Strings.Format(Localization.GetString("msgbox_backup_restore_dynamic"), Form1.BackupLocTextBox.Text.Replace("\", "\\"), BackupDirsDropdownCombo.SelectedItem.ToString().Substring(0, 13), Form1.SavegamesLocTextBox.Text.Replace("\", "\\"))
     End Sub
 End Class

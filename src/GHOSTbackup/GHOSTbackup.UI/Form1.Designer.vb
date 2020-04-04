@@ -47,8 +47,8 @@ Partial Class Form1
         Me.ConfirmStopBackupChkBox = New System.Windows.Forms.CheckBox()
         Me.CheckUpdatesChkBox = New System.Windows.Forms.CheckBox()
         Me.TopMenuContainer = New System.Windows.Forms.Panel()
-        Me.UplayPictureBtn = New System.Windows.Forms.PictureBox()
         Me.AlertDot = New System.Windows.Forms.PictureBox()
+        Me.UplayPictureBtn = New System.Windows.Forms.PictureBox()
         Me.AboutLabel = New System.Windows.Forms.Label()
         Me.HomePictureBtn = New System.Windows.Forms.PictureBox()
         Me.SettingsLabel = New System.Windows.Forms.Label()
@@ -63,6 +63,9 @@ Partial Class Form1
         Me.RememberFormPositionChkBox = New System.Windows.Forms.CheckBox()
         Me.TitleLabel = New System.Windows.Forms.Label()
         Me.SettingsContainer = New System.Windows.Forms.Panel()
+        Me.SettingsLangRestartLabel = New System.Windows.Forms.Label()
+        Me.SettingsInterfaceLangDropdown = New System.Windows.Forms.ComboBox()
+        Me.SettingsInterfaceLang = New System.Windows.Forms.Label()
         Me.SettingsNonUplayVersionRestartLabel = New System.Windows.Forms.Label()
         Me.SettingsOpenCustomExeFolderBtn = New System.Windows.Forms.Button()
         Me.SettingsBrowseCustomExeBtn = New System.Windows.Forms.Button()
@@ -88,8 +91,8 @@ Partial Class Form1
         CType(Me.LogoBigPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LogTxtBoxContextMenu.SuspendLayout()
         Me.TopMenuContainer.SuspendLayout()
-        CType(Me.UplayPictureBtn, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AlertDot, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UplayPictureBtn, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.HomePictureBtn, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AboutContainer.SuspendLayout()
         Me.LogsContainer.SuspendLayout()
@@ -417,8 +420,8 @@ Partial Class Form1
         'TopMenuContainer
         '
         Me.TopMenuContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
-        Me.TopMenuContainer.Controls.Add(Me.UplayPictureBtn)
         Me.TopMenuContainer.Controls.Add(Me.AlertDot)
+        Me.TopMenuContainer.Controls.Add(Me.UplayPictureBtn)
         Me.TopMenuContainer.Controls.Add(Me.AboutLabel)
         Me.TopMenuContainer.Controls.Add(Me.HomePictureBtn)
         Me.TopMenuContainer.Controls.Add(Me.SettingsLabel)
@@ -428,6 +431,18 @@ Partial Class Form1
         Me.TopMenuContainer.Name = "TopMenuContainer"
         Me.TopMenuContainer.Size = New System.Drawing.Size(834, 60)
         Me.TopMenuContainer.TabIndex = 0
+        '
+        'AlertDot
+        '
+        Me.AlertDot.BackColor = System.Drawing.Color.Transparent
+        Me.AlertDot.Image = Global.GHOSTbackup.My.Resources.Resources.Dot
+        Me.AlertDot.Location = New System.Drawing.Point(190, 22)
+        Me.AlertDot.Name = "AlertDot"
+        Me.AlertDot.Size = New System.Drawing.Size(10, 10)
+        Me.AlertDot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.AlertDot.TabIndex = 7
+        Me.AlertDot.TabStop = False
+        Me.AlertDot.Visible = False
         '
         'UplayPictureBtn
         '
@@ -439,18 +454,6 @@ Partial Class Form1
         Me.UplayPictureBtn.TabIndex = 6
         Me.UplayPictureBtn.TabStop = False
         Me.HelpToolTip.SetToolTip(Me.UplayPictureBtn, "Launch Uplay.")
-        '
-        'AlertDot
-        '
-        Me.AlertDot.BackColor = System.Drawing.Color.Transparent
-        Me.AlertDot.Image = Global.GHOSTbackup.My.Resources.Resources.Dot
-        Me.AlertDot.Location = New System.Drawing.Point(190, 24)
-        Me.AlertDot.Name = "AlertDot"
-        Me.AlertDot.Size = New System.Drawing.Size(10, 10)
-        Me.AlertDot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.AlertDot.TabIndex = 4
-        Me.AlertDot.TabStop = False
-        Me.AlertDot.Visible = False
         '
         'AboutLabel
         '
@@ -481,7 +484,7 @@ Partial Class Form1
         Me.SettingsLabel.BackColor = System.Drawing.Color.Transparent
         Me.SettingsLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SettingsLabel.Location = New System.Drawing.Point(60, 20)
+        Me.SettingsLabel.Location = New System.Drawing.Point(58, 20)
         Me.SettingsLabel.Name = "SettingsLabel"
         Me.SettingsLabel.Size = New System.Drawing.Size(72, 21)
         Me.SettingsLabel.TabIndex = 0
@@ -615,9 +618,9 @@ Partial Class Form1
         Me.AppInfoLabel.ForeColor = System.Drawing.Color.White
         Me.AppInfoLabel.Location = New System.Drawing.Point(14, 18)
         Me.AppInfoLabel.Name = "AppInfoLabel"
-        Me.AppInfoLabel.Size = New System.Drawing.Size(85, 17)
+        Me.AppInfoLabel.Size = New System.Drawing.Size(93, 17)
         Me.AppInfoLabel.TabIndex = 0
-        Me.AppInfoLabel.Text = "AppInfoLabel"
+        Me.AppInfoLabel.Text = "{AppInfoLabel}"
         '
         'LogsContainer
         '
@@ -663,6 +666,9 @@ Partial Class Form1
         '
         Me.SettingsContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
         Me.SettingsContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.SettingsContainer.Controls.Add(Me.SettingsLangRestartLabel)
+        Me.SettingsContainer.Controls.Add(Me.SettingsInterfaceLangDropdown)
+        Me.SettingsContainer.Controls.Add(Me.SettingsInterfaceLang)
         Me.SettingsContainer.Controls.Add(Me.SettingsNonUplayVersionRestartLabel)
         Me.SettingsContainer.Controls.Add(Me.SettingsOpenCustomExeFolderBtn)
         Me.SettingsContainer.Controls.Add(Me.SettingsBrowseCustomExeBtn)
@@ -679,13 +685,50 @@ Partial Class Form1
         Me.SettingsContainer.TabIndex = 15
         Me.SettingsContainer.Visible = False
         '
+        'SettingsLangRestartLabel
+        '
+        Me.SettingsLangRestartLabel.AutoSize = True
+        Me.SettingsLangRestartLabel.BackColor = System.Drawing.Color.Transparent
+        Me.SettingsLangRestartLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingsLangRestartLabel.ForeColor = System.Drawing.Color.Silver
+        Me.SettingsLangRestartLabel.Location = New System.Drawing.Point(14, 74)
+        Me.SettingsLangRestartLabel.Name = "SettingsLangRestartLabel"
+        Me.SettingsLangRestartLabel.Size = New System.Drawing.Size(385, 13)
+        Me.SettingsLangRestartLabel.TabIndex = 11
+        Me.SettingsLangRestartLabel.Text = "You'll need to restart GHOST Buster in order for the change to take effect."
+        '
+        'SettingsInterfaceLangDropdown
+        '
+        Me.SettingsInterfaceLangDropdown.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.SettingsInterfaceLangDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.SettingsInterfaceLangDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SettingsInterfaceLangDropdown.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingsInterfaceLangDropdown.ForeColor = System.Drawing.Color.White
+        Me.SettingsInterfaceLangDropdown.Items.AddRange(New Object() {"English", "Italiano"})
+        Me.SettingsInterfaceLangDropdown.Location = New System.Drawing.Point(16, 41)
+        Me.SettingsInterfaceLangDropdown.Name = "SettingsInterfaceLangDropdown"
+        Me.SettingsInterfaceLangDropdown.Size = New System.Drawing.Size(464, 25)
+        Me.SettingsInterfaceLangDropdown.TabIndex = 1
+        '
+        'SettingsInterfaceLang
+        '
+        Me.SettingsInterfaceLang.AutoSize = True
+        Me.SettingsInterfaceLang.BackColor = System.Drawing.Color.Transparent
+        Me.SettingsInterfaceLang.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingsInterfaceLang.ForeColor = System.Drawing.Color.White
+        Me.SettingsInterfaceLang.Location = New System.Drawing.Point(14, 14)
+        Me.SettingsInterfaceLang.Name = "SettingsInterfaceLang"
+        Me.SettingsInterfaceLang.Size = New System.Drawing.Size(119, 17)
+        Me.SettingsInterfaceLang.TabIndex = 0
+        Me.SettingsInterfaceLang.Text = "Interface language:"
+        '
         'SettingsNonUplayVersionRestartLabel
         '
         Me.SettingsNonUplayVersionRestartLabel.AutoSize = True
         Me.SettingsNonUplayVersionRestartLabel.BackColor = System.Drawing.Color.Transparent
         Me.SettingsNonUplayVersionRestartLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsNonUplayVersionRestartLabel.ForeColor = System.Drawing.Color.Silver
-        Me.SettingsNonUplayVersionRestartLabel.Location = New System.Drawing.Point(30, 150)
+        Me.SettingsNonUplayVersionRestartLabel.Location = New System.Drawing.Point(30, 237)
         Me.SettingsNonUplayVersionRestartLabel.Name = "SettingsNonUplayVersionRestartLabel"
         Me.SettingsNonUplayVersionRestartLabel.Size = New System.Drawing.Size(385, 13)
         Me.SettingsNonUplayVersionRestartLabel.TabIndex = 10
@@ -700,7 +743,7 @@ Partial Class Form1
         Me.SettingsOpenCustomExeFolderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SettingsOpenCustomExeFolderBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsOpenCustomExeFolderBtn.ForeColor = System.Drawing.Color.White
-        Me.SettingsOpenCustomExeFolderBtn.Location = New System.Drawing.Point(398, 114)
+        Me.SettingsOpenCustomExeFolderBtn.Location = New System.Drawing.Point(398, 201)
         Me.SettingsOpenCustomExeFolderBtn.Name = "SettingsOpenCustomExeFolderBtn"
         Me.SettingsOpenCustomExeFolderBtn.Size = New System.Drawing.Size(82, 30)
         Me.SettingsOpenCustomExeFolderBtn.TabIndex = 9
@@ -718,7 +761,7 @@ Partial Class Form1
         Me.SettingsBrowseCustomExeBtn.ForeColor = System.Drawing.Color.White
         Me.SettingsBrowseCustomExeBtn.Image = CType(resources.GetObject("SettingsBrowseCustomExeBtn.Image"), System.Drawing.Image)
         Me.SettingsBrowseCustomExeBtn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.SettingsBrowseCustomExeBtn.Location = New System.Drawing.Point(302, 114)
+        Me.SettingsBrowseCustomExeBtn.Location = New System.Drawing.Point(302, 201)
         Me.SettingsBrowseCustomExeBtn.Name = "SettingsBrowseCustomExeBtn"
         Me.SettingsBrowseCustomExeBtn.Size = New System.Drawing.Size(90, 30)
         Me.SettingsBrowseCustomExeBtn.TabIndex = 8
@@ -733,7 +776,7 @@ Partial Class Form1
         Me.SettingsCustomExeTextBox.Enabled = False
         Me.SettingsCustomExeTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SettingsCustomExeTextBox.ForeColor = System.Drawing.Color.White
-        Me.SettingsCustomExeTextBox.Location = New System.Drawing.Point(32, 117)
+        Me.SettingsCustomExeTextBox.Location = New System.Drawing.Point(32, 204)
         Me.SettingsCustomExeTextBox.MaxLength = 256
         Me.SettingsCustomExeTextBox.Name = "SettingsCustomExeTextBox"
         Me.SettingsCustomExeTextBox.ReadOnly = True
@@ -747,7 +790,7 @@ Partial Class Form1
         Me.SettingsNonUplayVersionChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsNonUplayVersionChkBox.ForeColor = System.Drawing.Color.White
         Me.SettingsNonUplayVersionChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.SettingsNonUplayVersionChkBox.Location = New System.Drawing.Point(14, 90)
+        Me.SettingsNonUplayVersionChkBox.Location = New System.Drawing.Point(14, 177)
         Me.SettingsNonUplayVersionChkBox.Name = "SettingsNonUplayVersionChkBox"
         Me.SettingsNonUplayVersionChkBox.Size = New System.Drawing.Size(284, 21)
         Me.SettingsNonUplayVersionChkBox.TabIndex = 6
@@ -763,10 +806,10 @@ Partial Class Form1
         Me.SettingsOpenLogBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SettingsOpenLogBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsOpenLogBtn.ForeColor = System.Drawing.Color.White
-        Me.SettingsOpenLogBtn.Location = New System.Drawing.Point(430, 42)
+        Me.SettingsOpenLogBtn.Location = New System.Drawing.Point(430, 129)
         Me.SettingsOpenLogBtn.Name = "SettingsOpenLogBtn"
         Me.SettingsOpenLogBtn.Size = New System.Drawing.Size(50, 30)
-        Me.SettingsOpenLogBtn.TabIndex = 3
+        Me.SettingsOpenLogBtn.TabIndex = 5
         Me.SettingsOpenLogBtn.Text = "Open"
         Me.SettingsOpenLogBtn.UseVisualStyleBackColor = True
         '
@@ -781,10 +824,10 @@ Partial Class Form1
         Me.SettingsBrowseLogFileBtn.ForeColor = System.Drawing.Color.White
         Me.SettingsBrowseLogFileBtn.Image = CType(resources.GetObject("SettingsBrowseLogFileBtn.Image"), System.Drawing.Image)
         Me.SettingsBrowseLogFileBtn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.SettingsBrowseLogFileBtn.Location = New System.Drawing.Point(334, 42)
+        Me.SettingsBrowseLogFileBtn.Location = New System.Drawing.Point(334, 129)
         Me.SettingsBrowseLogFileBtn.Name = "SettingsBrowseLogFileBtn"
         Me.SettingsBrowseLogFileBtn.Size = New System.Drawing.Size(90, 30)
-        Me.SettingsBrowseLogFileBtn.TabIndex = 2
+        Me.SettingsBrowseLogFileBtn.TabIndex = 4
         Me.SettingsBrowseLogFileBtn.Text = "Browse..."
         Me.SettingsBrowseLogFileBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.SettingsBrowseLogFileBtn.UseVisualStyleBackColor = True
@@ -796,11 +839,11 @@ Partial Class Form1
         Me.SettingsLogFilePathTextBox.Enabled = False
         Me.SettingsLogFilePathTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SettingsLogFilePathTextBox.ForeColor = System.Drawing.Color.White
-        Me.SettingsLogFilePathTextBox.Location = New System.Drawing.Point(32, 45)
+        Me.SettingsLogFilePathTextBox.Location = New System.Drawing.Point(32, 132)
         Me.SettingsLogFilePathTextBox.Name = "SettingsLogFilePathTextBox"
         Me.SettingsLogFilePathTextBox.ReadOnly = True
         Me.SettingsLogFilePathTextBox.Size = New System.Drawing.Size(296, 23)
-        Me.SettingsLogFilePathTextBox.TabIndex = 1
+        Me.SettingsLogFilePathTextBox.TabIndex = 3
         '
         'SettingsWriteLogToFileChkBox
         '
@@ -809,10 +852,10 @@ Partial Class Form1
         Me.SettingsWriteLogToFileChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsWriteLogToFileChkBox.ForeColor = System.Drawing.Color.White
         Me.SettingsWriteLogToFileChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.SettingsWriteLogToFileChkBox.Location = New System.Drawing.Point(14, 18)
+        Me.SettingsWriteLogToFileChkBox.Location = New System.Drawing.Point(14, 105)
         Me.SettingsWriteLogToFileChkBox.Name = "SettingsWriteLogToFileChkBox"
         Me.SettingsWriteLogToFileChkBox.Size = New System.Drawing.Size(170, 21)
-        Me.SettingsWriteLogToFileChkBox.TabIndex = 0
+        Me.SettingsWriteLogToFileChkBox.TabIndex = 2
         Me.SettingsWriteLogToFileChkBox.Text = "Write events to a log file"
         Me.SettingsWriteLogToFileChkBox.UseVisualStyleBackColor = False
         '
@@ -913,7 +956,7 @@ Partial Class Form1
         Me.BackupFreqHelp2Label.AutoSize = True
         Me.BackupFreqHelp2Label.BackColor = System.Drawing.Color.Transparent
         Me.BackupFreqHelp2Label.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BackupFreqHelp2Label.Location = New System.Drawing.Point(233, 23)
+        Me.BackupFreqHelp2Label.Location = New System.Drawing.Point(224, 23)
         Me.BackupFreqHelp2Label.Name = "BackupFreqHelp2Label"
         Me.BackupFreqHelp2Label.Size = New System.Drawing.Size(56, 17)
         Me.BackupFreqHelp2Label.TabIndex = 3
@@ -929,7 +972,7 @@ Partial Class Form1
         Me.BackupFreqTextBox.MaxLength = 3
         Me.BackupFreqTextBox.Name = "BackupFreqTextBox"
         Me.BackupFreqTextBox.ShortcutsEnabled = False
-        Me.BackupFreqTextBox.Size = New System.Drawing.Size(34, 23)
+        Me.BackupFreqTextBox.Size = New System.Drawing.Size(28, 23)
         Me.BackupFreqTextBox.TabIndex = 2
         Me.BackupFreqTextBox.Text = "5"
         Me.BackupFreqTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -939,7 +982,7 @@ Partial Class Form1
         Me.LatestBackupHelpLabel.AutoSize = True
         Me.LatestBackupHelpLabel.BackColor = System.Drawing.Color.Transparent
         Me.LatestBackupHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LatestBackupHelpLabel.Location = New System.Drawing.Point(286, 23)
+        Me.LatestBackupHelpLabel.Location = New System.Drawing.Point(278, 23)
         Me.LatestBackupHelpLabel.Name = "LatestBackupHelpLabel"
         Me.LatestBackupHelpLabel.Size = New System.Drawing.Size(183, 17)
         Me.LatestBackupHelpLabel.TabIndex = 4
@@ -1035,8 +1078,8 @@ Partial Class Form1
         Me.LogTxtBoxContextMenu.ResumeLayout(False)
         Me.TopMenuContainer.ResumeLayout(False)
         Me.TopMenuContainer.PerformLayout()
-        CType(Me.UplayPictureBtn, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AlertDot, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UplayPictureBtn, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.HomePictureBtn, System.ComponentModel.ISupportInitialize).EndInit()
         Me.AboutContainer.ResumeLayout(False)
         Me.AboutContainer.PerformLayout()
@@ -1083,7 +1126,6 @@ Partial Class Form1
     Friend WithEvents LogLabel As Label
     Friend WithEvents LogsContainer As Panel
     Friend WithEvents RememberFormPositionChkBox As CheckBox
-    Friend WithEvents AlertDot As PictureBox
     Friend WithEvents TitleLabel As Label
     Friend WithEvents SettingsContainer As Panel
     Friend WithEvents SettingsWriteLogToFileChkBox As CheckBox
@@ -1109,6 +1151,10 @@ Partial Class Form1
     Friend WithEvents BackupFreqTextBox As TextBox
     Friend WithEvents BackupFreqHelp2Label As Label
     Friend WithEvents WhichBackupDropdown As ComboBox
+    Friend WithEvents SettingsInterfaceLang As Label
+    Friend WithEvents SettingsInterfaceLangDropdown As ComboBox
+    Friend WithEvents SettingsLangRestartLabel As Label
+    Friend WithEvents AlertDot As PictureBox
     Friend WithEvents WebsiteLink As CheckBox
     Friend WithEvents SupportLink As CheckBox
     Friend WithEvents ChangelogLink As CheckBox

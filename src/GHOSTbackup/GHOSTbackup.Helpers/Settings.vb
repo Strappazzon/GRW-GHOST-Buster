@@ -41,6 +41,7 @@ Public Class Settings
             'Create default settings
             Dim ConfigData As IniData = New IniData()
             'GHOST Buster
+            ConfigData("GHOSTbackup")("Language") = "0" 'See Localization.SetLanguage() function
             ConfigData("GHOSTbackup")("ConfirmExit") = "True"
             ConfigData("GHOSTbackup")("ConfirmBackupInterruption") = "False"
             ConfigData("GHOSTbackup")("CheckForUpdates") = "False"
@@ -76,6 +77,7 @@ Public Class Settings
             'Load settings
 
             'GHOST Buster
+            Form1.SettingsInterfaceLangDropdown.SelectedIndex = Language()
             Form1.ConfirmExitChkBox.Checked = ConfirmExit()
             Form1.ConfirmStopBackupChkBox.Checked = ConfirmBackupInterruption()
             Form1.CheckUpdatesChkBox.Checked = CheckForUpdates()
@@ -103,6 +105,7 @@ Public Class Settings
         'Get settings
         Dim ConfigData As IniData = New IniData()
         'GHOST Buster
+        ConfigData("GHOSTbackup")("Language") = Form1.SettingsInterfaceLangDropdown.SelectedIndex
         ConfigData("GHOSTbackup")("ConfirmExit") = Form1.ConfirmExitChkBox.Checked
         ConfigData("GHOSTbackup")("ConfirmBackupInterruption") = Form1.ConfirmStopBackupChkBox.Checked
         ConfigData("GHOSTbackup")("CheckForUpdates") = Form1.CheckUpdatesChkBox.Checked
@@ -134,6 +137,17 @@ Public Class Settings
     End Sub
 
 #Region "GHOST Buster"
+    Private Shared Function Language() As Integer
+        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+
+        Dim Value As String = ConfigData("GHOSTbackup")("Language")
+        If Value <> Nothing Then
+            Return Integer.Parse(Value)
+        Else
+            Return 0
+        End If
+    End Function
+
     Private Shared Function ConfirmExit() As Boolean
         Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
 

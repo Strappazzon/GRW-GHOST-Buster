@@ -52,7 +52,7 @@ Public Class Updater
                 Logger.Log("[INFO] GHOST Buster is up to date.")
             ElseIf FetchedVer > VersionCode Then
                 Logger.Log("[INFO] New version of GHOST Buster is available.")
-                CustomMsgBox.Show("{\rtf1 A newer version of GHOST Buster is available. Do you want to {\b visit the download page} now?}", "Update available", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+                CustomMsgBox.Show(Localization.GetString("msgbox_update_available"), Localization.GetString("msgbox_update_available_title"), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
                 If CustomMsgBox.DialogResult = DialogResult.Yes Then
                     Process.Start("https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest")
                 End If
@@ -61,7 +61,7 @@ Public Class Updater
             End If
         Else
             Logger.Log("[ERROR] Unable to check for updates: " & e.Error.Message())
-            Banner.Show(48, "Unable to check for updates. Please check the logs for more details.")
+            Banner.Show(48, Localization.GetString("banner_update_error"))
         End If
     End Sub
 End Class

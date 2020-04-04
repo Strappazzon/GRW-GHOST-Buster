@@ -58,7 +58,7 @@ Public Class Logger
             Catch ex As Exception
                 Form1.SettingsWriteLogToFileChkBox.Checked = False
                 Form1.LogTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " [ERROR] Log session to file interrupted: " & ex.Message())
-                Banner.Show(48, "Logging to file disabled due to an error.")
+                Banner.Show(48, Localization.GetString("banner_log_error"))
             End Try
         End If
     End Sub

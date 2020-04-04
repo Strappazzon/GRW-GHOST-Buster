@@ -41,9 +41,9 @@ Public Class WildlandsHelper
             Else
                 'Disable "I'm not using the Uplay version of Wildlands"
                 Form1.SettingsNonUplayVersionChkBox.Checked = False
-                Form1.PlayGameBtn.Text = "Ghost Recon Wildlands not found"
+                Form1.PlayGameBtn.Text = Localization.GetString("ui_play_disabled_404")
                 Logger.Log("[WARNING] Custom Wildlands executable " & Form1.SettingsCustomExeTextBox.Text & " not found.")
-                Banner.Show(48, "The selected Wildlands executable could not be found.")
+                Banner.Show(48, Localization.GetString("banner_customexe_404_error"))
             End If
         Else
             Using GameRegKey As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\1771", False)
@@ -55,12 +55,12 @@ Public Class WildlandsHelper
                         Logger.Log("[INFO] Wildlands is installed in: " & GamePath)
                         StartProcessTimer()
                     Else
-                        Form1.PlayGameBtn.Text = "Ghost Recon Wildlands is not installed"
+                        Form1.PlayGameBtn.Text = Localization.GetString("ui_play_disabled")
                         Logger.Log("[WARNING] Wildlands is not installed (""InstallDir"" is Null or Empty).")
                     End If
 
                 Catch ex As Exception
-                    Form1.PlayGameBtn.Text = "Ghost Recon Wildlands is not installed"
+                    Form1.PlayGameBtn.Text = Localization.GetString("ui_play_disabled")
                     Logger.Log("[ERROR] Wildlands is not installed: " & ex.Message())
                 End Try
             End Using

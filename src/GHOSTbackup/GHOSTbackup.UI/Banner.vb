@@ -59,7 +59,7 @@ Public Class Banner
         If Icon = 48 Then
             'Warning
             BannerIcon.Image = My.Resources.Banner_Alert_Icon
-            If Form1.TitleLabel.Text <> "Logs" Then
+            If Form1.TitleLabel.Text <> Localization.GetString("ui_title_logs") Then
                 Form1.AlertDot.Visible = True
             End If
         ElseIf Icon = 64 Then
@@ -92,10 +92,10 @@ Public Class Banner
     End Sub
 
     Public Shared Sub CloseBanner_Click(sender As Object, e As EventArgs) Handles CloseBanner.Click
+        'Hide banner
         AlertBanner.Controls.Remove(BannerIcon)
         AlertBanner.Controls.Remove(BannerMessage)
         AlertBanner.Controls.Remove(CloseBanner)
-        'Hide banner
         Form1.Controls.Remove(AlertBanner)
         'Move logo and Play button
         Form1.LogoBigPictureBox.Location = New Point(12, 85)

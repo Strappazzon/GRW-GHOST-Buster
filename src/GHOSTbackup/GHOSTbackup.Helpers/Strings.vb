@@ -24,30 +24,35 @@
 ''
 #End Region
 
-Imports GHOSTbackup.BackupHelper
-Imports GHOSTbackup.Var
+Imports System.Text
 
-Public Class ProcessHelper
-    Private Shared WithEvents CheckProcessTimer As New Timer()
+Public Class Strings
 
-    Public Shared Sub StartProcessTimer()
-        CheckProcessTimer.Interval = 500
-        CheckProcessTimer.Start()
-    End Sub
+#Region "Format"
+    'Custom String.Format functions
+    '//stackoverflow.com/a/1321343
+    Public Overloads Shared Function Format(ByVal input As String, ByVal arg0 As Object) As String
+        Dim Sb As StringBuilder = New StringBuilder(input)
 
-    Public Shared Sub CheckProcessTimer_Tick(sender As Object, e As EventArgs) Handles CheckProcessTimer.Tick
-        Dim WildlandsProc = Process.GetProcessesByName("GRW")
-        If WildlandsProc.Count > 0 Then
-            IsGameRunning = True
-            Form1.PlayGameBtn.Enabled = False
-        Else
-            IsGameRunning = False
-            Form1.PlayGameBtn.Enabled = True
-            If IsBackupRunning = True Then
-                StopBackup()
-                Logger.Log("[INFO] Wildlands has been closed or crashed. Backup interrupted.")
-                CustomMsgBox.Show(Localization.GetString("msgbox_wildlands_closed_crashed"), Localization.GetString("msgbox_wildlands_closed_crashed_title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
-            End If
-        End If
-    End Sub
+        Sb.Replace("<0>", arg0)
+        Return Sb.ToString()
+    End Function
+
+    Public Overloads Shared Function Format(ByVal input As String, ByVal arg0 As Object, ByVal arg1 As Object) As String
+        Dim Sb As StringBuilder = New StringBuilder(input)
+
+        Sb.Replace("<0>", arg0)
+        Sb.Replace("<1>", arg1)
+        Return Sb.ToString()
+    End Function
+
+    Public Overloads Shared Function Format(ByVal input As String, ByVal arg0 As Object, ByVal arg1 As Object, ByVal arg2 As Object) As String
+        Dim Sb As StringBuilder = New StringBuilder(input)
+
+        Sb.Replace("<0>", arg0)
+        Sb.Replace("<1>", arg1)
+        Sb.Replace("<2>", arg2)
+        Return Sb.ToString()
+    End Function
+#End Region
 End Class

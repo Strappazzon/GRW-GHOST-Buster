@@ -83,8 +83,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GHOSTbackup.Helpers\BackupHelper.vb" />
+    <Compile Include="GHOSTbackup.Helpers\Strings.vb" />
     <Compile Include="GHOSTbackup.Helpers\UplayHelper.vb" />
     <Compile Include="GHOSTbackup.Helpers\WildlandsHelper.vb" />
+    <Compile Include="GHOSTbackup.Localization\Localization.vb" />
+    <Compile Include="GHOSTbackup.Localization\Strings.it.Designer.vb">
+      <DependentUpon>Strings.it.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="GHOSTbackup.Localization\Strings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
     <Compile Include="GHOSTbackup.UI\Banner.vb" />
     <Compile Include="GHOSTbackup.UI\CustomMsgBox.Designer.vb">
       <DependentUpon>CustomMsgBox.vb</DependentUpon>
@@ -127,6 +139,16 @@
     <Compile Include="Var.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="GHOSTbackup.Localization\Strings.it.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.it.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Languages</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GHOSTbackup.Localization\Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>Languages</CustomToolNamespace>
+    </EmbeddedResource>
     <EmbeddedResource Include="GHOSTbackup.UI\CustomMsgBox.resx">
       <DependentUpon>CustomMsgBox.vb</DependentUpon>
     </EmbeddedResource>
@@ -176,5 +198,6 @@
     <None Include="Resources\alert_triangle.png" />
     <None Include="Resources\uplay.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
