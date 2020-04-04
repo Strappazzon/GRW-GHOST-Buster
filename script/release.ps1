@@ -1,4 +1,5 @@
 $7Zip = ${env:ProgramFiles}+"\7-Zip\7z.exe" # Path to 7z.exe
+$Resources = @(Get-ChildItem  ".\src\GHOSTbackup\GHOSTbackup.Localization\*.resources") # Path to compiled resources
 
 # Create the release folder if it doesn't exist
 if (-not (Test-Path -Path ".\.release")) {
@@ -14,6 +15,12 @@ if (Test-Path -LiteralPath ".\src\GHOSTbackup\bin\Release\GHOSTbackup.exe") {
 	Copy-Item -LiteralPath ".\src\GHOSTbackup\bin\Release\INIFileParser.dll" -Destination ".\.release\INIFileParser.dll" -Force
 	Copy-Item -Path ".\src\Licenses" -Destination ".\.release\" -Recurse -Force
 	Copy-Item -LiteralPath ".\CHANGELOG.txt" -Destination ".\.release\CHANGELOG.txt" -Force
+	Write-Host "Copying localization files."
+	# Create Languages folder if it doesn't exist
+	if (-not (Test-Path -Path ".\.release\Languages")) {
+		New-Item -Path ".\.release\Languages" -ItemType Directory -ErrorAction Stop | Out-Null
+	}
+	foreach (${Resource} in ${Resources}) { Copy-Item -LiteralPath ${Resource} -Destination ".\.release\Languages\" -Force }
 
 	# Create release archive
 	Write-Host "Creating release archive."
