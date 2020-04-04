@@ -31,7 +31,7 @@ Public Class Notification
         Notification.MessageLabel.Text = Message
 
         'Display the notification
-        Notification.Show()
+        My.Forms.Notification.Show()
     End Sub
 
     Private Sub CloseTimer_Tick(sender As Object, e As EventArgs) Handles CloseTimer.Tick
