@@ -321,7 +321,7 @@ Public Class BackupHelper
                                 If(
                                     Directory.GetCreationTime(BackupDir) > Now.AddHours(-1),
                                     Regex.Replace(Now.Subtract(Directory.GetCreationTime(BackupDir)).ToString("mm") & Localization.GetString("msgbox_dropdown_backup_timestamp"), "^[0-9]{2}\ [a-z\ ]+$", Localization.GetString("msgbox_dropdown_backup_timestamp_00")),
-                                    Directory.GetCreationTime(BackupDir).ToString("F", CultureInfo.CurrentUICulture)
+                                    Directory.GetCreationTime(BackupDir).ToString("f", CultureInfo.CurrentUICulture)
                                 )
                             )
                         End If
