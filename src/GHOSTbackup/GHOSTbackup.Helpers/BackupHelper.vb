@@ -58,7 +58,7 @@ Public Class BackupHelper
             'If the current backup directory contains at least one valid backup
             If BackupDirs.Count >= 1 Then
                 'Store the timestamp of the last directory in the list
-                e.Result = Directory.GetCreationTime(BackupDirs.Item(BackupDirs.Count - 1)).ToString("g", CultureInfo.CurrentUICulture)
+                e.Result = Directory.GetCreationTime(BackupDirs.Item(BackupDirs.Count - 1)).ToString("G", CultureInfo.CurrentUICulture)
             Else
                 'No valid directory found, set Result to Nothing
                 e.Result = Nothing
@@ -147,7 +147,7 @@ Public Class BackupHelper
                 Next
 
                 'Write the timestamp of this backup on the main screen
-                Form1.LatestBackupHelpLabel.Text = Localization.GetString("ui_tasks_latest") & BackupTimestamp.ToString("yyyy-MM-dd HH:mm")
+                Form1.LatestBackupHelpLabel.Text = Localization.GetString("ui_tasks_latest") & BackupTimestamp.ToString("G", CultureInfo.CurrentUICulture)
 
                 Logger.Log("[INFO] Performed the first backup " & "(" & SavegamesList.Length & " files copied to " & BackupDirectory & ").")
                 Notification.Show(Localization.GetString("notification_msg_first_backup"))
@@ -180,7 +180,7 @@ Public Class BackupHelper
                 Next
 
                 'Write the timestamp of this backup on the main screen
-                Form1.LatestBackupHelpLabel.Text = Localization.GetString("ui_tasks_latest") & BackupTimestamp.ToString("yyyy-MM-dd HH:mm")
+                Form1.LatestBackupHelpLabel.Text = Localization.GetString("ui_tasks_latest") & BackupTimestamp.ToString("G", CultureInfo.CurrentUICulture)
 
                 Logger.Log("[INFO] Backup complete " & "(" & SavegamesList.Length & " files copied to " & BackupDirectory & ").")
                 Notification.Show(Localization.GetString("notification_msg_backup_complete"))
