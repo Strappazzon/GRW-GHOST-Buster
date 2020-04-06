@@ -180,6 +180,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon_256.ico" />
+    <None Include="Resources\uplay.png" />
+    <None Include="Resources\tasks_white.png" />
+    <None Include="Resources\tasks.png" />
+    <None Include="Resources\settings_white.png" />
+    <None Include="Resources\settings.png" />
+    <None Include="Resources\bg.png" />
     <None Include="Resources\notification_form_bg.png" />
     <None Include="Resources\notification_image.png" />
     <None Include="Resources\website.png" />
@@ -189,14 +195,11 @@
     <None Include="Resources\close.png" />
     <None Include="Resources\alert_dot.png" />
     <None Include="Resources\Banner_Info_Icon.png" />
-    <None Include="Resources\Home_Icon_White.png" />
-    <None Include="Resources\Home_Icon.png" />
     <None Include="Resources\Banner_Alert_Icon.png" />
     <None Include="packages.config" />
     <None Include="Resources\question.png" />
     <None Include="Resources\error.png" />
     <None Include="Resources\alert_triangle.png" />
-    <None Include="Resources\uplay.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

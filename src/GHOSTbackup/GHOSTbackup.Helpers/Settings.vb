@@ -78,22 +78,22 @@ Public Class Settings
 
             'GHOST Buster
             Form1.SettingsInterfaceLangDropdown.SelectedIndex = Language()
-            Form1.ConfirmExitChkBox.Checked = ConfirmExit()
-            Form1.ConfirmStopBackupChkBox.Checked = ConfirmBackupInterruption()
-            Form1.CheckUpdatesChkBox.Checked = CheckForUpdates()
-            Form1.RememberFormPositionChkBox.Checked = RememberFormPosition()
+            Form1.SettingsConfirmExitChkBox.Checked = ConfirmExit()
+            Form1.SettingsConfirmStopBackupChkBox.Checked = ConfirmBackupInterruption()
+            Form1.SettingsCheckUpdatesChkBox.Checked = CheckForUpdates()
+            Form1.SettingsRememberFormPositionChkBox.Checked = RememberFormPosition()
             'Logging
             Form1.SettingsWriteLogToFileChkBox.Checked = WriteEventsToFile()
             Form1.SettingsLogFilePathTextBox.Text = LogFilePath()
             'Backup
             Form1.SavegamesLocTextBox.Text = SavegamesDirectory()
             Form1.BackupLocTextBox.Text = BackupDirectory()
-            Form1.BackupFreqTextBox.Text = BackupFrequency()
-            Form1.DisplayNotificationChkBox.Checked = DisplayNotification()
+            Form1.BackupFreqUpDown.Value = BackupFrequency()
+            Form1.SettingsDisplayNotificationChkBox.Checked = DisplayNotification()
             Form1.WhichBackupDropdown.SelectedIndex = WhichBackupToRestore()
             'Uplay
-            Form1.DisableCloudSyncChkBox.Checked = DisableCloudSyncOnRestore()
-            Form1.EnableCloudSyncChkBox.Checked = EnableCloudSyncOnQuit()
+            Form1.SettingsDisableCloudSyncChkBox.Checked = DisableCloudSyncOnRestore()
+            Form1.SettingsEnableCloudSyncChkBox.Checked = EnableCloudSyncOnQuit()
             Form1.SettingsNonUplayVersionChkBox.Checked = NoUplay()
             Form1.SettingsCustomExeTextBox.Text = WildlandsCustomPath()
         End If
@@ -106,23 +106,23 @@ Public Class Settings
         Dim ConfigData As IniData = New IniData()
         'GHOST Buster
         ConfigData("GHOSTbackup")("Language") = Form1.SettingsInterfaceLangDropdown.SelectedIndex
-        ConfigData("GHOSTbackup")("ConfirmExit") = Form1.ConfirmExitChkBox.Checked
-        ConfigData("GHOSTbackup")("ConfirmBackupInterruption") = Form1.ConfirmStopBackupChkBox.Checked
-        ConfigData("GHOSTbackup")("CheckForUpdates") = Form1.CheckUpdatesChkBox.Checked
-        ConfigData("GHOSTbackup")("RememberFormPosition") = Form1.RememberFormPositionChkBox.Checked
-        ConfigData("GHOSTbackup")("FormPosition") = If(Form1.RememberFormPositionChkBox.Checked = True, Form1.Location.ToString(), "{X=-1,Y=-1}")
+        ConfigData("GHOSTbackup")("ConfirmExit") = Form1.SettingsConfirmExitChkBox.Checked
+        ConfigData("GHOSTbackup")("ConfirmBackupInterruption") = Form1.SettingsConfirmStopBackupChkBox.Checked
+        ConfigData("GHOSTbackup")("CheckForUpdates") = Form1.SettingsCheckUpdatesChkBox.Checked
+        ConfigData("GHOSTbackup")("RememberFormPosition") = Form1.SettingsRememberFormPositionChkBox.Checked
+        ConfigData("GHOSTbackup")("FormPosition") = If(Form1.SettingsRememberFormPositionChkBox.Checked = True, Form1.Location.ToString(), "{X=-1,Y=-1}")
         'Logging
         ConfigData("Logging")("WriteEventsToFile") = Form1.SettingsWriteLogToFileChkBox.Checked
         ConfigData("Logging")("LogFilePath") = Form1.SettingsLogFilePathTextBox.Text
         'Backup
         ConfigData("Backup")("SavegamesDirectory") = Form1.SavegamesLocTextBox.Text
         ConfigData("Backup")("BackupDirectory") = Form1.BackupLocTextBox.Text
-        ConfigData("Backup")("BackupFrequency") = If(Form1.BackupFreqTextBox.Text = "" OrElse Form1.BackupFreqTextBox.Text = "0", "5", Form1.BackupFreqTextBox.Text)
-        ConfigData("Backup")("DisplayNotification") = Form1.DisplayNotificationChkBox.Checked
+        ConfigData("Backup")("BackupFrequency") = Form1.BackupFreqUpDown.Value
+        ConfigData("Backup")("DisplayNotification") = Form1.SettingsDisplayNotificationChkBox.Checked
         ConfigData("Backup")("WhichBackupToRestore") = Form1.WhichBackupDropdown.SelectedIndex
         'Uplay
-        ConfigData("Uplay")("DisableCloudSyncOnRestore") = Form1.DisableCloudSyncChkBox.Checked
-        ConfigData("Uplay")("EnableCloudSyncOnQuit") = Form1.EnableCloudSyncChkBox.Checked
+        ConfigData("Uplay")("DisableCloudSyncOnRestore") = Form1.SettingsDisableCloudSyncChkBox.Checked
+        ConfigData("Uplay")("EnableCloudSyncOnQuit") = Form1.SettingsEnableCloudSyncChkBox.Checked
         ConfigData("Uplay")("NoUplay") = If(Form1.SettingsNonUplayVersionChkBox.Checked = True AndAlso Form1.SettingsCustomExeTextBox.Text <> "", Form1.SettingsNonUplayVersionChkBox.Checked, False)
         ConfigData("Uplay")("WildlandsCustomPath") = If(Form1.SettingsNonUplayVersionChkBox.Checked = True AndAlso Form1.SettingsCustomExeTextBox.Text <> "", Form1.SettingsCustomExeTextBox.Text, Nothing)
 
@@ -246,14 +246,14 @@ Public Class Settings
         Return Value
     End Function
 
-    Private Shared Function BackupFrequency() As String
+    Private Shared Function BackupFrequency() As Decimal
         Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Backup")("BackupFrequency")
         If Value <> Nothing Then
-            Return Value
+            Return Decimal.Round(Decimal.Parse(Value), 0)
         Else
-            Return "5"
+            Return Decimal.Round(5, 0)
         End If
     End Function
 

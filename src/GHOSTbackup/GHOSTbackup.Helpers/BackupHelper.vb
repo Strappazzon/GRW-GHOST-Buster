@@ -91,10 +91,10 @@ Public Class BackupHelper
     End Sub
 
     Public Shared Sub StartBackup()
-        BackupTimer.Interval = Integer.Parse(Form1.BackupFreqTextBox.Text) * 60000
+        BackupTimer.Interval = Form1.BackupFreqUpDown.Value * 60000
         BackupTimer.Start()
         IsBackupRunning = True
-        Form1.BackupFreqTextBox.Enabled = False
+        Form1.BackupFreqUpDown.Enabled = False
         Form1.BackupBtn.Enabled = False
         Form1.StopBtn.Enabled = True
         Form1.RestoreBtn.Enabled = False
@@ -111,7 +111,7 @@ Public Class BackupHelper
     Public Shared Sub StopBackup()
         BackupTimer.Stop()
         IsBackupRunning = False
-        Form1.BackupFreqTextBox.Enabled = True
+        Form1.BackupFreqUpDown.Enabled = True
         Form1.BackupBtn.Enabled = True
         Form1.StopBtn.Enabled = False
         Form1.RestoreBtn.Enabled = True

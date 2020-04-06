@@ -290,15 +290,6 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to {\rtf1 The backup frequency {\b cannot be empty or 0.}}.
-        '''</summary>
-        Friend Shared ReadOnly Property msgbox_backup_frequency_invalid() As String
-            Get
-                Return ResourceManager.GetString("msgbox_backup_frequency_invalid", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized string similar to {\rtf1 Restoring a backup will copy the save files over from the backup folder: &lt;0&gt;\line\line and will {\b OVERWRITE} the existing save files inside the game folder: &lt;1&gt;\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}.
         '''</summary>
         Friend Shared ReadOnly Property msgbox_backup_restore() As String
@@ -506,15 +497,6 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Invalid value.
-        '''</summary>
-        Friend Shared ReadOnly Property msgbox_invalid_value_title() As String
-            Get
-                Return ResourceManager.GetString("msgbox_invalid_value_title", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized string similar to Parsing failed.
         '''</summary>
         Friend Shared ReadOnly Property msgbox_parsing_error_title() As String
@@ -623,6 +605,15 @@ Namespace Languages
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Enter a value between {0} and {1}..
+        '''</summary>
+        Friend Shared ReadOnly Property tooltip_backup_frequency() As String
+            Get
+                Return ResourceManager.GetString("tooltip_backup_frequency", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to If checked, GHOST Buster will display a notification at the edge of the screen about backups..
         '''</summary>
         Friend Shared ReadOnly Property tooltip_backup_notification() As String
@@ -677,20 +668,20 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Launch Uplay..
-        '''</summary>
-        Friend Shared ReadOnly Property tooltip_launch_uplay() As String
-            Get
-                Return ResourceManager.GetString("tooltip_launch_uplay", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized string similar to If checked, GHOST Buster will check if the current version is up to date when opening..
         '''</summary>
         Friend Shared ReadOnly Property tooltip_updates() As String
             Get
                 Return ResourceManager.GetString("tooltip_updates", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Launch Uplay..
+        '''</summary>
+        Friend Shared ReadOnly Property tooltip_uplay() As String
+            Get
+                Return ResourceManager.GetString("tooltip_uplay", resourceCulture)
             End Get
         End Property
         
@@ -709,15 +700,6 @@ Namespace Languages
         Friend Shared ReadOnly Property topmenu_logs() As String
             Get
                 Return ResourceManager.GetString("topmenu_logs", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to Settings.
-        '''</summary>
-        Friend Shared ReadOnly Property topmenu_settings() As String
-            Get
-                Return ResourceManager.GetString("topmenu_settings", resourceCulture)
             End Get
         End Property
         
@@ -767,15 +749,6 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Display notifications about backups.
-        '''</summary>
-        Friend Shared ReadOnly Property ui_backup_notification() As String
-            Get
-                Return ResourceManager.GetString("ui_backup_notification", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized string similar to Browse....
         '''</summary>
         Friend Shared ReadOnly Property ui_btn_browse() As String
@@ -799,51 +772,6 @@ Namespace Languages
         Friend Shared ReadOnly Property ui_btn_open_folder() As String
             Get
                 Return ResourceManager.GetString("ui_btn_open_folder", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to Confirm backup interruption.
-        '''</summary>
-        Friend Shared ReadOnly Property ui_confirm_backup_interruption() As String
-            Get
-                Return ResourceManager.GetString("ui_confirm_backup_interruption", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to Confirm exit when backup is running.
-        '''</summary>
-        Friend Shared ReadOnly Property ui_confirm_exit() As String
-            Get
-                Return ResourceManager.GetString("ui_confirm_exit", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to Remember window position.
-        '''</summary>
-        Friend Shared ReadOnly Property ui_coordinates() As String
-            Get
-                Return ResourceManager.GetString("ui_coordinates", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to Disable Uplay cloud save sync on restore.
-        '''</summary>
-        Friend Shared ReadOnly Property ui_disable_sync() As String
-            Get
-                Return ResourceManager.GetString("ui_disable_sync", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to Enable Uplay cloud save sync on exit.
-        '''</summary>
-        Friend Shared ReadOnly Property ui_enable_sync() As String
-            Get
-                Return ResourceManager.GetString("ui_enable_sync", resourceCulture)
             End Get
         End Property
         
@@ -920,6 +848,60 @@ Namespace Languages
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Display notifications about backups.
+        '''</summary>
+        Friend Shared ReadOnly Property ui_settings_backup_notification() As String
+            Get
+                Return ResourceManager.GetString("ui_settings_backup_notification", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Confirm backup interruption.
+        '''</summary>
+        Friend Shared ReadOnly Property ui_settings_confirm_backup_interruption() As String
+            Get
+                Return ResourceManager.GetString("ui_settings_confirm_backup_interruption", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Confirm exit when backup is running.
+        '''</summary>
+        Friend Shared ReadOnly Property ui_settings_confirm_exit() As String
+            Get
+                Return ResourceManager.GetString("ui_settings_confirm_exit", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Remember window position.
+        '''</summary>
+        Friend Shared ReadOnly Property ui_settings_coordinates() As String
+            Get
+                Return ResourceManager.GetString("ui_settings_coordinates", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Disable Uplay cloud save synchronization on restore.
+        '''</summary>
+        Friend Shared ReadOnly Property ui_settings_disable_sync() As String
+            Get
+                Return ResourceManager.GetString("ui_settings_disable_sync", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Enable Uplay cloud save synchronization on exit.
+        '''</summary>
+        Friend Shared ReadOnly Property ui_settings_enable_sync() As String
+            Get
+                Return ResourceManager.GetString("ui_settings_enable_sync", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Interface language:.
         '''</summary>
         Friend Shared ReadOnly Property ui_settings_lang_choice() As String
@@ -952,6 +934,15 @@ Namespace Languages
         Friend Shared ReadOnly Property ui_settings_restart() As String
             Get
                 Return ResourceManager.GetString("ui_settings_restart", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Check for updates on startup.
+        '''</summary>
+        Friend Shared ReadOnly Property ui_settings_updates() As String
+            Get
+                Return ResourceManager.GetString("ui_settings_updates", resourceCulture)
             End Get
         End Property
         
@@ -992,7 +983,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Backup every.
+        '''  Looks up a localized string similar to Backup frequency.
         '''</summary>
         Friend Shared ReadOnly Property ui_tasks_freq() As String
             Get
@@ -1001,7 +992,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to mins..
+        '''  Looks up a localized string similar to minutes..
         '''</summary>
         Friend Shared ReadOnly Property ui_tasks_freq_minutes() As String
             Get
@@ -1010,7 +1001,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Latest: .
+        '''  Looks up a localized string similar to Latest backup:\n.
         '''</summary>
         Friend Shared ReadOnly Property ui_tasks_latest() As String
             Get
@@ -1019,7 +1010,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Latest: Error..
+        '''  Looks up a localized string similar to Latest backup:\nError..
         '''</summary>
         Friend Shared ReadOnly Property ui_tasks_latest_error() As String
             Get
@@ -1028,7 +1019,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Ultimo: Please wait....
+        '''  Looks up a localized string similar to Latest backup:\nPlease wait....
         '''</summary>
         Friend Shared ReadOnly Property ui_tasks_latest_loading() As String
             Get
@@ -1037,7 +1028,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Latest: No backup yet..
+        '''  Looks up a localized string similar to Latest backup: None yet..
         '''</summary>
         Friend Shared ReadOnly Property ui_tasks_latest_none() As String
             Get
@@ -1100,7 +1091,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Advanced Settings.
+        '''  Looks up a localized string similar to Settings.
         '''</summary>
         Friend Shared ReadOnly Property ui_title_settings() As String
             Get
@@ -1114,15 +1105,6 @@ Namespace Languages
         Friend Shared ReadOnly Property ui_title_tasks() As String
             Get
                 Return ResourceManager.GetString("ui_title_tasks", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to Check for updates.
-        '''</summary>
-        Friend Shared ReadOnly Property ui_updates() As String
-            Get
-                Return ResourceManager.GetString("ui_updates", resourceCulture)
             End Get
         End Property
     End Class

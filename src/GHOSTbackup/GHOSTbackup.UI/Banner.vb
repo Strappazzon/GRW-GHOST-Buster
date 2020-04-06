@@ -25,6 +25,8 @@
 #End Region
 
 Public Class Banner
+
+#Region "Controls"
     Private Shared WithEvents AlertBanner As Panel = New Panel() With {
         .BackColor = Color.FromArgb(180, 60, 71, 84),
         .Font = New Font("Segoe UI", 9.0!, FontStyle.Regular, GraphicsUnit.Point, 0),
@@ -54,6 +56,7 @@ Public Class Banner
         .SizeMode = PictureBoxSizeMode.AutoSize,
         .TabStop = False
     }
+#End Region
 
     Public Overloads Shared Sub Show(Icon As Integer, Message As String)
         If Icon = 48 Then
@@ -70,14 +73,6 @@ Public Class Banner
         'Move logo and Play button
         Form1.LogoBigPictureBox.Location = New Point(12, 115)
         Form1.PlayGameBtn.Location = New Point(12, 180)
-        'Move checkboxes
-        Form1.ConfirmExitChkBox.Location = New Point(14, 250)
-        Form1.ConfirmStopBackupChkBox.Location = New Point(14, 275)
-        Form1.DisplayNotificationChkBox.Location = New Point(14, 300)
-        Form1.DisableCloudSyncChkBox.Location = New Point(14, 325)
-        Form1.EnableCloudSyncChkBox.Location = New Point(14, 350)
-        Form1.CheckUpdatesChkBox.Location = New Point(14, 375)
-        Form1.RememberFormPositionChkBox.Location = New Point(14, 400)
         'Create banner
         AlertBanner.Controls.Add(BannerIcon)
         AlertBanner.Controls.Add(BannerMessage)
@@ -100,13 +95,5 @@ Public Class Banner
         'Move logo and Play button
         Form1.LogoBigPictureBox.Location = New Point(12, 85)
         Form1.PlayGameBtn.Location = New Point(12, 150)
-        'Move checkboxes
-        Form1.ConfirmExitChkBox.Location = New Point(14, 225)
-        Form1.ConfirmStopBackupChkBox.Location = New Point(14, 250)
-        Form1.DisplayNotificationChkBox.Location = New Point(14, 275)
-        Form1.DisableCloudSyncChkBox.Location = New Point(14, 300)
-        Form1.EnableCloudSyncChkBox.Location = New Point(14, 325)
-        Form1.CheckUpdatesChkBox.Location = New Point(14, 350)
-        Form1.RememberFormPositionChkBox.Location = New Point(14, 375)
     End Sub
 End Class

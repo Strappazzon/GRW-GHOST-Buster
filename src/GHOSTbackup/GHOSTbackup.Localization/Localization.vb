@@ -53,7 +53,9 @@ Public Class Localization
 
         'Localize form elements
         Form1.PlayGameBtn.Text = GetString("ui_play")
-        Form1.TasksTitleLabel.Text = GetString("ui_title_tasks")
+        Form1.SidemenuTasks.Text = "  " & GetString("ui_title_tasks")
+        Form1.SidemenuSettings.Text = "  " & GetString("ui_title_settings")
+        Form1.TitleLabel.Text = GetString("ui_title_tasks")
         Form1.FoldersTitleLabel.Text = GetString("ui_title_folders")
         Form1.BrowseBackupLocBtn.Text = GetString("ui_btn_browse")
         Form1.BrowseSavegamesLocBtn.Text = GetString("ui_btn_browse")
@@ -64,17 +66,8 @@ Public Class Localization
         Form1.SettingsOpenLogBtn.Text = GetString("ui_btn_open")
         Form1.SettingsOpenCustomExeFolderBtn.Text = GetString("ui_btn_open_folder")
         'Top menu
-        Form1.SettingsLabel.Text = GetString("topmenu_settings")
         Form1.LogLabel.Text = GetString("topmenu_logs")
         Form1.AboutLabel.Text = GetString("topmenu_about")
-        'Checkboxes
-        Form1.ConfirmExitChkBox.Text = GetString("ui_confirm_exit")
-        Form1.ConfirmStopBackupChkBox.Text = GetString("ui_confirm_backup_interruption")
-        Form1.DisplayNotificationChkBox.Text = GetString("ui_backup_notification")
-        Form1.DisableCloudSyncChkBox.Text = GetString("ui_disable_sync")
-        Form1.EnableCloudSyncChkBox.Text = GetString("ui_enable_sync")
-        Form1.CheckUpdatesChkBox.Text = GetString("ui_updates")
-        Form1.RememberFormPositionChkBox.Text = GetString("ui_coordinates")
         'Tasks
         Form1.BackupBtn.Text = GetString("ui_tasks_backup")
         Form1.StopBtn.Text = GetString("ui_tasks_stop")
@@ -92,9 +85,16 @@ Public Class Localization
         'Settings
         Form1.SettingsInterfaceLang.Text = GetString("ui_settings_lang_choice")
         Form1.SettingsLangRestartLabel.Text = GetString("ui_settings_restart")
-        Form1.SettingsWriteLogToFileChkBox.Text = GetString("ui_settings_log_file")
+        Form1.SettingsConfirmExitChkBox.Text = GetString("ui_settings_confirm_exit")
+        Form1.SettingsConfirmStopBackupChkBox.Text = GetString("ui_settings_confirm_backup_interruption")
+        Form1.SettingsDisplayNotificationChkBox.Text = GetString("ui_settings_backup_notification")
+        Form1.SettingsDisableCloudSyncChkBox.Text = GetString("ui_settings_disable_sync")
+        Form1.SettingsEnableCloudSyncChkBox.Text = GetString("ui_settings_enable_sync")
+        Form1.SettingsCheckUpdatesChkBox.Text = GetString("ui_settings_updates")
+        Form1.SettingsRememberFormPositionChkBox.Text = GetString("ui_settings_coordinates")
         Form1.SettingsNonUplayVersionChkBox.Text = GetString("ui_settings_nouplay")
         Form1.SettingsNonUplayVersionRestartLabel.Text = GetString("ui_settings_restart")
+        Form1.SettingsWriteLogToFileChkBox.Text = GetString("ui_settings_log_file")
         'Logs
         Form1.CopyToolStripMenuItem.Text = GetString("ui_logs_context_copy")
         Form1.SelectAllToolStripMenuItem.Text = GetString("ui_logs_context_selectall")
@@ -106,14 +106,15 @@ Public Class Localization
         Form1.ChangelogLink.Text = GetString("ui_about_changelog")
         Form1.LicenseLink.Text = GetString("ui_about_legal")
         'Tooltips
-        Form1.HelpToolTip.SetToolTip(Form1.UplayPictureBtn, GetString("tooltip_launch_uplay"))
-        Form1.HelpToolTip.SetToolTip(Form1.ConfirmExitChkBox, GetString("tooltip_confirm_exit"))
-        Form1.HelpToolTip.SetToolTip(Form1.ConfirmStopBackupChkBox, GetString("tooltip_confirm_backup_interruption"))
-        Form1.HelpToolTip.SetToolTip(Form1.DisplayNotificationChkBox, GetString("tooltip_backup_notification"))
-        Form1.HelpToolTip.SetToolTip(Form1.DisableCloudSyncChkBox, GetString("tooltip_disable_sync"))
-        Form1.HelpToolTip.SetToolTip(Form1.EnableCloudSyncChkBox, GetString("tooltip_enable_sync"))
-        Form1.HelpToolTip.SetToolTip(Form1.CheckUpdatesChkBox, GetString("tooltip_updates"))
-        Form1.HelpToolTip.SetToolTip(Form1.RememberFormPositionChkBox, GetString("tooltip_coordinates"))
+        Form1.HelpToolTip.SetToolTip(Form1.UplayBtn, GetString("tooltip_uplay"))
+        Form1.HelpToolTip.SetToolTip(Form1.BackupFreqUpDown, String.Format(GetString("tooltip_backup_frequency"), Form1.BackupFreqUpDown.Minimum, Form1.BackupFreqUpDown.Maximum))
+        Form1.HelpToolTip.SetToolTip(Form1.SettingsConfirmExitChkBox, GetString("tooltip_confirm_exit"))
+        Form1.HelpToolTip.SetToolTip(Form1.SettingsConfirmStopBackupChkBox, GetString("tooltip_confirm_backup_interruption"))
+        Form1.HelpToolTip.SetToolTip(Form1.SettingsDisplayNotificationChkBox, GetString("tooltip_backup_notification"))
+        Form1.HelpToolTip.SetToolTip(Form1.SettingsDisableCloudSyncChkBox, GetString("tooltip_disable_sync"))
+        Form1.HelpToolTip.SetToolTip(Form1.SettingsEnableCloudSyncChkBox, GetString("tooltip_enable_sync"))
+        Form1.HelpToolTip.SetToolTip(Form1.SettingsCheckUpdatesChkBox, GetString("tooltip_updates"))
+        Form1.HelpToolTip.SetToolTip(Form1.SettingsRememberFormPositionChkBox, GetString("tooltip_coordinates"))
 
         'Localize Message Box
         'Buttons

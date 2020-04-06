@@ -32,7 +32,7 @@ Public Class Updater
     Public Shared Sub CheckUpdates()
         'Check for updates
         '//docs.microsoft.com/en-us/dotnet/api/system.net.downloadstringcompletedeventargs
-        If Form1.CheckUpdatesChkBox.Checked = True Then
+        If Form1.SettingsCheckUpdatesChkBox.Checked = True Then
             Using Updater As WebClient = New WebClient()
                 Updater.Headers.Add("User-Agent", "GHOST Buster (+https://strappazzon.xyz/GRW-GHOST-Buster)")
                 Dim VersionURI As Uri = New Uri("https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/version")

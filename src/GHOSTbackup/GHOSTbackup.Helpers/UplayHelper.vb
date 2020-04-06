@@ -89,7 +89,7 @@ Public Class UplayHelper
 
         Catch ex As Exception
             'Don't let GHOST Buster disable cloud save sync until the user enables the setting again
-            Form1.DisableCloudSyncChkBox.Checked = False
+            Form1.SettingsDisableCloudSyncChkBox.Checked = False
 
             Logger.Log("[ERROR] Parsing of ""settings.yml"" failed: " & ex.Message())
             CustomMsgBox.Show(Localization.GetString("msgbox_disable_sync_error"), Localization.GetString("msgbox_parsing_error_title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Error)

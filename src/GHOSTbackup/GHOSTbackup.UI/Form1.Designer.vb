@@ -25,33 +25,25 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.SavegamesLocTextBox = New System.Windows.Forms.TextBox()
-        Me.BrowseSavegamesLocBtn = New System.Windows.Forms.Button()
-        Me.BrowseBackupLocBtn = New System.Windows.Forms.Button()
         Me.BackupLocTextBox = New System.Windows.Forms.TextBox()
         Me.ExploreSavegamesLocBtn = New System.Windows.Forms.Button()
         Me.ExploreBackupLocBtn = New System.Windows.Forms.Button()
         Me.BackupLocHelpLabel = New System.Windows.Forms.Label()
         Me.SavegamesLocHelpLabel = New System.Windows.Forms.Label()
-        Me.StopBtn = New System.Windows.Forms.Button()
-        Me.RestoreBtn = New System.Windows.Forms.Button()
         Me.BackupFreqHelp1Label = New System.Windows.Forms.Label()
-        Me.BackupBtn = New System.Windows.Forms.Button()
-        Me.LogoBigPictureBox = New System.Windows.Forms.PictureBox()
         Me.PlayGameBtn = New System.Windows.Forms.Button()
         Me.LogTxtBox = New System.Windows.Forms.TextBox()
         Me.LogTxtBoxContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.CopyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SelectAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExportLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ConfirmExitChkBox = New System.Windows.Forms.CheckBox()
-        Me.ConfirmStopBackupChkBox = New System.Windows.Forms.CheckBox()
-        Me.CheckUpdatesChkBox = New System.Windows.Forms.CheckBox()
+        Me.SettingsConfirmExitChkBox = New System.Windows.Forms.CheckBox()
+        Me.SettingsConfirmStopBackupChkBox = New System.Windows.Forms.CheckBox()
+        Me.SettingsCheckUpdatesChkBox = New System.Windows.Forms.CheckBox()
         Me.TopMenuContainer = New System.Windows.Forms.Panel()
         Me.AlertDot = New System.Windows.Forms.PictureBox()
-        Me.UplayPictureBtn = New System.Windows.Forms.PictureBox()
         Me.AboutLabel = New System.Windows.Forms.Label()
-        Me.HomePictureBtn = New System.Windows.Forms.PictureBox()
-        Me.SettingsLabel = New System.Windows.Forms.Label()
+        Me.UplayBtn = New System.Windows.Forms.PictureBox()
         Me.LogLabel = New System.Windows.Forms.Label()
         Me.AboutContainer = New System.Windows.Forms.Panel()
         Me.LicenseLink = New System.Windows.Forms.CheckBox()
@@ -60,50 +52,57 @@ Partial Class Form1
         Me.WebsiteLink = New System.Windows.Forms.CheckBox()
         Me.AppInfoLabel = New System.Windows.Forms.Label()
         Me.LogsContainer = New System.Windows.Forms.Panel()
-        Me.RememberFormPositionChkBox = New System.Windows.Forms.CheckBox()
-        Me.TitleLabel = New System.Windows.Forms.Label()
+        Me.SettingsRememberFormPositionChkBox = New System.Windows.Forms.CheckBox()
         Me.SettingsContainer = New System.Windows.Forms.Panel()
-        Me.SettingsLangRestartLabel = New System.Windows.Forms.Label()
-        Me.SettingsInterfaceLangDropdown = New System.Windows.Forms.ComboBox()
+        Me.SettingsDisplayNotificationChkBox = New System.Windows.Forms.CheckBox()
         Me.SettingsInterfaceLang = New System.Windows.Forms.Label()
         Me.SettingsNonUplayVersionRestartLabel = New System.Windows.Forms.Label()
-        Me.SettingsOpenCustomExeFolderBtn = New System.Windows.Forms.Button()
-        Me.SettingsBrowseCustomExeBtn = New System.Windows.Forms.Button()
-        Me.SettingsCustomExeTextBox = New System.Windows.Forms.TextBox()
-        Me.SettingsNonUplayVersionChkBox = New System.Windows.Forms.CheckBox()
-        Me.SettingsOpenLogBtn = New System.Windows.Forms.Button()
-        Me.SettingsBrowseLogFileBtn = New System.Windows.Forms.Button()
-        Me.SettingsLogFilePathTextBox = New System.Windows.Forms.TextBox()
+        Me.SettingsDisableCloudSyncChkBox = New System.Windows.Forms.CheckBox()
+        Me.SettingsLangRestartLabel = New System.Windows.Forms.Label()
         Me.SettingsWriteLogToFileChkBox = New System.Windows.Forms.CheckBox()
+        Me.SettingsEnableCloudSyncChkBox = New System.Windows.Forms.CheckBox()
+        Me.SettingsInterfaceLangDropdown = New System.Windows.Forms.ComboBox()
+        Me.SettingsLogFilePathTextBox = New System.Windows.Forms.TextBox()
+        Me.SettingsBrowseLogFileBtn = New System.Windows.Forms.Button()
+        Me.SettingsOpenLogBtn = New System.Windows.Forms.Button()
+        Me.SettingsNonUplayVersionChkBox = New System.Windows.Forms.CheckBox()
+        Me.SettingsOpenCustomExeFolderBtn = New System.Windows.Forms.Button()
+        Me.SettingsCustomExeTextBox = New System.Windows.Forms.TextBox()
+        Me.SettingsBrowseCustomExeBtn = New System.Windows.Forms.Button()
         Me.WhichBackupLabel = New System.Windows.Forms.Label()
-        Me.DisableCloudSyncChkBox = New System.Windows.Forms.CheckBox()
         Me.FoldersContainer = New System.Windows.Forms.Panel()
+        Me.BrowseSavegamesLocBtn = New System.Windows.Forms.Button()
+        Me.BrowseBackupLocBtn = New System.Windows.Forms.Button()
         Me.FoldersTitleLabel = New System.Windows.Forms.Label()
         Me.TasksContainer = New System.Windows.Forms.Panel()
-        Me.WhichBackupDropdown = New System.Windows.Forms.ComboBox()
         Me.BackupFreqHelp2Label = New System.Windows.Forms.Label()
-        Me.BackupFreqTextBox = New System.Windows.Forms.TextBox()
+        Me.BackupFreqUpDown = New System.Windows.Forms.NumericUpDown()
+        Me.WhichBackupDropdown = New System.Windows.Forms.ComboBox()
+        Me.BackupBtn = New System.Windows.Forms.Button()
+        Me.StopBtn = New System.Windows.Forms.Button()
+        Me.RestoreBtn = New System.Windows.Forms.Button()
         Me.LatestBackupHelpLabel = New System.Windows.Forms.Label()
-        Me.TasksTitleLabel = New System.Windows.Forms.Label()
+        Me.TitleLabel = New System.Windows.Forms.Label()
         Me.HelpToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.EnableCloudSyncChkBox = New System.Windows.Forms.CheckBox()
-        Me.DisplayNotificationChkBox = New System.Windows.Forms.CheckBox()
-        CType(Me.LogoBigPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SidemenuSettings = New System.Windows.Forms.CheckBox()
+        Me.SidemenuTasks = New System.Windows.Forms.CheckBox()
+        Me.LogoBigPictureBox = New System.Windows.Forms.PictureBox()
         Me.LogTxtBoxContextMenu.SuspendLayout()
         Me.TopMenuContainer.SuspendLayout()
         CType(Me.AlertDot, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.UplayPictureBtn, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.HomePictureBtn, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.UplayBtn, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AboutContainer.SuspendLayout()
         Me.LogsContainer.SuspendLayout()
         Me.SettingsContainer.SuspendLayout()
         Me.FoldersContainer.SuspendLayout()
         Me.TasksContainer.SuspendLayout()
+        CType(Me.BackupFreqUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LogoBigPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SavegamesLocTextBox
         '
-        Me.SavegamesLocTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.SavegamesLocTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(26, Byte), Integer), CType(CType(31, Byte), Integer))
         Me.SavegamesLocTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.SavegamesLocTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SavegamesLocTextBox.ForeColor = System.Drawing.Color.White
@@ -113,47 +112,9 @@ Partial Class Form1
         Me.SavegamesLocTextBox.Size = New System.Drawing.Size(321, 23)
         Me.SavegamesLocTextBox.TabIndex = 1
         '
-        'BrowseSavegamesLocBtn
-        '
-        Me.BrowseSavegamesLocBtn.BackColor = System.Drawing.Color.Transparent
-        Me.BrowseSavegamesLocBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
-        Me.BrowseSavegamesLocBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.BrowseSavegamesLocBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BrowseSavegamesLocBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BrowseSavegamesLocBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BrowseSavegamesLocBtn.ForeColor = System.Drawing.Color.White
-        Me.BrowseSavegamesLocBtn.Image = CType(resources.GetObject("BrowseSavegamesLocBtn.Image"), System.Drawing.Image)
-        Me.BrowseSavegamesLocBtn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.BrowseSavegamesLocBtn.Location = New System.Drawing.Point(339, 32)
-        Me.BrowseSavegamesLocBtn.Name = "BrowseSavegamesLocBtn"
-        Me.BrowseSavegamesLocBtn.Size = New System.Drawing.Size(90, 30)
-        Me.BrowseSavegamesLocBtn.TabIndex = 2
-        Me.BrowseSavegamesLocBtn.Text = "Browse..."
-        Me.BrowseSavegamesLocBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BrowseSavegamesLocBtn.UseVisualStyleBackColor = False
-        '
-        'BrowseBackupLocBtn
-        '
-        Me.BrowseBackupLocBtn.BackColor = System.Drawing.Color.Transparent
-        Me.BrowseBackupLocBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
-        Me.BrowseBackupLocBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.BrowseBackupLocBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BrowseBackupLocBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BrowseBackupLocBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BrowseBackupLocBtn.ForeColor = System.Drawing.Color.White
-        Me.BrowseBackupLocBtn.Image = CType(resources.GetObject("BrowseBackupLocBtn.Image"), System.Drawing.Image)
-        Me.BrowseBackupLocBtn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.BrowseBackupLocBtn.Location = New System.Drawing.Point(339, 90)
-        Me.BrowseBackupLocBtn.Name = "BrowseBackupLocBtn"
-        Me.BrowseBackupLocBtn.Size = New System.Drawing.Size(90, 30)
-        Me.BrowseBackupLocBtn.TabIndex = 6
-        Me.BrowseBackupLocBtn.Text = "Browse..."
-        Me.BrowseBackupLocBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BrowseBackupLocBtn.UseVisualStyleBackColor = False
-        '
         'BackupLocTextBox
         '
-        Me.BackupLocTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.BackupLocTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(26, Byte), Integer), CType(CType(31, Byte), Integer))
         Me.BackupLocTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.BackupLocTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BackupLocTextBox.ForeColor = System.Drawing.Color.White
@@ -217,85 +178,16 @@ Partial Class Form1
         Me.SavegamesLocHelpLabel.TabIndex = 0
         Me.SavegamesLocHelpLabel.Text = "Wildlands save games folder"
         '
-        'StopBtn
-        '
-        Me.StopBtn.BackColor = System.Drawing.Color.Transparent
-        Me.StopBtn.Enabled = False
-        Me.StopBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
-        Me.StopBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.StopBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.StopBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.StopBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.StopBtn.ForeColor = System.Drawing.Color.White
-        Me.StopBtn.Image = CType(resources.GetObject("StopBtn.Image"), System.Drawing.Image)
-        Me.StopBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.StopBtn.Location = New System.Drawing.Point(12, 62)
-        Me.StopBtn.Name = "StopBtn"
-        Me.StopBtn.Size = New System.Drawing.Size(90, 36)
-        Me.StopBtn.TabIndex = 5
-        Me.StopBtn.Text = "Stop" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Backup"
-        Me.StopBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.StopBtn.UseVisualStyleBackColor = False
-        '
-        'RestoreBtn
-        '
-        Me.RestoreBtn.BackColor = System.Drawing.Color.Transparent
-        Me.RestoreBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
-        Me.RestoreBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.RestoreBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.RestoreBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.RestoreBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RestoreBtn.ForeColor = System.Drawing.Color.White
-        Me.RestoreBtn.Image = CType(resources.GetObject("RestoreBtn.Image"), System.Drawing.Image)
-        Me.RestoreBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.RestoreBtn.Location = New System.Drawing.Point(114, 62)
-        Me.RestoreBtn.Name = "RestoreBtn"
-        Me.RestoreBtn.Size = New System.Drawing.Size(90, 36)
-        Me.RestoreBtn.TabIndex = 6
-        Me.RestoreBtn.Text = "Restore" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Backup"
-        Me.RestoreBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.RestoreBtn.UseVisualStyleBackColor = False
-        '
         'BackupFreqHelp1Label
         '
         Me.BackupFreqHelp1Label.AutoSize = True
         Me.BackupFreqHelp1Label.BackColor = System.Drawing.Color.Transparent
         Me.BackupFreqHelp1Label.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BackupFreqHelp1Label.Location = New System.Drawing.Point(112, 23)
+        Me.BackupFreqHelp1Label.Location = New System.Drawing.Point(306, 56)
         Me.BackupFreqHelp1Label.Name = "BackupFreqHelp1Label"
-        Me.BackupFreqHelp1Label.Size = New System.Drawing.Size(84, 17)
-        Me.BackupFreqHelp1Label.TabIndex = 1
-        Me.BackupFreqHelp1Label.Text = "Backup every"
-        '
-        'BackupBtn
-        '
-        Me.BackupBtn.BackColor = System.Drawing.Color.Transparent
-        Me.BackupBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
-        Me.BackupBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.BackupBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BackupBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BackupBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BackupBtn.ForeColor = System.Drawing.Color.White
-        Me.BackupBtn.Image = CType(resources.GetObject("BackupBtn.Image"), System.Drawing.Image)
-        Me.BackupBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BackupBtn.Location = New System.Drawing.Point(12, 14)
-        Me.BackupBtn.Name = "BackupBtn"
-        Me.BackupBtn.Size = New System.Drawing.Size(90, 36)
-        Me.BackupBtn.TabIndex = 0
-        Me.BackupBtn.Text = "Start" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Backup"
-        Me.BackupBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BackupBtn.UseVisualStyleBackColor = False
-        '
-        'LogoBigPictureBox
-        '
-        Me.LogoBigPictureBox.BackColor = System.Drawing.Color.Transparent
-        Me.LogoBigPictureBox.Image = CType(resources.GetObject("LogoBigPictureBox.Image"), System.Drawing.Image)
-        Me.LogoBigPictureBox.Location = New System.Drawing.Point(12, 85)
-        Me.LogoBigPictureBox.Name = "LogoBigPictureBox"
-        Me.LogoBigPictureBox.Size = New System.Drawing.Size(293, 50)
-        Me.LogoBigPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.LogoBigPictureBox.TabIndex = 10
-        Me.LogoBigPictureBox.TabStop = False
+        Me.BackupFreqHelp1Label.Size = New System.Drawing.Size(110, 17)
+        Me.BackupFreqHelp1Label.TabIndex = 6
+        Me.BackupFreqHelp1Label.Text = "Backup frequency"
         '
         'PlayGameBtn
         '
@@ -312,13 +204,13 @@ Partial Class Form1
         Me.PlayGameBtn.Location = New System.Drawing.Point(12, 150)
         Me.PlayGameBtn.Name = "PlayGameBtn"
         Me.PlayGameBtn.Size = New System.Drawing.Size(293, 32)
-        Me.PlayGameBtn.TabIndex = 2
+        Me.PlayGameBtn.TabIndex = 1
         Me.PlayGameBtn.Text = "Play Ghost Recon Wildlands"
         Me.PlayGameBtn.UseVisualStyleBackColor = False
         '
         'LogTxtBox
         '
-        Me.LogTxtBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.LogTxtBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.LogTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.LogTxtBox.ContextMenuStrip = Me.LogTxtBoxContextMenu
         Me.LogTxtBox.Dock = System.Windows.Forms.DockStyle.Fill
@@ -367,64 +259,62 @@ Partial Class Form1
         Me.ExportLogToolStripMenuItem.Text = "Export log..."
         Me.ExportLogToolStripMenuItem.ToolTipText = "Export all events to a file."
         '
-        'ConfirmExitChkBox
+        'SettingsConfirmExitChkBox
         '
-        Me.ConfirmExitChkBox.AutoSize = True
-        Me.ConfirmExitChkBox.BackColor = System.Drawing.Color.Transparent
-        Me.ConfirmExitChkBox.Checked = True
-        Me.ConfirmExitChkBox.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.ConfirmExitChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ConfirmExitChkBox.ForeColor = System.Drawing.Color.White
-        Me.ConfirmExitChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ConfirmExitChkBox.Location = New System.Drawing.Point(14, 225)
-        Me.ConfirmExitChkBox.Name = "ConfirmExitChkBox"
-        Me.ConfirmExitChkBox.Size = New System.Drawing.Size(238, 21)
-        Me.ConfirmExitChkBox.TabIndex = 3
-        Me.ConfirmExitChkBox.Text = "Confirm exit when backup is running"
-        Me.HelpToolTip.SetToolTip(Me.ConfirmExitChkBox, "If checked, GHOST Buster will show a confirmation dialog before exiting when the " &
+        Me.SettingsConfirmExitChkBox.AutoSize = True
+        Me.SettingsConfirmExitChkBox.BackColor = System.Drawing.Color.Transparent
+        Me.SettingsConfirmExitChkBox.Checked = True
+        Me.SettingsConfirmExitChkBox.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.SettingsConfirmExitChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingsConfirmExitChkBox.ForeColor = System.Drawing.Color.White
+        Me.SettingsConfirmExitChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.SettingsConfirmExitChkBox.Location = New System.Drawing.Point(12, 100)
+        Me.SettingsConfirmExitChkBox.Name = "SettingsConfirmExitChkBox"
+        Me.SettingsConfirmExitChkBox.Size = New System.Drawing.Size(238, 21)
+        Me.SettingsConfirmExitChkBox.TabIndex = 3
+        Me.SettingsConfirmExitChkBox.Text = "Confirm exit when backup is running"
+        Me.HelpToolTip.SetToolTip(Me.SettingsConfirmExitChkBox, "If checked, GHOST Buster will show a confirmation dialog before exiting when the " &
         "backup process is running.")
-        Me.ConfirmExitChkBox.UseVisualStyleBackColor = False
+        Me.SettingsConfirmExitChkBox.UseVisualStyleBackColor = False
         '
-        'ConfirmStopBackupChkBox
+        'SettingsConfirmStopBackupChkBox
         '
-        Me.ConfirmStopBackupChkBox.AutoSize = True
-        Me.ConfirmStopBackupChkBox.BackColor = System.Drawing.Color.Transparent
-        Me.ConfirmStopBackupChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ConfirmStopBackupChkBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ConfirmStopBackupChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ConfirmStopBackupChkBox.Location = New System.Drawing.Point(14, 250)
-        Me.ConfirmStopBackupChkBox.Name = "ConfirmStopBackupChkBox"
-        Me.ConfirmStopBackupChkBox.Size = New System.Drawing.Size(191, 21)
-        Me.ConfirmStopBackupChkBox.TabIndex = 4
-        Me.ConfirmStopBackupChkBox.Text = "Confirm backup interruption"
-        Me.HelpToolTip.SetToolTip(Me.ConfirmStopBackupChkBox, "If checked, GHOST Buster will show a confirmation dialog before interrupting the " &
+        Me.SettingsConfirmStopBackupChkBox.AutoSize = True
+        Me.SettingsConfirmStopBackupChkBox.BackColor = System.Drawing.Color.Transparent
+        Me.SettingsConfirmStopBackupChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingsConfirmStopBackupChkBox.ForeColor = System.Drawing.Color.White
+        Me.SettingsConfirmStopBackupChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.SettingsConfirmStopBackupChkBox.Location = New System.Drawing.Point(12, 128)
+        Me.SettingsConfirmStopBackupChkBox.Name = "SettingsConfirmStopBackupChkBox"
+        Me.SettingsConfirmStopBackupChkBox.Size = New System.Drawing.Size(191, 21)
+        Me.SettingsConfirmStopBackupChkBox.TabIndex = 4
+        Me.SettingsConfirmStopBackupChkBox.Text = "Confirm backup interruption"
+        Me.HelpToolTip.SetToolTip(Me.SettingsConfirmStopBackupChkBox, "If checked, GHOST Buster will show a confirmation dialog before interrupting the " &
         "backup process.")
-        Me.ConfirmStopBackupChkBox.UseVisualStyleBackColor = False
+        Me.SettingsConfirmStopBackupChkBox.UseVisualStyleBackColor = False
         '
-        'CheckUpdatesChkBox
+        'SettingsCheckUpdatesChkBox
         '
-        Me.CheckUpdatesChkBox.AutoSize = True
-        Me.CheckUpdatesChkBox.BackColor = System.Drawing.Color.Transparent
-        Me.CheckUpdatesChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckUpdatesChkBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CheckUpdatesChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.CheckUpdatesChkBox.Location = New System.Drawing.Point(14, 350)
-        Me.CheckUpdatesChkBox.Name = "CheckUpdatesChkBox"
-        Me.CheckUpdatesChkBox.Size = New System.Drawing.Size(133, 21)
-        Me.CheckUpdatesChkBox.TabIndex = 8
-        Me.CheckUpdatesChkBox.Text = "Check for updates"
-        Me.HelpToolTip.SetToolTip(Me.CheckUpdatesChkBox, "If checked, GHOST Buster will check if the current version is up to date when ope" &
+        Me.SettingsCheckUpdatesChkBox.AutoSize = True
+        Me.SettingsCheckUpdatesChkBox.BackColor = System.Drawing.Color.Transparent
+        Me.SettingsCheckUpdatesChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingsCheckUpdatesChkBox.ForeColor = System.Drawing.Color.White
+        Me.SettingsCheckUpdatesChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.SettingsCheckUpdatesChkBox.Location = New System.Drawing.Point(12, 240)
+        Me.SettingsCheckUpdatesChkBox.Name = "SettingsCheckUpdatesChkBox"
+        Me.SettingsCheckUpdatesChkBox.Size = New System.Drawing.Size(197, 21)
+        Me.SettingsCheckUpdatesChkBox.TabIndex = 8
+        Me.SettingsCheckUpdatesChkBox.Text = "Check for updates on startup"
+        Me.HelpToolTip.SetToolTip(Me.SettingsCheckUpdatesChkBox, "If checked, GHOST Buster will check if the current version is up to date when ope" &
         "ning.")
-        Me.CheckUpdatesChkBox.UseVisualStyleBackColor = False
+        Me.SettingsCheckUpdatesChkBox.UseVisualStyleBackColor = False
         '
         'TopMenuContainer
         '
-        Me.TopMenuContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.TopMenuContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(22, Byte), Integer), CType(CType(26, Byte), Integer), CType(CType(31, Byte), Integer))
         Me.TopMenuContainer.Controls.Add(Me.AlertDot)
-        Me.TopMenuContainer.Controls.Add(Me.UplayPictureBtn)
         Me.TopMenuContainer.Controls.Add(Me.AboutLabel)
-        Me.TopMenuContainer.Controls.Add(Me.HomePictureBtn)
-        Me.TopMenuContainer.Controls.Add(Me.SettingsLabel)
+        Me.TopMenuContainer.Controls.Add(Me.UplayBtn)
         Me.TopMenuContainer.Controls.Add(Me.LogLabel)
         Me.TopMenuContainer.Dock = System.Windows.Forms.DockStyle.Top
         Me.TopMenuContainer.Location = New System.Drawing.Point(0, 0)
@@ -436,7 +326,7 @@ Partial Class Form1
         '
         Me.AlertDot.BackColor = System.Drawing.Color.Transparent
         Me.AlertDot.Image = Global.GHOSTbackup.My.Resources.Resources.Dot
-        Me.AlertDot.Location = New System.Drawing.Point(190, 22)
+        Me.AlertDot.Location = New System.Drawing.Point(92, 22)
         Me.AlertDot.Name = "AlertDot"
         Me.AlertDot.Size = New System.Drawing.Size(10, 10)
         Me.AlertDot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -444,51 +334,27 @@ Partial Class Form1
         Me.AlertDot.TabStop = False
         Me.AlertDot.Visible = False
         '
-        'UplayPictureBtn
-        '
-        Me.UplayPictureBtn.BackColor = System.Drawing.Color.Transparent
-        Me.UplayPictureBtn.Image = Global.GHOSTbackup.My.Resources.Resources.Uplay_Icon
-        Me.UplayPictureBtn.Location = New System.Drawing.Point(802, 20)
-        Me.UplayPictureBtn.Name = "UplayPictureBtn"
-        Me.UplayPictureBtn.Size = New System.Drawing.Size(21, 21)
-        Me.UplayPictureBtn.TabIndex = 6
-        Me.UplayPictureBtn.TabStop = False
-        Me.HelpToolTip.SetToolTip(Me.UplayPictureBtn, "Launch Uplay.")
-        '
         'AboutLabel
         '
         Me.AboutLabel.AutoSize = True
         Me.AboutLabel.BackColor = System.Drawing.Color.Transparent
         Me.AboutLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AboutLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.AboutLabel.Location = New System.Drawing.Point(225, 20)
+        Me.AboutLabel.Location = New System.Drawing.Point(122, 20)
         Me.AboutLabel.Name = "AboutLabel"
         Me.AboutLabel.Size = New System.Drawing.Size(57, 21)
-        Me.AboutLabel.TabIndex = 2
+        Me.AboutLabel.TabIndex = 1
         Me.AboutLabel.Text = "About"
         '
-        'HomePictureBtn
+        'UplayBtn
         '
-        Me.HomePictureBtn.BackColor = System.Drawing.Color.Transparent
-        Me.HomePictureBtn.Image = Global.GHOSTbackup.My.Resources.Resources.Home_Icon_White
-        Me.HomePictureBtn.Location = New System.Drawing.Point(12, 20)
-        Me.HomePictureBtn.Name = "HomePictureBtn"
-        Me.HomePictureBtn.Size = New System.Drawing.Size(21, 21)
-        Me.HomePictureBtn.TabIndex = 1
-        Me.HomePictureBtn.TabStop = False
-        Me.HelpToolTip.SetToolTip(Me.HomePictureBtn, "Main Screen")
-        '
-        'SettingsLabel
-        '
-        Me.SettingsLabel.AutoSize = True
-        Me.SettingsLabel.BackColor = System.Drawing.Color.Transparent
-        Me.SettingsLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SettingsLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SettingsLabel.Location = New System.Drawing.Point(58, 20)
-        Me.SettingsLabel.Name = "SettingsLabel"
-        Me.SettingsLabel.Size = New System.Drawing.Size(72, 21)
-        Me.SettingsLabel.TabIndex = 0
-        Me.SettingsLabel.Text = "Settings"
+        Me.UplayBtn.BackColor = System.Drawing.Color.Transparent
+        Me.UplayBtn.Image = Global.GHOSTbackup.My.Resources.Resources.Uplay
+        Me.UplayBtn.Location = New System.Drawing.Point(14, 22)
+        Me.UplayBtn.Name = "UplayBtn"
+        Me.UplayBtn.Size = New System.Drawing.Size(18, 18)
+        Me.UplayBtn.TabIndex = 1
+        Me.UplayBtn.TabStop = False
         '
         'LogLabel
         '
@@ -496,10 +362,10 @@ Partial Class Form1
         Me.LogLabel.BackColor = System.Drawing.Color.Transparent
         Me.LogLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LogLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.LogLabel.Location = New System.Drawing.Point(155, 20)
+        Me.LogLabel.Location = New System.Drawing.Point(57, 20)
         Me.LogLabel.Name = "LogLabel"
         Me.LogLabel.Size = New System.Drawing.Size(45, 21)
-        Me.LogLabel.TabIndex = 1
+        Me.LogLabel.TabIndex = 0
         Me.LogLabel.Text = "Logs"
         '
         'AboutContainer
@@ -515,8 +381,7 @@ Partial Class Form1
         Me.AboutContainer.Location = New System.Drawing.Point(325, 149)
         Me.AboutContainer.Name = "AboutContainer"
         Me.AboutContainer.Size = New System.Drawing.Size(497, 299)
-        Me.AboutContainer.TabIndex = 17
-        Me.AboutContainer.Visible = False
+        Me.AboutContainer.TabIndex = 10
         '
         'LicenseLink
         '
@@ -631,84 +496,70 @@ Partial Class Form1
         Me.LogsContainer.Location = New System.Drawing.Point(325, 149)
         Me.LogsContainer.Name = "LogsContainer"
         Me.LogsContainer.Size = New System.Drawing.Size(497, 299)
-        Me.LogsContainer.TabIndex = 16
-        Me.LogsContainer.Visible = False
+        Me.LogsContainer.TabIndex = 9
         '
-        'RememberFormPositionChkBox
+        'SettingsRememberFormPositionChkBox
         '
-        Me.RememberFormPositionChkBox.AutoSize = True
-        Me.RememberFormPositionChkBox.BackColor = System.Drawing.Color.Transparent
-        Me.RememberFormPositionChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RememberFormPositionChkBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.RememberFormPositionChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.RememberFormPositionChkBox.Location = New System.Drawing.Point(14, 375)
-        Me.RememberFormPositionChkBox.Name = "RememberFormPositionChkBox"
-        Me.RememberFormPositionChkBox.Size = New System.Drawing.Size(190, 21)
-        Me.RememberFormPositionChkBox.TabIndex = 9
-        Me.RememberFormPositionChkBox.Text = "Remember window position"
-        Me.HelpToolTip.SetToolTip(Me.RememberFormPositionChkBox, "If checked, GHOST Buster will restore its position on the screen when reopened.")
-        Me.RememberFormPositionChkBox.UseVisualStyleBackColor = False
-        '
-        'TitleLabel
-        '
-        Me.TitleLabel.AutoSize = True
-        Me.TitleLabel.BackColor = System.Drawing.Color.Transparent
-        Me.TitleLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TitleLabel.ForeColor = System.Drawing.Color.White
-        Me.TitleLabel.Location = New System.Drawing.Point(322, 115)
-        Me.TitleLabel.Name = "TitleLabel"
-        Me.TitleLabel.Size = New System.Drawing.Size(94, 21)
-        Me.TitleLabel.TabIndex = 14
-        Me.TitleLabel.Text = "{titleLabel}"
-        Me.TitleLabel.Visible = False
+        Me.SettingsRememberFormPositionChkBox.AutoSize = True
+        Me.SettingsRememberFormPositionChkBox.BackColor = System.Drawing.Color.Transparent
+        Me.SettingsRememberFormPositionChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingsRememberFormPositionChkBox.ForeColor = System.Drawing.Color.White
+        Me.SettingsRememberFormPositionChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.SettingsRememberFormPositionChkBox.Location = New System.Drawing.Point(12, 268)
+        Me.SettingsRememberFormPositionChkBox.Name = "SettingsRememberFormPositionChkBox"
+        Me.SettingsRememberFormPositionChkBox.Size = New System.Drawing.Size(190, 21)
+        Me.SettingsRememberFormPositionChkBox.TabIndex = 9
+        Me.SettingsRememberFormPositionChkBox.Text = "Remember window position"
+        Me.HelpToolTip.SetToolTip(Me.SettingsRememberFormPositionChkBox, "If checked, GHOST Buster will restore its position on the screen when reopened.")
+        Me.SettingsRememberFormPositionChkBox.UseVisualStyleBackColor = False
         '
         'SettingsContainer
         '
-        Me.SettingsContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.SettingsContainer.AutoScroll = True
+        Me.SettingsContainer.AutoScrollMargin = New System.Drawing.Size(0, 12)
+        Me.SettingsContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(21, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.SettingsContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.SettingsContainer.Controls.Add(Me.SettingsLangRestartLabel)
-        Me.SettingsContainer.Controls.Add(Me.SettingsInterfaceLangDropdown)
+        Me.SettingsContainer.Controls.Add(Me.SettingsDisplayNotificationChkBox)
         Me.SettingsContainer.Controls.Add(Me.SettingsInterfaceLang)
+        Me.SettingsContainer.Controls.Add(Me.SettingsConfirmExitChkBox)
         Me.SettingsContainer.Controls.Add(Me.SettingsNonUplayVersionRestartLabel)
-        Me.SettingsContainer.Controls.Add(Me.SettingsOpenCustomExeFolderBtn)
-        Me.SettingsContainer.Controls.Add(Me.SettingsBrowseCustomExeBtn)
-        Me.SettingsContainer.Controls.Add(Me.SettingsCustomExeTextBox)
-        Me.SettingsContainer.Controls.Add(Me.SettingsNonUplayVersionChkBox)
-        Me.SettingsContainer.Controls.Add(Me.SettingsOpenLogBtn)
-        Me.SettingsContainer.Controls.Add(Me.SettingsBrowseLogFileBtn)
-        Me.SettingsContainer.Controls.Add(Me.SettingsLogFilePathTextBox)
+        Me.SettingsContainer.Controls.Add(Me.SettingsDisableCloudSyncChkBox)
+        Me.SettingsContainer.Controls.Add(Me.SettingsLangRestartLabel)
         Me.SettingsContainer.Controls.Add(Me.SettingsWriteLogToFileChkBox)
+        Me.SettingsContainer.Controls.Add(Me.SettingsEnableCloudSyncChkBox)
+        Me.SettingsContainer.Controls.Add(Me.SettingsInterfaceLangDropdown)
+        Me.SettingsContainer.Controls.Add(Me.SettingsLogFilePathTextBox)
+        Me.SettingsContainer.Controls.Add(Me.SettingsRememberFormPositionChkBox)
+        Me.SettingsContainer.Controls.Add(Me.SettingsBrowseLogFileBtn)
+        Me.SettingsContainer.Controls.Add(Me.SettingsCheckUpdatesChkBox)
+        Me.SettingsContainer.Controls.Add(Me.SettingsOpenLogBtn)
+        Me.SettingsContainer.Controls.Add(Me.SettingsConfirmStopBackupChkBox)
+        Me.SettingsContainer.Controls.Add(Me.SettingsNonUplayVersionChkBox)
+        Me.SettingsContainer.Controls.Add(Me.SettingsOpenCustomExeFolderBtn)
+        Me.SettingsContainer.Controls.Add(Me.SettingsCustomExeTextBox)
+        Me.SettingsContainer.Controls.Add(Me.SettingsBrowseCustomExeBtn)
         Me.SettingsContainer.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingsContainer.ForeColor = System.Drawing.Color.White
         Me.SettingsContainer.Location = New System.Drawing.Point(325, 149)
         Me.SettingsContainer.Name = "SettingsContainer"
         Me.SettingsContainer.Size = New System.Drawing.Size(497, 299)
-        Me.SettingsContainer.TabIndex = 15
-        Me.SettingsContainer.Visible = False
+        Me.SettingsContainer.TabIndex = 8
         '
-        'SettingsLangRestartLabel
+        'SettingsDisplayNotificationChkBox
         '
-        Me.SettingsLangRestartLabel.AutoSize = True
-        Me.SettingsLangRestartLabel.BackColor = System.Drawing.Color.Transparent
-        Me.SettingsLangRestartLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SettingsLangRestartLabel.ForeColor = System.Drawing.Color.Silver
-        Me.SettingsLangRestartLabel.Location = New System.Drawing.Point(14, 74)
-        Me.SettingsLangRestartLabel.Name = "SettingsLangRestartLabel"
-        Me.SettingsLangRestartLabel.Size = New System.Drawing.Size(385, 13)
-        Me.SettingsLangRestartLabel.TabIndex = 11
-        Me.SettingsLangRestartLabel.Text = "You'll need to restart GHOST Buster in order for the change to take effect."
-        '
-        'SettingsInterfaceLangDropdown
-        '
-        Me.SettingsInterfaceLangDropdown.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.SettingsInterfaceLangDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.SettingsInterfaceLangDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.SettingsInterfaceLangDropdown.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SettingsInterfaceLangDropdown.ForeColor = System.Drawing.Color.White
-        Me.SettingsInterfaceLangDropdown.Items.AddRange(New Object() {"English", "Italiano"})
-        Me.SettingsInterfaceLangDropdown.Location = New System.Drawing.Point(16, 41)
-        Me.SettingsInterfaceLangDropdown.Name = "SettingsInterfaceLangDropdown"
-        Me.SettingsInterfaceLangDropdown.Size = New System.Drawing.Size(464, 25)
-        Me.SettingsInterfaceLangDropdown.TabIndex = 1
+        Me.SettingsDisplayNotificationChkBox.AutoSize = True
+        Me.SettingsDisplayNotificationChkBox.BackColor = System.Drawing.Color.Transparent
+        Me.SettingsDisplayNotificationChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingsDisplayNotificationChkBox.ForeColor = System.Drawing.Color.White
+        Me.SettingsDisplayNotificationChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.SettingsDisplayNotificationChkBox.Location = New System.Drawing.Point(12, 156)
+        Me.SettingsDisplayNotificationChkBox.Name = "SettingsDisplayNotificationChkBox"
+        Me.SettingsDisplayNotificationChkBox.Size = New System.Drawing.Size(233, 21)
+        Me.SettingsDisplayNotificationChkBox.TabIndex = 5
+        Me.SettingsDisplayNotificationChkBox.Text = "Display notifications about backups"
+        Me.HelpToolTip.SetToolTip(Me.SettingsDisplayNotificationChkBox, "If checked, GHOST Buster will display a notification at the edge of the screen ab" &
+        "out backups.")
+        Me.SettingsDisplayNotificationChkBox.UseVisualStyleBackColor = False
         '
         'SettingsInterfaceLang
         '
@@ -716,7 +567,7 @@ Partial Class Form1
         Me.SettingsInterfaceLang.BackColor = System.Drawing.Color.Transparent
         Me.SettingsInterfaceLang.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsInterfaceLang.ForeColor = System.Drawing.Color.White
-        Me.SettingsInterfaceLang.Location = New System.Drawing.Point(14, 14)
+        Me.SettingsInterfaceLang.Location = New System.Drawing.Point(12, 12)
         Me.SettingsInterfaceLang.Name = "SettingsInterfaceLang"
         Me.SettingsInterfaceLang.Size = New System.Drawing.Size(119, 17)
         Me.SettingsInterfaceLang.TabIndex = 0
@@ -728,122 +579,39 @@ Partial Class Form1
         Me.SettingsNonUplayVersionRestartLabel.BackColor = System.Drawing.Color.Transparent
         Me.SettingsNonUplayVersionRestartLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsNonUplayVersionRestartLabel.ForeColor = System.Drawing.Color.Silver
-        Me.SettingsNonUplayVersionRestartLabel.Location = New System.Drawing.Point(30, 237)
+        Me.SettingsNonUplayVersionRestartLabel.Location = New System.Drawing.Point(24, 356)
         Me.SettingsNonUplayVersionRestartLabel.Name = "SettingsNonUplayVersionRestartLabel"
         Me.SettingsNonUplayVersionRestartLabel.Size = New System.Drawing.Size(385, 13)
-        Me.SettingsNonUplayVersionRestartLabel.TabIndex = 10
+        Me.SettingsNonUplayVersionRestartLabel.TabIndex = 14
         Me.SettingsNonUplayVersionRestartLabel.Text = "You'll need to restart GHOST Buster in order for the change to take effect."
         '
-        'SettingsOpenCustomExeFolderBtn
+        'SettingsDisableCloudSyncChkBox
         '
-        Me.SettingsOpenCustomExeFolderBtn.Enabled = False
-        Me.SettingsOpenCustomExeFolderBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
-        Me.SettingsOpenCustomExeFolderBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.SettingsOpenCustomExeFolderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.SettingsOpenCustomExeFolderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.SettingsOpenCustomExeFolderBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SettingsOpenCustomExeFolderBtn.ForeColor = System.Drawing.Color.White
-        Me.SettingsOpenCustomExeFolderBtn.Location = New System.Drawing.Point(398, 201)
-        Me.SettingsOpenCustomExeFolderBtn.Name = "SettingsOpenCustomExeFolderBtn"
-        Me.SettingsOpenCustomExeFolderBtn.Size = New System.Drawing.Size(82, 30)
-        Me.SettingsOpenCustomExeFolderBtn.TabIndex = 9
-        Me.SettingsOpenCustomExeFolderBtn.Text = "Open Folder"
-        Me.SettingsOpenCustomExeFolderBtn.UseVisualStyleBackColor = True
+        Me.SettingsDisableCloudSyncChkBox.AutoSize = True
+        Me.SettingsDisableCloudSyncChkBox.BackColor = System.Drawing.Color.Transparent
+        Me.SettingsDisableCloudSyncChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingsDisableCloudSyncChkBox.ForeColor = System.Drawing.Color.White
+        Me.SettingsDisableCloudSyncChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.SettingsDisableCloudSyncChkBox.Location = New System.Drawing.Point(12, 184)
+        Me.SettingsDisableCloudSyncChkBox.Name = "SettingsDisableCloudSyncChkBox"
+        Me.SettingsDisableCloudSyncChkBox.Size = New System.Drawing.Size(332, 21)
+        Me.SettingsDisableCloudSyncChkBox.TabIndex = 6
+        Me.SettingsDisableCloudSyncChkBox.Text = "Disable Uplay cloud save synchronization on restore"
+        Me.HelpToolTip.SetToolTip(Me.SettingsDisableCloudSyncChkBox, "If checked, GHOST Buster will disable Uplay cloud save synchronization before res" &
+        "toring a backup.")
+        Me.SettingsDisableCloudSyncChkBox.UseVisualStyleBackColor = False
         '
-        'SettingsBrowseCustomExeBtn
+        'SettingsLangRestartLabel
         '
-        Me.SettingsBrowseCustomExeBtn.Enabled = False
-        Me.SettingsBrowseCustomExeBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
-        Me.SettingsBrowseCustomExeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.SettingsBrowseCustomExeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.SettingsBrowseCustomExeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.SettingsBrowseCustomExeBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SettingsBrowseCustomExeBtn.ForeColor = System.Drawing.Color.White
-        Me.SettingsBrowseCustomExeBtn.Image = CType(resources.GetObject("SettingsBrowseCustomExeBtn.Image"), System.Drawing.Image)
-        Me.SettingsBrowseCustomExeBtn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.SettingsBrowseCustomExeBtn.Location = New System.Drawing.Point(302, 201)
-        Me.SettingsBrowseCustomExeBtn.Name = "SettingsBrowseCustomExeBtn"
-        Me.SettingsBrowseCustomExeBtn.Size = New System.Drawing.Size(90, 30)
-        Me.SettingsBrowseCustomExeBtn.TabIndex = 8
-        Me.SettingsBrowseCustomExeBtn.Text = "Browse..."
-        Me.SettingsBrowseCustomExeBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.SettingsBrowseCustomExeBtn.UseVisualStyleBackColor = True
-        '
-        'SettingsCustomExeTextBox
-        '
-        Me.SettingsCustomExeTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.SettingsCustomExeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.SettingsCustomExeTextBox.Enabled = False
-        Me.SettingsCustomExeTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.SettingsCustomExeTextBox.ForeColor = System.Drawing.Color.White
-        Me.SettingsCustomExeTextBox.Location = New System.Drawing.Point(32, 204)
-        Me.SettingsCustomExeTextBox.MaxLength = 256
-        Me.SettingsCustomExeTextBox.Name = "SettingsCustomExeTextBox"
-        Me.SettingsCustomExeTextBox.ReadOnly = True
-        Me.SettingsCustomExeTextBox.Size = New System.Drawing.Size(264, 23)
-        Me.SettingsCustomExeTextBox.TabIndex = 7
-        '
-        'SettingsNonUplayVersionChkBox
-        '
-        Me.SettingsNonUplayVersionChkBox.AutoSize = True
-        Me.SettingsNonUplayVersionChkBox.BackColor = System.Drawing.Color.Transparent
-        Me.SettingsNonUplayVersionChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SettingsNonUplayVersionChkBox.ForeColor = System.Drawing.Color.White
-        Me.SettingsNonUplayVersionChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.SettingsNonUplayVersionChkBox.Location = New System.Drawing.Point(14, 177)
-        Me.SettingsNonUplayVersionChkBox.Name = "SettingsNonUplayVersionChkBox"
-        Me.SettingsNonUplayVersionChkBox.Size = New System.Drawing.Size(284, 21)
-        Me.SettingsNonUplayVersionChkBox.TabIndex = 6
-        Me.SettingsNonUplayVersionChkBox.Text = "I'm not using the Uplay version of Wildlands"
-        Me.SettingsNonUplayVersionChkBox.UseVisualStyleBackColor = False
-        '
-        'SettingsOpenLogBtn
-        '
-        Me.SettingsOpenLogBtn.Enabled = False
-        Me.SettingsOpenLogBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
-        Me.SettingsOpenLogBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.SettingsOpenLogBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.SettingsOpenLogBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.SettingsOpenLogBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SettingsOpenLogBtn.ForeColor = System.Drawing.Color.White
-        Me.SettingsOpenLogBtn.Location = New System.Drawing.Point(430, 129)
-        Me.SettingsOpenLogBtn.Name = "SettingsOpenLogBtn"
-        Me.SettingsOpenLogBtn.Size = New System.Drawing.Size(50, 30)
-        Me.SettingsOpenLogBtn.TabIndex = 5
-        Me.SettingsOpenLogBtn.Text = "Open"
-        Me.SettingsOpenLogBtn.UseVisualStyleBackColor = True
-        '
-        'SettingsBrowseLogFileBtn
-        '
-        Me.SettingsBrowseLogFileBtn.Enabled = False
-        Me.SettingsBrowseLogFileBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
-        Me.SettingsBrowseLogFileBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
-        Me.SettingsBrowseLogFileBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.SettingsBrowseLogFileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.SettingsBrowseLogFileBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SettingsBrowseLogFileBtn.ForeColor = System.Drawing.Color.White
-        Me.SettingsBrowseLogFileBtn.Image = CType(resources.GetObject("SettingsBrowseLogFileBtn.Image"), System.Drawing.Image)
-        Me.SettingsBrowseLogFileBtn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
-        Me.SettingsBrowseLogFileBtn.Location = New System.Drawing.Point(334, 129)
-        Me.SettingsBrowseLogFileBtn.Name = "SettingsBrowseLogFileBtn"
-        Me.SettingsBrowseLogFileBtn.Size = New System.Drawing.Size(90, 30)
-        Me.SettingsBrowseLogFileBtn.TabIndex = 4
-        Me.SettingsBrowseLogFileBtn.Text = "Browse..."
-        Me.SettingsBrowseLogFileBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.SettingsBrowseLogFileBtn.UseVisualStyleBackColor = True
-        '
-        'SettingsLogFilePathTextBox
-        '
-        Me.SettingsLogFilePathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.SettingsLogFilePathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.SettingsLogFilePathTextBox.Enabled = False
-        Me.SettingsLogFilePathTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.SettingsLogFilePathTextBox.ForeColor = System.Drawing.Color.White
-        Me.SettingsLogFilePathTextBox.Location = New System.Drawing.Point(32, 132)
-        Me.SettingsLogFilePathTextBox.Name = "SettingsLogFilePathTextBox"
-        Me.SettingsLogFilePathTextBox.ReadOnly = True
-        Me.SettingsLogFilePathTextBox.Size = New System.Drawing.Size(296, 23)
-        Me.SettingsLogFilePathTextBox.TabIndex = 3
+        Me.SettingsLangRestartLabel.AutoSize = True
+        Me.SettingsLangRestartLabel.BackColor = System.Drawing.Color.Transparent
+        Me.SettingsLangRestartLabel.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingsLangRestartLabel.ForeColor = System.Drawing.Color.Silver
+        Me.SettingsLangRestartLabel.Location = New System.Drawing.Point(12, 72)
+        Me.SettingsLangRestartLabel.Name = "SettingsLangRestartLabel"
+        Me.SettingsLangRestartLabel.Size = New System.Drawing.Size(385, 13)
+        Me.SettingsLangRestartLabel.TabIndex = 2
+        Me.SettingsLangRestartLabel.Text = "You'll need to restart GHOST Buster in order for the change to take effect."
         '
         'SettingsWriteLogToFileChkBox
         '
@@ -852,12 +620,157 @@ Partial Class Form1
         Me.SettingsWriteLogToFileChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsWriteLogToFileChkBox.ForeColor = System.Drawing.Color.White
         Me.SettingsWriteLogToFileChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.SettingsWriteLogToFileChkBox.Location = New System.Drawing.Point(14, 105)
+        Me.SettingsWriteLogToFileChkBox.Location = New System.Drawing.Point(12, 385)
         Me.SettingsWriteLogToFileChkBox.Name = "SettingsWriteLogToFileChkBox"
         Me.SettingsWriteLogToFileChkBox.Size = New System.Drawing.Size(170, 21)
-        Me.SettingsWriteLogToFileChkBox.TabIndex = 2
+        Me.SettingsWriteLogToFileChkBox.TabIndex = 15
         Me.SettingsWriteLogToFileChkBox.Text = "Write events to a log file"
         Me.SettingsWriteLogToFileChkBox.UseVisualStyleBackColor = False
+        '
+        'SettingsEnableCloudSyncChkBox
+        '
+        Me.SettingsEnableCloudSyncChkBox.AutoSize = True
+        Me.SettingsEnableCloudSyncChkBox.BackColor = System.Drawing.Color.Transparent
+        Me.SettingsEnableCloudSyncChkBox.Checked = True
+        Me.SettingsEnableCloudSyncChkBox.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.SettingsEnableCloudSyncChkBox.Enabled = False
+        Me.SettingsEnableCloudSyncChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingsEnableCloudSyncChkBox.ForeColor = System.Drawing.Color.White
+        Me.SettingsEnableCloudSyncChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.SettingsEnableCloudSyncChkBox.Location = New System.Drawing.Point(12, 212)
+        Me.SettingsEnableCloudSyncChkBox.Name = "SettingsEnableCloudSyncChkBox"
+        Me.SettingsEnableCloudSyncChkBox.Size = New System.Drawing.Size(306, 21)
+        Me.SettingsEnableCloudSyncChkBox.TabIndex = 7
+        Me.SettingsEnableCloudSyncChkBox.Text = "Enable Uplay cloud save synchronization on exit"
+        Me.HelpToolTip.SetToolTip(Me.SettingsEnableCloudSyncChkBox, "If checked, GHOST Buster will enable  Uplay cloud save synchronization again befo" &
+        "re  quitting.")
+        Me.SettingsEnableCloudSyncChkBox.UseVisualStyleBackColor = False
+        '
+        'SettingsInterfaceLangDropdown
+        '
+        Me.SettingsInterfaceLangDropdown.BackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.SettingsInterfaceLangDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.SettingsInterfaceLangDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SettingsInterfaceLangDropdown.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingsInterfaceLangDropdown.ForeColor = System.Drawing.Color.White
+        Me.SettingsInterfaceLangDropdown.Items.AddRange(New Object() {"English", "Italiano"})
+        Me.SettingsInterfaceLangDropdown.Location = New System.Drawing.Point(14, 39)
+        Me.SettingsInterfaceLangDropdown.Name = "SettingsInterfaceLangDropdown"
+        Me.SettingsInterfaceLangDropdown.Size = New System.Drawing.Size(450, 25)
+        Me.SettingsInterfaceLangDropdown.TabIndex = 1
+        '
+        'SettingsLogFilePathTextBox
+        '
+        Me.SettingsLogFilePathTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.SettingsLogFilePathTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.SettingsLogFilePathTextBox.Enabled = False
+        Me.SettingsLogFilePathTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SettingsLogFilePathTextBox.ForeColor = System.Drawing.Color.White
+        Me.SettingsLogFilePathTextBox.Location = New System.Drawing.Point(24, 412)
+        Me.SettingsLogFilePathTextBox.Name = "SettingsLogFilePathTextBox"
+        Me.SettingsLogFilePathTextBox.ReadOnly = True
+        Me.SettingsLogFilePathTextBox.Size = New System.Drawing.Size(294, 23)
+        Me.SettingsLogFilePathTextBox.TabIndex = 16
+        '
+        'SettingsBrowseLogFileBtn
+        '
+        Me.SettingsBrowseLogFileBtn.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.SettingsBrowseLogFileBtn.Enabled = False
+        Me.SettingsBrowseLogFileBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.SettingsBrowseLogFileBtn.FlatAppearance.BorderSize = 0
+        Me.SettingsBrowseLogFileBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.SettingsBrowseLogFileBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SettingsBrowseLogFileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SettingsBrowseLogFileBtn.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingsBrowseLogFileBtn.ForeColor = System.Drawing.Color.White
+        Me.SettingsBrowseLogFileBtn.Location = New System.Drawing.Point(326, 409)
+        Me.SettingsBrowseLogFileBtn.Name = "SettingsBrowseLogFileBtn"
+        Me.SettingsBrowseLogFileBtn.Size = New System.Drawing.Size(80, 30)
+        Me.SettingsBrowseLogFileBtn.TabIndex = 17
+        Me.SettingsBrowseLogFileBtn.Text = "Browse..."
+        Me.SettingsBrowseLogFileBtn.UseVisualStyleBackColor = False
+        '
+        'SettingsOpenLogBtn
+        '
+        Me.SettingsOpenLogBtn.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.SettingsOpenLogBtn.Enabled = False
+        Me.SettingsOpenLogBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.SettingsOpenLogBtn.FlatAppearance.BorderSize = 0
+        Me.SettingsOpenLogBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.SettingsOpenLogBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SettingsOpenLogBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SettingsOpenLogBtn.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingsOpenLogBtn.ForeColor = System.Drawing.Color.White
+        Me.SettingsOpenLogBtn.Location = New System.Drawing.Point(412, 409)
+        Me.SettingsOpenLogBtn.Name = "SettingsOpenLogBtn"
+        Me.SettingsOpenLogBtn.Size = New System.Drawing.Size(50, 30)
+        Me.SettingsOpenLogBtn.TabIndex = 18
+        Me.SettingsOpenLogBtn.Text = "Open"
+        Me.SettingsOpenLogBtn.UseVisualStyleBackColor = False
+        '
+        'SettingsNonUplayVersionChkBox
+        '
+        Me.SettingsNonUplayVersionChkBox.AutoSize = True
+        Me.SettingsNonUplayVersionChkBox.BackColor = System.Drawing.Color.Transparent
+        Me.SettingsNonUplayVersionChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingsNonUplayVersionChkBox.ForeColor = System.Drawing.Color.White
+        Me.SettingsNonUplayVersionChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.SettingsNonUplayVersionChkBox.Location = New System.Drawing.Point(12, 296)
+        Me.SettingsNonUplayVersionChkBox.Name = "SettingsNonUplayVersionChkBox"
+        Me.SettingsNonUplayVersionChkBox.Size = New System.Drawing.Size(284, 21)
+        Me.SettingsNonUplayVersionChkBox.TabIndex = 10
+        Me.SettingsNonUplayVersionChkBox.Text = "I'm not using the Uplay version of Wildlands"
+        Me.SettingsNonUplayVersionChkBox.UseVisualStyleBackColor = False
+        '
+        'SettingsOpenCustomExeFolderBtn
+        '
+        Me.SettingsOpenCustomExeFolderBtn.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.SettingsOpenCustomExeFolderBtn.Enabled = False
+        Me.SettingsOpenCustomExeFolderBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.SettingsOpenCustomExeFolderBtn.FlatAppearance.BorderSize = 0
+        Me.SettingsOpenCustomExeFolderBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.SettingsOpenCustomExeFolderBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SettingsOpenCustomExeFolderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SettingsOpenCustomExeFolderBtn.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingsOpenCustomExeFolderBtn.ForeColor = System.Drawing.Color.White
+        Me.SettingsOpenCustomExeFolderBtn.Location = New System.Drawing.Point(370, 320)
+        Me.SettingsOpenCustomExeFolderBtn.Name = "SettingsOpenCustomExeFolderBtn"
+        Me.SettingsOpenCustomExeFolderBtn.Size = New System.Drawing.Size(92, 30)
+        Me.SettingsOpenCustomExeFolderBtn.TabIndex = 13
+        Me.SettingsOpenCustomExeFolderBtn.Text = "Open Folder"
+        Me.SettingsOpenCustomExeFolderBtn.UseVisualStyleBackColor = False
+        '
+        'SettingsCustomExeTextBox
+        '
+        Me.SettingsCustomExeTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.SettingsCustomExeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.SettingsCustomExeTextBox.Enabled = False
+        Me.SettingsCustomExeTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SettingsCustomExeTextBox.ForeColor = System.Drawing.Color.White
+        Me.SettingsCustomExeTextBox.Location = New System.Drawing.Point(24, 323)
+        Me.SettingsCustomExeTextBox.MaxLength = 256
+        Me.SettingsCustomExeTextBox.Name = "SettingsCustomExeTextBox"
+        Me.SettingsCustomExeTextBox.ReadOnly = True
+        Me.SettingsCustomExeTextBox.Size = New System.Drawing.Size(254, 23)
+        Me.SettingsCustomExeTextBox.TabIndex = 11
+        '
+        'SettingsBrowseCustomExeBtn
+        '
+        Me.SettingsBrowseCustomExeBtn.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.SettingsBrowseCustomExeBtn.Enabled = False
+        Me.SettingsBrowseCustomExeBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.SettingsBrowseCustomExeBtn.FlatAppearance.BorderSize = 0
+        Me.SettingsBrowseCustomExeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        Me.SettingsBrowseCustomExeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(145, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SettingsBrowseCustomExeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SettingsBrowseCustomExeBtn.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingsBrowseCustomExeBtn.ForeColor = System.Drawing.Color.White
+        Me.SettingsBrowseCustomExeBtn.Location = New System.Drawing.Point(284, 320)
+        Me.SettingsBrowseCustomExeBtn.Name = "SettingsBrowseCustomExeBtn"
+        Me.SettingsBrowseCustomExeBtn.Size = New System.Drawing.Size(80, 30)
+        Me.SettingsBrowseCustomExeBtn.TabIndex = 12
+        Me.SettingsBrowseCustomExeBtn.Text = "Browse..."
+        Me.SettingsBrowseCustomExeBtn.UseVisualStyleBackColor = False
         '
         'WhichBackupLabel
         '
@@ -865,27 +778,11 @@ Partial Class Form1
         Me.WhichBackupLabel.BackColor = System.Drawing.Color.Transparent
         Me.WhichBackupLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.WhichBackupLabel.ForeColor = System.Drawing.Color.White
-        Me.WhichBackupLabel.Location = New System.Drawing.Point(212, 54)
+        Me.WhichBackupLabel.Location = New System.Drawing.Point(10, 56)
         Me.WhichBackupLabel.Name = "WhichBackupLabel"
         Me.WhichBackupLabel.Size = New System.Drawing.Size(111, 17)
-        Me.WhichBackupLabel.TabIndex = 7
+        Me.WhichBackupLabel.TabIndex = 4
         Me.WhichBackupLabel.Text = "Backup to restore"
-        '
-        'DisableCloudSyncChkBox
-        '
-        Me.DisableCloudSyncChkBox.AutoSize = True
-        Me.DisableCloudSyncChkBox.BackColor = System.Drawing.Color.Transparent
-        Me.DisableCloudSyncChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DisableCloudSyncChkBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DisableCloudSyncChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.DisableCloudSyncChkBox.Location = New System.Drawing.Point(14, 300)
-        Me.DisableCloudSyncChkBox.Name = "DisableCloudSyncChkBox"
-        Me.DisableCloudSyncChkBox.Size = New System.Drawing.Size(267, 21)
-        Me.DisableCloudSyncChkBox.TabIndex = 6
-        Me.DisableCloudSyncChkBox.Text = "Disable Uplay cloud save sync on restore"
-        Me.HelpToolTip.SetToolTip(Me.DisableCloudSyncChkBox, "If checked, GHOST Buster will disable Uplay cloud save synchronization before res" &
-        "toring a backup.")
-        Me.DisableCloudSyncChkBox.UseVisualStyleBackColor = False
         '
         'FoldersContainer
         '
@@ -904,7 +801,45 @@ Partial Class Form1
         Me.FoldersContainer.Location = New System.Drawing.Point(325, 311)
         Me.FoldersContainer.Name = "FoldersContainer"
         Me.FoldersContainer.Size = New System.Drawing.Size(497, 137)
-        Me.FoldersContainer.TabIndex = 13
+        Me.FoldersContainer.TabIndex = 7
+        '
+        'BrowseSavegamesLocBtn
+        '
+        Me.BrowseSavegamesLocBtn.BackColor = System.Drawing.Color.Transparent
+        Me.BrowseSavegamesLocBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
+        Me.BrowseSavegamesLocBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.BrowseSavegamesLocBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BrowseSavegamesLocBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BrowseSavegamesLocBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BrowseSavegamesLocBtn.ForeColor = System.Drawing.Color.White
+        Me.BrowseSavegamesLocBtn.Image = CType(resources.GetObject("BrowseSavegamesLocBtn.Image"), System.Drawing.Image)
+        Me.BrowseSavegamesLocBtn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.BrowseSavegamesLocBtn.Location = New System.Drawing.Point(339, 32)
+        Me.BrowseSavegamesLocBtn.Name = "BrowseSavegamesLocBtn"
+        Me.BrowseSavegamesLocBtn.Size = New System.Drawing.Size(90, 30)
+        Me.BrowseSavegamesLocBtn.TabIndex = 2
+        Me.BrowseSavegamesLocBtn.Text = "Browse..."
+        Me.BrowseSavegamesLocBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BrowseSavegamesLocBtn.UseVisualStyleBackColor = False
+        '
+        'BrowseBackupLocBtn
+        '
+        Me.BrowseBackupLocBtn.BackColor = System.Drawing.Color.Transparent
+        Me.BrowseBackupLocBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
+        Me.BrowseBackupLocBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.BrowseBackupLocBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BrowseBackupLocBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BrowseBackupLocBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BrowseBackupLocBtn.ForeColor = System.Drawing.Color.White
+        Me.BrowseBackupLocBtn.Image = CType(resources.GetObject("BrowseBackupLocBtn.Image"), System.Drawing.Image)
+        Me.BrowseBackupLocBtn.ImageAlign = System.Drawing.ContentAlignment.BottomLeft
+        Me.BrowseBackupLocBtn.Location = New System.Drawing.Point(339, 90)
+        Me.BrowseBackupLocBtn.Name = "BrowseBackupLocBtn"
+        Me.BrowseBackupLocBtn.Size = New System.Drawing.Size(90, 30)
+        Me.BrowseBackupLocBtn.TabIndex = 6
+        Me.BrowseBackupLocBtn.Text = "Browse..."
+        Me.BrowseBackupLocBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BrowseBackupLocBtn.UseVisualStyleBackColor = False
         '
         'FoldersTitleLabel
         '
@@ -915,90 +850,149 @@ Partial Class Form1
         Me.FoldersTitleLabel.Location = New System.Drawing.Point(322, 277)
         Me.FoldersTitleLabel.Name = "FoldersTitleLabel"
         Me.FoldersTitleLabel.Size = New System.Drawing.Size(65, 21)
-        Me.FoldersTitleLabel.TabIndex = 12
+        Me.FoldersTitleLabel.TabIndex = 6
         Me.FoldersTitleLabel.Text = "Folders"
         '
         'TasksContainer
         '
         Me.TasksContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
         Me.TasksContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TasksContainer.Controls.Add(Me.WhichBackupDropdown)
         Me.TasksContainer.Controls.Add(Me.BackupFreqHelp2Label)
-        Me.TasksContainer.Controls.Add(Me.BackupFreqTextBox)
-        Me.TasksContainer.Controls.Add(Me.LatestBackupHelpLabel)
-        Me.TasksContainer.Controls.Add(Me.BackupFreqHelp1Label)
+        Me.TasksContainer.Controls.Add(Me.BackupFreqUpDown)
+        Me.TasksContainer.Controls.Add(Me.WhichBackupDropdown)
         Me.TasksContainer.Controls.Add(Me.BackupBtn)
         Me.TasksContainer.Controls.Add(Me.StopBtn)
         Me.TasksContainer.Controls.Add(Me.WhichBackupLabel)
         Me.TasksContainer.Controls.Add(Me.RestoreBtn)
+        Me.TasksContainer.Controls.Add(Me.BackupFreqHelp1Label)
+        Me.TasksContainer.Controls.Add(Me.LatestBackupHelpLabel)
         Me.TasksContainer.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TasksContainer.ForeColor = System.Drawing.Color.White
         Me.TasksContainer.Location = New System.Drawing.Point(325, 149)
         Me.TasksContainer.Name = "TasksContainer"
         Me.TasksContainer.Size = New System.Drawing.Size(497, 115)
-        Me.TasksContainer.TabIndex = 11
-        '
-        'WhichBackupDropdown
-        '
-        Me.WhichBackupDropdown.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.WhichBackupDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.WhichBackupDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.WhichBackupDropdown.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.WhichBackupDropdown.ForeColor = System.Drawing.Color.White
-        Me.WhichBackupDropdown.Items.AddRange(New Object() {"Latest", "Second-to-last", "Choose"})
-        Me.WhichBackupDropdown.Location = New System.Drawing.Point(214, 76)
-        Me.WhichBackupDropdown.Name = "WhichBackupDropdown"
-        Me.WhichBackupDropdown.Size = New System.Drawing.Size(271, 25)
-        Me.WhichBackupDropdown.TabIndex = 8
+        Me.TasksContainer.TabIndex = 5
         '
         'BackupFreqHelp2Label
         '
         Me.BackupFreqHelp2Label.AutoSize = True
         Me.BackupFreqHelp2Label.BackColor = System.Drawing.Color.Transparent
         Me.BackupFreqHelp2Label.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BackupFreqHelp2Label.Location = New System.Drawing.Point(224, 23)
+        Me.BackupFreqHelp2Label.Location = New System.Drawing.Point(430, 81)
         Me.BackupFreqHelp2Label.Name = "BackupFreqHelp2Label"
         Me.BackupFreqHelp2Label.Size = New System.Drawing.Size(56, 17)
-        Me.BackupFreqHelp2Label.TabIndex = 3
+        Me.BackupFreqHelp2Label.TabIndex = 8
         Me.BackupFreqHelp2Label.Text = "minutes."
         '
-        'BackupFreqTextBox
+        'BackupFreqUpDown
         '
-        Me.BackupFreqTextBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.BackupFreqTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.BackupFreqTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BackupFreqTextBox.ForeColor = System.Drawing.Color.White
-        Me.BackupFreqTextBox.Location = New System.Drawing.Point(196, 22)
-        Me.BackupFreqTextBox.MaxLength = 3
-        Me.BackupFreqTextBox.Name = "BackupFreqTextBox"
-        Me.BackupFreqTextBox.ShortcutsEnabled = False
-        Me.BackupFreqTextBox.Size = New System.Drawing.Size(28, 23)
-        Me.BackupFreqTextBox.TabIndex = 2
-        Me.BackupFreqTextBox.Text = "5"
-        Me.BackupFreqTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.BackupFreqUpDown.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(26, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.BackupFreqUpDown.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.BackupFreqUpDown.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BackupFreqUpDown.ForeColor = System.Drawing.Color.White
+        Me.BackupFreqUpDown.Location = New System.Drawing.Point(309, 78)
+        Me.BackupFreqUpDown.Maximum = New Decimal(New Integer() {180, 0, 0, 0})
+        Me.BackupFreqUpDown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.BackupFreqUpDown.Name = "BackupFreqUpDown"
+        Me.BackupFreqUpDown.Size = New System.Drawing.Size(120, 25)
+        Me.BackupFreqUpDown.TabIndex = 7
+        Me.BackupFreqUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.BackupFreqUpDown.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
+        Me.BackupFreqUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'WhichBackupDropdown
+        '
+        Me.WhichBackupDropdown.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(26, Byte), Integer), CType(CType(31, Byte), Integer))
+        Me.WhichBackupDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.WhichBackupDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.WhichBackupDropdown.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.WhichBackupDropdown.ForeColor = System.Drawing.Color.White
+        Me.WhichBackupDropdown.Items.AddRange(New Object() {"Latest", "Second-to-last", "Choose"})
+        Me.WhichBackupDropdown.Location = New System.Drawing.Point(12, 78)
+        Me.WhichBackupDropdown.Name = "WhichBackupDropdown"
+        Me.WhichBackupDropdown.Size = New System.Drawing.Size(286, 25)
+        Me.WhichBackupDropdown.TabIndex = 5
+        '
+        'BackupBtn
+        '
+        Me.BackupBtn.BackColor = System.Drawing.Color.Transparent
+        Me.BackupBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
+        Me.BackupBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.BackupBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.BackupBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BackupBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BackupBtn.ForeColor = System.Drawing.Color.White
+        Me.BackupBtn.Image = CType(resources.GetObject("BackupBtn.Image"), System.Drawing.Image)
+        Me.BackupBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BackupBtn.Location = New System.Drawing.Point(12, 12)
+        Me.BackupBtn.Name = "BackupBtn"
+        Me.BackupBtn.Size = New System.Drawing.Size(90, 36)
+        Me.BackupBtn.TabIndex = 0
+        Me.BackupBtn.Text = "Start" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Backup"
+        Me.BackupBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BackupBtn.UseVisualStyleBackColor = False
+        '
+        'StopBtn
+        '
+        Me.StopBtn.BackColor = System.Drawing.Color.Transparent
+        Me.StopBtn.Enabled = False
+        Me.StopBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
+        Me.StopBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.StopBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.StopBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.StopBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.StopBtn.ForeColor = System.Drawing.Color.White
+        Me.StopBtn.Image = CType(resources.GetObject("StopBtn.Image"), System.Drawing.Image)
+        Me.StopBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.StopBtn.Location = New System.Drawing.Point(110, 12)
+        Me.StopBtn.Name = "StopBtn"
+        Me.StopBtn.Size = New System.Drawing.Size(90, 36)
+        Me.StopBtn.TabIndex = 1
+        Me.StopBtn.Text = "Stop" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Backup"
+        Me.StopBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.StopBtn.UseVisualStyleBackColor = False
+        '
+        'RestoreBtn
+        '
+        Me.RestoreBtn.BackColor = System.Drawing.Color.Transparent
+        Me.RestoreBtn.FlatAppearance.BorderColor = System.Drawing.SystemColors.ButtonShadow
+        Me.RestoreBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.RestoreBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
+        Me.RestoreBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.RestoreBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RestoreBtn.ForeColor = System.Drawing.Color.White
+        Me.RestoreBtn.Image = CType(resources.GetObject("RestoreBtn.Image"), System.Drawing.Image)
+        Me.RestoreBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.RestoreBtn.Location = New System.Drawing.Point(208, 12)
+        Me.RestoreBtn.Name = "RestoreBtn"
+        Me.RestoreBtn.Size = New System.Drawing.Size(90, 36)
+        Me.RestoreBtn.TabIndex = 2
+        Me.RestoreBtn.Text = "Restore" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Backup"
+        Me.RestoreBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.RestoreBtn.UseVisualStyleBackColor = False
         '
         'LatestBackupHelpLabel
         '
         Me.LatestBackupHelpLabel.AutoSize = True
         Me.LatestBackupHelpLabel.BackColor = System.Drawing.Color.Transparent
         Me.LatestBackupHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LatestBackupHelpLabel.Location = New System.Drawing.Point(278, 23)
+        Me.LatestBackupHelpLabel.Location = New System.Drawing.Point(306, 12)
         Me.LatestBackupHelpLabel.Name = "LatestBackupHelpLabel"
-        Me.LatestBackupHelpLabel.Size = New System.Drawing.Size(183, 17)
-        Me.LatestBackupHelpLabel.TabIndex = 4
-        Me.LatestBackupHelpLabel.Text = "Latest backup: No backup yet."
+        Me.LatestBackupHelpLabel.Size = New System.Drawing.Size(96, 34)
+        Me.LatestBackupHelpLabel.TabIndex = 3
+        Me.LatestBackupHelpLabel.Text = "Latest backup:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "No backup yet."
         '
-        'TasksTitleLabel
+        'TitleLabel
         '
-        Me.TasksTitleLabel.AutoSize = True
-        Me.TasksTitleLabel.BackColor = System.Drawing.Color.Transparent
-        Me.TasksTitleLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TasksTitleLabel.ForeColor = System.Drawing.Color.White
-        Me.TasksTitleLabel.Location = New System.Drawing.Point(322, 115)
-        Me.TasksTitleLabel.Name = "TasksTitleLabel"
-        Me.TasksTitleLabel.Size = New System.Drawing.Size(50, 21)
-        Me.TasksTitleLabel.TabIndex = 10
-        Me.TasksTitleLabel.Text = "Tasks"
+        Me.TitleLabel.AutoSize = True
+        Me.TitleLabel.BackColor = System.Drawing.Color.Transparent
+        Me.TitleLabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TitleLabel.ForeColor = System.Drawing.Color.White
+        Me.TitleLabel.Location = New System.Drawing.Point(322, 115)
+        Me.TitleLabel.Name = "TitleLabel"
+        Me.TitleLabel.Size = New System.Drawing.Size(97, 21)
+        Me.TitleLabel.TabIndex = 4
+        Me.TitleLabel.Text = "{TitleLabel}"
         '
         'HelpToolTip
         '
@@ -1007,80 +1001,96 @@ Partial Class Form1
         Me.HelpToolTip.OwnerDraw = True
         Me.HelpToolTip.UseFading = False
         '
-        'EnableCloudSyncChkBox
+        'SidemenuSettings
         '
-        Me.EnableCloudSyncChkBox.AutoSize = True
-        Me.EnableCloudSyncChkBox.BackColor = System.Drawing.Color.Transparent
-        Me.EnableCloudSyncChkBox.Checked = True
-        Me.EnableCloudSyncChkBox.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.EnableCloudSyncChkBox.Enabled = False
-        Me.EnableCloudSyncChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EnableCloudSyncChkBox.ForeColor = System.Drawing.Color.White
-        Me.EnableCloudSyncChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.EnableCloudSyncChkBox.Location = New System.Drawing.Point(14, 325)
-        Me.EnableCloudSyncChkBox.Name = "EnableCloudSyncChkBox"
-        Me.EnableCloudSyncChkBox.Size = New System.Drawing.Size(241, 21)
-        Me.EnableCloudSyncChkBox.TabIndex = 7
-        Me.EnableCloudSyncChkBox.Text = "Enable Uplay cloud save sync on exit"
-        Me.HelpToolTip.SetToolTip(Me.EnableCloudSyncChkBox, "If checked, GHOST Buster will enable  Uplay cloud save synchronization again befo" &
-        "re  quitting.")
-        Me.EnableCloudSyncChkBox.UseVisualStyleBackColor = False
+        Me.SidemenuSettings.Appearance = System.Windows.Forms.Appearance.Button
+        Me.SidemenuSettings.AutoSize = True
+        Me.SidemenuSettings.BackColor = System.Drawing.Color.Transparent
+        Me.SidemenuSettings.FlatAppearance.BorderSize = 0
+        Me.SidemenuSettings.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent
+        Me.SidemenuSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.SidemenuSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.SidemenuSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SidemenuSettings.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SidemenuSettings.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SidemenuSettings.Image = CType(resources.GetObject("SidemenuSettings.Image"), System.Drawing.Image)
+        Me.SidemenuSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.SidemenuSettings.Location = New System.Drawing.Point(14, 284)
+        Me.SidemenuSettings.Name = "SidemenuSettings"
+        Me.SidemenuSettings.Size = New System.Drawing.Size(104, 31)
+        Me.SidemenuSettings.TabIndex = 3
+        Me.SidemenuSettings.Text = "  Settings"
+        Me.SidemenuSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.SidemenuSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.SidemenuSettings.UseVisualStyleBackColor = False
         '
-        'DisplayNotificationChkBox
+        'SidemenuTasks
         '
-        Me.DisplayNotificationChkBox.AutoSize = True
-        Me.DisplayNotificationChkBox.BackColor = System.Drawing.Color.Transparent
-        Me.DisplayNotificationChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DisplayNotificationChkBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DisplayNotificationChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.DisplayNotificationChkBox.Location = New System.Drawing.Point(14, 275)
-        Me.DisplayNotificationChkBox.Name = "DisplayNotificationChkBox"
-        Me.DisplayNotificationChkBox.Size = New System.Drawing.Size(233, 21)
-        Me.DisplayNotificationChkBox.TabIndex = 5
-        Me.DisplayNotificationChkBox.Text = "Display notifications about backups"
-        Me.HelpToolTip.SetToolTip(Me.DisplayNotificationChkBox, "If checked, GHOST Buster will display a notification at the edge of the screen ab" &
-        "out backups.")
-        Me.DisplayNotificationChkBox.UseVisualStyleBackColor = False
+        Me.SidemenuTasks.Appearance = System.Windows.Forms.Appearance.Button
+        Me.SidemenuTasks.AutoSize = True
+        Me.SidemenuTasks.BackColor = System.Drawing.Color.Transparent
+        Me.SidemenuTasks.FlatAppearance.BorderSize = 0
+        Me.SidemenuTasks.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent
+        Me.SidemenuTasks.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.SidemenuTasks.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.SidemenuTasks.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SidemenuTasks.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SidemenuTasks.ForeColor = System.Drawing.Color.White
+        Me.SidemenuTasks.Image = Global.GHOSTbackup.My.Resources.Resources.Tasks_White
+        Me.SidemenuTasks.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.SidemenuTasks.Location = New System.Drawing.Point(14, 246)
+        Me.SidemenuTasks.Name = "SidemenuTasks"
+        Me.SidemenuTasks.Size = New System.Drawing.Size(81, 31)
+        Me.SidemenuTasks.TabIndex = 2
+        Me.SidemenuTasks.Text = "  Tasks"
+        Me.SidemenuTasks.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.SidemenuTasks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.SidemenuTasks.UseVisualStyleBackColor = False
+        '
+        'LogoBigPictureBox
+        '
+        Me.LogoBigPictureBox.BackColor = System.Drawing.Color.Transparent
+        Me.LogoBigPictureBox.Image = CType(resources.GetObject("LogoBigPictureBox.Image"), System.Drawing.Image)
+        Me.LogoBigPictureBox.Location = New System.Drawing.Point(12, 85)
+        Me.LogoBigPictureBox.Name = "LogoBigPictureBox"
+        Me.LogoBigPictureBox.Size = New System.Drawing.Size(293, 50)
+        Me.LogoBigPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.LogoBigPictureBox.TabIndex = 10
+        Me.LogoBigPictureBox.TabStop = False
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(53, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.BackgroundImage = Global.GHOSTbackup.My.Resources.Resources.Bg
         Me.ClientSize = New System.Drawing.Size(834, 461)
-        Me.Controls.Add(Me.DisplayNotificationChkBox)
-        Me.Controls.Add(Me.EnableCloudSyncChkBox)
-        Me.Controls.Add(Me.TasksTitleLabel)
+        Me.Controls.Add(Me.SidemenuSettings)
+        Me.Controls.Add(Me.SidemenuTasks)
+        Me.Controls.Add(Me.TitleLabel)
         Me.Controls.Add(Me.TasksContainer)
         Me.Controls.Add(Me.FoldersTitleLabel)
         Me.Controls.Add(Me.FoldersContainer)
-        Me.Controls.Add(Me.TitleLabel)
-        Me.Controls.Add(Me.RememberFormPositionChkBox)
         Me.Controls.Add(Me.TopMenuContainer)
-        Me.Controls.Add(Me.CheckUpdatesChkBox)
-        Me.Controls.Add(Me.ConfirmStopBackupChkBox)
-        Me.Controls.Add(Me.ConfirmExitChkBox)
-        Me.Controls.Add(Me.DisableCloudSyncChkBox)
         Me.Controls.Add(Me.PlayGameBtn)
         Me.Controls.Add(Me.LogoBigPictureBox)
         Me.Controls.Add(Me.SettingsContainer)
         Me.Controls.Add(Me.AboutContainer)
         Me.Controls.Add(Me.LogsContainer)
+        Me.DoubleBuffered = True
+        Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ForeColor = System.Drawing.Color.White
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "GHOST Buster"
-        CType(Me.LogoBigPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LogTxtBoxContextMenu.ResumeLayout(False)
         Me.TopMenuContainer.ResumeLayout(False)
         Me.TopMenuContainer.PerformLayout()
         CType(Me.AlertDot, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UplayPictureBtn, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.HomePictureBtn, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UplayBtn, System.ComponentModel.ISupportInitialize).EndInit()
         Me.AboutContainer.ResumeLayout(False)
         Me.AboutContainer.PerformLayout()
         Me.LogsContainer.ResumeLayout(False)
@@ -1091,6 +1101,8 @@ Partial Class Form1
         Me.FoldersContainer.PerformLayout()
         Me.TasksContainer.ResumeLayout(False)
         Me.TasksContainer.PerformLayout()
+        CType(Me.BackupFreqUpDown, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LogoBigPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1107,17 +1119,16 @@ Partial Class Form1
     Friend WithEvents LogoBigPictureBox As PictureBox
     Friend WithEvents PlayGameBtn As Button
     Friend WithEvents LogTxtBox As TextBox
-    Friend WithEvents ConfirmExitChkBox As CheckBox
-    Friend WithEvents ConfirmStopBackupChkBox As CheckBox
+    Friend WithEvents SettingsConfirmExitChkBox As CheckBox
+    Friend WithEvents SettingsConfirmStopBackupChkBox As CheckBox
     Friend WithEvents BackupFreqHelp1Label As Label
-    Friend WithEvents CheckUpdatesChkBox As CheckBox
+    Friend WithEvents SettingsCheckUpdatesChkBox As CheckBox
     Friend WithEvents LogTxtBoxContextMenu As ContextMenuStrip
     Friend WithEvents CopyToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SelectAllToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExportLogToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TopMenuContainer As Panel
-    Friend WithEvents SettingsLabel As Label
-    Friend WithEvents HomePictureBtn As PictureBox
+    Friend WithEvents UplayBtn As PictureBox
     Friend WithEvents AboutLabel As Label
     Friend WithEvents AboutContainer As Panel
     Friend WithEvents AppInfoLabel As Label
@@ -1125,16 +1136,14 @@ Partial Class Form1
     Friend WithEvents ExploreSavegamesLocBtn As Button
     Friend WithEvents LogLabel As Label
     Friend WithEvents LogsContainer As Panel
-    Friend WithEvents RememberFormPositionChkBox As CheckBox
-    Friend WithEvents TitleLabel As Label
+    Friend WithEvents SettingsRememberFormPositionChkBox As CheckBox
     Friend WithEvents SettingsContainer As Panel
     Friend WithEvents SettingsWriteLogToFileChkBox As CheckBox
-    Friend WithEvents DisableCloudSyncChkBox As CheckBox
+    Friend WithEvents SettingsDisableCloudSyncChkBox As CheckBox
     Friend WithEvents SettingsLogFilePathTextBox As TextBox
     Friend WithEvents SettingsBrowseLogFileBtn As Button
     Friend WithEvents SettingsOpenLogBtn As Button
     Friend WithEvents WhichBackupLabel As Label
-    Friend WithEvents UplayPictureBtn As PictureBox
     Friend WithEvents SettingsOpenCustomExeFolderBtn As Button
     Friend WithEvents SettingsBrowseCustomExeBtn As Button
     Friend WithEvents SettingsCustomExeTextBox As TextBox
@@ -1143,13 +1152,11 @@ Partial Class Form1
     Friend WithEvents FoldersContainer As Panel
     Friend WithEvents FoldersTitleLabel As Label
     Friend WithEvents TasksContainer As Panel
-    Friend WithEvents TasksTitleLabel As Label
+    Friend WithEvents TitleLabel As Label
     Friend WithEvents LatestBackupHelpLabel As Label
     Friend WithEvents HelpToolTip As ToolTip
-    Friend WithEvents EnableCloudSyncChkBox As CheckBox
-    Friend WithEvents DisplayNotificationChkBox As CheckBox
-    Friend WithEvents BackupFreqTextBox As TextBox
-    Friend WithEvents BackupFreqHelp2Label As Label
+    Friend WithEvents SettingsEnableCloudSyncChkBox As CheckBox
+    Friend WithEvents SettingsDisplayNotificationChkBox As CheckBox
     Friend WithEvents WhichBackupDropdown As ComboBox
     Friend WithEvents SettingsInterfaceLang As Label
     Friend WithEvents SettingsInterfaceLangDropdown As ComboBox
@@ -1159,4 +1166,8 @@ Partial Class Form1
     Friend WithEvents SupportLink As CheckBox
     Friend WithEvents ChangelogLink As CheckBox
     Friend WithEvents LicenseLink As CheckBox
+    Friend WithEvents SidemenuTasks As CheckBox
+    Friend WithEvents SidemenuSettings As CheckBox
+    Friend WithEvents BackupFreqUpDown As NumericUpDown
+    Friend WithEvents BackupFreqHelp2Label As Label
 End Class
