@@ -8,7 +8,7 @@ https://icons8.com/license
 - Error (error.png) https://icons8.com/icons/set/x
 - License (license.png) https://icons8.com/icons/set/license
 - Question, Support (question.png, support.png) https://icons8.com/icons/set/question
-- Settings (settings.png) https://icons8.com/icons/set/wrench
-- Task (tasks.png) https://icons8.com/icons/set/task
+- Settings (settings.png, settings_white.png) https://icons8.com/icons/set/wrench
+- Task (tasks.png, tasks_white.png) https://icons8.com/icons/set/task
 - Uplay (uplay.png) https://icons8.com/icons/set/uplay
 - Website (website.png) https://icons8.com/icons/set/globe
