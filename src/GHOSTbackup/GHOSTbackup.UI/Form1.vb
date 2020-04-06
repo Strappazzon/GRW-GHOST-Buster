@@ -175,7 +175,8 @@ Public Class Form1
         Controls.Add(LogsContainer)
         'Close the alert banner when switching to Logs tab
         Banner.CloseBanner_Click(sender, e)
-        'Scroll to the last line when switching to the Logs tab
+        'Focus logs and scroll to the last line when switching to the Logs tab
+        LogTxtBox.Focus()
         LogTxtBox.ScrollToCaret()
     End Sub
 
