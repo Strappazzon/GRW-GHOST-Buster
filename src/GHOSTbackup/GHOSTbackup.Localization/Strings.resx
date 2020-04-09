@@ -542,4 +542,28 @@
   <data name="ui_manage_context_explorer" xml:space="preserve">
     <value>Show in Explorer</value>
   </data>
+  <data name="ui_logs_context_copy_tooltip" xml:space="preserve">
+    <value>Copy the selected text to clipboard.</value>
+  </data>
+  <data name="ui_logs_context_export_tooltip" xml:space="preserve">
+    <value>Save all events to a log file.</value>
+  </data>
+  <data name="ui_logs_context_selectall_tooltip" xml:space="preserve">
+    <value>Select all the text.</value>
+  </data>
+  <data name="ui_manage_context_delete_tooltip" xml:space="preserve">
+    <value>Delete the selected backup.</value>
+  </data>
+  <data name="ui_manage_context_deleteall_tooltip" xml:space="preserve">
+    <value>Delete all backups.</value>
+  </data>
+  <data name="ui_manage_context_explorer_tooltip" xml:space="preserve">
+    <value>Open the selected backup folder in Windows Explorer.</value>
+  </data>
+  <data name="ui_manage_context_refresh_tooltip" xml:space="preserve">
+    <value>Refresh the list of backups.</value>
+  </data>
+  <data name="ui_manage_context_restore_tooltip" xml:space="preserve">
+    <value>Restore the selected backup.</value>
+  </data>
 </root>

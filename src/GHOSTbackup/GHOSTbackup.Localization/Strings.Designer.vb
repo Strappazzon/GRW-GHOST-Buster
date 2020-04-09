@@ -866,6 +866,15 @@ Namespace Languages
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Copy the selected text to clipboard..
+        '''</summary>
+        Friend Shared ReadOnly Property ui_logs_context_copy_tooltip() As String
+            Get
+                Return ResourceManager.GetString("ui_logs_context_copy_tooltip", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Save log as....
         '''</summary>
         Friend Shared ReadOnly Property ui_logs_context_export() As String
@@ -875,11 +884,29 @@ Namespace Languages
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Save all events to a log file..
+        '''</summary>
+        Friend Shared ReadOnly Property ui_logs_context_export_tooltip() As String
+            Get
+                Return ResourceManager.GetString("ui_logs_context_export_tooltip", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Select all.
         '''</summary>
         Friend Shared ReadOnly Property ui_logs_context_selectall() As String
             Get
                 Return ResourceManager.GetString("ui_logs_context_selectall", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Select all the text..
+        '''</summary>
+        Friend Shared ReadOnly Property ui_logs_context_selectall_tooltip() As String
+            Get
+                Return ResourceManager.GetString("ui_logs_context_selectall_tooltip", resourceCulture)
             End Get
         End Property
         
@@ -902,11 +929,29 @@ Namespace Languages
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Delete the selected backup..
+        '''</summary>
+        Friend Shared ReadOnly Property ui_manage_context_delete_tooltip() As String
+            Get
+                Return ResourceManager.GetString("ui_manage_context_delete_tooltip", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Delete All.
         '''</summary>
         Friend Shared ReadOnly Property ui_manage_context_deleteall() As String
             Get
                 Return ResourceManager.GetString("ui_manage_context_deleteall", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Delete all backups..
+        '''</summary>
+        Friend Shared ReadOnly Property ui_manage_context_deleteall_tooltip() As String
+            Get
+                Return ResourceManager.GetString("ui_manage_context_deleteall_tooltip", resourceCulture)
             End Get
         End Property
         
@@ -920,6 +965,15 @@ Namespace Languages
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Open the selected backup folder in Windows Explorer..
+        '''</summary>
+        Friend Shared ReadOnly Property ui_manage_context_explorer_tooltip() As String
+            Get
+                Return ResourceManager.GetString("ui_manage_context_explorer_tooltip", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Refresh.
         '''</summary>
         Friend Shared ReadOnly Property ui_manage_context_refresh() As String
@@ -929,11 +983,29 @@ Namespace Languages
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Refresh the list of backups..
+        '''</summary>
+        Friend Shared ReadOnly Property ui_manage_context_refresh_tooltip() As String
+            Get
+                Return ResourceManager.GetString("ui_manage_context_refresh_tooltip", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Restore.
         '''</summary>
         Friend Shared ReadOnly Property ui_manage_context_restore() As String
             Get
                 Return ResourceManager.GetString("ui_manage_context_restore", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Restore the selected backup..
+        '''</summary>
+        Friend Shared ReadOnly Property ui_manage_context_restore_tooltip() As String
+            Get
+                Return ResourceManager.GetString("ui_manage_context_restore_tooltip", resourceCulture)
             End Get
         End Property
         

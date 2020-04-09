@@ -121,6 +121,14 @@ Public Class Localization
         Form1.HelpToolTip.SetToolTip(Form1.SettingsEnableCloudSyncChkBox, GetString("tooltip_enable_sync"))
         Form1.HelpToolTip.SetToolTip(Form1.SettingsCheckUpdatesChkBox, GetString("tooltip_updates"))
         Form1.HelpToolTip.SetToolTip(Form1.SettingsRememberFormPositionChkBox, GetString("tooltip_coordinates"))
+        Form1.CopyToolStripMenuItem.ToolTipText = GetString("ui_logs_context_copy_tooltip")
+        Form1.SelectAllToolStripMenuItem.ToolTipText = GetString("ui_logs_context_selectall_tooltip")
+        Form1.ExportLogToolStripMenuItem.ToolTipText = GetString("ui_logs_context_export_tooltip")
+        Form1.RestoreToolStripMenuItem.ToolTipText = GetString("ui_manage_context_restore_tooltip")
+        Form1.DeleteToolStripMenuItem.ToolTipText = GetString("ui_manage_context_delete_tooltip")
+        Form1.RefreshToolStripMenuItem.ToolTipText = GetString("ui_manage_context_refresh_tooltip")
+        Form1.DeleteAllStripMenuItem.ToolTipText = GetString("ui_manage_context_deleteall_tooltip")
+        Form1.ShowBackupStripMenuItem.ToolTipText = GetString("ui_manage_context_explorer_tooltip")
 
         'Localize Message Box
         'Buttons
