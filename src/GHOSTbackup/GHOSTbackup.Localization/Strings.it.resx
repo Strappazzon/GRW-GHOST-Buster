@@ -274,9 +274,6 @@
   <data name="ui_tasks_backup" xml:space="preserve">
     <value>Avvia\nBackup</value>
   </data>
-  <data name="ui_tasks_dropdown_choose" xml:space="preserve">
-    <value>Scegli</value>
-  </data>
   <data name="ui_tasks_dropdown_latest" xml:space="preserve">
     <value>Ultimo</value>
   </data>
@@ -397,18 +394,6 @@
   <data name="msgbox_backup_restore_no_sectolast" xml:space="preserve">
     <value>{\rtf1 Hai scelto di ripristinare il penultimo backup ma {\b non esiste.} Vuoi invece ripristinare l'ultimo backup? Ciò copierà i file di salvataggio dalla cartella di backup: &lt;0&gt;\line\line E {\b SOVRASCRIVERÀ} i file di salvataggio esistenti nella cartella del gioco: &lt;1&gt;\line\line {\b L'AZIONE È IRREVERSIBILE. SEI SICURO DI VOLER PROCEDERE?}}</value>
   </data>
-  <data name="msgbox_dropdown_backup_timestamp" xml:space="preserve">
-    <value> minuti fa</value>
-  </data>
-  <data name="msgbox_dropdown_backup_timestamp_00" xml:space="preserve">
-    <value>meno di un minuto fa</value>
-  </data>
-  <data name="msgbox_dropdown_backup_timestamp_created" xml:space="preserve">
-    <value> - Creato </value>
-  </data>
-  <data name="msgbox_backup_restore_dynamic" xml:space="preserve">
-    <value>{\rtf1 Ripristinare un backup copierà i file di salvataggio dalla cartella di backup: &lt;0&gt;\\&lt;1&gt;\line\line e {\b SOVRASCRIVERÀ} i file di salvataggio esistenti nella cartella del gioco: &lt;2&gt;\line\line {\b L'AZIONE È IRREVERSIBILE. SEI SICURO DI VOLER PROCEDERE?}}</value>
-  </data>
   <data name="msgbox_empty_backup_folder_title" xml:space="preserve">
     <value>Nessun backup trovato</value>
   </data>
@@ -474,5 +459,68 @@
   </data>
   <data name="tooltip_uplay" xml:space="preserve">
     <value>Avvia Uplay.</value>
+  </data>
+  <data name="ui_title_manage" xml:space="preserve">
+    <value>Gestione Backup</value>
+  </data>
+  <data name="ui_manage" xml:space="preserve">
+    <value>Backup</value>
+  </data>
+  <data name="banner_backups_table_retrieve_error" xml:space="preserve">
+    <value>Si è verificato un errore durante il recupero della lista dei backup.</value>
+  </data>
+  <data name="ui_manage_table_column_folder" xml:space="preserve">
+    <value>Cartella</value>
+  </data>
+  <data name="ui_manage_table_column_size" xml:space="preserve">
+    <value>Dimensioni ({0})</value>
+  </data>
+  <data name="ui_manage_table_column_timestamp" xml:space="preserve">
+    <value>Data creazione</value>
+  </data>
+  <data name="msgbox_backup_delete" xml:space="preserve">
+    <value>{\rtf1 Eliminare un backup libererà spazio nella posizione di backup attuale. La cartella di backup &lt;0&gt; e tutti i file di salvataggio al suo interno saranno {\b ELIMINATI IN MODO PERMANENTE.}\line\line {\b L'AZIONE È IRREVERSIBILE. SEI SICURO DI VOLER PROCEDERE?}}</value>
+  </data>
+  <data name="msgbox_backup_delete_title" xml:space="preserve">
+    <value>Eliminazione backup</value>
+  </data>
+  <data name="banner_backup_deleted" xml:space="preserve">
+    <value>Backup eliminato con successo.</value>
+  </data>
+  <data name="msgbox_delete_error_title" xml:space="preserve">
+    <value>Eliminazione fallita</value>
+  </data>
+  <data name="msgbox_delete_error" xml:space="preserve">
+    <value>{\rtf1 {\b Un errore ha impedito} a GHOST Buster di eliminare la cartella di backup selezionata. Per favore controlla i log per i dettagli.}</value>
+  </data>
+  <data name="msgbox_backup_delete_latest" xml:space="preserve">
+    <value>{\rtf1 Eliminare l'unico backup disponibile ti impedirà di ripristinare i file di salvataggio. La cartella di backup &lt;0&gt; e tutti i file di salvataggio al suo interno saranno {\b ELIMINATI IN MODO PERMANENTE.}\line\line {\b L'AZIONE È IRREVERSIBILE. SEI SICURO DI VOLER PROCEDERE?}}</value>
+  </data>
+  <data name="msgbox_delete_all_error" xml:space="preserve">
+    <value>{\rtf1 {\b Un errore ha impedito} a GHOST Buster di eliminare la cartella di backup. Per favore controlla i log per i dettagli.}</value>
+  </data>
+  <data name="msgbox_backup_delete_all" xml:space="preserve">
+    <value>{\rtf1 Eliminare tutti i backup libererà spazio nella posizione di backup attuale e ti impedirà di ripristinare i file di salvataggio. Tutti i backup contenuti in &lt;0&gt; saranno {\b ELIMINATI IN MODO PERMANENTE.}\line\line {\b L'AZIONE È IRREVERSIBILE. SEI SICURO DI VOLER PROCEDERE?}}</value>
+  </data>
+  <data name="banner_backup_deleted_all" xml:space="preserve">
+    <value>Backup eliminati con successo.</value>
+  </data>
+  <data name="banner_manage_backup_folder_404_info" xml:space="preserve">
+    <value>Il backup selezionato non esiste più.</value>
+  </data>
+  <data name="ui_manage_context_restore" xml:space="preserve">
+    <value>Ripristina</value>
+  </data>
+  <data name="ui_manage_context_refresh" xml:space="preserve">
+    <value>Aggiorna</value>
+  </data>
+  <data name="ui_manage_context_explorer" xml:space="preserve">
+    <value>Mostra in Esplora Risorse</value>
+  </data>
+  <data name="ui_manage_context_deleteall" xml:space="preserve">
+    <value>Elimina Tutti</value>
+  </data>
+  <data name="ui_manage_context_delete" xml:space="preserve">
+    <value>Elimina</value>
   </data>
 </root>

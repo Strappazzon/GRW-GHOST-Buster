@@ -27,14 +27,14 @@
 Imports System.ComponentModel
 Imports System.Globalization
 Imports System.IO
-Imports System.Text.RegularExpressions
 Imports GHOSTbackup.Var
 
 Public Class BackupHelper
     Private Shared WithEvents DetectBackupTimestamp As New BackgroundWorker()
-    Private Shared Property ErrorMessage As String = Nothing
+    Private Shared WithEvents RetrieveBackups As New BackgroundWorker()
     Private Shared WithEvents BackupTimer As New Timer()
     Public Shared ReadOnly BackupDirs As New List(Of String)
+    Private Shared Property ErrorMessage As String = Nothing
 
     Public Shared Sub DetectLatestBackup()
         'Pass the backup folder path to the background worker
@@ -42,6 +42,13 @@ Public Class BackupHelper
         DetectBackupTimestamp.RunWorkerAsync(Form1.BackupLocTextBox.Text)
     End Sub
 
+    Public Shared Sub PopulateBackupsGrid()
+        'Pass the backup folder path to the background worker
+        '//stackoverflow.com/a/4807200
+        RetrieveBackups.RunWorkerAsync(Form1.BackupLocTextBox.Text)
+    End Sub
+
+#Region "Async Subroutines"
     Private Shared Sub DetectBackupTimestamp_DoWork(sender As Object, e As DoWorkEventArgs) Handles DetectBackupTimestamp.DoWork
         'Detect and display the latest backup timestamp
         Try
@@ -90,6 +97,71 @@ Public Class BackupHelper
         End If
     End Sub
 
+    Private Shared Sub RetrieveBackups_DoWork(sender As Object, e As DoWorkEventArgs) Handles RetrieveBackups.DoWork
+        Try
+            'Create backups table
+            '//exceptionshub.com/how-to-create-a-datatable-in-c-and-how-to-add-rows.html
+            Using DT As DataTable = New DataTable()
+                'Add columns
+                'Folder name, Size, Creation date
+                DT.Columns.Add(Localization.GetString("ui_manage_table_column_folder"))
+                DT.Columns.Add(String.Format(Localization.GetString("ui_manage_table_column_size"), "MB"))
+                DT.Columns.Add(Localization.GetString("ui_manage_table_column_timestamp"))
+
+                'Loop through every directory in the current backup directory
+                For Each BackupDir In Directory.EnumerateDirectories(e.Argument())
+                    'Get every save file inside each subdirectory
+                    Dim SavegamesList As String() = Directory.GetFiles(BackupDir, "*.save")
+                    If SavegamesList.Length > 0 Then
+                        'If a subdirectory contains save files add it to the table
+                        'Create a new row
+                        Dim DR As DataRow = DT.NewRow()
+                        'If a subdirectory contains save files add it to the table
+                        'Add only the directory name, not the full path
+                        DR(0) = BackupDir.Substring(BackupDir.LastIndexOf(Path.DirectorySeparatorChar) + 1)
+                        'Get backup folder size
+                        'Sum bytes of each save file because the .NET Framework doesn't provide a method to calculate a directory size
+                        Dim L As Long = 0
+                        For Each F In SavegamesList
+                            Dim FI As FileInfo = New FileInfo(F)
+                            L += FI.Length()
+                        Next
+                        'Add calculated folder size (MB)
+                        'Preserve trailing zeroes
+                        '//stackoverflow.com/a/47066466
+                        DR(1) = Math.Round(L / 1048576, 2).ToString("0.00")
+                        'Add folder creation timestamp
+                        DR(2) = Directory.GetCreationTime(BackupDir).ToString("f", CultureInfo.CurrentUICulture)
+                        'Add row with folder name, size and timestamp to the table
+                        DT.Rows.Add(DR)
+                    End If
+                Next
+
+                'Return the table
+                e.Result = DT
+            End Using
+
+        Catch ex As Exception
+            ErrorMessage = ex.Message()
+        End Try
+    End Sub
+
+    Private Shared Sub RetrieveBackups_RunWorkerCompleted(sender As Object, e As RunWorkerCompletedEventArgs) Handles RetrieveBackups.RunWorkerCompleted
+        If ErrorMessage = Nothing Then
+            Form1.BackupsDataGrid.DataSource = e.Result()
+            'Sort backups (Most recent first)
+            '//docs.microsoft.com/en-us/dotnet/api/system.windows.forms.datagridview.sortorder
+            Form1.BackupsDataGrid.Sort(Form1.BackupsDataGrid.Columns(2), ListSortDirection.Descending)
+        Else
+            Logger.Log("[ERROR] An error occurred while retrieving backups: " & ErrorMessage)
+            Banner.Show(48, Localization.GetString("banner_backups_table_retrieve_error"))
+
+            ErrorMessage = Nothing
+        End If
+    End Sub
+#End Region
+
+#Region "Backup"
     Public Shared Sub StartBackup()
         BackupTimer.Interval = Form1.BackupFreqUpDown.Value * 60000
         BackupTimer.Start()
@@ -102,6 +174,7 @@ Public Class BackupHelper
         Form1.BrowseSavegamesLocBtn.Enabled = False
         Form1.BackupLocTextBox.Enabled = False
         Form1.BrowseBackupLocBtn.Enabled = False
+        Form1.RestoreToolStripMenuItem.Enabled = False
         Form1.SettingsNonUplayVersionChkBox.Enabled = False
         Form1.SettingsCustomExeTextBox.Enabled = False
         Form1.SettingsBrowseCustomExeBtn.Enabled = False
@@ -119,6 +192,7 @@ Public Class BackupHelper
         Form1.BrowseSavegamesLocBtn.Enabled = True
         Form1.BackupLocTextBox.Enabled = True
         Form1.BrowseBackupLocBtn.Enabled = True
+        Form1.RestoreToolStripMenuItem.Enabled = True
         Form1.SettingsNonUplayVersionChkBox.Enabled = True
         Form1.SettingsCustomExeTextBox.Enabled = True
         Form1.SettingsBrowseCustomExeBtn.Enabled = True
@@ -126,7 +200,7 @@ Public Class BackupHelper
     End Sub
 
     Public Shared Sub PerformFirstBackup()
-        If Form1.SavegamesLocTextBox.Text = "" Or Form1.BackupLocTextBox.Text = "" Then
+        If Form1.SavegamesLocTextBox.Text = "" OrElse Form1.BackupLocTextBox.Text = "" Then
             Banner.Show(64, Localization.GetString("banner_specify_folders_info"))
         ElseIf IsGameRunning = True Then
             StartBackup()
@@ -197,8 +271,10 @@ Public Class BackupHelper
             CustomMsgBox.Show(Localization.GetString("msgbox_wildlands_closed_crashed"), Localization.GetString("msgbox_wildlands_closed_crashed_title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
         End If
     End Sub
+#End Region
 
-    Public Shared Sub RestoreBackup()
+#Region "Backup Restore"
+    Public Overloads Shared Sub RestoreBackup()
         Logger.Log("[INFO] Restore process started.")
 
         Try
@@ -245,7 +321,7 @@ Public Class BackupHelper
 
                         Form1.LatestBackupHelpLabel.Text = Localization.GetString("ui_tasks_latest_none")
                     End If
-                ElseIf Form1.WhichBackupDropdown.SelectedIndex = 1 Then
+                Else
                     'If "Second-to-last" option is selected
                     'Loop through every directory in the list
                     For Each BackupDir In EnumeratedDirs
@@ -300,65 +376,6 @@ Public Class BackupHelper
 
                         Form1.LatestBackupHelpLabel.Text = Localization.GetString("ui_tasks_latest_none")
                     End If
-                ElseIf Form1.WhichBackupDropdown.SelectedIndex = 2 Then
-                    'If "Let me decide" option is selected
-                    'Reverse the order of the directories list (most recent backup first)
-                    '//docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.reverse
-                    EnumeratedDirs.Reverse()
-
-                    'Loop through every directory in the list
-                    For Each BackupDir In EnumeratedDirs
-                        'Get every save file inside each subdirectory
-                        Dim SavegamesList As String() = Directory.GetFiles(BackupDir, "*.save")
-                        If SavegamesList.Length > 0 Then
-                            'If a subdirectory contains save files add it to the list and to the backup restore dialog's dropdown menu
-                            BackupDirs.Add(BackupDir)
-                            'Append backup creation timestamp
-                            'If it's been created less than an hour ago, append "Created XX minutes ago" and if it's been created less than a minute ago replace "00 minutes ago" with "Less than a minute ago"
-                            CustomMsgBox.BackupDirsDropdownCombo.Items.Add(
-                                BackupDir.Substring(BackupDir.LastIndexOf(Path.DirectorySeparatorChar) + 1) &
-                                Localization.GetString("msgbox_dropdown_backup_timestamp_created") &
-                                If(
-                                    Directory.GetCreationTime(BackupDir) > Now.AddHours(-1),
-                                    Regex.Replace(Now.Subtract(Directory.GetCreationTime(BackupDir)).ToString("mm") & Localization.GetString("msgbox_dropdown_backup_timestamp"), "^[0-9]{2}\ [a-z\ ]+$", Localization.GetString("msgbox_dropdown_backup_timestamp_00")),
-                                    Directory.GetCreationTime(BackupDir).ToString("f", CultureInfo.CurrentUICulture)
-                                )
-                            )
-                        End If
-                    Next
-
-                    If BackupDirs.Count > 0 Then
-                        'If at least one directory contains save files
-                        'Display the dropdown menu and select the first folder on the list
-                        CustomMsgBox.BackupDirsDropdownCombo.Visible = True
-                        CustomMsgBox.BackupDirsDropdownCombo.SelectedIndex = 0
-
-                        'Ask the user from which folder the backup should be restored from
-                        CustomMsgBox.Show(Strings.Format(Localization.GetString("msgbox_backup_restore_dynamic"),
-                                          Form1.BackupLocTextBox.Text.Replace("\", "\\"), CustomMsgBox.BackupDirsDropdownCombo.SelectedItem.ToString().Substring(0, 13), Form1.SavegamesLocTextBox.Text.Replace("\", "\\")),
-                                          Localization.GetString("msgbox_backup_restore_title"),
-                                          MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
-                        If CustomMsgBox.DialogResult = DialogResult.Yes Then
-                            'Store the selected backup subdirectory and truncate "Created at..." with .Substring(startIndex, lenght)
-                            Dim BackupSubDir = Form1.BackupLocTextBox.Text & "\" & CustomMsgBox.BackupDirsDropdownCombo.SelectedItem.ToString().Substring(0, 13)
-                            Dim SavegamesList As String() = Directory.GetFiles(BackupSubDir, "*.save")
-                            For Each F As String In SavegamesList
-                                Dim FileName As String = F.Substring(BackupSubDir.Length + 1)
-                                File.Copy(Path.Combine(BackupSubDir, FileName), Path.Combine(Form1.SavegamesLocTextBox.Text, FileName), True)
-                            Next
-
-                            Logger.Log("[INFO] Backup from " & BackupSubDir & " restored.")
-                            Banner.Show(64, Localization.GetString("banner_backup_restored"))
-                        Else
-                            Logger.Log("[INFO] Restore process cancelled by the user.")
-                        End If
-                    Else
-                        'If no directory contains any save files
-                        CustomMsgBox.Show(Localization.GetString("msgbox_invalid_backup_folder"), Localization.GetString("msgbox_invalid_backup_folder_title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
-                        Logger.Log("[INFO] No valid backup found inside " & Form1.BackupLocTextBox.Text & ". Restore process aborted.")
-
-                        Form1.LatestBackupHelpLabel.Text = Localization.GetString("ui_tasks_latest_none")
-                    End If
                 End If
             Else
                 CustomMsgBox.Show(Localization.GetString("msgbox_empty_backup_folder"), Localization.GetString("msgbox_empty_backup_folder_title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
@@ -372,10 +389,120 @@ Public Class BackupHelper
             CustomMsgBox.Show(Localization.GetString("msgbox_restore_error"), Localization.GetString("msgbox_restore_error_title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
 
         Finally
-            'Empty subdirectories list to avoid adding duplicates in the next restore process
-            CustomMsgBox.BackupDirsDropdownCombo.Items.Clear()
             'Empty backup directories list to avoid ArgumentOutOfRangeException when attempting to restore a backup from an empty directory (or directory with no valid backup) that previously contained valid backups
             BackupDirs.Clear()
         End Try
     End Sub
+
+    Public Overloads Shared Sub RestoreBackup(subDir As String)
+        Logger.Log("[INFO] Restore process started (" & NameOf(subDir) & ").")
+
+        Try
+            Dim BackupDirectory As String = Form1.BackupLocTextBox.Text & "\" & subDir
+
+            'Ask the user before restoring the backup
+            CustomMsgBox.Show(Strings.Format(Localization.GetString("msgbox_backup_restore"), BackupDirectory.Replace("\", "\\"), Form1.SavegamesLocTextBox.Text.Replace("\", "\\")),
+                              Localization.GetString("msgbox_backup_restore_title"),
+                              MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+            If CustomMsgBox.DialogResult = DialogResult.Yes Then
+                For Each F As String In Directory.GetFiles(BackupDirectory, "*.save")
+                    File.Copy(F, F.Replace(BackupDirectory, Form1.SavegamesLocTextBox.Text), True)
+                Next
+
+                Logger.Log("[INFO] Backup from " & BackupDirectory & " restored.")
+                Banner.Show(64, Localization.GetString("banner_backup_restored"))
+            Else
+                Logger.Log("[INFO] Restore process cancelled by the user.")
+            End If
+        Catch ex As Exception
+            Logger.Log("[ERROR] Could not restore the backup: " & ex.Message())
+            CustomMsgBox.Show(Localization.GetString("msgbox_restore_error"), Localization.GetString("msgbox_restore_error_title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+        End Try
+    End Sub
+#End Region
+
+#Region "Backup Deletion"
+    Public Overloads Shared Sub DeleteBackup()
+        Logger.Log("[INFO] Deletion process started.")
+
+        Try
+            'Ask the user before deleting the backup
+            CustomMsgBox.Show(Strings.Format(Localization.GetString("msgbox_backup_delete_all"), Form1.BackupLocTextBox.Text.Replace("\", "\\")),
+                              Localization.GetString("msgbox_backup_delete_title"),
+                              MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+            If CustomMsgBox.DialogResult = DialogResult.Yes Then
+                'Delete all directories inside the backup location recursively
+                For Each D In Directory.EnumerateDirectories(Form1.BackupLocTextBox.Text)
+                    Directory.Delete(D, True)
+                Next
+                'Delete all rows
+                '//stackoverflow.com/a/19959099
+                Form1.BackupsDataGrid.DataSource = Nothing
+                'Detect latest backup
+                DetectLatestBackup()
+
+                Logger.Log("[INFO] Backup " & Form1.BackupLocTextBox.Text & " deleted.")
+                Banner.Show(64, Localization.GetString("banner_backup_deleted_all"))
+            Else
+                Logger.Log("[INFO] Deletion process cancelled by the user.")
+            End If
+
+        Catch ex As Exception
+            Logger.Log("[ERROR] Could not delete backups: " & ex.Message())
+            CustomMsgBox.Show(Localization.GetString("msgbox_delete_all_error"), Localization.GetString("msgbox_delete_error_title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Public Overloads Shared Sub DeleteBackup(subDir As String)
+        Logger.Log("[INFO] Deletion process started (" & NameOf(subDir) & ").")
+
+        Try
+            Dim BackupDirectory As String = Form1.BackupLocTextBox.Text & "\" & subDir
+
+            Select Case Form1.BackupsDataGrid.Rows.Count
+                'If there is only one row, let the user know that they're deleting the only backup available
+                Case 1
+                    'Ask the user before deleting the backup
+                    CustomMsgBox.Show(Strings.Format(Localization.GetString("msgbox_backup_delete_latest"), BackupDirectory.Replace("\", "\\")),
+                                      Localization.GetString("msgbox_backup_delete_title"),
+                                      MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+                    If CustomMsgBox.DialogResult = DialogResult.Yes Then
+                        'Delete backup directory and all files inside of it (recursive)
+                        Directory.Delete(BackupDirectory, True)
+                        'Delete row
+                        Form1.BackupsDataGrid.Rows.Remove(Form1.BackupsDataGrid.CurrentRow)
+                        'Detect latest backup
+                        DetectLatestBackup()
+
+                        Logger.Log("[INFO] Backup " & BackupDirectory & " deleted.")
+                        Banner.Show(64, Localization.GetString("banner_backup_deleted"))
+                    Else
+                        Logger.Log("[INFO] Deletion process cancelled by the user.")
+                    End If
+                Case Else
+                    'Ask the user before deleting the backup
+                    CustomMsgBox.Show(Strings.Format(Localization.GetString("msgbox_backup_delete"), BackupDirectory.Replace("\", "\\")),
+                                      Localization.GetString("msgbox_backup_delete_title"),
+                                      MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2)
+                    If CustomMsgBox.DialogResult = DialogResult.Yes Then
+                        'Delete backup directory and all files inside of it (recursive)
+                        Directory.Delete(BackupDirectory, True)
+                        'Delete row
+                        Form1.BackupsDataGrid.Rows.Remove(Form1.BackupsDataGrid.CurrentRow)
+                        'Detect latest backup
+                        DetectLatestBackup()
+
+                        Logger.Log("[INFO] Backup " & BackupDirectory & " deleted.")
+                        Banner.Show(64, Localization.GetString("banner_backup_deleted"))
+                    Else
+                        Logger.Log("[INFO] Deletion process cancelled by the user.")
+                    End If
+            End Select
+
+        Catch ex As Exception
+            Logger.Log("[ERROR] Could not delete the backup: " & ex.Message())
+            CustomMsgBox.Show(Localization.GetString("msgbox_delete_error"), Localization.GetString("msgbox_delete_error_title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+        End Try
+    End Sub
+#End Region
 End Class

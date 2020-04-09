@@ -24,6 +24,9 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.SavegamesLocTextBox = New System.Windows.Forms.TextBox()
         Me.BackupLocTextBox = New System.Windows.Forms.TextBox()
         Me.ExploreSavegamesLocBtn = New System.Windows.Forms.Button()
@@ -87,6 +90,17 @@ Partial Class Form1
         Me.SidemenuSettings = New System.Windows.Forms.CheckBox()
         Me.SidemenuTasks = New System.Windows.Forms.CheckBox()
         Me.LogoBigPictureBox = New System.Windows.Forms.PictureBox()
+        Me.SidemenuManage = New System.Windows.Forms.CheckBox()
+        Me.ManageContainer = New System.Windows.Forms.Panel()
+        Me.BackupsDataGrid = New System.Windows.Forms.DataGridView()
+        Me.ManageContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.RestoreToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteAllStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ShowBackupStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogTxtBoxContextMenu.SuspendLayout()
         Me.TopMenuContainer.SuspendLayout()
         CType(Me.AlertDot, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -98,6 +112,9 @@ Partial Class Form1
         Me.TasksContainer.SuspendLayout()
         CType(Me.BackupFreqUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LogoBigPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ManageContainer.SuspendLayout()
+        CType(Me.BackupsDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ManageContextMenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'SavegamesLocTextBox
@@ -543,7 +560,7 @@ Partial Class Form1
         Me.SettingsContainer.Location = New System.Drawing.Point(325, 149)
         Me.SettingsContainer.Name = "SettingsContainer"
         Me.SettingsContainer.Size = New System.Drawing.Size(497, 299)
-        Me.SettingsContainer.TabIndex = 8
+        Me.SettingsContainer.TabIndex = 12
         '
         'SettingsDisplayNotificationChkBox
         '
@@ -801,7 +818,7 @@ Partial Class Form1
         Me.FoldersContainer.Location = New System.Drawing.Point(325, 311)
         Me.FoldersContainer.Name = "FoldersContainer"
         Me.FoldersContainer.Size = New System.Drawing.Size(497, 137)
-        Me.FoldersContainer.TabIndex = 7
+        Me.FoldersContainer.TabIndex = 8
         '
         'BrowseSavegamesLocBtn
         '
@@ -850,7 +867,7 @@ Partial Class Form1
         Me.FoldersTitleLabel.Location = New System.Drawing.Point(322, 277)
         Me.FoldersTitleLabel.Name = "FoldersTitleLabel"
         Me.FoldersTitleLabel.Size = New System.Drawing.Size(65, 21)
-        Me.FoldersTitleLabel.TabIndex = 6
+        Me.FoldersTitleLabel.TabIndex = 7
         Me.FoldersTitleLabel.Text = "Folders"
         '
         'TasksContainer
@@ -871,7 +888,7 @@ Partial Class Form1
         Me.TasksContainer.Location = New System.Drawing.Point(325, 149)
         Me.TasksContainer.Name = "TasksContainer"
         Me.TasksContainer.Size = New System.Drawing.Size(497, 115)
-        Me.TasksContainer.TabIndex = 5
+        Me.TasksContainer.TabIndex = 6
         '
         'BackupFreqHelp2Label
         '
@@ -907,7 +924,7 @@ Partial Class Form1
         Me.WhichBackupDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.WhichBackupDropdown.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.WhichBackupDropdown.ForeColor = System.Drawing.Color.White
-        Me.WhichBackupDropdown.Items.AddRange(New Object() {"Latest", "Second-to-last", "Choose"})
+        Me.WhichBackupDropdown.Items.AddRange(New Object() {"Latest", "Second-to-last"})
         Me.WhichBackupDropdown.Location = New System.Drawing.Point(12, 78)
         Me.WhichBackupDropdown.Name = "WhichBackupDropdown"
         Me.WhichBackupDropdown.Size = New System.Drawing.Size(286, 25)
@@ -991,7 +1008,7 @@ Partial Class Form1
         Me.TitleLabel.Location = New System.Drawing.Point(322, 115)
         Me.TitleLabel.Name = "TitleLabel"
         Me.TitleLabel.Size = New System.Drawing.Size(97, 21)
-        Me.TitleLabel.TabIndex = 4
+        Me.TitleLabel.TabIndex = 5
         Me.TitleLabel.Text = "{TitleLabel}"
         '
         'HelpToolTip
@@ -1015,10 +1032,10 @@ Partial Class Form1
         Me.SidemenuSettings.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SidemenuSettings.Image = CType(resources.GetObject("SidemenuSettings.Image"), System.Drawing.Image)
         Me.SidemenuSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.SidemenuSettings.Location = New System.Drawing.Point(14, 284)
+        Me.SidemenuSettings.Location = New System.Drawing.Point(14, 322)
         Me.SidemenuSettings.Name = "SidemenuSettings"
         Me.SidemenuSettings.Size = New System.Drawing.Size(104, 31)
-        Me.SidemenuSettings.TabIndex = 3
+        Me.SidemenuSettings.TabIndex = 4
         Me.SidemenuSettings.Text = "  Settings"
         Me.SidemenuSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.SidemenuSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -1058,6 +1075,153 @@ Partial Class Form1
         Me.LogoBigPictureBox.TabIndex = 10
         Me.LogoBigPictureBox.TabStop = False
         '
+        'SidemenuManage
+        '
+        Me.SidemenuManage.Appearance = System.Windows.Forms.Appearance.Button
+        Me.SidemenuManage.AutoSize = True
+        Me.SidemenuManage.BackColor = System.Drawing.Color.Transparent
+        Me.SidemenuManage.FlatAppearance.BorderSize = 0
+        Me.SidemenuManage.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent
+        Me.SidemenuManage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.SidemenuManage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.SidemenuManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SidemenuManage.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SidemenuManage.ForeColor = System.Drawing.Color.FromArgb(CType(CType(85, Byte), Integer), CType(CType(170, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SidemenuManage.Image = Global.GHOSTbackup.My.Resources.Resources.Backup
+        Me.SidemenuManage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.SidemenuManage.Location = New System.Drawing.Point(14, 284)
+        Me.SidemenuManage.Name = "SidemenuManage"
+        Me.SidemenuManage.Size = New System.Drawing.Size(104, 31)
+        Me.SidemenuManage.TabIndex = 3
+        Me.SidemenuManage.Text = "  Backups"
+        Me.SidemenuManage.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.SidemenuManage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.SidemenuManage.UseVisualStyleBackColor = False
+        '
+        'ManageContainer
+        '
+        Me.ManageContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.ManageContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ManageContainer.Controls.Add(Me.BackupsDataGrid)
+        Me.ManageContainer.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ManageContainer.Location = New System.Drawing.Point(325, 149)
+        Me.ManageContainer.Name = "ManageContainer"
+        Me.ManageContainer.Size = New System.Drawing.Size(497, 299)
+        Me.ManageContainer.TabIndex = 11
+        '
+        'BackupsDataGrid
+        '
+        Me.BackupsDataGrid.AllowUserToAddRows = False
+        Me.BackupsDataGrid.AllowUserToDeleteRows = False
+        Me.BackupsDataGrid.AllowUserToResizeRows = False
+        Me.BackupsDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.BackupsDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
+        Me.BackupsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.BackupsDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.BackupsDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.BackupsDataGrid.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.BackupsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.BackupsDataGrid.DefaultCellStyle = DataGridViewCellStyle2
+        Me.BackupsDataGrid.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.BackupsDataGrid.EnableHeadersVisualStyles = False
+        Me.BackupsDataGrid.GridColor = System.Drawing.Color.FromArgb(CType(CType(84, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(89, Byte), Integer))
+        Me.BackupsDataGrid.Location = New System.Drawing.Point(0, 0)
+        Me.BackupsDataGrid.MultiSelect = False
+        Me.BackupsDataGrid.Name = "BackupsDataGrid"
+        Me.BackupsDataGrid.ReadOnly = True
+        Me.BackupsDataGrid.RowHeadersVisible = False
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.BackupsDataGrid.RowsDefaultCellStyle = DataGridViewCellStyle3
+        Me.BackupsDataGrid.RowTemplate.ReadOnly = True
+        Me.BackupsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.BackupsDataGrid.Size = New System.Drawing.Size(495, 297)
+        Me.BackupsDataGrid.TabIndex = 0
+        '
+        'ManageContextMenu
+        '
+        Me.ManageContextMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(58, Byte), Integer), CType(CType(69, Byte), Integer))
+        Me.ManageContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RestoreToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem, Me.DeleteAllStripMenuItem, Me.ToolStripSeparator2, Me.ShowBackupStripMenuItem})
+        Me.ManageContextMenu.Name = "logTxtBoxContext"
+        Me.ManageContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.ManageContextMenu.Size = New System.Drawing.Size(162, 126)
+        '
+        'RestoreToolStripMenuItem
+        '
+        Me.RestoreToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.RestoreToolStripMenuItem.Image = Global.GHOSTbackup.My.Resources.Resources.Manage_Restore
+        Me.RestoreToolStripMenuItem.Name = "RestoreToolStripMenuItem"
+        Me.RestoreToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.RestoreToolStripMenuItem.Text = "Restore"
+        Me.RestoreToolStripMenuItem.ToolTipText = "Restore the selected backup."
+        '
+        'DeleteToolStripMenuItem
+        '
+        Me.DeleteToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.DeleteToolStripMenuItem.Image = Global.GHOSTbackup.My.Resources.Resources.Manage_Delete
+        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.DeleteToolStripMenuItem.Text = "Delete"
+        Me.DeleteToolStripMenuItem.ToolTipText = "Delete the selected backup."
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.BackColor = System.Drawing.Color.Transparent
+        Me.ToolStripSeparator1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(61, Byte), Integer))
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(158, 6)
+        '
+        'RefreshToolStripMenuItem
+        '
+        Me.RefreshToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.RefreshToolStripMenuItem.Text = "Refresh"
+        Me.RefreshToolStripMenuItem.ToolTipText = "Refresh the list of backups."
+        '
+        'DeleteAllStripMenuItem
+        '
+        Me.DeleteAllStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.DeleteAllStripMenuItem.Image = Global.GHOSTbackup.My.Resources.Resources.Manage_Delete_All
+        Me.DeleteAllStripMenuItem.Name = "DeleteAllStripMenuItem"
+        Me.DeleteAllStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.DeleteAllStripMenuItem.Text = "Delete All"
+        Me.DeleteAllStripMenuItem.ToolTipText = "Delete all backups."
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.BackColor = System.Drawing.Color.Transparent
+        Me.ToolStripSeparator2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(61, Byte), Integer))
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(158, 6)
+        '
+        'ShowBackupStripMenuItem
+        '
+        Me.ShowBackupStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.ShowBackupStripMenuItem.Name = "ShowBackupStripMenuItem"
+        Me.ShowBackupStripMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.ShowBackupStripMenuItem.Text = "Show in Explorer"
+        Me.ShowBackupStripMenuItem.ToolTipText = "Open the selected backup folder in Windows Explorer."
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1065,6 +1229,7 @@ Partial Class Form1
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
         Me.BackgroundImage = Global.GHOSTbackup.My.Resources.Resources.Bg
         Me.ClientSize = New System.Drawing.Size(834, 461)
+        Me.Controls.Add(Me.SidemenuManage)
         Me.Controls.Add(Me.SidemenuSettings)
         Me.Controls.Add(Me.SidemenuTasks)
         Me.Controls.Add(Me.TitleLabel)
@@ -1076,6 +1241,7 @@ Partial Class Form1
         Me.Controls.Add(Me.LogoBigPictureBox)
         Me.Controls.Add(Me.SettingsContainer)
         Me.Controls.Add(Me.AboutContainer)
+        Me.Controls.Add(Me.ManageContainer)
         Me.Controls.Add(Me.LogsContainer)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1103,6 +1269,9 @@ Partial Class Form1
         Me.TasksContainer.PerformLayout()
         CType(Me.BackupFreqUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LogoBigPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ManageContainer.ResumeLayout(False)
+        CType(Me.BackupsDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ManageContextMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1170,4 +1339,15 @@ Partial Class Form1
     Friend WithEvents SidemenuSettings As CheckBox
     Friend WithEvents BackupFreqUpDown As NumericUpDown
     Friend WithEvents BackupFreqHelp2Label As Label
+    Friend WithEvents SidemenuManage As CheckBox
+    Friend WithEvents ManageContainer As Panel
+    Friend WithEvents BackupsDataGrid As DataGridView
+    Friend WithEvents ManageContextMenu As ContextMenuStrip
+    Friend WithEvents RestoreToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DeleteToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents DeleteAllStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents ShowBackupStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RefreshToolStripMenuItem As ToolStripMenuItem
 End Class

@@ -180,6 +180,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon_256.ico" />
+    <None Include="Resources\restore.png" />
+    <None Include="Resources\delete_all.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\backup_white.png" />
+    <None Include="Resources\backup.png" />
     <None Include="Resources\uplay.png" />
     <None Include="Resources\tasks_white.png" />
     <None Include="Resources\tasks.png" />

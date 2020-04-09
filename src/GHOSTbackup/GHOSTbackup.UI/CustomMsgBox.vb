@@ -144,13 +144,6 @@ Public Class CustomMsgBox
     End Sub
 #End Region
 
-    Private Sub CustomMsgBox_Closing(sender As Object, e As FormClosingEventArgs) Handles Me.Closing
-        'Hide the dropdown menu, if visible, to avoid displaying it again if not necessary
-        If BackupDirsDropdownCombo.Visible = True Then
-            BackupDirsDropdownCombo.Visible = False
-        End If
-    End Sub
-
     Private Sub MessageRTF_MouseDown(sender As Object, e As MouseEventArgs) Handles MessageRTF.MouseDown
         'An hack to disable the caret
         '//www.codeproject.com/Answers/272781/How-to-hide-the-caret-in-RichTextBox#answer1
@@ -164,10 +157,5 @@ Public Class CustomMsgBox
         MessageRTF.SelectionLength = 0
         MessageRTF.SelectionStart = MessageRTF.TextLength
         ActiveControl = CancelLabel
-    End Sub
-
-    Private Sub BackupDirsDropdownCombo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles BackupDirsDropdownCombo.SelectedIndexChanged
-        'Update backup folder path when selecting which backup to restore
-        MessageRTF.Rtf = Strings.Format(Localization.GetString("msgbox_backup_restore_dynamic"), Form1.BackupLocTextBox.Text.Replace("\", "\\"), BackupDirsDropdownCombo.SelectedItem.ToString().Substring(0, 13), Form1.SavegamesLocTextBox.Text.Replace("\", "\\"))
     End Sub
 End Class

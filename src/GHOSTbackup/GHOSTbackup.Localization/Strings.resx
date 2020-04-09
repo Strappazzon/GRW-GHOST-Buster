@@ -310,9 +310,6 @@
   <data name="ui_tasks_backup" xml:space="preserve">
     <value>Start\nBackup</value>
   </data>
-  <data name="ui_tasks_dropdown_choose" xml:space="preserve">
-    <value>Choose</value>
-  </data>
   <data name="ui_tasks_dropdown_latest" xml:space="preserve">
     <value>Latest</value>
   </data>
@@ -402,21 +399,6 @@
   <data name="msgbox_backup_404_title" xml:space="preserve">
     <value>Backup doesn't exist</value>
   </data>
-  <data name="msgbox_dropdown_backup_timestamp" xml:space="preserve">
-    <value> minutes ago</value>
-    <comment>Prepend a SPACE to this string!</comment>
-  </data>
-  <data name="msgbox_dropdown_backup_timestamp_00" xml:space="preserve">
-    <value>less than a minute ago</value>
-  </data>
-  <data name="msgbox_dropdown_backup_timestamp_created" xml:space="preserve">
-    <value> - Created </value>
-    <comment>Prepend and append a SPACE to this string!</comment>
-  </data>
-  <data name="msgbox_backup_restore_dynamic" xml:space="preserve">
-    <value>{\rtf1 Restoring a backup will copy the save files over from the backup folder: &lt;0&gt;\\&lt;1&gt;\line\line and will {\b OVERWRITE} the existing save files inside the game folder: &lt;2&gt;\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}</value>
-    <comment>This string MUST be written in Rich Text Format</comment>
-  </data>
   <data name="msgbox_empty_backup_folder" xml:space="preserve">
     <value>{\rtf1 The current {\b backup folder is empty.} Backup at least once and try again.}</value>
     <comment>This string MUST be written in Rich Text Format</comment>
@@ -491,5 +473,73 @@
   </data>
   <data name="tooltip_uplay" xml:space="preserve">
     <value>Launch Uplay.</value>
+  </data>
+  <data name="ui_title_manage" xml:space="preserve">
+    <value>Manage Backups</value>
+  </data>
+  <data name="ui_manage" xml:space="preserve">
+    <value>Backups</value>
+  </data>
+  <data name="banner_backups_table_retrieve_error" xml:space="preserve">
+    <value>An error occurred while retrieving the list of backups.</value>
+  </data>
+  <data name="ui_manage_table_column_folder" xml:space="preserve">
+    <value>Folder</value>
+  </data>
+  <data name="ui_manage_table_column_size" xml:space="preserve">
+    <value>Size ({0})</value>
+  </data>
+  <data name="ui_manage_table_column_timestamp" xml:space="preserve">
+    <value>Creation date</value>
+  </data>
+  <data name="msgbox_backup_delete" xml:space="preserve">
+    <value>{\rtf1 Deleting a backup will free up space on your backup location. The backup folder &lt;0&gt; and all save files inside of it will be {\b PERMANENTLY DELETED.}\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}</value>
+    <comment>This string MUST be written in Rich Text Format</comment>
+  </data>
+  <data name="msgbox_backup_delete_title" xml:space="preserve">
+    <value>Backup deletion</value>
+  </data>
+  <data name="banner_backup_deleted" xml:space="preserve">
+    <value>Backup successfully deleted.</value>
+  </data>
+  <data name="msgbox_delete_error_title" xml:space="preserve">
+    <value>Deletion failed</value>
+  </data>
+  <data name="msgbox_delete_error" xml:space="preserve">
+    <value>{\rtf1 {\b An error prevented} GHOST Buster from deleting the selected backup folder. Please check the logs for more details.}</value>
+    <comment>This string MUST be written in Rich Text Format</comment>
+  </data>
+  <data name="msgbox_backup_delete_latest" xml:space="preserve">
+    <value>{\rtf1 Deleting the only backup will prevent you from restoring save files. The backup folder &lt;0&gt; and all save files inside of it will be {\b PERMANENTLY DELETED.}\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}</value>
+    <comment>This string MUST be written in Rich Text Format</comment>
+  </data>
+  <data name="msgbox_delete_all_error" xml:space="preserve">
+    <value>{\rtf1 {\b An error prevented} GHOST Buster from deleting the backup folder. Please check the logs for more details.}</value>
+    <comment>This string MUST be written in Rich Text Format</comment>
+  </data>
+  <data name="msgbox_backup_delete_all" xml:space="preserve">
+    <value>{\rtf1 Deleting all backups will free up space on your backup location and will prevent you from restoring save files. All backups inside &lt;0&gt; will be {\b PERMANENTLY DELETED.}\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}</value>
+    <comment>This string MUST be written in Rich Text Format</comment>
+  </data>
+  <data name="banner_backup_deleted_all" xml:space="preserve">
+    <value>Backups successfully deleted.</value>
+  </data>
+  <data name="banner_manage_backup_folder_404_info" xml:space="preserve">
+    <value>The selected backup no longer exists.</value>
+  </data>
+  <data name="ui_manage_context_restore" xml:space="preserve">
+    <value>Restore</value>
+  </data>
+  <data name="ui_manage_context_delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="ui_manage_context_refresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="ui_manage_context_deleteall" xml:space="preserve">
+    <value>Delete All</value>
+  </data>
+  <data name="ui_manage_context_explorer" xml:space="preserve">
+    <value>Show in Explorer</value>
   </data>
 </root>

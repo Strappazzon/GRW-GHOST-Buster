@@ -65,6 +65,24 @@ Namespace Languages
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Backup successfully deleted..
+        '''</summary>
+        Friend Shared ReadOnly Property banner_backup_deleted() As String
+            Get
+                Return ResourceManager.GetString("banner_backup_deleted", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Backups successfully deleted..
+        '''</summary>
+        Friend Shared ReadOnly Property banner_backup_deleted_all() As String
+            Get
+                Return ResourceManager.GetString("banner_backup_deleted_all", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Backup folder doesn&apos;t exist..
         '''</summary>
         Friend Shared ReadOnly Property banner_backup_folder_404_info() As String
@@ -88,6 +106,15 @@ Namespace Languages
         Friend Shared ReadOnly Property banner_backup_restored() As String
             Get
                 Return ResourceManager.GetString("banner_backup_restored", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to An error occurred while retrieving the list of backups..
+        '''</summary>
+        Friend Shared ReadOnly Property banner_backups_table_retrieve_error() As String
+            Get
+                Return ResourceManager.GetString("banner_backups_table_retrieve_error", resourceCulture)
             End Get
         End Property
         
@@ -133,6 +160,15 @@ Namespace Languages
         Friend Shared ReadOnly Property banner_log_file_404_info() As String
             Get
                 Return ResourceManager.GetString("banner_log_file_404_info", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to The selected backup no longer exists..
+        '''</summary>
+        Friend Shared ReadOnly Property banner_manage_backup_folder_404_info() As String
+            Get
+                Return ResourceManager.GetString("banner_manage_backup_folder_404_info", resourceCulture)
             End Get
         End Property
         
@@ -272,6 +308,42 @@ Namespace Languages
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to {\rtf1 Deleting a backup will free up space on your backup location. The backup folder &lt;0&gt; and all save files inside of it will be {\b PERMANENTLY DELETED.}\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}.
+        '''</summary>
+        Friend Shared ReadOnly Property msgbox_backup_delete() As String
+            Get
+                Return ResourceManager.GetString("msgbox_backup_delete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {\rtf1 Deleting all backups will free up space on your backup location and will prevent you from restoring save files. All backups inside &lt;0&gt; will be {\b PERMANENTLY DELETED.}\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}.
+        '''</summary>
+        Friend Shared ReadOnly Property msgbox_backup_delete_all() As String
+            Get
+                Return ResourceManager.GetString("msgbox_backup_delete_all", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {\rtf1 Deleting the only backup will prevent you from restoring save files. The backup folder &lt;0&gt; and all save files inside of it will be {\b PERMANENTLY DELETED.}\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}.
+        '''</summary>
+        Friend Shared ReadOnly Property msgbox_backup_delete_latest() As String
+            Get
+                Return ResourceManager.GetString("msgbox_backup_delete_latest", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Backup deletion.
+        '''</summary>
+        Friend Shared ReadOnly Property msgbox_backup_delete_title() As String
+            Get
+                Return ResourceManager.GetString("msgbox_backup_delete_title", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to {\rtf1 The backup process has been {\b interrupted due to an error.} Please check the logs for more details.}.
         '''</summary>
         Friend Shared ReadOnly Property msgbox_backup_error() As String
@@ -295,15 +367,6 @@ Namespace Languages
         Friend Shared ReadOnly Property msgbox_backup_restore() As String
             Get
                 Return ResourceManager.GetString("msgbox_backup_restore", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to {\rtf1 Restoring a backup will copy the save files over from the backup folder: &lt;0&gt;\\&lt;1&gt;\line\line and will {\b OVERWRITE} the existing save files inside the game folder: &lt;2&gt;\line\line {\b THIS CANNOT BE UNDONE. ARE YOU SURE YOU WANT TO PROCEED?}}.
-        '''</summary>
-        Friend Shared ReadOnly Property msgbox_backup_restore_dynamic() As String
-            Get
-                Return ResourceManager.GetString("msgbox_backup_restore_dynamic", resourceCulture)
             End Get
         End Property
         
@@ -398,38 +461,38 @@ Namespace Languages
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to {\rtf1 {\b An error prevented} GHOST Buster from deleting the backup folder. Please check the logs for more details.}.
+        '''</summary>
+        Friend Shared ReadOnly Property msgbox_delete_all_error() As String
+            Get
+                Return ResourceManager.GetString("msgbox_delete_all_error", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {\rtf1 {\b An error prevented} GHOST Buster from deleting the selected backup folder. Please check the logs for more details.}.
+        '''</summary>
+        Friend Shared ReadOnly Property msgbox_delete_error() As String
+            Get
+                Return ResourceManager.GetString("msgbox_delete_error", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Deletion failed.
+        '''</summary>
+        Friend Shared ReadOnly Property msgbox_delete_error_title() As String
+            Get
+                Return ResourceManager.GetString("msgbox_delete_error_title", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to {\rtf1 &quot;&lt;0&gt;&quot; setting has been {\b disabled because an error occurred} while trying to parse Uplay settings file. \line\line Make sure to {\b DISABLE} cloud save synchronization from Uplay (Settings -&gt; Untick &quot;Enable cloud save synchronization for supported games&quot;) before launching Wildlands, otherwise the restored save games will be {\b OVERWRITTEN} with the old ones from the cloud!}.
         '''</summary>
         Friend Shared ReadOnly Property msgbox_disable_sync_error() As String
             Get
                 Return ResourceManager.GetString("msgbox_disable_sync_error", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to  minutes ago.
-        '''</summary>
-        Friend Shared ReadOnly Property msgbox_dropdown_backup_timestamp() As String
-            Get
-                Return ResourceManager.GetString("msgbox_dropdown_backup_timestamp", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to less than a minute ago.
-        '''</summary>
-        Friend Shared ReadOnly Property msgbox_dropdown_backup_timestamp_00() As String
-            Get
-                Return ResourceManager.GetString("msgbox_dropdown_backup_timestamp_00", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized string similar to  - Created .
-        '''</summary>
-        Friend Shared ReadOnly Property msgbox_dropdown_backup_timestamp_created() As String
-            Get
-                Return ResourceManager.GetString("msgbox_dropdown_backup_timestamp_created", resourceCulture)
             End Get
         End Property
         
@@ -821,6 +884,87 @@ Namespace Languages
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to Backups.
+        '''</summary>
+        Friend Shared ReadOnly Property ui_manage() As String
+            Get
+                Return ResourceManager.GetString("ui_manage", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Delete.
+        '''</summary>
+        Friend Shared ReadOnly Property ui_manage_context_delete() As String
+            Get
+                Return ResourceManager.GetString("ui_manage_context_delete", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Delete All.
+        '''</summary>
+        Friend Shared ReadOnly Property ui_manage_context_deleteall() As String
+            Get
+                Return ResourceManager.GetString("ui_manage_context_deleteall", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Show in Explorer.
+        '''</summary>
+        Friend Shared ReadOnly Property ui_manage_context_explorer() As String
+            Get
+                Return ResourceManager.GetString("ui_manage_context_explorer", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Refresh.
+        '''</summary>
+        Friend Shared ReadOnly Property ui_manage_context_refresh() As String
+            Get
+                Return ResourceManager.GetString("ui_manage_context_refresh", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Restore.
+        '''</summary>
+        Friend Shared ReadOnly Property ui_manage_context_restore() As String
+            Get
+                Return ResourceManager.GetString("ui_manage_context_restore", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Folder.
+        '''</summary>
+        Friend Shared ReadOnly Property ui_manage_table_column_folder() As String
+            Get
+                Return ResourceManager.GetString("ui_manage_table_column_folder", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Size ({0}).
+        '''</summary>
+        Friend Shared ReadOnly Property ui_manage_table_column_size() As String
+            Get
+                Return ResourceManager.GetString("ui_manage_table_column_size", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Creation date.
+        '''</summary>
+        Friend Shared ReadOnly Property ui_manage_table_column_timestamp() As String
+            Get
+                Return ResourceManager.GetString("ui_manage_table_column_timestamp", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Play Ghost Recon Wildlands.
         '''</summary>
         Friend Shared ReadOnly Property ui_play() As String
@@ -956,15 +1100,6 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Choose.
-        '''</summary>
-        Friend Shared ReadOnly Property ui_tasks_dropdown_choose() As String
-            Get
-                Return ResourceManager.GetString("ui_tasks_dropdown_choose", resourceCulture)
-            End Get
-        End Property
-        
-        '''<summary>
         '''  Looks up a localized string similar to Latest.
         '''</summary>
         Friend Shared ReadOnly Property ui_tasks_dropdown_latest() As String
@@ -1087,6 +1222,15 @@ Namespace Languages
         Friend Shared ReadOnly Property ui_title_logs() As String
             Get
                 Return ResourceManager.GetString("ui_title_logs", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Manage Backups.
+        '''</summary>
+        Friend Shared ReadOnly Property ui_title_manage() As String
+            Get
+                Return ResourceManager.GetString("ui_title_manage", resourceCulture)
             End Get
         End Property
         

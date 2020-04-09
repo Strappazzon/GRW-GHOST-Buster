@@ -54,6 +54,7 @@ Public Class Localization
         'Localize form elements
         Form1.PlayGameBtn.Text = GetString("ui_play")
         Form1.SidemenuTasks.Text = "  " & GetString("ui_title_tasks")
+        Form1.SidemenuManage.Text = "  " & GetString("ui_manage")
         Form1.SidemenuSettings.Text = "  " & GetString("ui_title_settings")
         Form1.TitleLabel.Text = GetString("ui_title_tasks")
         Form1.FoldersTitleLabel.Text = GetString("ui_title_folders")
@@ -78,7 +79,6 @@ Public Class Localization
         Form1.WhichBackupLabel.Text = GetString("ui_tasks_restore_choice")
         Form1.WhichBackupDropdown.Items(Form1.WhichBackupDropdown.FindStringExact(Form1.WhichBackupDropdown.Items(0)).ToString()) = GetString("ui_tasks_dropdown_latest")
         Form1.WhichBackupDropdown.Items(Form1.WhichBackupDropdown.FindStringExact(Form1.WhichBackupDropdown.Items(1)).ToString()) = GetString("ui_tasks_dropdown_second")
-        Form1.WhichBackupDropdown.Items(Form1.WhichBackupDropdown.FindStringExact(Form1.WhichBackupDropdown.Items(2)).ToString()) = GetString("ui_tasks_dropdown_choose")
         'Folders
         Form1.SavegamesLocHelpLabel.Text = GetString("ui_folders_wildlands")
         Form1.BackupLocHelpLabel.Text = GetString("ui_folders_backup")
@@ -95,6 +95,12 @@ Public Class Localization
         Form1.SettingsNonUplayVersionChkBox.Text = GetString("ui_settings_nouplay")
         Form1.SettingsNonUplayVersionRestartLabel.Text = GetString("ui_settings_restart")
         Form1.SettingsWriteLogToFileChkBox.Text = GetString("ui_settings_log_file")
+        'Manage Backups
+        Form1.RestoreToolStripMenuItem.Text = GetString("ui_manage_context_restore")
+        Form1.DeleteToolStripMenuItem.Text = GetString("ui_manage_context_delete")
+        Form1.RefreshToolStripMenuItem.Text = GetString("ui_manage_context_refresh")
+        Form1.DeleteAllStripMenuItem.Text = GetString("ui_manage_context_deleteall")
+        Form1.ShowBackupStripMenuItem.Text = GetString("ui_manage_context_explorer")
         'Logs
         Form1.CopyToolStripMenuItem.Text = GetString("ui_logs_context_copy")
         Form1.SelectAllToolStripMenuItem.Text = GetString("ui_logs_context_selectall")

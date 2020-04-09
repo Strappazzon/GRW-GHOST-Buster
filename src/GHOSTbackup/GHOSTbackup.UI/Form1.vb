@@ -77,9 +77,10 @@ Public Class Form1
         AlertDot.Location = New Point(LogLabel.Location.X + LogLabel.Width - 10, 22)
         AboutLabel.Location = New Point(LogLabel.Location.X + LogLabel.Width + 20, 20)
         'Remove controls
-        Controls.Remove(AboutContainer)
+        Controls.Remove(ManageContainer)
         Controls.Remove(SettingsContainer)
         Controls.Remove(LogsContainer)
+        Controls.Remove(AboutContainer)
 
         'Start logging session
         Logger.StartSession()
@@ -155,11 +156,13 @@ Public Class Form1
         BackgroundImage = Nothing
         'Change top menu labels color
         TopMenuContainer.BackColor = Color.FromArgb(255, 22, 26, 31)
-        LogLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
+        LogLabel.ForeColor = Color.White
         AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         'Change buttons image and color
         SidemenuTasks.Image = My.Resources.Tasks
         SidemenuTasks.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        SidemenuManage.Image = My.Resources.Backup
+        SidemenuManage.ForeColor = Color.FromArgb(255, 85, 170, 255)
         SidemenuSettings.Image = My.Resources.Settings
         SidemenuSettings.ForeColor = Color.FromArgb(255, 85, 170, 255)
         'Change section title
@@ -168,6 +171,7 @@ Public Class Form1
         Controls.Remove(TasksContainer)
         Controls.Remove(FoldersTitleLabel)
         Controls.Remove(FoldersContainer)
+        Controls.Remove(ManageContainer)
         Controls.Remove(AboutContainer)
         Controls.Remove(SettingsContainer)
         AlertDot.Visible = False
@@ -186,10 +190,12 @@ Public Class Form1
         'Change top menu labels color
         TopMenuContainer.BackColor = Color.FromArgb(180, 22, 26, 31)
         LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        AboutLabel.ForeColor = Color.FromArgb(255, 255, 255, 255)
+        AboutLabel.ForeColor = Color.White
         'Change buttons image and color
         SidemenuTasks.Image = My.Resources.Tasks
         SidemenuTasks.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        SidemenuManage.Image = My.Resources.Backup
+        SidemenuManage.ForeColor = Color.FromArgb(255, 85, 170, 255)
         SidemenuSettings.Image = My.Resources.Settings
         SidemenuSettings.ForeColor = Color.FromArgb(255, 85, 170, 255)
         'Change section title
@@ -198,6 +204,7 @@ Public Class Form1
         Controls.Remove(TasksContainer)
         Controls.Remove(FoldersTitleLabel)
         Controls.Remove(FoldersContainer)
+        Controls.Remove(ManageContainer)
         Controls.Remove(LogsContainer)
         Controls.Remove(SettingsContainer)
         'Show about section
@@ -217,7 +224,9 @@ Public Class Form1
         AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         'Change buttons image and color
         SidemenuTasks.Image = My.Resources.Tasks_White
-        SidemenuTasks.ForeColor = Color.FromArgb(255, 255, 255, 255)
+        SidemenuTasks.ForeColor = Color.White
+        SidemenuManage.Image = My.Resources.Backup
+        SidemenuManage.ForeColor = Color.FromArgb(255, 85, 170, 255)
         SidemenuSettings.Image = My.Resources.Settings
         SidemenuSettings.ForeColor = Color.FromArgb(255, 85, 170, 255)
         'Change section title
@@ -225,11 +234,43 @@ Public Class Form1
         'Remove controls
         Controls.Remove(LogsContainer)
         Controls.Remove(AboutContainer)
+        Controls.Remove(ManageContainer)
         Controls.Remove(SettingsContainer)
         'Show tasks section
         Controls.Add(TasksContainer)
         Controls.Add(FoldersTitleLabel)
         Controls.Add(FoldersContainer)
+    End Sub
+
+    Private Sub SidemenuManage_Click(sender As Object, e As EventArgs) Handles SidemenuManage.Click
+        'Remove background image
+        BackgroundImage = Nothing
+        'Change top menu labels color
+        TopMenuContainer.BackColor = Color.FromArgb(255, 22, 26, 31)
+        LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        'Change buttons image and color
+        SidemenuTasks.Image = My.Resources.Tasks
+        SidemenuTasks.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        SidemenuManage.Image = My.Resources.Backup_White
+        SidemenuManage.ForeColor = Color.White
+        SidemenuSettings.Image = My.Resources.Settings
+        SidemenuSettings.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        'Change section title
+        TitleLabel.Text = Localization.GetString("ui_title_manage")
+        'Remove controls
+        Controls.Remove(LogsContainer)
+        Controls.Remove(AboutContainer)
+        Controls.Remove(TasksContainer)
+        Controls.Remove(FoldersTitleLabel)
+        Controls.Remove(FoldersContainer)
+        Controls.Remove(SettingsContainer)
+        'Show backups
+        Controls.Add(ManageContainer)
+        'Retrieve backups
+        If BackupLocTextBox.Text <> "" Then
+            PopulateBackupsGrid()
+        End If
     End Sub
 
     Private Sub SidemenuSettings_Click(sender As Object, e As EventArgs) Handles SidemenuSettings.Click
@@ -241,9 +282,11 @@ Public Class Form1
         AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
         'Change buttons image and color
         SidemenuTasks.Image = My.Resources.Tasks
-        SidemenuTasks.ForeColor = Color.FromArgb(255, 255, 255, 255)
+        SidemenuTasks.ForeColor = Color.FromArgb(255, 85, 170, 255)
+        SidemenuManage.Image = My.Resources.Backup
+        SidemenuManage.ForeColor = Color.FromArgb(255, 85, 170, 255)
         SidemenuSettings.Image = My.Resources.Settings_White
-        SidemenuSettings.ForeColor = Color.FromArgb(255, 255, 255, 255)
+        SidemenuSettings.ForeColor = Color.White
         'Change section title
         TitleLabel.Text = Localization.GetString("ui_title_settings")
         'Remove controls
@@ -252,9 +295,9 @@ Public Class Form1
         Controls.Remove(TasksContainer)
         Controls.Remove(FoldersTitleLabel)
         Controls.Remove(FoldersContainer)
+        Controls.Remove(ManageContainer)
         'Show settings
         Controls.Add(SettingsContainer)
-        SettingsContainer.Visible = True
     End Sub
 
     Private Sub BackupBtn_Click(sender As Object, e As EventArgs) Handles BackupBtn.Click
@@ -419,6 +462,85 @@ Public Class Form1
             Process.Start(SettingsLogFilePathTextBox.Text)
         Else
             Banner.Show(64, Localization.GetString("banner_log_file_404_info"))
+        End If
+    End Sub
+#End Region
+
+#Region "Manage"
+    Private Sub BackupsDataGrid_DataSourceChanged(sender As Object, e As EventArgs) Handles BackupsDataGrid.DataSourceChanged
+        'Resize columns
+        '//stackoverflow.com/a/1031871
+        BackupsDataGrid.Columns(0).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        BackupsDataGrid.Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        BackupsDataGrid.Columns(2).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
+        For i As Integer = 0 To BackupsDataGrid.Columns.Count - 1
+            'Store AutoSized widths
+            Dim CW As Integer = BackupsDataGrid.Columns(i).Width
+            'Remove autosizing
+            BackupsDataGrid.Columns(i).AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+            'Set width calculated by AutoSize
+            BackupsDataGrid.Columns(i).Width = CW
+        Next
+    End Sub
+
+    Private Sub BackupsDataGrid_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles BackupsDataGrid.CellMouseDown
+        If BackupsDataGrid.Rows.Count > 0 AndAlso e.Button = MouseButtons.Right Then
+            Try
+                'Select row when right clicking it
+                '//stackoverflow.com/a/16765616
+                BackupsDataGrid.CurrentCell = BackupsDataGrid.Rows(e.RowIndex).Cells(e.ColumnIndex)
+                BackupsDataGrid.Rows(e.RowIndex).Selected = True
+                BackupsDataGrid.Focus()
+            Catch
+                'Do nothing
+            End Try
+        End If
+    End Sub
+
+    Private Sub BackupsDataGrid_MouseUp(sender As Object, e As MouseEventArgs) Handles BackupsDataGrid.MouseUp
+        If BackupsDataGrid.Rows.Count > 0 AndAlso e.Button = MouseButtons.Right Then
+            'Show context menu when clicking inside the table
+            Dim HT As DataGridView.HitTestInfo = BackupsDataGrid.HitTest(e.X, e.Y)
+            If Not HT.Type = DataGridViewHitTestType.ColumnHeader Then
+                ManageContextMenu.Show(MousePosition)
+            End If
+        End If
+    End Sub
+
+    Private Sub RestoreToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestoreToolStripMenuItem.Click
+        'Restore selected backup
+        'Pass folder from selected row to RestoreBackup subroutine
+        '//stackoverflow.com/a/12864283
+        RestoreBackup(BackupsDataGrid.Rows(BackupsDataGrid.CurrentCell.RowIndex).Cells(0).Value.ToString())
+    End Sub
+
+    Private Sub DeleteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem.Click
+        'Delete selected backup
+        'Pass folder from selected row to DeleteBackup subroutine
+        '//stackoverflow.com/a/12864283
+        DeleteBackup(BackupsDataGrid.Rows(BackupsDataGrid.CurrentCell.RowIndex).Cells(0).Value.ToString())
+    End Sub
+
+    Private Sub RefreshToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RefreshToolStripMenuItem.Click
+        'Clear table
+        BackupsDataGrid.DataSource = Nothing
+        'Re-create backups table
+        PopulateBackupsGrid()
+    End Sub
+
+    Private Sub DeleteAllStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteAllStripMenuItem.Click
+        'Delete all backups inside the current backup directory
+        DeleteBackup()
+    End Sub
+
+    Private Sub ShowBackupStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowBackupStripMenuItem.Click
+        'Open the selected backup folder in Windows Explorer
+        Dim BackupDirectory As String = BackupLocTextBox.Text & "\" & BackupsDataGrid.Rows(BackupsDataGrid.CurrentCell.RowIndex).Cells(0).Value.ToString()
+        If Directory.Exists(BackupDirectory) Then
+            Process.Start("explorer.exe", BackupDirectory)
+        Else
+            Banner.Show(64, Localization.GetString("banner_manage_backup_folder_404_info"))
         End If
     End Sub
 #End Region

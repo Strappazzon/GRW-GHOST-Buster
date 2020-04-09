@@ -55,7 +55,7 @@ Public Class Settings
             ConfigData("Backup")("BackupDirectory") = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\Savegames"
             ConfigData("Backup")("BackupFrequency") = "5"
             ConfigData("Backup")("DisplayNotification") = "False"
-            ConfigData("Backup")("WhichBackupToRestore") = "0" '0=Latest, 1=Second-to-Last, 2=Let me decide
+            ConfigData("Backup")("WhichBackupToRestore") = "0" '0=Latest, 1=Second-to-Last
             'Uplay
             ConfigData("Uplay")("DisableCloudSyncOnRestore") = "False"
             ConfigData("Uplay")("EnableCloudSyncOnQuit") = "True"

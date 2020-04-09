@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class CustomMsgBox
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class CustomMsgBox
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CustomMsgBox))
         Me.RightButton = New System.Windows.Forms.Button()
@@ -29,7 +29,6 @@ Partial Class CustomMsgBox
         Me.MessageRTF = New System.Windows.Forms.RichTextBox()
         Me.CancelLabel = New System.Windows.Forms.Button()
         Me.IconPictureBox = New System.Windows.Forms.PictureBox()
-        Me.BackupDirsDropdownCombo = New System.Windows.Forms.ComboBox()
         CType(Me.IconPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -93,7 +92,7 @@ Partial Class CustomMsgBox
         Me.MessageRTF.ReadOnly = True
         Me.MessageRTF.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical
         Me.MessageRTF.ShortcutsEnabled = False
-        Me.MessageRTF.Size = New System.Drawing.Size(550, 200)
+        Me.MessageRTF.Size = New System.Drawing.Size(550, 235)
         Me.MessageRTF.TabIndex = 4
         Me.MessageRTF.TabStop = False
         Me.MessageRTF.Text = "Message content"
@@ -125,29 +124,12 @@ Partial Class CustomMsgBox
         Me.IconPictureBox.TabIndex = 4
         Me.IconPictureBox.TabStop = False
         '
-        'BackupDirsDropdownCombo
-        '
-        Me.BackupDirsDropdownCombo.BackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.BackupDirsDropdownCombo.DropDownHeight = 152
-        Me.BackupDirsDropdownCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.BackupDirsDropdownCombo.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.BackupDirsDropdownCombo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BackupDirsDropdownCombo.ForeColor = System.Drawing.Color.White
-        Me.BackupDirsDropdownCombo.FormattingEnabled = True
-        Me.BackupDirsDropdownCombo.IntegralHeight = False
-        Me.BackupDirsDropdownCombo.Location = New System.Drawing.Point(84, 300)
-        Me.BackupDirsDropdownCombo.Name = "BackupDirsDropdownCombo"
-        Me.BackupDirsDropdownCombo.Size = New System.Drawing.Size(550, 23)
-        Me.BackupDirsDropdownCombo.TabIndex = 3
-        Me.BackupDirsDropdownCombo.Visible = False
-        '
         'CustomMsgBox
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(684, 401)
-        Me.Controls.Add(Me.BackupDirsDropdownCombo)
         Me.Controls.Add(Me.CancelLabel)
         Me.Controls.Add(Me.MessageRTF)
         Me.Controls.Add(Me.IconPictureBox)
@@ -172,5 +154,4 @@ Partial Class CustomMsgBox
     Friend WithEvents IconPictureBox As PictureBox
     Friend WithEvents MessageRTF As RichTextBox
     Friend WithEvents CancelLabel As Button
-    Friend WithEvents BackupDirsDropdownCombo As ComboBox
 End Class
