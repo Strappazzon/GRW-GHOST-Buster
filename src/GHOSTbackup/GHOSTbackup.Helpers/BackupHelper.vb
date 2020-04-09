@@ -395,7 +395,7 @@ Public Class BackupHelper
     End Sub
 
     Public Overloads Shared Sub RestoreBackup(subDir As String)
-        Logger.Log("[INFO] Restore process started (" & NameOf(subDir) & ").")
+        Logger.Log("[INFO] Restore process started (subDir).")
 
         Try
             Dim BackupDirectory As String = Form1.BackupLocTextBox.Text & "\" & subDir
@@ -454,7 +454,7 @@ Public Class BackupHelper
     End Sub
 
     Public Overloads Shared Sub DeleteBackup(subDir As String)
-        Logger.Log("[INFO] Deletion process started (" & NameOf(subDir) & ").")
+        Logger.Log("[INFO] Deletion process started (subDir).")
 
         Try
             Dim BackupDirectory As String = Form1.BackupLocTextBox.Text & "\" & subDir
