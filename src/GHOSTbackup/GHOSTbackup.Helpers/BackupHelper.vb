@@ -203,38 +203,42 @@ Public Class BackupHelper
     Public Shared Sub PerformFirstBackup()
         If Form1.SavegamesLocTextBox.Text = "" OrElse Form1.BackupLocTextBox.Text = "" Then
             Banner.Show(Localization.GetString("banner_specify_folders_info"), BannerIcon.Information)
-        ElseIf IsGameRunning = True Then
-            StartBackup()
+        Else
+            If IsGameRunning = True Then
+                StartBackup()
 
-            'Perform the first backup
-            Try
-                'Store latest backup timestamp and subdirectory
-                Dim BackupTimestamp As Date = Now
-                Dim BackupDirectory As String = Form1.BackupLocTextBox.Text & BackupTimestamp.ToString("\\yyyyMMdd HHmm")
+                'Perform the first backup
+                Try
+                    'Store latest backup timestamp and subdirectory
+                    Dim BackupTimestamp As Date = Now
+                    Dim BackupDirectory As String = Form1.BackupLocTextBox.Text & BackupTimestamp.ToString("\\yyyyMMdd HHmm")
 
-                Dim SavegamesList As String() = Directory.GetFiles(Form1.SavegamesLocTextBox.Text, "*.save")
-                For Each F As String In SavegamesList
-                    If Not Directory.Exists(BackupDirectory) Then
-                        Directory.CreateDirectory(BackupDirectory)
-                    End If
-                    Dim FileName As String = F.Substring(Form1.SavegamesLocTextBox.Text.Length + 1)
-                    File.Copy(Path.Combine(Form1.SavegamesLocTextBox.Text, FileName), Path.Combine(BackupDirectory, FileName), True)
-                Next
+                    Dim SavegamesList As String() = Directory.GetFiles(Form1.SavegamesLocTextBox.Text, "*.save")
+                    For Each F In SavegamesList
+                        'Create backup directory
+                        If Not Directory.Exists(BackupDirectory) Then
+                            Directory.CreateDirectory(BackupDirectory)
+                        End If
+                        'Copy each save file
+                        Dim FileName As String = F.Substring(Form1.SavegamesLocTextBox.Text.Length + 1)
+                        File.Copy(Path.Combine(Form1.SavegamesLocTextBox.Text, FileName), Path.Combine(BackupDirectory, FileName), True)
+                    Next
 
-                'Write the timestamp of this backup on the main screen
-                Form1.LatestBackupHelpLabel.Text = Localization.GetString("ui_tasks_latest") & BackupTimestamp.ToString("G", CultureInfo.CurrentUICulture)
+                    'Write the timestamp of this backup on the main screen
+                    Form1.LatestBackupHelpLabel.Text = Localization.GetString("ui_tasks_latest") & BackupTimestamp.ToString("G", CultureInfo.CurrentUICulture)
 
-                Logger.Log("[INFO] Performed the first backup " & "(" & SavegamesList.Length & " files copied to " & BackupDirectory & ").")
-                Notification.Show(Localization.GetString("notification_msg_first_backup"))
+                    Logger.Log("[INFO] Performed the first backup " & "(" & SavegamesList.Length & " files copied to " & BackupDirectory & ").")
+                    Notification.Show(Localization.GetString("notification_msg_first_backup"))
 
-            Catch ex As Exception
-                StopBackup()
-                Logger.Log("[ERROR] Backup interrupted: " & ex.Message())
-                Notification.Show(Localization.GetString("notification_msg_backup_error"))
-                CustomMsgBox.Show(Localization.GetString("msgbox_backup_error"), Localization.GetString("msgbox_backup_error_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Error)
-            End Try
-        ElseIf IsGameRunning = False Then
-            Banner.Show(Localization.GetString("banner_launch_before_backup_info"), BannerIcon.Information)
+                Catch ex As Exception
+                    StopBackup()
+                    Logger.Log("[ERROR] Backup interrupted: " & ex.Message())
+                    Notification.Show(Localization.GetString("notification_msg_backup_error"))
+                    CustomMsgBox.Show(Localization.GetString("msgbox_backup_error"), Localization.GetString("msgbox_backup_error_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Error)
+                End Try
+            Else
+                Banner.Show(Localization.GetString("banner_launch_before_backup_info"), BannerIcon.Information)
+            End If
         End If
     End Sub
 
@@ -246,10 +250,12 @@ Public Class BackupHelper
                 Dim BackupDirectory As String = Form1.BackupLocTextBox.Text & BackupTimestamp.ToString("\\yyyyMMdd HHmm")
 
                 Dim SavegamesList As String() = Directory.GetFiles(Form1.SavegamesLocTextBox.Text, "*.save")
-                For Each F As String In SavegamesList
+                For Each F In SavegamesList
+                    'Create backup directory
                     If Not Directory.Exists(BackupDirectory) Then
                         Directory.CreateDirectory(BackupDirectory)
                     End If
+                    'Copy each save file
                     Dim FileName As String = F.Substring(Form1.SavegamesLocTextBox.Text.Length + 1)
                     File.Copy(Path.Combine(Form1.SavegamesLocTextBox.Text, FileName), Path.Combine(BackupDirectory, FileName), True)
                 Next

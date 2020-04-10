@@ -136,7 +136,7 @@ Public Class Localization
         CustomMsgBox.LeftButton.Text = GetString("msgbox_btn_yes")
     End Sub
 
-    Public Shared Function GetString(stringId As String) As String
+    Public Shared Function GetString(ByVal stringId As String) As String
         'Get localized string from its ID
         Return LocalizationManager.GetString(stringId, CultureInfo.CurrentUICulture).Replace("\n", Environment.NewLine)
     End Function

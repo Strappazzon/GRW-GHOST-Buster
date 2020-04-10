@@ -41,17 +41,18 @@ Public Class Logger
 #End If
     End Sub
 
-    Public Shared Sub Log([Event] As String)
+#Region "Log Methods"
+    Public Overloads Shared Sub Log(ByVal [event] As String)
         'Don't start the log file with an empty line
         If Form1.LogTxtBox.Text = "" Then
-            Form1.LogTxtBox.AppendText(Now.ToString("HH:mm:ss") & " " & [Event])
+            Form1.LogTxtBox.AppendText(Now.ToString("HH:mm:ss") & " " & [event])
         Else
-            Form1.LogTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " " & [Event])
+            Form1.LogTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " " & [event])
         End If
 
         If Form1.SettingsWriteLogToFileChkBox.Checked = True Then
             Dim LogToFile As New StringBuilder
-            LogToFile.AppendLine(Now.ToString("HH:mm:ss") & " " & [Event])
+            LogToFile.AppendLine(Now.ToString("HH:mm:ss") & " " & [event])
 
             Try
                 File.AppendAllText(Form1.SettingsLogFilePathTextBox.Text, LogToFile.ToString())
@@ -63,4 +64,5 @@ Public Class Logger
             End Try
         End If
     End Sub
+#End Region
 End Class
