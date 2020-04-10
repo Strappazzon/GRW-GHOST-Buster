@@ -26,6 +26,7 @@
 
 Imports Microsoft.Win32
 Imports System.IO
+Imports GHOSTbackup.UI
 Imports GHOSTbackup.ProcessHelper
 Imports GHOSTbackup.Var
 
@@ -43,7 +44,7 @@ Public Class WildlandsHelper
                 Form1.SettingsNonUplayVersionChkBox.Checked = False
                 Form1.PlayGameBtn.Text = Localization.GetString("ui_play_disabled_404")
                 Logger.Log("[WARNING] Custom Wildlands executable " & Form1.SettingsCustomExeTextBox.Text & " not found.")
-                Banner.Show(48, Localization.GetString("banner_customexe_404_error"))
+                Banner.Show(Localization.GetString("banner_customexe_404_error"), BannerIcon.Warning)
             End If
         Else
             Using GameRegKey As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\1771", False)

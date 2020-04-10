@@ -24,6 +24,8 @@
 ''
 #End Region
 
+Imports GHOSTbackup.UI
+
 Public Class Banner
 
 #Region "Controls"
@@ -35,7 +37,7 @@ Public Class Banner
         .Size = New Size(834, 38),
         .TabIndex = 1
     }
-    Private Shared WithEvents BannerIcon As PictureBox = New PictureBox() With {
+    Private Shared WithEvents IconPicture As PictureBox = New PictureBox() With {
         .BackColor = Color.Transparent,
         .Size = New Size(24, 24),
         .SizeMode = PictureBoxSizeMode.AutoSize,
@@ -58,40 +60,66 @@ Public Class Banner
     }
 #End Region
 
-    Public Overloads Shared Sub Show(Icon As Integer, Message As String)
-        If Icon = 48 Then
-            'Warning
-            BannerIcon.Image = My.Resources.Banner_Alert_Icon
-            If Form1.TitleLabel.Text <> Localization.GetString("ui_title_logs") Then
-                Form1.AlertDot.Visible = True
-            End If
-        ElseIf Icon = 64 Then
-            'Information
-            BannerIcon.Image = My.Resources.Banner_Info_Icon
-        End If
+#Region "Show Methods"
+    Public Overloads Shared Sub Show(ByVal Message As String, ByVal Icon As BannerIcon)
+        'Create banner
+        AlertBanner.Controls.Add(IconPicture)
+        AlertBanner.Controls.Add(BannerMessage)
+        AlertBanner.Controls.Add(CloseBanner)
+
+        'Banner icon
+        Select Case Icon
+            Case BannerIcon.Exclamation, BannerIcon.Warning
+                IconPicture.Image = My.Resources.Banner_Alert_Icon
+                If Form1.TitleLabel.Text <> Localization.GetString("ui_title_logs") Then
+                    Form1.AlertDot.Visible = True
+                End If
+            Case BannerIcon.Information
+                IconPicture.Image = My.Resources.Banner_Info_Icon
+            Case Else
+                Exit Select
+        End Select
+
+        'Banner message
+        BannerMessage.Text = Message
+        'Center Icon and Message
+        BannerMessage.Location = New Point(AlertBanner.Width / 2 - BannerMessage.Width / 2, AlertBanner.Height / 2 - BannerMessage.Height / 2)
+        IconPicture.Location = New Point(AlertBanner.Width / 2 - BannerMessage.Width / 2 - 28, AlertBanner.Height / 2 - IconPicture.Height / 2)
 
         'Move logo and Play button
         Form1.LogoBigPictureBox.Location = New Point(12, 115)
         Form1.PlayGameBtn.Location = New Point(12, 180)
-        'Create banner
-        AlertBanner.Controls.Add(BannerIcon)
-        AlertBanner.Controls.Add(BannerMessage)
-        AlertBanner.Controls.Add(CloseBanner)
-        'Banner message
-        BannerMessage.Text = Message
-        'Center alert icon and message
-        BannerMessage.Location = New Point(AlertBanner.Width / 2 - BannerMessage.Width / 2, AlertBanner.Height / 2 - BannerMessage.Height / 2)
-        BannerIcon.Location = New Point(AlertBanner.Width / 2 - BannerMessage.Width / 2 - 28, AlertBanner.Height / 2 - BannerIcon.Height / 2)
+
         'Display banner
         Form1.Controls.Add(AlertBanner)
     End Sub
 
+    Public Overloads Shared Sub Show(ByVal Message As String)
+        'Create banner
+        AlertBanner.Controls.Add(BannerMessage)
+        AlertBanner.Controls.Add(CloseBanner)
+
+        'Banner message
+        BannerMessage.Text = Message
+        'Center Message
+        BannerMessage.Location = New Point(AlertBanner.Width / 2 - BannerMessage.Width / 2, AlertBanner.Height / 2 - BannerMessage.Height / 2)
+
+        'Move logo and Play button
+        Form1.LogoBigPictureBox.Location = New Point(12, 115)
+        Form1.PlayGameBtn.Location = New Point(12, 180)
+
+        'Display banner
+        Form1.Controls.Add(AlertBanner)
+    End Sub
+#End Region
+
     Public Shared Sub CloseBanner_Click(sender As Object, e As EventArgs) Handles CloseBanner.Click
         'Hide banner
-        AlertBanner.Controls.Remove(BannerIcon)
+        AlertBanner.Controls.Remove(IconPicture)
         AlertBanner.Controls.Remove(BannerMessage)
         AlertBanner.Controls.Remove(CloseBanner)
         Form1.Controls.Remove(AlertBanner)
+
         'Move logo and Play button
         Form1.LogoBigPictureBox.Location = New Point(12, 85)
         Form1.PlayGameBtn.Location = New Point(12, 150)

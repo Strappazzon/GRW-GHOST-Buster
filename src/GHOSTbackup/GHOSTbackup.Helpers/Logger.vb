@@ -26,6 +26,7 @@
 
 Imports System.IO
 Imports System.Text
+Imports GHOSTbackup.UI
 Imports GHOSTbackup.Var
 
 Public Class Logger
@@ -58,7 +59,7 @@ Public Class Logger
             Catch ex As Exception
                 Form1.SettingsWriteLogToFileChkBox.Checked = False
                 Form1.LogTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " [ERROR] Log session to file interrupted: " & ex.Message())
-                Banner.Show(48, Localization.GetString("banner_log_error"))
+                Banner.Show(Localization.GetString("banner_log_error"), BannerIcon.Warning)
             End Try
         End If
     End Sub

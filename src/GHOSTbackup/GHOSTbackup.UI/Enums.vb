@@ -26,7 +26,7 @@
 
 Namespace UI
 
-#Region "CustomMsgBox Enums"
+#Region "CustomMsgBox"
     Public Enum CustomMsgBoxButtons
         OK = 0
         OKCancel = 0
@@ -47,6 +47,14 @@ Namespace UI
         Button1 = 0
         Button2 = 256
         Button3 = 512
+    End Enum
+#End Region
+
+#Region "Banner"
+    Public Enum BannerIcon
+        Exclamation = 48
+        Warning = 48
+        Information = 64
     End Enum
 #End Region
 End Namespace

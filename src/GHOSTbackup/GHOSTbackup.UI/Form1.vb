@@ -95,14 +95,14 @@ Public Class Form1
         'Check if save games directory exists
         If SavegamesLocTextBox.Text <> "" AndAlso Not Directory.Exists(SavegamesLocTextBox.Text) Then
             Logger.Log("[WARNING] Wildlands save games folder " & SavegamesLocTextBox.Text & " no longer exists.")
-            Banner.Show(48, Localization.GetString("banner_savegames_folder_deleted"))
+            Banner.Show(Localization.GetString("banner_savegames_folder_deleted"), BannerIcon.Warning)
             SavegamesLocTextBox.Text = ""
         End If
 
         'Check if backup directory exists
         If BackupLocTextBox.Text <> "" AndAlso Not Directory.Exists(BackupLocTextBox.Text) Then
             Logger.Log("[WARNING] Backup folder " & BackupLocTextBox.Text & " no longer exists.")
-            Banner.Show(48, Localization.GetString("banner_backup_folder_deleted"))
+            Banner.Show(Localization.GetString("banner_backup_folder_deleted"), BannerIcon.Warning)
             BackupLocTextBox.Text = ""
         End If
 
@@ -148,7 +148,7 @@ Public Class Form1
         If UplayPath <> Nothing Then
             Process.Start(UplayPath & "Uplay.exe")
         Else
-            Banner.Show(64, Localization.GetString("banner_uplay_not_installed"))
+            Banner.Show(Localization.GetString("banner_uplay_not_installed"), BannerIcon.Information)
         End If
     End Sub
 
@@ -330,9 +330,9 @@ Public Class Form1
 
     Private Sub RestoreBtn_Click(sender As Object, e As EventArgs) Handles RestoreBtn.Click
         If SavegamesLocTextBox.Text = "" Or BackupLocTextBox.Text = "" Then
-            Banner.Show(64, Localization.GetString("banner_specify_folders_info"))
+            Banner.Show(Localization.GetString("banner_specify_folders_info"), BannerIcon.Information)
         ElseIf IsGameRunning = True Then
-            Banner.Show(64, Localization.GetString("banner_quit_before_restore_info"))
+            Banner.Show(Localization.GetString("banner_quit_before_restore_info"), BannerIcon.Information)
         ElseIf IsGameRunning = False And SettingsDisableCloudSyncChkBox.Checked = True Then
             'If the game is not running and "Let GHOST Buster disable cloud save synchronization" is checked
             'Disable Uplay cloud save synchronization
@@ -372,7 +372,7 @@ Public Class Form1
         If SavegamesLocTextBox.Text <> "" AndAlso Directory.Exists(SavegamesLocTextBox.Text) Then
             Process.Start("explorer.exe", SavegamesLocTextBox.Text)
         Else
-            Banner.Show(64, Localization.GetString("banner_savegames_folder_404_info"))
+            Banner.Show(Localization.GetString("banner_savegames_folder_404_info"), BannerIcon.Information)
         End If
     End Sub
 
@@ -396,7 +396,7 @@ Public Class Form1
         If BackupLocTextBox.Text <> "" AndAlso Directory.Exists(BackupLocTextBox.Text) Then
             Process.Start("explorer.exe", BackupLocTextBox.Text)
         Else
-            Banner.Show(64, Localization.GetString("banner_backup_folder_404_info"))
+            Banner.Show(Localization.GetString("banner_backup_folder_404_info"), BannerIcon.Information)
         End If
     End Sub
 #End Region
@@ -440,7 +440,7 @@ Public Class Form1
         If SettingsCustomExeTextBox.Text <> "" AndAlso Directory.Exists(Directory.GetParent(SettingsCustomExeTextBox.Text).ToString()) Then
             Process.Start(Directory.GetParent(SettingsCustomExeTextBox.Text).ToString())
         Else
-            Banner.Show(64, Localization.GetString("banner_folder_404_info"))
+            Banner.Show(Localization.GetString("banner_folder_404_info"), BannerIcon.Information)
         End If
     End Sub
 
@@ -472,7 +472,7 @@ Public Class Form1
         If SettingsLogFilePathTextBox.Text <> "" AndAlso File.Exists(SettingsLogFilePathTextBox.Text) Then
             Process.Start(SettingsLogFilePathTextBox.Text)
         Else
-            Banner.Show(64, Localization.GetString("banner_log_file_404_info"))
+            Banner.Show(Localization.GetString("banner_log_file_404_info"), BannerIcon.Information)
         End If
     End Sub
 #End Region
@@ -551,7 +551,7 @@ Public Class Form1
         If Directory.Exists(BackupDirectory) Then
             Process.Start("explorer.exe", BackupDirectory)
         Else
-            Banner.Show(64, Localization.GetString("banner_manage_backup_folder_404_info"))
+            Banner.Show(Localization.GetString("banner_manage_backup_folder_404_info"), BannerIcon.Information)
         End If
     End Sub
 #End Region

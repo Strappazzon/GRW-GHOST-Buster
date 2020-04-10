@@ -62,7 +62,7 @@ Public Class Updater
             End If
         Else
             Logger.Log("[ERROR] Unable to check for updates: " & e.Error.Message())
-            Banner.Show(48, Localization.GetString("banner_update_error"))
+            Banner.Show(Localization.GetString("banner_update_error"), BannerIcon.Warning)
         End If
     End Sub
 End Class

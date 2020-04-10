@@ -90,7 +90,7 @@ Public Class BackupHelper
             End If
         Else
             Logger.Log("[ERROR] An error occurred while enumerating backup directories: " & ErrorMessage)
-            Banner.Show(48, Localization.GetString("banner_timestamp_error"))
+            Banner.Show(Localization.GetString("banner_timestamp_error"), BannerIcon.Warning)
 
             Form1.LatestBackupHelpLabel.Text = Localization.GetString("ui_tasks_latest_error")
 
@@ -155,7 +155,7 @@ Public Class BackupHelper
             Form1.BackupsDataGrid.Sort(Form1.BackupsDataGrid.Columns(2), ListSortDirection.Descending)
         Else
             Logger.Log("[ERROR] An error occurred while retrieving backups: " & ErrorMessage)
-            Banner.Show(48, Localization.GetString("banner_backups_table_retrieve_error"))
+            Banner.Show(Localization.GetString("banner_backups_table_retrieve_error"), BannerIcon.Warning)
 
             ErrorMessage = Nothing
         End If
@@ -202,7 +202,7 @@ Public Class BackupHelper
 
     Public Shared Sub PerformFirstBackup()
         If Form1.SavegamesLocTextBox.Text = "" OrElse Form1.BackupLocTextBox.Text = "" Then
-            Banner.Show(64, Localization.GetString("banner_specify_folders_info"))
+            Banner.Show(Localization.GetString("banner_specify_folders_info"), BannerIcon.Information)
         ElseIf IsGameRunning = True Then
             StartBackup()
 
@@ -234,7 +234,7 @@ Public Class BackupHelper
                 CustomMsgBox.Show(Localization.GetString("msgbox_backup_error"), Localization.GetString("msgbox_backup_error_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Error)
             End Try
         ElseIf IsGameRunning = False Then
-            Banner.Show(64, Localization.GetString("banner_launch_before_backup_info"))
+            Banner.Show(Localization.GetString("banner_launch_before_backup_info"), BannerIcon.Information)
         End If
     End Sub
 
@@ -311,7 +311,7 @@ Public Class BackupHelper
                             Next
 
                             Logger.Log("[INFO] Backup from " & BackupDirs.Item(BackupDirs.Count - 1) & " restored.")
-                            Banner.Show(64, Localization.GetString("banner_backup_restored"))
+                            Banner.Show(Localization.GetString("banner_backup_restored"), BannerIcon.Information)
                         Else
                             Logger.Log("[INFO] Restore process cancelled by the user.")
                         End If
@@ -348,7 +348,7 @@ Public Class BackupHelper
                             Next
 
                             Logger.Log("[INFO] Backup from " & BackupDirs.Item(BackupDirs.Count - 2) & " restored.")
-                            Banner.Show(64, Localization.GetString("banner_backup_restored"))
+                            Banner.Show(Localization.GetString("banner_backup_restored"), BannerIcon.Information)
                         Else
                             Logger.Log("[INFO] Restore process cancelled by the user.")
                         End If
@@ -366,7 +366,7 @@ Public Class BackupHelper
                             Next
 
                             Logger.Log("[INFO] Backup from " & BackupDirs.Item(BackupDirs.Count - 1) & " restored.")
-                            Banner.Show(64, Localization.GetString("banner_backup_restored"))
+                            Banner.Show(Localization.GetString("banner_backup_restored"), BannerIcon.Information)
                         Else
                             Logger.Log("[INFO] Restore process cancelled by the user.")
                         End If
@@ -411,7 +411,7 @@ Public Class BackupHelper
                 Next
 
                 Logger.Log("[INFO] Backup from " & BackupDirectory & " restored.")
-                Banner.Show(64, Localization.GetString("banner_backup_restored"))
+                Banner.Show(Localization.GetString("banner_backup_restored"), BannerIcon.Information)
             Else
                 Logger.Log("[INFO] Restore process cancelled by the user.")
             End If
@@ -443,7 +443,7 @@ Public Class BackupHelper
                 DetectLatestBackup()
 
                 Logger.Log("[INFO] Backup " & Form1.BackupLocTextBox.Text & " deleted.")
-                Banner.Show(64, Localization.GetString("banner_backup_deleted_all"))
+                Banner.Show(Localization.GetString("banner_backup_deleted_all"), BannerIcon.Information)
             Else
                 Logger.Log("[INFO] Deletion process cancelled by the user.")
             End If
@@ -476,7 +476,7 @@ Public Class BackupHelper
                         DetectLatestBackup()
 
                         Logger.Log("[INFO] Backup " & BackupDirectory & " deleted.")
-                        Banner.Show(64, Localization.GetString("banner_backup_deleted"))
+                        Banner.Show(Localization.GetString("banner_backup_deleted"), BannerIcon.Information)
                     Else
                         Logger.Log("[INFO] Deletion process cancelled by the user.")
                     End If
@@ -494,7 +494,7 @@ Public Class BackupHelper
                         DetectLatestBackup()
 
                         Logger.Log("[INFO] Backup " & BackupDirectory & " deleted.")
-                        Banner.Show(64, Localization.GetString("banner_backup_deleted"))
+                        Banner.Show(Localization.GetString("banner_backup_deleted"), BannerIcon.Information)
                     Else
                         Logger.Log("[INFO] Deletion process cancelled by the user.")
                     End If
