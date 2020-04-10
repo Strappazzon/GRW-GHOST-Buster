@@ -31,7 +31,9 @@ Imports IniParser.Model
 
 Public Class Settings
     Private Shared ReadOnly SettingsFile As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\ghostbackup.cfg"
-    Private Shared ReadOnly ConfigParser = New FileIniDataParser()
+    Private Shared Config As IniData
+    Private Shared ConfigData As IniData
+    Private Shared ReadOnly ConfigParser As FileIniDataParser = New FileIniDataParser()
 
     Public Shared Sub Init()
         If Not File.Exists(SettingsFile) Then
@@ -39,31 +41,31 @@ Public Class Settings
             Directory.CreateDirectory(SettingsFile.Replace("\ghostbackup.cfg", ""))
 
             'Create default settings
-            Dim ConfigData As IniData = New IniData()
+            Config = New IniData()
             'GHOST Buster
-            ConfigData("GHOSTbackup")("Language") = "0" 'See Localization.GetLanguage() function
-            ConfigData("GHOSTbackup")("ConfirmExit") = "True"
-            ConfigData("GHOSTbackup")("ConfirmBackupInterruption") = "False"
-            ConfigData("GHOSTbackup")("CheckForUpdates") = "False"
-            ConfigData("GHOSTbackup")("RememberFormPosition") = "False"
-            ConfigData("GHOSTbackup")("FormPosition") = "{X=-1,Y=-1}"
+            Config("GHOSTbackup")("Language") = "0" 'See Localization.GetLanguage() function
+            Config("GHOSTbackup")("ConfirmExit") = "True"
+            Config("GHOSTbackup")("ConfirmBackupInterruption") = "False"
+            Config("GHOSTbackup")("CheckForUpdates") = "False"
+            Config("GHOSTbackup")("RememberFormPosition") = "False"
+            Config("GHOSTbackup")("FormPosition") = "{X=-1,Y=-1}"
             'Logging
-            ConfigData("Logging")("WriteEventsToFile") = "False"
-            ConfigData("Logging")("LogFilePath") = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\event.log"
+            Config("Logging")("WriteEventsToFile") = "False"
+            Config("Logging")("LogFilePath") = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\event.log"
             'Backup
-            ConfigData("Backup")("SavegamesDirectory") = Nothing
-            ConfigData("Backup")("BackupDirectory") = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\Savegames"
-            ConfigData("Backup")("BackupFrequency") = "5"
-            ConfigData("Backup")("DisplayNotification") = "False"
-            ConfigData("Backup")("WhichBackupToRestore") = "0" '0=Latest, 1=Second-to-Last
+            Config("Backup")("SavegamesDirectory") = Nothing
+            Config("Backup")("BackupDirectory") = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\Savegames"
+            Config("Backup")("BackupFrequency") = "5"
+            Config("Backup")("DisplayNotification") = "False"
+            Config("Backup")("WhichBackupToRestore") = "0" '0=Latest, 1=Second-to-Last
             'Uplay
-            ConfigData("Uplay")("DisableCloudSyncOnRestore") = "False"
-            ConfigData("Uplay")("EnableCloudSyncOnQuit") = "True"
-            ConfigData("Uplay")("NoUplay") = "False"
-            ConfigData("Uplay")("WildlandsCustomPath") = Nothing
+            Config("Uplay")("DisableCloudSyncOnRestore") = "False"
+            Config("Uplay")("EnableCloudSyncOnQuit") = "True"
+            Config("Uplay")("NoUplay") = "False"
+            Config("Uplay")("WildlandsCustomPath") = Nothing
 
             'Write default settings to file
-            File.WriteAllText(SettingsFile, ConfigData.ToString())
+            File.WriteAllText(SettingsFile, Config.ToString())
 
             'Set default settings
             'GHOST Buster
@@ -106,28 +108,28 @@ Public Class Settings
         'Save Settings
 
         'Get settings
-        Dim ConfigData As IniData = New IniData()
+        Config = New IniData()
         'GHOST Buster
-        ConfigData("GHOSTbackup")("Language") = Form1.SettingsInterfaceLangDropdown.SelectedIndex
-        ConfigData("GHOSTbackup")("ConfirmExit") = Form1.SettingsConfirmExitChkBox.Checked
-        ConfigData("GHOSTbackup")("ConfirmBackupInterruption") = Form1.SettingsConfirmStopBackupChkBox.Checked
-        ConfigData("GHOSTbackup")("CheckForUpdates") = Form1.SettingsCheckUpdatesChkBox.Checked
-        ConfigData("GHOSTbackup")("RememberFormPosition") = Form1.SettingsRememberFormPositionChkBox.Checked
-        ConfigData("GHOSTbackup")("FormPosition") = If(Form1.SettingsRememberFormPositionChkBox.Checked = True, Form1.Location.ToString(), "{X=-1,Y=-1}")
+        Config("GHOSTbackup")("Language") = Form1.SettingsInterfaceLangDropdown.SelectedIndex
+        Config("GHOSTbackup")("ConfirmExit") = Form1.SettingsConfirmExitChkBox.Checked
+        Config("GHOSTbackup")("ConfirmBackupInterruption") = Form1.SettingsConfirmStopBackupChkBox.Checked
+        Config("GHOSTbackup")("CheckForUpdates") = Form1.SettingsCheckUpdatesChkBox.Checked
+        Config("GHOSTbackup")("RememberFormPosition") = Form1.SettingsRememberFormPositionChkBox.Checked
+        Config("GHOSTbackup")("FormPosition") = If(Form1.SettingsRememberFormPositionChkBox.Checked = True, Form1.Location.ToString(), "{X=-1,Y=-1}")
         'Logging
-        ConfigData("Logging")("WriteEventsToFile") = Form1.SettingsWriteLogToFileChkBox.Checked
-        ConfigData("Logging")("LogFilePath") = Form1.SettingsLogFilePathTextBox.Text
+        Config("Logging")("WriteEventsToFile") = Form1.SettingsWriteLogToFileChkBox.Checked
+        Config("Logging")("LogFilePath") = Form1.SettingsLogFilePathTextBox.Text
         'Backup
-        ConfigData("Backup")("SavegamesDirectory") = Form1.SavegamesLocTextBox.Text
-        ConfigData("Backup")("BackupDirectory") = Form1.BackupLocTextBox.Text
-        ConfigData("Backup")("BackupFrequency") = Form1.BackupFreqUpDown.Value
-        ConfigData("Backup")("DisplayNotification") = Form1.SettingsDisplayNotificationChkBox.Checked
-        ConfigData("Backup")("WhichBackupToRestore") = Form1.WhichBackupDropdown.SelectedIndex
+        Config("Backup")("SavegamesDirectory") = Form1.SavegamesLocTextBox.Text
+        Config("Backup")("BackupDirectory") = Form1.BackupLocTextBox.Text
+        Config("Backup")("BackupFrequency") = Form1.BackupFreqUpDown.Value
+        Config("Backup")("DisplayNotification") = Form1.SettingsDisplayNotificationChkBox.Checked
+        Config("Backup")("WhichBackupToRestore") = Form1.WhichBackupDropdown.SelectedIndex
         'Uplay
-        ConfigData("Uplay")("DisableCloudSyncOnRestore") = Form1.SettingsDisableCloudSyncChkBox.Checked
-        ConfigData("Uplay")("EnableCloudSyncOnQuit") = Form1.SettingsEnableCloudSyncChkBox.Checked
-        ConfigData("Uplay")("NoUplay") = If(Form1.SettingsNonUplayVersionChkBox.Checked = True AndAlso Form1.SettingsCustomExeTextBox.Text <> "", Form1.SettingsNonUplayVersionChkBox.Checked, False)
-        ConfigData("Uplay")("WildlandsCustomPath") = If(Form1.SettingsNonUplayVersionChkBox.Checked = True AndAlso Form1.SettingsCustomExeTextBox.Text <> "", Form1.SettingsCustomExeTextBox.Text, Nothing)
+        Config("Uplay")("DisableCloudSyncOnRestore") = Form1.SettingsDisableCloudSyncChkBox.Checked
+        Config("Uplay")("EnableCloudSyncOnQuit") = Form1.SettingsEnableCloudSyncChkBox.Checked
+        Config("Uplay")("NoUplay") = If(Form1.SettingsNonUplayVersionChkBox.Checked = True AndAlso Form1.SettingsCustomExeTextBox.Text <> "", Form1.SettingsNonUplayVersionChkBox.Checked, False)
+        Config("Uplay")("WildlandsCustomPath") = If(Form1.SettingsNonUplayVersionChkBox.Checked = True AndAlso Form1.SettingsCustomExeTextBox.Text <> "", Form1.SettingsCustomExeTextBox.Text, Nothing)
 
         'Recreate directory if it's been deleted
         If Not Directory.Exists(SettingsFile.Replace("\ghostbackup.cfg", "")) Then
@@ -135,13 +137,13 @@ Public Class Settings
         End If
 
         'Write settings to file
-        File.WriteAllText(SettingsFile, ConfigData.ToString())
+        File.WriteAllText(SettingsFile, Config.ToString())
         Logger.Log("[INFO] Settings saved.")
     End Sub
 
 #Region "GHOST Buster"
     Private Shared Function Language() As Integer
-        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+        ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("GHOSTbackup")("Language")
         If Value <> Nothing Then
@@ -152,7 +154,7 @@ Public Class Settings
     End Function
 
     Private Shared Function ConfirmExit() As Boolean
-        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+        ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("GHOSTbackup")("ConfirmExit")
         If Value <> Nothing Then
@@ -163,7 +165,7 @@ Public Class Settings
     End Function
 
     Private Shared Function ConfirmBackupInterruption() As Boolean
-        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+        ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("GHOSTbackup")("ConfirmBackupInterruption")
         If Value <> Nothing Then
@@ -174,7 +176,7 @@ Public Class Settings
     End Function
 
     Private Shared Function CheckForUpdates() As Boolean
-        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+        ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("GHOSTbackup")("CheckForUpdates")
         If Value <> Nothing Then
@@ -185,7 +187,7 @@ Public Class Settings
     End Function
 
     Public Shared Function RememberFormPosition() As Boolean
-        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+        ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("GHOSTbackup")("RememberFormPosition")
         If Value <> Nothing Then
@@ -196,7 +198,7 @@ Public Class Settings
     End Function
 
     Public Shared Function FormPosition() As Point
-        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+        ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Coordinates As String = ConfigData("GHOSTbackup")("FormPosition")
         Dim C = Regex.Replace(Coordinates, "[\{\}a-zA-Z=]", "").Split(",")
@@ -212,7 +214,7 @@ Public Class Settings
 
 #Region "Logging"
     Private Shared Function WriteEventsToFile() As Boolean
-        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+        ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Logging")("WriteEventsToFile")
         If Value <> Nothing Then
@@ -223,7 +225,7 @@ Public Class Settings
     End Function
 
     Private Shared Function LogFilePath() As String
-        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+        ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Logging")("LogFilePath")
         If Value <> "" Then
@@ -236,21 +238,21 @@ Public Class Settings
 
 #Region "Backup"
     Private Shared Function SavegamesDirectory() As String
-        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+        ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Backup")("SavegamesDirectory")
         Return Value
     End Function
 
     Private Shared Function BackupDirectory() As String
-        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+        ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Backup")("BackupDirectory")
         Return Value
     End Function
 
     Private Shared Function BackupFrequency() As Decimal
-        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+        ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Backup")("BackupFrequency")
         If Value <> Nothing Then
@@ -261,7 +263,7 @@ Public Class Settings
     End Function
 
     Private Shared Function DisplayNotification() As Boolean
-        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+        ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Backup")("DisplayNotification")
         If Value <> Nothing Then
@@ -272,7 +274,7 @@ Public Class Settings
     End Function
 
     Private Shared Function WhichBackupToRestore() As Integer
-        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+        ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Backup")("WhichBackupToRestore")
         If Value <> Nothing Then
@@ -285,7 +287,7 @@ Public Class Settings
 
 #Region "Uplay"
     Private Shared Function DisableCloudSyncOnRestore() As Boolean
-        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+        ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Uplay")("DisableCloudSyncOnRestore")
         If Value <> Nothing Then
@@ -296,7 +298,7 @@ Public Class Settings
     End Function
 
     Private Shared Function EnableCloudSyncOnQuit() As Boolean
-        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+        ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Uplay")("EnableCloudSyncOnQuit")
         If Value <> Nothing Then
@@ -307,7 +309,7 @@ Public Class Settings
     End Function
 
     Private Shared Function NoUplay() As Boolean
-        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+        ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Uplay")("NoUplay")
         If Value <> Nothing Then
@@ -318,7 +320,7 @@ Public Class Settings
     End Function
 
     Private Shared Function WildlandsCustomPath() As String
-        Dim ConfigData As IniData = ConfigParser.ReadFile(SettingsFile)
+        ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Uplay")("WildlandsCustomPath")
         Return Value
