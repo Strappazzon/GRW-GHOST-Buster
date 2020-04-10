@@ -152,63 +152,67 @@ Public Class Form1
     End Sub
 
     Private Sub LogLabel_Click(sender As Object, e As EventArgs) Handles LogLabel.Click
-        'Remove background image
-        BackgroundImage = Nothing
-        'Change top menu labels color
-        TopMenuContainer.BackColor = Color.FromArgb(255, 22, 26, 31)
-        LogLabel.ForeColor = Color.White
-        AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        'Change buttons image and color
-        SidemenuTasks.Image = My.Resources.Tasks
-        SidemenuTasks.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        SidemenuManage.Image = My.Resources.Backup
-        SidemenuManage.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        SidemenuSettings.Image = My.Resources.Settings
-        SidemenuSettings.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        'Change section title
-        TitleLabel.Text = Localization.GetString("ui_title_logs")
-        'Remove controls
-        Controls.Remove(TasksContainer)
-        Controls.Remove(FoldersTitleLabel)
-        Controls.Remove(FoldersContainer)
-        Controls.Remove(ManageContainer)
-        Controls.Remove(AboutContainer)
-        Controls.Remove(SettingsContainer)
-        AlertDot.Visible = False
-        'Show logs
-        Controls.Add(LogsContainer)
-        'Close the alert banner when switching to Logs tab
-        Banner.CloseBanner_Click(sender, e)
-        'Focus logs and scroll to the last line when switching to the Logs tab
-        LogTxtBox.Focus()
-        LogTxtBox.ScrollToCaret()
+        If LogLabel.ForeColor <> Color.White Then
+            'Remove background image
+            BackgroundImage = Nothing
+            'Change top menu labels color
+            TopMenuContainer.BackColor = Color.FromArgb(255, 22, 26, 31)
+            LogLabel.ForeColor = Color.White
+            AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            'Change buttons image and color
+            SidemenuTasks.Image = My.Resources.Tasks
+            SidemenuTasks.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            SidemenuManage.Image = My.Resources.Backup
+            SidemenuManage.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            SidemenuSettings.Image = My.Resources.Settings
+            SidemenuSettings.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            'Change section title
+            TitleLabel.Text = Localization.GetString("ui_title_logs")
+            'Remove controls
+            Controls.Remove(TasksContainer)
+            Controls.Remove(FoldersTitleLabel)
+            Controls.Remove(FoldersContainer)
+            Controls.Remove(ManageContainer)
+            Controls.Remove(AboutContainer)
+            Controls.Remove(SettingsContainer)
+            AlertDot.Visible = False
+            'Show logs
+            Controls.Add(LogsContainer)
+            'Close the alert banner when switching to Logs tab
+            Banner.CloseBanner_Click(sender, e)
+            'Focus logs and scroll to the last line when switching to the Logs tab
+            LogTxtBox.Focus()
+            LogTxtBox.ScrollToCaret()
+        End If
     End Sub
 
     Private Sub AboutLabel_Click(sender As Object, e As EventArgs) Handles AboutLabel.Click
-        'Restore background image
-        BackgroundImage = My.Resources.Bg
-        'Change top menu labels color
-        TopMenuContainer.BackColor = Color.FromArgb(180, 22, 26, 31)
-        LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        AboutLabel.ForeColor = Color.White
-        'Change buttons image and color
-        SidemenuTasks.Image = My.Resources.Tasks
-        SidemenuTasks.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        SidemenuManage.Image = My.Resources.Backup
-        SidemenuManage.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        SidemenuSettings.Image = My.Resources.Settings
-        SidemenuSettings.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        'Change section title
-        TitleLabel.Text = Localization.GetString("ui_title_about")
-        'Remove controls
-        Controls.Remove(TasksContainer)
-        Controls.Remove(FoldersTitleLabel)
-        Controls.Remove(FoldersContainer)
-        Controls.Remove(ManageContainer)
-        Controls.Remove(LogsContainer)
-        Controls.Remove(SettingsContainer)
-        'Show about section
-        Controls.Add(AboutContainer)
+        If AboutLabel.ForeColor <> Color.White Then
+            'Restore background image
+            BackgroundImage = My.Resources.Bg
+            'Change top menu labels color
+            TopMenuContainer.BackColor = Color.FromArgb(180, 22, 26, 31)
+            LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            AboutLabel.ForeColor = Color.White
+            'Change buttons image and color
+            SidemenuTasks.Image = My.Resources.Tasks
+            SidemenuTasks.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            SidemenuManage.Image = My.Resources.Backup
+            SidemenuManage.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            SidemenuSettings.Image = My.Resources.Settings
+            SidemenuSettings.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            'Change section title
+            TitleLabel.Text = Localization.GetString("ui_title_about")
+            'Remove controls
+            Controls.Remove(TasksContainer)
+            Controls.Remove(FoldersTitleLabel)
+            Controls.Remove(FoldersContainer)
+            Controls.Remove(ManageContainer)
+            Controls.Remove(LogsContainer)
+            Controls.Remove(SettingsContainer)
+            'Show about section
+            Controls.Add(AboutContainer)
+        End If
     End Sub
 
     Private Sub PlayGameBtn_Click(sender As Object, e As EventArgs) Handles PlayGameBtn.Click
@@ -216,88 +220,94 @@ Public Class Form1
     End Sub
 
     Private Sub SidemenuTasks_Click(sender As Object, e As EventArgs) Handles SidemenuTasks.Click
-        'Restore background image
-        BackgroundImage = My.Resources.Bg
-        'Change top menu labels color
-        TopMenuContainer.BackColor = Color.FromArgb(180, 22, 26, 31)
-        LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        'Change buttons image and color
-        SidemenuTasks.Image = My.Resources.Tasks_White
-        SidemenuTasks.ForeColor = Color.White
-        SidemenuManage.Image = My.Resources.Backup
-        SidemenuManage.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        SidemenuSettings.Image = My.Resources.Settings
-        SidemenuSettings.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        'Change section title
-        TitleLabel.Text = Localization.GetString("ui_title_tasks")
-        'Remove controls
-        Controls.Remove(LogsContainer)
-        Controls.Remove(AboutContainer)
-        Controls.Remove(ManageContainer)
-        Controls.Remove(SettingsContainer)
-        'Show tasks section
-        Controls.Add(TasksContainer)
-        Controls.Add(FoldersTitleLabel)
-        Controls.Add(FoldersContainer)
+        If SidemenuTasks.ForeColor <> Color.White Then
+            'Restore background image
+            BackgroundImage = My.Resources.Bg
+            'Change top menu labels color
+            TopMenuContainer.BackColor = Color.FromArgb(180, 22, 26, 31)
+            LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            'Change buttons image and color
+            SidemenuTasks.Image = My.Resources.Tasks_White
+            SidemenuTasks.ForeColor = Color.White
+            SidemenuManage.Image = My.Resources.Backup
+            SidemenuManage.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            SidemenuSettings.Image = My.Resources.Settings
+            SidemenuSettings.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            'Change section title
+            TitleLabel.Text = Localization.GetString("ui_title_tasks")
+            'Remove controls
+            Controls.Remove(LogsContainer)
+            Controls.Remove(AboutContainer)
+            Controls.Remove(ManageContainer)
+            Controls.Remove(SettingsContainer)
+            'Show tasks section
+            Controls.Add(TasksContainer)
+            Controls.Add(FoldersTitleLabel)
+            Controls.Add(FoldersContainer)
+        End If
     End Sub
 
     Private Sub SidemenuManage_Click(sender As Object, e As EventArgs) Handles SidemenuManage.Click
-        'Remove background image
-        BackgroundImage = Nothing
-        'Change top menu labels color
-        TopMenuContainer.BackColor = Color.FromArgb(255, 22, 26, 31)
-        LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        'Change buttons image and color
-        SidemenuTasks.Image = My.Resources.Tasks
-        SidemenuTasks.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        SidemenuManage.Image = My.Resources.Backup_White
-        SidemenuManage.ForeColor = Color.White
-        SidemenuSettings.Image = My.Resources.Settings
-        SidemenuSettings.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        'Change section title
-        TitleLabel.Text = Localization.GetString("ui_title_manage")
-        'Remove controls
-        Controls.Remove(LogsContainer)
-        Controls.Remove(AboutContainer)
-        Controls.Remove(TasksContainer)
-        Controls.Remove(FoldersTitleLabel)
-        Controls.Remove(FoldersContainer)
-        Controls.Remove(SettingsContainer)
-        'Show backups
-        Controls.Add(ManageContainer)
-        'Retrieve backups
-        If BackupLocTextBox.Text <> "" Then
-            PopulateBackupsGrid()
+        If SidemenuManage.ForeColor <> Color.White Then
+            'Remove background image
+            BackgroundImage = Nothing
+            'Change top menu labels color
+            TopMenuContainer.BackColor = Color.FromArgb(255, 22, 26, 31)
+            LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            'Change buttons image and color
+            SidemenuTasks.Image = My.Resources.Tasks
+            SidemenuTasks.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            SidemenuManage.Image = My.Resources.Backup_White
+            SidemenuManage.ForeColor = Color.White
+            SidemenuSettings.Image = My.Resources.Settings
+            SidemenuSettings.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            'Change section title
+            TitleLabel.Text = Localization.GetString("ui_title_manage")
+            'Remove controls
+            Controls.Remove(LogsContainer)
+            Controls.Remove(AboutContainer)
+            Controls.Remove(TasksContainer)
+            Controls.Remove(FoldersTitleLabel)
+            Controls.Remove(FoldersContainer)
+            Controls.Remove(SettingsContainer)
+            'Show backups
+            Controls.Add(ManageContainer)
+            'Retrieve backups
+            If BackupLocTextBox.Text <> "" Then
+                PopulateBackupsGrid()
+            End If
         End If
     End Sub
 
     Private Sub SidemenuSettings_Click(sender As Object, e As EventArgs) Handles SidemenuSettings.Click
-        'Remove background image
-        BackgroundImage = Nothing
-        'Change top menu labels color
-        TopMenuContainer.BackColor = Color.FromArgb(255, 22, 26, 31)
-        LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        'Change buttons image and color
-        SidemenuTasks.Image = My.Resources.Tasks
-        SidemenuTasks.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        SidemenuManage.Image = My.Resources.Backup
-        SidemenuManage.ForeColor = Color.FromArgb(255, 85, 170, 255)
-        SidemenuSettings.Image = My.Resources.Settings_White
-        SidemenuSettings.ForeColor = Color.White
-        'Change section title
-        TitleLabel.Text = Localization.GetString("ui_title_settings")
-        'Remove controls
-        Controls.Remove(LogsContainer)
-        Controls.Remove(AboutContainer)
-        Controls.Remove(TasksContainer)
-        Controls.Remove(FoldersTitleLabel)
-        Controls.Remove(FoldersContainer)
-        Controls.Remove(ManageContainer)
-        'Show settings
-        Controls.Add(SettingsContainer)
+        If SidemenuSettings.ForeColor <> Color.White Then
+            'Remove background image
+            BackgroundImage = Nothing
+            'Change top menu labels color
+            TopMenuContainer.BackColor = Color.FromArgb(255, 22, 26, 31)
+            LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            'Change buttons image and color
+            SidemenuTasks.Image = My.Resources.Tasks
+            SidemenuTasks.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            SidemenuManage.Image = My.Resources.Backup
+            SidemenuManage.ForeColor = Color.FromArgb(255, 85, 170, 255)
+            SidemenuSettings.Image = My.Resources.Settings_White
+            SidemenuSettings.ForeColor = Color.White
+            'Change section title
+            TitleLabel.Text = Localization.GetString("ui_title_settings")
+            'Remove controls
+            Controls.Remove(LogsContainer)
+            Controls.Remove(AboutContainer)
+            Controls.Remove(TasksContainer)
+            Controls.Remove(FoldersTitleLabel)
+            Controls.Remove(FoldersContainer)
+            Controls.Remove(ManageContainer)
+            'Show settings
+            Controls.Add(SettingsContainer)
+        End If
     End Sub
 
     Private Sub BackupBtn_Click(sender As Object, e As EventArgs) Handles BackupBtn.Click
