@@ -44,6 +44,7 @@ Public Class Updater
         End If
     End Sub
 
+#Region "Async Subroutines"
     Private Shared Sub Updater_DownloadStringCompleted(sender As Object, e As DownloadStringCompletedEventArgs)
         If e.Error Is Nothing Then
             Dim FetchedVer As Integer = e.Result
@@ -65,4 +66,5 @@ Public Class Updater
             Banner.Show(Localization.GetString("banner_update_error"), BannerIcon.Warning)
         End If
     End Sub
+#End Region
 End Class

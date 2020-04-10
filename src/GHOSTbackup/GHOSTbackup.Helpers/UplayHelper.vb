@@ -49,6 +49,7 @@ Public Class UplayHelper
         End Using
     End Sub
 
+#Region "Cloud Sync"
     Public Shared Sub DisableCloudSync()
         'Disable Uplay cloud save synchronization
         Try
@@ -128,4 +129,5 @@ Public Class UplayHelper
             CustomMsgBox.Show(Localization.GetString("msgbox_enable_sync_error"), Localization.GetString("msgbox_parsing_error_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Error)
         End Try
     End Sub
+#End Region
 End Class
