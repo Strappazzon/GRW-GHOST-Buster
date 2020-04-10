@@ -24,31 +24,29 @@
 ''
 #End Region
 
-Imports GHOSTbackup.UI
-Imports GHOSTbackup.BackupHelper
-Imports GHOSTbackup.Var
+Namespace UI
 
-Public Class ProcessHelper
-    Private Shared WithEvents CheckProcessTimer As New Timer()
+#Region "CustomMsgBox Enums"
+    Public Enum CustomMsgBoxButtons
+        OK = 0
+        OKCancel = 0
+        YesNo = 1
+        YesNoCancel = 1
+    End Enum
 
-    Public Shared Sub StartProcessTimer()
-        CheckProcessTimer.Interval = 500
-        CheckProcessTimer.Start()
-    End Sub
+    Public Enum CustomMsgBoxIcon
+        Hand = 16
+        [Stop] = 16
+        [Error] = 16
+        Question = 32
+        Exclamation = 48
+        Warning = 48
+    End Enum
 
-    Public Shared Sub CheckProcessTimer_Tick(sender As Object, e As EventArgs) Handles CheckProcessTimer.Tick
-        Dim WildlandsProc = Process.GetProcessesByName("GRW")
-        If WildlandsProc.Count > 0 Then
-            IsGameRunning = True
-            Form1.PlayGameBtn.Enabled = False
-        Else
-            IsGameRunning = False
-            Form1.PlayGameBtn.Enabled = True
-            If IsBackupRunning = True Then
-                StopBackup()
-                Logger.Log("[INFO] Wildlands has been closed or crashed. Backup interrupted.")
-                CustomMsgBox.Show(Localization.GetString("msgbox_wildlands_closed_crashed"), Localization.GetString("msgbox_wildlands_closed_crashed_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Warning)
-            End If
-        End If
-    End Sub
-End Class
+    Public Enum CustomMsgBoxDefaultButton
+        Button1 = 0
+        Button2 = 256
+        Button3 = 512
+    End Enum
+#End Region
+End Namespace

@@ -25,6 +25,7 @@
 #End Region
 
 Imports System.IO
+Imports GHOSTbackup.UI
 Imports GHOSTbackup.BackupHelper
 Imports GHOSTbackup.Updater
 Imports GHOSTbackup.UplayHelper
@@ -117,7 +118,7 @@ Public Class Form1
 
     Private Sub Form1_Closing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If IsBackupRunning = True AndAlso SettingsConfirmExitChkBox.Checked = True Then
-            CustomMsgBox.Show(Localization.GetString("msgbox_confirm_exit"), Localization.GetString("msgbox_confirm_exit_title"), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+            CustomMsgBox.Show(Localization.GetString("msgbox_confirm_exit"), Localization.GetString("msgbox_confirm_exit_title"), CustomMsgBoxButtons.YesNoCancel, CustomMsgBoxIcon.Question, CustomMsgBoxDefaultButton.Button2)
             If CustomMsgBox.DialogResult = DialogResult.No OrElse CustomMsgBox.DialogResult = DialogResult.Cancel Then
                 e.Cancel = True
             Else
@@ -316,7 +317,7 @@ Public Class Form1
 
     Private Sub StopBtn_Click(sender As Object, e As EventArgs) Handles StopBtn.Click
         If SettingsConfirmStopBackupChkBox.Checked = True Then
-            CustomMsgBox.Show(Localization.GetString("msgbox_confirm_backup_interruption"), Localization.GetString("msgbox_confirm_backup_interruption_title"), MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)
+            CustomMsgBox.Show(Localization.GetString("msgbox_confirm_backup_interruption"), Localization.GetString("msgbox_confirm_backup_interruption_title"), CustomMsgBoxButtons.YesNoCancel, CustomMsgBoxIcon.Question, CustomMsgBoxDefaultButton.Button2)
             If CustomMsgBox.DialogResult = DialogResult.Yes Then
                 StopBackup()
                 Logger.Log("[INFO] Backup interrupted by the user.")

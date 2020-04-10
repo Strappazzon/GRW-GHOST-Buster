@@ -26,6 +26,7 @@
 
 Imports Microsoft.Win32
 Imports System.IO
+Imports GHOSTbackup.UI
 Imports GHOSTbackup.BackupHelper
 Imports GHOSTbackup.Var
 
@@ -60,7 +61,7 @@ Public Class UplayHelper
                 'Check if Uplay is running or not before editing its settings file
                 Dim UplayProc = Process.GetProcessesByName("upc")
                 If UplayProc.Count > 0 Then
-                    CustomMsgBox.Show(Localization.GetString("msgbox_quit_before_restore_sync"), Localization.GetString("msgbox_quit_before_restore_sync_title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+                    CustomMsgBox.Show(Localization.GetString("msgbox_quit_before_restore_sync"), Localization.GetString("msgbox_quit_before_restore_sync_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Warning)
                 Else
                     'Backup Uplay settings file without overwriting an existing backup
                     Logger.Log("[INFO] Backing up Uplay settings file to " & UplayYamlPath & ".bak")
@@ -92,7 +93,7 @@ Public Class UplayHelper
             Form1.SettingsDisableCloudSyncChkBox.Checked = False
 
             Logger.Log("[ERROR] Parsing of ""settings.yml"" failed: " & ex.Message())
-            CustomMsgBox.Show(Localization.GetString("msgbox_disable_sync_error"), Localization.GetString("msgbox_parsing_error_title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+            CustomMsgBox.Show(Localization.GetString("msgbox_disable_sync_error"), Localization.GetString("msgbox_parsing_error_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Error)
 
             'Start the restore process anyway
             RestoreBackup()
@@ -111,7 +112,7 @@ Public Class UplayHelper
                 'Check if Uplay is running or not before editing its settings file
                 Dim UplayProc = Process.GetProcessesByName("upc")
                 If UplayProc.Count > 0 Then
-                    CustomMsgBox.Show(Localization.GetString("msgbox_enable_sync_uplay_error"), Localization.GetString("msgbox_enable_sync_uplay_error_title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+                    CustomMsgBox.Show(Localization.GetString("msgbox_enable_sync_uplay_error"), Localization.GetString("msgbox_enable_sync_uplay_error_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Warning)
                 Else
                     'Enable cloud save sync
                     Dim ReplacedUplayYaml As String = ParsedUplayYaml.Replace("syncsavegames: false", "syncsavegames: true")
@@ -124,7 +125,7 @@ Public Class UplayHelper
             End If
         Catch ex As Exception
             Logger.Log("[ERROR] Parsing of ""settings.yml"" failed: " & ex.Message())
-            CustomMsgBox.Show(Localization.GetString("msgbox_enable_sync_error"), Localization.GetString("msgbox_parsing_error_title"), MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+            CustomMsgBox.Show(Localization.GetString("msgbox_enable_sync_error"), Localization.GetString("msgbox_parsing_error_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Error)
         End Try
     End Sub
 End Class

@@ -104,6 +104,7 @@
     <Compile Include="GHOSTbackup.UI\CustomMsgBox.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GHOSTbackup.UI\Enums.vb" />
     <Compile Include="GHOSTbackup.UI\Form1.vb">
       <SubType>Form</SubType>
     </Compile>
