@@ -66,11 +66,14 @@ Public Class Settings
             File.WriteAllText(SettingsFile, ConfigData.ToString())
 
             'Set default settings
+            'GHOST Buster
+            Form1.SettingsInterfaceLangDropdown.SelectedIndex = 0
             'Backup
             'Create default backup directory
             Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\Savegames")
             Form1.BackupLocTextBox.Text = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\Savegames"
             Form1.WhichBackupDropdown.SelectedIndex = 0
+            Form1.BackupFreqUpDown.Value = Decimal.Round(5, 0)
             'Logging
             Form1.SettingsLogFilePathTextBox.Text = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\event.log"
         Else
