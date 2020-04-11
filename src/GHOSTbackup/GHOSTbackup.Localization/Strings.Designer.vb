@@ -1235,7 +1235,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Latest backup: None yet..
+        '''  Looks up a localized string similar to Latest backup:\nNone yet..
         '''</summary>
         Friend Shared ReadOnly Property ui_tasks_latest_none() As String
             Get

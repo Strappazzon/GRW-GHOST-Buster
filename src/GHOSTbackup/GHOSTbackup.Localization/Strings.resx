@@ -334,7 +334,7 @@
     <value>Latest backup:\nPlease wait...</value>
   </data>
   <data name="ui_tasks_latest_none" xml:space="preserve">
-    <value>Latest backup: None yet.</value>
+    <value>Latest backup:\nNone yet.</value>
   </data>
   <data name="ui_tasks_restore" xml:space="preserve">
     <value>Restore\nBackup</value>
