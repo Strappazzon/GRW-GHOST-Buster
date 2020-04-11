@@ -175,7 +175,7 @@ Public Class BackupHelper
         Form1.BrowseSavegamesLocBtn.Enabled = False
         Form1.BackupLocTextBox.Enabled = False
         Form1.BrowseBackupLocBtn.Enabled = False
-        Form1.RestoreToolStripMenuItem.Enabled = False
+        Form1.RestoreManageContextMenuItem.Enabled = False
         Form1.SettingsNonUplayVersionChkBox.Enabled = False
         Form1.SettingsCustomExeTextBox.Enabled = False
         Form1.SettingsBrowseCustomExeBtn.Enabled = False
@@ -193,7 +193,7 @@ Public Class BackupHelper
         Form1.BrowseSavegamesLocBtn.Enabled = True
         Form1.BackupLocTextBox.Enabled = True
         Form1.BrowseBackupLocBtn.Enabled = True
-        Form1.RestoreToolStripMenuItem.Enabled = True
+        Form1.RestoreManageContextMenuItem.Enabled = True
         Form1.SettingsNonUplayVersionChkBox.Enabled = True
         Form1.SettingsCustomExeTextBox.Enabled = True
         Form1.SettingsBrowseCustomExeBtn.Enabled = True

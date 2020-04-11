@@ -36,10 +36,10 @@ Partial Class Form1
         Me.BackupFreqHelp1Label = New System.Windows.Forms.Label()
         Me.PlayGameBtn = New System.Windows.Forms.Button()
         Me.LogTxtBox = New System.Windows.Forms.TextBox()
-        Me.LogTxtBoxContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.CopyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SelectAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ExportLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LogsContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.CopyLogsContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SelectAllLogsContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveLogsContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsConfirmExitChkBox = New System.Windows.Forms.CheckBox()
         Me.SettingsConfirmStopBackupChkBox = New System.Windows.Forms.CheckBox()
         Me.SettingsCheckUpdatesChkBox = New System.Windows.Forms.CheckBox()
@@ -94,14 +94,14 @@ Partial Class Form1
         Me.ManageContainer = New System.Windows.Forms.Panel()
         Me.BackupsDataGrid = New System.Windows.Forms.DataGridView()
         Me.ManageContextMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.RestoreToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DeleteAllStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ShowBackupStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LogTxtBoxContextMenu.SuspendLayout()
+        Me.RestoreManageContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteManageContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ManageContextMenuSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.RefreshManageContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeleteAllManageContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ManageContextMenuSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ExplorerManageContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LogsContextMenu.SuspendLayout()
         Me.TopMenuContainer.SuspendLayout()
         CType(Me.AlertDot, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.UplayBtn, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -229,7 +229,7 @@ Partial Class Form1
         '
         Me.LogTxtBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
         Me.LogTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.LogTxtBox.ContextMenuStrip = Me.LogTxtBoxContextMenu
+        Me.LogTxtBox.ContextMenuStrip = Me.LogsContextMenu
         Me.LogTxtBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LogTxtBox.ForeColor = System.Drawing.Color.White
         Me.LogTxtBox.Location = New System.Drawing.Point(0, 0)
@@ -240,41 +240,41 @@ Partial Class Form1
         Me.LogTxtBox.Size = New System.Drawing.Size(495, 297)
         Me.LogTxtBox.TabIndex = 0
         '
-        'LogTxtBoxContextMenu
+        'LogsContextMenu
         '
-        Me.LogTxtBoxContextMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(58, Byte), Integer), CType(CType(69, Byte), Integer))
-        Me.LogTxtBoxContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CopyToolStripMenuItem, Me.SelectAllToolStripMenuItem, Me.ExportLogToolStripMenuItem})
-        Me.LogTxtBoxContextMenu.Name = "logTxtBoxContext"
-        Me.LogTxtBoxContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.LogTxtBoxContextMenu.Size = New System.Drawing.Size(182, 70)
+        Me.LogsContextMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(58, Byte), Integer), CType(CType(69, Byte), Integer))
+        Me.LogsContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CopyLogsContextMenuItem, Me.SelectAllLogsContextMenuItem, Me.SaveLogsContextMenuItem})
+        Me.LogsContextMenu.Name = "logTxtBoxContext"
+        Me.LogsContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
+        Me.LogsContextMenu.Size = New System.Drawing.Size(182, 70)
         '
-        'CopyToolStripMenuItem
+        'CopyLogsContextMenuItem
         '
-        Me.CopyToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem"
-        Me.CopyToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
-        Me.CopyToolStripMenuItem.Text = "Copy"
-        Me.CopyToolStripMenuItem.ToolTipText = "Copy the selected text to clipboard."
+        Me.CopyLogsContextMenuItem.ForeColor = System.Drawing.Color.White
+        Me.CopyLogsContextMenuItem.Name = "CopyLogsContextMenuItem"
+        Me.CopyLogsContextMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
+        Me.CopyLogsContextMenuItem.Size = New System.Drawing.Size(181, 22)
+        Me.CopyLogsContextMenuItem.Text = "Copy"
+        Me.CopyLogsContextMenuItem.ToolTipText = "Copy the selected text to clipboard."
         '
-        'SelectAllToolStripMenuItem
+        'SelectAllLogsContextMenuItem
         '
-        Me.SelectAllToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.SelectAllToolStripMenuItem.Name = "SelectAllToolStripMenuItem"
-        Me.SelectAllToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
-        Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
-        Me.SelectAllToolStripMenuItem.Text = "Select All"
-        Me.SelectAllToolStripMenuItem.ToolTipText = "Select all the text."
+        Me.SelectAllLogsContextMenuItem.ForeColor = System.Drawing.Color.White
+        Me.SelectAllLogsContextMenuItem.Name = "SelectAllLogsContextMenuItem"
+        Me.SelectAllLogsContextMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
+        Me.SelectAllLogsContextMenuItem.Size = New System.Drawing.Size(181, 22)
+        Me.SelectAllLogsContextMenuItem.Text = "Select All"
+        Me.SelectAllLogsContextMenuItem.ToolTipText = "Select all the text."
         '
-        'ExportLogToolStripMenuItem
+        'SaveLogsContextMenuItem
         '
-        Me.ExportLogToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.ExportLogToolStripMenuItem.Image = Global.GHOSTbackup.My.Resources.Resources.Logs_Save
-        Me.ExportLogToolStripMenuItem.Name = "ExportLogToolStripMenuItem"
-        Me.ExportLogToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.ExportLogToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
-        Me.ExportLogToolStripMenuItem.Text = "Save log as..."
-        Me.ExportLogToolStripMenuItem.ToolTipText = "Save all events to a log file."
+        Me.SaveLogsContextMenuItem.ForeColor = System.Drawing.Color.White
+        Me.SaveLogsContextMenuItem.Image = Global.GHOSTbackup.My.Resources.Resources.Logs_Save
+        Me.SaveLogsContextMenuItem.Name = "SaveLogsContextMenuItem"
+        Me.SaveLogsContextMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
+        Me.SaveLogsContextMenuItem.Size = New System.Drawing.Size(181, 22)
+        Me.SaveLogsContextMenuItem.Text = "Save log as..."
+        Me.SaveLogsContextMenuItem.ToolTipText = "Save all events to a log file."
         '
         'SettingsConfirmExitChkBox
         '
@@ -1160,67 +1160,67 @@ Partial Class Form1
         'ManageContextMenu
         '
         Me.ManageContextMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(58, Byte), Integer), CType(CType(69, Byte), Integer))
-        Me.ManageContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RestoreToolStripMenuItem, Me.DeleteToolStripMenuItem, Me.ToolStripSeparator1, Me.RefreshToolStripMenuItem, Me.DeleteAllStripMenuItem, Me.ToolStripSeparator2, Me.ShowBackupStripMenuItem})
+        Me.ManageContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RestoreManageContextMenuItem, Me.DeleteManageContextMenuItem, Me.ManageContextMenuSeparator1, Me.RefreshManageContextMenuItem, Me.DeleteAllManageContextMenuItem, Me.ManageContextMenuSeparator2, Me.ExplorerManageContextMenuItem})
         Me.ManageContextMenu.Name = "logTxtBoxContext"
         Me.ManageContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
         Me.ManageContextMenu.Size = New System.Drawing.Size(162, 126)
         '
-        'RestoreToolStripMenuItem
+        'RestoreManageContextMenuItem
         '
-        Me.RestoreToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.RestoreToolStripMenuItem.Image = Global.GHOSTbackup.My.Resources.Resources.Manage_Restore
-        Me.RestoreToolStripMenuItem.Name = "RestoreToolStripMenuItem"
-        Me.RestoreToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
-        Me.RestoreToolStripMenuItem.Text = "Restore"
-        Me.RestoreToolStripMenuItem.ToolTipText = "Restore the selected backup."
+        Me.RestoreManageContextMenuItem.ForeColor = System.Drawing.Color.White
+        Me.RestoreManageContextMenuItem.Image = Global.GHOSTbackup.My.Resources.Resources.Manage_Restore
+        Me.RestoreManageContextMenuItem.Name = "RestoreManageContextMenuItem"
+        Me.RestoreManageContextMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.RestoreManageContextMenuItem.Text = "Restore"
+        Me.RestoreManageContextMenuItem.ToolTipText = "Restore the selected backup."
         '
-        'DeleteToolStripMenuItem
+        'DeleteManageContextMenuItem
         '
-        Me.DeleteToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.DeleteToolStripMenuItem.Image = Global.GHOSTbackup.My.Resources.Resources.Manage_Delete
-        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
-        Me.DeleteToolStripMenuItem.Text = "Delete"
-        Me.DeleteToolStripMenuItem.ToolTipText = "Delete the selected backup."
+        Me.DeleteManageContextMenuItem.ForeColor = System.Drawing.Color.White
+        Me.DeleteManageContextMenuItem.Image = Global.GHOSTbackup.My.Resources.Resources.Manage_Delete
+        Me.DeleteManageContextMenuItem.Name = "DeleteManageContextMenuItem"
+        Me.DeleteManageContextMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.DeleteManageContextMenuItem.Text = "Delete"
+        Me.DeleteManageContextMenuItem.ToolTipText = "Delete the selected backup."
         '
-        'ToolStripSeparator1
+        'ManageContextMenuSeparator1
         '
-        Me.ToolStripSeparator1.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStripSeparator1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(61, Byte), Integer))
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(158, 6)
+        Me.ManageContextMenuSeparator1.BackColor = System.Drawing.Color.Transparent
+        Me.ManageContextMenuSeparator1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(61, Byte), Integer))
+        Me.ManageContextMenuSeparator1.Name = "ManageContextMenuSeparator1"
+        Me.ManageContextMenuSeparator1.Size = New System.Drawing.Size(158, 6)
         '
-        'RefreshToolStripMenuItem
+        'RefreshManageContextMenuItem
         '
-        Me.RefreshToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(161, 22)
-        Me.RefreshToolStripMenuItem.Text = "Refresh"
-        Me.RefreshToolStripMenuItem.ToolTipText = "Refresh the list of backups."
+        Me.RefreshManageContextMenuItem.ForeColor = System.Drawing.Color.White
+        Me.RefreshManageContextMenuItem.Name = "RefreshManageContextMenuItem"
+        Me.RefreshManageContextMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.RefreshManageContextMenuItem.Text = "Refresh"
+        Me.RefreshManageContextMenuItem.ToolTipText = "Refresh the list of backups."
         '
-        'DeleteAllStripMenuItem
+        'DeleteAllManageContextMenuItem
         '
-        Me.DeleteAllStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.DeleteAllStripMenuItem.Image = Global.GHOSTbackup.My.Resources.Resources.Manage_Delete_All
-        Me.DeleteAllStripMenuItem.Name = "DeleteAllStripMenuItem"
-        Me.DeleteAllStripMenuItem.Size = New System.Drawing.Size(161, 22)
-        Me.DeleteAllStripMenuItem.Text = "Delete All"
-        Me.DeleteAllStripMenuItem.ToolTipText = "Delete all backups."
+        Me.DeleteAllManageContextMenuItem.ForeColor = System.Drawing.Color.White
+        Me.DeleteAllManageContextMenuItem.Image = Global.GHOSTbackup.My.Resources.Resources.Manage_Delete_All
+        Me.DeleteAllManageContextMenuItem.Name = "DeleteAllManageContextMenuItem"
+        Me.DeleteAllManageContextMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.DeleteAllManageContextMenuItem.Text = "Delete All"
+        Me.DeleteAllManageContextMenuItem.ToolTipText = "Delete all backups."
         '
-        'ToolStripSeparator2
+        'ManageContextMenuSeparator2
         '
-        Me.ToolStripSeparator2.BackColor = System.Drawing.Color.Transparent
-        Me.ToolStripSeparator2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(61, Byte), Integer))
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(158, 6)
+        Me.ManageContextMenuSeparator2.BackColor = System.Drawing.Color.Transparent
+        Me.ManageContextMenuSeparator2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(61, Byte), Integer))
+        Me.ManageContextMenuSeparator2.Name = "ManageContextMenuSeparator2"
+        Me.ManageContextMenuSeparator2.Size = New System.Drawing.Size(158, 6)
         '
-        'ShowBackupStripMenuItem
+        'ExplorerManageContextMenuItem
         '
-        Me.ShowBackupStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.ShowBackupStripMenuItem.Name = "ShowBackupStripMenuItem"
-        Me.ShowBackupStripMenuItem.Size = New System.Drawing.Size(161, 22)
-        Me.ShowBackupStripMenuItem.Text = "Show in Explorer"
-        Me.ShowBackupStripMenuItem.ToolTipText = "Open the selected backup folder in Windows Explorer."
+        Me.ExplorerManageContextMenuItem.ForeColor = System.Drawing.Color.White
+        Me.ExplorerManageContextMenuItem.Name = "ExplorerManageContextMenuItem"
+        Me.ExplorerManageContextMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.ExplorerManageContextMenuItem.Text = "Show in Explorer"
+        Me.ExplorerManageContextMenuItem.ToolTipText = "Open the selected backup folder in Windows Explorer."
         '
         'Form1
         '
@@ -1252,7 +1252,7 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "GHOST Buster"
-        Me.LogTxtBoxContextMenu.ResumeLayout(False)
+        Me.LogsContextMenu.ResumeLayout(False)
         Me.TopMenuContainer.ResumeLayout(False)
         Me.TopMenuContainer.PerformLayout()
         CType(Me.AlertDot, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1292,10 +1292,10 @@ Partial Class Form1
     Friend WithEvents SettingsConfirmStopBackupChkBox As CheckBox
     Friend WithEvents BackupFreqHelp1Label As Label
     Friend WithEvents SettingsCheckUpdatesChkBox As CheckBox
-    Friend WithEvents LogTxtBoxContextMenu As ContextMenuStrip
-    Friend WithEvents CopyToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents SelectAllToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ExportLogToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents LogsContextMenu As ContextMenuStrip
+    Friend WithEvents CopyLogsContextMenuItem As ToolStripMenuItem
+    Friend WithEvents SelectAllLogsContextMenuItem As ToolStripMenuItem
+    Friend WithEvents SaveLogsContextMenuItem As ToolStripMenuItem
     Friend WithEvents TopMenuContainer As Panel
     Friend WithEvents UplayBtn As PictureBox
     Friend WithEvents AboutLabel As Label
@@ -1343,11 +1343,11 @@ Partial Class Form1
     Friend WithEvents ManageContainer As Panel
     Friend WithEvents BackupsDataGrid As DataGridView
     Friend WithEvents ManageContextMenu As ContextMenuStrip
-    Friend WithEvents RestoreToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents DeleteToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
-    Friend WithEvents DeleteAllStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
-    Friend WithEvents ShowBackupStripMenuItem As ToolStripMenuItem
-    Friend WithEvents RefreshToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents RestoreManageContextMenuItem As ToolStripMenuItem
+    Friend WithEvents DeleteManageContextMenuItem As ToolStripMenuItem
+    Friend WithEvents ManageContextMenuSeparator1 As ToolStripSeparator
+    Friend WithEvents DeleteAllManageContextMenuItem As ToolStripMenuItem
+    Friend WithEvents ManageContextMenuSeparator2 As ToolStripSeparator
+    Friend WithEvents ExplorerManageContextMenuItem As ToolStripMenuItem
+    Friend WithEvents RefreshManageContextMenuItem As ToolStripMenuItem
 End Class

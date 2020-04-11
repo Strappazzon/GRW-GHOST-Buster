@@ -512,33 +512,33 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub RestoreToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestoreToolStripMenuItem.Click
+    Private Sub RestoreManageContextMenuItem_Click(sender As Object, e As EventArgs) Handles RestoreManageContextMenuItem.Click
         'Restore selected backup
         'Pass folder from selected row to RestoreBackup subroutine
         '//stackoverflow.com/a/12864283
         RestoreBackup(BackupsDataGrid.Rows(BackupsDataGrid.CurrentCell.RowIndex).Cells(0).Value.ToString())
     End Sub
 
-    Private Sub DeleteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem.Click
+    Private Sub DeleteManageContextMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteManageContextMenuItem.Click
         'Delete selected backup
         'Pass folder from selected row to DeleteBackup subroutine
         '//stackoverflow.com/a/12864283
         DeleteBackup(BackupsDataGrid.Rows(BackupsDataGrid.CurrentCell.RowIndex).Cells(0).Value.ToString())
     End Sub
 
-    Private Sub RefreshToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RefreshToolStripMenuItem.Click
+    Private Sub RefreshManageContextMenuItem_Click(sender As Object, e As EventArgs) Handles RefreshManageContextMenuItem.Click
         'Clear table
         BackupsDataGrid.DataSource = Nothing
         'Re-create backups table
         PopulateBackupsGrid()
     End Sub
 
-    Private Sub DeleteAllStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteAllStripMenuItem.Click
+    Private Sub DeleteAllManageContextMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteAllManageContextMenuItem.Click
         'Delete all backups inside the current backup directory
         DeleteBackup()
     End Sub
 
-    Private Sub ShowBackupStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowBackupStripMenuItem.Click
+    Private Sub ExplorerManageContextMenuItem_Click(sender As Object, e As EventArgs) Handles ExplorerManageContextMenuItem.Click
         'Open the selected backup folder in Windows Explorer
         Dim BackupDirectory As String = BackupLocTextBox.Text & "\" & BackupsDataGrid.Rows(BackupsDataGrid.CurrentCell.RowIndex).Cells(0).Value.ToString()
         If Directory.Exists(BackupDirectory) Then
@@ -550,17 +550,17 @@ Public Class Form1
 #End Region
 
 #Region "Logs"
-    Private Sub CopyToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopyToolStripMenuItem.Click
+    Private Sub CopyLogsContextMenuItem_Click(sender As Object, e As EventArgs) Handles CopyLogsContextMenuItem.Click
         If LogTxtBox.SelectedText <> "" Then
             Clipboard.SetText(LogTxtBox.SelectedText)
         End If
     End Sub
 
-    Private Sub SelectAllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SelectAllToolStripMenuItem.Click
+    Private Sub SelectAllLogsContextMenuItem_Click(sender As Object, e As EventArgs) Handles SelectAllLogsContextMenuItem.Click
         LogTxtBox.SelectAll()
     End Sub
 
-    Private Sub ExportLogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportLogToolStripMenuItem.Click
+    Private Sub SaveLogsContextMenuItem_Click(sender As Object, e As EventArgs) Handles SaveLogsContextMenuItem.Click
         'Export log TextBox content to a text file
         Using S As New SaveFileDialog
             S.Title = Localization.GetString("dialog_save_log_title")
