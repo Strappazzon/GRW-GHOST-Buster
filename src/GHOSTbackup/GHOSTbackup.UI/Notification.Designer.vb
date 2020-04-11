@@ -54,6 +54,7 @@ Partial Class Notification
         'Logo
         '
         Me.Logo.BackColor = System.Drawing.Color.Transparent
+        Me.Logo.Image = Global.GHOSTbackup.My.Resources.Resources.Notification_Image
         Me.Logo.Location = New System.Drawing.Point(12, 20)
         Me.Logo.Name = "Logo"
         Me.Logo.Size = New System.Drawing.Size(60, 70)
@@ -66,6 +67,7 @@ Partial Class Notification
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
+        Me.BackgroundImage = Global.GHOSTbackup.My.Resources.Resources.Notification_Form_BG
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(300, 111)
         Me.Controls.Add(Me.MessageLabel)

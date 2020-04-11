@@ -27,6 +27,14 @@
 Public Class Notification
     Private WithEvents CloseTimer As New Timer() With {.Interval = 5000}
 
+    Public Sub New()
+        'Required by the designer
+        InitializeComponent()
+
+        'Position notification in the bottom right corner of the screen
+        Location = New Point(My.Computer.Screen.Bounds.Width - Width, My.Computer.Screen.Bounds.Height - Height)
+    End Sub
+
 #Region "Show Methods"
     Public Overloads Shared Sub Show(ByVal Message As String)
         Notification.MessageLabel.Text = Message
@@ -34,31 +42,17 @@ Public Class Notification
         'Display the notification
         'Use My.Forms.Show because msbuild complains
         My.Forms.Notification.Show()
+
+        'Close the notification automatically
+        Notification.CloseTimer.Start()
     End Sub
 #End Region
 
     Private Sub CloseTimer_Tick(sender As Object, e As EventArgs) Handles CloseTimer.Tick
         CloseTimer.Stop()
-        Close()
+
+        'Hide notification
+        'Closing the notification will close all modal forms as well
+        Hide()
     End Sub
-
-#Region "Form Events"
-    Private Sub Notification_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Set images
-        Logo.Image = My.Resources.Notification_Image
-        BackgroundImage = My.Resources.Notification_Form_BG
-
-        'Position notification in the bottom right corner of the screen
-        Location = New Point(My.Computer.Screen.Bounds.Width - Width, My.Computer.Screen.Bounds.Height - Height)
-
-        'Close the notification automatically
-        CloseTimer.Start()
-    End Sub
-
-    Private Sub Notification_Closing(sender As Object, e As EventArgs) Handles Me.Closing
-        'Dispose images
-        Logo.Image.Dispose()
-        BackgroundImage.Dispose()
-    End Sub
-#End Region
 End Class
