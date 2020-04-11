@@ -115,6 +115,9 @@ Public Class Form1
 
         'Check for updates
         CheckUpdates()
+
+        'Disable context menu on "Backup Frequency" NumericUpDown
+        BackupFreqUpDown.ContextMenu = New ContextMenu()
     End Sub
 
     Private Sub Form1_Closing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
