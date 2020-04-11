@@ -25,46 +25,41 @@
 #End Region
 
 Imports GHOSTbackup.UI
-Imports System.Net
+Imports System.Net.Http
 
 Public Class Updater
     Private Shared ReadOnly VersionCode As Integer = 16
+    Private Shared ReadOnly VersionURI As Uri = New Uri("https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/version")
 
-    Public Shared Sub CheckUpdates()
-        'Check for updates
-        '//docs.microsoft.com/en-us/dotnet/api/system.net.downloadstringcompletedeventargs
+    'Check for updates
+    '//docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient
+    Public Shared Async Sub CheckUpdates()
         If Form1.SettingsCheckUpdatesChkBox.Checked = True Then
-            Using Updater As WebClient = New WebClient()
-                Updater.Headers.Add("User-Agent", "GHOST Buster (+https://strappazzon.xyz/GRW-GHOST-Buster)")
-                Dim VersionURI As Uri = New Uri("https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/version")
-                Updater.DownloadStringAsync(VersionURI)
-                'Call updater_DownloadStringCompleted when the download completes
-                AddHandler Updater.DownloadStringCompleted, AddressOf Updater_DownloadStringCompleted
-            End Using
+            Try
+                Using Updater As HttpClient = New HttpClient()
+                    Updater.DefaultRequestHeaders.Add("User-Agent", "GHOST Buster (+https://strappazzon.xyz/GRW-GHOST-Buster)")
+                    Dim FetchedVer As Integer = Integer.Parse(Await Updater.GetStringAsync(VersionURI))
+
+                    'Compare downloaded GHOST Buster version number with the current one
+                    Select Case FetchedVer
+                        Case VersionCode
+                            Logger.Log("[INFO] GHOST Buster is up to date.")
+                        Case > VersionCode
+                            Logger.Log("[INFO] New version of GHOST Buster is available.")
+                            CustomMsgBox.Show(Localization.GetString("msgbox_update_available"), Localization.GetString("msgbox_update_available_title"), CustomMsgBoxButtons.YesNoCancel, CustomMsgBoxIcon.Question, CustomMsgBoxDefaultButton.Button2)
+                            If CustomMsgBox.DialogResult = DialogResult.Yes Then
+                                Process.Start("https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest")
+                            End If
+                        Case < VersionCode
+                            Logger.Log("[INFO] The version in use is greater than the one currently available.")
+                        Case Else
+                            Exit Select
+                    End Select
+                End Using
+            Catch ex As Exception
+                Logger.Log("[ERROR] Unable to check for updates: " & ex.Message())
+                Banner.Show(Localization.GetString("banner_update_error"), BannerIcon.Warning)
+            End Try
         End If
     End Sub
-
-#Region "Async Subroutines"
-    Private Shared Sub Updater_DownloadStringCompleted(sender As Object, e As DownloadStringCompletedEventArgs)
-        If e.Error Is Nothing Then
-            Dim FetchedVer As Integer = e.Result
-
-            'Compare downloaded GHOST Buster version number with the current one
-            If FetchedVer = VersionCode Then
-                Logger.Log("[INFO] GHOST Buster is up to date.")
-            ElseIf FetchedVer > VersionCode Then
-                Logger.Log("[INFO] New version of GHOST Buster is available.")
-                CustomMsgBox.Show(Localization.GetString("msgbox_update_available"), Localization.GetString("msgbox_update_available_title"), CustomMsgBoxButtons.YesNoCancel, CustomMsgBoxIcon.Question, CustomMsgBoxDefaultButton.Button2)
-                If CustomMsgBox.DialogResult = DialogResult.Yes Then
-                    Process.Start("https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest")
-                End If
-            ElseIf FetchedVer < VersionCode Then
-                Logger.Log("[INFO] The version in use is greater than the one currently available.")
-            End If
-        Else
-            Logger.Log("[ERROR] Unable to check for updates: " & e.Error.Message())
-            Banner.Show(Localization.GetString("banner_update_error"), BannerIcon.Warning)
-        End If
-    End Sub
-#End Region
 End Class
