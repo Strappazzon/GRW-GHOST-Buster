@@ -344,13 +344,6 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub BackupFreqTextBox_KeyPress(sender As Object, e As KeyPressEventArgs)
-        'Accept only numbers
-        If (Not Char.IsNumber(e.KeyChar)) AndAlso (Not Char.IsControl(e.KeyChar)) Then
-            e.KeyChar = ""
-        End If
-    End Sub
-
     Private Sub BrowseSavegamesLocBtn_Click(sender As Object, e As EventArgs) Handles BrowseSavegamesLocBtn.Click
         'Choose save games directory
         Using O As New FolderBrowserDialog
