@@ -75,7 +75,7 @@ Public Class Localization
         Form1.RestoreBtn.Text = GetString("ui_tasks_restore")
         Form1.BackupFreqHelp1Label.Text = GetString("ui_tasks_freq")
         Form1.BackupFreqHelp2Label.Text = GetString("ui_tasks_freq_minutes")
-        Form1.LatestBackupHelpLabel.Text = GetString("ui_tasks_latest") & GetString("ui_tasks_latest_none")
+        Form1.LatestBackupHelpLabel.Text = GetString("ui_tasks_latest_none")
         Form1.WhichBackupLabel.Text = GetString("ui_tasks_restore_choice")
         Form1.WhichBackupDropdown.Items(Form1.WhichBackupDropdown.FindStringExact(Form1.WhichBackupDropdown.Items(0)).ToString()) = GetString("ui_tasks_dropdown_latest")
         Form1.WhichBackupDropdown.Items(Form1.WhichBackupDropdown.FindStringExact(Form1.WhichBackupDropdown.Items(1)).ToString()) = GetString("ui_tasks_dropdown_second")
