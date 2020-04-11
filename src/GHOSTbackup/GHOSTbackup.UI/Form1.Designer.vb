@@ -269,7 +269,7 @@ Partial Class Form1
         'ExportLogToolStripMenuItem
         '
         Me.ExportLogToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.ExportLogToolStripMenuItem.Image = CType(resources.GetObject("ExportLogToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ExportLogToolStripMenuItem.Image = Global.GHOSTbackup.My.Resources.Resources.Logs_Save
         Me.ExportLogToolStripMenuItem.Name = "ExportLogToolStripMenuItem"
         Me.ExportLogToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
         Me.ExportLogToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
