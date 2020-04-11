@@ -35,8 +35,9 @@ Imports GHOSTbackup.WildlandsHelper
 Public Class Form1
 
 #Region "Draw Events"
+
+    'Draw tooltips with custom colors
     Private Sub HelpToolTip_Draw(sender As Object, e As DrawToolTipEventArgs) Handles HelpToolTip.Draw
-        'Draw tooltip with custom colors
         e.DrawBackground()
         'Don't draw the border
         'e.DrawBorder()
@@ -51,7 +52,7 @@ Public Class Form1
 
             If FormLocation.X <> -1 Or FormLocation.Y <> -1 Then
                 Dim LocationVisible As Boolean = False
-                For Each S As Screen In Screen.AllScreens
+                For Each S In Screen.AllScreens
                     If S.Bounds.Contains(FormLocation) Then
                         LocationVisible = True
                     End If
@@ -329,39 +330,40 @@ Public Class Form1
     End Sub
 
     Private Sub RestoreBtn_Click(sender As Object, e As EventArgs) Handles RestoreBtn.Click
-        If SavegamesLocTextBox.Text = "" Or BackupLocTextBox.Text = "" Then
+        If SavegamesLocTextBox.Text = "" OrElse BackupLocTextBox.Text = "" Then
             Banner.Show(Localization.GetString("banner_specify_folders_info"), BannerIcon.Information)
-        ElseIf IsGameRunning = True Then
-            Banner.Show(Localization.GetString("banner_quit_before_restore_info"), BannerIcon.Information)
-        ElseIf IsGameRunning = False And SettingsDisableCloudSyncChkBox.Checked = True Then
-            'If the game is not running and "Let GHOST Buster disable cloud save synchronization" is checked
-            'Disable Uplay cloud save synchronization
-            DisableCloudSync()
-        ElseIf IsGameRunning = False And SettingsDisableCloudSyncChkBox.Checked = False Then
-            'If the game is not running and "Let GHOST Buster disable cloud save synchronization" is not checked
-            'Start the backup process
-            RestoreBackup()
+        Else
+            If IsGameRunning = True Then
+                Banner.Show(Localization.GetString("banner_quit_before_restore_info"), BannerIcon.Information)
+            ElseIf IsGameRunning = False AndAlso SettingsDisableCloudSyncChkBox.Checked = True Then
+                'If the game is not running and "Let GHOST Buster disable cloud save synchronization" is checked
+                'Disable Uplay cloud save synchronization
+                DisableCloudSync()
+            ElseIf IsGameRunning = False AndAlso SettingsDisableCloudSyncChkBox.Checked = False Then
+                'If the game is not running and "Let GHOST Buster disable cloud save synchronization" is not checked
+                'Start the backup process
+                RestoreBackup()
+            End If
         End If
     End Sub
 
     Private Sub BrowseSavegamesLocBtn_Click(sender As Object, e As EventArgs) Handles BrowseSavegamesLocBtn.Click
-        'Choose save games directory
-        Using O As New FolderBrowserDialog
-            O.ShowNewFolderButton = False
-            O.Description = Localization.GetString("dialog_browse_savegames_desc")
-            If SettingsNonUplayVersionChkBox.Checked = False Then
-                'Select Uplay save games path if using the Uplay version of the game
-                O.SelectedPath = UplayPath & "savegames"
-            End If
-            If O.ShowDialog = DialogResult.OK Then
-                SavegamesLocTextBox.Text = O.SelectedPath
-                Logger.Log("[INFO] Save games directory set to: " & O.SelectedPath)
+        'Browse Wildlands save games directory
+        Using B As FolderBrowserDialog = New FolderBrowserDialog() With {
+            .ShowNewFolderButton = False,
+            .Description = Localization.GetString("dialog_browse_savegames_desc"),
+            .SelectedPath = If(SettingsNonUplayVersionChkBox.Checked = False, UplayPath & "savegames", "") 'Select Uplay save games path if using the Uplay version of the game
+        }
+
+            If B.ShowDialog = DialogResult.OK Then
+                SavegamesLocTextBox.Text = B.SelectedPath
+                Logger.Log("[INFO] Save games directory set to: " & B.SelectedPath)
             End If
         End Using
     End Sub
 
     Private Sub ExploreSavegamesLocBtn_Click(sender As Object, e As EventArgs) Handles ExploreSavegamesLocBtn.Click
-        'Open the save games directory in Windows Explorer
+        'Open save games directory in Windows Explorer
         If SavegamesLocTextBox.Text <> "" AndAlso Directory.Exists(SavegamesLocTextBox.Text) Then
             Process.Start("explorer.exe", SavegamesLocTextBox.Text)
         Else
@@ -370,12 +372,14 @@ Public Class Form1
     End Sub
 
     Private Sub BrowseBackupLocBtn_Click(sender As Object, e As EventArgs) Handles BrowseBackupLocBtn.Click
-        'Choose backup directory
-        Using O As New FolderBrowserDialog
-            O.Description = Localization.GetString("dialog_browse_backup_desc")
-            If O.ShowDialog = DialogResult.OK Then
-                BackupLocTextBox.Text = O.SelectedPath
-                Logger.Log("[INFO] Backup directory set to: " & O.SelectedPath)
+        'Browse backup directory
+        Using B As FolderBrowserDialog = New FolderBrowserDialog() With {
+            .Description = Localization.GetString("dialog_browse_backup_desc")
+        }
+
+            If B.ShowDialog = DialogResult.OK Then
+                BackupLocTextBox.Text = B.SelectedPath
+                Logger.Log("[INFO] Backup directory set to: " & B.SelectedPath)
 
                 'Detect latest backup timestamp
                 LatestBackupHelpLabel.Text = Localization.GetString("ui_tasks_latest_loading")
@@ -417,10 +421,12 @@ Public Class Form1
 
     Private Sub SettingsBrowseCustomExeBtn_Click(sender As Object, e As EventArgs) Handles SettingsBrowseCustomExeBtn.Click
         'Choose Wildlands executable
-        Using O As New OpenFileDialog
-            O.Filter = String.Format(Localization.GetString("dialog_browse_customexe_filter"), "GRW.exe")
-            O.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyComputer)
-            O.Title = Localization.GetString("dialog_browse_customexe_title")
+        Using O As OpenFileDialog = New OpenFileDialog() With {
+            .Filter = String.Format(Localization.GetString("dialog_browse_customexe_filter"), "GRW.exe"),
+            .InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyComputer),
+            .Title = Localization.GetString("dialog_browse_customexe_title")
+        }
+
             If O.ShowDialog = DialogResult.OK Then
                 SettingsCustomExeTextBox.Text = O.FileName
                 Logger.Log("[INFO] Custom Wildlands executable set: " & O.FileName)
@@ -450,11 +456,13 @@ Public Class Form1
     End Sub
 
     Private Sub SettingsBrowseLogFileBtn_Click(sender As Object, e As EventArgs) Handles SettingsBrowseLogFileBtn.Click
-        'Choose log file directory
-        Using O As New FolderBrowserDialog
-            O.Description = Localization.GetString("dialog_browse_log_destination_desc")
-            If O.ShowDialog = DialogResult.OK Then
-                SettingsLogFilePathTextBox.Text = O.SelectedPath & "\event.log"
+        'Choose log file destination
+        Using B As FolderBrowserDialog = New FolderBrowserDialog() With {
+            .Description = Localization.GetString("dialog_browse_log_destination_desc")
+        }
+
+            If B.ShowDialog = DialogResult.OK Then
+                SettingsLogFilePathTextBox.Text = B.SelectedPath & "\event.log"
                 Logger.Log("[INFO] Log file path set to: " & SettingsLogFilePathTextBox.Text)
             End If
         End Using
@@ -478,13 +486,13 @@ Public Class Form1
         BackupsDataGrid.Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         BackupsDataGrid.Columns(2).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
 
-        For i As Integer = 0 To BackupsDataGrid.Columns.Count - 1
+        For Each C In BackupsDataGrid.Columns
             'Store AutoSized widths
-            Dim CW As Integer = BackupsDataGrid.Columns(i).Width
+            Dim CW As Integer = C.Width
             'Remove autosizing
-            BackupsDataGrid.Columns(i).AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+            C.AutoSizeMode = DataGridViewAutoSizeColumnMode.None
             'Set width calculated by AutoSize
-            BackupsDataGrid.Columns(i).Width = CW
+            C.Width = CW
         Next
     End Sub
 
@@ -561,12 +569,14 @@ Public Class Form1
     End Sub
 
     Private Sub SaveLogsContextMenuItem_Click(sender As Object, e As EventArgs) Handles SaveLogsContextMenuItem.Click
-        'Export log TextBox content to a text file
-        Using S As New SaveFileDialog
-            S.Title = Localization.GetString("dialog_save_log_title")
-            S.InitialDirectory = Application.StartupPath
-            S.FileName = "GHOSTbackup_" & Now.ToString("yyyyMMddHHmm")
-            S.Filter = String.Format(Localization.GetString("dialog_save_log_filter"), "*.txt", "*.log")
+        'Save log TextBox contents to file
+        Using S As SaveFileDialog = New SaveFileDialog() With {
+            .Title = Localization.GetString("dialog_save_log_title"),
+            .InitialDirectory = Application.StartupPath,
+            .FileName = "GHOSTbackup_" & Now.ToString("yyyyMMddHHmm"),
+            .Filter = String.Format(Localization.GetString("dialog_save_log_filter"), "*.txt", "*.log")
+        }
+
             If S.ShowDialog = DialogResult.OK Then
                 File.AppendAllText(S.FileName, LogTxtBox.Text)
                 Logger.Log("[INFO] Log exported to " & S.FileName)

@@ -25,7 +25,7 @@
 #End Region
 
 Public Class Notification
-    Private WithEvents CloseTimer As New Timer() With {.Interval = 5000}
+    Private WithEvents CloseTimer As Timer = New Timer() With {.Interval = 5000}
 
     Public Sub New()
         'Required by the designer

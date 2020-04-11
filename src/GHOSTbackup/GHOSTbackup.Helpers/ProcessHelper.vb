@@ -29,10 +29,9 @@ Imports GHOSTbackup.BackupHelper
 Imports GHOSTbackup.Var
 
 Public Class ProcessHelper
-    Private Shared WithEvents CheckProcessTimer As New Timer()
+    Private Shared WithEvents CheckProcessTimer As Timer = New Timer() With {.Interval = 500}
 
     Public Shared Sub StartProcessTimer()
-        CheckProcessTimer.Interval = 500
         CheckProcessTimer.Start()
     End Sub
 
@@ -44,6 +43,7 @@ Public Class ProcessHelper
         Else
             IsGameRunning = False
             Form1.PlayGameBtn.Enabled = True
+
             If IsBackupRunning = True Then
                 StopBackup()
                 Logger.Log("[INFO] Wildlands has been closed or crashed. Backup interrupted.")

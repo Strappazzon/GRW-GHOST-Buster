@@ -311,7 +311,7 @@ Public Class BackupHelper
                                           CustomMsgBoxButtons.YesNoCancel, CustomMsgBoxIcon.Warning, CustomMsgBoxDefaultButton.Button2)
                         If CustomMsgBox.DialogResult = DialogResult.Yes Then
                             Dim SavegamesList As String() = Directory.GetFiles(BackupDirs.Item(BackupDirs.Count - 1), "*.save")
-                            For Each F As String In SavegamesList
+                            For Each F In SavegamesList
                                 Dim FileName As String = F.Substring(BackupDirs.Item(BackupDirs.Count - 1).Length + 1)
                                 File.Copy(Path.Combine(BackupDirs.Item(BackupDirs.Count - 1), FileName), Path.Combine(Form1.SavegamesLocTextBox.Text, FileName), True)
                             Next
@@ -348,7 +348,7 @@ Public Class BackupHelper
                                           CustomMsgBoxButtons.YesNoCancel, CustomMsgBoxIcon.Warning, CustomMsgBoxDefaultButton.Button2)
                         If CustomMsgBox.DialogResult = DialogResult.Yes Then
                             Dim SavegamesList As String() = Directory.GetFiles(BackupDirs.Item(BackupDirs.Count - 2), "*.save")
-                            For Each F As String In SavegamesList
+                            For Each F In SavegamesList
                                 Dim FileName As String = F.Substring(BackupDirs.Item(BackupDirs.Count - 2).Length + 1)
                                 File.Copy(Path.Combine(BackupDirs.Item(BackupDirs.Count - 2), FileName), Path.Combine(Form1.SavegamesLocTextBox.Text, FileName), True)
                             Next
@@ -366,7 +366,7 @@ Public Class BackupHelper
                                           CustomMsgBoxButtons.YesNoCancel, CustomMsgBoxIcon.Warning, CustomMsgBoxDefaultButton.Button2)
                         If CustomMsgBox.DialogResult = DialogResult.Yes Then
                             Dim SavegamesList As String() = Directory.GetFiles(BackupDirs.Item(BackupDirs.Count - 1), "*.save")
-                            For Each F As String In SavegamesList
+                            For Each F In SavegamesList
                                 Dim FileName As String = F.Substring(BackupDirs.Item(BackupDirs.Count - 1).Length + 1)
                                 File.Copy(Path.Combine(BackupDirs.Item(BackupDirs.Count - 1), FileName), Path.Combine(Form1.SavegamesLocTextBox.Text, FileName), True)
                             Next
@@ -412,7 +412,7 @@ Public Class BackupHelper
                               Localization.GetString("msgbox_backup_restore_title"),
                               CustomMsgBoxButtons.YesNoCancel, CustomMsgBoxIcon.Warning, CustomMsgBoxDefaultButton.Button2)
             If CustomMsgBox.DialogResult = DialogResult.Yes Then
-                For Each F As String In Directory.GetFiles(BackupDirectory, "*.save")
+                For Each F In Directory.GetFiles(BackupDirectory, "*.save")
                     File.Copy(F, F.Replace(BackupDirectory, Form1.SavegamesLocTextBox.Text), True)
                 Next
 

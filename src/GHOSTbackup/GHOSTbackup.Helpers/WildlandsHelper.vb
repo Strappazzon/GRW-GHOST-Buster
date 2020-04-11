@@ -32,31 +32,36 @@ Imports GHOSTbackup.Var
 
 Public Class WildlandsHelper
     Public Shared Sub GetWildlandsInstall()
-        'Get Wildlands install directory
+        'Get Wildlands installation directory
         If Form1.SettingsNonUplayVersionChkBox.Checked = True Then
+            'Check if custom Wildlands version exists
             If File.Exists(Form1.SettingsCustomExeTextBox.Text) Then
                 GamePath = Directory.GetParent(Form1.SettingsCustomExeTextBox.Text).ToString() & "\"
                 Form1.PlayGameBtn.Enabled = True
+
                 Logger.Log("[INFO] Wildlands is installed in: " & GamePath & " (Non-Uplay version).")
                 StartProcessTimer()
             Else
                 'Disable "I'm not using the Uplay version of Wildlands"
                 Form1.SettingsNonUplayVersionChkBox.Checked = False
                 Form1.PlayGameBtn.Text = Localization.GetString("ui_play_disabled_404")
+
                 Logger.Log("[WARNING] Custom Wildlands executable " & Form1.SettingsCustomExeTextBox.Text & " not found.")
                 Banner.Show(Localization.GetString("banner_customexe_404_error"), BannerIcon.Warning)
             End If
         Else
             Using GameRegKey As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\1771", False)
                 Try
-                    GamePath = TryCast(GameRegKey.GetValue("InstallDir"), String).Replace("/", "\") 'Replace any forward slashes with backward slashes
+                    GamePath = GameRegKey.GetValue("InstallDir").Replace("/"c, "\"c) 'Replace any forward slashes with backward slashes
 
                     If GamePath <> Nothing Then
                         Form1.PlayGameBtn.Enabled = True
+
                         Logger.Log("[INFO] Wildlands is installed in: " & GamePath)
                         StartProcessTimer()
                     Else
                         Form1.PlayGameBtn.Text = Localization.GetString("ui_play_disabled")
+
                         Logger.Log("[WARNING] Wildlands is not installed (""InstallDir"" is Null or Empty).")
                     End If
 

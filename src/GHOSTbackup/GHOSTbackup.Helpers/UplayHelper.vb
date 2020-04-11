@@ -32,7 +32,7 @@ Imports GHOSTbackup.Var
 
 Public Class UplayHelper
     Public Shared Sub GetUplayInstall()
-        'Get Uplay install directory
+        'Get Uplay installation directory
         Using UplayRegKey As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher", False)
             Try
                 UplayPath = UplayRegKey.GetValue("InstallDir")
