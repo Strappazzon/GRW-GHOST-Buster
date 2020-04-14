@@ -281,7 +281,7 @@
     
   </data>
   <data name="ui_folders_backup" xml:space="preserve">
-    <value>Backup folder</value>
+    <value>Backup location</value>
   </data>
   <data name="ui_folders_wildlands" xml:space="preserve">
     <value>Wildlands save games folder</value>

@@ -180,9 +180,9 @@ Partial Class Form1
         Me.BackupLocHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BackupLocHelpLabel.Location = New System.Drawing.Point(10, 70)
         Me.BackupLocHelpLabel.Name = "BackupLocHelpLabel"
-        Me.BackupLocHelpLabel.Size = New System.Drawing.Size(88, 17)
+        Me.BackupLocHelpLabel.Size = New System.Drawing.Size(99, 17)
         Me.BackupLocHelpLabel.TabIndex = 4
-        Me.BackupLocHelpLabel.Text = "Backup folder"
+        Me.BackupLocHelpLabel.Text = "Backup location"
         '
         'SavegamesLocHelpLabel
         '

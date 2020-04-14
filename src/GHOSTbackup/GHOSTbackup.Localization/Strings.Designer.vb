@@ -839,7 +839,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Backup folder.
+        '''  Looks up a localized string similar to Backup location.
         '''</summary>
         Friend Shared ReadOnly Property ui_folders_backup() As String
             Get

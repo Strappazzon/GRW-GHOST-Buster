@@ -245,7 +245,7 @@
     <comment>44 characters per line max</comment>
   </data>
   <data name="ui_folders_backup" xml:space="preserve">
-    <value>Cartella di backup</value>
+    <value>Posizione di backup</value>
   </data>
   <data name="ui_folders_wildlands" xml:space="preserve">
     <value>Cartella dei salvataggi di Wildlands</value>
