@@ -483,20 +483,22 @@ Public Class Form1
 
 #Region "Manage"
     Private Sub BackupsDataGrid_DataSourceChanged(sender As Object, e As EventArgs) Handles BackupsDataGrid.DataSourceChanged
-        'Resize columns
-        '//stackoverflow.com/a/1031871
-        BackupsDataGrid.Columns(0).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-        BackupsDataGrid.Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        BackupsDataGrid.Columns(2).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+        If BackupsDataGrid.DataSource IsNot Nothing Then
+            'Resize columns
+            '//stackoverflow.com/a/1031871
+            BackupsDataGrid.Columns(0).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            BackupsDataGrid.Columns(1).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            BackupsDataGrid.Columns(2).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
 
-        For Each C In BackupsDataGrid.Columns
-            'Store AutoSized widths
-            Dim CW As Integer = C.Width
-            'Remove autosizing
-            C.AutoSizeMode = DataGridViewAutoSizeColumnMode.None
-            'Set width calculated by AutoSize
-            C.Width = CW
-        Next
+            For Each C In BackupsDataGrid.Columns
+                'Store AutoSized widths
+                Dim CW As Integer = C.Width
+                'Remove autosizing
+                C.AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+                'Set width calculated by AutoSize
+                C.Width = CW
+            Next
+        End If
     End Sub
 
     Private Sub BackupsDataGrid_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles BackupsDataGrid.CellMouseDown
