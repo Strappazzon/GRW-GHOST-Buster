@@ -1,3 +1,29 @@
+2.0.0
+ - New: Added an option to display notifications about backups
+ - New: Added Manage Backups section that replaces "Let me choose" option in Main Screen
+ - New: Set default backup directory when launching GHOST Buster for the first time
+ - Fix: GHOST Buster asking to quit Uplay even if Uplay cloud save sync was already disabled
+ - UI: Updated message boxes titlebar icon
+ - UI: The alert dot when an error banner is displayed will no longer appear if the user is on the Logs section
+ - UI: Changed Logs section context menu appearance
+ - UI: Changed "Save log as..." context menu image
+ - UI: Changed buttons appearance
+ - UI: Changed buttons and dropdowns position on Main Screen
+ - UI: Updated Main Screen logo to no longer display the current GHOST Buster version
+ - UI: Moved checkboxes inside Settings section
+ - UI: Replaced checkboxes in Main Screen with buttons to navigate sections
+ - UI: Background image will be displayed only in Tasks and About sections
+ - UI: Replaced Home button with Uplay button
+ - Enhancement: Settings will be saved on a configuration file and will no longer be lost when moving/renaming GHOST Buster executable
+ - Enhancement: Added an option to re-enable Uplay cloud save sync when quitting GHOST Buster
+ - Enhancement: Added localization support
+ - Enhancement: Backup timestamp on Main Screen will be displayed based on the operating system's time and date settings instead of ISO 8601
+ - Enhancement: Logs text box will gain focus when switching to Logs section
+ - Localization: Added Italian localization
+ - Disabled context menu on Backup Frequency NumericUpDown
+ - Renamed some settings
+ - Refactoring
+
 1.8.1
  - Enhancement: When lauching GHOST Buster, the latest backup timestamp will be detected asynchronously to avoid slow startup time if the backup folder contains a lot of backups
 
