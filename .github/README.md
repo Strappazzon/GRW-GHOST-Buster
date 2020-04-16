@@ -36,28 +36,16 @@ I created this software to backup [Ghost Mode](https://web.archive.org/web/20190
   * Every time you launch it, the program will check the System Registry to see if Ghost Recon Wildlands and Uplay are installed
   * When you close it, a file containing the program's settings will be created (or updated if it already exists) inside `%LOCALAPPDATA%\GHOSTbackup`
 
-* Click the first **Browse...** button to select Wildlands save games folder
-  * Refer to the [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Tom_Clancy%27s_Ghost_Recon_Wildlands#Save_game_data_location) if you don't know where they are located
+* Click the **Browse...** button under "**Folders** -> **Wildlands save games folder**" to select Wildlands save games folder
+  * Refer to the [PC Gaming Wiki](https://www.pcgamingwiki.com/wiki/Tom_Clancy%27s_Ghost_Recon_Wildlands#Save_game_data_location) if you don't know where save games are located
 
-* Click the second **Browse...** button to select where Wildlands save games will be backed up to
-  * Each backup will be stored inside a `yyyyMMdd HHMM` sub-folder
-  * GHOST Buster will try to detect the latest backup time stamp and display it in the main screen
+* Click the **Browse...** button under "**Folders** -> **Backup location**" to select where Wildlands save games will be backed up to
+  * Each backup will be stored inside a `yyyyMMdd HHmm` sub-folder
 
 * Specify the backup frequency and click the **Start Backup** button. To interrupt the process, click **Stop Backup**
-  * You can specify a value between 1 and 60
+  * You can specify a value between 1 and 180
 
-### Dead?
-
-* Close the game
-* Choose which backup you want to restore
-  * _Latest_
-    * GHOST Buster will restore the latest backup
-  * _Second-to-last_
-    * GHOST Buster will restore the second-to-last backup
-    * If it doesn't exist, you'll be prompted to restore the latest backup instead
-  * _Let me decide_
-    * You can choose which backup to restore
-* Click the **Restore Backup** button
+### Restoring a Backup
 
 > ### ⚠️ **WARNING**
 >
@@ -65,22 +53,50 @@ I created this software to backup [Ghost Mode](https://web.archive.org/web/20190
 >
 > Also note that restoring a backup will **OVERWRITE** your old save games and it **CANNOT BE UNDONE**.
 
+#### From Tasks screen
+
+* Close the game
+* Choose which backup you want to restore
+  * _Latest_
+  * _Second-to-last_
+    * If it doesn't exist, you'll be prompted to restore the latest backup instead
+* Click the **Restore Backup** button
+
+#### From Manage Backups screen
+
+* Close the game
+* Right click on the backup you want to restore
+* Click **Restore**
+
 ## Settings
 
-* **Confirm exit (if backup is active)**
+* **Interface language**
+  * *Default: English*
+
+* **Confirm exit when backup is running**
   * _Enabled by default_
-  * The program will warn you before closing it if the backup process is still running
+  * The program will show a confirmation dialog before quitting if the backup process is running
 
 * **Confirm backup interruption**
   * _Disabled by default_
-  * The program will ask you if you're sure you want to interrupt the running backup process
+  * The program will show a confirmation dialog before interrupting the backup process
 
-* **Disable Uplay cloud save sync**
+* **Display notifications about backups**
+  * *Disabled by default*
+  * The program will display a notification at the edge of the screen every time a backup is performed
+  * Enable this option only if you play Wildlands in borderless fullscreen or windowed, otherwise the game will lose focus every time the notification is displayed
+
+* **Disable Uplay cloud save synchronization on restore**
   * _Disabled by default_
-  * The program will disable Uplay cloud save synchronization prior restoring save games
+  * The program will disable Uplay cloud save synchronization before restoring a backup
   * Keep in mind that the Uplay settings file may change at any time so this setting may not be reliable
 
-* **Check for updates**
+* **Enable Uplay cloud save synchronization on exit**
+  * *Enabled by default*
+  * *Works only if the previous setting is enabled*
+  * The program will re-enable Uplay cloud save synchronization before quitting
+
+* **Check for updates on startup**
   * _Disabled by default_
   * The program will connect to GitHub servers to check if the current version is up to date
 
@@ -88,38 +104,46 @@ I created this software to backup [Ghost Mode](https://web.archive.org/web/20190
   * _Disabled by default_
   * The program will remember the window position the last time GHOST Buster was used
 
-### Advanced Settings
+* **I'm not using the Uplay version of Wildlands**
+  * _Disabled by default_
+  * You can specify a different location for the Wildlands executable
 
 * **Write events to a log file**
   * _Disabled by default_
   * The program will log all events (such as Errors and Warnings) to a file
-  * The default log file path is `%LOCALAPPDATA%\GHOSTbackup\event.log`
+  * The default log file location is `%LOCALAPPDATA%\GHOSTbackup\event.log`
 
-* **I'm not using the Uplay version of Wildlands**
-  * _Disabled by default_
-  * You can specify a different location for the Wildlands executable
-  * The program needs to be restarted in order for the change to take effect
-
-All settings are stored inside `%LOCALAPPDATA%\GHOSTbackup`.
+All settings are stored inside `%LOCALAPPDATA%\GHOSTbackup\ghostbackup.cfg`.
 
 ## Screenshots
-
-### GHOST Buster preview
 
 _Click an image to enlarge it_
 
 <table>
   <tr>
-    <th align="center">Main Screen</th>
-    <th align="center">Backup Restore</th>
-    <th align="center">Advanced Settings</th>
-    <th align="center">Logs</th>
-    <th align="center">About</th>
+    <th align="center">Main screen</th>
+    <th align="center">Backups</th>
+    <th align="center">Settings</th>
+    <th align="center">Notification</th>
   </tr>
   <tr>
     <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot.png"></td>
-    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_restore.png"></td>
+    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_manage.png"></td>
     <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_settings.png"></td>
+    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_notification.png"></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th align="center">Backup restore</th>
+    <th align="center">Backup deletion</th>
+    <th align="center">Logs screen</th>
+    <th align="center">About screen</th>
+  </tr>
+  <tr>
+    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_restore.png"></td>
+    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_delete.png"></td>
     <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_logs.png"></td>
     <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_about.png"></td>
   </tr>
@@ -133,9 +157,9 @@ You can [download](https://github.com/Strappazzon/GRW-GHOST-Buster/releases/late
 
 If you are interested in fixing issues and contributing directly to the code base, please see:
 
-* [Building GHOST Buster from its source code](https://github.com/Strappazzon/GRW-GHOST-Buster/blob/master/src/BUILDING.md)
 * [Contribution Guidelines](./CONTRIBUTING.md)
 * [Code of Conduct](./CODE_OF_CONDUCT.md)
+* [Building GHOST Buster from its source code](https://github.com/Strappazzon/GRW-GHOST-Buster/blob/master/src/BUILDING.md)
 
 ## License
 

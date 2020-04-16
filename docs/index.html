@@ -68,73 +68,93 @@ description: "Backup and restore Ghost Recon Wildlands save games."
 			<li>When you close it, a file containing the program's settings will be created (or updated if it already exists) inside <code>%LOCALAPPDATA%\GHOSTbackup</code></li>
 		</ul>
 
-		<li>Click the first <kbd><img src="{{ '/assets/img/icon-37-2.png' | relative_url }}" width="14px" height="13px" alt="" draggable="false">Browse...</kbd> button to select Wildlands save games folder</li>
-		<ul><li>Refer to the <a href="https://www.pcgamingwiki.com/wiki/Tom_Clancy%27s_Ghost_Recon_Wildlands#Save_game_data_location">PC Gaming Wiki</a> if you don't know where they are located</li></ul>
+		<li>Click the <kbd><img src="{{ '/assets/img/icon-37-2.png' | relative_url }}" width="14px" height="13px" alt="" draggable="false">Browse...</kbd> button under "<strong>Folders</strong> -> <strong>Wildlands save games folder</strong>" to select Wildlands save games folder</li>
+		<ul><li>Refer to the <a href="https://www.pcgamingwiki.com/wiki/Tom_Clancy%27s_Ghost_Recon_Wildlands#Save_game_data_location">PC Gaming Wiki</a> if you don't know where save games are located</li></ul>
 
-		<li>Click the second <kbd><img src="{{ '/assets/img/icon-37-2.png' | relative_url }}" width="14px" height="13px" alt="" draggable="false">Browse...</kbd> button to select where Wildlands save games will be backed up to</li>
+		<li>Click the <kbd><img src="{{ '/assets/img/icon-37-2.png' | relative_url }}" width="14px" height="13px" alt="" draggable="false">Browse...</kbd> button under "<strong>Folders</strong> -> <strong>Backup location</strong>" to select where Wildlands save games will be backed up to</li>
 		<ul>
-			<li>Each backup will be stored inside a <code>yyyyMMdd HHMM</code> sub-folder</li>
-			<li>GHOST Buster will try to detect the latest backup time stamp and display it in the main screen</li>
+			<li>Each backup will be stored inside a <code>yyyyMMdd HHmm</code> sub-folder</li>
 		</ul>
 
 		<li>Specify the backup frequency and click the <kbd><img src="{{ '/assets/img/icon-34-1.png' | relative_url }}" width="16px" height="14px" alt="" draggable="false">Start Backup</kbd> button. To interrupt the process, click <kbd><img src="{{ '/assets/img/icon-38-2.png' | relative_url }}" width="14px" height="15px" alt="" draggable="false">Stop Backup</kbd></li>
-		<ul><li>You can specify a value between 1 and 60</li></ul>
+		<ul><li>You can specify a value between 1 and 180</li></ul>
 	</ul>
 
-	<h3 id="dead">Dead?</h3>
+	<h3 id="restoring-backup">Restoring a backup</h3>
+
+	<blockquote>
+		<p class="quote-title">Warning</p>
+		<p class="quote-text">
+			Disable cloud synchronization before restoring a backup, otherwise Uplay will redownload the old save games rendering the restore process useless.
+			Also note that restoring a backup will <strong>OVERWRITE</strong> your old save games and it <strong>CANNOT BE UNDONE</strong>.
+		</p>
+	</blockquote>
+
+	<h4>From Tasks screen</h4>
 
 	<ul>
 		<li>Close the game</li>
 		<li>Choose which backup you want to restore</li>
 		<ul>
 			<li><em>Latest</em></li>
-			<ul><li>GHOST Buster will restore the latest backup</li></ul>
 		</ul>
 		<ul>
 			<li><em>Second-to-last</em></li>
-			<ul>
-				<li>GHOST Buster will restore the second-to-last backup</li>
-				<li>If it doesn't exist, you'll be prompted to restore the latest backup instead</li>
-			</ul>
-		</ul>
-		<ul>
-			<li><em>Let me decide</em></li>
-			<ul><li>You can choose which backup to restore</li></ul>
+			<ul><li>If it doesn't exist, you'll be prompted to restore the latest backup instead</li></ul>
 		</ul>
 		<li>Click the <kbd><img src="{{ '/assets/img/icon-39-2.png' | relative_url }}" width="14px" height="16px" alt="" draggable="false">Restore Backup</kbd> button</li>
 	</ul>
 
-	<blockquote>
-	<p class="quote-title">Warning</p>
-	<p class="quote-text">
-		Disable cloud synchronization before restoring a backup, otherwise Uplay will redownload the old save games rendering the restore process useless.
-		Also note that restoring a backup will <strong>OVERWRITE</strong> your old save games and it <strong>CANNOT BE UNDONE</strong>.
-	</p>
-	</blockquote>
+	<h4>From Manage Backups screen</h4>
+
+	<ul>
+		<li>Close the game</li>
+		<li>Right click on the backup you want to restore</li>
+		<li>Click <strong>Restore</strong></li>
+	</ul>
 
 	<h2 id="settings">Settings</h2>
 
 	<ul>
-		<li><strong>Confirm exit (if backup is active)</strong></li>
+		<li><strong>Interface language</strong></li>
+		<ul>
+			<li><em>Default: English</em></li>
+		</ul>
+
+		<li><strong>Confirm exit when backup is running</strong></li>
 		<ul>
 			<li><em>Enabled by default</em></li>
-			<li>The program will warn you before closing it if the backup process is still running</li>
+			<li>The program will show a confirmation dialog before quitting if the backup process is running</li>
 		</ul>
 
 		<li><strong>Confirm backup interruption</strong></li>
 		<ul>
 			<li><em>Disabled by default</em></li>
-			<li>The program will ask you if you're sure you want to interrupt the running backup process</li>
+			<li>The program will show a confirmation dialog before interrupting the backup process</li>
 		</ul>
 
-		<li><strong>Disable Uplay cloud save sync</strong></li>
+		<li><strong>Display notifications about backups</strong></li>
 		<ul>
 			<li><em>Disabled by default</em></li>
-			<li>The program will disable Uplay cloud save synchronization prior restoring save games</li>
+			<li>The program will display a notification at the edge of the screen every time a backup is performed</li>
+			<li>Enable this option only if you play Wildlands in borderless fullscreen or windowed, otherwise the game will lose focus every time the notification is displayed</li>
+		</ul>
+
+		<li><strong>Disable Uplay cloud save synchronization on restore</strong></li>
+		<ul>
+			<li><em>Disabled by default</em></li>
+			<li>The program will disable Uplay cloud save synchronization before restoring a backup</li>
 			<li>Keep in mind that the Uplay settings file may change at any time so this setting may not be reliable</li>
 		</ul>
 
-		<li><strong>Check for updates</strong></li>
+		<li><strong>Enable Uplay cloud save synchronization on exit</strong></li>
+		<ul>
+			<li><em>Enabled by default</em></li>
+			<li><em>Works only if the previous setting is enabled</em></li>
+			<li>The program will re-enable Uplay cloud save synchronization before quitting</li>
+		</ul>
+
+		<li><strong>Check for updates on startup</strong></li>
 		<ul>
 			<li><em>Disabled by default</em></li>
 			<li>The program will connect to GitHub servers to check if the current version is up to date</li>
@@ -145,26 +165,22 @@ description: "Backup and restore Ghost Recon Wildlands save games."
 			<li><em>Disabled by default</em></li>
 			<li>The program will remember the window position the last time GHOST Buster was used</li>
 		</ul>
-	</ul>
-
-	<h3 id="advanced-settings">Advanced Settings</h3>
-	<ul>
-		<li><strong>Write events to a log file</strong></li>
-		<ul>
-			<li><em>Disabled by default</em></li>
-			<li>The program will log all events (such as Errors and Warnings) to a file</li>
-			<li>The default log file path is <code>%LOCALAPPDATA%\GHOSTbackup\event.log</code></li>
-		</ul>
 
 		<li><strong>I'm not using the Uplay version of Wildlands</strong></li>
 		<ul>
 			<li><em>Disabled by default</em></li>
 			<li>You can specify a different location for the Wildlands executable</li>
-			<li>The program needs to be restarted in order for the change to take effect</li>
+		</ul>
+
+		<li><strong>Write events to a log file</strong></li>
+		<ul>
+			<li><em>Disabled by default</em></li>
+			<li>The program will log all events (such as Errors and Warnings) to a file</li>
+			<li>The default log file location is <code>%LOCALAPPDATA%\GHOSTbackup\event.log</code></li>
 		</ul>
 	</ul>
 
-	<p>All settings are stored inside <code>%LOCALAPPDATA%\GHOSTbackup</code></p>
+	<p>All settings are stored inside <code>%LOCALAPPDATA%\GHOSTbackup\ghostbackup.cfg</code></p>
 
 	<h2 id="screenshots">Screenshots</h2>
 
@@ -172,39 +188,57 @@ description: "Backup and restore Ghost Recon Wildlands save games."
 
 	<div class="gallery">
 		<div class="g-list">
-			<div class="g-item" onclick="changeScr('screenshot.png', 'Screenshot of the main screen')">
+			<div class="g-item" onclick="changeScr('screenshot.png', 'Screenshot of Tasks screen')">
 				<img src="{{ '/assets/img/screenshot_icon.png' | relative_url }}" alt="">
-				<strong>Main Screen</strong>
+				<strong>Main screen</strong>
 				<br>
 				<span>The main screen of GHOST Buster</span>
 			</div>
+			<div class="g-item" onclick="changeScr('screenshot_manage.png', 'Screenshot of Backups screen')">
+				<img src="{{ '/assets/img/screenshot_icon.png' | relative_url }}" alt="">
+				<strong>Backups</strong>
+				<br>
+				<span>Manage Backups screen</span>
+			</div>
+			<div class="g-item" onclick="changeScr('screenshot_settings.png', 'Screenshot of Settings screen')">
+				<img src="{{ '/assets/img/screenshot_icon.png' | relative_url }}" alt="">
+				<strong>Settings screen</strong>
+				<br>
+				<span>GHOST Buster settings</span>
+			</div>
+			<div class="g-item" onclick="changeScr('screenshot_notification.jpg', 'Screenshot of backup notification')">
+				<img src="{{ '/assets/img/screenshot_icon.png' | relative_url }}" alt="">
+				<strong>Notification</strong>
+				<br>
+				<span>Notification about the current backup</span>
+			</div>
 			<div class="g-item" onclick="changeScr('screenshot_restore.png', 'Screenshot of the backup restore process')">
 				<img src="{{ '/assets/img/screenshot_icon.png' | relative_url }}" alt="">
-				<strong>Backup Restore</strong>
+				<strong>Backup restore</strong>
 				<br>
 				<span>Restoring a backup</span>
 			</div>
-			<div class="g-item" onclick="changeScr('screenshot_settings.png', 'Screenshot of the advanced settings screen')">
+			<div class="g-item" onclick="changeScr('screenshot_delete.png', 'Screenshot of the backup deletion process')">
 				<img src="{{ '/assets/img/screenshot_icon.png' | relative_url }}" alt="">
-				<strong>Advanced Settings Screen</strong>
+				<strong>Backup deletion</strong>
 				<br>
-				<span>GHOST Buster advanced settings</span>
+				<span>Deleting a backup</span>
 			</div>
 			<div class="g-item" onclick="changeScr('screenshot_logs.png', 'Screenshot of the logs screen')">
 				<img src="{{ '/assets/img/screenshot_icon.png' | relative_url }}" alt="">
-				<strong>Logs Screen</strong>
+				<strong>Logs screen</strong>
 				<br>
 				<span>All the events are logged here</span>
 			</div>
 			<div class="g-item" onclick="changeScr('screenshot_about.png', 'Screenshot of the about screen')">
 				<img src="{{ '/assets/img/screenshot_icon.png' | relative_url }}" alt="">
-				<strong>About Screen</strong>
+				<strong>About screen</strong>
 				<br>
-				<span>Information about GHOST Buster</span>
+				<span>About GHOST Buster</span>
 			</div>
 		</div>
 		<div class="g-scr-cnt">
-			<a id="scr-a" href="{{ '/assets/img/screenshot.png' | relative_url }}"><img id="scr" class="img-responsive" src="{{ '/assets/img/screenshot.png' | relative_url }}" alt="Screenshot of the main screen"></a>
+			<a id="scr-a" href="{{ '/assets/img/screenshot.png' | relative_url }}"><img id="scr" class="img-responsive" src="{{ '/assets/img/screenshot.png' | relative_url }}" alt="Screenshot of Tasks screen"></a>
 		</div>
 	</div>
 
