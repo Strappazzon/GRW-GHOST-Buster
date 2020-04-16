@@ -130,7 +130,7 @@ _Click an image to enlarge it_
     <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot.png"></td>
     <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_manage.png"></td>
     <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_settings.png"></td>
-    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_notification.png"></td>
+    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_notification.jpg"></td>
   </tr>
 </table>
 
