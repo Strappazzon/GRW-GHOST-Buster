@@ -24,8 +24,8 @@
 ''
 #End Region
 
-Imports GHOSTbackup.UI
 Imports System.Net.Http
+Imports GHOSTbackup.UI
 
 Public Class Updater
     Private Shared ReadOnly VersionCode As Integer = 16
