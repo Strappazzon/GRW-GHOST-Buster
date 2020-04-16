@@ -5,7 +5,7 @@ This file should assist you in compiling and running GHOST Buster.
 ## Building requirements
 
 * [.NET Framework 4.6.1 Runtime or newer](https://dotnet.microsoft.com/download/dotnet-framework)
-* [.NET Framework 4.6.1 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework)
+* [.NET Framework 4.6.1 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net461)
 * Visual Studio. You can [download the community edition](https://visualstudio.microsoft.com/vs/community/) for free
   * The ".NET desktop development" Workload is required
 * [NuGet CLI](https://www.nuget.org/downloads)
