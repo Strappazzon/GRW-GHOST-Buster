@@ -152,7 +152,7 @@ Public Class BackupHelper
             Form1.BackupsDataGrid.DataSource = e.Result()
             'Sort backups (Most recent first)
             '//docs.microsoft.com/en-us/dotnet/api/system.windows.forms.datagridview.sortorder
-            Form1.BackupsDataGrid.Sort(Form1.BackupsDataGrid.Columns(2), ListSortDirection.Descending)
+            Form1.BackupsDataGrid.Sort(Form1.BackupsDataGrid.Columns(0), ListSortDirection.Descending)
         Else
             Logger.Log("[ERROR] An error occurred while retrieving backups: " & ErrorMessage)
             Banner.Show(Localization.GetString("banner_backups_table_retrieve_error"), BannerIcon.Warning)
