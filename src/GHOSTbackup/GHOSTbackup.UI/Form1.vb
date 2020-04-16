@@ -355,7 +355,7 @@ Public Class Form1
         Using B As FolderBrowserDialog = New FolderBrowserDialog() With {
             .ShowNewFolderButton = False,
             .Description = Localization.GetString("dialog_browse_savegames_desc"),
-            .SelectedPath = If(SettingsNonUplayVersionChkBox.Checked = False, UplayPath & "savegames", "") 'Select Uplay save games path if using the Uplay version of the game
+            .SelectedPath = If(SettingsNonUplayVersionChkBox.Checked = False, UplayPath & "savegames", "")
         }
 
             If B.ShowDialog = DialogResult.OK Then
