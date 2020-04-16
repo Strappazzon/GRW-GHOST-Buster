@@ -25,7 +25,7 @@
 #End Region
 
 Public Class Var
-    Public Shared ReadOnly Version As String = "1.8.1"
+    Public Shared ReadOnly Version As String = "2.0.0"
     Public Shared GamePath As String
     Public Shared UplayPath As String
     Public Shared IsGameRunning As Boolean = False
