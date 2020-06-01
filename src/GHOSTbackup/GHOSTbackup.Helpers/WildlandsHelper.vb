@@ -28,9 +28,10 @@ Imports Microsoft.Win32
 Imports System.IO
 Imports GHOSTbackup.UI
 Imports GHOSTbackup.ProcessHelper
-Imports GHOSTbackup.Var
 
 Public Class WildlandsHelper
+    Public Shared Property GamePath As String = Nothing
+
     Public Shared Sub GetWildlandsInstall()
         'Get Wildlands installation directory
         If Form1.SettingsNonUplayVersionChkBox.Checked = True Then

@@ -28,9 +28,10 @@ Imports Microsoft.Win32
 Imports System.IO
 Imports GHOSTbackup.UI
 Imports GHOSTbackup.BackupHelper
-Imports GHOSTbackup.Var
 
 Public Class UplayHelper
+    Public Shared Property UplayPath As String = Nothing
+
     Public Shared Sub GetUplayInstall()
         'Get Uplay installation directory
         Using UplayRegKey As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher", False)

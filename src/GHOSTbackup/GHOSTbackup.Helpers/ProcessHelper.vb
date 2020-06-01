@@ -26,16 +26,16 @@
 
 Imports GHOSTbackup.UI
 Imports GHOSTbackup.BackupHelper
-Imports GHOSTbackup.Var
 
 Public Class ProcessHelper
     Private Shared WithEvents CheckProcessTimer As Timer = New Timer() With {.Interval = 500}
+    Public Shared Property IsGameRunning As Boolean = False
 
     Public Shared Sub StartProcessTimer()
         CheckProcessTimer.Start()
     End Sub
 
-    Public Shared Sub CheckProcessTimer_Tick(sender As Object, e As EventArgs) Handles CheckProcessTimer.Tick
+    Private Shared Sub CheckProcessTimer_Tick(sender As Object, e As EventArgs) Handles CheckProcessTimer.Tick
         Dim WildlandsProc = Process.GetProcessesByName("GRW")
         If WildlandsProc.Count > 0 Then
             IsGameRunning = True

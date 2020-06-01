@@ -106,7 +106,7 @@ Public Class Localization
         Form1.SelectAllLogsContextMenuItem.Text = GetString("ui_logs_context_selectall")
         Form1.SaveLogsContextMenuItem.Text = GetString("ui_logs_context_export")
         'About
-        Form1.AppInfoLabel.Text = String.Format(GetString("ui_about_about"), Var.Version)
+        Form1.AppInfoLabel.Text = String.Format(GetString("ui_about_about"), Updater.VersionString)
         Form1.WebsiteLink.Text = GetString("ui_about_www")
         Form1.SupportLink.Text = GetString("ui_about_issues")
         Form1.ChangelogLink.Text = GetString("ui_about_changelog")

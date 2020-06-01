@@ -27,9 +27,9 @@
 Imports System.IO
 Imports GHOSTbackup.UI
 Imports GHOSTbackup.BackupHelper
+Imports GHOSTbackup.ProcessHelper
 Imports GHOSTbackup.Updater
 Imports GHOSTbackup.UplayHelper
-Imports GHOSTbackup.Var
 Imports GHOSTbackup.WildlandsHelper
 
 Public Class Form1

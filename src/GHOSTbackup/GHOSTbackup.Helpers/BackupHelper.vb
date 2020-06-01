@@ -28,7 +28,7 @@ Imports System.ComponentModel
 Imports System.Globalization
 Imports System.IO
 Imports GHOSTbackup.UI
-Imports GHOSTbackup.Var
+Imports GHOSTbackup.ProcessHelper
 
 Public Class BackupHelper
     Private Shared WithEvents DetectBackupTimestamp As New BackgroundWorker()
@@ -36,6 +36,7 @@ Public Class BackupHelper
     Private Shared WithEvents BackupTimer As New Timer()
     Public Shared ReadOnly BackupDirs As New List(Of String)
     Private Shared Property ErrorMessage As String = Nothing
+    Public Shared Property IsBackupRunning As Boolean = False
 
     Public Shared Sub DetectLatestBackup()
         'Pass the backup folder path to the background worker

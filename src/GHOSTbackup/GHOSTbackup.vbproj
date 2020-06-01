@@ -137,7 +137,6 @@
     <Compile Include="GHOSTbackup.Helpers\ProcessHelper.vb" />
     <Compile Include="GHOSTbackup.Helpers\Settings.vb" />
     <Compile Include="GHOSTbackup.Helpers\Updater.vb" />
-    <Compile Include="Var.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="GHOSTbackup.Localization\Strings.it.resx">

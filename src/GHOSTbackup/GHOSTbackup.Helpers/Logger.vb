@@ -27,12 +27,11 @@
 Imports System.IO
 Imports System.Text
 Imports GHOSTbackup.UI
-Imports GHOSTbackup.Var
 
 Public Class Logger
     Public Shared Sub StartSession()
         Log("[LOG SESSION] -------------------- START --------------------")
-        Log("[INFO] GHOST Buster version: " & Version)
+        Log("[INFO] GHOST Buster version: " & Updater.VersionString)
 
 #If DEBUG Then
         Log("[INFO] Environment is DEVELOPMENT")
