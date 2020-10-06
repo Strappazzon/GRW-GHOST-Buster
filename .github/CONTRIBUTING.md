@@ -32,12 +32,6 @@ If you don't have any additional info/context to add but would like to indicate 
 * Please test (compile and run) your code before you submit changes. Untested code will **not** be merged!
 * Make sure your PR is up-to-date with the rest of the code.
 
-## Travis CI Build
-
-[Travis CI](https://travis-ci.org/) is a continuous integration service used to build/test software hosted on GitHub.
-
-All Pull Requests must pass the Travis CI checks before it can be merged. If a PR breaks the build (a Travis CI check fails and shows a red "X") you will need to fix the issue.
-
 ## Website Development
 
 GHOST Buster website is inside `/docs`, so it’s easy to keep docs and code in sync.
@@ -56,7 +50,6 @@ See [docs/README.md](https://github.com/Strappazzon/GRW-GHOST-Buster/blob/master
 * Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
 * Reference issues and pull requests after the first line.
 * When changing the website, README, documentation, etc., start the commit message with `docs:` ("docs: Update index.html").
-* When changing files outside the `src` folder, end the commit message with `[travis skip]` [to skip the Travis CI build](https://docs.travis-ci.com/user/customizing-the-build/#skipping-a-build) ("docs: Update README.md [travis skip]").
 
 ## Licensing
 
@@ -71,7 +64,6 @@ This is a brief description on how the repository files and folders are structur
 ```
 GRW-GHOST-Buster/
  ├─ .gitignore               # Ignored files, directories and paths
- ├─ .travis.yml              # Travis CI configuration
  ├─ version                  # File used by GHOST Buster updater
  │   
  ├─ .github                  # GitHub files
