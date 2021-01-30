@@ -1,5 +1,5 @@
-$7Zip = ${env:ProgramFiles}+"\7-Zip\7z.exe" # Path to 7z.exe
-$Resources = @(Get-ChildItem  ".\src\GHOSTbackup\GHOSTbackup.Localization\*.resources") # Path to compiled resources
+$7Zip = ${env:ProgramFiles}+"\7-Zip\7z.exe"
+$Resources = @(Get-ChildItem  ".\src\GHOSTbackup\GHOSTbackup.Localization\*.resources")
 
 # Create the release folder if it doesn't exist
 if (-not (Test-Path -Path ".\.release")) {
