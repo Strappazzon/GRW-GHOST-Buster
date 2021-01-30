@@ -37,6 +37,7 @@
 **/!Icon_256.ico
 
 /.release
+/.vscode/settings.json
 **/TODO.txt
 
 # Jekyll
