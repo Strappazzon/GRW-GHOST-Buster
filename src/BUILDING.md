@@ -4,8 +4,8 @@ This file should assist you in compiling and running GHOST Buster.
 
 ## Building requirements
 
-* [.NET Framework 4.6.1 Runtime or newer](https://dotnet.microsoft.com/download/dotnet-framework)
-* [.NET Framework 4.6.1 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net461)
+* [.NET Framework 4.8 Runtime or newer](https://dotnet.microsoft.com/download/dotnet-framework)
+* [.NET Framework 4.8 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net461)
 * Visual Studio. You can [download the community edition](https://visualstudio.microsoft.com/vs/community/) for free
   * The ".NET desktop development" Workload is required
 * [NuGet CLI](https://www.nuget.org/downloads)
@@ -24,7 +24,7 @@ Alternatively, you can clone the repository via any Git client, or download a zi
 ## Building with Visual Studio
 
 1. Start Visual Studio.
-2. Select **Open a project or solution** and open the `GHOSTbackup.sln` solution file located in your cloned repository (In this case: `.\GRW-GHOST-Buster\src\GHOSTbackup.sln`).
+2. Select **Open a project or solution** and open the `GHOSTbackup.sln` solution file located in your cloned repository (`.\GRW-GHOST-Buster\src\GHOSTbackup.sln`).
 3. Compile using **Build** -> **Build Solution**.
    * The compiled binary will be inside the `.\GHOSTbackup\bin\Debug` folder
 4. Compile the localization strings with ResGen
@@ -33,12 +33,7 @@ Alternatively, you can clone the repository via any Git client, or download a zi
 ## Building with build script
 
 1. Restore NuGet packages by running `nuget restore` from `.\GRW-GHOST-Buster\src`
-2. Open `build.ps1` located in your cloned repository (In this case: `.\GRW-GHOST-Buster\script\build.ps1`) with a [source code editor](https://alternativeto.net/category/developer-tools/text-editor/) and edit **resgen.exe** path.
-
-```powershell
-$ResGen = "C:\Path\To\ResGen.exe" # resgen.exe path
-```
-
-3. Run `build.ps1` with PowerShell.
+2. Open `build.ps1` located in your cloned repository (`.\GRW-GHOST-Buster\script\build.ps1`) with a [source code editor](https://alternativeto.net/category/developer-tools/text-editor/) and edit the path that points to **ResGen.exe** (if necessary).
+3. Run `build.ps1` with PowerShell to build GHOST Buster.
    * The compiled binary will be inside the `.\GHOSTbackup\bin\Release` folder.
 4. Copy the compiled strings from `.\GHOSTbackup\GHOSTbackup.Localization\*.resx` to `.\GHOSTbackup\bin\Release\Languages\*.resx`
