@@ -28,8 +28,8 @@ Imports System.Net.Http
 Imports GHOSTbackup.UI
 
 Public Class Updater
-    Public Shared ReadOnly VersionString As String = "2.0.0"
-    Private Shared ReadOnly VersionCode As Integer = 17
+    Public Shared ReadOnly VersionString As String = "2.0.1"
+    Private Shared ReadOnly VersionCode As Integer = 18
     Private Shared ReadOnly VersionURI As Uri = New Uri("https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/version")
 
     'Check for updates
