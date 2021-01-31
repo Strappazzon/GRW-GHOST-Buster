@@ -1,3 +1,7 @@
+2.0.1
+ - Fix: Backup notification ignoring settings
+ - Fix: Crash when attempting to launch Wildlands before Ubisoft Connect could finish downloading the game
+
 2.0.0
  - New: Added an option to display notifications about backups
  - New: Added Manage Backups section that replaces "Let me choose" option in Main Screen
