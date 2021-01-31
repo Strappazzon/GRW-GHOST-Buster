@@ -229,12 +229,16 @@ Public Class BackupHelper
                     Form1.LatestBackupHelpLabel.Text = Localization.GetString("ui_tasks_latest") & BackupTimestamp.ToString("G", CultureInfo.CurrentUICulture)
 
                     Logger.Log("[INFO] Performed the first backup " & "(" & SavegamesList.Length & " files copied to " & BackupDirectory & ").")
-                    Notification.Show(Localization.GetString("notification_msg_first_backup"))
+                    If Form1.SettingsDisplayNotificationChkBox.Checked = True Then
+                        Notification.Show(Localization.GetString("notification_msg_first_backup"))
+                    End If
 
                 Catch ex As Exception
                     StopBackup()
                     Logger.Log("[ERROR] Backup interrupted: " & ex.Message())
-                    Notification.Show(Localization.GetString("notification_msg_backup_error"))
+                    If Form1.SettingsDisplayNotificationChkBox.Checked = True Then
+                        Notification.Show(Localization.GetString("notification_msg_backup_error"))
+                    End If
                     CustomMsgBox.Show(Localization.GetString("msgbox_backup_error"), Localization.GetString("msgbox_backup_error_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Error)
                 End Try
             Else
@@ -265,12 +269,16 @@ Public Class BackupHelper
                 Form1.LatestBackupHelpLabel.Text = Localization.GetString("ui_tasks_latest") & BackupTimestamp.ToString("G", CultureInfo.CurrentUICulture)
 
                 Logger.Log("[INFO] Backup complete " & "(" & SavegamesList.Length & " files copied to " & BackupDirectory & ").")
-                Notification.Show(Localization.GetString("notification_msg_backup_complete"))
+                If Form1.SettingsDisplayNotificationChkBox.Checked = True Then
+                    Notification.Show(Localization.GetString("notification_msg_backup_complete"))
+                End If
 
             Catch ex As Exception
                 StopBackup()
                 Logger.Log("[ERROR] Backup interrupted: " & ex.Message())
-                Notification.Show(Localization.GetString("notification_msg_backup_error"))
+                If Form1.SettingsDisplayNotificationChkBox.Checked = True Then
+                    Notification.Show(Localization.GetString("notification_msg_backup_error"))
+                End If
                 CustomMsgBox.Show(Localization.GetString("msgbox_backup_error"), Localization.GetString("msgbox_backup_error_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Error)
             End Try
         Else
