@@ -221,7 +221,12 @@ Public Class Form1
     End Sub
 
     Private Sub PlayGameBtn_Click(sender As Object, e As EventArgs) Handles PlayGameBtn.Click
-        Process.Start(GamePath & "GRW.exe")
+        Try
+            Process.Start(GamePath & "GRW.exe")
+        Catch ex As Exception
+            Logger.Log("[ERROR] Unable to launch Wildlands: Executable missing.")
+            CustomMsgBox.Show(Localization.GetString("msgbox_wildlands_installed_missing"), Localization.GetString("msgbox_wildlands_installed_missing_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Error)
+        End Try
     End Sub
 
     Private Sub SidemenuTasks_Click(sender As Object, e As EventArgs) Handles SidemenuTasks.Click

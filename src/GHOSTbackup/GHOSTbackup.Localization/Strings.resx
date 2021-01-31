@@ -566,4 +566,11 @@
   <data name="ui_manage_context_restore_tooltip" xml:space="preserve">
     <value>Restore the selected backup.</value>
   </data>
+  <data name="msgbox_wildlands_installed_missing" xml:space="preserve">
+    <value>{\rtf1 Wildlands appears to be installed but {\b the executable is missing}. Either the download is incomplete or it has been deleted.}</value>
+    <comment>This string MUST be written in Rich Text Format</comment>
+  </data>
+  <data name="msgbox_wildlands_installed_missing_title" xml:space="preserve">
+    <value>Unable to launch Wildlands</value>
+  </data>
 </root>

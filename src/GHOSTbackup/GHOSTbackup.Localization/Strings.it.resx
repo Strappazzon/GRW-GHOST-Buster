@@ -547,4 +547,10 @@
   <data name="ui_manage_context_delete_tooltip" xml:space="preserve">
     <value>Elimina il backup selezionato.</value>
   </data>
+  <data name="msgbox_wildlands_installed_missing" xml:space="preserve">
+    <value>{\rtf1 Wildlands sembra essere installato ma {\b l'eseguibile è mancante}. Il download potrebbe essere incompleto oppure è stato eliminato.}</value>
+  </data>
+  <data name="msgbox_wildlands_installed_missing_title" xml:space="preserve">
+    <value>Impossibile avviare Wildlands</value>
+  </data>
 </root>

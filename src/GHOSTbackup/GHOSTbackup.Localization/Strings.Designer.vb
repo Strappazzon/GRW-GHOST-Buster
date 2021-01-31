@@ -641,6 +641,24 @@ Namespace Languages
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to {\rtf1 Wildlands appears to be installed but {\b the executable is missing}. Either the download is incomplete or it has been deleted.}.
+        '''</summary>
+        Friend Shared ReadOnly Property msgbox_wildlands_installed_missing() As String
+            Get
+                Return ResourceManager.GetString("msgbox_wildlands_installed_missing", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Unable to launch Wildlands.
+        '''</summary>
+        Friend Shared ReadOnly Property msgbox_wildlands_installed_missing_title() As String
+            Get
+                Return ResourceManager.GetString("msgbox_wildlands_installed_missing_title", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Backup complete..
         '''</summary>
         Friend Shared ReadOnly Property notification_msg_backup_complete() As String
