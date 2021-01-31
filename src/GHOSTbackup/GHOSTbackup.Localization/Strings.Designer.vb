@@ -785,7 +785,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to GHOST Buster v{0}\nCopyright (c) 2019 - 2020 Alberto Strappazzon\nThis software is licensed under the MIT license.\n\nThis software uses assets from Tom Clancy&apos;s Ghost Recon(R) Wildlands\nCopyright (c) Ubisoft Entertainment. All Rights Reserved.\n\nSome icons are taken from Icons8 (https://icons8.com)..
+        '''  Looks up a localized string similar to GHOST Buster v{0}\nCopyright (c) 2019 - 2021 Alberto Strappazzon\nThis software is licensed under the MIT license.\n\nThis software uses assets from Tom Clancy&apos;s Ghost Recon(R) Wildlands\nCopyright (c) Ubisoft Entertainment. All Rights Reserved.\n\nSome icons are taken from Icons8 (https://icons8.com)..
         '''</summary>
         Friend Shared ReadOnly Property ui_about_about() As String
             Get
