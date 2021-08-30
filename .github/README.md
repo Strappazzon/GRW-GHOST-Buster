@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/favicon.png" width="128px" alt="GHOST Buster Icon"></a>
+  <img src="../docs/assets/img/favicon.png" width="128px" alt="GHOST Buster Icon"></a>
   <br>
   GHOST Buster
   <br>
@@ -126,10 +126,10 @@ _Click an image to enlarge it_
     <th align="center">Notification</th>
   </tr>
   <tr>
-    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot.png"></td>
-    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_manage.png"></td>
-    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_settings.png"></td>
-    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_notification.jpg"></td>
+    <td><img src="../docs/assets/img/screenshot.png"></td>
+    <td><img src="../docs/assets/img/screenshot_manage.png"></td>
+    <td><img src="../docs/assets/img/screenshot_settings.png"></td>
+    <td><img src="../docs/assets/img/screenshot_notification.jpg"></td>
   </tr>
 </table>
 
@@ -141,10 +141,10 @@ _Click an image to enlarge it_
     <th align="center">About screen</th>
   </tr>
   <tr>
-    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_restore.png"></td>
-    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_delete.png"></td>
-    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_logs.png"></td>
-    <td><img src="https://strappazzon.xyz/GRW-GHOST-Buster/assets/img/screenshot_about.png"></td>
+    <td><img src="../docs/assets/img/screenshot_restore.png"></td>
+    <td><img src="../docs/assets/img/screenshot_delete.png"></td>
+    <td><img src="../docs/assets/img/screenshot_logs.png"></td>
+    <td><img src="../docs/assets/img/screenshot_about.png"></td>
   </tr>
 </table>
 
