@@ -1,5 +1,6 @@
 # Visual Studio cache/options directory
 **/.vs/
+**/_ReSharper.Caches/
 
 # Build results
 **/[Oo]bj
