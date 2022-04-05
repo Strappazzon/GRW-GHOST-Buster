@@ -160,7 +160,7 @@
     <value>Unable to check for updates. Please check the logs for more details.</value>
   </data>
   <data name="banner_uplay_not_installed" xml:space="preserve">
-    <value>Uplay is not installed.</value>
+    <value>Ubisoft Connect is not installed.</value>
   </data>
   <data name="dialog_browse_backup_desc" xml:space="preserve">
     <value>Select where you want to backup your save files to. Every backup will create a new "yyyyMMdd HHmm" subfolder.</value>
@@ -217,10 +217,10 @@
     <value>If checked, GHOST Buster will restore its position on the screen when reopened.</value>
   </data>
   <data name="tooltip_disable_sync" xml:space="preserve">
-    <value>If checked, GHOST Buster will disable Uplay cloud save synchronization before restoring a backup.</value>
+    <value>If checked, GHOST Buster will disable Ubisoft Connect cloud save synchronization before restoring a backup.</value>
   </data>
   <data name="tooltip_enable_sync" xml:space="preserve">
-    <value>If checked, GHOST Buster will enable  Uplay cloud save synchronization again before  quitting.</value>
+    <value>If checked, GHOST Buster will enable  Ubisoft Connect cloud save synchronization again before  quitting.</value>
   </data>
   <data name="tooltip_updates" xml:space="preserve">
     <value>If checked, GHOST Buster will check if the current version is up to date when opening.</value>
@@ -273,11 +273,11 @@
     
   </data>
   <data name="ui_settings_disable_sync" xml:space="preserve">
-    <value>Disable Uplay cloud save synchronization on restore</value>
+    <value>Disable Ubisoft Connect cloud save synchronization on restore</value>
     
   </data>
   <data name="ui_settings_enable_sync" xml:space="preserve">
-    <value>Enable Uplay cloud save synchronization on exit</value>
+    <value>Enable Ubisoft Connect cloud save synchronization on exit</value>
     
   </data>
   <data name="ui_folders_backup" xml:space="preserve">
@@ -302,7 +302,7 @@
     <value>Write events to a log file</value>
   </data>
   <data name="ui_settings_nouplay" xml:space="preserve">
-    <value>I'm not using the Uplay version of Wildlands</value>
+    <value>I'm not using the Ubisoft Connect version of Wildlands</value>
   </data>
   <data name="ui_settings_restart" xml:space="preserve">
     <value>You'll need to restart GHOST Buster in order for the change to take effect.</value>
@@ -435,28 +435,28 @@
     <value>Update available</value>
   </data>
   <data name="msgbox_quit_before_restore_sync" xml:space="preserve">
-    <value>{\rtf1 You must {\b quit Uplay before restoring a backup} because you chose to let GHOST Buster disable Uplay cloud save synchronization for you.}</value>
+    <value>{\rtf1 You must {\b quit Ubisoft Connect before restoring a backup} because you chose to let GHOST Buster disable Ubisoft Connect cloud save synchronization for you.}</value>
     <comment>This string MUST be written in Rich Text Format</comment>
   </data>
   <data name="msgbox_quit_before_restore_sync_title" xml:space="preserve">
     <value>Cannot restore</value>
   </data>
   <data name="msgbox_disable_sync_error" xml:space="preserve">
-    <value>{\rtf1 "&lt;0&gt;" setting has been {\b disabled because an error occurred} while trying to parse Uplay settings file. \line\line Make sure to {\b DISABLE} cloud save synchronization from Uplay (Settings -&gt; Untick "Enable cloud save synchronization for supported games") before launching Wildlands, otherwise the restored save games will be {\b OVERWRITTEN} with the old ones from the cloud!}</value>
+    <value>{\rtf1 "&lt;0&gt;" setting has been {\b disabled because an error occurred} while trying to parse Ubisoft Connect settings file. \line\line Make sure to {\b DISABLE} cloud save synchronization from Ubisoft Connect (Settings -&gt; Untick "Enable cloud save synchronization for supported games") before launching Wildlands, otherwise the restored save games will be {\b OVERWRITTEN} with the old ones from the cloud!}</value>
     <comment>This string MUST be written in Rich Text Format</comment>
   </data>
   <data name="msgbox_parsing_error_title" xml:space="preserve">
     <value>Parsing failed</value>
   </data>
   <data name="msgbox_enable_sync_uplay_error" xml:space="preserve">
-    <value>{\rtf1 GHOST Buster was unable to enable cloud save synchronization {\b because Uplay is running.} Please re-enable it manually from Uplay (Settings -&gt; Tick "Enable cloud save synchronization for supported games").}</value>
+    <value>{\rtf1 GHOST Buster was unable to enable cloud save synchronization {\b because Ubisoft Connect is running.} Please re-enable it manually from Ubisoft Connect (Settings -&gt; Tick "Enable cloud save synchronization for supported games").}</value>
     <comment>This string MUST be written in Rich Text Format</comment>
   </data>
   <data name="msgbox_enable_sync_uplay_error_title" xml:space="preserve">
     <value>Cannot enable cloud sync</value>
   </data>
   <data name="msgbox_enable_sync_error" xml:space="preserve">
-    <value>{\rtf1 {\b An error occurred} while trying to parse Uplay settings file. Please re-enable cloud save synchronization manually from Uplay (Settings -&gt; Tick "Enable cloud save synchronization for supported games").}</value>
+    <value>{\rtf1 {\b An error occurred} while trying to parse Ubisoft Connect settings file. Please re-enable cloud save synchronization manually from Ubisoft Connect (Settings -&gt; Tick "Enable cloud save synchronization for supported games").}</value>
     <comment>This string MUST be written in Rich Text Format</comment>
   </data>
   <data name="ui_logs_context_copy" xml:space="preserve">
@@ -472,7 +472,7 @@
     <value>Enter a value between {0} and {1}.</value>
   </data>
   <data name="tooltip_uplay" xml:space="preserve">
-    <value>Launch Uplay.</value>
+    <value>Launch Ubisoft Connect.</value>
   </data>
   <data name="ui_title_manage" xml:space="preserve">
     <value>Manage Backups</value>

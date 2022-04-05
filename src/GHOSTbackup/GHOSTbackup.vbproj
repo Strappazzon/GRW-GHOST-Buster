@@ -182,6 +182,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon_256.ico" />
+    <None Include="Resources\ubisoft_connect.png" />
     <None Include="Resources\log.png" />
     <None Include="Resources\restore.png" />
     <None Include="Resources\delete_all.png" />

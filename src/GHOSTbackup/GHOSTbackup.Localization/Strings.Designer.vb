@@ -227,7 +227,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Uplay is not installed..
+        '''  Looks up a localized string similar to Ubisoft Connect is not installed..
         '''</summary>
         Friend Shared ReadOnly Property banner_uplay_not_installed() As String
             Get
@@ -488,7 +488,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to {\rtf1 &quot;&lt;0&gt;&quot; setting has been {\b disabled because an error occurred} while trying to parse Uplay settings file. \line\line Make sure to {\b DISABLE} cloud save synchronization from Uplay (Settings -&gt; Untick &quot;Enable cloud save synchronization for supported games&quot;) before launching Wildlands, otherwise the restored save games will be {\b OVERWRITTEN} with the old ones from the cloud!}.
+        '''  Looks up a localized string similar to {\rtf1 &quot;&lt;0&gt;&quot; setting has been {\b disabled because an error occurred} while trying to parse Ubisoft Connect settings file. \line\line Make sure to {\b DISABLE} cloud save synchronization from Ubisoft Connect (Settings -&gt; Untick &quot;Enable cloud save synchronization for supported games&quot;) before launching Wildlands, otherwise the restored save games will be {\b OVERWRITTEN} with the old ones from the cloud!}.
         '''</summary>
         Friend Shared ReadOnly Property msgbox_disable_sync_error() As String
             Get
@@ -515,7 +515,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to {\rtf1 {\b An error occurred} while trying to parse Uplay settings file. Please re-enable cloud save synchronization manually from Uplay (Settings -&gt; Tick &quot;Enable cloud save synchronization for supported games&quot;).}.
+        '''  Looks up a localized string similar to {\rtf1 {\b An error occurred} while trying to parse Ubisoft Connect settings file. Please re-enable cloud save synchronization manually from Ubisoft Connect (Settings -&gt; Tick &quot;Enable cloud save synchronization for supported games&quot;).}.
         '''</summary>
         Friend Shared ReadOnly Property msgbox_enable_sync_error() As String
             Get
@@ -524,7 +524,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to {\rtf1 GHOST Buster was unable to enable cloud save synchronization {\b because Uplay is running.} Please re-enable it manually from Uplay (Settings -&gt; Tick &quot;Enable cloud save synchronization for supported games&quot;).}.
+        '''  Looks up a localized string similar to {\rtf1 GHOST Buster was unable to enable cloud save synchronization {\b because Ubisoft Connect is running.} Please re-enable it manually from Ubisoft Connect (Settings -&gt; Tick &quot;Enable cloud save synchronization for supported games&quot;).}.
         '''</summary>
         Friend Shared ReadOnly Property msgbox_enable_sync_uplay_error() As String
             Get
@@ -569,7 +569,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to {\rtf1 You must {\b quit Uplay before restoring a backup} because you chose to let GHOST Buster disable Uplay cloud save synchronization for you.}.
+        '''  Looks up a localized string similar to {\rtf1 You must {\b quit Ubisoft Connect before restoring a backup} because you chose to let GHOST Buster disable Ubisoft Connect cloud save synchronization for you.}.
         '''</summary>
         Friend Shared ReadOnly Property msgbox_quit_before_restore_sync() As String
             Get
@@ -731,7 +731,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to If checked, GHOST Buster will disable Uplay cloud save synchronization before restoring a backup..
+        '''  Looks up a localized string similar to If checked, GHOST Buster will disable Ubisoft Connect cloud save synchronization before restoring a backup..
         '''</summary>
         Friend Shared ReadOnly Property tooltip_disable_sync() As String
             Get
@@ -740,7 +740,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to If checked, GHOST Buster will enable  Uplay cloud save synchronization again before  quitting..
+        '''  Looks up a localized string similar to If checked, GHOST Buster will enable  Ubisoft Connect cloud save synchronization again before  quitting..
         '''</summary>
         Friend Shared ReadOnly Property tooltip_enable_sync() As String
             Get
@@ -758,7 +758,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Launch Uplay..
+        '''  Looks up a localized string similar to Launch Ubisoft Connect..
         '''</summary>
         Friend Shared ReadOnly Property tooltip_uplay() As String
             Get
@@ -1118,7 +1118,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Disable Uplay cloud save synchronization on restore.
+        '''  Looks up a localized string similar to Disable Ubisoft Connect cloud save synchronization on restore.
         '''</summary>
         Friend Shared ReadOnly Property ui_settings_disable_sync() As String
             Get
@@ -1127,7 +1127,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Enable Uplay cloud save synchronization on exit.
+        '''  Looks up a localized string similar to Enable Ubisoft Connect cloud save synchronization on exit.
         '''</summary>
         Friend Shared ReadOnly Property ui_settings_enable_sync() As String
             Get
@@ -1154,7 +1154,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to I&apos;m not using the Uplay version of Wildlands.
+        '''  Looks up a localized string similar to I&apos;m not using the Ubisoft Connect version of Wildlands.
         '''</summary>
         Friend Shared ReadOnly Property ui_settings_nouplay() As String
             Get

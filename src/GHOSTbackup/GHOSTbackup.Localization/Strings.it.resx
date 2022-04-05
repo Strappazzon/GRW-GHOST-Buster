@@ -181,10 +181,10 @@
     <value>Se spuntata, GHOST Buster ripristinerà la propria posizione sullo schermo alla riapertura.</value>
   </data>
   <data name="tooltip_disable_sync" xml:space="preserve">
-    <value>Se spuntata, GHOST Buster disabiliterà la sincronizzazione salvataggi cloud di Uplay prima di ripristinare un backup.</value>
+    <value>Se spuntata, GHOST Buster disabiliterà la sincronizzazione salvataggi cloud di Ubisoft Connect prima di ripristinare un backup.</value>
   </data>
   <data name="tooltip_enable_sync" xml:space="preserve">
-    <value>Se spuntata, GHOST Buster abiliterà nuovamente la sincronizzazione salvataggi cloud di Uplay prima di uscire.</value>
+    <value>Se spuntata, GHOST Buster abiliterà nuovamente la sincronizzazione salvataggi cloud di Ubisoft Connect prima di uscire.</value>
   </data>
   <data name="tooltip_updates" xml:space="preserve">
     <value>Se spuntata, GHOST Buster controllerà se la versione in uso è aggiornata.</value>
@@ -237,11 +237,11 @@
     <comment>44 characters per line max</comment>
   </data>
   <data name="ui_settings_disable_sync" xml:space="preserve">
-    <value>Disattiva sincronizzazione salvataggi cloud di Uplay prima di un ripristino</value>
+    <value>Disattiva sincr. salvataggi cloud di Ubisoft Connect prima di un ripristino</value>
     <comment>44 characters per line max</comment>
   </data>
   <data name="ui_settings_enable_sync" xml:space="preserve">
-    <value>Attiva sincronizzazione salvataggi cloud di Uplay prima di uscire</value>
+    <value>Attiva sincronizzazione salvataggi cloud di Ubisoft Connect prima di uscire</value>
     <comment>44 characters per line max</comment>
   </data>
   <data name="ui_folders_backup" xml:space="preserve">
@@ -266,7 +266,7 @@
     <value>Scrivi gli eventi in un file di log</value>
   </data>
   <data name="ui_settings_nouplay" xml:space="preserve">
-    <value>Non sto usando la versione Uplay di Wildlands</value>
+    <value>Non sto usando la versione Ubisoft Connect di Wildlands</value>
   </data>
   <data name="ui_settings_restart" xml:space="preserve">
     <value>Dovrai riavviare GHOST Buster per rendere effettivi i cambiamenti.</value>
@@ -359,7 +359,7 @@
     <value>Impossibile recuperare la data dell'ultimo backup. Per favore controlla i log per i dettagli.</value>
   </data>
   <data name="banner_uplay_not_installed" xml:space="preserve">
-    <value>Uplay non è installato.</value>
+    <value>Ubisoft Connect non è installato.</value>
   </data>
   <data name="dialog_browse_backup_desc" xml:space="preserve">
     <value>Seleziona dove vuoi eseguire il backup dei file di salvataggio. Ogni backup creerà una nuova sotto-cartella "yyyyMMdd HHmm".</value>
@@ -425,25 +425,25 @@
     <value>Aggiornamento disponibile</value>
   </data>
   <data name="msgbox_quit_before_restore_sync" xml:space="preserve">
-    <value>{\rtf1 Devi {\b chiudere Uplay prima di ripristinare un backup} poiché hai scelto di lasciare che GHOST Buster disabilitasse automaticamente la sincronizzazione salvataggi cloud Uplay.}</value>
+    <value>{\rtf1 Devi {\b chiudere Ubisoft Connect prima di ripristinare un backup} poiché hai scelto di lasciare che GHOST Buster disabilitasse automaticamente la sincronizzazione salvataggi cloud di Ubisoft Connect.}</value>
   </data>
   <data name="msgbox_quit_before_restore_sync_title" xml:space="preserve">
     <value>Impossibile ripristinare</value>
   </data>
   <data name="msgbox_disable_sync_error" xml:space="preserve">
-    <value>{\rtf1 L'impostazione "&lt;0&gt;" è stata {\b disattivata a causa di un errore} durante il tentativo di analisi del file impostazioni di Uplay. \line\line Assicurati di {\b DISABILITARE} la sincronizzazione salvataggi cloud da Uplay (Impostazioni -&gt; Togli la spunta da "Attiva la sincronizzazione salvataggio Cloud nei giochi compatibili") prima di avviare Wildlands altrimenti i file di salvataggio appena ripristinati verranno {\b SOVRASCRITTI} con una versione non aggiornata dal cloud!}</value>
+    <value>{\rtf1 L'impostazione "&lt;0&gt;" è stata {\b disattivata a causa di un errore} durante il tentativo di analisi del file impostazioni di Ubisoft Connect. \line\line Assicurati di {\b DISABILITARE} la sincronizzazione salvataggi cloud da Ubisoft Connect (Impostazioni -&gt; Togli la spunta da "Attiva la sincronizzazione salvataggio Cloud nei giochi compatibili") prima di avviare Wildlands altrimenti i file di salvataggio appena ripristinati verranno {\b SOVRASCRITTI} con una versione non aggiornata dal cloud!}</value>
   </data>
   <data name="msgbox_parsing_error_title" xml:space="preserve">
     <value>Analisi fallita</value>
   </data>
   <data name="msgbox_enable_sync_uplay_error" xml:space="preserve">
-    <value>{\rtf1 Non è stato possibile abilitare la sincronizzazione salvataggi cloud di Uplay {\b perché Uplay è in esecuzione.} Per favore riattivala manualmente da Uplay (Impostazioni -&gt; Spunta "Attiva la sincronizzazione salvataggio Cloud nei giochi compatibili").}</value>
+    <value>{\rtf1 Non è stato possibile abilitare la sincronizzazione salvataggi cloud di Ubisoft Connect {\b perché Ubisoft Connect è in esecuzione.} Per favore riattivala manualmente da Ubisoft Connect (Impostazioni -&gt; Spunta "Attiva la sincronizzazione salvataggio Cloud nei giochi compatibili").}</value>
   </data>
   <data name="msgbox_enable_sync_uplay_error_title" xml:space="preserve">
     <value>Impossibile attivare la sincronizzazione cloud</value>
   </data>
   <data name="msgbox_enable_sync_error" xml:space="preserve">
-    <value>{\rtf1 {\b Si è verificato un errore} durante il tentativo di analisi del file impostazioni di Uplay. Per favore riattiva manualmente la sincronizzazione salvataggi cloud da Uplay (Impostazioni -&gt; Spunta "Attiva la sincronizzazione salvataggio Cloud nei giochi compatibili").}</value>
+    <value>{\rtf1 {\b Si è verificato un errore} durante il tentativo di analisi del file impostazioni di Ubisoft Connect. Per favore riattiva manualmente la sincronizzazione salvataggi cloud da Ubisoft Connect (Impostazioni -&gt; Spunta "Attiva la sincronizzazione salvataggio Cloud nei giochi compatibili").}</value>
   </data>
   <data name="ui_logs_context_copy" xml:space="preserve">
     <value>Copia</value>
@@ -458,7 +458,7 @@
     <value>Inserisci un valore compreso tra {0} e {1}.</value>
   </data>
   <data name="tooltip_uplay" xml:space="preserve">
-    <value>Avvia Uplay.</value>
+    <value>Avvia Ubisoft Connect.</value>
   </data>
   <data name="ui_title_manage" xml:space="preserve">
     <value>Gestione Backup</value>
