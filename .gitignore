@@ -25,6 +25,7 @@
 **/[Pp]ackages
 **/[Pp]ackages/*
 !**/[Pp]ackages/build/
+**/MigrationBackup/
 
 # Junk Files
 **/[Tt]humbs.db
