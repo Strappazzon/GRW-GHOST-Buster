@@ -178,7 +178,6 @@
     <None Include="Resources\delete.png" />
     <None Include="Resources\backup_white.png" />
     <None Include="Resources\backup.png" />
-    <None Include="Resources\uplay.png" />
     <None Include="Resources\tasks_white.png" />
     <None Include="Resources\tasks.png" />
     <None Include="Resources\settings_white.png" />
