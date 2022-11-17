@@ -1,4 +1,4 @@
-﻿#Region "Copyright (c) 2019 - 2021 Alberto Strappazzon, https://strappazzon.xyz/GRW-GHOST-Buster"
+﻿#Region "Copyright (c) 2019 - 2022 Alberto Strappazzon, https://strappazzon.xyz/GRW-GHOST-Buster"
 ''
 '' GHOST Buster - Ghost Recon Wildlands backup utility
 ''
@@ -24,35 +24,16 @@
 ''
 #End Region
 
+Imports Microsoft.Toolkit.Uwp.Notifications
+
 Public Class Notification
-    Private WithEvents CloseTimer As Timer = New Timer() With {.Interval = 5000}
-
-    Public Sub New()
-        'Required by the designer
-        InitializeComponent()
-
-        'Position notification in the bottom right corner of the screen
-        Location = New Point(My.Computer.Screen.Bounds.Width - Width, My.Computer.Screen.Bounds.Height - Height)
-    End Sub
-
 #Region "Show Methods"
     Public Overloads Shared Sub Show(ByVal Message As String)
-        Notification.MessageLabel.Text = Message
-
-        'Display the notification
-        'Use My.Forms.Show because msbuild complains
-        My.Forms.Notification.Show()
-
-        'Close the notification automatically
-        Notification.CloseTimer.Start()
+        Call New ToastContentBuilder() _
+            .AddText(Form1.Text) _
+            .AddText(Message) _
+            .AddAudio(New Uri("ms-winsoundevent:Notification.Default"), False, True) _ '//learn.microsoft.com/en-us/uwp/schemas/tiles/toastschema/element-audio
+            .Show()
     End Sub
 #End Region
-
-    Private Sub CloseTimer_Tick(sender As Object, e As EventArgs) Handles CloseTimer.Tick
-        CloseTimer.Stop()
-
-        'Hide notification
-        'Closing the notification will close all modal forms as well
-        Hide()
-    End Sub
 End Class

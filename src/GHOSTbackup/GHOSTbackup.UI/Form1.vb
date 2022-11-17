@@ -31,6 +31,7 @@ Imports GHOSTbackup.ProcessHelper
 Imports GHOSTbackup.Updater
 Imports GHOSTbackup.UplayHelper
 Imports GHOSTbackup.WildlandsHelper
+Imports Microsoft.Toolkit.Uwp.Notifications
 
 Public Class Form1
 
@@ -143,6 +144,10 @@ Public Class Form1
                 EnableCloudSync()
             End If
         End If
+
+        'Cleanup notifications
+        'ToastNotificationManagerCompat.History.Clear()
+        ToastNotificationManagerCompat.Uninstall()
     End Sub
 #End Region
 
