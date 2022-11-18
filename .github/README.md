@@ -128,7 +128,7 @@ _Click an image to enlarge it_
     <td><img src="../docs/assets/img/screenshot.png"></td>
     <td><img src="../docs/assets/img/screenshot_manage.png"></td>
     <td><img src="../docs/assets/img/screenshot_settings.png"></td>
-    <td><img src="../docs/assets/img/screenshot_notification.jpg"></td>
+    <td><img src="../docs/assets/img/screenshot_notification.png"></td>
   </tr>
 </table>
 
