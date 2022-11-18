@@ -232,7 +232,7 @@
     <value>Logs</value>
   </data>
   <data name="ui_about_about" xml:space="preserve">
-    <value>GHOST Buster v{0}\nCopyright (c) 2019 - 2021 Alberto Strappazzon\nThis software is licensed under the MIT license.\n\nThis software uses assets from Tom Clancy's Ghost Recon(R) Wildlands\nCopyright (c) Ubisoft Entertainment. All Rights Reserved.\n\nSome icons are taken from Icons8 (https://icons8.com).</value>
+    <value>GHOST Buster v{0}\nCopyright (c) 2019 - 2022 Alberto Strappazzon\nThis software is licensed under the MIT license.\n\nThis software uses assets from Tom Clancy's Ghost Recon(R) Wildlands\nCopyright (c) Ubisoft Entertainment. All Rights Reserved.\n\nSome icons are taken from Icons8 (https://icons8.com).</value>
     <comment>75 characters per line max</comment>
   </data>
   <data name="ui_about_changelog" xml:space="preserve">
