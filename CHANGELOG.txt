@@ -1,3 +1,8 @@
+2.1
+ - UI: Use Windows toast notifications
+ - Replaced all Uplay occurrences with Ubisoft Connect
+ - Small refactoring
+
 2.0.1
  - Fix: Backup notification ignoring settings
  - Fix: Crash when attempting to launch Wildlands before Ubisoft Connect could finish downloading the game
