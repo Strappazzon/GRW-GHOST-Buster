@@ -27,8 +27,11 @@
 !**/[Pp]ackages/build/
 **/MigrationBackup/
 
-# Junk Files
-**/[Tt]humbs.db
+# VSCode
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
 
 # Custom application assets/resources
 !**/[Rr]es
@@ -38,9 +41,11 @@
 **/*.ico
 **/!Icon_256.ico
 
-/.release
-/.vscode/settings.json
-**/TODO.txt
+# Junk Files
+**/[Tt]humbs.db
 
 # Jekyll
 **/_site
+
+/.release
+**/TODO.txt
