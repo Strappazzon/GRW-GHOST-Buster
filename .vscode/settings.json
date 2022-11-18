@@ -1,0 +1,8 @@
+{
+	"terminal.integrated.defaultProfile.windows": "PowerShell",
+	"markdownlint.config": {
+		"MD033": false,
+		"MD036": false,
+		"MD040": false
+	}
+}
