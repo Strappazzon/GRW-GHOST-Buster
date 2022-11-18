@@ -32,7 +32,7 @@ I created this software to backup [Ghost Mode](https://web.archive.org/web/20190
 ## Getting Started
 
 * Launch **GHOST Buster.exe**
-  * Every time you launch it, the program will check the System Registry to see if Ghost Recon Wildlands and Uplay are installed
+  * Every time you launch it, the program will check the System Registry to see if Ghost Recon Wildlands and Ubisoft Connect are installed
   * When you close it, a file containing the program's settings will be created (or updated if it already exists) inside `%LOCALAPPDATA%\GHOSTbackup`
 
 * Click the **Browse...** button under "**Folders** -> **Wildlands save games folder**" to select Wildlands save games folder
@@ -46,9 +46,9 @@ I created this software to backup [Ghost Mode](https://web.archive.org/web/20190
 
 ### Restoring a Backup
 
-> ### ⚠️ **WARNING**
+> ### :warning: **WARNING**
 >
-> Disable cloud synchronization before restoring a backup, otherwise Uplay will redownload the old save games rendering the restore process useless.
+> Disable cloud synchronization before restoring a backup, otherwise Ubisoft Connect will redownload the old save games rendering the restore process useless.
 >
 > Also note that restoring a backup will **OVERWRITE** your old save games and it **CANNOT BE UNDONE**.
 
@@ -70,7 +70,7 @@ I created this software to backup [Ghost Mode](https://web.archive.org/web/20190
 ## Settings
 
 * **Interface language**
-  * *Default: English*
+  * _Default: English_
 
 * **Confirm exit when backup is running**
   * _Enabled by default_
@@ -81,19 +81,18 @@ I created this software to backup [Ghost Mode](https://web.archive.org/web/20190
   * The program will show a confirmation dialog before interrupting the backup process
 
 * **Display notifications about backups**
-  * *Disabled by default*
-  * The program will display a notification at the edge of the screen every time a backup is performed
-  * Enable this option only if you play Wildlands in borderless fullscreen or windowed, otherwise the game will lose focus every time the notification is displayed
-
-* **Disable Uplay cloud save synchronization on restore**
   * _Disabled by default_
-  * The program will disable Uplay cloud save synchronization before restoring a backup
-  * Keep in mind that the Uplay settings file may change at any time so this setting may not be reliable
+  * The program will display a toast notification every time a backup is performed
 
-* **Enable Uplay cloud save synchronization on exit**
-  * *Enabled by default*
-  * *Works only if the previous setting is enabled*
-  * The program will re-enable Uplay cloud save synchronization before quitting
+* **Disable Ubisoft Connect cloud save synchronization on restore**
+  * _Disabled by default_
+  * The program will disable Ubisoft Connect cloud save synchronization before restoring a backup
+  * Keep in mind that the Ubisoft Connect settings file may change at any time so this setting may not be reliable
+
+* **Enable Ubisoft Connect cloud save synchronization on exit**
+  * _Enabled by default_
+  * _Works only if the previous setting is enabled_
+  * The program will re-enable Ubisoft Connect cloud save synchronization before quitting
 
 * **Check for updates on startup**
   * _Disabled by default_
@@ -103,7 +102,7 @@ I created this software to backup [Ghost Mode](https://web.archive.org/web/20190
   * _Disabled by default_
   * The program will remember the window position the last time GHOST Buster was used
 
-* **I'm not using the Uplay version of Wildlands**
+* **I'm not using the Ubisoft Connect version of Wildlands**
   * _Disabled by default_
   * You can specify a different location for the Wildlands executable
 
@@ -163,7 +162,7 @@ If you are interested in fixing issues and contributing directly to the code bas
 ## License
 
 ```
-Copyright (c) 2019 - 2021 Alberto Strappazzon
+Copyright (c) 2019 - 2022 Alberto Strappazzon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

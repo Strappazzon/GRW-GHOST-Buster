@@ -64,7 +64,7 @@ description: "Backup and restore Ghost Recon Wildlands save games."
 	<ul>
 		<li>Launch <strong>GHOST Buster.exe</strong></li>
 		<ul>
-			<li>Every time you launch it, the program will check the System Registry to see if Ghost Recon Wildlands and Uplay are installed</li>
+			<li>Every time you launch it, the program will check the System Registry to see if Ghost Recon Wildlands and Ubisoft Connect are installed</li>
 			<li>When you close it, a file containing the program's settings will be created (or updated if it already exists) inside <code>%LOCALAPPDATA%\GHOSTbackup</code></li>
 		</ul>
 
@@ -85,7 +85,7 @@ description: "Backup and restore Ghost Recon Wildlands save games."
 	<blockquote>
 		<p class="quote-title">Warning</p>
 		<p class="quote-text">
-			Disable cloud synchronization before restoring a backup, otherwise Uplay will redownload the old save games rendering the restore process useless.
+			Disable cloud synchronization before restoring a backup, otherwise Ubisoft Connect will redownload the old save games rendering the restore process useless.
 			Also note that restoring a backup will <strong>OVERWRITE</strong> your old save games and it <strong>CANNOT BE UNDONE</strong>.
 		</p>
 	</blockquote>
@@ -136,22 +136,21 @@ description: "Backup and restore Ghost Recon Wildlands save games."
 		<li><strong>Display notifications about backups</strong></li>
 		<ul>
 			<li><em>Disabled by default</em></li>
-			<li>The program will display a notification at the edge of the screen every time a backup is performed</li>
-			<li>Enable this option only if you play Wildlands in borderless fullscreen or windowed, otherwise the game will lose focus every time the notification is displayed</li>
+			<li>The program will display a toast notification every time a backup is performed</li>
 		</ul>
 
-		<li><strong>Disable Uplay cloud save synchronization on restore</strong></li>
+		<li><strong>Disable Ubisoft Connect cloud save synchronization on restore</strong></li>
 		<ul>
 			<li><em>Disabled by default</em></li>
-			<li>The program will disable Uplay cloud save synchronization before restoring a backup</li>
-			<li>Keep in mind that the Uplay settings file may change at any time so this setting may not be reliable</li>
+			<li>The program will disable Ubisoft Connect cloud save synchronization before restoring a backup</li>
+			<li>Keep in mind that the Ubisoft Connect settings file may change at any time so this setting may not be reliable</li>
 		</ul>
 
-		<li><strong>Enable Uplay cloud save synchronization on exit</strong></li>
+		<li><strong>Enable Ubisoft Connect cloud save synchronization on exit</strong></li>
 		<ul>
 			<li><em>Enabled by default</em></li>
 			<li><em>Works only if the previous setting is enabled</em></li>
-			<li>The program will re-enable Uplay cloud save synchronization before quitting</li>
+			<li>The program will re-enable Ubisoft Connect cloud save synchronization before quitting</li>
 		</ul>
 
 		<li><strong>Check for updates on startup</strong></li>
@@ -166,7 +165,7 @@ description: "Backup and restore Ghost Recon Wildlands save games."
 			<li>The program will remember the window position the last time GHOST Buster was used</li>
 		</ul>
 
-		<li><strong>I'm not using the Uplay version of Wildlands</strong></li>
+		<li><strong>I'm not using the Ubisoft Connect version of Wildlands</strong></li>
 		<ul>
 			<li><em>Disabled by default</em></li>
 			<li>You can specify a different location for the Wildlands executable</li>
