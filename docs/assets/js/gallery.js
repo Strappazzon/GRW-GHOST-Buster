@@ -7,5 +7,5 @@ function changeScr(scrName, scrAlt) {
 	let scra = document.getElementById('scr-a');
 	scr.src = "{{ '/assets/img/' | relative_url }}" + scrName;
 	scra.href = "{{ '/assets/img/' | relative_url }}" + scrName;
-	scr.alt = scrAlt
+	scr.alt = scrAlt;
 }
