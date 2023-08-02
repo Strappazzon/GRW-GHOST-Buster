@@ -1,8 +1,8 @@
-﻿#Region "Copyright (c) 2019 - 2022 Alberto Strappazzon, https://strappazzon.xyz/GRW-GHOST-Buster"
+﻿#Region "Copyright (c) 2019 - 2023 Alberto Strappazzon, https://strappazzon.xyz/GRW-GHOST-Buster"
 ''
 '' GHOST Buster - Ghost Recon Wildlands backup utility
 ''
-'' Copyright (c) 2019 - 2022 Alberto Strappazzon, https://strappazzon.xyz/GRW-GHOST-Buster
+'' Copyright (c) 2019 - 2023 Alberto Strappazzon, https://strappazzon.xyz/GRW-GHOST-Buster
 ''
 '' Permission is hereby granted, free of charge, to any person obtaining a copy
 '' of this software and associated documentation files (the "Software"), to deal
@@ -24,12 +24,12 @@
 ''
 #End Region
 
-Imports System.Net.Http
 Imports GHOSTbackup.UI
+Imports System.Net.Http
 
 Public Class Updater
     Public Shared ReadOnly VersionString As String = ((My.Application.Info.Version).ToString()).Remove(5)
-    Private Shared ReadOnly VersionCode As Integer = 19
+    Private Shared ReadOnly VersionCode As Integer = My.Application.Info.Version.Revision
     Private Shared ReadOnly VersionURI As Uri = New Uri("https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/version")
 
     'Check for updates
