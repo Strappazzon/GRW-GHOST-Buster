@@ -1,5 +1,11 @@
 {
+	"[plaintext]": {
+		"files.trimFinalNewlines": true,
+		"files.insertFinalNewline": false
+	},
+
 	"terminal.integrated.defaultProfile.windows": "PowerShell",
+
 	"markdownlint.config": {
 		"MD033": false,
 		"MD036": false,
