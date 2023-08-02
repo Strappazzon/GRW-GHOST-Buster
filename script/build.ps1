@@ -1,5 +1,5 @@
 $ResGen = 'C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8.1 Tools\ResGen.exe'
-$ResourcesDir = @( Get-ChildItem ${PSScriptRoot}"\..\src\GHOSTbackup\GHOSTbackup.Localization\*.resx" )
+$ResourcesDir = @(Get-ChildItem ${PSScriptRoot}"\..\src\GHOSTbackup\GHOSTbackup.Localization\*.resx")
 
 # Cleanup
 Remove-Item -LiteralPath '..\src\GHOSTbackup\bin\Release' -Recurse -ErrorAction SilentlyContinue
@@ -12,5 +12,3 @@ Start-Process -FilePath ${env:ProgramFiles}"\Microsoft Visual Studio\2022\Commun
 foreach (${Resource} in ${ResourcesDir}) {
 	Start-Process -FilePath ${ResGen} -ArgumentList ${Resource} -NoNewWindow
 }
-
-Pause
