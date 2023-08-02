@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Backup and restore Ghost Recon Wildlands save games")>
 <Assembly: AssemblyCompany("")>
 <Assembly: AssemblyProduct("GHOST Buster")>
-<Assembly: AssemblyCopyright("Copyright © 2019 - 2022 Alberto Strappazzon")>
+<Assembly: AssemblyCopyright("Copyright © 2019 - 2023 Alberto Strappazzon")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("2.1.0.0")>
-<Assembly: AssemblyFileVersion("2.1.0.0")>
+<Assembly: AssemblyVersion("2.1.1.20")>
+<Assembly: AssemblyFileVersion("2.1.1.20")>
