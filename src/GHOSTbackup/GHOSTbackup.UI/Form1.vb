@@ -1,8 +1,8 @@
-﻿#Region "Copyright (c) 2019 - 2022 Alberto Strappazzon, https://strappazzon.xyz/GRW-GHOST-Buster"
+﻿#Region "Copyright (c) 2019 - 2023 Alberto Strappazzon, https://strappazzon.xyz/GRW-GHOST-Buster"
 ''
 '' GHOST Buster - Ghost Recon Wildlands backup utility
 ''
-'' Copyright (c) 2019 - 2022 Alberto Strappazzon, https://strappazzon.xyz/GRW-GHOST-Buster
+'' Copyright (c) 2019 - 2023 Alberto Strappazzon, https://strappazzon.xyz/GRW-GHOST-Buster
 ''
 '' Permission is hereby granted, free of charge, to any person obtaining a copy
 '' of this software and associated documentation files (the "Software"), to deal
@@ -155,7 +155,7 @@ Public Class Form1
     Private Sub UplayBtn_Click(sender As Object, e As EventArgs) Handles UplayBtn.Click
         'Launch Uplay only if it's installed
         If UplayPath <> Nothing Then
-            Process.Start(UplayPath & "Uplay.exe")
+            Process.Start(UplayPath & "upc.exe")
         Else
             Banner.Show(Localization.GetString("banner_uplay_not_installed"), BannerIcon.Information)
         End If

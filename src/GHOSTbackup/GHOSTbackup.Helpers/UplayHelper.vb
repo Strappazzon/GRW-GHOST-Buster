@@ -76,7 +76,7 @@ Public Class UplayHelper
 
                     'Launch Uplay again...
                     If UplayPath <> Nothing Then
-                        Process.Start(UplayPath & "Uplay.exe")
+                        Process.Start(UplayPath & "upc.exe")
                     End If
 
                     '...and start the restore process
