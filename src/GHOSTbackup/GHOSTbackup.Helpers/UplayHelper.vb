@@ -1,8 +1,8 @@
-﻿#Region "Copyright (c) 2019 - 2021 Alberto Strappazzon, https://strappazzon.xyz/GRW-GHOST-Buster"
+﻿#Region "Copyright (c) 2019 - 2023 Alberto Strappazzon, https://strappazzon.xyz/GRW-GHOST-Buster"
 ''
 '' GHOST Buster - Ghost Recon Wildlands backup utility
 ''
-'' Copyright (c) 2019 - 2021 Alberto Strappazzon, https://strappazzon.xyz/GRW-GHOST-Buster
+'' Copyright (c) 2019 - 2023 Alberto Strappazzon, https://strappazzon.xyz/GRW-GHOST-Buster
 ''
 '' Permission is hereby granted, free of charge, to any person obtaining a copy
 '' of this software and associated documentation files (the "Software"), to deal
@@ -54,7 +54,7 @@ Public Class UplayHelper
     Public Shared Sub DisableCloudSync()
         'Disable Uplay cloud save synchronization
         Try
-            Dim UplayYamlPath As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\Ubisoft Game Launcher\settings.yml"
+            Dim UplayYamlPath As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\Ubisoft Game Launcher\settings.yaml"
             Logger.Log("[INFO] Parsing and evaluating Uplay settings file: " & UplayYamlPath)
             Dim ParsedUplayYaml As String = File.ReadAllText(UplayYamlPath)
 
@@ -105,7 +105,7 @@ Public Class UplayHelper
     Public Shared Sub EnableCloudSync()
         Try
             'Enable Uplay cloud save synchronization
-            Dim UplayYamlPath As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\Ubisoft Game Launcher\settings.yml"
+            Dim UplayYamlPath As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\Ubisoft Game Launcher\settings.yaml"
             Logger.Log("[INFO] Parsing and evaluating Uplay settings file: " & UplayYamlPath)
             Dim ParsedUplayYaml As String = File.ReadAllText(UplayYamlPath)
 
