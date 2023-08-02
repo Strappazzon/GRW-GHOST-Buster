@@ -1,4 +1,8 @@
-2.1
+2.1.1
+ - Fix: Ubisoft Connect settings file name
+ - Fix: Ubisoft Connect executable name
+
+2.1.0
  - UI: Use Windows toast notifications
  - Replaced all Uplay occurrences with Ubisoft Connect
  - Small refactoring
