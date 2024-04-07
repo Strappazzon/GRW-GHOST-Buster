@@ -1,0 +1,7 @@
+[*.vb]
+# Do not prefer simplified conditional expressions
+dotnet_style_prefer_simplified_boolean_expressions = false
+# Do not use simplified object creation
+visual_basic_style_prefer_simplified_object_creation = false
+# Keep unnecessary equality operator
+dotnet_diagnostic.IDE0100.severity = none

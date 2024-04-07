@@ -1,0 +1,10 @@
+* text=auto eol=crlf
+
+*.html text eol=lf
+*.md   text eol=lf
+*.scss text eol=lf
+*.yml  text eol=lf
+
+*.jpg   binary
+*.png   binary
+*.woff2 binary

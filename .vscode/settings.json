@@ -1,14 +1,37 @@
 {
-	"[plaintext]": {
-		"files.trimFinalNewlines": true,
-		"files.insertFinalNewline": false
 	},
-
-	"terminal.integrated.defaultProfile.windows": "PowerShell",
-
-	"markdownlint.config": {
-		"MD033": false,
-		"MD036": false,
-		"MD040": false
-	}
+	"[plaintext][txt]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+		"files.insertFinalNewline": false,
+		"files.trimTrailingWhitespace": false
+	},
+	"[powershell]": {
+		"editor.defaultFormatter": "ms-vscode.powershell",
+		"editor.formatOnPaste": true,
+		"editor.formatOnSave": true,
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+		"files.autoGuessEncoding": false,
+		"files.encoding": "windows1252",
+		"files.eol": "\r\n"
+	},
+	"[vb]": {
+		"editor.defaultFormatter": null,
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+		"files.encoding": "utf8bom",
+		"files.eol": "\r\n"
+	},
+	"[yaml]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+		"files.eol": "\n"
+	},
+	"editor.detectIndentation": false,
+	"editor.rulers": [],
+	"files.insertFinalNewline": true,
+	"files.trimFinalNewlines": true,
+	"files.trimTrailingWhitespace": true,
+	"terminal.integrated.defaultProfile.windows": "PowerShell"
 }
