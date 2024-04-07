@@ -1,93 +1,152 @@
-# GHOST Buster Contribution Guidelines
+# Contribution Guidelines
 
-:tada: **Thanks for taking the time and effort to make GHOST Buster better!**
+By participating, you agree to abide by the [Code of Conduct](https://github.com/Strappazzon/.github/blob/-/CODE_OF_CONDUCT.md).  
+When submitting changes to this repository, you agree that the content you contribute may be provided under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
-## Code of Conduct
+## I Have a Question
 
-This project and everyone participating in it is governed by the [GHOST Buster Code of Conduct](./CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to `strappazzon [AT] protonmail [DOT] com`.
+Before you ask a question, search for existing [Issues](https://github.com/Strappazzon/GRW-GHOST-Buster/issues) that might help you.  
+In case you have found a suitable issue and still need clarification, you can write your question in that issue. It is also advisable to search the internet for answers first.
 
-## Crash, Error, Issue reporting/Feature requests
+If you then still need to ask a question and need clarification you can [open an issue](https://github.com/Strappazzon/GRW-GHOST-Buster/issues/new/choose).
 
-* Take a look at the [issues](https://github.com/Strappazzon/GRW-GHOST-Buster/issues) first to make sure your issue/feature hasn't been reported/requested before. If so, engage in the already existing discussion.
-* Check whether your issue/feature is already fixed/implemented.
-* Check if the issue still exists in the latest release.
-* Issues in languages other than English will be closed and ignored.
-* If you are a Visual Basic .Net developer, you are always welcome to fix/implement an issue/feature yourself. PRs are welcome!
-* Add one issue at a time. Do not put multiple issues into one thread.
-* When reporting a bug please describe the steps which reproduce the problem.
-* When reporting an error include the event log from GHOST Buster (**Logs** tab or **event.log** file). Include the logs in the issue in a [file attachment](https://help.github.com/en/github/managing-your-work-on-github/file-attachments-on-issues-and-pull-requests) or put it in a [PrivateBin](https://privatebin.net/) and provide the link to that paste.
-* When reporting a crash include the stack trace from GHOST Buster (click the "**▼ Details**" button in the crash window). Include the stack trace in the issue in a [file attachment](https://help.github.com/en/github/managing-your-work-on-github/file-attachments-on-issues-and-pull-requests), or put it in a [PrivateBin](https://privatebin.net/) and provide the link to that paste.
-* All issues must be properly formatted with Markdown. If you don't know what that is, read [Mastering Markdown](https://guides.github.com/features/mastering-markdown/) before submitting an issue.
+## Issue Reporting and Feature Requests
+
+> [!IMPORTANT]
+> If you found a security issue, **DO NOT** report it in the issue tracker or elsewhere in public.  
+> See: [Security Policy](https://github.com/Strappazzon/.github/blob/-/SECURITY.md).
+
+- Take a look at the [issues](https://github.com/Strappazzon/GRW-GHOST-Buster/issues) first to make sure your issue/feature hasn't been reported/requested before.  
+  If so, engage in the already existing discussion.
+- Check whether your issue/feature is already fixed/implemented.
+- Issues in languages other than English will be closed and ignored.
+- If you are familiar with the languages used in this repo, you are always welcome to fix/implement an issue/feature yourself.
+- Add one issue at a time. Do not put multiple issues into one thread.
+- When reporting a bug please describe the steps which reproduce the problem.
+- When reporting an error include the event log from GHOST Buster (**Logs** tab or `events.log` file).
+  Include the logs in the Issue in a [file attachment](https://help.github.com/en/github/managing-your-work-on-github/file-attachments-on-issues-and-pull-requests)
+  or put it in a [PrivateBin](https://privatebin.net/) ([PasteBin](https://pastebin.com/) is fine too) and provide the link to that paste.
+- When reporting a crash include the stack trace from GHOST Buster (click the "**▼ Details**" button in the crash dialog). Include the stack trace text in the Issue in a
+  [file attachment](https://help.github.com/en/github/managing-your-work-on-github/file-attachments-on-issues-and-pull-requests) or put it in a
+  [PrivateBin](https://privatebin.net/) ([PasteBin](https://pastebin.com/) is fine too) and provide the link to that paste.
+- All issues must be properly formatted with Markdown.  
+  If you don't know what that is, read [Basic writing and formatting syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) before submitting an issue.
 
 ### DO NOT post "+1" comments
 
-**DO NOT post "+1", "me too", or similar comments - they just add noise to an issue.**
+If you don't have any additional info/context to add but would like to indicate that you're affected by the issue, upvote the original issue.  
+See: [Add Reactions](https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/)
 
-If you don't have any additional info/context to add but would like to indicate that you're affected by the issue, upvote the original issue by clicking its [+:smiley:] button and hitting :thumbsup: (+1) icon.
+## Getting Started
 
-## Code Contribution
+Before you can start contributing, you'll need to set up your environment first.
 
-* Make changes on a separate branch, not on the master branch, then send your changes as a pull request.
-* When submitting changes, you confirm that your code is licensed under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-* Please test (compile and run) your code before you submit changes. Untested code will **not** be merged!
-* Make sure your PR is up-to-date with the rest of the code.
+### Website
 
-## Website Development
+See [docs/README.md](../docs/README.md).
 
-GHOST Buster website is inside `/docs`, so it’s easy to keep docs and code in sync.
+### Application
 
-The website is built with [Jekyll](https://jekyllrb.com/), and automatically deployed onto GitHub Pages.
+#### Dependencies
 
-Even though bundled in this repo, the website is regarded as a separate project.
+GHOST Buster is written in [Visual Basic (.NET)](https://learn.microsoft.com/en-us/dotnet/visual-basic/) so you will need the following dependencies installed:
 
-### Local Previews
+- [Visual Studio](https://visualstudio.microsoft.com/vs/)
+  - You can [download the community edition](https://visualstudio.microsoft.com/vs/community/) for free
+  - The "**.NET desktop development**" Workload is required
+  - The "**.NET Framework 4.8.1 development tools**" Optional component is required
+  - The "**NuGet targets and build tasks**" Individual component is required
+- [NuGet CLI](https://www.nuget.org/downloads) (Included with Visual Studio)
+- [ResGen](https://learn.microsoft.com/en-us/dotnet/framework/tools/resgen-exe-resource-file-generator) (Included with Visual Studio)
+- [.NET Framework 4.8 Developer Pack](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net481)
+- [.NET Framework 4.8 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net481)
 
-See [docs/README.md](https://github.com/Strappazzon/GRW-GHOST-Buster/blob/master/docs/README.md).
+#### Building
+
+1. From Visual Studio, select **Open a project or solution** and open the `GHOSTbackup.sln` solution file located in your cloned repository
+2. Compile using **Build** -> **Build Solution**
+   - The compiled binary will be inside the `.\GHOSTbackup\bin\Debug` folder
+3. Compile the localization strings with ResGen
+4. Copy the compiled strings from `.\GHOSTbackup\GHOSTbackup.Localization\*.resx` to `.\GHOSTbackup\bin\Debug\Languages\*.resources`
+
+## Code style and Conventions
+
+### Visual Basic .NET
+
+The general rule this project follows is "use Visual Studio defaults".
+Using an IDE that supports the [.editorconfig](https://editorconfig.org/) standard will make this much simpler.
+
+- Use `Me.` even if not necessary
+- Use PascalCase when naming variables
+
+### Markdown
+
+Documentation is written in [GitHub Flavored Markdown](https://docs.github.com/en/get-started/writing-on-github).  
+Some website pages are written in [GitHub Flavored Markdown](https://docs.github.com/en/get-started/writing-on-github)
+and rendered by [kramdown](https://kramdown.gettalong.org/).
+
+In both cases, [markdownlint](https://github.com/DavidAnson/markdownlint) is used to enforce style rules for Markdown files.
+
+## Submitting Changes
+
+- Make changes on a separate branch, not on the master branch, then send your changes as a
+  [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+- When submitting changes, you confirm that your code is licensed under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+- Please test your code before you submit changes. Untested code will **not** be merged!
+- Make sure your Pull Request is up-to-date with the rest of the codebase.
 
 ## Git Commit Messages
 
-* Use the present tense ("Add feature" not "Added feature").
-* Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
-* Reference issues and pull requests after the first line.
-* When changing the website, README, documentation, etc., start the commit message with `docs:` ("docs: Update index.html").
+- Use the present tense ("Add feature" not "Added feature").
+- Use the imperative mood ("Move cursor to..." not "Moves cursor to...").
+- Wrap all lines at 70 columns (except for long URLs).
+- Writing a detailed description is not mandatory.
+- Reference issues and Pull Requests after the description, if any.  
+  Use `Closes:` or `Fixes:`.
 
-## Licensing
+### Sample Complete Commit Message
 
-By contributing to this repository, you agree to license your work under the current license of this repository: In this case, MIT.
+```plaintext
+explain the commit in one line
 
-## Project Structure
+The body of the commit message should explain things in more detail.
+Please word-wrap to keep columns to 70 characters or less.
 
-### Repository Structure
-
-This is a brief description on how the repository files and folders are structured and what each one contains. It only contains the most relevant files and folders as most of them are brief and self-explanatory.
-
+Fixes: https://github.com/Strappazzon/GRW-GHOST-Buster/issues/1771
 ```
-GRW-GHOST-Buster/
- ├─ .gitignore               # Ignored files, directories and paths
- ├─ version                  # File used by GHOST Buster updater
- │   
- ├─ .github                  # GitHub files
- │   ├─ CODE_OF_CONDUCT.md   # Code of Conduct
- │   ├─ CONTRIBUTING.md      # Contributing guidelines
- │   ├─ README.md            # Repository Readme file
- │   └─ ISSUE_TEMPLATE       # Issue templates
- │   
- ├─ .vscode                  # Visual Studio Code-related files
- │   └─ tasks.json           # Visual Studio Code tasks
- │   
- ├─ script                   # Scripts
- │   ├─ build.bat            # Build GHOST Buster from source
- │   └─ jekyll-serve.bat     # Preview the website locally
- │   
- ├─ docs
- │   ├─ _config.yml          # Jekyll configuration
- │   └─ assets               # Website assets (images, CSS, ...)
- │   
- └─ src                      # GHOST Buster source code
-     ├─ BUILDING.md          # Building instructions
-     ├─ GHOSTbackup.sln      # Visual Studio solution
-     │
-     └─ GHOSTbackup
-         └─ res              # GHOST Buster assets used in the UI
-             └─ LICENSES.txt # Assets licenses
+
+## Repository Structure
+
+This is a brief description on how the repository files and folders are structured and what each one contains.  
+It only contains the most relevant files and folders as some of them are self-explanatory.
+
+For more information on the SCSS file structure, see [The 7-1 Pattern](https://sass-guidelin.es/#the-7-1-pattern).
+
+```sh
+.
+├── _components            # Website components such like header or cards
+├── _data                  # Website data in YAML format
+├── _plugins               # Jekyll plugins written in Ruby
+├── _sass                  # SCSS Stylesheets ...
+│   ├── abstracts          # ... with functions, mixins, variables and so on
+│   ├── base               # ... with global styles
+│   ├── components         # ... for website components
+│   ├── layout             # ... for layout elements (buttons, header, ...)
+│   ├── pages              # ... for Jekyll templates
+│   └── themes
+│       ├── _syntax.scss   # ... for Rouge syntax highlighter
+│       └── _terminal.scss # ... for Terminal component themes
+├── _templates             # Jekyll templates for web pages like homepage or blog posts
+├── .cloudflare            # Cloudflare configuration files
+├── .github
+│   └── labeler.yml        # "actions/labeler" configuration
+├── .well-known            # RFC 8615 URIs
+├── bin                    # Scripts
+├── static                 # Website static files
+│   └── psd                # PSD files of images, these are not published
+├── _config.yml            # Jekyll configuration
+├── .nvmrc                 # Version of Node.js Node Version Manager should use
+├── feed.xml               # Atom feed
+├── frontmatter.json       # VS Code eliostruyf.vscode-front-matter configiguration
+└── SUPPORT.md             # Support resources
 ```

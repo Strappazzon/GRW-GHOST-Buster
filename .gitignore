@@ -45,7 +45,7 @@
 **/[Tt]humbs.db
 
 # Jekyll
-**/_site
+**/_site*
 
 /.release
 **/TODO.txt
