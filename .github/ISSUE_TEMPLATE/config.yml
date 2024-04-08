@@ -1,5 +1,18 @@
-blank_issues_enabled: true
+blank_issues_enabled: false
+
 contact_links:
-  - name: Contact me
-    url: https://strappazzon.xyz
-    about: Contact me if you don't want to open an Issue.
+  - name: Contributing Guidelines
+    url: https://github.com/Strappazzon/GRW-GHOST-Buster/blob/-/.github/CONTRIBUTING.md
+    about: Please read through before making any contribution.
+
+  - name: Code of Conduct
+    url: https://github.com/Strappazzon/.github/blob/-/CODE_OF_CONDUCT.md
+    about: Please make sure to adhere to the code of conduct.
+
+  - name: Discussions
+    url: https://github.com/Strappazzon/GRW-GHOST-Buster/discussions/categories/questions
+    about: Ask questions here.
+
+  - name: Security Policy
+    url: https://github.com/Strappazzon/.github/blob/-/SECURITY.md
+    about: See instructions to privately disclose any security issue.
