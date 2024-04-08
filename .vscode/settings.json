@@ -56,6 +56,14 @@
 		"files.encoding": "utf8bom",
 		"files.eol": "\r\n"
 	},
+	"[xml]": {
+		"editor.defaultFormatter": null,
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+		"files.autoGuessEncoding": false,
+		"files.encoding": "utf8bom",
+		"files.eol": "\r\n"
+	},
 	"[yaml]": {
 		"editor.insertSpaces": true,
 		"editor.tabSize": 2,
@@ -75,6 +83,14 @@
 	"files.readonlyInclude": {
 		"**/Gemfile.lock": true
 	},
+		"*.html": "liquid",
+		"*.resx": "xml",
+		".vbproj": "xml"
+	},
+	"files.exclude": {
+		"docs/_site*": true
+	},
+	"files.insertFinalNewline": true,
 	"files.trimFinalNewlines": true,
 	"files.trimTrailingWhitespace": true,
 	"liquid.config.method": "workspace",
