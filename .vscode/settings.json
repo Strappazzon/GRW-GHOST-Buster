@@ -1,4 +1,28 @@
 {
+	"[html][liquid]": {
+		"editor.defaultFormatter": null,
+		"editor.insertSpaces": false,
+		"editor.tabSize": 4,
+		"files.eol": "\n"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features",
+		"editor.formatOnPaste": true,
+		"editor.formatOnSave": true,
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2
+	},
+	"[markdown]": {
+		"editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+		"editor.insertSpaces": true,
+		"editor.quickSuggestions": {
+			"comments": "off",
+			"other": "off",
+			"strings": "off"
+		},
+		"editor.tabSize": 2,
+		"files.eol": "\n",
+		"files.trimTrailingWhitespace": false
 	},
 	"[plaintext][txt]": {
 		"editor.insertSpaces": true,
@@ -16,10 +40,27 @@
 		"files.encoding": "windows1252",
 		"files.eol": "\r\n"
 	},
+	"[scss]": {
+		"editor.defaultFormatter": null,
+		"editor.insertSpaces": true,
+		"editor.rulers": [
+			160
+		],
+		"editor.tabSize": 2,
+		"files.eol": "\n"
+	},
 	"[vb]": {
 		"editor.defaultFormatter": null,
 		"editor.insertSpaces": true,
 		"editor.tabSize": 2,
+		"files.encoding": "utf8bom",
+		"files.eol": "\r\n"
+	},
+	"[xml]": {
+		"editor.defaultFormatter": null,
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+		"files.autoGuessEncoding": false,
 		"files.encoding": "utf8bom",
 		"files.eol": "\r\n"
 	},
@@ -30,8 +71,21 @@
 	},
 	"editor.detectIndentation": false,
 	"editor.rulers": [],
+	"files.associations": {
+		"*.html": "liquid",
+		"*.resx": "xml",
+		".vbproj": "xml"
+	},
+	"files.exclude": {
+		"docs/_site*": true
+	},
 	"files.insertFinalNewline": true,
 	"files.trimFinalNewlines": true,
 	"files.trimTrailingWhitespace": true,
+	"liquid.config.method": "workspace",
+	"liquid.engine": "jekyll",
+	"markdown.validate.enabled": true,
+	"markdown.validate.referenceLinks.enabled": "ignore",
+	"scss.validate": false,
 	"terminal.integrated.defaultProfile.windows": "PowerShell"
 }
