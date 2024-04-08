@@ -1,0 +1,41 @@
+name: Build Website
+
+permissions:
+  contents: write
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "docs/**"
+      - "!docs/README.md"
+  workflow_dispatch:
+
+jobs:
+  main:
+    name: Build Website
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4.1.1
+
+      - name: Setup Ruby
+        env:
+          BUNDLE_SPECIFIC_PLATFORM: 1
+        uses: ruby/setup-ruby@v1.173.0
+        with:
+          bundler-cache: true
+
+      - name: Build with Jekyll
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        with:
+          folder: _site
+          git-config-name: github-actions[bot]
+          git-config-email: github-actions[bot]@users.noreply.github.com
+          single-commit: true

@@ -1,13 +1,25 @@
-<!-- PLEASE READ GHOST BUSTER CODE OF CONDUCT (https://github.com/Strappazzon/GRW-GHOST-Buster/blob/master/.github/CODE_OF_CONDUCT.md) AND CONTRIBUTING GUIDELINES (https://github.com/Strappazzon/GRW-GHOST-Buster/blob/master/.github/CONTRIBUTING.md) BEFORE SUBMITTING A PULL REQUEST -->
+<!--
+  PLEASE READ THE CODE OF CONDUCT (https://github.com/Strappazzon/.github/blob/-/CODE_OF_CONDUCT.md)
+  AND CONTRIBUTING GUIDELINES (https://github.com/Strappazzon/GRW-GHOST-Buster/blob/-/.github/CONTRIBUTING.md)
+  BEFORE SUBMITTING A PULL REQUEST
+-->
 
-## Description
+# Description
 
-Fixes: #none <!-- A link to the issue fixed by this pull request. -->
+<!--
+  Replace "#none" with a link to the issue closed/fixed by this Pull Request.
+  Remove the line if not applicable.
+-->
+Closes: #none
 
-<!-- Describe your Pull request below -->
+<!-- Describe your Pull Request -->
 
-### Check list
-<!-- Please add an x in each box below, like so: [x] -->
+# Check list
 
-* [ ] I have read and understand the [guidelines for contributing](https://github.com/Strappazzon/GRW-GHOST-Buster/blob/master/.github/CONTRIBUTING.md) to this repository
-* [ ] If this PR fixes any issues, I have added "Fixes `#issue`" to the PR description or my commit messages
+<!--
+  Add an x in each box below.
+  Example: [x] Lorem ipsum.
+-->
+
+- [ ] I have read and understand the [guidelines for contributing](https://github.com/Strappazzon/GRW-GHOST-Buster/blob/-/.github/CONTRIBUTING.md) to this repository.
+- [ ] If this PR closes a ticket or fixes any issue, I added "Closes `#issue`" to the description or my commit message.

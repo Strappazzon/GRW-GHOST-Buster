@@ -1,23 +1,23 @@
 ---
 layout: none
-title: "Not Found | GHOST Buster"
 ---
 
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="Content-Security-Policy" content="default-src 'self'">
-	<title>{{ page.title }}</title>
-	<meta name="author" content="Alberto Strappazzon">
-	<meta name="robots" content="noindex">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="referrer" content="no-referrer">
-	<link rel="canonical" href="{{ site.baseurl | prepend: site.url }}{{ page.url | replace: 'index.html',''}}">
-	<link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
-	<link rel="stylesheet" href="{{ '/assets/css/style_404.css?v=1' | relative_url }}">
-</head>
-<body>
-	<a href="{{ site.baseurl | prepend: site.url }}">NOT</a>
-</body>
+	<head>
+		<meta charset="utf-8">
+		<title>Error | {{ site.title }}</title>
+		<meta name="robots" content="noindex">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="canonical" href="{{ site.baseurl | prepend: site.url }}{{ page.url | replace: 'index.html', '' }}">
+		<link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
+		<link rel="stylesheet" href="{{ site.baseurl }}{{ '/assets/css/error.css?' }}{{ site.time | date: '%s%N' }}">
+	</head>
+	<body>
+		{% comment %}
+			"PAGE NOT FOUND"
+			The missing words will be inserted with CSS.
+		{% endcomment %}
+		<a href="{{ site.baseurl }}" data-text-left="PAGE" data-text-right="FOUND">NOT</a>
+	</body>
 </html>
