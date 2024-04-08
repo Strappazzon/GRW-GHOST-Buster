@@ -10,5 +10,5 @@ Start-Process -FilePath ${env:ProgramFiles}"\Microsoft Visual Studio\2022\Commun
 
 # Build localization
 foreach (${Resource} in ${ResourcesDir}) {
-	Start-Process -FilePath ${ResGen} -ArgumentList ${Resource} -NoNewWindow
+  Start-Process -FilePath ${ResGen} -ArgumentList ${Resource} -NoNewWindow
 }
