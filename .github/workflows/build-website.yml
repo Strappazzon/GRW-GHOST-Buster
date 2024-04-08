@@ -1,8 +1,5 @@
 name: Build Website
 
-permissions:
-  contents: write
-
 on:
   push:
     branches:
@@ -12,8 +9,17 @@ on:
       - "!docs/README.md"
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
-  main:
+  build:
     name: Build Website
     runs-on: ubuntu-latest
     steps:
@@ -26,16 +32,30 @@ jobs:
         uses: ruby/setup-ruby@v1.173.0
         with:
           bundler-cache: true
+          working-directory: docs
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5.0.0
 
       - name: Build with Jekyll
         env:
           JEKYLL_ENV: production
-        run: bundle exec jekyll build
+        run: |
+          cd docs
+          bundle exec jekyll build
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.5.0
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3.0.1
         with:
-          folder: _site
-          git-config-name: github-actions[bot]
-          git-config-email: github-actions[bot]@users.noreply.github.com
-          single-commit: true
+          path: docs/_site
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4.0.5
