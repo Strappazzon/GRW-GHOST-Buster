@@ -31,3 +31,17 @@ bundle exec jekyll serve --force_polling --livereload
 Then navigate to <http://localhost:4000/GRW-GHOST-Buster/> in your web browser.
 
 Press <kbd>CTRL</kbd>+<kbd>C</kbd> to stop the web server.
+
+## Credits & Licensing
+
+Website theme inspired by [Ghost Recon Wildlands](https://www.ubisoft.com/en-us/game/ghost-recon/wildlands).
+
+The website code is open source under the terms of the [MIT License](https://github.com/Strappazzon/GRW-GHOST-Buster/blob/-/LICENSE.txt).
+
+[Bootstrap Grid](https://getbootstrap.com/docs/5.3/layout/grid/) by The Bootstrap Authors ([MIT License](https://github.com/twbs/bootstrap/blob/main/LICENSE)).
+
+[Gardevoir](https://github.com/xkrishguptaa/reseter.css) CSS Reset by Krish Gupta ([MIT License](https://github.com/xkrishguptaa/reseter.css/blob/main/LICENSE)).
+
+[Montserrat](https://github.com/JulietaUla/Montserrat) font by Julieta Ulanovsky ([SIL Open Font License](https://github.com/JulietaUla/Montserrat/blob/master/OFL.txt)).
+
+Icons from [Icons8](https://icons8.com/) and [Guides for Gamers](https://guides4gamers.com/ghost-recon-wildlands/map/bolivia/).
