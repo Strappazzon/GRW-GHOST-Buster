@@ -72,23 +72,17 @@
 	"editor.detectIndentation": false,
 	"editor.rulers": [],
 	"files.associations": {
-		"*.html": "liquid"
+		"*.html": "liquid",
+		"*.resx": "xml",
+		".vbproj": "xml"
 	},
 	"files.exclude": {
 		".jekyll-cache": true,
 		"*.swp": true,
 		"docs/_site*": true
 	},
-	"files.insertFinalNewline": true,
 	"files.readonlyInclude": {
 		"**/Gemfile.lock": true
-	},
-		"*.html": "liquid",
-		"*.resx": "xml",
-		".vbproj": "xml"
-	},
-	"files.exclude": {
-		"docs/_site*": true
 	},
 	"files.insertFinalNewline": true,
 	"files.trimFinalNewlines": true,
