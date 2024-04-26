@@ -1,40 +1,19 @@
-<h1 align="center">
-  <br>
-  <img src="../docs/assets/img/favicon.png" width="128px" alt=""></a>
-  <br>
-  GHOST Buster
-  <br>
-</h1>
+<!-- markdownlint-disable-next-line MD041 -->
+<div align="center">
+  <img width="96" src="../docs/assets/img/favicon.png" alt="Logo">
+</div>
 
-<h4 align="center">Backup and restore Ghost Recon Wildlands save games.</h4>
-
-<p align="center">
-  <a href="https://strappazzon.xyz/GRW-GHOST-Buster">
-    <img alt="HTML Version" src="https://img.shields.io/badge/HTML%20Version-%23ff5f2f?style=flat-square&logo=HTML5&logoColor=%23ffffff">
-  </a>
-  <a href="https://github.com/Strappazzon/GRW-GHOST-Buster/releases">
-    <img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/Strappazzon/GRW-GHOST-Buster/total?color=%23dd3333&label=Downloads&logo=DocuSign&logoColor=%23ffffff&style=flat-square">
-  </a>
-  <a href="https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest">
-    <img alt="Latest Release" src="https://img.shields.io/github/v/release/Strappazzon/GRW-GHOST-Buster?color=%230077ee&include_prereleases&label=Latest%20Release&style=flat-square">
-  </a>
-</p>
+<div align="center">
+  <strong>GHOST Buster</strong>
+</div>
 
 <p align="center">
-  <a href="#about">About</a> •
-  <a href="#getting-started">Getting Started</a> •
-  <a href="#settings">Settings</a> •
-  <a href="#screenshots">Screenshots</a> •
-  <a href="#download">Download</a>
+  <em>Backup and restore Ghost Recon Wildlands save games</em>
 </p>
-
-## About
-
-**GHOST Buster** will automatically backup your Wildlands save games while the game is running.
-
-I created this software to backup [Ghost Mode](https://web.archive.org/web/20190108052618/https://ghost-recon.ubisoft.com/wildlands/en-us/news/152-328968-16/special-operation-2-is-coming) save games, hence the name "GHOST Buster".
 
 ## Getting Started
+
+- [Download the latest version](https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest) of GHOST Buster
 
 - Launch **GHOST Buster.exe**
   - Every time you launch it, the program will check the System Registry to see if Ghost Recon Wildlands and Ubisoft Connect are installed
@@ -52,7 +31,7 @@ I created this software to backup [Ghost Mode](https://web.archive.org/web/20190
 
 ### Restoring a Backup
 
-> ### :warning: **WARNING**
+> [!WARNING]
 >
 > Disable cloud synchronization before restoring a backup, otherwise Ubisoft Connect will redownload the old save games rendering the restore process useless.
 > Also note that restoring a backup will **OVERWRITE** your old save games and it **CANNOT BE UNDONE**.
@@ -120,44 +99,10 @@ All settings are stored inside `%LOCALAPPDATA%\GHOSTbackup\ghostbackup.cfg`.
 
 ## Screenshots
 
-<table>
-  <tr>
-    <th align="center">Main screen</th>
-    <th align="center">Backups</th>
-    <th align="center">Settings</th>
-    <th align="center">Notification</th>
-  </tr>
-  <tr>
-    <td><img src="../docs/assets/img/screenshot/screenshot_main.png" alt="Main Screen"></td>
-    <td><img src="../docs/assets/img/screenshot/screenshot_manage.png" alt="backups screen"></td>
-    <td><img src="../docs/assets/img/screenshot/screenshot_settings.png" alt="Settings screen"></td>
-    <td><img src="../docs/assets/img/screenshot/screenshot_notification.png" alt="Notification"></td>
-  </tr>
-</table>
+| Main screen                                                       | Backups                                                             | Settings                                                              | Notification                                                              |
+|:-----------------------------------------------------------------:|:-------------------------------------------------------------------:|:---------------------------------------------------------------------:|:-------------------------------------------------------------------------:|
+| ![Main Screen](../docs/assets/img/screenshot/screenshot_main.png) | ![Main Screen](../docs/assets/img/screenshot/screenshot_manage.png) | ![Main Screen](../docs/assets/img/screenshot/screenshot_settings.png) | ![Main Screen](../docs/assets/img/screenshot/screenshot_notification.png) |
 
-<table>
-  <tr>
-    <th align="center">Backup restore</th>
-    <th align="center">Backup deletion</th>
-    <th align="center">Logs screen</th>
-    <th align="center">About screen</th>
-  </tr>
-  <tr>
-    <td><img src="../docs/assets/img/screenshot/screenshot_restore.png" alt="Backup restore prompt"></td>
-    <td><img src="../docs/assets/img/screenshot/screenshot_delete.png" alt="Backup deletion prompt"></td>
-    <td><img src="../docs/assets/img/screenshot/screenshot_logs.png" alt="Logs screen"></td>
-    <td><img src="../docs/assets/img/screenshot/screenshot_about.png" alt="About screen"></td>
-  </tr>
-</table>
-
-## Download
-
-You can [download](https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest) the latest version of GHOST Buster from the Releases page.
-
-## Contributing
-
-If you are interested in fixing issues and contributing directly to the code base, please see:
-
-- [Contribution Guidelines](./CONTRIBUTING.md)
-- [Code of Conduct](https://github.com/Strappazzon/.github/blob/-/CODE_OF_CONDUCT.md)
-- [Building GHOST Buster](https://github.com/Strappazzon/GRW-GHOST-Buster/blob/-/src/BUILDING.md) from its source code
+| Backup restore                                                                 | Backup deletion                                                                | Logs screen                                                       | About screen                                                        |
+|:------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|:-----------------------------------------------------------------:|:-------------------------------------------------------------------:|
+| ![Backup restore prompt](../docs/assets/img/screenshot/screenshot_restore.png) | ![Backup deletion prompt](../docs/assets/img/screenshot/screenshot_delete.png) | ![Logs screen](../docs/assets/img/screenshot/screenshot_logs.png) | ![About screen](../docs/assets/img/screenshot/screenshot_about.png) |
