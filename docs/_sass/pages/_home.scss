@@ -103,7 +103,7 @@ kbd {
   }
 }
 
-/// HEADERS
+/// HEADINGS
 
 @for $i from 1 through 4 {
   h#{$i} {
@@ -147,6 +147,21 @@ blockquote {
   };
 }
 
+/// HEADER
+
+header {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  text-align: center;
+  img {
+    margin-bottom: 1rem;
+  }
+}
+
 /// FOOTER
 
 hr {
@@ -162,21 +177,6 @@ footer {
   font-size: 0.9rem;
   text-align: center;
   margin: 1rem 0;
-}
-
-/// HEADER WITH TOC LINKS
-
-.toc {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
-  text-align: center;
-  &__description {
-    margin-bottom: 0.5rem;
-  }
 }
 
 /// SCREENSHOT GALLERY

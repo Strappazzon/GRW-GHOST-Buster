@@ -2,17 +2,12 @@
 layout: home
 ---
 
-<!-- markdownlint-disable MD041 -->
-{% include toc.html %}
-<!-- markdownlint-enable MD041 -->
-
-## About
-
-**GHOST Buster** will automatically backup your Wildlands save games while the game is running.
-
-I created this software to backup [Ghost Mode](https://web.archive.org/web/20190108052618/https://ghost-recon.ubisoft.com/wildlands/en-us/news/152-328968-16/special-operation-2-is-coming) save games, hence the name "GHOST Buster".
+<!-- markdownlint-disable-next-line MD041 -->
+{% include header.html %}
 
 ## Getting Started
+
+- [Download the latest version](https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest) of GHOST Buster
 
 - Launch **GHOST Buster.exe**
   - Every time you launch it, the program will check the System Registry to see if Ghost Recon Wildlands and Ubisoft Connect are installed
@@ -35,8 +30,9 @@ I created this software to backup [Ghost Mode](https://web.archive.org/web/20190
 
 > #### WARNING
 >
-> Disable cloud synchronization before restoring a backup, otherwise Ubisoft Connect will redownload the old save games rendering the restore process useless.
-> Also note that restoring a backup will **OVERWRITE** your old save games and it **CANNOT BE UNDONE**.
+> Disable cloud synchronization before restoring a backup, otherwise Ubisoft Connect will redownload the old save games
+> rendering the restore process useless. Also note that restoring a backup will **OVERWRITE** your old save games and
+> it **CANNOT BE UNDONE**.
 
 #### From Tasks screen
 
@@ -102,10 +98,6 @@ All settings are stored inside `%LOCALAPPDATA%\GHOSTbackup\ghostbackup.cfg`.
 ## Screenshots
 
 {% include gallery.html %}
-
-## Download
-
-You can [download](https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest) the latest version of GHOST Buster from the Releases page.
 
 ## Source Code
 
