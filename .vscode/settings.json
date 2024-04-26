@@ -40,6 +40,11 @@
 		"files.encoding": "windows1252",
 		"files.eol": "\r\n"
 	},
+	"[scminput]": {
+		"editor.rulers": [
+			70
+		]
+	},
 	"[scss]": {
 		"editor.defaultFormatter": null,
 		"editor.insertSpaces": true,
@@ -78,15 +83,18 @@
 	},
 	"files.exclude": {
 		".jekyll-cache": true,
-		"*.swp": true,
 		"docs/_site*": true
 	},
 	"files.readonlyInclude": {
-		"**/Gemfile.lock": true
+		"**/Gemfile.lock": true,
+		"**/LICENSE*": true
 	},
 	"files.insertFinalNewline": true,
 	"files.trimFinalNewlines": true,
 	"files.trimTrailingWhitespace": true,
+	"git.inputValidation": true,
+	"git.inputValidationLength": 70,
+	"git.inputValidationSubjectLength": 70,
 	"liquid.config.method": "workspace",
 	"liquid.engine": "jekyll",
 	"markdown.validate.enabled": true,
