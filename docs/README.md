@@ -2,7 +2,7 @@
 
 The **docs** folder contains an HTML version of [README.md](https://github.com/Strappazzon/GRW-GHOST-Buster#readme).
 
-If you are looking for *GHOST Buster* source code, please see the ["src" folder](https://github.com/Strappazzon/GRW-GHOST-Buster/tree/-/src).
+If you are looking for *GHOST Buster* source code, please see the ["src" folder](https://github.com/Strappazzon/GRW-GHOST-Buster/tree/master/src).
 
 ## Getting Started
 
