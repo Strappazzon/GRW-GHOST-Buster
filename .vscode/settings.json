@@ -100,5 +100,8 @@
 	"markdown.validate.enabled": true,
 	"markdown.validate.referenceLinks.enabled": "ignore",
 	"scss.validate": false,
-	"terminal.integrated.defaultProfile.windows": "PowerShell"
+	"terminal.integrated.defaultProfile.windows": "PowerShell",
+	"yaml.schemas": {
+		"https://json.schemastore.org/github-issue-config.json": ".github/ISSUE_TEMPLATE/config.yml"
+	}
 }
