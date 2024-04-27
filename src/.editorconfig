@@ -1,7 +1,82 @@
+[*.config]
+indent_size = 4
+indent_style = space
+
+[*.{manifest,myapp,resx,settings,vb}]
+charset = utf-8-bom
+
+[*.{manifest,myapp,resx,settings,vbproj}]
+indent_size = 2
+indent_style = space
+
+[*.sln]
+indent_style = tab
+tab_width = 4
+
 [*.vb]
+charset = utf-8-bom
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+
+# Parameter preferences
+dotnet_code_quality_unused_parameters = all
+
+# Allow explicit ByVal keyword
+dotnet_diagnostic.IDE0081.severity = none
+
+# Lines preferences
+dotnet_style_allow_multiple_blank_lines_experimental = false:warning
+dotnet_style_allow_statement_immediately_after_block_experimental = true
+
+# Parentheses preferences
+dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity:warning
+dotnet_style_parentheses_in_other_binary_operators = always_for_clarity:warning
+dotnet_style_parentheses_in_other_operators = always_for_clarity:warning
+dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity:warning
+
+# Use language keywords instead of framework type names
+dotnet_style_predefined_type_for_locals_parameters_members = true:warning
+dotnet_style_predefined_type_for_member_access = true:warning
+
 # Do not prefer simplified conditional expressions
 dotnet_style_prefer_simplified_boolean_expressions = false
-# Do not use simplified object creation
-visual_basic_style_prefer_simplified_object_creation = false
-# Keep unnecessary equality operator
-dotnet_diagnostic.IDE0100.severity = none
+
+# "Me." qualifiers
+dotnet_style_qualification_for_event = true:warning
+dotnet_style_qualification_for_field = false:warning
+dotnet_style_qualification_for_method = true:warning
+dotnet_style_qualification_for_property = false:warning
+
+# Field preferences
+dotnet_style_readonly_field = true
+
+# Modifier preferences
+dotnet_style_require_accessibility_modifiers = for_non_interface_members
+
+# Expression-level preferences
+dotnet_style_coalesce_expression = false
+dotnet_style_collection_initializer = true:warning
+dotnet_style_explicit_tuple_names = true:warning
+dotnet_style_namespace_match_folder = true
+dotnet_style_null_propagation = true
+dotnet_style_object_initializer = true:warning
+dotnet_style_operator_placement_when_wrapping = beginning_of_line
+dotnet_style_prefer_auto_properties = true:suggestion
+dotnet_style_prefer_collection_expression = when_types_loosely_match
+dotnet_style_prefer_compound_assignment = true:warning
+dotnet_style_prefer_conditional_expression_over_assignment = true:warning
+dotnet_style_prefer_conditional_expression_over_return = true:warning
+dotnet_style_prefer_foreach_explicit_cast_in_source = when_strongly_typed
+dotnet_style_prefer_inferred_anonymous_type_member_names = true:warning
+dotnet_style_prefer_inferred_tuple_names = true:warning
+dotnet_style_prefer_is_null_check_over_reference_equality_method = true
+dotnet_style_prefer_simplified_boolean_expressions = false:warning
+dotnet_style_prefer_simplified_interpolation = true
+visual_basic_style_prefer_isnot_expression = true:warning
+visual_basic_style_prefer_simplified_object_creation = false:warning
+visual_basic_style_unused_value_assignment_preference = unused_local_variable:warning
+visual_basic_style_unused_value_expression_statement_preference = unused_local_variable:none
+
+# Modifier preferences
+visual_basic_preferred_modifier_order = Partial,Default,Protected,Private,Friend,Public,Static,Shared,Shadows,ReadOnly,WriteOnly,Dim,Const,NotOverridable,Overridable,MustOverride,Overloads,Overrides,MustInherit,NotInheritable,Widening,Narrowing,Custom,Async,Iterator,WithEvents:warning
