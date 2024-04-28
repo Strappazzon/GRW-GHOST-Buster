@@ -643,9 +643,9 @@ Partial Class Form1
         Me.SettingsLangRestartLabel.ForeColor = System.Drawing.Color.Silver
         Me.SettingsLangRestartLabel.Location = New System.Drawing.Point(12, 72)
         Me.SettingsLangRestartLabel.Name = "SettingsLangRestartLabel"
-        Me.SettingsLangRestartLabel.Size = New System.Drawing.Size(385, 13)
+        Me.SettingsLangRestartLabel.Size = New System.Drawing.Size(389, 13)
         Me.SettingsLangRestartLabel.TabIndex = 2
-        Me.SettingsLangRestartLabel.Text = "You'll need to restart GHOST Buster in order for the change to take effect."
+        Me.SettingsLangRestartLabel.Text = "You'll need to reopen GHOST Buster in order for the change to take effect."
         '
         'SettingsWriteLogToFileChkBox
         '
