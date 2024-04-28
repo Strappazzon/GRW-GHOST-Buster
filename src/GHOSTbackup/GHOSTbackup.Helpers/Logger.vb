@@ -41,7 +41,7 @@ Public Class Logger
     End Sub
 
 #Region "Log Methods"
-    Public Overloads Shared Sub Log(ByVal [event] As String)
+    Public Shared Overloads Sub Log(ByVal [event] As String)
         'Don't start the log file with an empty line
         If Form1.LogTxtBox.Text = "" Then
             Form1.LogTxtBox.AppendText(Now.ToString("HH:mm:ss") & " " & [event])

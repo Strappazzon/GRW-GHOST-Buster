@@ -61,7 +61,7 @@ Public Class Banner
 #End Region
 
 #Region "Show Methods"
-    Public Overloads Shared Sub Show(ByVal Message As String, ByVal Icon As BannerIcon)
+    Public Shared Overloads Sub Show(ByVal Message As String, ByVal Icon As BannerIcon)
         'Create banner
         AlertBanner.Controls.Add(IconPicture)
         AlertBanner.Controls.Add(BannerMessage)
@@ -83,8 +83,8 @@ Public Class Banner
         'Banner message
         BannerMessage.Text = Message
         'Center Icon and Message
-        BannerMessage.Location = New Point(AlertBanner.Width / 2 - BannerMessage.Width / 2, AlertBanner.Height / 2 - BannerMessage.Height / 2)
-        IconPicture.Location = New Point(AlertBanner.Width / 2 - BannerMessage.Width / 2 - 28, AlertBanner.Height / 2 - IconPicture.Height / 2)
+        BannerMessage.Location = New Point((AlertBanner.Width / 2) - (BannerMessage.Width / 2), (AlertBanner.Height / 2) - (BannerMessage.Height / 2))
+        IconPicture.Location = New Point((AlertBanner.Width / 2) - (BannerMessage.Width / 2) - 28, (AlertBanner.Height / 2) - (IconPicture.Height / 2))
 
         'Move logo and Play button
         Form1.LogoBigPictureBox.Location = New Point(12, 115)
@@ -94,7 +94,7 @@ Public Class Banner
         Form1.Controls.Add(AlertBanner)
     End Sub
 
-    Public Overloads Shared Sub Show(ByVal Message As String)
+    Public Shared Overloads Sub Show(ByVal Message As String)
         'Create banner
         AlertBanner.Controls.Add(BannerMessage)
         AlertBanner.Controls.Add(CloseBanner)
@@ -102,7 +102,7 @@ Public Class Banner
         'Banner message
         BannerMessage.Text = Message
         'Center Message
-        BannerMessage.Location = New Point(AlertBanner.Width / 2 - BannerMessage.Width / 2, AlertBanner.Height / 2 - BannerMessage.Height / 2)
+        BannerMessage.Location = New Point((AlertBanner.Width / 2) - (BannerMessage.Width / 2), (AlertBanner.Height / 2) - (BannerMessage.Height / 2))
 
         'Move logo and Play button
         Form1.LogoBigPictureBox.Location = New Point(12, 115)

@@ -25,9 +25,9 @@
 #End Region
 
 Imports System.IO
-Imports GHOSTbackup.UI
 Imports GHOSTbackup.BackupHelper
 Imports GHOSTbackup.ProcessHelper
+Imports GHOSTbackup.UI
 Imports GHOSTbackup.Updater
 Imports GHOSTbackup.UplayHelper
 Imports GHOSTbackup.WildlandsHelper
@@ -70,7 +70,7 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Load settings and set defaults
         Settings.Init()
-        LoadFormPosition()
+        Me.LoadFormPosition()
 
         'Load localization
         Localization.Load()
@@ -123,7 +123,13 @@ Public Class Form1
 
     Private Sub Form1_Closing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If IsBackupRunning = True AndAlso SettingsConfirmExitChkBox.Checked = True Then
-            CustomMsgBox.Show(Localization.GetString("msgbox_confirm_exit"), Localization.GetString("msgbox_confirm_exit_title"), CustomMsgBoxButtons.YesNoCancel, CustomMsgBoxIcon.Question, CustomMsgBoxDefaultButton.Button2)
+            CustomMsgBox.Show(
+                Localization.GetString("msgbox_confirm_exit"),
+                Localization.GetString("msgbox_confirm_exit_title"),
+                CustomMsgBoxButtons.YesNoCancel,
+                CustomMsgBoxIcon.Question,
+                CustomMsgBoxDefaultButton.Button2
+            )
             If CustomMsgBox.DialogResult = DialogResult.No OrElse CustomMsgBox.DialogResult = DialogResult.Cancel Then
                 e.Cancel = True
             Else
@@ -230,7 +236,12 @@ Public Class Form1
             Process.Start(GamePath & "GRW.exe")
         Catch ex As Exception
             Logger.Log("[ERROR] Unable to launch Wildlands: Executable missing.")
-            CustomMsgBox.Show(Localization.GetString("msgbox_wildlands_installed_missing"), Localization.GetString("msgbox_wildlands_installed_missing_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Error)
+            CustomMsgBox.Show(
+                Localization.GetString("msgbox_wildlands_installed_missing"),
+                Localization.GetString("msgbox_wildlands_installed_missing_title"),
+                CustomMsgBoxButtons.OKCancel,
+                CustomMsgBoxIcon.Error
+            )
         End Try
     End Sub
 
@@ -331,7 +342,13 @@ Public Class Form1
 
     Private Sub StopBtn_Click(sender As Object, e As EventArgs) Handles StopBtn.Click
         If SettingsConfirmStopBackupChkBox.Checked = True Then
-            CustomMsgBox.Show(Localization.GetString("msgbox_confirm_backup_interruption"), Localization.GetString("msgbox_confirm_backup_interruption_title"), CustomMsgBoxButtons.YesNoCancel, CustomMsgBoxIcon.Question, CustomMsgBoxDefaultButton.Button2)
+            CustomMsgBox.Show(
+                Localization.GetString("msgbox_confirm_backup_interruption"),
+                Localization.GetString("msgbox_confirm_backup_interruption_title"),
+                CustomMsgBoxButtons.YesNoCancel,
+                CustomMsgBoxIcon.Question,
+                CustomMsgBoxDefaultButton.Button2
+            )
             If CustomMsgBox.DialogResult = DialogResult.Yes Then
                 StopBackup()
                 Logger.Log("[INFO] Backup interrupted by the user.")
@@ -413,11 +430,7 @@ Public Class Form1
 
 #Region "Settings"
     Private Sub SettingsDisableCloudSyncChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles SettingsDisableCloudSyncChkBox.CheckedChanged
-        If SettingsDisableCloudSyncChkBox.Checked = True Then
-            SettingsEnableCloudSyncChkBox.Enabled = True
-        Else
-            SettingsEnableCloudSyncChkBox.Enabled = False
-        End If
+        SettingsEnableCloudSyncChkBox.Enabled = SettingsDisableCloudSyncChkBox.Checked = True
     End Sub
 
     Private Sub SettingsNonUplayVersionChkBox_CheckedChanged(sender As Object, e As EventArgs) Handles SettingsNonUplayVersionChkBox.CheckedChanged

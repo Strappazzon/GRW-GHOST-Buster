@@ -28,7 +28,7 @@ Imports Microsoft.Toolkit.Uwp.Notifications
 
 Public Class Notification
 #Region "Show Methods"
-    Public Overloads Shared Sub Show(ByVal Message As String)
+    Public Shared Overloads Sub Show(ByVal Message As String)
         Call New ToastContentBuilder() _
             .AddText(Form1.Text) _
             .AddText(Message) _

@@ -31,8 +31,8 @@ Public Class CustomMsgBox
     '//docs.microsoft.com/en-us/dotnet/api/system.windows.forms.form.dialogresult
 
 #Region "Show Methods"
-    Public Overloads Shared Sub Show(ByVal Message As String, ByVal Title As String, ByVal Buttons As CustomMsgBoxButtons, ByVal Icon As CustomMsgBoxIcon, ByVal DefaultButton As CustomMsgBoxDefaultButton)
-        'The content of Message MUST be written in Rich Text Format
+    Public Shared Overloads Sub Show(ByVal Message As String, ByVal Title As String, ByVal Buttons As CustomMsgBoxButtons, ByVal Icon As CustomMsgBoxIcon, ByVal DefaultButton As CustomMsgBoxDefaultButton)
+        'The content of "Message" MUST be written in Rich Text Format
         '//www.oreilly.com/library/view/rtf-pocket-guide/9781449302047/ch01.html
         'When printing a string variable that is a path or otherwise contains any backward slashes they MUST be escaped with .Replace("\", "\\")
         CustomMsgBox.MessageRTF.Rtf = Message
@@ -103,8 +103,8 @@ Public Class CustomMsgBox
         CustomMsgBox.ShowDialog()
     End Sub
 
-    Public Overloads Shared Sub Show(ByVal Message As String, ByVal Title As String, ByVal Buttons As CustomMsgBoxButtons, ByVal Icon As CustomMsgBoxIcon)
-        'The content of Message MUST be written in Rich Text Format
+    Public Shared Overloads Sub Show(ByVal Message As String, ByVal Title As String, ByVal Buttons As CustomMsgBoxButtons, ByVal Icon As CustomMsgBoxIcon)
+        'The content of "Message" MUST be written in Rich Text Format
         '//www.oreilly.com/library/view/rtf-pocket-guide/9781449302047/ch01.html
         'When printing a string variable that is a path or otherwise contains any backward slashes they MUST be escaped with .Replace("\", "\\")
         CustomMsgBox.MessageRTF.Rtf = Message
@@ -152,8 +152,8 @@ Public Class CustomMsgBox
         CustomMsgBox.ShowDialog()
     End Sub
 
-    Public Overloads Shared Sub Show(ByVal Message As String)
-        'The content of Message MUST be written in Rich Text Format
+    Public Shared Overloads Sub Show(ByVal Message As String)
+        'The content of "Message" MUST be written in Rich Text Format
         '//www.oreilly.com/library/view/rtf-pocket-guide/9781449302047/ch01.html
         'When printing a string variable that is a path or otherwise contains any backward slashes they MUST be escaped with .Replace("\", "\\")
         CustomMsgBox.MessageRTF.Rtf = Message
@@ -180,7 +180,7 @@ Public Class CustomMsgBox
 #End Region
 
     Private Sub MessageRTF_MouseDown(sender As Object, e As MouseEventArgs) Handles MessageRTF.MouseDown
-        'An hack to disable the caret
+        'HACK: Disable caret
         '//www.codeproject.com/Answers/272781/How-to-hide-the-caret-in-RichTextBox#answer1
         MessageRTF.SelectionLength = 0
         MessageRTF.SelectionStart = MessageRTF.TextLength
@@ -188,7 +188,8 @@ Public Class CustomMsgBox
     End Sub
 
     Private Sub MessageRTF_KeyDown(sender As Object, e As KeyEventArgs) Handles MessageRTF.KeyDown
-        'An hack to disable the caret
+        'HACK: Disable caret
+        '//www.codeproject.com/Answers/272781/How-to-hide-the-caret-in-RichTextBox#answer1
         MessageRTF.SelectionLength = 0
         MessageRTF.SelectionStart = MessageRTF.TextLength
         ActiveControl = CancelLabel

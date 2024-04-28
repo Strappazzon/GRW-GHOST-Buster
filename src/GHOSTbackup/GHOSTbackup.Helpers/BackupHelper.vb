@@ -27,8 +27,8 @@
 Imports System.ComponentModel
 Imports System.Globalization
 Imports System.IO
-Imports GHOSTbackup.UI
 Imports GHOSTbackup.ProcessHelper
+Imports GHOSTbackup.UI
 
 Public Class BackupHelper
     Private Shared WithEvents DetectBackupTimestamp As New BackgroundWorker()
@@ -239,7 +239,11 @@ Public Class BackupHelper
                     If Form1.SettingsDisplayNotificationChkBox.Checked = True Then
                         Notification.Show(Localization.GetString("notification_msg_backup_error"))
                     End If
-                    CustomMsgBox.Show(Localization.GetString("msgbox_backup_error"), Localization.GetString("msgbox_backup_error_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Error)
+                    CustomMsgBox.Show(
+                        Localization.GetString("msgbox_backup_error"),
+                        Localization.GetString("msgbox_backup_error_title"),
+                        CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Error
+                    )
                 End Try
             Else
                 Banner.Show(Localization.GetString("banner_launch_before_backup_info"), BannerIcon.Information)
@@ -279,18 +283,28 @@ Public Class BackupHelper
                 If Form1.SettingsDisplayNotificationChkBox.Checked = True Then
                     Notification.Show(Localization.GetString("notification_msg_backup_error"))
                 End If
-                CustomMsgBox.Show(Localization.GetString("msgbox_backup_error"), Localization.GetString("msgbox_backup_error_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Error)
+                CustomMsgBox.Show(
+                    Localization.GetString("msgbox_backup_error"),
+                    Localization.GetString("msgbox_backup_error_title"),
+                    CustomMsgBoxButtons.OKCancel,
+                    CustomMsgBoxIcon.Error
+                )
             End Try
         Else
             StopBackup()
             Logger.Log("[INFO] Wildlands closed or crashed, Backup interrupted.")
-            CustomMsgBox.Show(Localization.GetString("msgbox_wildlands_closed_crashed"), Localization.GetString("msgbox_wildlands_closed_crashed_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Warning)
+            CustomMsgBox.Show(
+                Localization.GetString("msgbox_wildlands_closed_crashed"),
+                Localization.GetString("msgbox_wildlands_closed_crashed_title"),
+                CustomMsgBoxButtons.OKCancel,
+                CustomMsgBoxIcon.Warning
+            )
         End If
     End Sub
 #End Region
 
 #Region "Backup Restore"
-    Public Overloads Shared Sub RestoreBackup()
+    Public Shared Overloads Sub RestoreBackup()
         Logger.Log("[INFO] Restore process started.")
 
         Try
@@ -311,20 +325,22 @@ Public Class BackupHelper
                             BackupDirs.Add(BackupDir)
                         End If
                     Next
-
                     If BackupDirs.Count > 0 Then
                         'If at least one directory contains save files
                         'Ask the user before restoring the latest backup
-                        CustomMsgBox.Show(Strings.Format(Localization.GetString("msgbox_backup_restore"), BackupDirs.Item(BackupDirs.Count - 1).Replace("\", "\\"), Form1.SavegamesLocTextBox.Text.Replace("\", "\\")),
-                                          Localization.GetString("msgbox_backup_restore_title"),
-                                          CustomMsgBoxButtons.YesNoCancel, CustomMsgBoxIcon.Warning, CustomMsgBoxDefaultButton.Button2)
+                        CustomMsgBox.Show(
+                            Strings.Format(Localization.GetString("msgbox_backup_restore"), BackupDirs.Item(BackupDirs.Count - 1).Replace("\", "\\"), Form1.SavegamesLocTextBox.Text.Replace("\", "\\")),
+                            Localization.GetString("msgbox_backup_restore_title"),
+                            CustomMsgBoxButtons.YesNoCancel,
+                            CustomMsgBoxIcon.Warning,
+                            CustomMsgBoxDefaultButton.Button2
+                        )
                         If CustomMsgBox.DialogResult = DialogResult.Yes Then
                             Dim SavegamesList As String() = Directory.GetFiles(BackupDirs.Item(BackupDirs.Count - 1), "*.save")
                             For Each F In SavegamesList
                                 Dim FileName As String = F.Substring(BackupDirs.Item(BackupDirs.Count - 1).Length + 1)
                                 File.Copy(Path.Combine(BackupDirs.Item(BackupDirs.Count - 1), FileName), Path.Combine(Form1.SavegamesLocTextBox.Text, FileName), True)
                             Next
-
                             Logger.Log("[INFO] Backup from " & BackupDirs.Item(BackupDirs.Count - 1) & " restored.")
                             Banner.Show(Localization.GetString("banner_backup_restored"), BannerIcon.Information)
                         Else
@@ -332,7 +348,12 @@ Public Class BackupHelper
                         End If
                     Else
                         'If no directory contains any save files
-                        CustomMsgBox.Show(Localization.GetString("msgbox_invalid_backup_folder"), Localization.GetString("msgbox_invalid_backup_folder_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Warning)
+                        CustomMsgBox.Show(
+                            Localization.GetString("msgbox_invalid_backup_folder"),
+                            Localization.GetString("msgbox_invalid_backup_folder_title"),
+                            CustomMsgBoxButtons.OKCancel,
+                            CustomMsgBoxIcon.Warning
+                        )
                         Logger.Log("[INFO] No valid backup found inside " & Form1.BackupLocTextBox.Text & ". Restore process aborted.")
 
                         Form1.LatestBackupHelpLabel.Text = Localization.GetString("ui_tasks_latest_none")
@@ -348,13 +369,16 @@ Public Class BackupHelper
                             BackupDirs.Add(BackupDir)
                         End If
                     Next
-
                     If BackupDirs.Count >= 2 Then
                         'Restore second-to-last backup if at least two valid backup directories exist
                         'Ask the user before restoring the second-to-last backup
-                        CustomMsgBox.Show(Strings.Format(Localization.GetString("msgbox_backup_restore"), BackupDirs.Item(BackupDirs.Count - 2).Replace("\", "\\"), Form1.SavegamesLocTextBox.Text.Replace("\", "\\")),
-                                          Localization.GetString("msgbox_backup_restore_title"),
-                                          CustomMsgBoxButtons.YesNoCancel, CustomMsgBoxIcon.Warning, CustomMsgBoxDefaultButton.Button2)
+                        CustomMsgBox.Show(
+                            Strings.Format(Localization.GetString("msgbox_backup_restore"), BackupDirs.Item(BackupDirs.Count - 2).Replace("\", "\\"), Form1.SavegamesLocTextBox.Text.Replace("\", "\\")),
+                            Localization.GetString("msgbox_backup_restore_title"),
+                            CustomMsgBoxButtons.YesNoCancel,
+                            CustomMsgBoxIcon.Warning,
+                            CustomMsgBoxDefaultButton.Button2
+                        )
                         If CustomMsgBox.DialogResult = DialogResult.Yes Then
                             Dim SavegamesList As String() = Directory.GetFiles(BackupDirs.Item(BackupDirs.Count - 2), "*.save")
                             For Each F In SavegamesList
@@ -370,9 +394,13 @@ Public Class BackupHelper
                     ElseIf BackupDirs.Count = 1 Then
                         'If only one valid backup directory exists ask the user to restore the latest backup instead
                         'Ask the user before restoring the latest backup
-                        CustomMsgBox.Show(Strings.Format(Localization.GetString("msgbox_backup_restore_no_sectolast"), BackupDirs.Item(BackupDirs.Count - 1).Replace("\", "\\"), Form1.SavegamesLocTextBox.Text.Replace("\", "\\")),
-                                          Localization.GetString("msgbox_backup_404_title"),
-                                          CustomMsgBoxButtons.YesNoCancel, CustomMsgBoxIcon.Warning, CustomMsgBoxDefaultButton.Button2)
+                        CustomMsgBox.Show(
+                            Strings.Format(Localization.GetString("msgbox_backup_restore_no_sectolast"), BackupDirs.Item(BackupDirs.Count - 1).Replace("\", "\\"), Form1.SavegamesLocTextBox.Text.Replace("\", "\\")),
+                            Localization.GetString("msgbox_backup_404_title"),
+                            CustomMsgBoxButtons.YesNoCancel,
+                            CustomMsgBoxIcon.Warning,
+                            CustomMsgBoxDefaultButton.Button2
+                        )
                         If CustomMsgBox.DialogResult = DialogResult.Yes Then
                             Dim SavegamesList As String() = Directory.GetFiles(BackupDirs.Item(BackupDirs.Count - 1), "*.save")
                             For Each F In SavegamesList
@@ -387,44 +415,60 @@ Public Class BackupHelper
                         End If
                     Else
                         'If no valid backup directory is found (.Count = 0) display an error
-                        CustomMsgBox.Show(Localization.GetString("msgbox_invalid_backup_folder"), Localization.GetString("msgbox_invalid_backup_folder_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Warning)
+                        CustomMsgBox.Show(
+                            Localization.GetString("msgbox_invalid_backup_folder"),
+                            Localization.GetString("msgbox_invalid_backup_folder_title"),
+                            CustomMsgBoxButtons.OKCancel,
+                            CustomMsgBoxIcon.Warning
+                        )
                         Logger.Log("[INFO] No valid backup found inside " & Form1.BackupLocTextBox.Text & ". Restore process aborted.")
 
                         Form1.LatestBackupHelpLabel.Text = Localization.GetString("ui_tasks_latest_none")
                     End If
                 End If
             Else
-                CustomMsgBox.Show(Localization.GetString("msgbox_empty_backup_folder"), Localization.GetString("msgbox_empty_backup_folder_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Warning)
+                CustomMsgBox.Show(
+                    Localization.GetString("msgbox_empty_backup_folder"),
+                    Localization.GetString("msgbox_empty_backup_folder_title"),
+                    CustomMsgBoxButtons.OKCancel,
+                    CustomMsgBoxIcon.Warning
+                )
                 Logger.Log("[INFO] No backup found inside " & Form1.BackupLocTextBox.Text & ". Restore process aborted.")
 
                 Form1.LatestBackupHelpLabel.Text = Localization.GetString("ui_tasks_latest_none")
             End If
-
         Catch ex As Exception
             Logger.Log("[ERROR] Could not restore the backup: " & ex.Message())
-            CustomMsgBox.Show(Localization.GetString("msgbox_restore_error"), Localization.GetString("msgbox_restore_error_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Error)
-
+            CustomMsgBox.Show(
+                Localization.GetString("msgbox_restore_error"),
+                Localization.GetString("msgbox_restore_error_title"),
+                CustomMsgBoxButtons.OKCancel,
+                CustomMsgBoxIcon.Error
+            )
         Finally
             'Empty backup directories list to avoid ArgumentOutOfRangeException when attempting to restore a backup from an empty directory (or directory with no valid backup) that previously contained valid backups
             BackupDirs.Clear()
         End Try
     End Sub
 
-    Public Overloads Shared Sub RestoreBackup(subDir As String)
+    Public Shared Overloads Sub RestoreBackup(subDir As String)
         Logger.Log("[INFO] Restore process started (subDir).")
 
         Try
             Dim BackupDirectory As String = Form1.BackupLocTextBox.Text & "\" & subDir
 
             'Ask the user before restoring the backup
-            CustomMsgBox.Show(Strings.Format(Localization.GetString("msgbox_backup_restore"), BackupDirectory.Replace("\", "\\"), Form1.SavegamesLocTextBox.Text.Replace("\", "\\")),
-                              Localization.GetString("msgbox_backup_restore_title"),
-                              CustomMsgBoxButtons.YesNoCancel, CustomMsgBoxIcon.Warning, CustomMsgBoxDefaultButton.Button2)
+            CustomMsgBox.Show(
+                Strings.Format(Localization.GetString("msgbox_backup_restore"), BackupDirectory.Replace("\", "\\"), Form1.SavegamesLocTextBox.Text.Replace("\", "\\")),
+                Localization.GetString("msgbox_backup_restore_title"),
+                CustomMsgBoxButtons.YesNoCancel,
+                CustomMsgBoxIcon.Warning,
+                CustomMsgBoxDefaultButton.Button2
+            )
             If CustomMsgBox.DialogResult = DialogResult.Yes Then
                 For Each F In Directory.GetFiles(BackupDirectory, "*.save")
                     File.Copy(F, F.Replace(BackupDirectory, Form1.SavegamesLocTextBox.Text), True)
                 Next
-
                 Logger.Log("[INFO] Backup from " & BackupDirectory & " restored.")
                 Banner.Show(Localization.GetString("banner_backup_restored"), BannerIcon.Information)
             Else
@@ -432,20 +476,28 @@ Public Class BackupHelper
             End If
         Catch ex As Exception
             Logger.Log("[ERROR] Could not restore the backup: " & ex.Message())
-            CustomMsgBox.Show(Localization.GetString("msgbox_restore_error"), Localization.GetString("msgbox_restore_error_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Error)
+            CustomMsgBox.Show(
+                Localization.GetString("msgbox_restore_error"),
+                Localization.GetString("msgbox_restore_error_title"),
+                CustomMsgBoxButtons.OKCancel,
+                CustomMsgBoxIcon.Error
+            )
         End Try
     End Sub
 #End Region
 
 #Region "Backup Deletion"
-    Public Overloads Shared Sub DeleteBackup()
+    Public Shared Overloads Sub DeleteBackup()
         Logger.Log("[INFO] Deletion process started.")
 
         Try
             'Ask the user before deleting the backup
-            CustomMsgBox.Show(Strings.Format(Localization.GetString("msgbox_backup_delete_all"), Form1.BackupLocTextBox.Text.Replace("\", "\\")),
-                              Localization.GetString("msgbox_backup_delete_title"),
-                              CustomMsgBoxButtons.YesNoCancel, CustomMsgBoxIcon.Warning, CustomMsgBoxDefaultButton.Button2)
+            CustomMsgBox.Show(
+                Strings.Format(Localization.GetString("msgbox_backup_delete_all"), Form1.BackupLocTextBox.Text.Replace("\", "\\")),
+                Localization.GetString("msgbox_backup_delete_title"),
+                CustomMsgBoxButtons.YesNoCancel, CustomMsgBoxIcon.Warning,
+                CustomMsgBoxDefaultButton.Button2
+            )
             If CustomMsgBox.DialogResult = DialogResult.Yes Then
                 'Delete all directories inside the backup location recursively
                 For Each D In Directory.EnumerateDirectories(Form1.BackupLocTextBox.Text)
@@ -456,20 +508,23 @@ Public Class BackupHelper
                 Form1.BackupsDataGrid.DataSource = Nothing
                 'Detect latest backup
                 DetectLatestBackup()
-
                 Logger.Log("[INFO] Backup " & Form1.BackupLocTextBox.Text & " deleted.")
                 Banner.Show(Localization.GetString("banner_backup_deleted_all"), BannerIcon.Information)
             Else
                 Logger.Log("[INFO] Deletion process cancelled by the user.")
             End If
-
         Catch ex As Exception
             Logger.Log("[ERROR] Could not delete backups: " & ex.Message())
-            CustomMsgBox.Show(Localization.GetString("msgbox_delete_all_error"), Localization.GetString("msgbox_delete_error_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Error)
+            CustomMsgBox.Show(
+                Localization.GetString("msgbox_delete_all_error"),
+                Localization.GetString("msgbox_delete_error_title"),
+                CustomMsgBoxButtons.OKCancel,
+                CustomMsgBoxIcon.Error
+            )
         End Try
     End Sub
 
-    Public Overloads Shared Sub DeleteBackup(subDir As String)
+    Public Shared Overloads Sub DeleteBackup(subDir As String)
         Logger.Log("[INFO] Deletion process started (subDir).")
 
         Try
@@ -479,9 +534,13 @@ Public Class BackupHelper
                 'If there is only one row, let the user know that they're deleting the only backup available
                 Case 1
                     'Ask the user before deleting the backup
-                    CustomMsgBox.Show(Strings.Format(Localization.GetString("msgbox_backup_delete_latest"), BackupDirectory.Replace("\", "\\")),
-                                      Localization.GetString("msgbox_backup_delete_title"),
-                                      CustomMsgBoxButtons.YesNoCancel, CustomMsgBoxIcon.Warning, CustomMsgBoxDefaultButton.Button2)
+                    CustomMsgBox.Show(
+                        Strings.Format(Localization.GetString("msgbox_backup_delete_latest"), BackupDirectory.Replace("\", "\\")),
+                        Localization.GetString("msgbox_backup_delete_title"),
+                        CustomMsgBoxButtons.YesNoCancel,
+                        CustomMsgBoxIcon.Warning,
+                        CustomMsgBoxDefaultButton.Button2
+                    )
                     If CustomMsgBox.DialogResult = DialogResult.Yes Then
                         'Delete backup directory and all files inside of it (recursive)
                         Directory.Delete(BackupDirectory, True)
@@ -497,9 +556,13 @@ Public Class BackupHelper
                     End If
                 Case Else
                     'Ask the user before deleting the backup
-                    CustomMsgBox.Show(Strings.Format(Localization.GetString("msgbox_backup_delete"), BackupDirectory.Replace("\", "\\")),
-                                      Localization.GetString("msgbox_backup_delete_title"),
-                                      CustomMsgBoxButtons.YesNoCancel, CustomMsgBoxIcon.Warning, CustomMsgBoxDefaultButton.Button2)
+                    CustomMsgBox.Show(
+                        Strings.Format(Localization.GetString("msgbox_backup_delete"), BackupDirectory.Replace("\", "\\")),
+                        Localization.GetString("msgbox_backup_delete_title"),
+                        CustomMsgBoxButtons.YesNoCancel,
+                        CustomMsgBoxIcon.Warning,
+                        CustomMsgBoxDefaultButton.Button2
+                    )
                     If CustomMsgBox.DialogResult = DialogResult.Yes Then
                         'Delete backup directory and all files inside of it (recursive)
                         Directory.Delete(BackupDirectory, True)
@@ -507,14 +570,12 @@ Public Class BackupHelper
                         Form1.BackupsDataGrid.Rows.Remove(Form1.BackupsDataGrid.CurrentRow)
                         'Detect latest backup
                         DetectLatestBackup()
-
                         Logger.Log("[INFO] Backup " & BackupDirectory & " deleted.")
                         Banner.Show(Localization.GetString("banner_backup_deleted"), BannerIcon.Information)
                     Else
                         Logger.Log("[INFO] Deletion process cancelled by the user.")
                     End If
             End Select
-
         Catch ex As Exception
             Logger.Log("[ERROR] Could not delete the backup: " & ex.Message())
             CustomMsgBox.Show(Localization.GetString("msgbox_delete_error"), Localization.GetString("msgbox_delete_error_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Error)

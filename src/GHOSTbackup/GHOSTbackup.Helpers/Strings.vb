@@ -31,14 +31,14 @@ Public Class Strings
 #Region "Format"
     'Custom String.Format functions
     '//stackoverflow.com/a/1321343
-    Public Overloads Shared Function Format(ByVal input As String, ByVal arg0 As Object) As String
+    Public Shared Overloads Function Format(ByVal input As String, ByVal arg0 As Object) As String
         Dim Sb As StringBuilder = New StringBuilder(input)
 
         Sb.Replace("<0>", arg0)
         Return Sb.ToString()
     End Function
 
-    Public Overloads Shared Function Format(ByVal input As String, ByVal arg0 As Object, ByVal arg1 As Object) As String
+    Public Shared Overloads Function Format(ByVal input As String, ByVal arg0 As Object, ByVal arg1 As Object) As String
         Dim Sb As StringBuilder = New StringBuilder(input)
 
         Sb.Replace("<0>", arg0)
@@ -46,7 +46,7 @@ Public Class Strings
         Return Sb.ToString()
     End Function
 
-    Public Overloads Shared Function Format(ByVal input As String, ByVal arg0 As Object, ByVal arg1 As Object, ByVal arg2 As Object) As String
+    Public Shared Overloads Function Format(ByVal input As String, ByVal arg0 As Object, ByVal arg1 As Object, ByVal arg2 As Object) As String
         Dim Sb As StringBuilder = New StringBuilder(input)
 
         Sb.Replace("<0>", arg0)

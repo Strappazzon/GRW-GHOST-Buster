@@ -24,10 +24,10 @@
 ''
 #End Region
 
-Imports Microsoft.Win32
 Imports System.IO
-Imports GHOSTbackup.UI
 Imports GHOSTbackup.ProcessHelper
+Imports GHOSTbackup.UI
+Imports Microsoft.Win32
 
 Public Class WildlandsHelper
     Public Shared Property GamePath As String = Nothing
@@ -53,7 +53,8 @@ Public Class WildlandsHelper
         Else
             Using GameRegKey As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\1771", False)
                 Try
-                    GamePath = GameRegKey.GetValue("InstallDir").Replace("/"c, "\"c) 'Replace any forward slashes with backward slashes
+                    'Replace any forward slashes with backward slashes
+                    GamePath = GameRegKey.GetValue("InstallDir").Replace("/"c, "\"c)
 
                     If GamePath <> Nothing Then
                         Form1.PlayGameBtn.Enabled = True
@@ -65,7 +66,6 @@ Public Class WildlandsHelper
 
                         Logger.Log("[WARNING] Wildlands is not installed (""InstallDir"" is Null or Empty).")
                     End If
-
                 Catch ex As Exception
                     Form1.PlayGameBtn.Text = Localization.GetString("ui_play_disabled")
                     Logger.Log("[ERROR] Wildlands is not installed: " & ex.Message())

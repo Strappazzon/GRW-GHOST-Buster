@@ -113,7 +113,10 @@ Public Class Localization
         Form1.LicenseLink.Text = GetString("ui_about_legal")
         'Tooltips
         Form1.HelpToolTip.SetToolTip(Form1.UplayBtn, GetString("tooltip_uplay"))
-        Form1.HelpToolTip.SetToolTip(Form1.BackupFreqUpDown, String.Format(GetString("tooltip_backup_frequency"), Form1.BackupFreqUpDown.Minimum, Form1.BackupFreqUpDown.Maximum))
+        Form1.HelpToolTip.SetToolTip(
+            Form1.BackupFreqUpDown,
+            String.Format(GetString("tooltip_backup_frequency"), Form1.BackupFreqUpDown.Minimum, Form1.BackupFreqUpDown.Maximum)
+        )
         Form1.HelpToolTip.SetToolTip(Form1.SettingsConfirmExitChkBox, GetString("tooltip_confirm_exit"))
         Form1.HelpToolTip.SetToolTip(Form1.SettingsConfirmStopBackupChkBox, GetString("tooltip_confirm_backup_interruption"))
         Form1.HelpToolTip.SetToolTip(Form1.SettingsDisplayNotificationChkBox, GetString("tooltip_backup_notification"))

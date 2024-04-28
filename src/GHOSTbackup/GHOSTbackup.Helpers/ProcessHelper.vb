@@ -24,8 +24,8 @@
 ''
 #End Region
 
-Imports GHOSTbackup.UI
 Imports GHOSTbackup.BackupHelper
+Imports GHOSTbackup.UI
 
 Public Class ProcessHelper
     Private Shared WithEvents CheckProcessTimer As Timer = New Timer() With {.Interval = 500}
@@ -36,7 +36,9 @@ Public Class ProcessHelper
     End Sub
 
     Private Shared Sub CheckProcessTimer_Tick(sender As Object, e As EventArgs) Handles CheckProcessTimer.Tick
+        'TODO: Test Uplay+ version (GRW_Upp)
         Dim WildlandsProc = Process.GetProcessesByName("GRW")
+
         If WildlandsProc.Count > 0 Then
             IsGameRunning = True
             Form1.PlayGameBtn.Enabled = False
@@ -49,7 +51,12 @@ Public Class ProcessHelper
             If IsBackupRunning = True Then
                 StopBackup()
                 Logger.Log("[INFO] Wildlands has been closed or crashed. Backup interrupted.")
-                CustomMsgBox.Show(Localization.GetString("msgbox_wildlands_closed_crashed"), Localization.GetString("msgbox_wildlands_closed_crashed_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Warning)
+                CustomMsgBox.Show(
+                    Localization.GetString("msgbox_wildlands_closed_crashed"),
+                    Localization.GetString("msgbox_wildlands_closed_crashed_title"),
+                    CustomMsgBoxButtons.OKCancel,
+                    CustomMsgBoxIcon.Warning
+                )
             End If
         End If
     End Sub

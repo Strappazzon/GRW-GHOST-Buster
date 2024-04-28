@@ -57,7 +57,8 @@ Public Class Settings
             Config("Backup")("BackupDirectory") = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\Savegames"
             Config("Backup")("BackupFrequency") = "5"
             Config("Backup")("DisplayNotification") = "False"
-            Config("Backup")("WhichBackupToRestore") = "0" '0=Latest, 1=Second-to-Last
+            '0=Latest, 1=Second-to-Last
+            Config("Backup")("WhichBackupToRestore") = "0"
             'Uplay
             Config("Uplay")("DisableCloudSyncOnRestore") = "False"
             Config("Uplay")("EnableCloudSyncOnQuit") = "True"
@@ -146,55 +147,35 @@ Public Class Settings
         ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("GHOSTbackup")("Language")
-        If Value <> Nothing Then
-            Return Integer.Parse(Value)
-        Else
-            Return 0
-        End If
+        Return If(Value <> Nothing, Integer.Parse(Value), 0)
     End Function
 
     Private Shared Function ConfirmExit() As Boolean
         ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("GHOSTbackup")("ConfirmExit")
-        If Value <> Nothing Then
-            Return Boolean.Parse(Value)
-        Else
-            Return True
-        End If
+        Return If(Value <> Nothing, Boolean.Parse(Value), True)
     End Function
 
     Private Shared Function ConfirmBackupInterruption() As Boolean
         ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("GHOSTbackup")("ConfirmBackupInterruption")
-        If Value <> Nothing Then
-            Return Boolean.Parse(Value)
-        Else
-            Return False
-        End If
+        Return If(Value <> Nothing, Boolean.Parse(Value), False)
     End Function
 
     Private Shared Function CheckForUpdates() As Boolean
         ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("GHOSTbackup")("CheckForUpdates")
-        If Value <> Nothing Then
-            Return Boolean.Parse(Value)
-        Else
-            Return False
-        End If
+        Return If(Value <> Nothing, Boolean.Parse(Value), False)
     End Function
 
     Public Shared Function RememberFormPosition() As Boolean
         ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("GHOSTbackup")("RememberFormPosition")
-        If Value <> Nothing Then
-            Return Boolean.Parse(Value)
-        Else
-            Return False
-        End If
+        Return If(Value <> Nothing, Boolean.Parse(Value), False)
     End Function
 
     Public Shared Function FormPosition() As Point
@@ -204,6 +185,7 @@ Public Class Settings
         Dim C = Regex.Replace(Coordinates, "[\{\}a-zA-Z=]", "").Split(",")
 
         If Coordinates <> Nothing Then
+            'Convert from String ("C" RegEx) to System.Drawing.Point
             '//stackoverflow.com/a/10366689
             Return New Point(Integer.Parse(C(0)), Integer.Parse(C(1)))
         Else
@@ -217,22 +199,14 @@ Public Class Settings
         ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Logging")("WriteEventsToFile")
-        If Value <> Nothing Then
-            Return Boolean.Parse(Value)
-        Else
-            Return False
-        End If
+        Return If(Value <> Nothing, Boolean.Parse(Value), False)
     End Function
 
     Private Shared Function LogFilePath() As String
         ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Logging")("LogFilePath")
-        If Value <> "" Then
-            Return Value
-        Else
-            Return Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\event.log"
-        End If
+        Return If(Value <> "", Value, Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\GHOSTbackup\event.log")
     End Function
 #End Region
 
@@ -255,33 +229,21 @@ Public Class Settings
         ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Backup")("BackupFrequency")
-        If Value <> Nothing Then
-            Return Decimal.Round(Decimal.Parse(Value), 0)
-        Else
-            Return Decimal.Round(5, 0)
-        End If
+        Return If(Value <> Nothing, Decimal.Round(Decimal.Parse(Value), 0), Decimal.Round(5, 0))
     End Function
 
     Private Shared Function DisplayNotification() As Boolean
         ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Backup")("DisplayNotification")
-        If Value <> Nothing Then
-            Return Boolean.Parse(Value)
-        Else
-            Return False
-        End If
+        Return If(Value <> Nothing, Boolean.Parse(Value), False)
     End Function
 
     Private Shared Function WhichBackupToRestore() As Integer
         ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Backup")("WhichBackupToRestore")
-        If Value <> Nothing Then
-            Return Integer.Parse(Value)
-        Else
-            Return 0
-        End If
+        Return If(Value <> Nothing, Integer.Parse(Value), 0)
     End Function
 #End Region
 
@@ -290,33 +252,21 @@ Public Class Settings
         ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Uplay")("DisableCloudSyncOnRestore")
-        If Value <> Nothing Then
-            Return Boolean.Parse(Value)
-        Else
-            Return False
-        End If
+        Return If(Value <> Nothing, Boolean.Parse(Value), False)
     End Function
 
     Private Shared Function EnableCloudSyncOnQuit() As Boolean
         ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Uplay")("EnableCloudSyncOnQuit")
-        If Value <> Nothing Then
-            Return Boolean.Parse(Value)
-        Else
-            Return True
-        End If
+        Return If(Value <> Nothing, Boolean.Parse(Value), True)
     End Function
 
     Private Shared Function NoUplay() As Boolean
         ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("Uplay")("NoUplay")
-        If Value <> Nothing Then
-            Return Boolean.Parse(Value)
-        Else
-            Return False
-        End If
+        Return If(Value <> Nothing, Boolean.Parse(Value), False)
     End Function
 
     Private Shared Function WildlandsCustomPath() As String

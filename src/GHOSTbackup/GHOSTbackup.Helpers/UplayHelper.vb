@@ -24,10 +24,10 @@
 ''
 #End Region
 
-Imports Microsoft.Win32
 Imports System.IO
-Imports GHOSTbackup.UI
 Imports GHOSTbackup.BackupHelper
+Imports GHOSTbackup.UI
+Imports Microsoft.Win32
 
 Public Class UplayHelper
     Public Shared Property UplayPath As String = Nothing
@@ -43,7 +43,6 @@ Public Class UplayHelper
                 Else
                     Logger.Log("[WARNING] Uplay is not installed (""InstallDir"" is Null or Empty). Uplay is required to launch and play Wildlands.")
                 End If
-
             Catch ex As Exception
                 Logger.Log("[ERROR] Uplay is not installed: " & ex.Message().TrimEnd("."c) & "." & " Uplay is required to launch and play Wildlands.")
             End Try
@@ -63,7 +62,12 @@ Public Class UplayHelper
                 'Check if Uplay is running or not before editing its settings file
                 Dim UplayProc = Process.GetProcessesByName("upc")
                 If UplayProc.Count > 0 Then
-                    CustomMsgBox.Show(Localization.GetString("msgbox_quit_before_restore_sync"), Localization.GetString("msgbox_quit_before_restore_sync_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Warning)
+                    CustomMsgBox.Show(
+                        Localization.GetString("msgbox_quit_before_restore_sync"),
+                        Localization.GetString("msgbox_quit_before_restore_sync_title"),
+                        CustomMsgBoxButtons.OKCancel,
+                        CustomMsgBoxIcon.Warning
+                    )
                 Else
                     'Backup Uplay settings file without overwriting an existing backup
                     Logger.Log("[INFO] Backing up Uplay settings file to " & UplayYamlPath & ".bak")
@@ -89,13 +93,17 @@ Public Class UplayHelper
                 'Start the restore process
                 RestoreBackup()
             End If
-
         Catch ex As Exception
             'Don't let GHOST Buster disable cloud save sync until the user enables the setting again
             Form1.SettingsDisableCloudSyncChkBox.Checked = False
 
             Logger.Log("[ERROR] Parsing of ""settings.yml"" failed: " & ex.Message())
-            CustomMsgBox.Show(Localization.GetString("msgbox_disable_sync_error"), Localization.GetString("msgbox_parsing_error_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Error)
+            CustomMsgBox.Show(
+                Localization.GetString("msgbox_disable_sync_error"),
+                Localization.GetString("msgbox_parsing_error_title"),
+                CustomMsgBoxButtons.OKCancel,
+                CustomMsgBoxIcon.Error
+            )
 
             'Start the restore process anyway
             RestoreBackup()
@@ -114,7 +122,12 @@ Public Class UplayHelper
                 'Check if Uplay is running or not before editing its settings file
                 Dim UplayProc = Process.GetProcessesByName("upc")
                 If UplayProc.Count > 0 Then
-                    CustomMsgBox.Show(Localization.GetString("msgbox_enable_sync_uplay_error"), Localization.GetString("msgbox_enable_sync_uplay_error_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Warning)
+                    CustomMsgBox.Show(
+                        Localization.GetString("msgbox_enable_sync_uplay_error"),
+                        Localization.GetString("msgbox_enable_sync_uplay_error_title"),
+                        CustomMsgBoxButtons.OKCancel,
+                        CustomMsgBoxIcon.Warning
+                    )
                 Else
                     'Enable cloud save sync
                     Dim ReplacedUplayYaml As String = ParsedUplayYaml.Replace("syncsavegames: false", "syncsavegames: true")
@@ -127,7 +140,12 @@ Public Class UplayHelper
             End If
         Catch ex As Exception
             Logger.Log("[ERROR] Parsing of ""settings.yml"" failed: " & ex.Message())
-            CustomMsgBox.Show(Localization.GetString("msgbox_enable_sync_error"), Localization.GetString("msgbox_parsing_error_title"), CustomMsgBoxButtons.OKCancel, CustomMsgBoxIcon.Error)
+            CustomMsgBox.Show(
+                Localization.GetString("msgbox_enable_sync_error"),
+                Localization.GetString("msgbox_parsing_error_title"),
+                CustomMsgBoxButtons.OKCancel,
+                CustomMsgBoxIcon.Error
+            )
         End Try
     End Sub
 #End Region

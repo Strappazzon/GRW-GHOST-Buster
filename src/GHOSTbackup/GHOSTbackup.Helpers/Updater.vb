@@ -24,11 +24,11 @@
 ''
 #End Region
 
-Imports GHOSTbackup.UI
 Imports System.Net.Http
+Imports GHOSTbackup.UI
 
 Public Class Updater
-    Public Shared ReadOnly VersionString As String = ((My.Application.Info.Version).ToString()).Remove(5)
+    Public Shared ReadOnly VersionString As String = My.Application.Info.Version.ToString().Remove(5)
     Private Shared ReadOnly VersionCode As Integer = My.Application.Info.Version.Revision
     Private Shared ReadOnly VersionURI As Uri = New Uri("https://raw.githubusercontent.com/Strappazzon/GRW-GHOST-Buster/master/version")
 
@@ -47,7 +47,13 @@ Public Class Updater
                             Logger.Log("[INFO] GHOST Buster is up to date.")
                         Case > VersionCode
                             Logger.Log("[INFO] New version of GHOST Buster is available.")
-                            CustomMsgBox.Show(Localization.GetString("msgbox_update_available"), Localization.GetString("msgbox_update_available_title"), CustomMsgBoxButtons.YesNoCancel, CustomMsgBoxIcon.Question, CustomMsgBoxDefaultButton.Button2)
+                            CustomMsgBox.Show(
+                                Localization.GetString("msgbox_update_available"),
+                                Localization.GetString("msgbox_update_available_title"),
+                                CustomMsgBoxButtons.YesNoCancel,
+                                CustomMsgBoxIcon.Question,
+                                CustomMsgBoxDefaultButton.Button2
+                            )
                             If CustomMsgBox.DialogResult = DialogResult.Yes Then
                                 Process.Start("https://github.com/Strappazzon/GRW-GHOST-Buster/releases/latest")
                             End If
