@@ -5,6 +5,14 @@
 # User-specific files
 **/*.user
 
+# Project data
+**/My Project/*
+!**/My Project/app.manifest
+!**/My Project/Application.Designer.vb
+!**/My Project/*.myapp
+!**/My Project/AssemblyInfo.vb
+!**/My Project/Resources*
+
 # Build results
 **/[Oo]bj
 **/[Oo]bj/*
