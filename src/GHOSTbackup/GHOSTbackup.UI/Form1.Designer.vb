@@ -57,6 +57,7 @@ Partial Class Form1
         Me.LogsContainer = New System.Windows.Forms.Panel()
         Me.SettingsRememberFormPositionChkBox = New System.Windows.Forms.CheckBox()
         Me.SettingsContainer = New System.Windows.Forms.Panel()
+        Me.SettingsInterfaceLangDropdown = New GHOSTbackup.UI.Controls.CustomDropdown()
         Me.SettingsDisplayNotificationChkBox = New System.Windows.Forms.CheckBox()
         Me.SettingsInterfaceLang = New System.Windows.Forms.Label()
         Me.SettingsNonUplayVersionRestartLabel = New System.Windows.Forms.Label()
@@ -64,7 +65,6 @@ Partial Class Form1
         Me.SettingsLangRestartLabel = New System.Windows.Forms.Label()
         Me.SettingsWriteLogToFileChkBox = New System.Windows.Forms.CheckBox()
         Me.SettingsEnableCloudSyncChkBox = New System.Windows.Forms.CheckBox()
-        Me.SettingsInterfaceLangDropdown = New System.Windows.Forms.ComboBox()
         Me.SettingsLogFilePathTextBox = New System.Windows.Forms.TextBox()
         Me.SettingsBrowseLogFileBtn = New System.Windows.Forms.Button()
         Me.SettingsOpenLogBtn = New System.Windows.Forms.Button()
@@ -78,9 +78,9 @@ Partial Class Form1
         Me.BrowseBackupLocBtn = New System.Windows.Forms.Button()
         Me.FoldersTitleLabel = New System.Windows.Forms.Label()
         Me.TasksContainer = New System.Windows.Forms.Panel()
+        Me.WhichBackupDropdown = New GHOSTbackup.UI.Controls.CustomDropdown()
         Me.BackupFreqHelp2Label = New System.Windows.Forms.Label()
         Me.BackupFreqUpDown = New System.Windows.Forms.NumericUpDown()
-        Me.WhichBackupDropdown = New System.Windows.Forms.ComboBox()
         Me.BackupBtn = New System.Windows.Forms.Button()
         Me.StopBtn = New System.Windows.Forms.Button()
         Me.RestoreBtn = New System.Windows.Forms.Button()
@@ -538,6 +538,7 @@ Partial Class Form1
         Me.SettingsContainer.AutoScrollMargin = New System.Drawing.Size(0, 12)
         Me.SettingsContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(18, Byte), Integer), CType(CType(21, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.SettingsContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.SettingsContainer.Controls.Add(Me.SettingsInterfaceLangDropdown)
         Me.SettingsContainer.Controls.Add(Me.SettingsDisplayNotificationChkBox)
         Me.SettingsContainer.Controls.Add(Me.SettingsInterfaceLang)
         Me.SettingsContainer.Controls.Add(Me.SettingsConfirmExitChkBox)
@@ -546,7 +547,6 @@ Partial Class Form1
         Me.SettingsContainer.Controls.Add(Me.SettingsLangRestartLabel)
         Me.SettingsContainer.Controls.Add(Me.SettingsWriteLogToFileChkBox)
         Me.SettingsContainer.Controls.Add(Me.SettingsEnableCloudSyncChkBox)
-        Me.SettingsContainer.Controls.Add(Me.SettingsInterfaceLangDropdown)
         Me.SettingsContainer.Controls.Add(Me.SettingsLogFilePathTextBox)
         Me.SettingsContainer.Controls.Add(Me.SettingsRememberFormPositionChkBox)
         Me.SettingsContainer.Controls.Add(Me.SettingsBrowseLogFileBtn)
@@ -563,6 +563,21 @@ Partial Class Form1
         Me.SettingsContainer.Name = "SettingsContainer"
         Me.SettingsContainer.Size = New System.Drawing.Size(497, 299)
         Me.SettingsContainer.TabIndex = 12
+        '
+        'SettingsInterfaceLangDropdown
+        '
+        Me.SettingsInterfaceLangDropdown.BorderColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.SettingsInterfaceLangDropdown.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.SettingsInterfaceLangDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.SettingsInterfaceLangDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SettingsInterfaceLangDropdown.Font = New System.Drawing.Font("Segoe UI", 9.5!)
+        Me.SettingsInterfaceLangDropdown.FormattingEnabled = True
+        Me.SettingsInterfaceLangDropdown.ItemFont = Nothing
+        Me.SettingsInterfaceLangDropdown.Items.AddRange(New Object() {"English", "Italiano"})
+        Me.SettingsInterfaceLangDropdown.Location = New System.Drawing.Point(14, 39)
+        Me.SettingsInterfaceLangDropdown.Name = "SettingsInterfaceLangDropdown"
+        Me.SettingsInterfaceLangDropdown.Size = New System.Drawing.Size(450, 25)
+        Me.SettingsInterfaceLangDropdown.TabIndex = 1
         '
         'SettingsDisplayNotificationChkBox
         '
@@ -664,19 +679,6 @@ Partial Class Form1
         Me.HelpToolTip.SetToolTip(Me.SettingsEnableCloudSyncChkBox, "If checked, GHOST Buster will enable  Uplay cloud save synchronization again befo" &
         "re  quitting.")
         Me.SettingsEnableCloudSyncChkBox.UseVisualStyleBackColor = False
-        '
-        'SettingsInterfaceLangDropdown
-        '
-        Me.SettingsInterfaceLangDropdown.BackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
-        Me.SettingsInterfaceLangDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.SettingsInterfaceLangDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.SettingsInterfaceLangDropdown.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SettingsInterfaceLangDropdown.ForeColor = System.Drawing.Color.White
-        Me.SettingsInterfaceLangDropdown.Items.AddRange(New Object() {"English", "Italiano"})
-        Me.SettingsInterfaceLangDropdown.Location = New System.Drawing.Point(14, 39)
-        Me.SettingsInterfaceLangDropdown.Name = "SettingsInterfaceLangDropdown"
-        Me.SettingsInterfaceLangDropdown.Size = New System.Drawing.Size(450, 25)
-        Me.SettingsInterfaceLangDropdown.TabIndex = 1
         '
         'SettingsLogFilePathTextBox
         '
@@ -876,9 +878,9 @@ Partial Class Form1
         '
         Me.TasksContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
         Me.TasksContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TasksContainer.Controls.Add(Me.WhichBackupDropdown)
         Me.TasksContainer.Controls.Add(Me.BackupFreqHelp2Label)
         Me.TasksContainer.Controls.Add(Me.BackupFreqUpDown)
-        Me.TasksContainer.Controls.Add(Me.WhichBackupDropdown)
         Me.TasksContainer.Controls.Add(Me.BackupBtn)
         Me.TasksContainer.Controls.Add(Me.StopBtn)
         Me.TasksContainer.Controls.Add(Me.WhichBackupLabel)
@@ -891,6 +893,21 @@ Partial Class Form1
         Me.TasksContainer.Name = "TasksContainer"
         Me.TasksContainer.Size = New System.Drawing.Size(497, 115)
         Me.TasksContainer.TabIndex = 6
+        '
+        'WhichBackupDropdown
+        '
+        Me.WhichBackupDropdown.BorderColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.WhichBackupDropdown.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.WhichBackupDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.WhichBackupDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.WhichBackupDropdown.Font = New System.Drawing.Font("Segoe UI", 9.5!)
+        Me.WhichBackupDropdown.ItemFont = Nothing
+        Me.WhichBackupDropdown.Items.AddRange(New Object() {"Latest", "Second-to-last"})
+        Me.WhichBackupDropdown.Location = New System.Drawing.Point(12, 78)
+        Me.WhichBackupDropdown.MaxDropDownItems = 2
+        Me.WhichBackupDropdown.Name = "WhichBackupDropdown"
+        Me.WhichBackupDropdown.Size = New System.Drawing.Size(286, 25)
+        Me.WhichBackupDropdown.TabIndex = 5
         '
         'BackupFreqHelp2Label
         '
@@ -918,19 +935,6 @@ Partial Class Form1
         Me.BackupFreqUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.BackupFreqUpDown.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
         Me.BackupFreqUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
-        '
-        'WhichBackupDropdown
-        '
-        Me.WhichBackupDropdown.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(26, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.WhichBackupDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.WhichBackupDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.WhichBackupDropdown.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.WhichBackupDropdown.ForeColor = System.Drawing.Color.White
-        Me.WhichBackupDropdown.Items.AddRange(New Object() {"Latest", "Second-to-last"})
-        Me.WhichBackupDropdown.Location = New System.Drawing.Point(12, 78)
-        Me.WhichBackupDropdown.Name = "WhichBackupDropdown"
-        Me.WhichBackupDropdown.Size = New System.Drawing.Size(286, 25)
-        Me.WhichBackupDropdown.TabIndex = 5
         '
         'BackupBtn
         '
@@ -1328,9 +1332,7 @@ Partial Class Form1
     Friend WithEvents HelpToolTip As ToolTip
     Friend WithEvents SettingsEnableCloudSyncChkBox As CheckBox
     Friend WithEvents SettingsDisplayNotificationChkBox As CheckBox
-    Friend WithEvents WhichBackupDropdown As ComboBox
     Friend WithEvents SettingsInterfaceLang As Label
-    Friend WithEvents SettingsInterfaceLangDropdown As ComboBox
     Friend WithEvents SettingsLangRestartLabel As Label
     Friend WithEvents AlertDot As PictureBox
     Friend WithEvents WebsiteLink As CheckBox
@@ -1352,4 +1354,6 @@ Partial Class Form1
     Friend WithEvents ManageContextMenuSeparator2 As ToolStripSeparator
     Friend WithEvents ExplorerManageContextMenuItem As ToolStripMenuItem
     Friend WithEvents RefreshManageContextMenuItem As ToolStripMenuItem
+    Friend WithEvents WhichBackupDropdown As UI.Controls.CustomDropdown
+    Friend WithEvents SettingsInterfaceLangDropdown As UI.Controls.CustomDropdown
 End Class
