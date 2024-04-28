@@ -120,33 +120,18 @@ Fixes: https://github.com/Strappazzon/GRW-GHOST-Buster/issues/1771
 This is a brief description on how the repository files and folders are structured and what each one contains.  
 It only contains the most relevant files and folders as some of them are self-explanatory.
 
-For more information on the SCSS file structure, see [The 7-1 Pattern](https://sass-guidelin.es/#the-7-1-pattern).
-
 ```sh
 .
-├── _components            # Website components such like header or cards
-├── _data                  # Website data in YAML format
-├── _plugins               # Jekyll plugins written in Ruby
-├── _sass                  # SCSS Stylesheets ...
-│   ├── abstracts          # ... with functions, mixins, variables and so on
-│   ├── base               # ... with global styles
-│   ├── components         # ... for website components
-│   ├── layout             # ... for layout elements (buttons, header, ...)
-│   ├── pages              # ... for Jekyll templates
-│   └── themes
-│       ├── _syntax.scss   # ... for Rouge syntax highlighter
-│       └── _terminal.scss # ... for Terminal component themes
-├── _templates             # Jekyll templates for web pages like homepage or blog posts
-├── .cloudflare            # Cloudflare configuration files
-├── .github
-│   └── labeler.yml        # "actions/labeler" configuration
-├── .well-known            # RFC 8615 URIs
-├── bin                    # Scripts
-├── static                 # Website static files
-│   └── psd                # PSD files of images, these are not published
-├── _config.yml            # Jekyll configuration
-├── .nvmrc                 # Version of Node.js Node Version Manager should use
-├── feed.xml               # Atom feed
-├── frontmatter.json       # VS Code eliostruyf.vscode-front-matter configiguration
-└── SUPPORT.md             # Support resources
+├── docs                             # Website source
+├── src                              # GHOST Buster source
+│   ├── GHOSTbackup
+│   │   ├── GHOSTbackup.Helpers      # Helper classes
+│   │   ├── GHOSTbackup.Localization # Localization manager and strings
+│   │   ├── GHOSTbackup.UI           # UI components
+│   │   │   └── Controls             # Custom controls
+│   │   ├── My Project               # Project data and configuration
+│   │   └── Resources                # Assets
+│   └── Licenses                     # Third party license notices
+├── SUPPORT.md                       # Support resources
+└── version                          # Version number used bu GHOST Buster updater
 ```
