@@ -314,6 +314,8 @@ Partial Class Form1
         '
         Me.SettingsCheckUpdatesChkBox.AutoSize = True
         Me.SettingsCheckUpdatesChkBox.BackColor = System.Drawing.Color.Transparent
+        Me.SettingsCheckUpdatesChkBox.Checked = True
+        Me.SettingsCheckUpdatesChkBox.CheckState = System.Windows.Forms.CheckState.Checked
         Me.SettingsCheckUpdatesChkBox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SettingsCheckUpdatesChkBox.ForeColor = System.Drawing.Color.White
         Me.SettingsCheckUpdatesChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft

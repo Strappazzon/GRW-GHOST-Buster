@@ -46,7 +46,7 @@ Public Class Settings
             Config("GHOSTbackup")("Language") = "0" 'See Localization.GetLanguage() function
             Config("GHOSTbackup")("ConfirmExit") = "True"
             Config("GHOSTbackup")("ConfirmBackupInterruption") = "False"
-            Config("GHOSTbackup")("CheckForUpdates") = "False"
+            Config("GHOSTbackup")("CheckForUpdates") = "True"
             Config("GHOSTbackup")("RememberFormPosition") = "False"
             Config("GHOSTbackup")("FormPosition") = "{X=-1,Y=-1}"
             'Logging
@@ -168,7 +168,7 @@ Public Class Settings
         ConfigData = ConfigParser.ReadFile(SettingsFile)
 
         Dim Value As String = ConfigData("GHOSTbackup")("CheckForUpdates")
-        Return If(Value <> Nothing, Boolean.Parse(Value), False)
+        Return If(Value <> Nothing, Boolean.Parse(Value), True)
     End Function
 
     Public Shared Function RememberFormPosition() As Boolean
