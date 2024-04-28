@@ -598,9 +598,9 @@ Partial Class Form1
         Me.SettingsNonUplayVersionRestartLabel.ForeColor = System.Drawing.Color.Silver
         Me.SettingsNonUplayVersionRestartLabel.Location = New System.Drawing.Point(24, 356)
         Me.SettingsNonUplayVersionRestartLabel.Name = "SettingsNonUplayVersionRestartLabel"
-        Me.SettingsNonUplayVersionRestartLabel.Size = New System.Drawing.Size(385, 13)
+        Me.SettingsNonUplayVersionRestartLabel.Size = New System.Drawing.Size(389, 13)
         Me.SettingsNonUplayVersionRestartLabel.TabIndex = 14
-        Me.SettingsNonUplayVersionRestartLabel.Text = "You'll need to restart GHOST Buster in order for the change to take effect."
+        Me.SettingsNonUplayVersionRestartLabel.Text = "You'll need to reopen GHOST Buster in order for the change to take effect."
         '
         'SettingsDisableCloudSyncChkBox
         '
@@ -611,9 +611,9 @@ Partial Class Form1
         Me.SettingsDisableCloudSyncChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.SettingsDisableCloudSyncChkBox.Location = New System.Drawing.Point(12, 184)
         Me.SettingsDisableCloudSyncChkBox.Name = "SettingsDisableCloudSyncChkBox"
-        Me.SettingsDisableCloudSyncChkBox.Size = New System.Drawing.Size(332, 21)
+        Me.SettingsDisableCloudSyncChkBox.Size = New System.Drawing.Size(392, 21)
         Me.SettingsDisableCloudSyncChkBox.TabIndex = 6
-        Me.SettingsDisableCloudSyncChkBox.Text = "Disable Uplay cloud save synchronization on restore"
+        Me.SettingsDisableCloudSyncChkBox.Text = "Disable Ubisoft Connect cloud save synchronization on restore"
         Me.HelpToolTip.SetToolTip(Me.SettingsDisableCloudSyncChkBox, "If checked, GHOST Buster will disable Uplay cloud save synchronization before res" &
         "toring a backup.")
         Me.SettingsDisableCloudSyncChkBox.UseVisualStyleBackColor = False
@@ -656,9 +656,9 @@ Partial Class Form1
         Me.SettingsEnableCloudSyncChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.SettingsEnableCloudSyncChkBox.Location = New System.Drawing.Point(12, 212)
         Me.SettingsEnableCloudSyncChkBox.Name = "SettingsEnableCloudSyncChkBox"
-        Me.SettingsEnableCloudSyncChkBox.Size = New System.Drawing.Size(306, 21)
+        Me.SettingsEnableCloudSyncChkBox.Size = New System.Drawing.Size(366, 21)
         Me.SettingsEnableCloudSyncChkBox.TabIndex = 7
-        Me.SettingsEnableCloudSyncChkBox.Text = "Enable Uplay cloud save synchronization on exit"
+        Me.SettingsEnableCloudSyncChkBox.Text = "Enable Ubisoft Connect cloud save synchronization on exit"
         Me.HelpToolTip.SetToolTip(Me.SettingsEnableCloudSyncChkBox, "If checked, GHOST Buster will enable  Uplay cloud save synchronization again befo" &
         "re  quitting.")
         Me.SettingsEnableCloudSyncChkBox.UseVisualStyleBackColor = False
@@ -734,9 +734,9 @@ Partial Class Form1
         Me.SettingsNonUplayVersionChkBox.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.SettingsNonUplayVersionChkBox.Location = New System.Drawing.Point(12, 296)
         Me.SettingsNonUplayVersionChkBox.Name = "SettingsNonUplayVersionChkBox"
-        Me.SettingsNonUplayVersionChkBox.Size = New System.Drawing.Size(284, 21)
+        Me.SettingsNonUplayVersionChkBox.Size = New System.Drawing.Size(207, 21)
         Me.SettingsNonUplayVersionChkBox.TabIndex = 10
-        Me.SettingsNonUplayVersionChkBox.Text = "I'm not using the Uplay version of Wildlands"
+        Me.SettingsNonUplayVersionChkBox.Text = "Manually locate installed game"
         Me.SettingsNonUplayVersionChkBox.UseVisualStyleBackColor = False
         '
         'SettingsOpenCustomExeFolderBtn

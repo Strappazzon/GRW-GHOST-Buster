@@ -266,10 +266,10 @@
     <value>Scrivi gli eventi in un file di log</value>
   </data>
   <data name="ui_settings_nouplay" xml:space="preserve">
-    <value>Non sto usando la versione Ubisoft Connect di Wildlands</value>
+    <value>Trova manualmente l'installazione del gioco</value>
   </data>
   <data name="ui_settings_restart" xml:space="preserve">
-    <value>Dovrai riavviare GHOST Buster per rendere effettivi i cambiamenti.</value>
+    <value>Dovrai riaprire GHOST Buster per rendere effettivi i cambiamenti.</value>
   </data>
   <data name="ui_tasks_backup" xml:space="preserve">
     <value>Avvia\nBackup</value>

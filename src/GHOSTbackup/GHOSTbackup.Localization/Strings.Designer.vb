@@ -1154,7 +1154,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to I&apos;m not using the Ubisoft Connect version of Wildlands.
+        '''  Looks up a localized string similar to Manually locate installed game.
         '''</summary>
         Friend Shared ReadOnly Property ui_settings_nouplay() As String
             Get
@@ -1163,7 +1163,7 @@ Namespace Languages
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to You&apos;ll need to restart GHOST Buster in order for the change to take effect..
+        '''  Looks up a localized string similar to You&apos;ll need to reopen GHOST Buster in order for the change to take effect..
         '''</summary>
         Friend Shared ReadOnly Property ui_settings_restart() As String
             Get

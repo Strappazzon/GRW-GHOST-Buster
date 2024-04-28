@@ -302,10 +302,10 @@
     <value>Write events to a log file</value>
   </data>
   <data name="ui_settings_nouplay" xml:space="preserve">
-    <value>I'm not using the Ubisoft Connect version of Wildlands</value>
+    <value>Manually locate installed game</value>
   </data>
   <data name="ui_settings_restart" xml:space="preserve">
-    <value>You'll need to restart GHOST Buster in order for the change to take effect.</value>
+    <value>You'll need to reopen GHOST Buster in order for the change to take effect.</value>
   </data>
   <data name="ui_tasks_backup" xml:space="preserve">
     <value>Start\nBackup</value>
