@@ -2,6 +2,9 @@
 **/.vs/
 **/_ReSharper.Caches/
 
+# User-specific files
+**/*.user
+
 # Build results
 **/[Oo]bj
 **/[Oo]bj/*
@@ -10,15 +13,16 @@
 **/[Dd]ebug
 **/[Rr]elease
 
-# Compiled source
-**/*.exe
-**/*.dll
-
 # Compiled localization files
 **/*.resources
 
-# User-specific files
-**/*.user
+# Custom application assets/resources
+!**/[Rr]es
+**/[Rr]es/GRW/
+!**/[Rr]esources
+**/[Rr]esources/GRW/
+**/*.ico
+**/!Icon_256.ico
 
 # NuGet Packages
 # //docs.microsoft.com/en-us/nuget/consume-packages/packages-and-source-control
@@ -33,19 +37,12 @@
 !.vscode/launch.json
 !.vscode/settings.json
 
-# Custom application assets/resources
-!**/[Rr]es
-**/[Rr]es/GRW/
-!**/[Rr]esources
-**/[Rr]esources/GRW/
-**/*.ico
-**/!Icon_256.ico
+# Jekyll
+**/.jekyll-cache
+**/_site*
 
 # Junk Files
 **/[Tt]humbs.db
-
-# Jekyll
-**/_site*
 
 /.release
 **/TODO.txt
