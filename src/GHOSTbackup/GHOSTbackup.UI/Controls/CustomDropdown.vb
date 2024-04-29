@@ -30,7 +30,9 @@ Imports System.ComponentModel
 Imports System.Drawing.Drawing2D
 
 Namespace UI.Controls
+    <Description("Dropdown control that (tries to) mimics the Uplay design.")>
     <DesignerCategory("Code")>
+    <ToolboxBitmap(GetType(ComboBox))>
     Public Class CustomDropdown
         Inherits ComboBox
         'Custom ComboBox Class
