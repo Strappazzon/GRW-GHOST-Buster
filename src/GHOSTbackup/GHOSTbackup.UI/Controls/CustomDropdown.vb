@@ -26,9 +26,11 @@
 ''
 #End Region
 
+Imports System.ComponentModel
 Imports System.Drawing.Drawing2D
 
 Namespace UI.Controls
+    <DesignerCategory("Code")>
     Public Class CustomDropdown
         Inherits ComboBox
         'Custom ComboBox Class

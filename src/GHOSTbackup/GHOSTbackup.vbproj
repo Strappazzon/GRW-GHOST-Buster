@@ -96,9 +96,7 @@
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
     <Compile Include="GHOSTbackup.UI\Banner.vb" />
-    <Compile Include="GHOSTbackup.UI\Controls\CustomDropdown.vb">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="GHOSTbackup.UI\Controls\CustomDropdown.vb" />
     <Compile Include="GHOSTbackup.UI\CustomMsgBox.Designer.vb">
       <DependentUpon>CustomMsgBox.vb</DependentUpon>
     </Compile>
