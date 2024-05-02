@@ -35,7 +35,7 @@ Namespace UI.Controls
     <ToolboxBitmap(GetType(ComboBox))>
     Public Class CustomDropdown
         Inherits ComboBox
-        'Custom ComboBox Class
+        'Custom ComboBox Control
         '//stackoverflow.com/a/34886006
 
 #If DEBUG Then
@@ -61,6 +61,7 @@ Namespace UI.Controls
             End Set
         End Property
 
+        <Description("The border color of the component.")>
         Public Property BorderColor As Color
             Get
                 Return _BorderColor
@@ -81,6 +82,8 @@ Namespace UI.Controls
             End Set
         End Property
 
+        <Browsable(False)>
+        <Description("The font used to display text in the dropdown items.")>
         Public Property ItemFont As Font
             Get
                 Return _ItemFont
@@ -91,6 +94,8 @@ Namespace UI.Controls
             End Set
         End Property
 
+        <Browsable(True)>
+        <Description("Specifies space between this control and another element's margin inside of it.")>
         Public Overloads Property Padding As Padding
             Get
                 Return _Padding
