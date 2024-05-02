@@ -145,9 +145,9 @@ Namespace UI.Controls
             '//www.experts-exchange.com/questions/27055001/Change-Combobox-Dropdown-Arrow-Image.html#answer35831737-20
             Using ArrowBrush As SolidBrush = New SolidBrush(BorderColor)
                 Dim Points As Point() = New Point(2) {
-                    New Point(Width - 20, (Height / 2) - 3),
-                    New Point(Width - 9, (Height / 2) - 3),
-                    New Point(Width - 15, (Height / 2) + 3)
+                    New Point(Width - 18, (Height / 2) - 3),
+                    New Point(Width - 7, (Height / 2) - 3),
+                    New Point(Width - 13, (Height / 2) + 3)
                 }
 
                 e.Graphics.FillPolygon(ArrowBrush, Points)
