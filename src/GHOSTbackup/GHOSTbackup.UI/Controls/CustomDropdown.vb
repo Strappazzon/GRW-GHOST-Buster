@@ -42,7 +42,7 @@ Namespace UI.Controls
 #Const DEBUG_DRAW = False
 #End If
 
-        Private Const WM_PAINT As UInteger = 15
+        Private Const WM_PAINT As Integer = 15
 
         Private _BackColor As Color = Color.FromArgb(255, 17, 20, 25)
         Private _BorderColor As Color = Color.FromArgb(255, 160, 160, 160)
