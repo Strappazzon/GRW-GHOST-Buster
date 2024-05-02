@@ -97,6 +97,7 @@
     </Compile>
     <Compile Include="GHOSTbackup.UI\Banner.vb" />
     <Compile Include="GHOSTbackup.UI\Controls\CustomDropdown.vb" />
+    <Compile Include="GHOSTbackup.UI\Controls\CustomNumericUpDown.vb" />
     <Compile Include="GHOSTbackup.UI\CustomMsgBox.Designer.vb">
       <DependentUpon>CustomMsgBox.vb</DependentUpon>
     </Compile>

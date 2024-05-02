@@ -80,7 +80,6 @@ Partial Class Form1
         Me.TasksContainer = New System.Windows.Forms.Panel()
         Me.WhichBackupDropdown = New GHOSTbackup.UI.Controls.CustomDropdown()
         Me.BackupFreqHelp2Label = New System.Windows.Forms.Label()
-        Me.BackupFreqUpDown = New System.Windows.Forms.NumericUpDown()
         Me.BackupBtn = New System.Windows.Forms.Button()
         Me.StopBtn = New System.Windows.Forms.Button()
         Me.RestoreBtn = New System.Windows.Forms.Button()
@@ -101,6 +100,7 @@ Partial Class Form1
         Me.DeleteAllManageContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ManageContextMenuSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExplorerManageContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BackupFreqUpDown = New GHOSTbackup.UI.Controls.CustomNumericUpDown()
         Me.LogsContextMenu.SuspendLayout()
         Me.TopMenuContainer.SuspendLayout()
         CType(Me.AlertDot, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,11 +110,11 @@ Partial Class Form1
         Me.SettingsContainer.SuspendLayout()
         Me.FoldersContainer.SuspendLayout()
         Me.TasksContainer.SuspendLayout()
-        CType(Me.BackupFreqUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LogoBigPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ManageContainer.SuspendLayout()
         CType(Me.BackupsDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ManageContextMenu.SuspendLayout()
+        CType(Me.BackupFreqUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SavegamesLocTextBox
@@ -920,22 +920,6 @@ Partial Class Form1
         Me.BackupFreqHelp2Label.TabIndex = 8
         Me.BackupFreqHelp2Label.Text = "minutes."
         '
-        'BackupFreqUpDown
-        '
-        Me.BackupFreqUpDown.BackColor = System.Drawing.Color.FromArgb(CType(CType(22, Byte), Integer), CType(CType(26, Byte), Integer), CType(CType(31, Byte), Integer))
-        Me.BackupFreqUpDown.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.BackupFreqUpDown.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BackupFreqUpDown.ForeColor = System.Drawing.Color.White
-        Me.BackupFreqUpDown.Location = New System.Drawing.Point(309, 78)
-        Me.BackupFreqUpDown.Maximum = New Decimal(New Integer() {180, 0, 0, 0})
-        Me.BackupFreqUpDown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.BackupFreqUpDown.Name = "BackupFreqUpDown"
-        Me.BackupFreqUpDown.Size = New System.Drawing.Size(120, 25)
-        Me.BackupFreqUpDown.TabIndex = 7
-        Me.BackupFreqUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.BackupFreqUpDown.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left
-        Me.BackupFreqUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
-        '
         'BackupBtn
         '
         Me.BackupBtn.BackColor = System.Drawing.Color.Transparent
@@ -1228,6 +1212,23 @@ Partial Class Form1
         Me.ExplorerManageContextMenuItem.Text = "Show in Explorer"
         Me.ExplorerManageContextMenuItem.ToolTipText = "Open the selected backup folder in Windows Explorer."
         '
+        'BackupFreqUpDown
+        '
+        Me.BackupFreqUpDown.BackColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.BackupFreqUpDown.BorderColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.BackupFreqUpDown.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.BackupFreqUpDown.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.BackupFreqUpDown.ForeColor = System.Drawing.Color.White
+        Me.BackupFreqUpDown.Increment = New Decimal(New Integer() {5, 0, 0, 0})
+        Me.BackupFreqUpDown.Location = New System.Drawing.Point(327, 76)
+        Me.BackupFreqUpDown.Maximum = New Decimal(New Integer() {180, 0, 0, 0})
+        Me.BackupFreqUpDown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.BackupFreqUpDown.Name = "BackupFreqUpDown"
+        Me.BackupFreqUpDown.Size = New System.Drawing.Size(75, 25)
+        Me.BackupFreqUpDown.TabIndex = 7
+        Me.BackupFreqUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.BackupFreqUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1273,11 +1274,11 @@ Partial Class Form1
         Me.FoldersContainer.PerformLayout()
         Me.TasksContainer.ResumeLayout(False)
         Me.TasksContainer.PerformLayout()
-        CType(Me.BackupFreqUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LogoBigPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ManageContainer.ResumeLayout(False)
         CType(Me.BackupsDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ManageContextMenu.ResumeLayout(False)
+        CType(Me.BackupFreqUpDown, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1341,7 +1342,6 @@ Partial Class Form1
     Friend WithEvents LicenseLink As CheckBox
     Friend WithEvents SidemenuTasks As CheckBox
     Friend WithEvents SidemenuSettings As CheckBox
-    Friend WithEvents BackupFreqUpDown As NumericUpDown
     Friend WithEvents BackupFreqHelp2Label As Label
     Friend WithEvents SidemenuManage As CheckBox
     Friend WithEvents ManageContainer As Panel
@@ -1356,4 +1356,5 @@ Partial Class Form1
     Friend WithEvents RefreshManageContextMenuItem As ToolStripMenuItem
     Friend WithEvents WhichBackupDropdown As UI.Controls.CustomDropdown
     Friend WithEvents SettingsInterfaceLangDropdown As UI.Controls.CustomDropdown
+    Friend WithEvents BackupFreqUpDown As UI.Controls.CustomNumericUpDown
 End Class
