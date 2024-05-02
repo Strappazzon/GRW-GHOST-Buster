@@ -24,9 +24,9 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.SavegamesLocTextBox = New System.Windows.Forms.TextBox()
         Me.BackupLocTextBox = New System.Windows.Forms.TextBox()
         Me.ExploreSavegamesLocBtn = New System.Windows.Forms.Button()
@@ -57,7 +57,6 @@ Partial Class Form1
         Me.LogsContainer = New System.Windows.Forms.Panel()
         Me.SettingsRememberFormPositionChkBox = New System.Windows.Forms.CheckBox()
         Me.SettingsContainer = New System.Windows.Forms.Panel()
-        Me.SettingsInterfaceLangDropdown = New GHOSTbackup.UI.Controls.CustomDropdown()
         Me.SettingsDisplayNotificationChkBox = New System.Windows.Forms.CheckBox()
         Me.SettingsInterfaceLang = New System.Windows.Forms.Label()
         Me.SettingsNonUplayVersionRestartLabel = New System.Windows.Forms.Label()
@@ -78,7 +77,6 @@ Partial Class Form1
         Me.BrowseBackupLocBtn = New System.Windows.Forms.Button()
         Me.FoldersTitleLabel = New System.Windows.Forms.Label()
         Me.TasksContainer = New System.Windows.Forms.Panel()
-        Me.WhichBackupDropdown = New GHOSTbackup.UI.Controls.CustomDropdown()
         Me.BackupFreqHelp2Label = New System.Windows.Forms.Label()
         Me.BackupBtn = New System.Windows.Forms.Button()
         Me.StopBtn = New System.Windows.Forms.Button()
@@ -101,6 +99,9 @@ Partial Class Form1
         Me.ManageContextMenuSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExplorerManageContextMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BackupFreqUpDown = New GHOSTbackup.UI.Controls.CustomNumericUpDown()
+        Me.WhichBackupDropdown = New GHOSTbackup.UI.Controls.CustomDropdown()
+        Me.SettingsInterfaceLangDropdown = New GHOSTbackup.UI.Controls.CustomDropdown()
+        Me.TasksSeparator = New GHOSTbackup.UI.Controls.Separator()
         Me.LogsContextMenu.SuspendLayout()
         Me.TopMenuContainer.SuspendLayout()
         CType(Me.AlertDot, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -200,7 +201,7 @@ Partial Class Form1
         Me.BackupFreqHelp1Label.AutoSize = True
         Me.BackupFreqHelp1Label.BackColor = System.Drawing.Color.Transparent
         Me.BackupFreqHelp1Label.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BackupFreqHelp1Label.Location = New System.Drawing.Point(306, 56)
+        Me.BackupFreqHelp1Label.Location = New System.Drawing.Point(324, 54)
         Me.BackupFreqHelp1Label.Name = "BackupFreqHelp1Label"
         Me.BackupFreqHelp1Label.Size = New System.Drawing.Size(110, 17)
         Me.BackupFreqHelp1Label.TabIndex = 6
@@ -564,21 +565,6 @@ Partial Class Form1
         Me.SettingsContainer.Size = New System.Drawing.Size(497, 299)
         Me.SettingsContainer.TabIndex = 12
         '
-        'SettingsInterfaceLangDropdown
-        '
-        Me.SettingsInterfaceLangDropdown.BorderColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.SettingsInterfaceLangDropdown.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.SettingsInterfaceLangDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.SettingsInterfaceLangDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.SettingsInterfaceLangDropdown.Font = New System.Drawing.Font("Segoe UI", 9.5!)
-        Me.SettingsInterfaceLangDropdown.FormattingEnabled = True
-        Me.SettingsInterfaceLangDropdown.ItemFont = Nothing
-        Me.SettingsInterfaceLangDropdown.Items.AddRange(New Object() {"English", "Italiano"})
-        Me.SettingsInterfaceLangDropdown.Location = New System.Drawing.Point(14, 39)
-        Me.SettingsInterfaceLangDropdown.Name = "SettingsInterfaceLangDropdown"
-        Me.SettingsInterfaceLangDropdown.Size = New System.Drawing.Size(450, 25)
-        Me.SettingsInterfaceLangDropdown.TabIndex = 1
-        '
         'SettingsDisplayNotificationChkBox
         '
         Me.SettingsDisplayNotificationChkBox.AutoSize = True
@@ -799,7 +785,7 @@ Partial Class Form1
         Me.WhichBackupLabel.BackColor = System.Drawing.Color.Transparent
         Me.WhichBackupLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.WhichBackupLabel.ForeColor = System.Drawing.Color.White
-        Me.WhichBackupLabel.Location = New System.Drawing.Point(10, 56)
+        Me.WhichBackupLabel.Location = New System.Drawing.Point(10, 54)
         Me.WhichBackupLabel.Name = "WhichBackupLabel"
         Me.WhichBackupLabel.Size = New System.Drawing.Size(111, 17)
         Me.WhichBackupLabel.TabIndex = 4
@@ -878,9 +864,10 @@ Partial Class Form1
         '
         Me.TasksContainer.BackColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
         Me.TasksContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TasksContainer.Controls.Add(Me.TasksSeparator)
+        Me.TasksContainer.Controls.Add(Me.BackupFreqUpDown)
         Me.TasksContainer.Controls.Add(Me.WhichBackupDropdown)
         Me.TasksContainer.Controls.Add(Me.BackupFreqHelp2Label)
-        Me.TasksContainer.Controls.Add(Me.BackupFreqUpDown)
         Me.TasksContainer.Controls.Add(Me.BackupBtn)
         Me.TasksContainer.Controls.Add(Me.StopBtn)
         Me.TasksContainer.Controls.Add(Me.WhichBackupLabel)
@@ -894,27 +881,12 @@ Partial Class Form1
         Me.TasksContainer.Size = New System.Drawing.Size(497, 115)
         Me.TasksContainer.TabIndex = 6
         '
-        'WhichBackupDropdown
-        '
-        Me.WhichBackupDropdown.BorderColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.WhichBackupDropdown.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.WhichBackupDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.WhichBackupDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.WhichBackupDropdown.Font = New System.Drawing.Font("Segoe UI", 9.5!)
-        Me.WhichBackupDropdown.ItemFont = Nothing
-        Me.WhichBackupDropdown.Items.AddRange(New Object() {"Latest", "Second-to-last"})
-        Me.WhichBackupDropdown.Location = New System.Drawing.Point(12, 78)
-        Me.WhichBackupDropdown.MaxDropDownItems = 2
-        Me.WhichBackupDropdown.Name = "WhichBackupDropdown"
-        Me.WhichBackupDropdown.Size = New System.Drawing.Size(286, 25)
-        Me.WhichBackupDropdown.TabIndex = 5
-        '
         'BackupFreqHelp2Label
         '
         Me.BackupFreqHelp2Label.AutoSize = True
         Me.BackupFreqHelp2Label.BackColor = System.Drawing.Color.Transparent
         Me.BackupFreqHelp2Label.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BackupFreqHelp2Label.Location = New System.Drawing.Point(430, 81)
+        Me.BackupFreqHelp2Label.Location = New System.Drawing.Point(404, 79)
         Me.BackupFreqHelp2Label.Name = "BackupFreqHelp2Label"
         Me.BackupFreqHelp2Label.Size = New System.Drawing.Size(56, 17)
         Me.BackupFreqHelp2Label.TabIndex = 8
@@ -983,7 +955,7 @@ Partial Class Form1
         Me.LatestBackupHelpLabel.AutoSize = True
         Me.LatestBackupHelpLabel.BackColor = System.Drawing.Color.Transparent
         Me.LatestBackupHelpLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LatestBackupHelpLabel.Location = New System.Drawing.Point(306, 12)
+        Me.LatestBackupHelpLabel.Location = New System.Drawing.Point(324, 12)
         Me.LatestBackupHelpLabel.Name = "LatestBackupHelpLabel"
         Me.LatestBackupHelpLabel.Size = New System.Drawing.Size(96, 34)
         Me.LatestBackupHelpLabel.TabIndex = 3
@@ -1109,23 +1081,23 @@ Partial Class Form1
         Me.BackupsDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.BackupsDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.BackupsDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.BackupsDataGrid.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.BackupsDataGrid.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
         Me.BackupsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.BackupsDataGrid.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(28, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(39, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.BackupsDataGrid.DefaultCellStyle = DataGridViewCellStyle5
         Me.BackupsDataGrid.Dock = System.Windows.Forms.DockStyle.Fill
         Me.BackupsDataGrid.EnableHeadersVisualStyles = False
         Me.BackupsDataGrid.GridColor = System.Drawing.Color.FromArgb(CType(CType(84, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(89, Byte), Integer))
@@ -1134,14 +1106,14 @@ Partial Class Form1
         Me.BackupsDataGrid.Name = "BackupsDataGrid"
         Me.BackupsDataGrid.ReadOnly = True
         Me.BackupsDataGrid.RowHeadersVisible = False
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.BackupsDataGrid.RowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(42, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(48, Byte), Integer))
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer), CType(CType(238, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.BackupsDataGrid.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.BackupsDataGrid.RowTemplate.ReadOnly = True
         Me.BackupsDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.BackupsDataGrid.Size = New System.Drawing.Size(495, 297)
@@ -1153,14 +1125,14 @@ Partial Class Form1
         Me.ManageContextMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RestoreManageContextMenuItem, Me.DeleteManageContextMenuItem, Me.ManageContextMenuSeparator1, Me.RefreshManageContextMenuItem, Me.DeleteAllManageContextMenuItem, Me.ManageContextMenuSeparator2, Me.ExplorerManageContextMenuItem})
         Me.ManageContextMenu.Name = "logTxtBoxContext"
         Me.ManageContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.ManageContextMenu.Size = New System.Drawing.Size(162, 126)
+        Me.ManageContextMenu.Size = New System.Drawing.Size(163, 126)
         '
         'RestoreManageContextMenuItem
         '
         Me.RestoreManageContextMenuItem.ForeColor = System.Drawing.Color.White
         Me.RestoreManageContextMenuItem.Image = Global.GHOSTbackup.My.Resources.Resources.Manage_Restore
         Me.RestoreManageContextMenuItem.Name = "RestoreManageContextMenuItem"
-        Me.RestoreManageContextMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.RestoreManageContextMenuItem.Size = New System.Drawing.Size(162, 22)
         Me.RestoreManageContextMenuItem.Text = "Restore"
         Me.RestoreManageContextMenuItem.ToolTipText = "Restore the selected backup."
         '
@@ -1169,7 +1141,7 @@ Partial Class Form1
         Me.DeleteManageContextMenuItem.ForeColor = System.Drawing.Color.White
         Me.DeleteManageContextMenuItem.Image = Global.GHOSTbackup.My.Resources.Resources.Manage_Delete
         Me.DeleteManageContextMenuItem.Name = "DeleteManageContextMenuItem"
-        Me.DeleteManageContextMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.DeleteManageContextMenuItem.Size = New System.Drawing.Size(162, 22)
         Me.DeleteManageContextMenuItem.Text = "Delete"
         Me.DeleteManageContextMenuItem.ToolTipText = "Delete the selected backup."
         '
@@ -1178,13 +1150,13 @@ Partial Class Form1
         Me.ManageContextMenuSeparator1.BackColor = System.Drawing.Color.Transparent
         Me.ManageContextMenuSeparator1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(61, Byte), Integer))
         Me.ManageContextMenuSeparator1.Name = "ManageContextMenuSeparator1"
-        Me.ManageContextMenuSeparator1.Size = New System.Drawing.Size(158, 6)
+        Me.ManageContextMenuSeparator1.Size = New System.Drawing.Size(159, 6)
         '
         'RefreshManageContextMenuItem
         '
         Me.RefreshManageContextMenuItem.ForeColor = System.Drawing.Color.White
         Me.RefreshManageContextMenuItem.Name = "RefreshManageContextMenuItem"
-        Me.RefreshManageContextMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.RefreshManageContextMenuItem.Size = New System.Drawing.Size(162, 22)
         Me.RefreshManageContextMenuItem.Text = "Refresh"
         Me.RefreshManageContextMenuItem.ToolTipText = "Refresh the list of backups."
         '
@@ -1193,7 +1165,7 @@ Partial Class Form1
         Me.DeleteAllManageContextMenuItem.ForeColor = System.Drawing.Color.White
         Me.DeleteAllManageContextMenuItem.Image = Global.GHOSTbackup.My.Resources.Resources.Manage_Delete_All
         Me.DeleteAllManageContextMenuItem.Name = "DeleteAllManageContextMenuItem"
-        Me.DeleteAllManageContextMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.DeleteAllManageContextMenuItem.Size = New System.Drawing.Size(162, 22)
         Me.DeleteAllManageContextMenuItem.Text = "Delete All"
         Me.DeleteAllManageContextMenuItem.ToolTipText = "Delete all backups."
         '
@@ -1202,13 +1174,13 @@ Partial Class Form1
         Me.ManageContextMenuSeparator2.BackColor = System.Drawing.Color.Transparent
         Me.ManageContextMenuSeparator2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(56, Byte), Integer), CType(CType(61, Byte), Integer))
         Me.ManageContextMenuSeparator2.Name = "ManageContextMenuSeparator2"
-        Me.ManageContextMenuSeparator2.Size = New System.Drawing.Size(158, 6)
+        Me.ManageContextMenuSeparator2.Size = New System.Drawing.Size(159, 6)
         '
         'ExplorerManageContextMenuItem
         '
         Me.ExplorerManageContextMenuItem.ForeColor = System.Drawing.Color.White
         Me.ExplorerManageContextMenuItem.Name = "ExplorerManageContextMenuItem"
-        Me.ExplorerManageContextMenuItem.Size = New System.Drawing.Size(161, 22)
+        Me.ExplorerManageContextMenuItem.Size = New System.Drawing.Size(162, 22)
         Me.ExplorerManageContextMenuItem.Text = "Show in Explorer"
         Me.ExplorerManageContextMenuItem.ToolTipText = "Open the selected backup folder in Windows Explorer."
         '
@@ -1228,6 +1200,45 @@ Partial Class Form1
         Me.BackupFreqUpDown.TabIndex = 7
         Me.BackupFreqUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.BackupFreqUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
+        'WhichBackupDropdown
+        '
+        Me.WhichBackupDropdown.BorderColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.WhichBackupDropdown.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.WhichBackupDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.WhichBackupDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.WhichBackupDropdown.Font = New System.Drawing.Font("Segoe UI", 9.5!)
+        Me.WhichBackupDropdown.ItemFont = Nothing
+        Me.WhichBackupDropdown.Items.AddRange(New Object() {"Latest", "Second-to-last"})
+        Me.WhichBackupDropdown.Location = New System.Drawing.Point(12, 76)
+        Me.WhichBackupDropdown.MaxDropDownItems = 2
+        Me.WhichBackupDropdown.Name = "WhichBackupDropdown"
+        Me.WhichBackupDropdown.Size = New System.Drawing.Size(286, 25)
+        Me.WhichBackupDropdown.TabIndex = 5
+        '
+        'SettingsInterfaceLangDropdown
+        '
+        Me.SettingsInterfaceLangDropdown.BorderColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.SettingsInterfaceLangDropdown.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.SettingsInterfaceLangDropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.SettingsInterfaceLangDropdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.SettingsInterfaceLangDropdown.Font = New System.Drawing.Font("Segoe UI", 9.5!)
+        Me.SettingsInterfaceLangDropdown.FormattingEnabled = True
+        Me.SettingsInterfaceLangDropdown.ItemFont = Nothing
+        Me.SettingsInterfaceLangDropdown.Items.AddRange(New Object() {"English", "Italiano"})
+        Me.SettingsInterfaceLangDropdown.Location = New System.Drawing.Point(14, 39)
+        Me.SettingsInterfaceLangDropdown.Name = "SettingsInterfaceLangDropdown"
+        Me.SettingsInterfaceLangDropdown.Size = New System.Drawing.Size(450, 25)
+        Me.SettingsInterfaceLangDropdown.TabIndex = 1
+        '
+        'TasksSeparator
+        '
+        Me.TasksSeparator.LineColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer))
+        Me.TasksSeparator.Location = New System.Drawing.Point(310, 8)
+        Me.TasksSeparator.Name = "TasksSeparator"
+        Me.TasksSeparator.Size = New System.Drawing.Size(3, 97)
+        Me.TasksSeparator.TabIndex = 9
+        Me.TasksSeparator.TabStop = False
         '
         'Form1
         '
@@ -1251,7 +1262,6 @@ Partial Class Form1
         Me.Controls.Add(Me.ManageContainer)
         Me.Controls.Add(Me.LogsContainer)
         Me.DoubleBuffered = True
-        Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ForeColor = System.Drawing.Color.White
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -1342,7 +1352,6 @@ Partial Class Form1
     Friend WithEvents LicenseLink As CheckBox
     Friend WithEvents SidemenuTasks As CheckBox
     Friend WithEvents SidemenuSettings As CheckBox
-    Friend WithEvents BackupFreqHelp2Label As Label
     Friend WithEvents SidemenuManage As CheckBox
     Friend WithEvents ManageContainer As Panel
     Friend WithEvents BackupsDataGrid As DataGridView
@@ -1357,4 +1366,6 @@ Partial Class Form1
     Friend WithEvents WhichBackupDropdown As UI.Controls.CustomDropdown
     Friend WithEvents SettingsInterfaceLangDropdown As UI.Controls.CustomDropdown
     Friend WithEvents BackupFreqUpDown As UI.Controls.CustomNumericUpDown
+    Friend WithEvents BackupFreqHelp2Label As Label
+    Friend WithEvents TasksSeparator As UI.Controls.Separator
 End Class
