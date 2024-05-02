@@ -43,6 +43,7 @@ Namespace UI.Controls
 #End If
 
         Private Const WM_PAINT As UInteger = 15
+
         Private _BackColor As Color = Color.FromArgb(255, 17, 20, 25)
         Private _BorderColor As Color = Color.FromArgb(255, 160, 160, 160)
         Private _ForeColor As Color = Color.White
@@ -104,6 +105,7 @@ Namespace UI.Controls
         Public Sub New()
             Me.SetStyle(ControlStyles.UserPaint, True)
 
+            'Default properties
             DrawMode = DrawMode.OwnerDrawFixed
             DropDownStyle = ComboBoxStyle.DropDownList
             FlatStyle = FlatStyle.Flat
@@ -124,7 +126,6 @@ Namespace UI.Controls
             End If
         End Sub
 
-        '//www.experts-exchange.com/questions/27055001/Change-Combobox-Dropdown-Arrow-Image.html#answer35831737-20
         Protected Overrides Sub OnPaint(ByVal e As PaintEventArgs)
             MyBase.OnPaint(e)
 
@@ -135,11 +136,13 @@ Namespace UI.Controls
             'Background
             Using FillBrush As Brush = New SolidBrush(BackColor)
                 e.Graphics.SmoothingMode = SmoothingMode.AntiAlias
+                'e.Graphics.FillRectangle(FillBrush, Bounds)
                 e.Graphics.FillRectangle(FillBrush, ItemRect)
             End Using
 
             'Arrow
             '//github.com/thielj/MetroFramework/blob/fb0d0c3/MetroFramework/Controls/MetroComboBox.cs#L107
+            '//www.experts-exchange.com/questions/27055001/Change-Combobox-Dropdown-Arrow-Image.html#answer35831737-20
             Using ArrowBrush As SolidBrush = New SolidBrush(BorderColor)
                 Dim Points As Point() = New Point(2) {
                     New Point(Width - 20, (Height / 2) - 3),
@@ -147,37 +150,29 @@ Namespace UI.Controls
                     New Point(Width - 15, (Height / 2) + 3)
                 }
 
-                'Too big
-                'Dim Points As Point() = New Point(2) {
-                '    New Point(Width - (ItemRect.Width * 0.125) - 2, ItemRect.Height * 0.333),
-                '    New Point(Width - (ItemRect.Width * 0.875) - 2, ItemRect.Height * 0.333),
-                '    New Point(Width - (ItemRect.Width * 0.5) - 2, ItemRect.Height * 0.666)
-                '}
-
                 e.Graphics.FillPolygon(ArrowBrush, Points)
             End Using
 
             'Text
             '//docs.microsoft.com/en-us/dotnet/framework/winforms/controls/overriding-the-onpaint-method
             If SelectedIndex <> -1 Then
-                Dim LItemFont As Font = If(_ItemFont IsNot Nothing, _ItemFont, Font)
                 Dim ItemText As String = Items(SelectedIndex).ToString()
                 'Dim TextColor As Color = If(_ForeColor = Color.White, Color.Black, Color.White)
-                Dim TextBrush As Brush = New SolidBrush(ForeColor)
+                Using TextBrush As Brush = New SolidBrush(ForeColor)
+                    'Item text coordinates
+                    Dim TextPosX As Single = Padding.Left
+                    Dim TextPosY As Single = (Height - e.Graphics.MeasureString(ItemText, Font).Height) / 2
 
-                'Item text coordinates
-                Dim TextPosX As Single = Padding.Left
-                Dim TextPosY As Single = (Height - e.Graphics.MeasureString(ItemText, LItemFont).Height) / 2
+                    e.Graphics.DrawString(
+                        ItemText,
+                        Font,
+                        TextBrush,
+                        TextPosX,
+                        TextPosY
+                    )
 
-                e.Graphics.DrawString(
-                    ItemText,
-                    LItemFont,
-                    TextBrush,
-                    TextPosX,
-                    TextPosY
-                )
-
-                TextBrush.Dispose()
+                    TextBrush.Dispose()
+                End Using
             End If
         End Sub
 #End Region
@@ -190,27 +185,25 @@ Namespace UI.Controls
 #If DEBUG_DRAW Then
                 Console.WriteLine("[" & Name & "] DrawItem event triggered for index: " & e.Index)
                 Console.WriteLine("[" & Name & "] Drawing bounds: " & e.Bounds.ToString())
+
                 Logger.Log("[DEBUG] " & "[" & Name & "] DrawItem event triggered for index: " & e.Index)
                 Logger.Log("[DEBUG] " & "[" & Name & "] Drawing bounds: " & e.Bounds.ToString())
 #End If
 
-                Dim LItemFont As Font = If(_ItemFont IsNot Nothing, _ItemFont, Font)
                 Dim ItemText As String = Items(e.Index).ToString()
                 'Dim TextColor As Color = If(_ForeColor = Color.White, Color.Black, Color.White)
                 Dim TextBrush As Brush = New SolidBrush(ForeColor)
 
                 'e.Graphics.SetClip(e.Bounds)
 
-                'If LItemFont.Size > 0 Then
-                e.Graphics.DrawString(ItemText, LItemFont, TextBrush, e.Bounds)
-                'End If
+                e.Graphics.DrawString(ItemText, Font, TextBrush, e.Bounds)
 
                 TextBrush.Dispose()
 
                 'Check if the item being drawn is the selected item
                 If (e.State And DrawItemState.Selected = True) = DrawItemState.Selected Then
                     e.Graphics.FillRectangle(SystemBrushes.Highlight, e.Bounds)
-                    e.Graphics.DrawString(ItemText, LItemFont, SystemBrushes.HighlightText, e.Bounds)
+                    e.Graphics.DrawString(ItemText, Font, SystemBrushes.HighlightText, e.Bounds)
                 End If
             End If
 
