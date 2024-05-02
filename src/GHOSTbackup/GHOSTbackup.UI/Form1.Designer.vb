@@ -1191,7 +1191,6 @@ Partial Class Form1
         Me.BackupFreqUpDown.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.BackupFreqUpDown.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.BackupFreqUpDown.ForeColor = System.Drawing.Color.White
-        Me.BackupFreqUpDown.Increment = New Decimal(New Integer() {5, 0, 0, 0})
         Me.BackupFreqUpDown.Location = New System.Drawing.Point(327, 76)
         Me.BackupFreqUpDown.Maximum = New Decimal(New Integer() {180, 0, 0, 0})
         Me.BackupFreqUpDown.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
@@ -1199,7 +1198,7 @@ Partial Class Form1
         Me.BackupFreqUpDown.Size = New System.Drawing.Size(75, 25)
         Me.BackupFreqUpDown.TabIndex = 7
         Me.BackupFreqUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.BackupFreqUpDown.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.BackupFreqUpDown.Value = New Decimal(New Integer() {5, 0, 0, 0})
         '
         'WhichBackupDropdown
         '

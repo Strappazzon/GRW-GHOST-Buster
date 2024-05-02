@@ -76,7 +76,6 @@ Namespace UI.Controls
             ContextMenuStrip = New ContextMenuStrip()
             'DoubleBuffered = True
             ForeColor = Color.White
-            Increment = 5
             Minimum = 1
             Maximum = 180
             TextAlign = HorizontalAlignment.Center
