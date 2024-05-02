@@ -82,6 +82,15 @@ Namespace UI.Controls
             TextAlign = HorizontalAlignment.Center
         End Sub
 
+#Region "Events"
+        Protected Overrides Sub OnMouseWheel(ByVal e As MouseEventArgs)
+            Dim MouseWheel As HandledMouseEventArgs = DirectCast(e, HandledMouseEventArgs)
+
+            'Prevent scrolling
+            MouseWheel.Handled = True
+        End Sub
+#End Region
+
         Private Class Renderer
             Inherits NativeWindow
             'Custom renderer for the Up and Down buttons control
