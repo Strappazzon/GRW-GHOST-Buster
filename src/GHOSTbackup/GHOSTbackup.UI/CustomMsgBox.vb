@@ -59,7 +59,6 @@ Public Class CustomMsgBox
                     Case Else
                         Exit Select
                 End Select
-
             Case CustomMsgBoxButtons.YesNo, CustomMsgBoxButtons.YesNoCancel
                 '[Yes][No] or [Yes][No][Cancel] dialog
                 CustomMsgBox.LeftButton.DialogResult = DialogResult.Yes

@@ -39,6 +39,7 @@ Public Class Updater
             Try
                 Using Updater As HttpClient = New HttpClient()
                     Updater.DefaultRequestHeaders.Add("User-Agent", "GHOST Buster (+https://strappazzon.xyz/GRW-GHOST-Buster)")
+
                     Dim FetchedVer As Integer = Integer.Parse(Await Updater.GetStringAsync(VersionURI))
 
                     'Compare downloaded GHOST Buster version number with the current one

@@ -31,6 +31,7 @@ Public Class Strings
 #Region "Format"
     'Custom String.Format functions
     '//stackoverflow.com/a/1321343
+
     Public Shared Overloads Function Format(ByVal input As String, ByVal arg0 As Object) As String
         Dim Sb As StringBuilder = New StringBuilder(input)
 

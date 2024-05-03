@@ -42,22 +42,24 @@ Public Class Logger
 
 #Region "Log Methods"
     Public Shared Overloads Sub Log(ByVal [event] As String)
-        'Don't start the log file with an empty line
+        'Don't start the log session with an empty line
         If Form1.LogTxtBox.Text = "" Then
             Form1.LogTxtBox.AppendText(Now.ToString("HH:mm:ss") & " " & [event])
         Else
             Form1.LogTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " " & [event])
         End If
 
+        'Log event to file
         If Form1.SettingsWriteLogToFileChkBox.Checked = True Then
             Dim LogToFile As New StringBuilder
             LogToFile.AppendLine(Now.ToString("HH:mm:ss") & " " & [event])
 
             Try
                 File.AppendAllText(Form1.SettingsLogFilePathTextBox.Text, LogToFile.ToString())
-
             Catch ex As Exception
+                'Disable logging to file to avoid further errors
                 Form1.SettingsWriteLogToFileChkBox.Checked = False
+
                 Form1.LogTxtBox.AppendText(Environment.NewLine & Now.ToString("HH:mm:ss") & " [ERROR] Log session to file interrupted: " & ex.Message())
                 Banner.Show(Localization.GetString("banner_log_error"), BannerIcon.Warning)
             End Try

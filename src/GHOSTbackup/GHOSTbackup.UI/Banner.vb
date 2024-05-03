@@ -71,7 +71,10 @@ Public Class Banner
         Select Case Icon
             Case BannerIcon.Exclamation, BannerIcon.Warning
                 IconPicture.Image = My.Resources.Banner_Alert_Icon
+
+                'Display the notification dot over "Logs" if the user is on another tab
                 If Form1.TitleLabel.Text <> Localization.GetString("ui_title_logs") Then
+                    'The dot will be set to invisible when clicking the "Logs" button
                     Form1.AlertDot.Visible = True
                 End If
             Case BannerIcon.Information
@@ -113,6 +116,7 @@ Public Class Banner
     End Sub
 #End Region
 
+#Region "Events"
     Public Shared Sub CloseBanner_Click(sender As Object, e As EventArgs) Handles CloseBanner.Click
         'Hide banner
         AlertBanner.Controls.Remove(IconPicture)
@@ -124,4 +128,5 @@ Public Class Banner
         Form1.LogoBigPictureBox.Location = New Point(12, 85)
         Form1.PlayGameBtn.Location = New Point(12, 150)
     End Sub
+#End Region
 End Class

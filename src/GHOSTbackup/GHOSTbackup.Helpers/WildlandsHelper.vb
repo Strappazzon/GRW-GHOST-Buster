@@ -33,17 +33,18 @@ Public Class WildlandsHelper
     Public Shared Property GamePath As String = Nothing
 
     Public Shared Sub GetWildlandsInstall()
-        'Get Wildlands installation directory
         If Form1.SettingsNonUplayVersionChkBox.Checked = True Then
-            'Check if custom Wildlands version exists
+            'Check if custom Wildlands executable exists
             If File.Exists(Form1.SettingsCustomExeTextBox.Text) Then
                 GamePath = Directory.GetParent(Form1.SettingsCustomExeTextBox.Text).ToString() & "\"
                 Form1.PlayGameBtn.Enabled = True
 
                 Logger.Log("[INFO] Wildlands is installed in: " & GamePath & " (Non-Uplay version).")
+
+                'Start checking if the game is running or not
                 StartProcessTimer()
             Else
-                'Disable "I'm not using the Uplay version of Wildlands"
+                'Disable "Manually locate installed game" option
                 Form1.SettingsNonUplayVersionChkBox.Checked = False
                 Form1.PlayGameBtn.Text = Localization.GetString("ui_play_disabled_404")
 
@@ -51,15 +52,17 @@ Public Class WildlandsHelper
                 Banner.Show(Localization.GetString("banner_customexe_404_error"), BannerIcon.Warning)
             End If
         Else
+            'Look for the Uplay version of Wildlands
             Using GameRegKey As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher\Installs\1771", False)
                 Try
-                    'Replace any forward slashes with backward slashes
                     GamePath = GameRegKey.GetValue("InstallDir").Replace("/"c, "\"c)
 
                     If GamePath <> Nothing Then
                         Form1.PlayGameBtn.Enabled = True
 
                         Logger.Log("[INFO] Wildlands is installed in: " & GamePath)
+
+                        'Start checking if the game is running or not
                         StartProcessTimer()
                     Else
                         Form1.PlayGameBtn.Text = Localization.GetString("ui_play_disabled")

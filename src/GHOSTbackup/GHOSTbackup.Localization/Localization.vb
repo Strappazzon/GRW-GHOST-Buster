@@ -34,6 +34,8 @@ Public Class Localization
     'Custom Localization Class
     '//www.codeproject.com/Articles/5447/NET-Localization-using-Resource-file
 
+    'TODO: Handle missing localization files at launch
+
     Private Shared ReadOnly LocalizationManager As ResourceManager = ResourceManager.CreateFileBasedResourceManager("Strings", Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) & "\Languages\", Nothing)
 
     Private Shared Function GetLanguage() As CultureInfo

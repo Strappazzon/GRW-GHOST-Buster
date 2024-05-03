@@ -40,7 +40,6 @@ Public Class Form1
     'Draw tooltips with custom colors
     Private Sub HelpToolTip_Draw(sender As Object, e As DrawToolTipEventArgs) Handles HelpToolTip.Draw
         e.DrawBackground()
-        'Don't draw the border
         'e.DrawBorder()
         e.DrawText()
     End Sub
@@ -53,6 +52,7 @@ Public Class Form1
 
             If FormLocation.X <> -1 Or FormLocation.Y <> -1 Then
                 Dim LocationVisible As Boolean = False
+
                 For Each S In Screen.AllScreens
                     If S.Bounds.Contains(FormLocation) Then
                         LocationVisible = True
@@ -76,9 +76,11 @@ Public Class Form1
         Localization.Load()
 
         'Align form items
+        'This is because of localization
         LogLabel.Location = New Point(UplayBtn.Location.X + UplayBtn.Width + 20, 20)
         AlertDot.Location = New Point(LogLabel.Location.X + LogLabel.Width - 10, 22)
         AboutLabel.Location = New Point(LogLabel.Location.X + LogLabel.Width + 20, 20)
+
         'Remove controls
         Controls.Remove(ManageContainer)
         Controls.Remove(SettingsContainer)
@@ -98,6 +100,7 @@ Public Class Form1
         If SavegamesLocTextBox.Text <> "" AndAlso Not Directory.Exists(SavegamesLocTextBox.Text) Then
             Logger.Log("[WARNING] Wildlands save games folder " & SavegamesLocTextBox.Text & " no longer exists.")
             Banner.Show(Localization.GetString("banner_savegames_folder_deleted"), BannerIcon.Warning)
+
             SavegamesLocTextBox.Text = ""
         End If
 
@@ -105,6 +108,7 @@ Public Class Form1
         If BackupLocTextBox.Text <> "" AndAlso Not Directory.Exists(BackupLocTextBox.Text) Then
             Logger.Log("[WARNING] Backup folder " & BackupLocTextBox.Text & " no longer exists.")
             Banner.Show(Localization.GetString("banner_backup_folder_deleted"), BannerIcon.Warning)
+
             BackupLocTextBox.Text = ""
         End If
 
@@ -156,7 +160,6 @@ Public Class Form1
 
 #Region "Main Screen"
     Private Sub UplayBtn_Click(sender As Object, e As EventArgs) Handles UplayBtn.Click
-        'Launch Uplay only if it's installed
         If UplayPath <> Nothing Then
             Process.Start(UplayPath & "upc.exe")
         Else
@@ -168,10 +171,12 @@ Public Class Form1
         If LogLabel.ForeColor <> Color.White Then
             'Remove background image
             BackgroundImage = Nothing
+
             'Change top menu labels color
             TopMenuContainer.BackColor = Color.FromArgb(255, 22, 26, 31)
             LogLabel.ForeColor = Color.White
             AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+
             'Change buttons image and color
             SidemenuTasks.Image = My.Resources.Tasks
             SidemenuTasks.ForeColor = Color.FromArgb(255, 85, 170, 255)
@@ -179,8 +184,10 @@ Public Class Form1
             SidemenuManage.ForeColor = Color.FromArgb(255, 85, 170, 255)
             SidemenuSettings.Image = My.Resources.Settings
             SidemenuSettings.ForeColor = Color.FromArgb(255, 85, 170, 255)
+
             'Change section title
             TitleLabel.Text = Localization.GetString("ui_title_logs")
+
             'Remove controls
             Controls.Remove(TasksContainer)
             Controls.Remove(FoldersTitleLabel)
@@ -189,10 +196,13 @@ Public Class Form1
             Controls.Remove(AboutContainer)
             Controls.Remove(SettingsContainer)
             AlertDot.Visible = False
+
             'Show logs
             Controls.Add(LogsContainer)
+
             'Close the alert banner when switching to Logs tab
             Banner.CloseBanner_Click(sender, e)
+
             'Focus logs and scroll to the last line when switching to the Logs tab
             LogTxtBox.Focus()
             LogTxtBox.ScrollToCaret()
@@ -203,10 +213,12 @@ Public Class Form1
         If AboutLabel.ForeColor <> Color.White Then
             'Restore background image
             BackgroundImage = My.Resources.Bg
+
             'Change top menu labels color
             TopMenuContainer.BackColor = Color.FromArgb(180, 22, 26, 31)
             LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
             AboutLabel.ForeColor = Color.White
+
             'Change buttons image and color
             SidemenuTasks.Image = My.Resources.Tasks
             SidemenuTasks.ForeColor = Color.FromArgb(255, 85, 170, 255)
@@ -214,8 +226,10 @@ Public Class Form1
             SidemenuManage.ForeColor = Color.FromArgb(255, 85, 170, 255)
             SidemenuSettings.Image = My.Resources.Settings
             SidemenuSettings.ForeColor = Color.FromArgb(255, 85, 170, 255)
+
             'Change section title
             TitleLabel.Text = Localization.GetString("ui_title_about")
+
             'Remove controls
             Controls.Remove(TasksContainer)
             Controls.Remove(FoldersTitleLabel)
@@ -223,6 +237,7 @@ Public Class Form1
             Controls.Remove(ManageContainer)
             Controls.Remove(LogsContainer)
             Controls.Remove(SettingsContainer)
+
             'Show about section
             Controls.Add(AboutContainer)
         End If
@@ -246,10 +261,12 @@ Public Class Form1
         If SidemenuTasks.ForeColor <> Color.White Then
             'Restore background image
             BackgroundImage = My.Resources.Bg
+
             'Change top menu labels color
             TopMenuContainer.BackColor = Color.FromArgb(180, 22, 26, 31)
             LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
             AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+
             'Change buttons image and color
             SidemenuTasks.Image = My.Resources.Tasks_White
             SidemenuTasks.ForeColor = Color.White
@@ -257,13 +274,16 @@ Public Class Form1
             SidemenuManage.ForeColor = Color.FromArgb(255, 85, 170, 255)
             SidemenuSettings.Image = My.Resources.Settings
             SidemenuSettings.ForeColor = Color.FromArgb(255, 85, 170, 255)
+
             'Change section title
             TitleLabel.Text = Localization.GetString("ui_title_tasks")
+
             'Remove controls
             Controls.Remove(LogsContainer)
             Controls.Remove(AboutContainer)
             Controls.Remove(ManageContainer)
             Controls.Remove(SettingsContainer)
+
             'Show tasks section
             Controls.Add(TasksContainer)
             Controls.Add(FoldersTitleLabel)
@@ -275,10 +295,12 @@ Public Class Form1
         If SidemenuManage.ForeColor <> Color.White Then
             'Remove background image
             BackgroundImage = Nothing
+
             'Change top menu labels color
             TopMenuContainer.BackColor = Color.FromArgb(255, 22, 26, 31)
             LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
             AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+
             'Change buttons image and color
             SidemenuTasks.Image = My.Resources.Tasks
             SidemenuTasks.ForeColor = Color.FromArgb(255, 85, 170, 255)
@@ -286,8 +308,10 @@ Public Class Form1
             SidemenuManage.ForeColor = Color.White
             SidemenuSettings.Image = My.Resources.Settings
             SidemenuSettings.ForeColor = Color.FromArgb(255, 85, 170, 255)
+
             'Change section title
             TitleLabel.Text = Localization.GetString("ui_title_manage")
+
             'Remove controls
             Controls.Remove(LogsContainer)
             Controls.Remove(AboutContainer)
@@ -295,8 +319,10 @@ Public Class Form1
             Controls.Remove(FoldersTitleLabel)
             Controls.Remove(FoldersContainer)
             Controls.Remove(SettingsContainer)
+
             'Show backups
             Controls.Add(ManageContainer)
+
             'Retrieve backups
             If BackupLocTextBox.Text <> "" Then
                 PopulateBackupsGrid()
@@ -308,10 +334,12 @@ Public Class Form1
         If SidemenuSettings.ForeColor <> Color.White Then
             'Remove background image
             BackgroundImage = Nothing
+
             'Change top menu labels color
             TopMenuContainer.BackColor = Color.FromArgb(255, 22, 26, 31)
             LogLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
             AboutLabel.ForeColor = Color.FromArgb(255, 85, 170, 255)
+
             'Change buttons image and color
             SidemenuTasks.Image = My.Resources.Tasks
             SidemenuTasks.ForeColor = Color.FromArgb(255, 85, 170, 255)
@@ -319,8 +347,10 @@ Public Class Form1
             SidemenuManage.ForeColor = Color.FromArgb(255, 85, 170, 255)
             SidemenuSettings.Image = My.Resources.Settings_White
             SidemenuSettings.ForeColor = Color.White
+
             'Change section title
             TitleLabel.Text = Localization.GetString("ui_title_settings")
+
             'Remove controls
             Controls.Remove(LogsContainer)
             Controls.Remove(AboutContainer)
@@ -328,6 +358,7 @@ Public Class Form1
             Controls.Remove(FoldersTitleLabel)
             Controls.Remove(FoldersContainer)
             Controls.Remove(ManageContainer)
+
             'Show settings
             Controls.Add(SettingsContainer)
         End If
@@ -348,10 +379,12 @@ Public Class Form1
             )
             If CustomMsgBox.DialogResult = DialogResult.Yes Then
                 StopBackup()
+
                 Logger.Log("[INFO] Backup interrupted by the user.")
             End If
         Else
             StopBackup()
+
             Logger.Log("[INFO] Backup interrupted by the user.")
         End If
     End Sub
@@ -381,9 +414,9 @@ Public Class Form1
             .Description = Localization.GetString("dialog_browse_savegames_desc"),
             .SelectedPath = If(SettingsNonUplayVersionChkBox.Checked = False, UplayPath & "savegames", "")
         }
-
             If B.ShowDialog = DialogResult.OK Then
                 SavegamesLocTextBox.Text = B.SelectedPath
+
                 Logger.Log("[INFO] Save games directory set to: " & B.SelectedPath)
             End If
         End Using
@@ -403,9 +436,9 @@ Public Class Form1
         Using B As FolderBrowserDialog = New FolderBrowserDialog() With {
             .Description = Localization.GetString("dialog_browse_backup_desc")
         }
-
             If B.ShowDialog = DialogResult.OK Then
                 BackupLocTextBox.Text = B.SelectedPath
+
                 Logger.Log("[INFO] Backup directory set to: " & B.SelectedPath)
 
                 'Detect latest backup timestamp
@@ -443,15 +476,14 @@ Public Class Form1
     End Sub
 
     Private Sub SettingsBrowseCustomExeBtn_Click(sender As Object, e As EventArgs) Handles SettingsBrowseCustomExeBtn.Click
-        'Choose Wildlands executable
         Using O As OpenFileDialog = New OpenFileDialog() With {
             .Filter = String.Format(Localization.GetString("dialog_browse_customexe_filter"), "GRW.exe"),
             .InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyComputer),
             .Title = Localization.GetString("dialog_browse_customexe_title")
         }
-
             If O.ShowDialog = DialogResult.OK Then
                 SettingsCustomExeTextBox.Text = O.FileName
+
                 Logger.Log("[INFO] Custom Wildlands executable set: " & O.FileName)
             End If
         End Using
@@ -483,9 +515,9 @@ Public Class Form1
         Using B As FolderBrowserDialog = New FolderBrowserDialog() With {
             .Description = Localization.GetString("dialog_browse_log_destination_desc")
         }
-
             If B.ShowDialog = DialogResult.OK Then
                 SettingsLogFilePathTextBox.Text = B.SelectedPath & "\event.log"
+
                 Logger.Log("[INFO] Log file path set to: " & SettingsLogFilePathTextBox.Text)
             End If
         End Using
@@ -536,9 +568,11 @@ Public Class Form1
     End Sub
 
     Private Sub BackupsDataGrid_MouseUp(sender As Object, e As MouseEventArgs) Handles BackupsDataGrid.MouseUp
+        'Show context menu when clicking inside the table as long as there is at least one row...
         If BackupsDataGrid.Rows.Count > 0 AndAlso e.Button = MouseButtons.Right Then
-            'Show context menu when clicking inside the table
             Dim HT As DataGridView.HitTestInfo = BackupsDataGrid.HitTest(e.X, e.Y)
+
+            '...and the user is not right-clicking on the header
             If Not HT.Type = DataGridViewHitTestType.ColumnHeader Then
                 ManageContextMenu.Show(MousePosition)
             End If
@@ -572,8 +606,9 @@ Public Class Form1
     End Sub
 
     Private Sub ExplorerManageContextMenuItem_Click(sender As Object, e As EventArgs) Handles ExplorerManageContextMenuItem.Click
-        'Open the selected backup folder in Windows Explorer
         Dim BackupDirectory As String = BackupLocTextBox.Text & "\" & BackupsDataGrid.Rows(BackupsDataGrid.CurrentCell.RowIndex).Cells(0).Value.ToString()
+
+        'Open the selected backup folder in Windows Explorer
         If Directory.Exists(BackupDirectory) Then
             Process.Start("explorer.exe", BackupDirectory)
         Else
@@ -601,9 +636,9 @@ Public Class Form1
             .FileName = "GHOSTbackup_" & Now.ToString("yyyyMMddHHmm"),
             .Filter = String.Format(Localization.GetString("dialog_save_log_filter"), "*.txt", "*.log")
         }
-
             If S.ShowDialog = DialogResult.OK Then
                 File.AppendAllText(S.FileName, LogTxtBox.Text)
+
                 Logger.Log("[INFO] Log exported to " & S.FileName)
             End If
         End Using

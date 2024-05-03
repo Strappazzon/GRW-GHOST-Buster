@@ -33,7 +33,6 @@ Public Class UplayHelper
     Public Shared Property UplayPath As String = Nothing
 
     Public Shared Sub GetUplayInstall()
-        'Get Uplay installation directory
         Using UplayRegKey As RegistryKey = Registry.LocalMachine.OpenSubKey("SOFTWARE\WOW6432Node\Ubisoft\Launcher", False)
             Try
                 UplayPath = UplayRegKey.GetValue("InstallDir")
@@ -54,11 +53,13 @@ Public Class UplayHelper
         'Disable Uplay cloud save synchronization
         Try
             Dim UplayYamlPath As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\Ubisoft Game Launcher\settings.yaml"
+
             Logger.Log("[INFO] Parsing and evaluating Uplay settings file: " & UplayYamlPath)
+
             Dim ParsedUplayYaml As String = File.ReadAllText(UplayYamlPath)
 
+            'If cloud save sync is enabled
             If ParsedUplayYaml.Contains("syncsavegames: true") Then
-                'If cloud save sync is enabled
                 'Check if Uplay is running or not before editing its settings file
                 Dim UplayProc = Process.GetProcessesByName("upc")
                 If UplayProc.Count > 0 Then
@@ -69,13 +70,15 @@ Public Class UplayHelper
                         CustomMsgBoxIcon.Warning
                     )
                 Else
-                    'Backup Uplay settings file without overwriting an existing backup
                     Logger.Log("[INFO] Backing up Uplay settings file to " & UplayYamlPath & ".bak")
+
+                    'Backup Uplay settings file without overwriting an existing backup
                     File.Copy(UplayYamlPath, UplayYamlPath & ".bak", False)
 
                     'Disable cloud save sync
                     Dim ReplacedUplayYaml As String = ParsedUplayYaml.Replace("syncsavegames: true", "syncsavegames: false")
                     File.WriteAllText(UplayYamlPath, ReplacedUplayYaml)
+
                     Logger.Log("[INFO] Uplay cloud save synchronization disabled.")
 
                     'Launch Uplay again...
@@ -87,7 +90,6 @@ Public Class UplayHelper
                     RestoreBackup()
                 End If
             Else
-                'Don't replace anything
                 Logger.Log("[INFO] Uplay cloud synchronization is already disabled.")
 
                 'Start the restore process
@@ -114,11 +116,13 @@ Public Class UplayHelper
         Try
             'Enable Uplay cloud save synchronization
             Dim UplayYamlPath As String = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) & "\Ubisoft Game Launcher\settings.yaml"
+
             Logger.Log("[INFO] Parsing and evaluating Uplay settings file: " & UplayYamlPath)
+
             Dim ParsedUplayYaml As String = File.ReadAllText(UplayYamlPath)
 
+            'If cloud save sync is disabled
             If ParsedUplayYaml.Contains("syncsavegames: false") Then
-                'If cloud save sync is disabled
                 'Check if Uplay is running or not before editing its settings file
                 Dim UplayProc = Process.GetProcessesByName("upc")
                 If UplayProc.Count > 0 Then
@@ -132,6 +136,7 @@ Public Class UplayHelper
                     'Enable cloud save sync
                     Dim ReplacedUplayYaml As String = ParsedUplayYaml.Replace("syncsavegames: false", "syncsavegames: true")
                     File.WriteAllText(UplayYamlPath, ReplacedUplayYaml)
+
                     Logger.Log("[INFO] Uplay cloud save synchronization re-enabled.")
                 End If
             Else

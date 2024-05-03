@@ -41,15 +41,18 @@ Public Class ProcessHelper
 
         If WildlandsProc.Count > 0 Then
             IsGameRunning = True
+
             Form1.PlayGameBtn.Enabled = False
             Form1.RestoreManageContextMenuItem.Enabled = False
         Else
             IsGameRunning = False
+
             Form1.PlayGameBtn.Enabled = True
             Form1.RestoreManageContextMenuItem.Enabled = True
 
             If IsBackupRunning = True Then
                 StopBackup()
+
                 Logger.Log("[INFO] Wildlands has been closed or crashed. Backup interrupted.")
                 CustomMsgBox.Show(
                     Localization.GetString("msgbox_wildlands_closed_crashed"),
