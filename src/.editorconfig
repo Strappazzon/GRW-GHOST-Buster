@@ -25,6 +25,9 @@ dotnet_code_quality_unused_parameters = all
 # Allow explicit ByVal keyword
 dotnet_diagnostic.IDE0081.severity = none
 
+# Keep redundant equality operators
+dotnet_diagnostic.IDE0100.severity = none
+
 # Lines preferences
 dotnet_style_allow_multiple_blank_lines_experimental = false:warning
 dotnet_style_allow_statement_immediately_after_block_experimental = true
