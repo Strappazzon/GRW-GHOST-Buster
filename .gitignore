@@ -24,14 +24,6 @@
 # Compiled localization files
 **/*.resources
 
-# Custom application assets/resources
-!**/[Rr]es
-**/[Rr]es/GRW/
-!**/[Rr]esources
-**/[Rr]esources/GRW/
-**/*.ico
-**/!Icon_256.ico
-
 # NuGet Packages
 # //docs.microsoft.com/en-us/nuget/consume-packages/packages-and-source-control
 **/[Pp]ackages
