@@ -34,7 +34,6 @@
 # VSCode
 .vscode/*
 !.vscode/extensions.json
-!.vscode/launch.json
 !.vscode/settings.json
 
 # Jekyll
@@ -44,5 +43,4 @@
 # Junk Files
 **/[Tt]humbs.db
 
-/.release
-**/TODO.txt
+TODO.txt
