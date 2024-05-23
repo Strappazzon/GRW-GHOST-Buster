@@ -155,37 +155,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="My Project\Application.myapp">
-      <Generator>MyApplicationCodeGenerator</Generator>
-      <LastGenOutput>Application.Designer.vb</LastGenOutput>
-    </None>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Icon_256.ico" />
-    <None Include="Resources\ubisoft_connect.png" />
-    <None Include="Resources\log.png" />
-    <None Include="Resources\restore.png" />
-    <None Include="Resources\delete_all.png" />
-    <None Include="Resources\delete.png" />
-    <None Include="Resources\backup_white.png" />
-    <None Include="Resources\backup.png" />
-    <None Include="Resources\tasks_white.png" />
-    <None Include="Resources\tasks.png" />
-    <None Include="Resources\settings_white.png" />
-    <None Include="Resources\settings.png" />
-    <None Include="Resources\bg.png" />
-    <None Include="Resources\website.png" />
-    <None Include="Resources\support.png" />
-    <None Include="Resources\license.png" />
-    <None Include="Resources\changelog.png" />
-    <None Include="Resources\close.png" />
-    <None Include="Resources\alert_dot.png" />
-    <None Include="Resources\Banner_Info_Icon.png" />
-    <None Include="Resources\Banner_Alert_Icon.png" />
-    <None Include="Resources\question.png" />
-    <None Include="Resources\error.png" />
-    <None Include="Resources\alert_triangle.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="ini-parser">
