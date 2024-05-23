@@ -2,18 +2,33 @@ Icons8
 https://icons8.com/
 https://icons8.com/license
 
-- Alert (alert_triangle.png) https://icons8.com/icons/set/error
-- Backup (backup.png, backup_white.png) https://icons8.com/icons/set/backup
-- Changelog (changelog.png) https://icons8.com/icons/set/update-file
-- Close (close.png) https://icons8.com/icons/set/delete
-- Delete Database (delete_all.png) https://icons8.com/icons/set/delete-database
-- Delete Folder (delete.png) https://icons8.com/icons/set/delete-folder
-- Document (log.png) https://icons8.com/icons/set/event-log
-- Error (error.png) https://icons8.com/icons/set/x
-- License (license.png) https://icons8.com/icons/set/license
-- Question, Support (question.png, support.png) https://icons8.com/icons/set/question
-- Restore (restore.png) https://icons8.com/icons/set/restore-backup
-- Settings (settings.png, settings_white.png) https://icons8.com/icons/set/wrench
-- Task (tasks.png, tasks_white.png) https://icons8.com/icons/set/task
-- Uplay (uplay.png) https://icons8.com/icons/set/uplay
-- Website (website.png) https://icons8.com/icons/set/globe
+- Alert (alert_triangle.png)
+  https://icons8.com/icons/set/error
+- Backup (backup.png, backup_white.png)
+  https://icons8.com/icons/set/backup
+- Changelog (changelog.png)
+  https://icons8.com/icons/set/update-file
+- Close (close.png)
+  https://icons8.com/icons/set/delete
+- Delete Database (delete_all.png)
+  https://icons8.com/icons/set/delete-database
+- Delete Folder (delete.png)
+  https://icons8.com/icons/set/delete-folder
+- Document (log.png)
+  https://icons8.com/icons/set/event-log
+- Error (error.png)
+  https://icons8.com/icons/set/x
+- License (license.png)
+  https://icons8.com/icons/set/license
+- Question, Support (question.png, support.png)
+  https://icons8.com/icons/set/question
+- Restore (restore.png)
+  https://icons8.com/icons/set/restore-backup
+- Settings (settings.png, settings_white.png)
+  https://icons8.com/icons/set/wrench
+- Task (tasks.png, tasks_white.png)
+  https://icons8.com/icons/set/task
+- Ubisoft Connect (ubisoft_connect.png)
+  https://icons8.com/icons/set/ubisoft
+- Website (website.png)
+  https://icons8.com/icons/set/globe
