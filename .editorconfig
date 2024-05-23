@@ -4,12 +4,9 @@ root = true
 end_of_line = crlf
 insert_final_newline = true
 
-[*.{vb,xml}]
-charset = utf-8-bom
-
 [*.{html,js,md,scss,yml}]
 end_of_line = lf
 
-[*.{js,md,scss,vb,xml,yml}]
+[*.{js,md,scss,yml}]
 indent_style = space
 indent_size = 2
