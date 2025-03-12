@@ -6,5 +6,8 @@ end
 
 source 'https://rubygems.org'
 
-gem 'jekyll', '~> 4.3'
-gem 'mini_racer', '~> 0.6'
+gem 'jekyll', '~> 4.4'
+gem 'mini_racer', '~> 0.18'
+# Avoid updating to version >= 1.80.0 due to import deprecation
+# silence_deprecations does not seem to work
+gem 'sass-embedded', '~> 1.79.0'
