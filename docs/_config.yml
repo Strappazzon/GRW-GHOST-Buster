@@ -1,7 +1,7 @@
 # Website
 baseurl: "/GRW-GHOST-Buster"
 title: "GHOST Buster - Ghost Recon Wildlands Backup Utility"
-description: "Backup and restore Ghost Recon Wildlands save games."
+description: "Backup and restore Ghost Recon Wildlands save games"
 name: "GHOST Buster"
 
 # Custom directories
