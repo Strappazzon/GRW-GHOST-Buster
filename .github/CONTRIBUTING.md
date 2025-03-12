@@ -35,7 +35,7 @@ If you then still need to ask a question and need clarification you can [open an
 ### DO NOT post "+1" comments
 
 If you don't have any additional info/context to add but would like to indicate that you're affected by the issue, upvote the original issue.  
-See: [Add Reactions](https://github.blog/2016-03-10-add-reactions-to-pull-requests-issues-and-comments/)
+See: [Add Reactions](https://github.blog/news-insights/product-news/add-reactions-to-pull-requests-issues-and-comments/)
 
 ## Getting Started
 
@@ -54,8 +54,8 @@ GHOST Buster is written in [Visual Basic (.NET)](https://learn.microsoft.com/en-
 - [Visual Studio](https://visualstudio.microsoft.com/vs/)
   - You can [download the community edition](https://visualstudio.microsoft.com/vs/community/) for free
   - The "**.NET desktop development**" Workload is required
-  - The "**.NET Framework 4.8.1 development tools**" Optional component is required
-  - The "**NuGet targets and build tasks**" Individual component is required
+  - The "**.NET Framework 4.8.1 development tools**" Individual component is required
+  - The "**NuGet package manager**" Individual component is required
 - [NuGet CLI](https://www.nuget.org/downloads) (Included with Visual Studio)
 - [ResGen](https://learn.microsoft.com/en-us/dotnet/framework/tools/resgen-exe-resource-file-generator) (Included with Visual Studio)
 - [.NET Framework 4.8 Developer Pack](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net481)
@@ -91,6 +91,11 @@ In both cases, [markdownlint](https://github.com/DavidAnson/markdownlint) is use
 
 - Make changes on a separate branch, not on the master branch, then send your changes as a
   [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+
+  ```ps1
+  git checkout -b MyNewFeature master
+  ```
+
 - When submitting changes, you confirm that your code is licensed under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 - Please test your code before you submit changes. Untested code will **not** be merged!
 - Make sure your Pull Request is up-to-date with the rest of the codebase.
