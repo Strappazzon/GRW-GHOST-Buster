@@ -1,0 +1,4 @@
+# See: https://github.com/DavidAnson/markdownlint-cli2#markdownlint-cli2jsonc
+
+ignores:
+  - "!PULL_REQUEST_TEMPLATE.md"
