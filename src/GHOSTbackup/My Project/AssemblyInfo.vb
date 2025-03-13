@@ -5,7 +5,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Backup and restore Ghost Recon Wildlands save games")>
 <Assembly: AssemblyCompany("Strappazzon")>
 <Assembly: AssemblyProduct("GHOST Buster")>
-<Assembly: AssemblyCopyright("Copyright © 2019 Alberto Strappazzon")>
+<Assembly: AssemblyCopyright("Copyright © 2019 Strappazzon")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>

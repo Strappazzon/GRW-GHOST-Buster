@@ -1,8 +1,8 @@
-﻿#Region "Copyright (c) 2019 Alberto Strappazzon, https://strappazzon.xyz/GRW-GHOST-Buster"
+﻿#Region "Copyright (c) 2024 Strappazzon, https://strappazzon.xyz/GRW-GHOST-Buster"
 ''
 '' GHOST Buster - Ghost Recon Wildlands backup utility
 ''
-'' Copyright (c) 2019 Alberto Strappazzon, https://strappazzon.xyz/GRW-GHOST-Buster
+'' Copyright (c) 2019 Strappazzon, https://strappazzon.xyz/GRW-GHOST-Buster
 ''
 '' Permission is hereby granted, free of charge, to any person obtaining a copy
 '' of this software and associated documentation files (the "Software"), to deal
@@ -22,6 +22,8 @@
 '' OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 '' SOFTWARE.
 ''
+'' Portions of this code are (c) 2021 Reza Aghaei, https://github.com/r-aghaei/FlatNumericUpDownExample
+''
 #End Region
 
 Imports System.ComponentModel
@@ -35,7 +37,6 @@ Namespace UI.Controls
         Inherits NumericUpDown
         'Custom NumericUpDown Control
         '//stackoverflow.com/a/65879068
-        '//github.com/r-aghaei/FlatNumericUpDownExample
 
         Private Const WS_EX_COMPOSITED As Long = 33554432
         Private Const WM_ERASEBKGND As Integer = 20
