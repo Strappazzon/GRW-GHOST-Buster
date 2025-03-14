@@ -1,27 +1,5 @@
 /// COMMON
 
-::-webkit-scrollbar {
-  width: auto;
-  &-corner {
-    background-color: #2d2f32;
-  }
-  // Bar
-  &-thumb {
-    background-color: #8c8d8f;
-    &:active,
-    &:hover {
-      background-color: #d3d3d3;
-    }
-  }
-  // Background
-  &-track {
-    background-color: #2d2f32;
-    &:active {
-      background-color: #2d2f32;
-    }
-  }
-}
-
 html {
   font-family: 'Montserrat';
   font-weight: 400;
