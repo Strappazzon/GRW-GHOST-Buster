@@ -86,7 +86,7 @@
   - *Disabled by default*
   - The program will remember the window position the last time GHOST Buster was used
 
-- **I'm not using the Ubisoft Connect version of Wildlands**
+- **Manually locate installed game**
   - *Disabled by default*
   - You can specify a different location for the Wildlands executable
 
