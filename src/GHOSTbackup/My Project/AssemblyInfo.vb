@@ -12,5 +12,5 @@ Imports System.Runtime.InteropServices
 
 <Assembly: Guid("d4f964e2-e47c-4c6c-a033-a08fbff81d6b")>
 
-<Assembly: AssemblyVersion("2.1.1.20")>
-<Assembly: AssemblyFileVersion("2.1.1.20")>
+<Assembly: AssemblyVersion("2.2.0.21")>
+<Assembly: AssemblyFileVersion("2.2.0.21")>
