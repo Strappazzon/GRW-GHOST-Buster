@@ -167,7 +167,7 @@ Public Class BackupHelper
     End Sub
 #End Region
 
-#Region "Backup"
+#Region "Backup Creation"
     Public Shared Sub StartBackup()
         BackupTimer.Interval = Form1.BackupFreqUpDown.Value * 60000
         BackupTimer.Start()
