@@ -1,3 +1,12 @@
+2.2.0
+ - Update check will now be enabled by default
+ - Set default backup timer and increment step to 1 minute
+ - Enhancement: Renamed more instances of "Uplay" to "Ubisoft Connect"
+ - Enhancement: Renamed setting "I'm not using the Uplay version of the game" to "Manually locate installed game"
+ - Enhancement: Updated visuals of dropdowns
+ - Enhancement: Updated visuals of backups timer selector
+ - Enhancement: Added a separator
+
 2.1.1
  - Fix: Ubisoft Connect settings file name
  - Fix: Ubisoft Connect executable name
