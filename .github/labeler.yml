@@ -1,16 +1,9 @@
 cicd:
   - .github/workflows/**
 
-dependencies:
-  - docs/.ruby-version
-  - docs/Gemfile
-  - docs/Gemfile.lock
-  # - src/GHOSTbackup/GHOSTbackup.vbproj
-
 documentation:
   - .github/CONTRIBUTING.md
   - .github/README.md
-  - docs/README.md
 
 i18n:
   - src/GHOSTbackup/GHOSTbackup.Localization/**
@@ -22,9 +15,6 @@ ui:
 
 uplay:
   - src/GHOSTbackup/GHOSTbackup.Helpers/UplayHelper.vb
-
-website:
-  - docs/**
 
 wildlands:
   - src/GHOSTbackup/GHOSTbackup.Helpers/ProcessHelper.vb

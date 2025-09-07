@@ -1,6 +1,6 @@
 <!-- markdownlint-disable-next-line MD041 -->
 <div align="center">
-  <img width="96" src="../docs/assets/img/favicon.png" alt="Logo">
+  <img width="96" src="https://strappazzon.xyz/projects/grw-ghost-buster/assets/img/favicon.png" alt="Logo">
 </div>
 
 <div align="center">
@@ -99,10 +99,10 @@ All settings are stored inside `%LOCALAPPDATA%\GHOSTbackup\ghostbackup.cfg`.
 
 ## Screenshots
 
-| Main screen                                                       | Backups                                                             | Settings                                                              | Notification                                                              |
-|:-----------------------------------------------------------------:|:-------------------------------------------------------------------:|:---------------------------------------------------------------------:|:-------------------------------------------------------------------------:|
-| ![Main Screen](../docs/assets/img/screenshot/screenshot_main.png) | ![Main Screen](../docs/assets/img/screenshot/screenshot_manage.png) | ![Main Screen](../docs/assets/img/screenshot/screenshot_settings.png) | ![Main Screen](../docs/assets/img/screenshot/screenshot_notification.png) |
+| Main screen                                                                                      | Backups                                                                                               | Settings                                                                                                 | Notification                                                                                              |
+|:------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------:|
+| ![Main screen](https://strappazzon.xyz/projects/grw-ghost-buster/assets/img/screenshot/main.png) | ![Backups screen](https://strappazzon.xyz/projects/grw-ghost-buster/assets/img/screenshot/manage.png) | ![Settings screen](https://strappazzon.xyz/projects/grw-ghost-buster/assets/img/screenshot/settings.png) | ![Notification](https://strappazzon.xyz/projects/grw-ghost-buster/assets/img/screenshot/notification.png) |
 
-| Backup restore                                                                 | Backup deletion                                                                | Logs screen                                                       | About screen                                                        |
-|:------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|:-----------------------------------------------------------------:|:-------------------------------------------------------------------:|
-| ![Backup restore prompt](../docs/assets/img/screenshot/screenshot_restore.png) | ![Backup deletion prompt](../docs/assets/img/screenshot/screenshot_delete.png) | ![Logs screen](../docs/assets/img/screenshot/screenshot_logs.png) | ![About screen](../docs/assets/img/screenshot/screenshot_about.png) |
+| Backup restore                                                                                                | Backup deletion                                                                                               | Logs screen                                                                                      | About screen                                                                                       |
+|:-------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------:|
+| ![Backup restore prompt](https://strappazzon.xyz/projects/grw-ghost-buster/assets/img/screenshot/restore.png) | ![Backup deletion prompt](https://strappazzon.xyz/projects/grw-ghost-buster/assets/img/screenshot/delete.png) | ![Logs screen](https://strappazzon.xyz/projects/grw-ghost-buster/assets/img/screenshot/logs.png) | ![About screen](https://strappazzon.xyz/projects/grw-ghost-buster/assets/img/screenshot/about.png) |

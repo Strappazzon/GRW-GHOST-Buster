@@ -41,13 +41,7 @@ See: [Add Reactions](https://github.blog/news-insights/product-news/add-reaction
 
 Before you can start contributing, you'll need to set up your environment first.
 
-### Website
-
-See [docs/README.md](../docs/README.md).
-
-### Application
-
-#### Dependencies
+### Dependencies
 
 GHOST Buster is written in [Visual Basic (.NET)](https://learn.microsoft.com/en-us/dotnet/visual-basic/) so you will need the following dependencies installed:
 
@@ -61,7 +55,7 @@ GHOST Buster is written in [Visual Basic (.NET)](https://learn.microsoft.com/en-
 - [.NET Framework 4.8 Developer Pack](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net481)
 - [.NET Framework 4.8 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net481)
 
-#### Building
+### Building
 
 1. From Visual Studio, select **Open a project or solution** and open the `GHOSTbackup.sln` solution file located in your cloned repository
 2. Compile using **Build** -> **Build Solution**
@@ -127,7 +121,6 @@ It only contains the most relevant files and folders as some of them are self-ex
 
 ```sh
 .
-├── docs                             # Website source
 ├── src                              # GHOST Buster source
 │   ├── GHOSTbackup
 │   │   ├── GHOSTbackup.Helpers      # Helper classes
