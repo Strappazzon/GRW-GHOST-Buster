@@ -4,20 +4,14 @@ root = true
 end_of_line = crlf
 insert_final_newline = true
 
-[*.{html,js,md,scss,yml}]
+[*.{md,yml}]
 end_of_line = lf
 
-[*.{js,md,scss,yml}]
+[*.{md,yml}]
 indent_style = space
 
-[*.{js,md,scss,yml}]
+[*.{md,yml}]
 indent_size = 2
 
 [*.md]
 trim_trailing_whitespace = false
-
-[.{ruby-version,tool-versions}]
-end_of_line = lf
-
-[Gemfile]
-end_of_line = lf

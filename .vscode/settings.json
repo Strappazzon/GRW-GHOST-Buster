@@ -1,17 +1,4 @@
 {
-	"[html][liquid]": {
-		"editor.defaultFormatter": null,
-		"editor.insertSpaces": false,
-		"editor.tabSize": 4,
-		"files.eol": "\n"
-	},
-	"[javascript]": {
-		"editor.defaultFormatter": "vscode.typescript-language-features",
-		"editor.formatOnPaste": true,
-		"editor.formatOnSave": true,
-		"editor.insertSpaces": true,
-		"editor.tabSize": 2
-	},
 	"[markdown]": {
 		"editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
 		"editor.insertSpaces": true,
@@ -45,15 +32,6 @@
 			70
 		]
 	},
-	"[scss]": {
-		"editor.defaultFormatter": null,
-		"editor.insertSpaces": true,
-		"editor.rulers": [
-			160
-		],
-		"editor.tabSize": 2,
-		"files.eol": "\n"
-	},
 	"[vb]": {
 		"editor.defaultFormatter": null,
 		"editor.insertSpaces": true,
@@ -77,16 +55,10 @@
 	"editor.detectIndentation": false,
 	"editor.rulers": [],
 	"files.associations": {
-		"*.html": "liquid",
 		"*.resx": "xml",
-		".vbproj": "xml"
-	},
-	"files.exclude": {
-		".jekyll-cache": true,
-		"docs/_site*": true
+		"*.vbproj": "xml"
 	},
 	"files.readonlyInclude": {
-		"**/Gemfile.lock": true,
 		"**/LICENSE*": true
 	},
 	"files.insertFinalNewline": true,
@@ -95,8 +67,6 @@
 	"git.inputValidation": true,
 	"git.inputValidationLength": 70,
 	"git.inputValidationSubjectLength": 70,
-	"liquid.config.method": "workspace",
-	"liquid.engine": "jekyll",
 	"markdown.validate.enabled": true,
 	"markdown.validate.referenceLinks.enabled": "ignore",
 	"powershell.codeFormatting.autoCorrectAliases": true,
@@ -107,7 +77,6 @@
 	"powershell.codeFormatting.useConstantStrings": true,
 	"powershell.codeFormatting.useCorrectCasing": true,
 	"powershell.scriptAnalysis.enable": true,
-	"scss.validate": false,
 	"terminal.integrated.defaultProfile.windows": "PowerShell",
 	"yaml.schemas": {
 		"https://json.schemastore.org/github-issue-config.json": ".github/ISSUE_TEMPLATE/config.yml"
